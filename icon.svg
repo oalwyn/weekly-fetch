@@ -20,5 +20,6 @@
 <path d="M190 151 V318 M215 190 V318 M240 211 V318 M272 211 V318 M297 190 V318 M322 151 V318"/>
 <path d="M30 268 V318 M60 285 V318 M90 270 V318 M420 270 V318 M450 285 V318 M480 268 V318"/>
 </g>
-<g stroke="#FFE3A3" stroke-width="5" stroke-linecap="round" opacity=".55"><path d="M196 372 H316 M216 396 H296 M236 420 H276"/></g>
+<g stroke="#FFE3A3" stroke-width="4" stroke-linecap="round" opacity=".5"><path d="M206 352 H306 M226 368 H286"/></g>
+<text x="256" y="462" text-anchor="middle" font-family="Inter Display, Inter, sans-serif" fill="#fff" letter-spacing="-1"><tspan font-weight="500" font-size="62" fill="#FFE3A3">the </tspan><tspan font-weight="900" font-size="92">Fetch</tspan></text>
 </svg>
