@@ -110,6 +110,19 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .dseg button[aria-pressed="true"]{background:var(--warm);color:#fff}
 .fdone{display:flex;gap:8px;justify-content:flex-end}
 .nb{white-space:nowrap}
+.prow{background:#fff;border-radius:12px;margin-bottom:6px;overflow:hidden}
+.prow.locked{box-shadow:inset 4px 0 0 #2E8B5E}
+.prow-h{display:flex;width:100%;gap:10px;align-items:center;border:0;background:none;text-align:left;padding:10px 12px;min-height:56px;font:inherit;color:var(--ink)}
+.pmark{flex:none;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;background:#EEF2F5;color:var(--mute)}
+.prow.locked .pmark{background:#2E8B5E;color:#fff}
+.pbody{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.pw{font-size:12.5px;font-weight:700;color:var(--blue)}.prow.locked .pw{color:#1E7A4C}
+.pt{font-size:15.5px;font-weight:700}
+.pl{font-size:13px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chev{flex:none;color:var(--mute);font-size:14px}
+.card.inrow{margin:0;border-radius:0;box-shadow:none;border-top:1px solid var(--line);padding-top:10px}
+.card.inrow .when,.card.inrow .title{display:none}
+.plantools{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--mute);margin:10px 6px 0}
 .slogan{font-size:15px;font-weight:500;color:#E3ECF5;margin:2px 0 14px;font-style:italic}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .distsel{position:relative;padding:0;display:flex;align-items:center}.distsel select{appearance:none;-webkit-appearance:none;border:0;background:transparent;font:inherit;font-weight:600;color:inherit;padding:8px 30px 8px 14px;min-height:38px;border-radius:999px}
@@ -446,31 +459,42 @@ function lockedCtl(e, k, opts){
   return `<div class="lockrow"><button class="lockbtn" data-lock="${esc(e.id)}" data-k="${k}" aria-pressed="true">✓ Locked in · ${dayLabel(k)}</button>${move}<span class="locknote">Tap to make it a maybe</span></div>`;
 }
 const allWkOpts = (e, W) => W.flatMap(w=>daysOf(e,w.fri,w.sun));
+// compact plan rows: date/time · activity · place; tap to open the full card
+const openRows = new Set();
+function planRow(e, ctl, k){
+  const open = openRows.has(e.id), t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(?:am|pm)(?:\s*[–-]\s*\d{1,2}(?::\d\d)?\s*(?:am|pm))?/i);
+  const when = k ? dayLabel(k) + (t ? " · " + t[0] : "") : e.when;
+  const place = (e.meta||"").split(" · ")[0];
+  return `<div class="prow${k?" locked":""}${open?" open":""}"><button class="prow-h" data-expand="${esc(e.id)}" aria-expanded="${open}">
+    <span class="pmark" aria-hidden="true">${k?"✓":"?"}</span><span class="pbody"><span class="pw">${esc(when)}</span><span class="pt">${esc(e.title)}</span><span class="pl">${esc(place)}</span></span><span class="chev" aria-hidden="true">${open?"▴":"▾"}</span>
+    <span class="sr">${k?"Locked in":"Maybe"}. ${open?"Hide details":"Show details"}</span></button>${open?cardHTML(e,false,ctl,"inrow"):""}</div>`;
+}
 function weekendHTML(g, W){
   const keys = Object.keys(g.days), n = keys.reduce((s,k)=>s+g.days[k].length,0), m = g.maybe.length;
   let h = ``+band(g.id,esc(g.title),`${esc(g.sub)} · ${n?`<strong class="lockc">${n} locked in</strong>`:"nothing locked in"}${m?` · ${m} maybe${m===1?"":"s"}`:""}`, g.wk?WKC[g.i]:null);
   h += `<div class="sched">` + keys.map(k=>{
     const d = parseD(k), list = g.days[k];
     const head = `<div class="sched-d${list.length?"":" free"}"><span>${DAYF[d.getDay()]} ${MON[d.getMonth()]} ${d.getDate()}</span>${list.length?"":`<em>Free</em>`}</div>`;
-    return head + list.map(({e})=>cardHTML(e,false,lockedCtl(e,k,isLong(e)?allWkOpts(e,W):daysOf(e,g.w.fri,g.w.sun)),"locked")).join("");
+    return head + list.map(({e})=>planRow(e,lockedCtl(e,k,isLong(e)?allWkOpts(e,W):daysOf(e,g.w.fri,g.w.sun)),k)).join("");
   }).join("") + `</div>`;
-  if (m) h += `<div class="plan-h">Maybe this weekend</div>` + g.maybe.map(({e,opts})=>cardHTML(e,false,planCtl(e,opts))).join("");
+  if (m) h += `<div class="plan-h">Maybe this weekend</div>` + g.maybe.map(({e,opts})=>planRow(e,planCtl(e,opts))).join("");
   return h;
 }
 function listGroupHTML(g){
   if (!g.locked.length && !g.maybe.length) return "";
   let h = ``+band(g.id,esc(g.title),`${esc(g.sub)}${g.locked.length?` · <strong class="lockc">${g.locked.length} locked in</strong>`:""}${g.maybe.length?` · ${g.maybe.length} maybe${g.maybe.length===1?"":"s"}`:""}`)+``;
-  if (g.locked.length) h += `<div class="plan-h locked">Locked in</div>` + g.locked.map(({e,k})=>cardHTML(e,false,lockedCtl(e,k,daysOf(e,TODAY,addD(TODAY,120)).slice(0,30)),"locked")).join("");
-  if (g.maybe.length) h += `<div class="plan-h">Maybe</div>` + g.maybe.map(({e,opts})=>cardHTML(e,false,planCtl(e,opts))).join("");
+  if (g.locked.length) h += `<div class="plan-h locked">Locked in</div>` + g.locked.map(({e,k})=>planRow(e,lockedCtl(e,k,daysOf(e,TODAY,addD(TODAY,120)).slice(0,30)),k)).join("");
+  if (g.maybe.length) h += `<div class="plan-h">Maybe</div>` + g.maybe.map(({e,opts})=>planRow(e,planCtl(e,opts))).join("");
   return h;
 }
 function planHTML(cur, gone){
   const P = planGroups(cur);
   let h = `<div class="jump">${P.W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}${P.later.locked.length+P.later.maybe.length?`<button data-jump="wk-later">Later</button>`:""}</div>`;
+  h += `<div class="plantools"><span>Tap a plan to see details</span><button class="linkbtn" data-expandall>${cur.length && cur.every(e=>openRows.has(e.id))?"Collapse all":"Expand all"}</button></div>`;
   P.groups.forEach(g=>{ h += weekendHTML(g, P.W); });
   if (P.flex.length){
     h += ``+band("",`Pick a day`,`These run over several weekends. Choose the day you'll go and it moves into that weekend's schedule.`)+``;
-    h += P.flex.map(e=>cardHTML(e,false,planCtl(e,allWkOpts(e,P.W)))).join("");
+    h += P.flex.map(e=>planRow(e,planCtl(e,allWkOpts(e,P.W)))).join("");
   }
   h += listGroupHTML(P.wn) + listGroupHTML(P.later);
   if (P.any.length) h += ``+band("",`Anytime`,`Walks, classes and things without a date yet`)+`` + P.any.map(compactHTML).join("");
@@ -696,6 +720,8 @@ document.addEventListener("click", ev=>{
   else if (t.hasAttribute("data-homereset")){ setHome({...HOME_DEFAULT}); try{localStorage.removeItem("wf-home");}catch(e){} }
   else if (t.hasAttribute("data-homeclose")){ state.editHome=false; render(); }
   else if (t.dataset.star){ toggleStar(t.dataset.star); }
+  else if (t.dataset.expand){ const id=t.dataset.expand; openRows.has(id)?openRows.delete(id):openRows.add(id); refreshStars(); }
+  else if (t.hasAttribute("data-expandall")){ const ids=[...document.querySelectorAll("[data-expand]")].map(b=>b.dataset.expand); const all=ids.every(i=>openRows.has(i)); ids.forEach(i=>all?openRows.delete(i):openRows.add(i)); refreshStars(); }
   else if (t.dataset.lock){ toggleLock(t.dataset.lock, t.dataset.k); }
   else if (t.dataset.preset){ vb = fitAspect([...PRESETS[t.dataset.preset]]); drawMap(); }
   else if (t.hasAttribute("data-staronly")){ starOnly=!starOnly; t.setAttribute("aria-pressed",starOnly); drawMap(); }
