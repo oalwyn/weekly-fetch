@@ -49,6 +49,9 @@ main{flex:1;padding:0 12px 40px}
 .lockrow{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
 .lockbtn{border:1px solid #2E8B5E;background:#fff;color:#1E6B45;border-radius:10px;padding:9px 14px;font-size:14px;font-weight:600;min-height:44px}
 .lockbtn[aria-pressed="true"]{background:#2E8B5E;color:#fff}
+.sched{margin:0 0 6px}.sched-d{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:15px;margin:12px 6px 6px;padding-bottom:4px;border-bottom:1px solid #D5DCE3}.sched-d.free{color:var(--mute);font-weight:600}.sched-d em{font-style:normal;font-weight:500;font-size:13px}
+.locksel{font:inherit;font-size:14px;font-weight:600;color:#1E6B45;border:1px solid #2E8B5E;border-radius:10px;padding:9px 10px;min-height:44px;background:#fff;max-width:100%}
+.planned{font-size:12px;font-weight:600;color:#fff;background:#2E8B5E;border-radius:999px;padding:3px 9px}
 .locknote{font-size:12.5px;color:var(--mute)}.lockc{color:#1E7A4C}
 .dist{font-size:12px;color:var(--mute)}
 .tbc{font-size:11px;font-weight:600;color:#8A3A14}
@@ -245,7 +248,7 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(e.meta)}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 function renderFilters(){
@@ -331,51 +334,89 @@ const isLocked = (id,k) => !!(locks.get(id) && locks.get(id).has(k));
 const lockedAny = id => !!(locks.get(id) && locks.get(id).size);
 function persistLocks(){ try { localStorage.setItem("wf-locks", JSON.stringify(Object.fromEntries([...locks].map(([k,v])=>[k,[...v]])))); } catch(e) {} }
 function setLock(id,k,on){ const s = locks.get(id) || new Set(); on ? s.add(k) : s.delete(k); if (s.size) locks.set(id,s); else locks.delete(id); }
-function toggleLock(id,k){ setLock(id,k,!isLocked(id,k)); persistLocks(); refreshStars(); }
+// one plan per item: the specific day you'll go
+const lockKey = id => { const s = locks.get(id); return s && s.size ? [...s].sort()[0] : null; };
+function setPlan(id,k){ locks.delete(id); if (k) setLock(id,k,true); persistLocks(); refreshStars(); }
+function toggleLock(id,k){ setPlan(id, isLocked(id,k) ? null : k); }
 const isLong = e => !e.dates && !!e.start && (!!e.days || !e.end || (parseD(e.end)-parseD(e.start))/DAYMS > 3);
-function planGroups(cur){
-  const W = weekends(), lastSun = W[3].sun, groups = [], placed = new Set();
-  W.forEach((w,i)=>{
-    const k = ymd(w.sat);
-    const locked = cur.filter(e=>isLocked(e.id,k));
-    const maybe = cur.filter(e=>!lockedAny(e.id) && !isLong(e) && occurs(e,w.fri,w.sun)==="main");
-    locked.concat(maybe).forEach(e=>placed.add(e.id));
-    groups.push({id:"wk-"+i, wk:true, title: i===0?"This weekend":i===1?"Next weekend":"Weekend of "+MON[w.fri.getMonth()]+" "+w.fri.getDate(), sub:"Fri–Sun · "+fmtRange(w.fri,w.sun), locked:locked.map(e=>({e,k})), maybe:maybe.map(e=>({e,k}))});
-  });
-  // things open across several weekends: pick one
-  const flex = cur.filter(e=>!placed.has(e.id) && !lockedAny(e.id) && e.cat!=="walk" && isLong(e) && W.some(w=>occurs(e,w.fri,w.sun)));
-  flex.forEach(e=>placed.add(e.id));
-  const dated = (e,test) => { const s = startOf(e); return s && !e.days && test(s); };
-  const keyOf = e => ymd(startOf(e) < TODAY ? TODAY : startOf(e));
-  const mk = (id,title,sub,list) => { const L = list.map(e=>({e,k:keyOf(e)})); return {id,title,sub,locked:L.filter(x=>isLocked(x.e.id,x.k)),maybe:L.filter(x=>!isLocked(x.e.id,x.k))}; };
-  const wn = cur.filter(e=>!placed.has(e.id) && dated(e,s=>s<=lastSun) && occurs(e,TODAY,lastSun)==="main").sort((a,b)=>startOf(a)-startOf(b));
-  wn.forEach(e=>placed.add(e.id));
-  const later = cur.filter(e=>!placed.has(e.id) && dated(e,s=>s>lastSun)).sort((a,b)=>startOf(a)-startOf(b));
-  later.forEach(e=>placed.add(e.id));
-  // anything locked for a key we no longer show (e.g. a weekend that's past) falls into "Anytime"
-  const any = cur.filter(e=>!placed.has(e.id));
-  return {groups, flex, wn: mk("wk-wn","Weeknights","Mon–Thu, before "+MON[lastSun.getMonth()]+" "+lastSun.getDate(), wn), later: mk("wk-later","Later","After "+MON[lastSun.getMonth()]+" "+lastSun.getDate(), later), any, W};
+const DAYF = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const dayLabel = k => { const d = parseD(k); return `${DAYN[d.getDay()][0].toUpperCase()+DAYN[d.getDay()].slice(1)} ${MON[d.getMonth()]} ${d.getDate()}`; };
+function daysOf(e, a, b){
+  // the dates (YYYY-MM-DD) between a and b when this item is on
+  const out = [];
+  if (e.dates){ e.dates.forEach(x=>{ const t=parseD(x); if (t>=a && t<=b) out.push(x); }); return out; }
+  if (!e.start) return out;
+  const s = parseD(e.start), en = e.end ? parseD(e.end) : addD(b,0);
+  let t = new Date(Math.max(+a,+s)), n = 0;
+  for (; t<=b && t<=en && n<120; t = addD(t,1), n++){ if (!e.days || e.days.includes(DAYN[t.getDay()])) out.push(ymd(t)); }
+  return out;
 }
-const lockBtn = (id,k,on,label) => `<button class="lockbtn" data-lock="${esc(id)}" data-k="${k}" aria-pressed="${on}">${on?"✓ Locked in":(label||"Lock it in")}</button>`;
-function lockRow(id,k,on){ return `<div class="lockrow">${lockBtn(id,k,on)}${on?`<span class="locknote">Tap to move it back to maybe</span>`:""}</div>`; }
-function groupHTML(g){
-  const n = g.locked.length, m = g.maybe.length;
-  if (!g.wk && !n && !m) return "";
+const timeOf = e => { const m = String(e.when||"").match(/(\d{1,2})(?::(\d\d))?\s*(am|pm)/i); if (!m) return 99; let h = +m[1] % 12; if (/pm/i.test(m[3])) h += 12; return h + (+(m[2]||0))/60; };
+function planGroups(cur){
+  const W = weekends(), lastSun = W[3].sun, far = addD(TODAY, 120);
+  const wkDays = new Set(W.flatMap(w=>[w.fri,w.sat,w.sun].map(ymd)));
+  const groups = W.map((w,i)=>({id:"wk-"+i, wk:true, w, title: i===0?"This weekend":i===1?"Next weekend":"Weekend of "+MON[w.fri.getMonth()]+" "+w.fri.getDate(), sub:"Fri–Sun · "+fmtRange(w.fri,w.sun), days:{[ymd(w.fri)]:[],[ymd(w.sat)]:[],[ymd(w.sun)]:[]}, maybe:[]}));
+  const wn = {id:"wk-wn", title:"Weeknights", sub:"Mon–Thu, before "+MON[lastSun.getMonth()]+" "+lastSun.getDate(), locked:[], maybe:[]};
+  const later = {id:"wk-later", title:"Later", sub:"After "+MON[lastSun.getMonth()]+" "+lastSun.getDate(), locked:[], maybe:[]};
+  const flex = [], any = [];
+  for (const e of cur){
+    const k = lockKey(e.id);
+    if (k && parseD(k) >= TODAY){
+      if (wkDays.has(k)){ groups.find(g=>k in g.days).days[k].push({e,k}); continue; }
+      (parseD(k) <= lastSun ? wn : later).locked.push({e,k}); continue;
+    }
+    if (e.cat==="walk"){ any.push(e); continue; }
+    if (isLong(e) && W.some(w=>daysOf(e,w.fri,w.sun).length)){ flex.push(e); continue; }
+    let placed = false;
+    groups.forEach(g=>{ const ds = daysOf(e,g.w.fri,g.w.sun); if (ds.length && !isLong(e)){ g.maybe.push({e,opts:ds}); placed = true; } });
+    if (placed) continue;
+    const ds = daysOf(e, TODAY, far).filter(x=>!wkDays.has(x));
+    if (ds.length && parseD(ds[0]) <= lastSun) wn.maybe.push({e,opts:ds.filter(x=>parseD(x)<=lastSun)});
+    else if (ds.length) later.maybe.push({e,opts:ds.slice(0,30)});
+    else any.push(e);
+  }
+  const byTime = (x,y)=> timeOf(x.e)-timeOf(y.e);
+  groups.forEach(g=>{ for (const k in g.days) g.days[k].sort(byTime); g.maybe.sort((x,y)=>x.opts[0].localeCompare(y.opts[0])||byTime(x,y)); });
+  for (const g of [wn,later]){ g.locked.sort((x,y)=>x.k.localeCompare(y.k)||byTime(x,y)); g.maybe.sort((x,y)=>x.opts[0].localeCompare(y.opts[0])); }
+  return {groups, flex, wn, later, any, W};
+}
+// controls: one day → a button; several → a "pick a day" menu
+function planCtl(e, opts){
+  if (opts.length === 1) return `<div class="lockrow"><button class="lockbtn" data-lock="${esc(e.id)}" data-k="${opts[0]}" aria-pressed="false">Lock it in · ${dayLabel(opts[0])}</button></div>`;
+  return `<div class="lockrow"><select class="locksel" data-plan="${esc(e.id)}" aria-label="Lock ${esc(e.title)} into a day"><option value="">Lock it in for…</option>${opts.map(k=>`<option value="${k}">${dayLabel(k)}</option>`).join("")}</select></div>`;
+}
+function lockedCtl(e, k, opts){
+  const move = opts && opts.length > 1 ? `<select class="locksel small" data-plan="${esc(e.id)}" aria-label="Move ${esc(e.title)} to another day"><option value="">Move to…</option>${opts.filter(x=>x!==k).map(x=>`<option value="${x}">${dayLabel(x)}</option>`).join("")}</select>` : "";
+  return `<div class="lockrow"><button class="lockbtn" data-lock="${esc(e.id)}" data-k="${k}" aria-pressed="true">✓ Locked in · ${dayLabel(k)}</button>${move}<span class="locknote">Tap to make it a maybe</span></div>`;
+}
+const allWkOpts = (e, W) => W.flatMap(w=>daysOf(e,w.fri,w.sun));
+function weekendHTML(g, W){
+  const keys = Object.keys(g.days), n = keys.reduce((s,k)=>s+g.days[k].length,0), m = g.maybe.length;
   let h = `<h2 class="wk-h" id="${g.id}">${esc(g.title)}</h2><p class="wk-sub">${esc(g.sub)} · ${n?`<strong class="lockc">${n} locked in</strong>`:"nothing locked in"}${m?` · ${m} maybe${m===1?"":"s"}`:""}</p>`;
-  if (!n && !m) return h + `<div class="empty small">No picks for this weekend yet. Star things on the Events tab and they'll show up here.</div>`;
-  if (n) h += `<div class="plan-h locked">Locked in</div>` + g.locked.map(({e,k})=>cardHTML(e,false,lockRow(e.id,k,true),"locked")).join("");
-  if (m) h += `<div class="plan-h">Maybe</div>` + g.maybe.map(({e,k})=>cardHTML(e,false,lockRow(e.id,k,false))).join("");
+  h += `<div class="sched">` + keys.map(k=>{
+    const d = parseD(k), list = g.days[k];
+    const head = `<div class="sched-d${list.length?"":" free"}"><span>${DAYF[d.getDay()]} ${MON[d.getMonth()]} ${d.getDate()}</span>${list.length?"":`<em>Free</em>`}</div>`;
+    return head + list.map(({e})=>cardHTML(e,false,lockedCtl(e,k,isLong(e)?allWkOpts(e,W):daysOf(e,g.w.fri,g.w.sun)),"locked")).join("");
+  }).join("") + `</div>`;
+  if (m) h += `<div class="plan-h">Maybe this weekend</div>` + g.maybe.map(({e,opts})=>cardHTML(e,false,planCtl(e,opts))).join("");
+  return h;
+}
+function listGroupHTML(g){
+  if (!g.locked.length && !g.maybe.length) return "";
+  let h = `<h2 class="wk-h" id="${g.id}">${esc(g.title)}</h2><p class="wk-sub">${esc(g.sub)}${g.locked.length?` · <strong class="lockc">${g.locked.length} locked in</strong>`:""}${g.maybe.length?` · ${g.maybe.length} maybe${g.maybe.length===1?"":"s"}`:""}</p>`;
+  if (g.locked.length) h += `<div class="plan-h locked">Locked in</div>` + g.locked.map(({e,k})=>cardHTML(e,false,lockedCtl(e,k,daysOf(e,TODAY,addD(TODAY,120)).slice(0,30)),"locked")).join("");
+  if (g.maybe.length) h += `<div class="plan-h">Maybe</div>` + g.maybe.map(({e,opts})=>cardHTML(e,false,planCtl(e,opts))).join("");
   return h;
 }
 function planHTML(cur, gone){
   const P = planGroups(cur);
   let h = `<div class="jump">${P.W.map((w,i)=>`<button data-jump="wk-${i}">${i===0?"This wknd":i===1?"Next wknd":MON[w.sat.getMonth()]+" "+w.sat.getDate()}</button>`).join("")}${P.later.locked.length+P.later.maybe.length?`<button data-jump="wk-later">Later</button>`:""}</div>`;
-  P.groups.forEach(g=>{ h += groupHTML(g); });
+  P.groups.forEach(g=>{ h += weekendHTML(g, P.W); });
   if (P.flex.length){
-    h += `<h2 class="wk-h">Pick a weekend</h2><p class="wk-sub">These run for weeks. Lock each one into the weekend you'll go.</p>`;
-    h += P.flex.map(e=>cardHTML(e,false,`<div class="lockrow">${P.W.filter(w=>occurs(e,w.fri,w.sun)).map(w=>lockBtn(e.id,ymd(w.sat),false,"Lock for "+MON[w.sat.getMonth()]+" "+w.sat.getDate())).join("")}</div>`)).join("");
+    h += `<h2 class="wk-h">Pick a day</h2><p class="wk-sub">These run over several weekends. Choose the day you'll go and it moves into that weekend's schedule.</p>`;
+    h += P.flex.map(e=>cardHTML(e,false,planCtl(e,allWkOpts(e,P.W)))).join("");
   }
-  h += groupHTML(P.wn) + groupHTML(P.later);
+  h += listGroupHTML(P.wn) + listGroupHTML(P.later);
   if (P.any.length) h += `<h2 class="wk-h">Anytime</h2><p class="wk-sub">Walks, classes and things without a date yet</p>` + P.any.map(compactHTML).join("");
   if (gone.length) h += `<div class="section-h">Earlier picks</div>` + gone.map(e=>cardHTML(e,true)).join("");
   return h;
@@ -388,16 +429,21 @@ function renderOurList(){
 }
 function listText(){
   const {cur} = ourListItems(), P = planGroups(cur);
-  const line = e => `${e.title} (${e.when}, ${(e.meta||"").split(" · ")[0]})`;
+  const line = e => { const t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(am|pm)/i); return `${e.title}${t?" "+t[0]:""} (${(e.meta||"").split(" · ")[0]})`; };
   let t = "Our weekend plans (The Weekly Fetch)\n";
-  for (const g of P.groups.concat([P.wn, P.later])){
-    if (!g.locked.length && !g.maybe.length) continue;
-    t += `\n${g.title}${g.wk?" ("+g.sub.replace("Fri–Sun · ","")+")":""}\n`;
-    g.locked.forEach(({e})=>t += `  ✓ ${line(e)}\n`);
+  for (const g of P.groups){
+    const keys = Object.keys(g.days); if (!keys.some(k=>g.days[k].length) && !g.maybe.length) continue;
+    t += `\n${g.title} (${g.sub.replace("Fri–Sun · ","")})\n`;
+    keys.forEach(k=>{ t += `  ${dayLabel(k)}: ${g.days[k].length ? g.days[k].map(({e})=>"✓ "+line(e)).join("; ") : "free"}\n`; });
     g.maybe.forEach(({e})=>t += `  ? ${line(e)}\n`);
   }
-  if (P.flex.length) t += `\nPick a weekend\n` + P.flex.map(e=>`  ? ${line(e)}\n`).join("");
-  if (P.any.length) t += `\nAnytime\n` + P.any.map(e=>`  • ${e.title}\n`).join("");
+  for (const g of [P.wn, P.later]){
+    if (!g.locked.length && !g.maybe.length) continue;
+    t += `\n${g.title}\n`;
+    g.locked.forEach(({e,k})=>t += `  ✓ ${dayLabel(k)}: ${line(e)}\n`);
+    g.maybe.forEach(({e})=>t += `  ? ${line(e)}\n`);
+  }
+  if (P.flex.length) t += `\nStill to pick a day\n` + P.flex.map(e=>`  ? ${e.title} (${e.when})\n`).join("");
   return t;
 }
 /* ---------- map ---------- */
@@ -568,6 +614,7 @@ document.addEventListener("click", ev=>{
     try { navigator.clipboard.writeText(txt).then(()=>{ t.textContent="Copied ✓"; setTimeout(()=>t.textContent="Copy list as text",2000); }, fallback); } catch(e) { fallback(); }
   }
 });
+document.addEventListener("change", ev=>{ const s = ev.target.closest("select[data-plan]"); if (s && s.value) setPlan(s.dataset.plan, s.value); });
 window.addEventListener("hashchange", ()=>{ const h=location.hash.slice(1); if(VIEWS.includes(h)&&h!==state.view){ state.view=h; render(); } });
 window.addEventListener("resize", ()=>{ if(state.view==="map"){ vb=fitAspect(vb); drawMap(); } document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px"); });
 /* ---------- shared "Our list" via Supabase (GitHub site) ---------- */
@@ -698,12 +745,14 @@ async function toggleStar(id){
   applyQueue(picks, locks); cacheSave(); refreshStars();
   sync();
 }
-function toggleLock(id, k){
-  if (!(LIST && SB_ON)){ setLock(id, k, !isLocked(id, k)); persistLocks(); refreshStars(); return; }
-  queuePush({op: isLocked(id, k) ? "unlock" : "lock", id, k, item: itemSnap(id)});
+function setPlan(id, k){
+  if (!(LIST && SB_ON)){ locks.delete(id); if (k) setLock(id, k, true); persistLocks(); refreshStars(); return; }
+  for (const old of (locks.get(id) || [])) if (old !== k) queuePush({op: "unlock", id, k: old});
+  if (k) queuePush({op: "lock", id, k, item: itemSnap(id)});
   applyQueue(picks, locks); cacheSave(); refreshStars();
   sync();
 }
+function toggleLock(id, k){ setPlan(id, isLocked(id, k) ? null : k); }
 function newCode(){
   const a = "abcdefghijklmnopqrstuvwxyz0123456789", b = new Uint8Array(24);
   crypto.getRandomValues(b); return [...b].map(x => a[x % a.length]).join("");
