@@ -189,7 +189,7 @@ function persistLocal(){
 }
 function syncHash(){
   // after opening a shared picks link, tidy the address back to the plain site URL
-  if (location.hash.startsWith("#picks-")) { try { history.replaceState(null, "", location.pathname + location.search); } catch(e) {} }
+  if (location.hash.startsWith("#picks-")) { try { history.replaceState(null, "", location.pathname + location.search + (typeof LIST==="string"&&LIST ? "#list-"+LIST : "")); } catch(e) {} }
 }
 try { const v = localStorage.getItem("wf-view2"); if (VIEWS.includes(v)) state.view = v; } catch(e) {}
 if (VIEWS.includes(location.hash.slice(1))) state.view = location.hash.slice(1);
@@ -514,8 +514,13 @@ try { LIST = localStorage.getItem("wf-list"); ME = localStorage.getItem("wf-name
     importedMsg = "You've joined the shared list. Stars you add now show up for both of you.";
     state.view = "our-list";
   }
-  try { history.replaceState(null, "", location.pathname + location.search); } catch(e) {}
 })();
+function keepListInAddress(){
+  if (!LIST) return;
+  const want = "#list-" + LIST;
+  try { if (location.hash !== want) history.replaceState(null, "", location.pathname + location.search + want); } catch(e) {}
+}
+keepListInAddress();
 
 const qLoad = () => { try { return JSON.parse(localStorage.getItem("wf-queue") || "[]"); } catch(e) { return []; } };
 const qSave = q => { try { localStorage.setItem("wf-queue", JSON.stringify(q)); } catch(e) {} };
@@ -616,7 +621,7 @@ function renderOurList(){
   const {cur, gone} = ourListItems();
   let h = `<div class="ourhead">${importedMsg ? `<p class="okmsg">${esc(importedMsg)}</p>` : ""}`;
   if (SB_ON && !LIST){
-    h += `<div class="setup"><strong>Make this a shared list</strong><p class="ournote">Start one list that you and your wife both see and add to. Stars sync between your phones automatically.</p><button class="copybtn" data-startlist>Start our shared list</button></div>`;
+    h += `<div class="setup"><strong>Make this a shared list</strong><p class="ournote">Start one list that you and your wife both see and add to. Stars sync between your phones automatically.</p><div class="btnrow"><button class="copybtn" data-startlist>Start our shared list</button><button class="copybtn alt" data-joinpaste>I have an invite link</button></div></div>`;
     h += `<p class="ournote">Until then, stars are saved on this phone.</p>`;
     if (cur.length || gone.length) h += `<div class="btnrow"><button class="copybtn alt" data-copy>Copy as text</button></div>`;
   } else if (SB_ON && LIST){
@@ -644,7 +649,14 @@ document.addEventListener("click", ev => {
     if (!ME && !askName()) return;
     LIST = newCode(); try { localStorage.setItem("wf-list", LIST); } catch(e) {}
     shared = true; me = ME; importedMsg = "Your shared list is ready. Tap “Invite my wife” and text her the link.";
-    render(); sync();
+    keepListInAddress(); render(); sync();
+  } else if (t.hasAttribute("data-joinpaste")){
+    let v = ""; try { v = prompt("Paste the invite link your partner sent you:") || ""; } catch(e) {}
+    const m = v.match(/#list-([a-z0-9]{16,40})/) || v.trim().match(/^([a-z0-9]{16,40})$/);
+    if (!m){ if (v) { importedMsg = "That doesn't look like an invite link. It should end in #list- followed by letters and numbers."; render(); } return; }
+    LIST = m[1]; try { localStorage.setItem("wf-list", LIST); } catch(e) {}
+    if (!ME) askName();
+    shared = true; me = ME; importedMsg = "You've joined the shared list."; keepListInAddress(); render(); sync();
   } else if (t.hasAttribute("data-invite")){
     copyOut(t, inviteLink(), "Invite link copied. Text it to your wife. When she opens it, she joins this list. She can also use it on a computer.", "Invite my wife");
   } else if (t.hasAttribute("data-rename")){
