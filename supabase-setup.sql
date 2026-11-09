@@ -54,3 +54,6 @@ revoke all on function public.get_picks(text), public.add_pick(text,text,text,js
   public.remove_pick(text,text,text), public.ping() from public;
 grant execute on function public.get_picks(text), public.add_pick(text,text,text,jsonb),
   public.remove_pick(text,text,text), public.ping() to anon, authenticated;
+
+-- Make the new functions available to the website immediately.
+notify pgrst, 'reload schema';
