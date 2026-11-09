@@ -25,10 +25,14 @@ header{background:var(--blue);color:#fff;padding:20px 18px 0}
 .kicker{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#DCE7F2}
 h1{margin:4px 0 2px;font-family:'Bricolage Grotesque',Inter,sans-serif;font-weight:800;font-size:30px;line-height:1.05}
 .sub{font-size:13px;color:#E3ECF5;margin:0 0 14px}
-.tabs{display:flex;gap:4px}
-.tab{flex:1;background:transparent;border:0;color:#DCE7F2;font-weight:600;font-size:14px;padding:12px 4px 13px;border-bottom:3px solid transparent;min-height:44px}
-.tab[aria-selected="true"]{color:#fff;border-bottom-color:#fff}
-.filters{display:flex;gap:8px;overflow-x:auto;padding:12px 16px;background:var(--bg);position:sticky;top:0;z-index:15;box-shadow:0 1px 0 #DDE3E9;scrollbar-width:none}
+.tabs{display:flex;gap:6px;align-items:flex-end;margin:0 -6px}
+.tab{flex:1;border:0;border-radius:12px 12px 0 0;font-weight:700;font-size:14px;line-height:1.15;padding:6px 4px;height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;filter:saturate(.75) brightness(.93)}
+.tab .ti{font-size:18px;line-height:1}
+.tab[data-view="events"]{background:#DCEAF7;color:#1B3F63}
+.tab[data-view="map"]{background:#D3EFEA;color:#0B5E61}
+.tab[data-view="our-list"]{background:#FBE1CF;color:#8A3A12}
+.tab[aria-selected="true"]{height:66px;filter:none;box-shadow:inset 0 5px 0 currentColor;font-weight:800}
+.filters{display:block;padding:10px 16px;background:var(--bg);position:sticky;top:0;z-index:15;box-shadow:0 1px 0 #DDE3E9;scrollbar-width:none}
 .filters::-webkit-scrollbar{display:none}
 .chip{flex:none;border:1px solid #CBD4DD;background:#fff;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;min-height:38px;color:var(--ink)}
 .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
@@ -88,12 +92,28 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .jump button{flex:none;border:1px solid #CBD4DD;background:#fff;border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;min-height:40px;color:var(--blue)}
 .wk-h{font-family:'Bricolage Grotesque',Inter,sans-serif;font-size:20px;line-height:1.2;margin:28px -4px 0;padding:11px 16px;border-radius:12px;background:#4A5562;color:#fff;position:sticky;top:var(--fh,0px);z-index:12;box-shadow:0 2px 8px rgba(27,36,48,.18)}
 .wk-sub{font-size:13.5px;color:var(--mute);margin:8px 6px 10px}
+.fbar{display:flex;gap:8px;align-items:center}
+.filterbtn{flex:1;min-width:0;display:flex;align-items:center;gap:8px;border:1.5px solid var(--blue);background:#fff;color:var(--blue-d);border-radius:12px;padding:8px 12px;min-height:46px;font:inherit;text-align:left}
+.filterbtn svg{width:20px;height:20px;flex:none}.filterbtn .flabel{font-weight:800;font-size:15px}
+.filterbtn .ftxt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.2}.filterbtn .fsum{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13.5px;color:var(--mute);font-weight:500}
+.filterbtn .fcount{background:var(--warm);color:#fff;border-radius:999px;font-size:12px;font-weight:700;padding:2px 7px}
+.filterbtn .fcaret{font-size:13px}.filterbtn.on{border-color:var(--warm)}
+.fpanel{background:#fff;border-radius:14px;padding:12px 14px;margin-top:10px;box-shadow:0 6px 20px rgba(27,36,48,.15);max-height:70vh;overflow:auto}
+.fsec{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:6px 0 8px;display:flex;gap:8px;align-items:baseline}
+.fwrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.chip[aria-pressed="true"] .dot{box-shadow:0 0 0 1.5px #fff}
+.linkbtn{border:0;background:none;color:var(--blue);text-decoration:underline;font:inherit;font-size:12.5px;text-transform:none;letter-spacing:0;padding:4px}
+.dseg{display:flex;background:#EEF2F5;border-radius:12px;padding:3px;gap:3px;margin-bottom:12px}
+.dseg button{flex:1;border:0;background:transparent;border-radius:9px;padding:9px 4px;font-weight:600;font-size:14px;min-height:42px;color:var(--ink)}
+.dseg button[aria-pressed="true"]{background:var(--warm);color:#fff}
+.fdone{display:flex;gap:8px;justify-content:flex-end}
 .slogan{font-size:15px;font-weight:500;color:#E3ECF5;margin:2px 0 14px;font-style:italic}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .distsel{position:relative;padding:0;display:flex;align-items:center}.distsel select{appearance:none;-webkit-appearance:none;border:0;background:transparent;font:inherit;font-weight:600;color:inherit;padding:8px 30px 8px 14px;min-height:38px;border-radius:999px}
 .distsel::after{content:"▾";position:absolute;right:12px;pointer-events:none;font-size:12px}
 .distsel.on{background:var(--warm);border-color:var(--warm);color:#fff}
-.homechip{max-width:170px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.homechip{max-width:132px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .homebox{background:#fff;border-radius:14px;padding:14px 16px;margin:12px 0}.homebox strong{font-size:16px}
 .homeform{display:flex;gap:8px;margin:8px 0}.homeform input{flex:1;min-width:0;font:inherit;font-size:16px;border:1px solid #CBD4DD;border-radius:10px;padding:10px 12px;min-height:44px}
 .homemsg{color:#1E7A4C;font-weight:600}.ournote.small{font-size:12px}
@@ -119,7 +139,7 @@ header{padding:12px 16px 0}
 .kicker{font-size:11px}
 h1{font-size:26px;margin:2px 0 0}
 .sub{font-size:13px;margin:0 0 4px;line-height:1.35}
-.tab{padding:10px 4px 11px;font-size:15px}
+.tab{font-size:14.5px}
 .filters{padding:10px 12px}
 .chip{padding:8px 14px;font-size:14.5px;min-height:40px}
 main{padding:0 10px 40px}
@@ -146,9 +166,9 @@ footer{font-size:13px}
   <h1>The Weekly Fetch</h1>
   <p class="slogan">Get up, get out, go fetch the weekend. 🐾</p>
   <div class="tabs" role="tablist">
-    <button class="tab" role="tab" data-view="events" aria-selected="true">Events</button>
-    <button class="tab" role="tab" data-view="map" aria-selected="false">Map</button>
-    <button class="tab" role="tab" data-view="our-list" aria-selected="false">Our weekends <span id="savedCount"></span></button>
+    <button class="tab" role="tab" data-view="events" aria-selected="true"><span class="ti">📅</span>Events</button>
+    <button class="tab" role="tab" data-view="map" aria-selected="false"><span class="ti">🗺️</span>Map</button>
+    <button class="tab" role="tab" data-view="our-list" aria-selected="false"><span class="ti">⭐</span><span>Our Weekend Plans <span id="savedCount"></span></span></button>
   </div>
 </header>
 <div class="filters" id="filters" aria-label="Filter events"></div>
@@ -275,12 +295,24 @@ function cardHTML(e, gone, extra, cls){
     <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
+const DISTS = [[0,"Any distance"],[15,"15 mi"],[30,"30 mi"],[60,"60 mi"]];
 function renderFilters(){
   const f = document.getElementById("filters");
   if (state.view==="our-list"){ f.innerHTML=""; f.style.display="none"; return; }
   f.style.display="";
-  let h = `<label class="chip distsel${state.dist?" on":""}"><span class="sr">Distance</span><select data-dist aria-label="Distance from home">${[[0,"Any distance"],[15,"Within 15 mi"],[30,"Within 30 mi"],[60,"Within 60 mi"]].map(([v,t])=>`<option value="${v}"${state.dist===v?" selected":""}>${t}</option>`).join("")}</select></label><button class="chip homechip" data-sethome aria-label="Change home location, now ${esc(HOME.name)}">📍 ${esc(HOME.name)}</button><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">All</button>`;
-  for (const k in CATS) h += `<button class="chip" data-cat="${k}" aria-pressed="${state.cat===k}">${CATS[k].label}</button>`;
+  const catLabel = state.cat==="all" ? "All" : CATS[state.cat].label;
+  const distLabel = state.dist ? `Within ${state.dist} mi` : "Any distance";
+  const active = (state.cat!=="all") + (!!state.dist);
+  let h = `<div class="fbar"><button class="filterbtn${active?" on":""}" data-filtopen aria-expanded="${!!state.filtOpen}" aria-controls="fpanel">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4-2v-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    <span class="ftxt"><span class="flabel">Filter events</span><span class="fsum">${esc(catLabel)} · ${distLabel}</span></span>${active?`<span class="fcount">${active}</span>`:""}<span class="fcaret">${state.filtOpen?"▴":"▾"}</span></button>
+    <button class="chip homechip" data-sethome aria-label="Change home location, now ${esc(HOME.name)}">📍 ${esc(HOME.name)}</button></div>`;
+  if (state.filtOpen){
+    h += `<div class="fpanel" id="fpanel"><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">All events</button>`;
+    for (const k in CATS) h += `<button class="chip" data-cat="${k}" aria-pressed="${state.cat===k}"><i class="dot" style="background:${CATS[k].color}"></i>${CATS[k].label}</button>`;
+    h += `</div><div class="fsec">Distance from ${esc(HOME.name)} <button class="linkbtn" data-sethome>change</button></div><div class="dseg" role="group" aria-label="Distance">${DISTS.map(([v,t])=>`<button data-distv="${v}" aria-pressed="${state.dist===v}">${t}</button>`).join("")}</div>
+    <div class="fdone">${active?`<button class="copybtn alt" data-freset>Clear filters</button>`:""}<button class="copybtn" data-filtopen>Done · show ${filtered().filter(e=>!isPast(e)).length}</button></div></div>`;
+  }
   f.innerHTML = h;
 }
 function compactHTML(e){
@@ -654,7 +686,10 @@ document.addEventListener("click", ev=>{
   else if (t.dataset.jump){ const el=document.getElementById(t.dataset.jump); if(el){ const off=document.getElementById("filters").offsetHeight+8; scrollTo({top:el.getBoundingClientRect().top+scrollY-off, behavior:"smooth"}); } }
   else if (t.dataset.group){ state.group=t.dataset.group; try{localStorage.setItem("wf-group",state.group);}catch(e){} render(); }
   else if (t.dataset.cat){ state.cat=t.dataset.cat; render(); }
-  else if (t.hasAttribute("data-sethome")){ state.editHome = !state.editHome; state.homeMsg=""; render(); if (state.editHome) setTimeout(()=>{ const i=document.getElementById("homeq"); if(i) i.focus(); },50); }
+  else if (t.hasAttribute("data-filtopen")){ state.filtOpen = !state.filtOpen; render(); }
+  else if (t.dataset.distv!=null){ state.dist = +t.dataset.distv; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); }
+  else if (t.hasAttribute("data-freset")){ state.cat="all"; state.dist=0; try{localStorage.setItem("wf-dist",0);}catch(e){} render(); }
+  else if (t.hasAttribute("data-sethome")){ state.filtOpen = false; state.editHome = !state.editHome; state.homeMsg=""; render(); if (state.editHome) setTimeout(()=>{ const i=document.getElementById("homeq"); if(i) i.focus(); },50); }
   else if (t.hasAttribute("data-homefind")){ findHome(); }
   else if (t.hasAttribute("data-homegps")){ gpsHome(); }
   else if (t.hasAttribute("data-homereset")){ setHome({...HOME_DEFAULT}); try{localStorage.removeItem("wf-home");}catch(e){} }
