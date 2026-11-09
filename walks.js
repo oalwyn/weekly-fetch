@@ -183,6 +183,32 @@ window.WF_WALKS = {
 "cat": "walk"
 },
 {
+"id": "walk-pogonip",
+"title": "Pogonip",
+"when": "Leashed on designated trails",
+"meta": "Golf Club Dr, Santa Cruz (below UCSC) · meadows and redwoods",
+"lat": 36.99,
+"lon": -122.047,
+"q": "Pogonip Santa Cruz",
+"url": "https://www.watsonville.gov/DocumentCenter/View/20309",
+"n": "W15",
+"sec": "walks",
+"cat": "walk"
+},
+{
+"id": "walk-delaveaga-enchanted-trail",
+"title": "DeLaveaga Park (Enchanted Trail)",
+"when": "Off-leash on the lower trail · wooded",
+"meta": "Branciforte Dr, Santa Cruz · off-leash on the lower Enchanted Trail to the sand pit",
+"lat": 36.991,
+"lon": -122.002,
+"q": "DeLaveaga Park Santa Cruz",
+"url": "https://www.watsonville.gov/DocumentCenter/View/20309",
+"n": "W16",
+"sec": "walks",
+"cat": "walk"
+},
+{
 "id": "walk-mclaren-park",
 "title": "McLaren Park",
 "when": "Fenced dog play areas + trails",
@@ -191,7 +217,33 @@ window.WF_WALKS = {
 "lon": -122.42,
 "q": "McLaren Park San Francisco",
 "url": "https://www.bringfido.com/attraction/city/palo_alto_ca_us/",
-"n": "W15",
+"n": "W17",
+"sec": "walks",
+"cat": "walk"
+},
+{
+"id": "walk-mitchells-cove",
+"title": "Mitchell's Cove Beach",
+"when": "Off-leash before 10am & after 4pm",
+"meta": "West Cliff Dr & Almar Ave, Santa Cruz · Santa Cruz County's only off-leash beach (nearby Its Beach is leash-only)",
+"lat": 36.956,
+"lon": -122.041,
+"q": "Mitchell's Cove Beach Santa Cruz",
+"url": "https://www.watsonville.gov/DocumentCenter/View/20309",
+"n": "W18",
+"sec": "walks",
+"cat": "walk"
+},
+{
+"id": "walk-seacliff-rio-del-mar",
+"title": "Seacliff & Rio Del Mar State Beaches",
+"when": "Leashed · long sandy beach",
+"meta": "Aptos · easy flat beach walk",
+"lat": 36.973,
+"lon": -121.914,
+"q": "Seacliff State Beach Aptos",
+"url": "https://www.watsonville.gov/DocumentCenter/View/20309",
+"n": "W19",
 "sec": "walks",
 "cat": "walk"
 },
@@ -204,7 +256,7 @@ window.WF_WALKS = {
 "lon": -122.502,
 "q": "Fort Funston parking San Francisco",
 "url": "https://www.parksconservancy.org/node/5013",
-"n": "W16",
+"n": "W20",
 "sec": "walks",
 "cat": "walk"
 },
@@ -217,7 +269,46 @@ window.WF_WALKS = {
 "lon": -122.461,
 "q": "Crissy Field San Francisco",
 "url": "https://www.parksconservancy.org/node/5013",
-"n": "W17",
+"n": "W21",
+"sec": "walks",
+"cat": "walk"
+},
+{
+"id": "walk-george-washington-park",
+"title": "George Washington Park",
+"when": "Off-leash during posted hours · forest trails",
+"meta": "Pacific Grove · pine forest trails · check the posted off-leash hours",
+"lat": 36.617,
+"lon": -121.929,
+"q": "George Washington Park Pacific Grove",
+"url": "https://www.spcamc.org/for-pet-owners/help-caring-for-your-pet/pet-friendly-recreation-areas.html",
+"n": "W22",
+"sec": "walks",
+"cat": "walk"
+},
+{
+"id": "walk-carmel-beach",
+"title": "Carmel Beach",
+"when": "★ Top pick · Off-leash beach (voice control)",
+"meta": "Foot of Ocean Ave, Carmel-by-the-Sea · one of California's best dog beaches · leash on the way down",
+"lat": 36.553,
+"lon": -121.929,
+"q": "Carmel Beach Ocean Ave",
+"url": "https://ci.carmel.ca.us/post/beach-rules",
+"n": "W23",
+"sec": "walks",
+"cat": "walk"
+},
+{
+"id": "walk-carmel-river-beach",
+"title": "Carmel River State Beach",
+"when": "Leashed · beach and lagoon",
+"meta": "Just south of Carmel Beach · quieter, on-leash option with lagoon birding",
+"lat": 36.539,
+"lon": -121.928,
+"q": "Carmel River State Beach",
+"url": "https://gopetfriendly.com/blog/carmel-california-loves-dogs",
+"n": "W24",
 "sec": "walks",
 "cat": "walk"
 }
@@ -227,6 +318,7 @@ window.WF_WALKS = {
 "Rancho San Antonio (not on Midpen's list of dog-friendly preserves)",
 "Huddart Park, Woodside",
 "Most San Mateo County parks (only a few, like Coyote Point and Pillar Point Bluff, allow leashed dogs)",
-"Midpen preserve creeks and ponds (no water contact)"
+"Midpen preserve creeks and ponds (no water contact)",
+"Most Santa Cruz County state beaches outside the ones listed (and Its Beach is leash-only, despite the \"Dog Beach\" nickname)"
 ]
 };

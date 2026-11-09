@@ -52,7 +52,7 @@ main{flex:1;padding:0 12px 40px}
 .star[aria-pressed="true"] svg{fill:var(--warm);stroke:var(--warm)}
 .empty{text-align:center;color:var(--mute);font-size:14px;padding:40px 20px;line-height:1.5}
 /* map */
-.mapwrap{position:relative;background:#CFE0EE;border-radius:14px;overflow:hidden;margin-top:4px;touch-action:none;width:100%;aspect-ratio:1000/1041;max-height:72vh}
+.mapwrap{position:relative;background:#CFE0EE;border-radius:14px;overflow:hidden;margin-top:4px;touch-action:none;width:100%;max-height:72vh}
 .mapwrap svg{width:100%;height:100%;display:block;user-select:none;-webkit-user-select:none}
 .zoombar{display:flex;gap:6px;overflow-x:auto;padding:10px 2px 4px;scrollbar-width:none}
 .zoombar::-webkit-scrollbar{display:none}
@@ -124,7 +124,7 @@ footer{font-size:13px}
 <body>
 <div class="app">
 <header id="hdr">
-  <div class="kicker">San Francisco → Mountain View</div>
+  <div class="kicker">San Francisco → Santa Cruz → Carmel</div>
   <h1>The Weekly Fetch</h1>
   <p class="sub" id="updated"></p>
   <div class="tabs" role="tablist">
@@ -144,9 +144,9 @@ const WF = window.WF_DATA || {updated:"", items:[]};
 const WALKS = window.WF_WALKS || {items:[], nodogs:[]};
 const DATA = WF.items.concat(WALKS.items);
 const HOME = {name:"Mountain View", lat:37.3861, lon:-122.0839};
-const BBOX = [37.28, 37.94, -122.64, -121.84];
-const MAP_W = 1000, MAP_H = 1041;
-const COAST = "M744,772L747,768L749,760L756,758L758,753L756,748L752,748L749,751L747,760L741,758L739,755L738,716L737,709L731,706L711,705L701,694L671,693L667,692L665,689L664,647L656,638L653,632L646,626L643,607L636,599L633,592L624,586L621,567L613,557L612,480L610,474L603,465L601,436L594,428L591,421L584,415L580,409L572,403L568,382L555,367L545,367L538,376L535,377L532,376L526,367L511,364L506,355L499,347L496,330L493,327L483,326L479,322L478,294L475,289L471,287L450,286L443,276L429,272L424,263L421,261L401,259L397,258L385,243L385,200L389,196L399,194L402,192L406,171L409,169L423,166L425,163L426,156L425,136L423,130L417,130L411,140L407,140L405,138L404,111L406,106L412,100L413,94L409,90L399,88L395,84L394,58L391,52L387,52L382,60L379,63L365,66L360,73L355,76L345,74L340,67L337,64L315,63L312,60L310,56L309,29L305,26L302,27L297,34L292,33L290,29L289,16L281,8L280,0L277,-1L208,-1L205,0L204,7L200,11L182,12L178,14L177,17L178,22L182,24L200,25L204,27L208,35L214,38L217,44L218,56L219,60L236,67L249,86L256,92L259,100L268,106L271,113L278,119L279,123L279,136L277,141L269,143L252,142L248,138L247,123L245,119L240,118L232,127L226,128L220,126L216,119L206,111L204,92L192,79L188,79L185,88L186,111L194,119L197,125L204,131L206,151L216,159L217,163L216,176L206,186L206,203L212,207L238,207L244,206L249,198L253,196L281,195L287,197L294,207L307,209L311,217L319,222L321,225L322,255L331,265L332,292L333,296L341,305L342,321L361,344L360,348L353,355L351,361L347,365L342,365L341,357L337,354L333,357L331,366L315,367L311,371L312,376L321,384L322,413L330,421L331,426L331,463L330,467L324,474L323,478L327,482L339,485L343,494L350,501L361,515L360,519L357,522L347,523L344,526L342,530L343,534L357,549L409,551L413,555L415,570L419,574L479,575L485,577L490,586L496,592L501,600L513,603L516,605L518,609L518,622L521,627L527,629L553,629L558,632L562,651L568,657L572,665L580,672L595,692L601,694L607,693L610,691L615,683L619,681L635,681L641,683L644,688L645,716L654,726L655,741L659,745L671,748L676,757L683,762L689,771L697,773L744,772Z M281,1041L288,1033L289,1026L289,885L288,880L271,862L269,842L259,834L257,818L248,807L247,778L239,770L238,766L237,726L229,718L226,709L213,695L174,694L168,692L166,686L164,673L155,665L153,647L144,636L145,632L152,626L153,622L153,588L152,579L145,572L144,567L144,542L148,538L162,535L167,526L174,519L175,511L175,388L174,382L167,376L166,371L165,307L162,301L155,296L154,292L154,242L155,238L158,236L178,234L182,233L187,223L195,215L195,200L192,197L188,195L142,195L136,193L132,184L125,177L111,159L103,152L98,145L84,141L79,131L77,129L64,126L59,119L52,114L45,104L26,103L22,101L17,92L11,86L7,79L0,76L-1,1041L281,1041Z M173,100L174,94L172,91L168,91L167,94L167,98L168,101L173,100Z M349,217L345,217L343,215L341,200L332,190L332,175L334,171L337,170L339,171L351,186L351,211L349,217Z M339,376L335,376L333,373L333,366L341,367L341,373L339,376Z M776,757L777,751L776,748L772,748L770,751L770,755L772,758L776,757Z";
+const BBOX = [36.45, 37.94, -122.64, -121.55];
+const MAP_W = 1000, MAP_H = 1716;
+const COAST = "M545,563L547,561L549,554L555,553L556,550L555,547L551,547L547,554L544,553L542,550L540,519L537,517L521,515L513,507L494,507L490,505L488,503L487,472L474,456L472,443L465,437L458,428L456,415L450,407L450,351L449,347L443,340L442,319L421,292L418,279L406,267L400,267L394,273L392,273L386,268L376,265L367,254L364,241L351,235L350,216L347,210L330,208L324,201L315,198L308,190L292,189L283,178L282,170L283,146L285,143L293,141L296,137L297,126L301,124L309,122L312,115L312,101L310,97L308,97L301,103L297,99L297,80L304,71L301,67L293,65L290,63L289,44L287,40L284,40L278,46L268,48L263,55L259,56L254,55L247,47L232,46L229,42L227,23L224,21L218,26L215,26L213,23L211,11L206,6L205,0L202,-1L154,-1L151,0L150,5L148,8L131,10L129,13L132,17L147,19L150,21L157,31L160,44L173,50L190,73L197,78L204,88L205,92L203,101L197,104L184,103L182,99L181,90L179,87L176,88L170,94L162,94L152,82L150,69L142,59L139,59L137,65L137,80L150,97L152,110L157,116L158,120L157,129L152,137L151,145L152,149L157,152L175,152L179,150L186,143L204,142L209,144L215,151L225,153L235,166L236,185L242,195L243,215L250,221L253,235L264,250L264,254L256,264L252,265L250,260L247,258L244,260L242,266L233,267L229,271L235,281L236,300L241,307L242,311L242,338L236,349L239,353L249,355L264,376L263,381L255,384L252,387L260,399L265,402L301,402L304,407L306,417L309,420L351,421L356,422L369,439L376,441L379,443L381,454L383,458L408,461L410,464L412,475L418,481L436,505L442,507L446,506L454,498L465,497L470,499L473,504L474,521L479,529L482,542L485,544L492,546L506,563L513,564L545,563Z M648,1716L649,1710L654,1703L654,1699L642,1683L641,1653L634,1645L632,1640L633,1634L635,1631L651,1629L654,1626L654,1622L649,1615L648,1596L644,1592L628,1590L612,1569L612,1565L617,1559L619,1546L624,1540L627,1527L630,1525L638,1523L640,1520L642,1502L644,1497L651,1496L658,1504L669,1506L689,1532L701,1534L708,1531L718,1517L724,1512L739,1493L741,1480L746,1472L748,1461L755,1453L756,1424L762,1416L763,1413L763,1374L770,1365L771,1336L778,1329L779,1325L778,1287L764,1271L762,1259L756,1250L755,1240L741,1224L739,1211L727,1195L725,1183L717,1175L715,1162L692,1132L682,1130L674,1122L659,1120L654,1115L651,1114L646,1120L635,1123L624,1138L621,1140L599,1140L590,1131L578,1131L573,1134L571,1145L569,1148L566,1147L561,1141L555,1141L551,1142L544,1150L528,1150L521,1149L513,1141L492,1140L483,1131L467,1130L447,1104L436,1101L424,1085L414,1082L408,1075L397,1071L388,1057L381,1052L374,1042L358,1017L351,1012L349,998L334,979L328,973L318,960L313,957L292,956L281,941L274,935L271,922L260,916L258,905L252,896L250,884L247,881L231,880L222,868L220,856L212,848L212,828L206,821L204,809L199,800L204,790L206,779L211,771L206,762L211,754L212,748L212,645L199,628L197,615L190,609L188,596L182,588L181,569L176,561L175,557L173,529L166,519L155,508L127,507L123,505L121,502L120,491L114,483L113,472L107,467L106,464L113,454L114,431L112,424L105,416L105,397L108,393L116,392L120,389L127,380L128,374L128,283L121,269L121,225L114,212L114,178L115,174L117,172L132,170L136,168L143,158L144,147L141,144L138,142L106,142L100,141L82,116L77,112L72,105L63,103L56,95L47,93L34,77L16,74L5,59L0,57L-1,1716L648,1716Z M256,159L254,159L252,157L250,145L243,137L243,130L245,125L250,126L258,137L258,155L256,159Z";
 const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},evt:{label:"Events",color:"#4A5562"}};
 const SECTIONS = (WF.sections || [["week","This week"]]).slice();
 { const i = SECTIONS.findIndex(s=>s[0]==="dog"); SECTIONS.splice(i>=0?i+1:1, 0, ["walks","Dog walks · closest to home first"]); }
@@ -331,13 +331,13 @@ function listText(){
 /* ---------- map ---------- */
 const proj = (lat,lon) => [ (lon-BBOX[2])/(BBOX[3]-BBOX[2])*MAP_W, (BBOX[1]-lat)/(BBOX[1]-BBOX[0])*MAP_H ];
 function boxAround(lat,lon,spanMi){ const [x,y]=proj(lat,lon); const w=spanMi/((BBOX[3]-BBOX[2])*69*Math.cos(37.6*Math.PI/180))*MAP_W; return [x-w/2,y-w/2,w,w]; }
-const PRESETS = {"All":[0,0,MAP_W,MAP_H], "San Francisco":boxAround(37.783,-122.43,8), "Peninsula":boxAround(37.56,-122.27,24), "Near home":boxAround(37.40,-122.12,11), "San Jose":boxAround(37.33,-121.89,5)};
-let vb = [...PRESETS.All];
-try { const s = JSON.parse(localStorage.getItem("wf-vb")); if (s && s.length===4) vb = s; } catch(e) {}
+const PRESETS = {"Bay Area":boxAround(37.60,-122.20,48), "San Francisco":boxAround(37.783,-122.43,8), "Peninsula":boxAround(37.56,-122.27,24), "Near home":boxAround(37.40,-122.12,11), "San Jose":boxAround(37.33,-121.89,6), "Santa Cruz":boxAround(36.975,-122.0,10), "Monterey & Carmel":boxAround(36.59,-121.90,10), "Everything":[0,0,MAP_W,MAP_H]};
+let vb = [...PRESETS["Bay Area"]];
+try { const s = JSON.parse(localStorage.getItem("wf-vb2")); if (s && s.length===4) vb = s; } catch(e) {}
 let starOnly = false;
 function mapHTML(){
   return `<div class="zoombar">${Object.keys(PRESETS).map(k=>`<button class="zbtn" data-preset="${k}">${k}</button>`).join("")}<button class="zbtn" data-staronly aria-pressed="${starOnly}">★ Starred only</button></div>
-  <div class="mapwrap" id="mapwrap"><svg id="map" role="img" aria-label="Map of event locations from San Francisco to San Jose"></svg>
+  <div class="mapwrap" id="mapwrap" style="aspect-ratio:${MAP_W}/${MAP_H}"><svg id="map" role="img" aria-label="Map of event locations from San Francisco to Carmel"></svg>
   <div class="zctl"><button data-zoom="0.6" aria-label="Zoom in">+</button><button data-zoom="1.6" aria-label="Zoom out">−</button></div></div>
   <div class="legend">${Object.keys(CATS).map(k=>`<span><i style="background:${CATS[k].color}"></i>${CATS[k].label}</span>`).join("")}<span><i style="background:#fff;border:3px solid #B9531F;width:12px;height:12px"></i>Home</span><span><i style="background:#FFD54A;border:2px solid #1B2430"></i>Starred</span></div>
   <div class="note">Tap a pin to see the event. Drag to pan, pinch or use +/− to zoom. Pins are approximate.</div>
@@ -360,13 +360,13 @@ function drawMap(){
     });
   });
   const [hx,hy]=proj(HOME.lat,HOME.lon);
-  const labels = [["San Francisco",37.745,-122.47],["Daly City",37.675,-122.48],["San Mateo",37.535,-122.33],["Redwood City",37.47,-122.25],["Palo Alto",37.425,-122.17],["San Jose",37.36,-121.92],["Half Moon Bay",37.44,-122.43],["Oakland",37.83,-122.23],["Pacific Ocean",37.6,-122.6],["SF Bay",37.6,-122.25]];
+  const labels = [["San Francisco",37.745,-122.47],["Daly City",37.675,-122.48],["San Mateo",37.535,-122.33],["Redwood City",37.47,-122.25],["Palo Alto",37.425,-122.17],["San Jose",37.36,-121.92],["Half Moon Bay",37.44,-122.43],["Oakland",37.83,-122.23],["Pacific Ocean",37.25,-122.55],["SF Bay",37.6,-122.25],["Santa Cruz",37.0,-122.02],["Capitola",36.99,-121.95],["Watsonville",36.92,-121.77],["Monterey Bay",36.8,-122.0],["Monterey",36.6,-121.86],["Pacific Grove",36.635,-121.93],["Carmel",36.545,-121.9],["Salinas",36.68,-121.66]];
   const lf = 12*pxPer;
-  const lab = labels.map(([t,la,lo])=>{const [x,y]=proj(la,lo);const water=t==="Pacific Ocean"||t==="SF Bay";return `<text x="${x}" y="${y}" text-anchor="middle" font-size="${lf}" font-weight="600" fill="${water?'#5F86A8':'#8A8F94'}" font-family="Inter,sans-serif" font-style="${water?'italic':'normal'}" pointer-events="none">${t}</text>`}).join("");
+  const lab = labels.map(([t,la,lo])=>{const [x,y]=proj(la,lo);const water=t==="Pacific Ocean"||t==="SF Bay"||t==="Monterey Bay";return `<text x="${x}" y="${y}" text-anchor="middle" font-size="${lf}" font-weight="600" fill="${water?'#5F86A8':'#8A8F94'}" font-family="Inter,sans-serif" font-style="${water?'italic':'normal'}" pointer-events="none">${t}</text>`}).join("");
   svg.setAttribute("viewBox", vb.join(" "));
   svg.innerHTML = `<rect x="-2000" y="-2000" width="${MAP_W+4000}" height="${MAP_H+4000}" fill="#F3F1EA"/><path d="${COAST}" fill="#CFE0EE" fill-rule="evenodd" stroke="#A9C3DA" stroke-width="${1.2*pxPer}"/>${lab}
   <circle cx="${hx}" cy="${hy}" r="${8*pxPer}" fill="#fff" stroke="#B9531F" stroke-width="${3.5*pxPer}"/><text x="${hx+12*pxPer}" y="${hy+24*pxPer}" text-anchor="middle" font-size="${lf}" font-weight="700" fill="#B9531F" font-family="Inter,sans-serif" pointer-events="none">Home</text>${pins}`;
-  try { localStorage.setItem("wf-vb", JSON.stringify(vb)); } catch(e) {}
+  try { localStorage.setItem("wf-vb2", JSON.stringify(vb)); } catch(e) {}
 }
 function showSheet(){
   const s = document.getElementById("sheet"); if(!s) return;

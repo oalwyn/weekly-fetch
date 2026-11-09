@@ -346,7 +346,52 @@ window.WF_DATA = {
    "end": "2027-01-04"
   },
   {
-   "n": 21,
+   "sec": "late-nov",
+   "when": "Sat Nov 21 · 1–4pm",
+   "title": "Surf City Stroll: Westside wine walk",
+   "meta": "Westside Santa Cruz · Santa Cruz Mountains wineries pouring at local shops",
+   "cat": "food",
+   "lat": 36.958,
+   "lon": -122.045,
+   "q": "Westside Santa Cruz Swift Street",
+   "url": "https://happeningnext.com/event/surf-city-stroll-eid1ef0l8n31f9a",
+   "start": "2026-11-21",
+   "end": "2026-11-21",
+   "id": "surf-city-stroll-westside-wine-walk",
+   "n": 21
+  },
+  {
+   "sec": "late-nov",
+   "when": "Sat Nov 21 · 5–7pm",
+   "title": "Del Monte Center Christmas tree lighting",
+   "meta": "1410 Del Monte Center, Monterey · Santa & Mrs. Claus light the tree · Free",
+   "cat": "hol",
+   "lat": 36.5847,
+   "lon": -121.8996,
+   "q": "Del Monte Shopping Center Monterey",
+   "url": "https://whatsupmonterey.com/events/holiday-events",
+   "start": "2026-11-21",
+   "end": "2026-11-21",
+   "id": "del-monte-center-christmas-tree-lighting",
+   "n": 22
+  },
+  {
+   "sec": "late-nov",
+   "when": "Opens Sat Nov 21",
+   "title": "Winter Wonderfest Monterey",
+   "meta": "Monterey County Fair & Event Center · holiday lights and activities through Dec 27 · Ticketed",
+   "cat": "hol",
+   "lat": 36.5885,
+   "lon": -121.864,
+   "q": "Monterey County Fair and Event Center",
+   "url": "https://www.seemonterey.com/events/holiday-events/christmas/",
+   "start": "2026-11-21",
+   "end": "2026-12-27",
+   "id": "winter-wonderfest-monterey",
+   "n": 23
+  },
+  {
+   "n": 24,
    "sec": "late-nov",
    "when": "Mon Nov 23",
    "title": "Supermoon night",
@@ -358,7 +403,22 @@ window.WF_DATA = {
    "end": "2026-11-23"
   },
   {
-   "n": 22,
+   "sec": "late-nov",
+   "when": "Opens Thu Nov 26",
+   "title": "Santa Cruz Beach Boardwalk Winter Wonderland",
+   "meta": "400 Beach St, Santa Cruz · select dates through Jan 3",
+   "cat": "hol",
+   "lat": 36.9643,
+   "lon": -122.0177,
+   "q": "Santa Cruz Beach Boardwalk",
+   "url": "https://www.santacruz.org/upcoming-event/santa-cruz-beach-boardwalk-winter-wonderland/",
+   "start": "2026-11-26",
+   "end": "2027-01-03",
+   "id": "santa-cruz-beach-boardwalk-winter-wonderland",
+   "n": 25
+  },
+  {
+   "n": 26,
    "sec": "late-nov",
    "when": "Opens Fri Nov 27",
    "title": "Christmas in the Park",
@@ -373,7 +433,22 @@ window.WF_DATA = {
    "end": "2027-01-01"
   },
   {
-   "n": 23,
+   "sec": "late-nov",
+   "when": "Fri Nov 27 · 5–7pm",
+   "title": "Cannery Row tree lighting",
+   "meta": "Steinbeck Plaza, 700 Cannery Row, Monterey · carolers and Santa · Free",
+   "cat": "hol",
+   "lat": 36.6157,
+   "lon": -121.9013,
+   "q": "Steinbeck Plaza Cannery Row Monterey",
+   "url": "https://whatsupmonterey.com/events/holiday-events",
+   "start": "2026-11-27",
+   "end": "2026-11-27",
+   "id": "cannery-row-tree-lighting",
+   "n": 27
+  },
+  {
+   "n": 28,
    "sec": "late-nov",
    "when": "Sat Nov 28",
    "title": "Small Business Saturday",
@@ -388,7 +463,37 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 24,
+   "sec": "late-nov",
+   "when": "Mon Nov 30 · 4:30–7pm",
+   "title": "Pacific Grove Christmas tree lighting",
+   "meta": "Jewell Park, Grand & Forest Aves, Pacific Grove · school bands and choirs · Free",
+   "cat": "hol",
+   "lat": 36.6207,
+   "lon": -121.9197,
+   "q": "Jewell Park Pacific Grove",
+   "url": "https://whatsupmonterey.com/events/holiday-events",
+   "start": "2026-11-30",
+   "end": "2026-11-30",
+   "id": "pacific-grove-christmas-tree-lighting",
+   "n": 29
+  },
+  {
+   "sec": "early-dec",
+   "when": "Opens Tue Dec 1",
+   "title": "Ice Skating by the Bay",
+   "meta": "Custom House Plaza, Monterey · open through Jan 3 · Ticketed",
+   "cat": "hol",
+   "lat": 36.6031,
+   "lon": -121.8941,
+   "q": "Custom House Plaza Monterey",
+   "url": "https://www.montereywharf.com/event/10th-annual-christmas-on-the-wharf/828.html",
+   "start": "2026-12-01",
+   "end": "2027-01-03",
+   "id": "ice-skating-by-the-bay",
+   "n": 30
+  },
+  {
+   "n": 31,
    "sec": "early-dec",
    "when": "Thu Dec 3 · 5–10pm",
    "title": "Downtown First Thursdays block party",
@@ -403,7 +508,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 25,
+   "n": 32,
    "sec": "early-dec",
    "when": "Dec 3–5",
    "title": "Gamble Garden holidays",
@@ -418,7 +523,22 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 26,
+   "sec": "early-dec",
+   "when": "Thu Dec 3 · 6–8pm",
+   "title": "Pacific Grove Holiday Parade of Lights",
+   "meta": "Lighthouse Ave, Pacific Grove · floats, marching bands, Santa · Free",
+   "cat": "hol",
+   "lat": 36.619,
+   "lon": -121.918,
+   "q": "Lighthouse Avenue Pacific Grove",
+   "url": "https://www.seemonterey.com/event/pacific-groves-holiday-parade-of-lights/",
+   "start": "2026-12-03",
+   "end": "2026-12-03",
+   "id": "pacific-grove-holiday-parade-of-lights",
+   "n": 33
+  },
+  {
+   "n": 34,
    "sec": "early-dec",
    "when": "Fri Dec 4 · 6–8pm",
    "title": "Los Altos Holiday Tree Celebration",
@@ -433,7 +553,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 27,
+   "n": 35,
    "sec": "early-dec",
    "when": "Dec 4–27",
    "title": "SF Ballet's The Nutcracker",
@@ -448,7 +568,57 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 28,
+   "sec": "early-dec",
+   "when": "Fri–Sun, Dec 4–20",
+   "title": "Christmas on the Wharf",
+   "meta": "Old Fisherman's Wharf, Monterey · 23-ft tree, lights, Santa house · Free",
+   "cat": "hol",
+   "lat": 36.6037,
+   "lon": -121.8932,
+   "q": "Old Fisherman's Wharf Monterey",
+   "url": "https://www.montereywharf.com/event/10th-annual-christmas-on-the-wharf/828.html",
+   "start": "2026-12-04",
+   "end": "2026-12-20",
+   "days": [
+    "fri",
+    "sat",
+    "sun"
+   ],
+   "id": "christmas-on-the-wharf",
+   "n": 36
+  },
+  {
+   "sec": "early-dec",
+   "when": "Fri Dec 4 · 3–7pm",
+   "title": "Carmel tree lighting + Carmel Plaza holiday party",
+   "meta": "Devendorf Park, Ocean Ave & Mission St, Carmel · Santa arrives by fire truck · Free",
+   "cat": "hol",
+   "lat": 36.5552,
+   "lon": -121.923,
+   "q": "Devendorf Park Carmel-by-the-Sea",
+   "url": "https://whatsupmonterey.com/events/community-events/holiday-tree-lighting-and-carmel-plaza-party/562",
+   "start": "2026-12-04",
+   "end": "2026-12-04",
+   "id": "carmel-tree-lighting-carmel-plaza-holiday-party",
+   "n": 37
+  },
+  {
+   "sec": "early-dec",
+   "when": "Fri Dec 4 · 5–6pm",
+   "title": "Downtown Monterey tree lighting",
+   "meta": "Colton Hall lawn, 570 Pacific St, Monterey · carols, candles, cookies · Free",
+   "cat": "hol",
+   "lat": 36.599,
+   "lon": -121.8957,
+   "q": "Colton Hall Monterey",
+   "url": "https://whatsupmonterey.com/events/holiday-events",
+   "start": "2026-12-04",
+   "end": "2026-12-04",
+   "id": "downtown-monterey-tree-lighting",
+   "n": 38
+  },
+  {
+   "n": 39,
    "sec": "early-dec",
    "when": "Sat Dec 5",
    "title": "Caltrain Holiday Train",
@@ -463,7 +633,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 29,
+   "n": 40,
    "sec": "early-dec",
    "when": "Sat Dec 5",
    "title": "Swedish Christmas Fair (SWEA)",
@@ -478,7 +648,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 30,
+   "n": 41,
    "sec": "early-dec",
    "when": "Sat Dec 5 · 6pm",
    "title": "MAPP art, poetry & music crawl",
@@ -493,7 +663,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 31,
+   "n": 42,
    "sec": "early-dec",
    "when": "Dec 5–6",
    "title": "Mercatino di Natale (Italian Christmas market)",
@@ -508,7 +678,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 32,
+   "n": 43,
    "sec": "early-dec",
    "when": "Dec 5–6",
    "title": "Sunset Holiday Mercantile",
@@ -523,7 +693,37 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 33,
+   "sec": "early-dec",
+   "when": "Sat Dec 5 · 10am",
+   "title": "Downtown Santa Cruz Holiday Parade",
+   "meta": "Pacific Ave, downtown Santa Cruz · Free",
+   "cat": "hol",
+   "lat": 36.9741,
+   "lon": -122.0308,
+   "q": "Pacific Avenue downtown Santa Cruz",
+   "url": "https://www.santacruz.org/blog/celebrate-the-holiday-season-in-santa-cruz-county/",
+   "start": "2026-12-05",
+   "end": "2026-12-05",
+   "id": "downtown-santa-cruz-holiday-parade",
+   "n": 44
+  },
+  {
+   "sec": "early-dec",
+   "when": "Sat Dec 5 · 5:30pm",
+   "title": "Santa Cruz Lighted Boat Parade",
+   "meta": "Santa Cruz Harbor · about 50 decorated boats, rain or shine · Free",
+   "cat": "hol",
+   "lat": 36.966,
+   "lon": -122.002,
+   "q": "Santa Cruz Harbor",
+   "url": "https://www.santacruzharbor.org/lighted-boat-parade",
+   "start": "2026-12-05",
+   "end": "2026-12-05",
+   "id": "santa-cruz-lighted-boat-parade",
+   "n": 45
+  },
+  {
+   "n": 46,
    "sec": "early-dec",
    "when": "Sun Dec 6",
    "title": "SFMOMA Holiday Makers Market",
@@ -538,7 +738,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 34,
+   "n": 47,
    "sec": "early-dec",
    "when": "Sun Dec 6 · 12–5pm",
    "title": "Castro Art Mart",
@@ -553,7 +753,22 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 35,
+   "sec": "early-dec",
+   "when": "Sun Dec 6 · 5–7pm",
+   "title": "Brighten the Harbor Lighted Boat Parade",
+   "meta": "Monterey Harbor · watch from Old Fisherman's Wharf · Free",
+   "cat": "hol",
+   "lat": 36.6045,
+   "lon": -121.8915,
+   "q": "Monterey Harbor Old Fisherman's Wharf",
+   "url": "https://whatsupmonterey.com/events/holiday-events",
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "id": "brighten-the-harbor-lighted-boat-parade",
+   "n": 48
+  },
+  {
+   "n": 49,
    "sec": "mid-dec",
    "when": "Dec 8–27",
    "title": "Winter Walk + Patchwork Show makers",
@@ -568,7 +783,22 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 36,
+   "sec": "mid-dec",
+   "when": "Tue Dec 8 · 5–9pm",
+   "title": "Holiday at the Inns",
+   "meta": "Pacific Grove · tour decorated Victorian B&Bs with music and treats · $30",
+   "cat": "hol",
+   "lat": 36.62,
+   "lon": -121.917,
+   "q": "Pacific Grove Inns",
+   "url": "https://www.seemonterey.com/events/holiday-events/christmas/",
+   "start": "2026-12-08",
+   "end": "2026-12-08",
+   "id": "holiday-at-the-inns",
+   "n": 50
+  },
+  {
+   "n": 51,
    "sec": "mid-dec",
    "when": "Thu Dec 10 & 17 · 4–8pm",
    "title": "European-style Holiday Market",
@@ -585,7 +815,22 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 37,
+   "sec": "mid-dec",
+   "when": "Fri–Sat, Dec 11–12 · 5–9pm",
+   "title": "Christmas in the Adobes",
+   "meta": "Historic Old Monterey · 20+ adobes lit with luminarias, music, history · Ticketed",
+   "cat": "hol",
+   "lat": 36.601,
+   "lon": -121.8945,
+   "q": "Monterey State Historic Park",
+   "url": "https://www.mshpa.org/christmasintheadobes",
+   "start": "2026-12-11",
+   "end": "2026-12-12",
+   "id": "christmas-in-the-adobes",
+   "n": 52
+  },
+  {
+   "n": 53,
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 10am–6pm",
    "title": "Hometown Holidays",
@@ -600,7 +845,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 38,
+   "n": 54,
    "sec": "mid-dec",
    "when": "Sat Dec 12",
    "title": "German Holiday Market",
@@ -615,7 +860,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 39,
+   "n": 55,
    "sec": "mid-dec",
    "when": "Sat Dec 12",
    "title": "Black Holiday Market",
@@ -630,7 +875,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 40,
+   "n": 56,
    "sec": "mid-dec",
    "when": "Dec 12–13",
    "title": "SJMADE Winter Wonder Market",
@@ -645,7 +890,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 41,
+   "n": 57,
    "sec": "mid-dec",
    "when": "Fri Dec 18 · 5–10pm",
    "title": "Fort Mason Night Market",
@@ -660,7 +905,7 @@ window.WF_DATA = {
    "end": "2026-12-18"
   },
   {
-   "n": 42,
+   "n": 58,
    "sec": "mid-dec",
    "when": "Sat Dec 19",
    "title": "Head West market (encore)",
@@ -675,7 +920,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 43,
+   "n": 59,
    "sec": "jan",
    "when": "Thu Dec 31",
    "title": "New Year's Eve on the SF waterfront",
@@ -690,7 +935,22 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 44,
+   "sec": "jan",
+   "when": "Thu Dec 31 · 3pm–midnight",
+   "title": "First Night Monterey",
+   "meta": "Downtown Monterey · family-friendly New Year's Eve with live music",
+   "cat": "evt",
+   "lat": 36.6,
+   "lon": -121.895,
+   "q": "Downtown Monterey",
+   "url": "https://flipbook.montereycountyweekly.com/archive/2026/best/visitors-guide/28/",
+   "start": "2026-12-31",
+   "end": "2026-12-31",
+   "id": "first-night-monterey",
+   "n": 60
+  },
+  {
+   "n": 61,
    "sec": "jan",
    "when": "Sun Jan 10",
    "title": "Last day for Filoli (#6) and San Mateo on Ice (#2)",
@@ -702,7 +962,91 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 45,
+   "n": 62,
+   "sec": "tbc",
+   "when": "Usually 1st Fri of Dec",
+   "title": "San Carlos Night of Holiday Lights",
+   "meta": "Laurel St, San Carlos · lights, \"snow\", music",
+   "cat": "hol",
+   "tbc": true,
+   "lat": 37.504,
+   "lon": -122.26,
+   "q": "Laurel St San Carlos CA",
+   "id": "san-carlos-night-of-holiday-lights",
+   "url": "https://www.cityofsancarlos.org/residents/community-events/night-of-holiday-lights"
+  },
+  {
+   "n": 63,
+   "sec": "tbc",
+   "when": "Usually Dec 1–25 · 5–10pm",
+   "title": "Eucalyptus Ave \"Christmas Tree Lane\" lights",
+   "meta": "San Carlos · best on foot, and good with the dog",
+   "cat": "hol",
+   "tbc": true,
+   "lat": 37.4985,
+   "lon": -122.269,
+   "q": "Eucalyptus Ave San Carlos CA",
+   "id": "eucalyptus-ave-christmas-tree-lane-lights",
+   "url": "https://sancarloslife.com/san-carlos-holiday-2024-events-things-to-do/"
+  },
+  {
+   "n": 64,
+   "sec": "tbc",
+   "when": "Early December",
+   "title": "Burlingame tree lighting & Winterfest",
+   "meta": "City Hall, 501 Primrose Rd, Burlingame",
+   "cat": "hol",
+   "tbc": true,
+   "lat": 37.579,
+   "lon": -122.348,
+   "q": "Burlingame City Hall",
+   "id": "burlingame-tree-lighting-winterfest",
+   "url": "https://business.burlingamechamber.org/news/details/holiday-tree-lighting"
+  },
+  {
+   "n": 65,
+   "sec": "tbc",
+   "when": "Mid-December",
+   "title": "Half Moon Bay Lighted Boat Festival + drone show",
+   "meta": "Pillar Point Harbor",
+   "cat": "hol",
+   "tbc": true,
+   "lat": 37.5025,
+   "lon": -122.482,
+   "q": "Pillar Point Harbor",
+   "id": "half-moon-bay-lighted-boat-festival-drone-show",
+   "url": "https://www.visithalfmoonbay.org/events/harbor-boat-lighting"
+  },
+  {
+   "n": 66,
+   "sec": "tbc",
+   "when": "All December",
+   "title": "Palo Alto's Christmas Tree Lane",
+   "meta": "Fulton St, Palo Alto · neighborhood light display",
+   "cat": "hol",
+   "tbc": true,
+   "lat": 37.443,
+   "lon": -122.146,
+   "q": "Christmas Tree Lane Fulton St Palo Alto",
+   "id": "palo-alto-s-christmas-tree-lane",
+   "url": "https://www.rwcpulse.com/?p=6046"
+  },
+  {
+   "sec": "tbc",
+   "when": "Usually early December",
+   "title": "Capitola Village tree lighting",
+   "meta": "Capitola & Stockton Aves, Capitola · cookie walk and caroling",
+   "cat": "hol",
+   "tbc": true,
+   "lat": 36.975,
+   "lon": -121.953,
+   "q": "Capitola Village",
+   "url": "https://www.cityofcapitola.org/node/23163",
+   "id": "capitola-village-tree-lighting",
+   "n": 67
+  },
+  {
+   "n": 68,
    "sec": "dog",
    "when": "Saturdays · 11am–4pm",
    "title": "Muttville senior-dog adoption events",
@@ -719,7 +1063,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 46,
+   "n": 69,
    "sec": "dog",
    "when": "Late Nov – Dec 31",
    "title": "SF SPCA Holiday Windows at Macy's",
@@ -733,7 +1077,7 @@ window.WF_DATA = {
    "url": "https://www.sfspca.org/holiday"
   },
   {
-   "n": 47,
+   "n": 70,
    "sec": "dog",
    "when": "December",
    "title": "Santa pet photos at Peninsula Humane Society",
@@ -747,7 +1091,7 @@ window.WF_DATA = {
    "url": "https://www.smdailyjournal.com/news/local/peninsula-humane-society-hosting-three-santa-paws-photo-dates/article_deecff44-35cd-5d26-815b-9b46576a12f5.html"
   },
   {
-   "n": 48,
+   "n": 71,
    "sec": "dog",
    "when": "Any day",
    "title": "Crissy Field East Beach",
@@ -760,7 +1104,7 @@ window.WF_DATA = {
    "url": "https://www.dogster.com/lifestyle/dog-friendly-activities-san-francisco/"
   },
   {
-   "n": 49,
+   "n": 72,
    "sec": "food",
    "when": "Through Dec 6 · 1–4pm",
    "title": "Flour + Water pizza class",
@@ -775,7 +1119,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 50,
+   "n": 73,
    "sec": "food",
    "when": "Various dates",
    "title": "North Beach Pizza Experience",
@@ -788,7 +1132,7 @@ window.WF_DATA = {
    "url": "https://luma.com/d9w1fniq"
   },
   {
-   "n": 51,
+   "n": 74,
    "sec": "food",
    "when": "Various dates",
    "title": "Neapolitan pizza with Chef James",
@@ -801,7 +1145,7 @@ window.WF_DATA = {
    "url": "https://assets.classbento.com/neapolitan-pizza-making-class-san-francisco"
   },
   {
-   "n": 52,
+   "n": 75,
    "sec": "food",
    "when": "Various dates",
    "title": "New York–style pizza with Chef Daniel",
@@ -814,7 +1158,7 @@ window.WF_DATA = {
    "url": "https://www.cozymeal.com/lp/pizza-making-classes-in-san-francisco"
   },
   {
-   "n": 53,
+   "n": 76,
    "sec": "food",
    "when": "Various dates",
    "title": "Pizza making at The Cheese School of SF",
@@ -827,7 +1171,7 @@ window.WF_DATA = {
    "url": "https://coursetakers.com/course/pizza-making-by-the-cheese-school-of-san-francisco"
   },
   {
-   "n": 54,
+   "n": 77,
    "sec": "food",
    "when": "Mondays · 1pm",
    "title": "Counter Culture catalog cupping",
@@ -840,7 +1184,7 @@ window.WF_DATA = {
    "url": "https://www.eventbrite.com/d/ca--emeryville/coffee-cupping/"
   },
   {
-   "n": 55,
+   "n": 78,
    "sec": "radar",
    "when": "Late April 2027",
    "title": "Bay Area Pizza Week",
@@ -850,7 +1194,7 @@ window.WF_DATA = {
    "url": "https://www.metrosiliconvalley.com/?p=20189370"
   },
   {
-   "n": 56,
+   "n": 79,
    "sec": "radar",
    "when": "Mid-Aug / Early Nov 2027",
    "title": "SF Pizza, Bagel & Beer Fest · SF Coffee Festival",
@@ -858,76 +1202,6 @@ window.WF_DATA = {
    "cat": "food",
    "id": "sf-pizza-bagel-beer-fest-sf-coffee-festival",
    "url": "https://www.sfstation.com/sfs-2026-pizza-bagel-beer-festival-e15771565"
-  },
-  {
-   "n": 57,
-   "sec": "tbc",
-   "when": "Usually 1st Fri of Dec",
-   "title": "San Carlos Night of Holiday Lights",
-   "meta": "Laurel St, San Carlos · lights, \"snow\", music",
-   "cat": "hol",
-   "tbc": true,
-   "lat": 37.504,
-   "lon": -122.26,
-   "q": "Laurel St San Carlos CA",
-   "id": "san-carlos-night-of-holiday-lights",
-   "url": "https://www.cityofsancarlos.org/residents/community-events/night-of-holiday-lights"
-  },
-  {
-   "n": 58,
-   "sec": "tbc",
-   "when": "Usually Dec 1–25 · 5–10pm",
-   "title": "Eucalyptus Ave \"Christmas Tree Lane\" lights",
-   "meta": "San Carlos · best on foot, and good with the dog",
-   "cat": "hol",
-   "tbc": true,
-   "lat": 37.4985,
-   "lon": -122.269,
-   "q": "Eucalyptus Ave San Carlos CA",
-   "id": "eucalyptus-ave-christmas-tree-lane-lights",
-   "url": "https://sancarloslife.com/san-carlos-holiday-2024-events-things-to-do/"
-  },
-  {
-   "n": 59,
-   "sec": "tbc",
-   "when": "Early December",
-   "title": "Burlingame tree lighting & Winterfest",
-   "meta": "City Hall, 501 Primrose Rd, Burlingame",
-   "cat": "hol",
-   "tbc": true,
-   "lat": 37.579,
-   "lon": -122.348,
-   "q": "Burlingame City Hall",
-   "id": "burlingame-tree-lighting-winterfest",
-   "url": "https://business.burlingamechamber.org/news/details/holiday-tree-lighting"
-  },
-  {
-   "n": 60,
-   "sec": "tbc",
-   "when": "Mid-December",
-   "title": "Half Moon Bay Lighted Boat Festival + drone show",
-   "meta": "Pillar Point Harbor",
-   "cat": "hol",
-   "tbc": true,
-   "lat": 37.5025,
-   "lon": -122.482,
-   "q": "Pillar Point Harbor",
-   "id": "half-moon-bay-lighted-boat-festival-drone-show",
-   "url": "https://www.visithalfmoonbay.org/events/harbor-boat-lighting"
-  },
-  {
-   "n": 61,
-   "sec": "tbc",
-   "when": "All December",
-   "title": "Palo Alto's Christmas Tree Lane",
-   "meta": "Fulton St, Palo Alto · neighborhood light display",
-   "cat": "hol",
-   "tbc": true,
-   "lat": 37.443,
-   "lon": -122.146,
-   "q": "Christmas Tree Lane Fulton St Palo Alto",
-   "id": "palo-alto-s-christmas-tree-lane",
-   "url": "https://www.rwcpulse.com/?p=6046"
   }
  ]
 };
