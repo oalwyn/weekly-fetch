@@ -729,7 +729,7 @@ try { LIST = localStorage.getItem("wf-list"); ME = localStorage.getItem("wf-name
   if (/^[a-z0-9]{16,40}$/.test(c)) {
     if (LIST === c) return;   // already on this list (e.g. opened from the home screen)
     LIST = c; try { localStorage.setItem("wf-list", c); } catch(e) {}
-    importedMsg = "You've joined the shared list. Stars and locked-in plans now show up for both of you.";
+    importedMsg = "You've joined the shared list. Stars and locked-in plans now show up for everyone on this list.";
     state.view = "our-list";
   }
 })();
@@ -860,19 +860,19 @@ function renderOurList(){
   const {cur, gone} = ourListItems();
   let h = `<div class="ourhead">${importedMsg ? `<p class="okmsg">${esc(importedMsg)}</p>` : ""}`;
   if (SB_ON && !LIST){
-    h += `<div class="setup"><strong>Make this a shared list</strong><p class="ournote">Start one list that you and your wife both see. Stars and “Lock it in” sync between your phones automatically.</p><div class="btnrow"><button class="copybtn" data-startlist>Start our shared list</button><button class="copybtn alt" data-joinpaste>I have an invite link</button></div></div>`;
+    h += `<div class="setup"><strong>Plan weekends together</strong><p class="ournote">Start a shared plan that everyone in your household can see and add to. Stars and “Lock it in” sync across everyone’s phones automatically.</p><div class="btnrow"><button class="copybtn" data-startlist>Start our shared plans</button><button class="copybtn alt" data-joinpaste>I have an invite link</button></div></div>`;
     h += `<p class="ournote">Until then, stars are saved on this phone.</p>`;
     if (cur.length || gone.length) h += `<div class="btnrow"><button class="copybtn alt" data-copy>Copy as text</button></div>`;
   } else if (SB_ON && LIST){
     const st = !ME ? `<p class="status">● Shared list · tap a star to add your name</p>`
       : online ? `<p class="status ok">● Shared list · synced · you're ${esc(ME)}</p>`
       : `<p class="status">● Shared list · ${firstSync ? "connecting…" : "offline, your changes will sync when you're back online"}${ME ? ` · you're ${esc(ME)}` : ""}</p>`;
-    h += st + `<div class="btnrow"><button class="copybtn" data-invite>Invite my wife</button><button class="copybtn alt" data-copy>Copy as text</button>${ME ? `<button class="copybtn alt" data-rename>Change name</button>` : ""}</div>`;
+    h += st + `<div class="btnrow"><button class="copybtn" data-invite>Invite someone to plan</button><button class="copybtn alt" data-copy>Copy as text</button>${ME ? `<button class="copybtn alt" data-rename>Change name</button>` : ""}</div>`;
   } else {
     h += `<p class="ournote">Your stars are saved on this phone.</p>${cur.length || gone.length ? `<div class="btnrow"><button class="copybtn" data-sendlink>Share my picks</button><button class="copybtn alt" data-copy>Copy as text</button></div>` : ""}`;
   }
   h += `<div id="copyout"></div></div>`;
-  if (!cur.length && !gone.length) return h + `<div class="empty">Nothing starred yet.<br>Tap the ☆ on any event and it lands here${LIST ? " for both of you" : ""}.</div>`;
+  if (!cur.length && !gone.length) return h + `<div class="empty">Nothing starred yet.<br>Tap the ☆ on any event and it lands here${LIST ? " for everyone on your list" : ""}.</div>`;
   return h + planHTML(cur, gone);
 }
 function copyOut(t, text, okMsg, label){
@@ -885,17 +885,17 @@ document.addEventListener("click", ev => {
   if (t.hasAttribute("data-startlist")){
     if (!ME && !askName()) return;
     LIST = newCode(); try { localStorage.setItem("wf-list", LIST); } catch(e) {}
-    shared = true; me = ME; importedMsg = "Your shared list is ready. Tap “Invite my wife” and text her the link.";
+    shared = true; me = ME; importedMsg = "Your shared list is ready. Tap “Invite someone to plan” and text them the link.";
     keepListInAddress(); render(); sync();
   } else if (t.hasAttribute("data-joinpaste")){
-    let v = ""; try { v = prompt("Paste the invite link your partner sent you:") || ""; } catch(e) {}
+    let v = ""; try { v = prompt("Paste the invite link you were sent:") || ""; } catch(e) {}
     const m = v.match(/#list-([a-z0-9]{16,40})/) || v.trim().match(/^([a-z0-9]{16,40})$/);
     if (!m){ if (v) { importedMsg = "That doesn't look like an invite link. It should end in #list- followed by letters and numbers."; render(); } return; }
     LIST = m[1]; try { localStorage.setItem("wf-list", LIST); } catch(e) {}
     if (!ME) askName();
     shared = true; me = ME; importedMsg = "You've joined the shared list."; keepListInAddress(); render(); sync();
   } else if (t.hasAttribute("data-invite")){
-    copyOut(t, inviteLink(), "Invite link copied. Text it to your wife. When she opens it, she joins this list. She can also use it on a computer.", "Invite my wife");
+    copyOut(t, inviteLink(), "Invite link copied. Text it to anyone you plan weekends with. When they open it, they join your plans, on a phone or a computer.", "Invite someone to plan");
   } else if (t.hasAttribute("data-rename")){
     const old = ME;
     if (askName() && ME !== old){
