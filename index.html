@@ -134,7 +134,7 @@ footer{font-size:13px}
 </header>
 <div class="filters" id="filters" aria-label="Filter events"></div>
 <main id="main"></main>
-<footer>Event details come from public listings. Check with the organizer before you go.<br>Refreshed every Monday and Thursday morning. Stars are kept between refreshes.</footer>
+<footer>Event details come from public listings. Check with the organizer before you go.<br>Refreshed every Monday and Thursday morning. Your stars are kept between refreshes.</footer>
 </div>
 <script src="./data.js"></script>
 <script src="./walks.js"></script>
@@ -187,10 +187,8 @@ function persistLocal(){
   syncHash();
 }
 function syncHash(){
-  // keep this device's stars in the page address so a refresh (or a saved link) brings them back
-  if (typeof code !== "function") return;
-  const want = (!shared && localSaved.size) ? "#picks-" + [...localSaved].map(code).join("-") : (shared ? "#" + state.view : "");
-  try { if (location.hash !== want) history.replaceState(null, "", want || (location.pathname + location.search)); } catch(e) {}
+  // after opening a shared picks link, tidy the address back to the plain site URL
+  if (location.hash.startsWith("#picks-")) { try { history.replaceState(null, "", location.pathname + location.search); } catch(e) {} }
 }
 try { const v = localStorage.getItem("wf-view2"); if (VIEWS.includes(v)) state.view = v; } catch(e) {}
 if (VIEWS.includes(location.hash.slice(1))) state.view = location.hash.slice(1);
@@ -319,12 +317,7 @@ function ourListItems(){
 }
 function renderOurList(){
   const {cur, gone} = ourListItems();
-  const note = shared
-    ? `Shared live: anyone you've given access to this page sees the same list and can add to it.${canWrite?"":" You can view this list but not change it. Ask the owner for Editor access."}`
-    : `Stars on this device are saved here only, so they stay put when you refresh or close the app.${dbNote?" "+dbNote:""}`;
-  const status = shared ? `<p class="status ok">● Saving to the shared list (signed in)</p>` : `<p class="status">● Saved on this device</p>`;
-  const sendNote = shared ? "" : `<p class="ournote">To see these on another phone or computer, or to give them to your wife, tap <strong>Send my picks</strong> and open the link there. The picks are added to that device's list.</p>`;
-  let h = `<div class="ourhead">${status}${importedMsg?`<p class="okmsg">${esc(importedMsg)}</p>`:""}<p class="ournote">${esc(note)}</p>${sendNote}${cur.length||gone.length?`<div class="btnrow">${shared?"":`<button class="copybtn" data-sendlink>Send my picks</button>`}<button class="copybtn alt" data-copy>Copy as text</button></div>`:""}<div id="copyout"></div></div>`;
+  let h = `<div class="ourhead">${importedMsg?`<p class="okmsg">${esc(importedMsg)}</p>`:""}<p class="ournote">Your stars are saved on this phone. To share them with your wife or another device, tap <strong>Share my picks</strong> and text her the link. Opening it adds your picks to her list.</p>${cur.length||gone.length?`<div class="btnrow"><button class="copybtn" data-sendlink>Share my picks</button><button class="copybtn alt" data-copy>Copy as text</button></div>`:""}<div id="copyout"></div></div>`;
   if (!cur.length && !gone.length) return h + `<div class="empty">Nothing starred yet.<br>Tap the ☆ on any event and it lands here for both of you.</div>`;
   h += cur.map(e=>cardHTML(e)).join("");
   if (gone.length) h += `<div class="section-h">Earlier picks</div>` + gone.map(e=>cardHTML(e,true)).join("");
@@ -493,7 +486,7 @@ document.addEventListener("click", ev=>{
   else if (t.hasAttribute("data-sendlink")){
     const link = picksLink(); const out = document.getElementById("copyout");
     const fallback = ()=>{ out.innerHTML = `<p class="ournote">Copy this link and open it on the other device, or text it to someone:</p><textarea class="copyarea" readonly rows="3"></textarea>`; const ta=out.querySelector("textarea"); ta.value=link; ta.focus(); ta.select(); };
-    try { navigator.clipboard.writeText(link).then(()=>{ t.textContent="Link copied ✓"; out.innerHTML=`<p class="ournote">Link copied. Paste it into a text or email, then open it on the other device.</p>`; setTimeout(()=>t.textContent="Send my picks",2500); }, fallback); } catch(e) { fallback(); }
+    try { navigator.clipboard.writeText(link).then(()=>{ t.textContent="Link copied ✓"; out.innerHTML=`<p class="ournote">Link copied. Paste it into a text to your wife, or open it on your other device.</p>`; setTimeout(()=>t.textContent="Share my picks",2500); }, fallback); } catch(e) { fallback(); }
   }
   else if (t.hasAttribute("data-copy")){
     const txt = listText(); const out = document.getElementById("copyout");
@@ -504,7 +497,7 @@ document.addEventListener("click", ev=>{
 window.addEventListener("hashchange", ()=>{ const h=location.hash.slice(1); if(VIEWS.includes(h)&&h!==state.view){ state.view=h; render(); } });
 window.addEventListener("resize", ()=>{ if(state.view==="map"){ vb=fitAspect(vb); drawMap(); } document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px"); });
 render();
-connect();
+
 
 </script>
 </body>
