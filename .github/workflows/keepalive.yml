@@ -1,0 +1,18 @@
+name: Keep shared list awake
+# Pings the free Supabase database twice a week so it never pauses for inactivity,
+# and checks that the shared list's database functions are set up correctly.
+on:
+  schedule:
+    - cron: "23 14 * * 1,4"   # Mondays and Thursdays, ~6:23am Pacific
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping database
+        run: |
+          set -e
+          URL="https://halekjplfqkdteurtznv.supabase.co/rest/v1/rpc"
+          KEY="sb_publishable_RZYe1fQPYJbGRFoGHnrpVg_pWy1V7ER"
+          echo "ping:";      curl -sS --fail-with-body -X POST "$URL/ping" -H "apikey: $KEY" -H "Content-Type: application/json" -d '{}'; echo
+          echo "get_picks:"; curl -sS --fail-with-body -X POST "$URL/get_picks" -H "apikey: $KEY" -H "Content-Type: application/json" -d '{"p_list":"healthcheck000000000"}'; echo
