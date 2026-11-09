@@ -43,7 +43,13 @@ main{flex:1;padding:0 12px 40px}
 .num{font-size:11px;font-weight:600;color:var(--mute)}
 .tag{font-size:11px;font-weight:600;border-radius:999px;padding:3px 9px}
 .c-hol{background:#FBE9E1;color:#8A3A14}.c-mkt{background:#E6EEF6;color:#1F4A73}.c-dog{background:#E3F2EA;color:#1F6B4A}
-.c-walk{background:#DDF1F1;color:#0B5E61}.c-food{background:#FFF1D6;color:#7A4E00}.c-art{background:#EEE8F6;color:#4E3A78}.c-evt{background:#EEF2F5;color:#1B2430}
+.c-walk{background:#DDF1F1;color:#0B5E61}.c-food{background:#FFF1D6;color:#7A4E00}.c-art{background:#EEE8F6;color:#4E3A78}.c-evt{background:#EEF2F5;color:#1B2430}.c-show{background:#FBE6EE;color:#8A1F4C}
+.plan-h{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:12px 6px 6px}.plan-h.locked{color:#1E7A4C}
+.card.locked{box-shadow:inset 4px 0 0 #2E8B5E}
+.lockrow{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.lockbtn{border:1px solid #2E8B5E;background:#fff;color:#1E6B45;border-radius:10px;padding:9px 14px;font-size:14px;font-weight:600;min-height:44px}
+.lockbtn[aria-pressed="true"]{background:#2E8B5E;color:#fff}
+.locknote{font-size:12.5px;color:var(--mute)}.lockc{color:#1E7A4C}
 .dist{font-size:12px;color:var(--mute)}
 .tbc{font-size:11px;font-weight:600;color:#8A3A14}
 .maplink{margin-left:auto;font-size:13px;font-weight:600;text-decoration:none;padding:6px 2px}
@@ -130,7 +136,7 @@ footer{font-size:13px}
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" data-view="events" aria-selected="true">Events</button>
     <button class="tab" role="tab" data-view="map" aria-selected="false">Map</button>
-    <button class="tab" role="tab" data-view="our-list" aria-selected="false">Our list <span id="savedCount"></span></button>
+    <button class="tab" role="tab" data-view="our-list" aria-selected="false">Our weekends <span id="savedCount"></span></button>
   </div>
 </header>
 <div class="filters" id="filters" aria-label="Filter events"></div>
@@ -147,7 +153,7 @@ const HOME = {name:"Mountain View", lat:37.3861, lon:-122.0839};
 const BBOX = [36.45, 37.94, -122.64, -121.55];
 const MAP_W = 1000, MAP_H = 1716;
 const COAST = "M545,563L547,561L549,554L555,553L556,550L555,547L551,547L547,554L544,553L542,550L540,519L537,517L521,515L513,507L494,507L490,505L488,503L487,472L474,456L472,443L465,437L458,428L456,415L450,407L450,351L449,347L443,340L442,319L421,292L418,279L406,267L400,267L394,273L392,273L386,268L376,265L367,254L364,241L351,235L350,216L347,210L330,208L324,201L315,198L308,190L292,189L283,178L282,170L283,146L285,143L293,141L296,137L297,126L301,124L309,122L312,115L312,101L310,97L308,97L301,103L297,99L297,80L304,71L301,67L293,65L290,63L289,44L287,40L284,40L278,46L268,48L263,55L259,56L254,55L247,47L232,46L229,42L227,23L224,21L218,26L215,26L213,23L211,11L206,6L205,0L202,-1L154,-1L151,0L150,5L148,8L131,10L129,13L132,17L147,19L150,21L157,31L160,44L173,50L190,73L197,78L204,88L205,92L203,101L197,104L184,103L182,99L181,90L179,87L176,88L170,94L162,94L152,82L150,69L142,59L139,59L137,65L137,80L150,97L152,110L157,116L158,120L157,129L152,137L151,145L152,149L157,152L175,152L179,150L186,143L204,142L209,144L215,151L225,153L235,166L236,185L242,195L243,215L250,221L253,235L264,250L264,254L256,264L252,265L250,260L247,258L244,260L242,266L233,267L229,271L235,281L236,300L241,307L242,311L242,338L236,349L239,353L249,355L264,376L263,381L255,384L252,387L260,399L265,402L301,402L304,407L306,417L309,420L351,421L356,422L369,439L376,441L379,443L381,454L383,458L408,461L410,464L412,475L418,481L436,505L442,507L446,506L454,498L465,497L470,499L473,504L474,521L479,529L482,542L485,544L492,546L506,563L513,564L545,563Z M648,1716L649,1710L654,1703L654,1699L642,1683L641,1653L634,1645L632,1640L633,1634L635,1631L651,1629L654,1626L654,1622L649,1615L648,1596L644,1592L628,1590L612,1569L612,1565L617,1559L619,1546L624,1540L627,1527L630,1525L638,1523L640,1520L642,1502L644,1497L651,1496L658,1504L669,1506L689,1532L701,1534L708,1531L718,1517L724,1512L739,1493L741,1480L746,1472L748,1461L755,1453L756,1424L762,1416L763,1413L763,1374L770,1365L771,1336L778,1329L779,1325L778,1287L764,1271L762,1259L756,1250L755,1240L741,1224L739,1211L727,1195L725,1183L717,1175L715,1162L692,1132L682,1130L674,1122L659,1120L654,1115L651,1114L646,1120L635,1123L624,1138L621,1140L599,1140L590,1131L578,1131L573,1134L571,1145L569,1148L566,1147L561,1141L555,1141L551,1142L544,1150L528,1150L521,1149L513,1141L492,1140L483,1131L467,1130L447,1104L436,1101L424,1085L414,1082L408,1075L397,1071L388,1057L381,1052L374,1042L358,1017L351,1012L349,998L334,979L328,973L318,960L313,957L292,956L281,941L274,935L271,922L260,916L258,905L252,896L250,884L247,881L231,880L222,868L220,856L212,848L212,828L206,821L204,809L199,800L204,790L206,779L211,771L206,762L211,754L212,748L212,645L199,628L197,615L190,609L188,596L182,588L181,569L176,561L175,557L173,529L166,519L155,508L127,507L123,505L121,502L120,491L114,483L113,472L107,467L106,464L113,454L114,431L112,424L105,416L105,397L108,393L116,392L120,389L127,380L128,374L128,283L121,269L121,225L114,212L114,178L115,174L117,172L132,170L136,168L143,158L144,147L141,144L138,142L106,142L100,141L82,116L77,112L72,105L63,103L56,95L47,93L34,77L16,74L5,59L0,57L-1,1716L648,1716Z M256,159L254,159L252,157L250,145L243,137L243,130L245,125L250,126L258,137L258,155L256,159Z";
-const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},evt:{label:"Events",color:"#4A5562"}};
+const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},evt:{label:"Events",color:"#4A5562"}};
 const SECTIONS = (WF.sections || [["week","This week"]]).slice();
 { const i = SECTIONS.findIndex(s=>s[0]==="dog"); SECTIONS.splice(i>=0?i+1:1, 0, ["walks","Dog walks · closest to home first"]); }
 const VIEWS = ["events","map","our-list"];
@@ -233,13 +239,13 @@ function whoLine(id){
 function filtered(){
   return DATA.filter(e => (state.cat==="all" || e.cat===state.cat || (state.cat==="dog" && e.cat==="walk")) && (!state.near || (e.mi!=null && e.mi<=15)));
 }
-function cardHTML(e, gone){
+function cardHTML(e, gone, extra, cls){
   const c = CATS[e.cat] || CATS.evt;
   const mine = starredByMe(e.id);
-  return `<article class="card" id="card-${esc(e.id)}">
+  return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(e.meta)}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>
+    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 function renderFilters(){
@@ -316,17 +322,83 @@ function ourListItems(){
   cur.sort((a,b)=> (order[a.sec]??99)-(order[b.sec]??99) || (a.n||0)-(b.n||0));
   return {cur, gone};
 }
-function renderOurList(){
-  const {cur, gone} = ourListItems();
-  let h = `<div class="ourhead">${importedMsg?`<p class="okmsg">${esc(importedMsg)}</p>`:""}<p class="ournote">Your stars are saved on this phone. To share them with your wife or another device, tap <strong>Share my picks</strong> and text her the link. Opening it adds your picks to her list.</p>${cur.length||gone.length?`<div class="btnrow"><button class="copybtn" data-sendlink>Share my picks</button><button class="copybtn alt" data-copy>Copy as text</button></div>`:""}<div id="copyout"></div></div>`;
-  if (!cur.length && !gone.length) return h + `<div class="empty">Nothing starred yet.<br>Tap the ☆ on any event and it lands here for both of you.</div>`;
-  h += cur.map(e=>cardHTML(e)).join("");
+/* ---- weekend plans: shared "lock it in" ---- */
+const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const shortD = k => { const d = parseD(k); return `${DAYN[d.getDay()][0].toUpperCase()+DAYN[d.getDay()].slice(1)} ${MON[d.getMonth()]} ${d.getDate()}`; };
+let locks = new Map();   // id -> Set of keys (weekend Saturday, or the event's own date)
+try { const s = JSON.parse(localStorage.getItem("wf-locks") || "null"); if (s) locks = new Map(Object.entries(s).map(([k,v])=>[k,new Set(v)])); } catch(e) {}
+const isLocked = (id,k) => !!(locks.get(id) && locks.get(id).has(k));
+const lockedAny = id => !!(locks.get(id) && locks.get(id).size);
+function persistLocks(){ try { localStorage.setItem("wf-locks", JSON.stringify(Object.fromEntries([...locks].map(([k,v])=>[k,[...v]])))); } catch(e) {} }
+function setLock(id,k,on){ const s = locks.get(id) || new Set(); on ? s.add(k) : s.delete(k); if (s.size) locks.set(id,s); else locks.delete(id); }
+function toggleLock(id,k){ setLock(id,k,!isLocked(id,k)); persistLocks(); refreshStars(); }
+const isLong = e => !e.dates && !!e.start && (!!e.days || !e.end || (parseD(e.end)-parseD(e.start))/DAYMS > 3);
+function planGroups(cur){
+  const W = weekends(), lastSun = W[3].sun, groups = [], placed = new Set();
+  W.forEach((w,i)=>{
+    const k = ymd(w.sat);
+    const locked = cur.filter(e=>isLocked(e.id,k));
+    const maybe = cur.filter(e=>!lockedAny(e.id) && !isLong(e) && occurs(e,w.fri,w.sun)==="main");
+    locked.concat(maybe).forEach(e=>placed.add(e.id));
+    groups.push({id:"wk-"+i, wk:true, title: i===0?"This weekend":i===1?"Next weekend":"Weekend of "+MON[w.fri.getMonth()]+" "+w.fri.getDate(), sub:"Fri–Sun · "+fmtRange(w.fri,w.sun), locked:locked.map(e=>({e,k})), maybe:maybe.map(e=>({e,k}))});
+  });
+  // things open across several weekends: pick one
+  const flex = cur.filter(e=>!placed.has(e.id) && !lockedAny(e.id) && e.cat!=="walk" && isLong(e) && W.some(w=>occurs(e,w.fri,w.sun)));
+  flex.forEach(e=>placed.add(e.id));
+  const dated = (e,test) => { const s = startOf(e); return s && !e.days && test(s); };
+  const keyOf = e => ymd(startOf(e) < TODAY ? TODAY : startOf(e));
+  const mk = (id,title,sub,list) => { const L = list.map(e=>({e,k:keyOf(e)})); return {id,title,sub,locked:L.filter(x=>isLocked(x.e.id,x.k)),maybe:L.filter(x=>!isLocked(x.e.id,x.k))}; };
+  const wn = cur.filter(e=>!placed.has(e.id) && dated(e,s=>s<=lastSun) && occurs(e,TODAY,lastSun)==="main").sort((a,b)=>startOf(a)-startOf(b));
+  wn.forEach(e=>placed.add(e.id));
+  const later = cur.filter(e=>!placed.has(e.id) && dated(e,s=>s>lastSun)).sort((a,b)=>startOf(a)-startOf(b));
+  later.forEach(e=>placed.add(e.id));
+  // anything locked for a key we no longer show (e.g. a weekend that's past) falls into "Anytime"
+  const any = cur.filter(e=>!placed.has(e.id));
+  return {groups, flex, wn: mk("wk-wn","Weeknights","Mon–Thu, before "+MON[lastSun.getMonth()]+" "+lastSun.getDate(), wn), later: mk("wk-later","Later","After "+MON[lastSun.getMonth()]+" "+lastSun.getDate(), later), any, W};
+}
+const lockBtn = (id,k,on,label) => `<button class="lockbtn" data-lock="${esc(id)}" data-k="${k}" aria-pressed="${on}">${on?"✓ Locked in":(label||"Lock it in")}</button>`;
+function lockRow(id,k,on){ return `<div class="lockrow">${lockBtn(id,k,on)}${on?`<span class="locknote">Tap to move it back to maybe</span>`:""}</div>`; }
+function groupHTML(g){
+  const n = g.locked.length, m = g.maybe.length;
+  if (!g.wk && !n && !m) return "";
+  let h = `<h2 class="wk-h" id="${g.id}">${esc(g.title)}</h2><p class="wk-sub">${esc(g.sub)} · ${n?`<strong class="lockc">${n} locked in</strong>`:"nothing locked in"}${m?` · ${m} maybe${m===1?"":"s"}`:""}</p>`;
+  if (!n && !m) return h + `<div class="empty small">No picks for this weekend yet. Star things on the Events tab and they'll show up here.</div>`;
+  if (n) h += `<div class="plan-h locked">Locked in</div>` + g.locked.map(({e,k})=>cardHTML(e,false,lockRow(e.id,k,true),"locked")).join("");
+  if (m) h += `<div class="plan-h">Maybe</div>` + g.maybe.map(({e,k})=>cardHTML(e,false,lockRow(e.id,k,false))).join("");
+  return h;
+}
+function planHTML(cur, gone){
+  const P = planGroups(cur);
+  let h = `<div class="jump">${P.W.map((w,i)=>`<button data-jump="wk-${i}">${i===0?"This wknd":i===1?"Next wknd":MON[w.sat.getMonth()]+" "+w.sat.getDate()}</button>`).join("")}${P.later.locked.length+P.later.maybe.length?`<button data-jump="wk-later">Later</button>`:""}</div>`;
+  P.groups.forEach(g=>{ h += groupHTML(g); });
+  if (P.flex.length){
+    h += `<h2 class="wk-h">Pick a weekend</h2><p class="wk-sub">These run for weeks. Lock each one into the weekend you'll go.</p>`;
+    h += P.flex.map(e=>cardHTML(e,false,`<div class="lockrow">${P.W.filter(w=>occurs(e,w.fri,w.sun)).map(w=>lockBtn(e.id,ymd(w.sat),false,"Lock for "+MON[w.sat.getMonth()]+" "+w.sat.getDate())).join("")}</div>`)).join("");
+  }
+  h += groupHTML(P.wn) + groupHTML(P.later);
+  if (P.any.length) h += `<h2 class="wk-h">Anytime</h2><p class="wk-sub">Walks, classes and things without a date yet</p>` + P.any.map(compactHTML).join("");
   if (gone.length) h += `<div class="section-h">Earlier picks</div>` + gone.map(e=>cardHTML(e,true)).join("");
   return h;
 }
+function renderOurList(){
+  const {cur, gone} = ourListItems();
+  let h = `<div class="ourhead">${importedMsg?`<p class="okmsg">${esc(importedMsg)}</p>`:""}<p class="ournote">Your stars are saved on this device.</p>${cur.length?`<div class="btnrow"><button class="copybtn alt" data-copy>Copy as text</button></div>`:""}<div id="copyout"></div></div>`;
+  if (!cur.length && !gone.length) return h + `<div class="empty">Nothing starred yet.<br>Tap the ☆ on any event and it lands here.</div>`;
+  return h + planHTML(cur, gone);
+}
 function listText(){
-  const {cur} = ourListItems();
-  return "Our Weekly Fetch picks:\n" + cur.map(e=>`• ${e.when} – ${e.title} (${e.meta.split(" · ")[0]})`).join("\n");
+  const {cur} = ourListItems(), P = planGroups(cur);
+  const line = e => `${e.title} (${e.when}, ${(e.meta||"").split(" · ")[0]})`;
+  let t = "Our weekend plans (The Weekly Fetch)\n";
+  for (const g of P.groups.concat([P.wn, P.later])){
+    if (!g.locked.length && !g.maybe.length) continue;
+    t += `\n${g.title}${g.wk?" ("+g.sub.replace("Fri–Sun · ","")+")":""}\n`;
+    g.locked.forEach(({e})=>t += `  ✓ ${line(e)}\n`);
+    g.maybe.forEach(({e})=>t += `  ? ${line(e)}\n`);
+  }
+  if (P.flex.length) t += `\nPick a weekend\n` + P.flex.map(e=>`  ? ${line(e)}\n`).join("");
+  if (P.any.length) t += `\nAnytime\n` + P.any.map(e=>`  • ${e.title}\n`).join("");
+  return t;
 }
 /* ---------- map ---------- */
 const proj = (lat,lon) => [ (lon-BBOX[2])/(BBOX[3]-BBOX[2])*MAP_W, (BBOX[1]-lat)/(BBOX[1]-BBOX[0])*MAP_H ];
@@ -481,6 +553,7 @@ document.addEventListener("click", ev=>{
   else if (t.dataset.cat){ state.cat=t.dataset.cat; render(); }
   else if (t.hasAttribute("data-near")){ state.near=!state.near; render(); }
   else if (t.dataset.star){ toggleStar(t.dataset.star); }
+  else if (t.dataset.lock){ toggleLock(t.dataset.lock, t.dataset.k); }
   else if (t.dataset.preset){ vb = fitAspect([...PRESETS[t.dataset.preset]]); drawMap(); }
   else if (t.hasAttribute("data-staronly")){ starOnly=!starOnly; t.setAttribute("aria-pressed",starOnly); drawMap(); }
   else if (t.dataset.zoom){ zoom(+t.dataset.zoom); }
@@ -510,8 +583,9 @@ try { LIST = localStorage.getItem("wf-list"); ME = localStorage.getItem("wf-name
   if (!h.startsWith("list-")) return;
   const c = h.slice(5);
   if (/^[a-z0-9]{16,40}$/.test(c)) {
+    if (LIST === c) return;   // already on this list (e.g. opened from the home screen)
     LIST = c; try { localStorage.setItem("wf-list", c); } catch(e) {}
-    importedMsg = "You've joined the shared list. Stars you add now show up for both of you.";
+    importedMsg = "You've joined the shared list. Stars and locked-in plans now show up for both of you.";
     state.view = "our-list";
   }
 })();
@@ -524,15 +598,16 @@ keepListInAddress();
 
 const qLoad = () => { try { return JSON.parse(localStorage.getItem("wf-queue") || "[]"); } catch(e) { return []; } };
 const qSave = q => { try { localStorage.setItem("wf-queue", JSON.stringify(q)); } catch(e) {} };
-const cacheSave = () => { try { localStorage.setItem("wf-cache", JSON.stringify([...picks.entries()])); } catch(e) {} };
+const cacheSave = () => { try { localStorage.setItem("wf-cache", JSON.stringify([...picks.entries()])); localStorage.setItem("wf-lcache", JSON.stringify([...locks].map(([k,v])=>[k,[...v]]))); } catch(e) {} };
 let queue = qLoad();
 
 // show the last known shared list right away, even before the network answers
 if (LIST && SB_ON) {
   try { const c = JSON.parse(localStorage.getItem("wf-cache") || "null"); if (c) picks = new Map(c); } catch(e) {}
+  try { const c = JSON.parse(localStorage.getItem("wf-lcache") || "null"); locks = new Map((c||[]).map(([k,v])=>[k,new Set(v)])); } catch(e) { locks = new Map(); }
   shared = true; me = ME;
   for (const p of picks.values()) p.uids.forEach(u => names[u] = u);
-  applyQueue(picks);
+  applyQueue(picks, locks);
 }
 
 async function rpc(fn, body){
@@ -545,8 +620,13 @@ async function rpc(fn, body){
   const t = await r.text();
   return t ? JSON.parse(t) : null;
 }
-function applyQueue(m){
+const LOCK = "__lock__";
+function applyQueue(m, L){
   for (const op of queue){
+    if (op.op === "lock" || op.op === "unlock"){
+      if (L){ const s = L.get(op.id) || new Set(); op.op === "lock" ? s.add(op.k) : s.delete(op.k); if (s.size) L.set(op.id, s); else L.delete(op.id); }
+      continue;
+    }
     const p = m.get(op.id) || {uids: [], item: op.item || {id: op.id}};
     if (op.op === "add" && !p.uids.includes(ME)) p.uids.push(ME);
     if (op.op === "remove") p.uids = p.uids.filter(u => u !== ME);
@@ -556,7 +636,9 @@ function applyQueue(m){
 async function flush(){
   while (queue.length){
     const op = queue[0];
-    if (op.op === "add") await rpc("add_pick", {p_list: LIST, p_item: op.id, p_who: ME, p_item_json: op.item || {id: op.id}});
+    if (op.op === "lock") await rpc("add_pick", {p_list: LIST, p_item: op.id, p_who: LOCK + op.k, p_item_json: op.item || {id: op.id}});
+    else if (op.op === "unlock") await rpc("remove_pick", {p_list: LIST, p_item: op.id, p_who: LOCK + op.k});
+    else if (op.op === "add") await rpc("add_pick", {p_list: LIST, p_item: op.id, p_who: ME, p_item_json: op.item || {id: op.id}});
     else await rpc("remove_pick", {p_list: LIST, p_item: op.id, p_who: ME});
     queue.shift(); qSave(queue);
   }
@@ -565,27 +647,29 @@ function itemSnap(id){
   const e = DATA.find(d => d.id === id) || (picks.get(id) && picks.get(id).item) || {id};
   return {id: e.id || id, n: e.n || null, title: e.title || "", when: e.when || "", meta: e.meta || "", cat: e.cat || "evt", q: e.q || null, url: e.url || null, lat: e.lat ?? null, lon: e.lon ?? null};
 }
-function queuePush(op){ queue = queue.filter(o => o.id !== op.id); queue.push(op); qSave(queue); }
+const qKey = o => o.id + "|" + (o.k || "");
+function queuePush(op){ queue = queue.filter(o => qKey(o) !== qKey(op)); queue.push(op); qSave(queue); }
 
 async function sync(){
-  if (!LIST || !SB_ON || !ME || syncing) return;
+  if (!LIST || !SB_ON || syncing) return;   // reading works before you've given a name
   syncing = true;
   try {
-    if (firstSync && localSaved.size){
+    if (firstSync && localSaved.size && ME){
       // carry this phone's earlier stars into the shared list
       for (const id of localSaved) queuePush({op: "add", id, item: itemSnap(id)});
       localSaved.clear(); persistLocal();
     }
     await flush();
     const rows = await rpc("get_picks", {p_list: LIST}) || [];
-    const m = new Map();
+    const m = new Map(), L = new Map();
     rows.forEach(r => {
+      if (String(r.who).startsWith(LOCK)){ const s = L.get(r.item_id) || new Set(); s.add(r.who.slice(LOCK.length)); L.set(r.item_id, s); return; }
       if (!m.has(r.item_id)) m.set(r.item_id, {uids: [], item: r.item || {id: r.item_id}});
       const p = m.get(r.item_id); if (!p.uids.includes(r.who)) p.uids.push(r.who);
       names[r.who] = r.who;
     });
-    applyQueue(m);
-    picks = m; shared = true; me = ME; online = true; firstSync = false;
+    applyQueue(m, L);
+    picks = m; locks = L; shared = true; me = ME; online = true; firstSync = false;
     cacheSave();
   } catch(e) {
     online = false;
@@ -602,13 +686,22 @@ function askName(){
 // stars: shared list when joined, this phone otherwise
 async function toggleStar(id){
   if (!(LIST && SB_ON)){
-    localSaved.has(id) ? localSaved.delete(id) : localSaved.add(id); persistLocal(); refreshStars(); return;
+    if (localSaved.has(id)){ localSaved.delete(id); locks.delete(id); persistLocks(); } else localSaved.add(id);
+    persistLocal(); refreshStars(); return;
   }
   if (!ME && !askName()) return;
   shared = true; me = ME;
   const mine = starredByMe(id);
   queuePush({op: mine ? "remove" : "add", id, item: itemSnap(id)});
-  applyQueue(picks); cacheSave(); refreshStars();
+  // last star gone: clear its plans too
+  if (mine && pickers(id).length <= 1) for (const k of (locks.get(id) || [])) queuePush({op: "unlock", id, k});
+  applyQueue(picks, locks); cacheSave(); refreshStars();
+  sync();
+}
+function toggleLock(id, k){
+  if (!(LIST && SB_ON)){ setLock(id, k, !isLocked(id, k)); persistLocks(); refreshStars(); return; }
+  queuePush({op: isLocked(id, k) ? "unlock" : "lock", id, k, item: itemSnap(id)});
+  applyQueue(picks, locks); cacheSave(); refreshStars();
   sync();
 }
 function newCode(){
@@ -621,7 +714,7 @@ function renderOurList(){
   const {cur, gone} = ourListItems();
   let h = `<div class="ourhead">${importedMsg ? `<p class="okmsg">${esc(importedMsg)}</p>` : ""}`;
   if (SB_ON && !LIST){
-    h += `<div class="setup"><strong>Make this a shared list</strong><p class="ournote">Start one list that you and your wife both see and add to. Stars sync between your phones automatically.</p><div class="btnrow"><button class="copybtn" data-startlist>Start our shared list</button><button class="copybtn alt" data-joinpaste>I have an invite link</button></div></div>`;
+    h += `<div class="setup"><strong>Make this a shared list</strong><p class="ournote">Start one list that you and your wife both see. Stars and “Lock it in” sync between your phones automatically.</p><div class="btnrow"><button class="copybtn" data-startlist>Start our shared list</button><button class="copybtn alt" data-joinpaste>I have an invite link</button></div></div>`;
     h += `<p class="ournote">Until then, stars are saved on this phone.</p>`;
     if (cur.length || gone.length) h += `<div class="btnrow"><button class="copybtn alt" data-copy>Copy as text</button></div>`;
   } else if (SB_ON && LIST){
@@ -634,9 +727,7 @@ function renderOurList(){
   }
   h += `<div id="copyout"></div></div>`;
   if (!cur.length && !gone.length) return h + `<div class="empty">Nothing starred yet.<br>Tap the ☆ on any event and it lands here${LIST ? " for both of you" : ""}.</div>`;
-  h += cur.map(e => cardHTML(e)).join("");
-  if (gone.length) h += `<div class="section-h">Earlier picks</div>` + gone.map(e => cardHTML(e, true)).join("");
-  return h;
+  return h + planHTML(cur, gone);
 }
 function copyOut(t, text, okMsg, label){
   const out = document.getElementById("copyout");

@@ -235,7 +235,35 @@ window.WF_DATA = {
    "end": "2026-11-14"
   },
   {
-   "n": 14,
+   "sec": "week",
+   "when": "Sat Nov 14",
+   "title": "Stanley Clarke & Ron Carter",
+   "meta": "SFJAZZ Center, San Francisco · two jazz bass legends",
+   "cat": "show",
+   "q": "SFJAZZ Center",
+   "start": "2026-11-14",
+   "end": "2026-11-14",
+   "lat": 37.7764,
+   "lon": -122.4216,
+   "id": "stanley-clarke-ron-carter",
+   "n": 14
+  },
+  {
+   "sec": "week",
+   "when": "Sat Nov 14",
+   "title": "Rodrigo y Gabriela",
+   "meta": "San Jose Civic · acoustic guitar duo",
+   "cat": "show",
+   "q": "San Jose Civic",
+   "start": "2026-11-14",
+   "end": "2026-11-14",
+   "lat": 37.3305,
+   "lon": -121.8885,
+   "id": "rodrigo-y-gabriela",
+   "n": 15
+  },
+  {
+   "n": 16,
    "sec": "week",
    "when": "Sun Nov 15 · 1–4pm",
    "title": "Rocket Dog Urban Sanctuary open house",
@@ -252,7 +280,22 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 15,
+   "sec": "week",
+   "when": "Nov 15–22",
+   "title": "The Wizard of Oz (Peninsula Youth Theatre)",
+   "meta": "Mountain View Center for the Performing Arts · family musical",
+   "cat": "show",
+   "q": "Mountain View Center for the Performing Arts",
+   "url": "https://pytnet.org/boxoffice/the-wizard-of-oz-2/",
+   "start": "2026-11-15",
+   "end": "2026-11-22",
+   "lat": 37.3893,
+   "lon": -122.0817,
+   "id": "the-wizard-of-oz-peninsula-youth-theatre",
+   "n": 17
+  },
+  {
+   "n": 18,
    "sec": "late-nov",
    "when": "Wed Nov 18",
    "title": "Embarcadero Center Holiday Market + 40th building lighting",
@@ -267,7 +310,22 @@ window.WF_DATA = {
    "end": "2026-11-18"
   },
   {
-   "n": 16,
+   "sec": "late-nov",
+   "when": "Wed Nov 18 · 7pm",
+   "title": "Three Days Grace + I Prevail",
+   "meta": "SAP Center, San Jose · rock · from ~$33",
+   "cat": "show",
+   "q": "SAP Center San Jose",
+   "url": "https://www.eventworld.com/three-days-grace-san-jose-tickets-11-18-2026/event/404589",
+   "start": "2026-11-18",
+   "end": "2026-11-18",
+   "lat": 37.3327,
+   "lon": -121.901,
+   "id": "three-days-grace-i-prevail",
+   "n": 19
+  },
+  {
+   "n": 20,
    "sec": "late-nov",
    "when": "Sat Nov 21",
    "title": "Head West market on South B Street",
@@ -282,7 +340,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 17,
+   "n": 21,
    "sec": "late-nov",
    "when": "Sat Nov 21",
    "title": "ART on the Square Holiday Show",
@@ -297,7 +355,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 18,
+   "n": 22,
    "sec": "late-nov",
    "when": "Nov 21–22",
    "title": "West Coast Craft",
@@ -312,7 +370,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 19,
+   "n": 23,
    "sec": "late-nov",
    "when": "Opens Sat Nov 21",
    "title": "Great Dickens Christmas Fair",
@@ -331,7 +389,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 20,
+   "n": 24,
    "sec": "late-nov",
    "when": "Opens Sat Nov 21",
    "title": "Après Village winter terrace",
@@ -358,7 +416,7 @@ window.WF_DATA = {
    "start": "2026-11-21",
    "end": "2026-11-21",
    "id": "surf-city-stroll-westside-wine-walk",
-   "n": 21
+   "n": 25
   },
   {
    "sec": "late-nov",
@@ -373,7 +431,7 @@ window.WF_DATA = {
    "start": "2026-11-21",
    "end": "2026-11-21",
    "id": "del-monte-center-christmas-tree-lighting",
-   "n": 22
+   "n": 26
   },
   {
    "sec": "late-nov",
@@ -388,10 +446,25 @@ window.WF_DATA = {
    "start": "2026-11-21",
    "end": "2026-12-27",
    "id": "winter-wonderfest-monterey",
-   "n": 23
+   "n": 27
   },
   {
-   "n": 24,
+   "sec": "late-nov",
+   "when": "Sat Nov 21",
+   "title": "Joanne Shaw Taylor with Robert Jon & The Wreck",
+   "meta": "Golden State Theatre, Monterey · blues rock",
+   "cat": "show",
+   "q": "Golden State Theatre Monterey",
+   "url": "https://concerts.hypebot.com/cities/popular/carmel-by-the-sea-ca",
+   "start": "2026-11-21",
+   "end": "2026-11-21",
+   "lat": 36.5998,
+   "lon": -121.8946,
+   "id": "joanne-shaw-taylor-with-robert-jon-the-wreck",
+   "n": 28
+  },
+  {
+   "n": 29,
    "sec": "late-nov",
    "when": "Mon Nov 23",
    "title": "Supermoon night",
@@ -415,10 +488,10 @@ window.WF_DATA = {
    "start": "2026-11-26",
    "end": "2027-01-03",
    "id": "santa-cruz-beach-boardwalk-winter-wonderland",
-   "n": 25
+   "n": 30
   },
   {
-   "n": 26,
+   "n": 31,
    "sec": "late-nov",
    "when": "Opens Fri Nov 27",
    "title": "Christmas in the Park",
@@ -445,10 +518,10 @@ window.WF_DATA = {
    "start": "2026-11-27",
    "end": "2026-11-27",
    "id": "cannery-row-tree-lighting",
-   "n": 27
+   "n": 32
   },
   {
-   "n": 28,
+   "n": 33,
    "sec": "late-nov",
    "when": "Sat Nov 28",
    "title": "Small Business Saturday",
@@ -464,6 +537,36 @@ window.WF_DATA = {
   },
   {
    "sec": "late-nov",
+   "when": "Sat Nov 28",
+   "title": "Andy Grammer",
+   "meta": "Sunset Center, Carmel · pop",
+   "cat": "show",
+   "q": "Sunset Center Carmel",
+   "url": "https://www.eventworld.com/monterey-ca/concerts",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "lat": 36.5547,
+   "lon": -121.9213,
+   "id": "andy-grammer",
+   "n": 34
+  },
+  {
+   "sec": "late-nov",
+   "when": "Sat Nov 28",
+   "title": "The English Beat",
+   "meta": "Golden State Theatre, Monterey · ska",
+   "cat": "show",
+   "q": "Golden State Theatre Monterey",
+   "url": "https://www.eventworld.com/monterey-ca/concerts",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "lat": 36.5998,
+   "lon": -121.8946,
+   "id": "the-english-beat",
+   "n": 35
+  },
+  {
+   "sec": "late-nov",
    "when": "Mon Nov 30 · 4:30–7pm",
    "title": "Pacific Grove Christmas tree lighting",
    "meta": "Jewell Park, Grand & Forest Aves, Pacific Grove · school bands and choirs · Free",
@@ -475,7 +578,7 @@ window.WF_DATA = {
    "start": "2026-11-30",
    "end": "2026-11-30",
    "id": "pacific-grove-christmas-tree-lighting",
-   "n": 29
+   "n": 36
   },
   {
    "sec": "early-dec",
@@ -490,10 +593,10 @@ window.WF_DATA = {
    "start": "2026-12-01",
    "end": "2027-01-03",
    "id": "ice-skating-by-the-bay",
-   "n": 30
+   "n": 37
   },
   {
-   "n": 31,
+   "n": 38,
    "sec": "early-dec",
    "when": "Thu Dec 3 · 5–10pm",
    "title": "Downtown First Thursdays block party",
@@ -508,7 +611,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 32,
+   "n": 39,
    "sec": "early-dec",
    "when": "Dec 3–5",
    "title": "Gamble Garden holidays",
@@ -535,10 +638,55 @@ window.WF_DATA = {
    "start": "2026-12-03",
    "end": "2026-12-03",
    "id": "pacific-grove-holiday-parade-of-lights",
-   "n": 33
+   "n": 40
   },
   {
-   "n": 34,
+   "sec": "early-dec",
+   "when": "Thu Dec 3 · 7 & 9pm",
+   "title": "Hot Club of San Francisco: Cool Yule",
+   "meta": "Bing Concert Hall Studio, Stanford · gypsy-jazz holiday show",
+   "cat": "show",
+   "q": "Bing Concert Hall Stanford",
+   "url": "https://www.hotclubsf.com/events/2026/12/3/the-quintet-brings-holiday-cheer-to-stanford-our-hot-club-cool-yule-show",
+   "start": "2026-12-03",
+   "end": "2026-12-03",
+   "lat": 37.4326,
+   "lon": -122.1653,
+   "id": "hot-club-of-san-francisco-cool-yule",
+   "n": 41
+  },
+  {
+   "sec": "early-dec",
+   "when": "Thu Dec 3 · 7:30pm",
+   "title": "Smuin's The Christmas Ballet",
+   "meta": "Mountain View Center for the Performing Arts · also in SF through Dec 24 · from $75",
+   "cat": "show",
+   "q": "Mountain View Center for the Performing Arts",
+   "url": "https://www.smuinballet.org/smuin-on-tour",
+   "start": "2026-12-03",
+   "end": "2026-12-03",
+   "lat": 37.3893,
+   "lon": -122.0817,
+   "id": "smuin-s-the-christmas-ballet",
+   "n": 42
+  },
+  {
+   "sec": "early-dec",
+   "when": "Thu Dec 3 · 7pm",
+   "title": "Mostly Kosher holiday concert",
+   "meta": "Sunset Center, Carmel · klezmer & Jewish soul",
+   "cat": "show",
+   "q": "Sunset Center Carmel",
+   "url": "https://concertfix.com/concerts/carmel-by-the-sea-ca+december-2026",
+   "start": "2026-12-03",
+   "end": "2026-12-03",
+   "lat": 36.5547,
+   "lon": -121.9213,
+   "id": "mostly-kosher-holiday-concert",
+   "n": 43
+  },
+  {
+   "n": 44,
    "sec": "early-dec",
    "when": "Fri Dec 4 · 6–8pm",
    "title": "Los Altos Holiday Tree Celebration",
@@ -553,12 +701,12 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 35,
+   "n": 45,
    "sec": "early-dec",
    "when": "Dec 4–27",
    "title": "SF Ballet's The Nutcracker",
    "meta": "War Memorial Opera House · Ticketed",
-   "cat": "evt",
+   "cat": "show",
    "lat": 37.7782,
    "lon": -122.421,
    "q": "War Memorial Opera House",
@@ -585,7 +733,7 @@ window.WF_DATA = {
     "sun"
    ],
    "id": "christmas-on-the-wharf",
-   "n": 36
+   "n": 46
   },
   {
    "sec": "early-dec",
@@ -600,7 +748,7 @@ window.WF_DATA = {
    "start": "2026-12-04",
    "end": "2026-12-04",
    "id": "carmel-tree-lighting-carmel-plaza-holiday-party",
-   "n": 37
+   "n": 47
   },
   {
    "sec": "early-dec",
@@ -615,10 +763,25 @@ window.WF_DATA = {
    "start": "2026-12-04",
    "end": "2026-12-04",
    "id": "downtown-monterey-tree-lighting",
-   "n": 38
+   "n": 48
   },
   {
-   "n": 39,
+   "sec": "early-dec",
+   "when": "Fri Dec 4 · 8pm",
+   "title": "Squirrel Nut Zippers",
+   "meta": "Golden State Theatre, Monterey · from ~$51",
+   "cat": "show",
+   "q": "Golden State Theatre Monterey",
+   "url": "https://concertfix.com/concerts/monterey-ca+december-2026",
+   "start": "2026-12-04",
+   "end": "2026-12-04",
+   "lat": 36.5998,
+   "lon": -121.8946,
+   "id": "squirrel-nut-zippers",
+   "n": 49
+  },
+  {
+   "n": 50,
    "sec": "early-dec",
    "when": "Sat Dec 5",
    "title": "Caltrain Holiday Train",
@@ -633,7 +796,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 40,
+   "n": 51,
    "sec": "early-dec",
    "when": "Sat Dec 5",
    "title": "Swedish Christmas Fair (SWEA)",
@@ -648,7 +811,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 41,
+   "n": 52,
    "sec": "early-dec",
    "when": "Sat Dec 5 · 6pm",
    "title": "MAPP art, poetry & music crawl",
@@ -663,7 +826,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 42,
+   "n": 53,
    "sec": "early-dec",
    "when": "Dec 5–6",
    "title": "Mercatino di Natale (Italian Christmas market)",
@@ -678,7 +841,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 43,
+   "n": 54,
    "sec": "early-dec",
    "when": "Dec 5–6",
    "title": "Sunset Holiday Mercantile",
@@ -705,7 +868,7 @@ window.WF_DATA = {
    "start": "2026-12-05",
    "end": "2026-12-05",
    "id": "downtown-santa-cruz-holiday-parade",
-   "n": 44
+   "n": 55
   },
   {
    "sec": "early-dec",
@@ -720,10 +883,10 @@ window.WF_DATA = {
    "start": "2026-12-05",
    "end": "2026-12-05",
    "id": "santa-cruz-lighted-boat-parade",
-   "n": 45
+   "n": 56
   },
   {
-   "n": 46,
+   "n": 57,
    "sec": "early-dec",
    "when": "Sun Dec 6",
    "title": "SFMOMA Holiday Makers Market",
@@ -738,7 +901,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 47,
+   "n": 58,
    "sec": "early-dec",
    "when": "Sun Dec 6 · 12–5pm",
    "title": "Castro Art Mart",
@@ -765,10 +928,69 @@ window.WF_DATA = {
    "start": "2026-12-06",
    "end": "2026-12-06",
    "id": "brighten-the-harbor-lighted-boat-parade",
-   "n": 48
+   "n": 59
   },
   {
-   "n": 49,
+   "sec": "early-dec",
+   "when": "Sun Dec 6",
+   "title": "SF Symphony: Deck the Hall",
+   "meta": "Davies Symphony Hall, San Francisco · family holiday sing-along concert",
+   "cat": "show",
+   "q": "Davies Symphony Hall",
+   "url": "https://san-francisco.events/event/deck-the-hall-holiday-concert/",
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "lat": 37.7777,
+   "lon": -122.4205,
+   "id": "sf-symphony-deck-the-hall",
+   "n": 60
+  },
+  {
+   "sec": "early-dec",
+   "when": "Sun Dec 6 · 2:30pm",
+   "title": "Hélène Grimaud piano recital",
+   "meta": "Bing Concert Hall, Stanford",
+   "cat": "show",
+   "q": "Bing Concert Hall Stanford",
+   "url": "https://www.tickpick.com/buy-helene-grimaud-piano-recital-tickets-bing-concert-hall-12-6-26-2pm/8203198/",
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "lat": 37.4326,
+   "lon": -122.1653,
+   "id": "helene-grimaud-piano-recital",
+   "n": 61
+  },
+  {
+   "sec": "early-dec",
+   "when": "Sun Dec 6 · 7pm",
+   "title": "Pink Martini All-Stars: A Season of Stars",
+   "meta": "Sunset Center, Carmel",
+   "cat": "show",
+   "q": "Sunset Center Carmel",
+   "url": "https://concertfix.com/concerts/carmel-by-the-sea-ca+december-2026",
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "lat": 36.5547,
+   "lon": -121.9213,
+   "id": "pink-martini-all-stars-a-season-of-stars",
+   "n": 62
+  },
+  {
+   "sec": "mid-dec",
+   "when": "Mon Dec 7",
+   "title": "The Bad Plus: farewell tour",
+   "meta": "Kuumbwa Jazz Center, Santa Cruz",
+   "cat": "show",
+   "q": "Kuumbwa Jazz Center",
+   "start": "2026-12-07",
+   "end": "2026-12-07",
+   "lat": 36.9714,
+   "lon": -122.0263,
+   "id": "the-bad-plus-farewell-tour",
+   "n": 63
+  },
+  {
+   "n": 64,
    "sec": "mid-dec",
    "when": "Dec 8–27",
    "title": "Winter Walk + Patchwork Show makers",
@@ -795,10 +1017,40 @@ window.WF_DATA = {
    "start": "2026-12-08",
    "end": "2026-12-08",
    "id": "holiday-at-the-inns",
-   "n": 50
+   "n": 65
   },
   {
-   "n": 51,
+   "sec": "mid-dec",
+   "when": "Wed Dec 9",
+   "title": "Canadian Brass: Making Spirits Bright",
+   "meta": "Bing Concert Hall, Stanford",
+   "cat": "show",
+   "q": "Bing Concert Hall Stanford",
+   "url": "https://visitsiliconvalley.org/events/presented-by-stanford-live-canadian-brass-making-spirits-bright",
+   "start": "2026-12-09",
+   "end": "2026-12-09",
+   "lat": 37.4326,
+   "lon": -122.1653,
+   "id": "canadian-brass-making-spirits-bright",
+   "n": 66
+  },
+  {
+   "sec": "mid-dec",
+   "when": "Wed Dec 9 · 7:30pm",
+   "title": "SF Symphony: Home for the Holidays",
+   "meta": "Davies Symphony Hall, San Francisco",
+   "cat": "show",
+   "q": "Davies Symphony Hall",
+   "url": "https://www.eventticketscenter.com/home-for-the-holidays-san-francisco-tickets/1465474/e",
+   "start": "2026-12-09",
+   "end": "2026-12-09",
+   "lat": 37.7777,
+   "lon": -122.4205,
+   "id": "sf-symphony-home-for-the-holidays",
+   "n": 67
+  },
+  {
+   "n": 68,
    "sec": "mid-dec",
    "when": "Thu Dec 10 & 17 · 4–8pm",
    "title": "European-style Holiday Market",
@@ -816,6 +1068,21 @@ window.WF_DATA = {
   },
   {
    "sec": "mid-dec",
+   "when": "Thu Dec 10",
+   "title": "A Chanticleer Christmas",
+   "meta": "Stanford Live, Stanford · men's choir holiday classic",
+   "cat": "show",
+   "q": "Stanford University Memorial Church",
+   "url": "https://www.broadwayworld.com/article/Stanford-Live-to-Present-50-Artists-Across-Music-Dance-Theater-in-202627-Season-20260507",
+   "start": "2026-12-10",
+   "end": "2026-12-10",
+   "lat": 37.4326,
+   "lon": -122.1653,
+   "id": "a-chanticleer-christmas",
+   "n": 69
+  },
+  {
+   "sec": "mid-dec",
    "when": "Fri–Sat, Dec 11–12 · 5–9pm",
    "title": "Christmas in the Adobes",
    "meta": "Historic Old Monterey · 20+ adobes lit with luminarias, music, history · Ticketed",
@@ -827,10 +1094,55 @@ window.WF_DATA = {
    "start": "2026-12-11",
    "end": "2026-12-12",
    "id": "christmas-in-the-adobes",
-   "n": 52
+   "n": 70
   },
   {
-   "n": 53,
+   "sec": "mid-dec",
+   "when": "Fri Dec 11 · 8pm",
+   "title": "Buckethead",
+   "meta": "Golden State Theatre, Monterey · from ~$54",
+   "cat": "show",
+   "q": "Golden State Theatre Monterey",
+   "url": "https://app.ckord.com/performances/1bc477b0-a475-401c-ad97-7796a0d207e2",
+   "start": "2026-12-11",
+   "end": "2026-12-11",
+   "lat": 36.5998,
+   "lon": -121.8946,
+   "id": "buckethead",
+   "n": 71
+  },
+  {
+   "sec": "mid-dec",
+   "when": "Dec 11–13",
+   "title": "Monterey Peninsula Ballet: The Nutcracker",
+   "meta": "Sunset Center, Carmel",
+   "cat": "show",
+   "q": "Sunset Center Carmel",
+   "url": "https://www.tickpick.com/buy-monterey-peninsula-ballet-the-nutcracker-tickets-sunset-center-12-12-26-7pm/8091650/",
+   "start": "2026-12-11",
+   "end": "2026-12-13",
+   "lat": 36.5547,
+   "lon": -121.9213,
+   "id": "monterey-peninsula-ballet-the-nutcracker",
+   "n": 72
+  },
+  {
+   "sec": "mid-dec",
+   "when": "Fri–Sat, Dec 11–12",
+   "title": "The Night Before Christmas (Peninsula Youth Theatre)",
+   "meta": "Mountain View Center for the Performing Arts SecondStage · family show",
+   "cat": "show",
+   "q": "Mountain View Center for the Performing Arts",
+   "url": "https://pytnet.org/boxoffice/the-night-before-christmas/",
+   "start": "2026-12-11",
+   "end": "2026-12-12",
+   "lat": 37.3893,
+   "lon": -122.0817,
+   "id": "pyt-the-night-before-christmas",
+   "n": 73
+  },
+  {
+   "n": 74,
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 10am–6pm",
    "title": "Hometown Holidays",
@@ -845,7 +1157,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 54,
+   "n": 75,
    "sec": "mid-dec",
    "when": "Sat Dec 12",
    "title": "German Holiday Market",
@@ -860,7 +1172,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 55,
+   "n": 76,
    "sec": "mid-dec",
    "when": "Sat Dec 12",
    "title": "Black Holiday Market",
@@ -875,7 +1187,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 56,
+   "n": 77,
    "sec": "mid-dec",
    "when": "Dec 12–13",
    "title": "SJMADE Winter Wonder Market",
@@ -890,7 +1202,67 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 57,
+   "sec": "mid-dec",
+   "when": "Sat Dec 12 · 7:30pm",
+   "title": "The Wooten Brothers",
+   "meta": "Rio Theatre, Santa Cruz · $47–80",
+   "cat": "show",
+   "q": "Rio Theatre Santa Cruz",
+   "url": "https://www.kuumbwajazz.org/calendar/the-wooten-brothers-at-the-rio-theatre/",
+   "start": "2026-12-12",
+   "end": "2026-12-12",
+   "lat": 36.9775,
+   "lon": -122.0105,
+   "id": "the-wooten-brothers",
+   "n": 78
+  },
+  {
+   "sec": "mid-dec",
+   "when": "Sun Dec 13 · 4pm",
+   "title": "A Christmas Show with Camila Fernández",
+   "meta": "Bing Concert Hall, Stanford · from ~$64",
+   "cat": "show",
+   "q": "Bing Concert Hall Stanford",
+   "url": "https://www.eventworld.com/camila-fernandez-stanford-tickets-12-13-2026/event/496558",
+   "start": "2026-12-13",
+   "end": "2026-12-13",
+   "lat": 37.4326,
+   "lon": -122.1653,
+   "id": "camila-fernandez-christmas-show",
+   "n": 79
+  },
+  {
+   "sec": "mid-dec",
+   "when": "Mon Dec 14 · 7pm",
+   "title": "Christian Sands Trio: Christmas Stories",
+   "meta": "Kuumbwa Jazz Center, Santa Cruz · $41",
+   "cat": "show",
+   "q": "Kuumbwa Jazz Center",
+   "url": "https://www.kuumbwajazz.org/calendar/christian-sands-trio",
+   "start": "2026-12-14",
+   "end": "2026-12-14",
+   "lat": 36.9714,
+   "lon": -122.0263,
+   "id": "christian-sands-trio-christmas-stories",
+   "n": 80
+  },
+  {
+   "sec": "mid-dec",
+   "when": "Thu Dec 17 · 7:30pm",
+   "title": "SF Symphony: Holiday Gaiety",
+   "meta": "Davies Symphony Hall, San Francisco · from ~$74",
+   "cat": "show",
+   "q": "Davies Symphony Hall",
+   "url": "https://san-francisco.events/concerts/holiday-gaiety/",
+   "start": "2026-12-17",
+   "end": "2026-12-17",
+   "lat": 37.7777,
+   "lon": -122.4205,
+   "id": "sf-symphony-holiday-gaiety",
+   "n": 81
+  },
+  {
+   "n": 82,
    "sec": "mid-dec",
    "when": "Fri Dec 18 · 5–10pm",
    "title": "Fort Mason Night Market",
@@ -905,7 +1277,7 @@ window.WF_DATA = {
    "end": "2026-12-18"
   },
   {
-   "n": 58,
+   "n": 83,
    "sec": "mid-dec",
    "when": "Sat Dec 19",
    "title": "Head West market (encore)",
@@ -920,7 +1292,21 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 59,
+   "sec": "mid-dec",
+   "when": "Tue Dec 22",
+   "title": "Dave Koz & Friends Christmas Tour",
+   "meta": "San Jose Civic · smooth-jazz holiday show",
+   "cat": "show",
+   "q": "San Jose Civic",
+   "start": "2026-12-22",
+   "end": "2026-12-22",
+   "lat": 37.3305,
+   "lon": -121.8885,
+   "id": "dave-koz-friends-christmas-tour",
+   "n": 84
+  },
+  {
+   "n": 85,
    "sec": "jan",
    "when": "Thu Dec 31",
    "title": "New Year's Eve on the SF waterfront",
@@ -947,10 +1333,10 @@ window.WF_DATA = {
    "start": "2026-12-31",
    "end": "2026-12-31",
    "id": "first-night-monterey",
-   "n": 60
+   "n": 86
   },
   {
-   "n": 61,
+   "n": 87,
    "sec": "jan",
    "when": "Sun Jan 10",
    "title": "Last day for Filoli (#6) and San Mateo on Ice (#2)",
@@ -962,7 +1348,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 62,
+   "n": 88,
    "sec": "tbc",
    "when": "Usually 1st Fri of Dec",
    "title": "San Carlos Night of Holiday Lights",
@@ -976,7 +1362,7 @@ window.WF_DATA = {
    "url": "https://www.cityofsancarlos.org/residents/community-events/night-of-holiday-lights"
   },
   {
-   "n": 63,
+   "n": 89,
    "sec": "tbc",
    "when": "Usually Dec 1–25 · 5–10pm",
    "title": "Eucalyptus Ave \"Christmas Tree Lane\" lights",
@@ -990,7 +1376,7 @@ window.WF_DATA = {
    "url": "https://sancarloslife.com/san-carlos-holiday-2024-events-things-to-do/"
   },
   {
-   "n": 64,
+   "n": 90,
    "sec": "tbc",
    "when": "Early December",
    "title": "Burlingame tree lighting & Winterfest",
@@ -1004,7 +1390,7 @@ window.WF_DATA = {
    "url": "https://business.burlingamechamber.org/news/details/holiday-tree-lighting"
   },
   {
-   "n": 65,
+   "n": 91,
    "sec": "tbc",
    "when": "Mid-December",
    "title": "Half Moon Bay Lighted Boat Festival + drone show",
@@ -1018,7 +1404,7 @@ window.WF_DATA = {
    "url": "https://www.visithalfmoonbay.org/events/harbor-boat-lighting"
   },
   {
-   "n": 66,
+   "n": 92,
    "sec": "tbc",
    "when": "All December",
    "title": "Palo Alto's Christmas Tree Lane",
@@ -1043,10 +1429,10 @@ window.WF_DATA = {
    "q": "Capitola Village",
    "url": "https://www.cityofcapitola.org/node/23163",
    "id": "capitola-village-tree-lighting",
-   "n": 67
+   "n": 93
   },
   {
-   "n": 68,
+   "n": 94,
    "sec": "dog",
    "when": "Saturdays · 11am–4pm",
    "title": "Muttville senior-dog adoption events",
@@ -1063,7 +1449,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 69,
+   "n": 95,
    "sec": "dog",
    "when": "Late Nov – Dec 31",
    "title": "SF SPCA Holiday Windows at Macy's",
@@ -1077,7 +1463,7 @@ window.WF_DATA = {
    "url": "https://www.sfspca.org/holiday"
   },
   {
-   "n": 70,
+   "n": 96,
    "sec": "dog",
    "when": "December",
    "title": "Santa pet photos at Peninsula Humane Society",
@@ -1091,7 +1477,7 @@ window.WF_DATA = {
    "url": "https://www.smdailyjournal.com/news/local/peninsula-humane-society-hosting-three-santa-paws-photo-dates/article_deecff44-35cd-5d26-815b-9b46576a12f5.html"
   },
   {
-   "n": 71,
+   "n": 97,
    "sec": "dog",
    "when": "Any day",
    "title": "Crissy Field East Beach",
@@ -1104,7 +1490,7 @@ window.WF_DATA = {
    "url": "https://www.dogster.com/lifestyle/dog-friendly-activities-san-francisco/"
   },
   {
-   "n": 72,
+   "n": 98,
    "sec": "food",
    "when": "Through Dec 6 · 1–4pm",
    "title": "Flour + Water pizza class",
@@ -1119,7 +1505,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 73,
+   "n": 99,
    "sec": "food",
    "when": "Various dates",
    "title": "North Beach Pizza Experience",
@@ -1132,7 +1518,7 @@ window.WF_DATA = {
    "url": "https://luma.com/d9w1fniq"
   },
   {
-   "n": 74,
+   "n": 100,
    "sec": "food",
    "when": "Various dates",
    "title": "Neapolitan pizza with Chef James",
@@ -1145,7 +1531,7 @@ window.WF_DATA = {
    "url": "https://assets.classbento.com/neapolitan-pizza-making-class-san-francisco"
   },
   {
-   "n": 75,
+   "n": 101,
    "sec": "food",
    "when": "Various dates",
    "title": "New York–style pizza with Chef Daniel",
@@ -1158,7 +1544,7 @@ window.WF_DATA = {
    "url": "https://www.cozymeal.com/lp/pizza-making-classes-in-san-francisco"
   },
   {
-   "n": 76,
+   "n": 102,
    "sec": "food",
    "when": "Various dates",
    "title": "Pizza making at The Cheese School of SF",
@@ -1171,7 +1557,7 @@ window.WF_DATA = {
    "url": "https://coursetakers.com/course/pizza-making-by-the-cheese-school-of-san-francisco"
   },
   {
-   "n": 77,
+   "n": 103,
    "sec": "food",
    "when": "Mondays · 1pm",
    "title": "Counter Culture catalog cupping",
@@ -1184,7 +1570,7 @@ window.WF_DATA = {
    "url": "https://www.eventbrite.com/d/ca--emeryville/coffee-cupping/"
   },
   {
-   "n": 78,
+   "n": 104,
    "sec": "radar",
    "when": "Late April 2027",
    "title": "Bay Area Pizza Week",
@@ -1194,7 +1580,7 @@ window.WF_DATA = {
    "url": "https://www.metrosiliconvalley.com/?p=20189370"
   },
   {
-   "n": 79,
+   "n": 105,
    "sec": "radar",
    "when": "Mid-Aug / Early Nov 2027",
    "title": "SF Pizza, Bagel & Beer Fest · SF Coffee Festival",
