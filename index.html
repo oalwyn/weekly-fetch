@@ -703,7 +703,7 @@ document.addEventListener("click", ev=>{
   else if (t.hasAttribute("data-sendlink")){
     const link = picksLink(); const out = document.getElementById("copyout");
     const fallback = ()=>{ out.innerHTML = `<p class="ournote">Copy this link and open it on the other device, or text it to someone:</p><textarea class="copyarea" readonly rows="3"></textarea>`; const ta=out.querySelector("textarea"); ta.value=link; ta.focus(); ta.select(); };
-    try { navigator.clipboard.writeText(link).then(()=>{ t.textContent="Link copied ✓"; out.innerHTML=`<p class="ournote">Link copied. Paste it into a text to your wife, or open it on your other device.</p>`; setTimeout(()=>t.textContent="Share my picks",2500); }, fallback); } catch(e) { fallback(); }
+    try { navigator.clipboard.writeText(link).then(()=>{ t.textContent="Link copied ✓"; out.innerHTML=`<p class="ournote">Link copied. Paste it into a text to someone you plan with, or open it on your other device.</p>`; setTimeout(()=>t.textContent="Share my picks",2500); }, fallback); } catch(e) { fallback(); }
   }
   else if (t.hasAttribute("data-copy")){
     const txt = listText(); const out = document.getElementById("copyout");
