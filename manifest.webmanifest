@@ -1,6 +1,6 @@
 {
-  "name": "The Weekly Fetch",
-  "short_name": "Weekly Fetch",
+  "name": "The Bay Area Weekend Fetch",
+  "short_name": "Weekend Fetch",
   "description": "Bay Area events, holiday markets, dog walks, pizza and coffee, from SF to Mountain View.",
   "scope": "./",
   "display": "standalone",

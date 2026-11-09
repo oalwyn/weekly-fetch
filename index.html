@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="apple-mobile-web-app-title" content="Weekly Fetch">
+<meta name="apple-mobile-web-app-title" content="Weekend Fetch">
 <meta name="theme-color" content="#2F5D8A">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -11,7 +11,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" href="icon-192.png">
-<title>The Weekly Fetch</title>
+<title>The Bay Area Weekend Fetch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -108,6 +108,7 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .dseg button{flex:1;border:0;background:transparent;border-radius:9px;padding:9px 4px;font-weight:600;font-size:14px;min-height:42px;color:var(--ink)}
 .dseg button[aria-pressed="true"]{background:var(--warm);color:#fff}
 .fdone{display:flex;gap:8px;justify-content:flex-end}
+.nb{white-space:nowrap}
 .slogan{font-size:15px;font-weight:500;color:#E3ECF5;margin:2px 0 14px;font-style:italic}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .distsel{position:relative;padding:0;display:flex;align-items:center}.distsel select{appearance:none;-webkit-appearance:none;border:0;background:transparent;font:inherit;font-weight:600;color:inherit;padding:8px 30px 8px 14px;min-height:38px;border-radius:999px}
@@ -163,7 +164,7 @@ footer{font-size:13px}
 <div class="app">
 <header id="hdr">
   <div class="kicker">San Francisco → Santa Cruz → Carmel</div>
-  <h1>The Weekly Fetch</h1>
+  <h1>The Bay Area <span class="nb">Weekend Fetch</span></h1>
   <p class="slogan">Get up, get out, go fetch the weekend. 🐾</p>
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" data-view="events" aria-selected="true"><span class="ti">📅</span>Events</button>
@@ -485,7 +486,7 @@ function renderOurList(){
 function listText(){
   const {cur} = ourListItems(), P = planGroups(cur);
   const line = e => { const t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(am|pm)/i); return `${e.title}${t?" "+t[0]:""} (${(e.meta||"").split(" · ")[0]})`; };
-  let t = "Our weekend plans (The Weekly Fetch)\n";
+  let t = "Our weekend plans (The Bay Area Weekend Fetch)\n";
   for (const g of P.groups){
     const keys = Object.keys(g.days); if (!keys.some(k=>g.days[k].length) && !g.maybe.length) continue;
     t += `\n${g.title} (${fmtRange(g.w.fri,g.w.sun)})\n`;

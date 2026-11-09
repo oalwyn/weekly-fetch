@@ -1,4 +1,4 @@
-# The Weekly Fetch
+# The Bay Area Weekend Fetch
 
 Bay Area events, holiday markets, dog walks, pizza and coffee, from San Francisco down to Mountain View.
 
