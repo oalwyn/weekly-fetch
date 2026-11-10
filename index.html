@@ -48,7 +48,7 @@ main{flex:1;padding:0 12px 40px}
 .num{font-size:11px;font-weight:600;color:var(--mute)}
 .tag{font-size:11px;font-weight:600;border-radius:999px;padding:3px 9px}
 .c-hol{background:#FBE9E1;color:#8A3A14}.c-mkt{background:#E6EEF6;color:#1F4A73}.c-dog{background:#E3F2EA;color:#1F6B4A}
-.c-walk{background:#DDF1F1;color:#0B5E61}.c-food{background:#FFF1D6;color:#7A4E00}.c-art{background:#EEE8F6;color:#4E3A78}.c-evt{background:#EEF2F5;color:#1B2430}.c-show{background:#FBE6EE;color:#8A1F4C}
+.c-walk{background:#DDF1F1;color:#0B5E61}.c-food{background:#FFF1D6;color:#7A4E00}.c-art{background:#EEE8F6;color:#4E3A78}.c-evt{background:#EEF2F5;color:#1B2430}.c-show{background:#FBE6EE;color:#8A1F4C}.c-kids{background:#E8F4DC;color:#3B6B17}.c-teen{background:#E6E9F7;color:#3A47A0}.c-prog{background:#F1E9E5;color:#5D4037}
 .plan-h{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:12px 6px 6px}.plan-h.locked{color:#1E7A4C}
 .card.locked{box-shadow:inset 4px 0 0 #2E8B5E}
 .lockrow{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
@@ -201,7 +201,7 @@ try { const h = JSON.parse(localStorage.getItem("wf-home") || "null"); if (h && 
 const BBOX = [36.45, 37.94, -122.64, -121.55];
 const MAP_W = 1000, MAP_H = 1716;
 const COAST = "M545,563L547,561L549,554L555,553L556,550L555,547L551,547L547,554L544,553L542,550L540,519L537,517L521,515L513,507L494,507L490,505L488,503L487,472L474,456L472,443L465,437L458,428L456,415L450,407L450,351L449,347L443,340L442,319L421,292L418,279L406,267L400,267L394,273L392,273L386,268L376,265L367,254L364,241L351,235L350,216L347,210L330,208L324,201L315,198L308,190L292,189L283,178L282,170L283,146L285,143L293,141L296,137L297,126L301,124L309,122L312,115L312,101L310,97L308,97L301,103L297,99L297,80L304,71L301,67L293,65L290,63L289,44L287,40L284,40L278,46L268,48L263,55L259,56L254,55L247,47L232,46L229,42L227,23L224,21L218,26L215,26L213,23L211,11L206,6L205,0L202,-1L154,-1L151,0L150,5L148,8L131,10L129,13L132,17L147,19L150,21L157,31L160,44L173,50L190,73L197,78L204,88L205,92L203,101L197,104L184,103L182,99L181,90L179,87L176,88L170,94L162,94L152,82L150,69L142,59L139,59L137,65L137,80L150,97L152,110L157,116L158,120L157,129L152,137L151,145L152,149L157,152L175,152L179,150L186,143L204,142L209,144L215,151L225,153L235,166L236,185L242,195L243,215L250,221L253,235L264,250L264,254L256,264L252,265L250,260L247,258L244,260L242,266L233,267L229,271L235,281L236,300L241,307L242,311L242,338L236,349L239,353L249,355L264,376L263,381L255,384L252,387L260,399L265,402L301,402L304,407L306,417L309,420L351,421L356,422L369,439L376,441L379,443L381,454L383,458L408,461L410,464L412,475L418,481L436,505L442,507L446,506L454,498L465,497L470,499L473,504L474,521L479,529L482,542L485,544L492,546L506,563L513,564L545,563Z M648,1716L649,1710L654,1703L654,1699L642,1683L641,1653L634,1645L632,1640L633,1634L635,1631L651,1629L654,1626L654,1622L649,1615L648,1596L644,1592L628,1590L612,1569L612,1565L617,1559L619,1546L624,1540L627,1527L630,1525L638,1523L640,1520L642,1502L644,1497L651,1496L658,1504L669,1506L689,1532L701,1534L708,1531L718,1517L724,1512L739,1493L741,1480L746,1472L748,1461L755,1453L756,1424L762,1416L763,1413L763,1374L770,1365L771,1336L778,1329L779,1325L778,1287L764,1271L762,1259L756,1250L755,1240L741,1224L739,1211L727,1195L725,1183L717,1175L715,1162L692,1132L682,1130L674,1122L659,1120L654,1115L651,1114L646,1120L635,1123L624,1138L621,1140L599,1140L590,1131L578,1131L573,1134L571,1145L569,1148L566,1147L561,1141L555,1141L551,1142L544,1150L528,1150L521,1149L513,1141L492,1140L483,1131L467,1130L447,1104L436,1101L424,1085L414,1082L408,1075L397,1071L388,1057L381,1052L374,1042L358,1017L351,1012L349,998L334,979L328,973L318,960L313,957L292,956L281,941L274,935L271,922L260,916L258,905L252,896L250,884L247,881L231,880L222,868L220,856L212,848L212,828L206,821L204,809L199,800L204,790L206,779L211,771L206,762L211,754L212,748L212,645L199,628L197,615L190,609L188,596L182,588L181,569L176,561L175,557L173,529L166,519L155,508L127,507L123,505L121,502L120,491L114,483L113,472L107,467L106,464L113,454L114,431L112,424L105,416L105,397L108,393L116,392L120,389L127,380L128,374L128,283L121,269L121,225L114,212L114,178L115,174L117,172L132,170L136,168L143,158L144,147L141,144L138,142L106,142L100,141L82,116L77,112L72,105L63,103L56,95L47,93L34,77L16,74L5,59L0,57L-1,1716L648,1716Z M256,159L254,159L252,157L250,145L243,137L243,130L245,125L250,126L258,137L258,155L256,159Z";
-const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},evt:{label:"Events",color:"#4A5562"}};
+const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Teen programs",color:"#8D6E63"},evt:{label:"Events",color:"#4A5562"}};
 const SECTIONS = (WF.sections || [["week","This week"]]).slice();
 { const i = SECTIONS.findIndex(s=>s[0]==="dog"); SECTIONS.splice(i>=0?i+1:1, 0, ["walks","Dog walks · closest to home first"]); }
 const VIEWS = ["events","map","our-list"];
@@ -228,7 +228,7 @@ function occurs(e, a, b){
   if (e.days){ for (let t = new Date(Math.max(+a,+s)); t<=b && t<=en; t = addD(t,1)) if (e.days.includes(DAYN[t.getDay()])) return "ongoing"; return null; }
   return (en - s)/DAYMS > 3 ? "ongoing" : "main";
 }
-const isPast = e => { const last = e.dates ? parseD(e.dates[e.dates.length-1]) : (e.end ? parseD(e.end) : (e.start && !e.days ? parseD(e.start) : null)); return last && last < TODAY; };
+const isPast = e => { if (e.deadline && parseD(e.deadline) < TODAY) return true; const last = e.dates ? parseD(e.dates[e.dates.length-1]) : (e.end ? parseD(e.end) : (e.start && !e.days ? parseD(e.start) : null)); return last && last < TODAY; };
 const startOf = e => e.dates ? parseD(e.dates[0]) : (e.start ? parseD(e.start) : null);
 const ord = n => n + ((n%100>=11&&n%100<=13) ? "th" : ["th","st","nd","rd"][n%10] || "th");
 const wkTitle = w => `${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())} Weekend`;
@@ -339,7 +339,10 @@ function segHTML(){
   return `<div class="seg" role="group" aria-label="Group events"><button data-group="date" aria-pressed="${state.group==='date'}">By date</button><button data-group="weekend" aria-pressed="${state.group==='weekend'}">By weekend</button></div>`;
 }
 function renderByWeekend(){
-  const items = filtered().filter(e=>!isPast(e));
+  const all = filtered().filter(e=>!isPast(e));
+  const progs = all.filter(e=>e.cat==="prog");
+  const items = all.filter(e=>e.cat!=="prog");
+  if (state.cat==="prog") return progs.length ? band("wk-progs","Teen winter & summer programs","Sorted by application deadline · apply ahead","#6D4C41") + progs.map(e=>cardHTML(e)).join("") : `<div class="empty">No programs right now.</div>`;
   const W = weekends(), lastSun = W[3].sun;
   const used = new Set();
   const byStart = (a,b)=> (startOf(a)||0)-(startOf(b)||0);
@@ -360,6 +363,7 @@ function renderByWeekend(){
   if (tbc.length){ h += ``+band("",`Dates not posted yet`,`Usually happen in December`)+`` + tbc.map(compactHTML).join(""); tbc.forEach(e=>used.add(e.id)); }
   const any = items.filter(e=>!used.has(e.id) && e.cat!=="walk");
   if (any.length) h += ``+band("",`Any weekend`,`Classes and recurring things you can book or do most weekends`)+`` + any.map(compactHTML).join("");
+  if (progs.length) h += band("wk-progs","Teen winter & summer programs","Sorted by application deadline · apply ahead","#6D4C41") + progs.map(e=>cardHTML(e)).join("");
   const walks = items.filter(e=>!used.has(e.id) && e.cat==="walk");
   if (walks.length) h += ``+band("",`Dog walks`,`Always on · closest to home first`)+`` + walks.map(compactHTML).join("");
   return h || `<div class="empty">No events match these filters.</div>`;
@@ -427,13 +431,14 @@ function planGroups(cur){
   const groups = W.map((w,i)=>({id:"wk-"+i, wk:true, w, i, title: wkTitle(w), sub: wkWhen(w,i), days:{[ymd(w.fri)]:[],[ymd(w.sat)]:[],[ymd(w.sun)]:[]}, maybe:[]}));
   const wn = {id:"wk-wn", title:"Weeknights", sub:"Mon–Thu, before "+MON[lastSun.getMonth()]+" "+lastSun.getDate(), locked:[], maybe:[]};
   const later = {id:"wk-later", title:"Later", sub:"After "+MON[lastSun.getMonth()]+" "+lastSun.getDate(), locked:[], maybe:[]};
-  const flex = [], any = [];
+  const flex = [], any = [], dl = [];
   for (const e of cur){
     const k = lockKey(e.id);
     if (k && parseD(k) >= TODAY){
       if (wkDays.has(k)){ groups.find(g=>k in g.days).days[k].push({e,k}); continue; }
       (parseD(k) <= lastSun ? wn : later).locked.push({e,k}); continue;
     }
+    if (e.cat==="prog"){ dl.push(e); continue; }
     if (e.cat==="walk"){ any.push(e); continue; }
     if (isLong(e) && W.some(w=>daysOf(e,w.fri,w.sun).length)){ flex.push(e); continue; }
     let placed = false;
@@ -447,7 +452,8 @@ function planGroups(cur){
   const byTime = (x,y)=> timeOf(x.e)-timeOf(y.e);
   groups.forEach(g=>{ for (const k in g.days) g.days[k].sort(byTime); g.maybe.sort((x,y)=>x.opts[0].localeCompare(y.opts[0])||byTime(x,y)); });
   for (const g of [wn,later]){ g.locked.sort((x,y)=>x.k.localeCompare(y.k)||byTime(x,y)); g.maybe.sort((x,y)=>x.opts[0].localeCompare(y.opts[0])); }
-  return {groups, flex, wn, later, any, W};
+  dl.sort((x,y)=>(x.deadline||"9999").localeCompare(y.deadline||"9999"));
+  return {groups, flex, wn, later, any, dl, W};
 }
 // controls: one day → a button; several → a "pick a day" menu
 function planCtl(e, opts){
@@ -497,6 +503,7 @@ function planHTML(cur, gone){
     h += P.flex.map(e=>planRow(e,planCtl(e,allWkOpts(e,P.W)))).join("");
   }
   h += listGroupHTML(P.wn) + listGroupHTML(P.later);
+  if (P.dl.length) h += band("wk-dl","Deadlines to remember","Teen programs you starred, soonest first","#6D4C41") + P.dl.map(e=>planRow(e,"")).join("");
   if (P.any.length) h += ``+band("",`Anytime`,`Walks, classes and things without a date yet`)+`` + P.any.map(compactHTML).join("");
   if (gone.length) h += `<div class="section-h">Earlier picks</div>` + gone.map(e=>cardHTML(e,true)).join("");
   return h;
@@ -523,6 +530,7 @@ function listText(){
     g.locked.forEach(({e,k})=>t += `  ✓ ${dayLabel(k)}: ${line(e)}\n`);
     g.maybe.forEach(({e})=>t += `  ? ${line(e)}\n`);
   }
+  if (P.dl.length) t += `\nDeadlines\n` + P.dl.map(e=>`  ! ${e.title}: ${e.when}\n`).join("");
   if (P.flex.length) t += `\nStill to pick a day\n` + P.flex.map(e=>`  ? ${e.title} (${e.when})\n`).join("");
   return t;
 }

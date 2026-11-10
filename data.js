@@ -34,6 +34,10 @@ window.WF_DATA = {
    "Pizza & coffee"
   ],
   [
+   "programs",
+   "Teen winter & summer programs · by deadline"
+  ],
+  [
    "radar",
    "On the radar for 2027"
   ]
@@ -263,7 +267,25 @@ window.WF_DATA = {
    "n": 15
   },
   {
-   "n": 16,
+   "id": "mv-teen-open-gym",
+   "sec": "week",
+   "cat": "teen",
+   "when": "Saturdays · 6:30–9:30pm",
+   "title": "Teen Open Gym (free)",
+   "meta": "Whisman Sports Center, Mountain View · basketball, volleyball, indoor soccer for MV & Los Altos middle/high schoolers · bring student ID · check for holiday closures",
+   "q": "Whisman Sports Center Mountain View",
+   "lat": 37.3989,
+   "lon": -122.0607,
+   "url": "https://www.mountainview.gov/our-city/departments/community-services/recreation/youth-teens/teen-programs/teen-open-gym",
+   "start": "2026-11-14",
+   "end": "2027-01-09",
+   "days": [
+    "sat"
+   ],
+   "n": 16
+  },
+  {
+   "n": 17,
    "sec": "week",
    "when": "Sun Nov 15 · 1–4pm",
    "title": "Rocket Dog Urban Sanctuary open house",
@@ -292,10 +314,10 @@ window.WF_DATA = {
    "lat": 37.3893,
    "lon": -122.0817,
    "id": "the-wizard-of-oz-peninsula-youth-theatre",
-   "n": 17
+   "n": 18
   },
   {
-   "n": 18,
+   "n": 19,
    "sec": "late-nov",
    "when": "Wed Nov 18",
    "title": "Embarcadero Center Holiday Market + 40th building lighting",
@@ -322,10 +344,48 @@ window.WF_DATA = {
    "lat": 37.3327,
    "lon": -121.901,
    "id": "three-days-grace-i-prevail",
-   "n": 19
+   "n": 20
   },
   {
-   "n": 20,
+   "id": "niles-canyon-train-of-lights",
+   "sec": "late-nov",
+   "cat": "kids",
+   "when": "Select nights Nov 20 – Dec 29",
+   "title": "Niles Canyon Train of Lights",
+   "meta": "Sunol & Niles (Fremont) · night train through the canyon, each car decorated · tickets went on sale Oct 3 and usually sell out, so check for openings",
+   "q": "Sunol Depot, 6 Kilkare Rd, Sunol",
+   "lat": 37.5936,
+   "lon": -121.8886,
+   "url": "https://ncry.org/ride/train-of-lights",
+   "dates": [
+    "2026-11-20",
+    "2026-11-21",
+    "2026-11-22",
+    "2026-11-23",
+    "2026-11-28",
+    "2026-11-29",
+    "2026-12-02",
+    "2026-12-04",
+    "2026-12-05",
+    "2026-12-06",
+    "2026-12-09",
+    "2026-12-11",
+    "2026-12-12",
+    "2026-12-13",
+    "2026-12-16",
+    "2026-12-18",
+    "2026-12-19",
+    "2026-12-20",
+    "2026-12-21",
+    "2026-12-23",
+    "2026-12-27",
+    "2026-12-28",
+    "2026-12-29"
+   ],
+   "n": 21
+  },
+  {
+   "n": 22,
    "sec": "late-nov",
    "when": "Sat Nov 21",
    "title": "Head West market on South B Street",
@@ -340,7 +400,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 21,
+   "n": 23,
    "sec": "late-nov",
    "when": "Sat Nov 21",
    "title": "ART on the Square Holiday Show",
@@ -355,7 +415,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 22,
+   "n": 24,
    "sec": "late-nov",
    "when": "Nov 21–22",
    "title": "West Coast Craft",
@@ -370,7 +430,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 23,
+   "n": 25,
    "sec": "late-nov",
    "when": "Opens Sat Nov 21",
    "title": "Great Dickens Christmas Fair",
@@ -389,7 +449,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 24,
+   "n": 26,
    "sec": "late-nov",
    "when": "Opens Sat Nov 21",
    "title": "Après Village winter terrace",
@@ -416,7 +476,7 @@ window.WF_DATA = {
    "start": "2026-11-21",
    "end": "2026-11-21",
    "id": "surf-city-stroll-westside-wine-walk",
-   "n": 25
+   "n": 27
   },
   {
    "sec": "late-nov",
@@ -431,7 +491,7 @@ window.WF_DATA = {
    "start": "2026-11-21",
    "end": "2026-11-21",
    "id": "del-monte-center-christmas-tree-lighting",
-   "n": 26
+   "n": 28
   },
   {
    "sec": "late-nov",
@@ -446,7 +506,7 @@ window.WF_DATA = {
    "start": "2026-11-21",
    "end": "2026-12-27",
    "id": "winter-wonderfest-monterey",
-   "n": 27
+   "n": 29
   },
   {
    "sec": "late-nov",
@@ -461,10 +521,25 @@ window.WF_DATA = {
    "lat": 36.5998,
    "lon": -121.8946,
    "id": "joanne-shaw-taylor-with-robert-jon-the-wreck",
-   "n": 28
+   "n": 30
   },
   {
-   "n": 29,
+   "id": "gilroy-gardens-north-pole-nights",
+   "sec": "late-nov",
+   "cat": "kids",
+   "when": "Select dates Nov 21 – Dec 31",
+   "title": "North Pole Nights at Gilroy Gardens",
+   "meta": "Gilroy · Santa's Workshop, 100-ft light tunnel, live musical, rides · tickets from about $55 online",
+   "q": "Gilroy Gardens Family Theme Park",
+   "lat": 37.0062,
+   "lon": -121.6326,
+   "url": "https://www.gilroygardens.org/holiday",
+   "start": "2026-11-21",
+   "end": "2026-12-31",
+   "n": 31
+  },
+  {
+   "n": 32,
    "sec": "late-nov",
    "when": "Mon Nov 23",
    "title": "Supermoon night",
@@ -488,10 +563,10 @@ window.WF_DATA = {
    "start": "2026-11-26",
    "end": "2027-01-03",
    "id": "santa-cruz-beach-boardwalk-winter-wonderland",
-   "n": 30
+   "n": 33
   },
   {
-   "n": 31,
+   "n": 34,
    "sec": "late-nov",
    "when": "Opens Fri Nov 27",
    "title": "Christmas in the Park",
@@ -518,10 +593,41 @@ window.WF_DATA = {
    "start": "2026-11-27",
    "end": "2026-11-27",
    "id": "cannery-row-tree-lighting",
-   "n": 32
+   "n": 35
   },
   {
-   "n": 33,
+   "id": "santa-cruz-holiday-lights-train",
+   "sec": "late-nov",
+   "cat": "kids",
+   "when": "Nov 27–28, Dec 5–6 & Dec 12–23 · evenings",
+   "title": "Santa Cruz Holiday Lights Train",
+   "meta": "Santa Cruz Beach Boardwalk · 1-hour ride on light-covered vintage cars, Santa, hot cider · under 2 free",
+   "q": "Santa Cruz Beach Boardwalk",
+   "lat": 36.9643,
+   "lon": -122.0177,
+   "url": "https://roaringcamp.com/holiday-lights",
+   "dates": [
+    "2026-11-27",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-06",
+    "2026-12-12",
+    "2026-12-13",
+    "2026-12-14",
+    "2026-12-15",
+    "2026-12-16",
+    "2026-12-17",
+    "2026-12-18",
+    "2026-12-19",
+    "2026-12-20",
+    "2026-12-21",
+    "2026-12-22",
+    "2026-12-23"
+   ],
+   "n": 36
+  },
+  {
+   "n": 37,
    "sec": "late-nov",
    "when": "Sat Nov 28",
    "title": "Small Business Saturday",
@@ -548,7 +654,7 @@ window.WF_DATA = {
    "lat": 36.5547,
    "lon": -121.9213,
    "id": "andy-grammer",
-   "n": 34
+   "n": 38
   },
   {
    "sec": "late-nov",
@@ -563,7 +669,7 @@ window.WF_DATA = {
    "lat": 36.5998,
    "lon": -121.8946,
    "id": "the-english-beat",
-   "n": 35
+   "n": 39
   },
   {
    "sec": "late-nov",
@@ -578,7 +684,7 @@ window.WF_DATA = {
    "start": "2026-11-30",
    "end": "2026-11-30",
    "id": "pacific-grove-christmas-tree-lighting",
-   "n": 36
+   "n": 40
   },
   {
    "sec": "early-dec",
@@ -593,10 +699,10 @@ window.WF_DATA = {
    "start": "2026-12-01",
    "end": "2027-01-03",
    "id": "ice-skating-by-the-bay",
-   "n": 37
+   "n": 41
   },
   {
-   "n": 38,
+   "n": 42,
    "sec": "early-dec",
    "when": "Thu Dec 3 · 5–10pm",
    "title": "Downtown First Thursdays block party",
@@ -611,7 +717,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 39,
+   "n": 43,
    "sec": "early-dec",
    "when": "Dec 3–5",
    "title": "Gamble Garden holidays",
@@ -638,7 +744,7 @@ window.WF_DATA = {
    "start": "2026-12-03",
    "end": "2026-12-03",
    "id": "pacific-grove-holiday-parade-of-lights",
-   "n": 40
+   "n": 44
   },
   {
    "sec": "early-dec",
@@ -653,7 +759,7 @@ window.WF_DATA = {
    "lat": 37.4326,
    "lon": -122.1653,
    "id": "hot-club-of-san-francisco-cool-yule",
-   "n": 41
+   "n": 45
   },
   {
    "sec": "early-dec",
@@ -668,7 +774,7 @@ window.WF_DATA = {
    "lat": 37.3893,
    "lon": -122.0817,
    "id": "smuin-s-the-christmas-ballet",
-   "n": 42
+   "n": 46
   },
   {
    "sec": "early-dec",
@@ -683,10 +789,10 @@ window.WF_DATA = {
    "lat": 36.5547,
    "lon": -121.9213,
    "id": "mostly-kosher-holiday-concert",
-   "n": 43
+   "n": 47
   },
   {
-   "n": 44,
+   "n": 48,
    "sec": "early-dec",
    "when": "Fri Dec 4 · 6–8pm",
    "title": "Los Altos Holiday Tree Celebration",
@@ -701,7 +807,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 45,
+   "n": 49,
    "sec": "early-dec",
    "when": "Dec 4–27",
    "title": "SF Ballet's The Nutcracker",
@@ -733,7 +839,7 @@ window.WF_DATA = {
     "sun"
    ],
    "id": "christmas-on-the-wharf",
-   "n": 46
+   "n": 50
   },
   {
    "sec": "early-dec",
@@ -748,7 +854,7 @@ window.WF_DATA = {
    "start": "2026-12-04",
    "end": "2026-12-04",
    "id": "carmel-tree-lighting-carmel-plaza-holiday-party",
-   "n": 47
+   "n": 51
   },
   {
    "sec": "early-dec",
@@ -763,7 +869,7 @@ window.WF_DATA = {
    "start": "2026-12-04",
    "end": "2026-12-04",
    "id": "downtown-monterey-tree-lighting",
-   "n": 48
+   "n": 52
   },
   {
    "sec": "early-dec",
@@ -778,10 +884,10 @@ window.WF_DATA = {
    "lat": 36.5998,
    "lon": -121.8946,
    "id": "squirrel-nut-zippers",
-   "n": 49
+   "n": 53
   },
   {
-   "n": 50,
+   "n": 54,
    "sec": "early-dec",
    "when": "Sat Dec 5",
    "title": "Caltrain Holiday Train",
@@ -796,7 +902,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 51,
+   "n": 55,
    "sec": "early-dec",
    "when": "Sat Dec 5",
    "title": "Swedish Christmas Fair (SWEA)",
@@ -811,7 +917,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 52,
+   "n": 56,
    "sec": "early-dec",
    "when": "Sat Dec 5 · 6pm",
    "title": "MAPP art, poetry & music crawl",
@@ -826,7 +932,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 53,
+   "n": 57,
    "sec": "early-dec",
    "when": "Dec 5–6",
    "title": "Mercatino di Natale (Italian Christmas market)",
@@ -841,7 +947,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 54,
+   "n": 58,
    "sec": "early-dec",
    "when": "Dec 5–6",
    "title": "Sunset Holiday Mercantile",
@@ -868,7 +974,7 @@ window.WF_DATA = {
    "start": "2026-12-05",
    "end": "2026-12-05",
    "id": "downtown-santa-cruz-holiday-parade",
-   "n": 55
+   "n": 59
   },
   {
    "sec": "early-dec",
@@ -883,10 +989,10 @@ window.WF_DATA = {
    "start": "2026-12-05",
    "end": "2026-12-05",
    "id": "santa-cruz-lighted-boat-parade",
-   "n": 56
+   "n": 60
   },
   {
-   "n": 57,
+   "n": 61,
    "sec": "early-dec",
    "when": "Sun Dec 6",
    "title": "SFMOMA Holiday Makers Market",
@@ -901,7 +1007,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 58,
+   "n": 62,
    "sec": "early-dec",
    "when": "Sun Dec 6 · 12–5pm",
    "title": "Castro Art Mart",
@@ -928,7 +1034,7 @@ window.WF_DATA = {
    "start": "2026-12-06",
    "end": "2026-12-06",
    "id": "brighten-the-harbor-lighted-boat-parade",
-   "n": 59
+   "n": 63
   },
   {
    "sec": "early-dec",
@@ -943,7 +1049,7 @@ window.WF_DATA = {
    "lat": 37.7777,
    "lon": -122.4205,
    "id": "sf-symphony-deck-the-hall",
-   "n": 60
+   "n": 64
   },
   {
    "sec": "early-dec",
@@ -958,7 +1064,7 @@ window.WF_DATA = {
    "lat": 37.4326,
    "lon": -122.1653,
    "id": "helene-grimaud-piano-recital",
-   "n": 61
+   "n": 65
   },
   {
    "sec": "early-dec",
@@ -973,7 +1079,7 @@ window.WF_DATA = {
    "lat": 36.5547,
    "lon": -121.9213,
    "id": "pink-martini-all-stars-a-season-of-stars",
-   "n": 62
+   "n": 66
   },
   {
    "sec": "mid-dec",
@@ -987,10 +1093,10 @@ window.WF_DATA = {
    "lat": 36.9714,
    "lon": -122.0263,
    "id": "the-bad-plus-farewell-tour",
-   "n": 63
+   "n": 67
   },
   {
-   "n": 64,
+   "n": 68,
    "sec": "mid-dec",
    "when": "Dec 8–27",
    "title": "Winter Walk + Patchwork Show makers",
@@ -1017,7 +1123,7 @@ window.WF_DATA = {
    "start": "2026-12-08",
    "end": "2026-12-08",
    "id": "holiday-at-the-inns",
-   "n": 65
+   "n": 69
   },
   {
    "sec": "mid-dec",
@@ -1032,7 +1138,7 @@ window.WF_DATA = {
    "lat": 37.4326,
    "lon": -122.1653,
    "id": "canadian-brass-making-spirits-bright",
-   "n": 66
+   "n": 70
   },
   {
    "sec": "mid-dec",
@@ -1047,10 +1153,10 @@ window.WF_DATA = {
    "lat": 37.7777,
    "lon": -122.4205,
    "id": "sf-symphony-home-for-the-holidays",
-   "n": 67
+   "n": 71
   },
   {
-   "n": 68,
+   "n": 72,
    "sec": "mid-dec",
    "when": "Thu Dec 10 & 17 · 4–8pm",
    "title": "European-style Holiday Market",
@@ -1079,7 +1185,7 @@ window.WF_DATA = {
    "lat": 37.4326,
    "lon": -122.1653,
    "id": "a-chanticleer-christmas",
-   "n": 69
+   "n": 73
   },
   {
    "sec": "mid-dec",
@@ -1094,7 +1200,7 @@ window.WF_DATA = {
    "start": "2026-12-11",
    "end": "2026-12-12",
    "id": "christmas-in-the-adobes",
-   "n": 70
+   "n": 74
   },
   {
    "sec": "mid-dec",
@@ -1109,7 +1215,7 @@ window.WF_DATA = {
    "lat": 36.5998,
    "lon": -121.8946,
    "id": "buckethead",
-   "n": 71
+   "n": 75
   },
   {
    "sec": "mid-dec",
@@ -1124,7 +1230,7 @@ window.WF_DATA = {
    "lat": 36.5547,
    "lon": -121.9213,
    "id": "monterey-peninsula-ballet-the-nutcracker",
-   "n": 72
+   "n": 76
   },
   {
    "sec": "mid-dec",
@@ -1139,10 +1245,10 @@ window.WF_DATA = {
    "lat": 37.3893,
    "lon": -122.0817,
    "id": "pyt-the-night-before-christmas",
-   "n": 73
+   "n": 77
   },
   {
-   "n": 74,
+   "n": 78,
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 10am–6pm",
    "title": "Hometown Holidays",
@@ -1157,7 +1263,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 75,
+   "n": 79,
    "sec": "mid-dec",
    "when": "Sat Dec 12",
    "title": "German Holiday Market",
@@ -1172,7 +1278,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 76,
+   "n": 80,
    "sec": "mid-dec",
    "when": "Sat Dec 12",
    "title": "Black Holiday Market",
@@ -1187,7 +1293,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 77,
+   "n": 81,
    "sec": "mid-dec",
    "when": "Dec 12–13",
    "title": "SJMADE Winter Wonder Market",
@@ -1214,7 +1320,7 @@ window.WF_DATA = {
    "lat": 36.9775,
    "lon": -122.0105,
    "id": "the-wooten-brothers",
-   "n": 78
+   "n": 82
   },
   {
    "sec": "mid-dec",
@@ -1229,7 +1335,7 @@ window.WF_DATA = {
    "lat": 37.4326,
    "lon": -122.1653,
    "id": "camila-fernandez-christmas-show",
-   "n": 79
+   "n": 83
   },
   {
    "sec": "mid-dec",
@@ -1244,7 +1350,7 @@ window.WF_DATA = {
    "lat": 36.9714,
    "lon": -122.0263,
    "id": "christian-sands-trio-christmas-stories",
-   "n": 80
+   "n": 84
   },
   {
    "sec": "mid-dec",
@@ -1259,10 +1365,10 @@ window.WF_DATA = {
    "lat": 37.7777,
    "lon": -122.4205,
    "id": "sf-symphony-holiday-gaiety",
-   "n": 81
+   "n": 85
   },
   {
-   "n": 82,
+   "n": 86,
    "sec": "mid-dec",
    "when": "Fri Dec 18 · 5–10pm",
    "title": "Fort Mason Night Market",
@@ -1277,7 +1383,7 @@ window.WF_DATA = {
    "end": "2026-12-18"
   },
   {
-   "n": 83,
+   "n": 87,
    "sec": "mid-dec",
    "when": "Sat Dec 19",
    "title": "Head West market (encore)",
@@ -1292,6 +1398,24 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
+   "id": "my-very-first-nutcracker-san-jose",
+   "sec": "mid-dec",
+   "cat": "kids",
+   "when": "Dec 20, 23 & 27 · 11am",
+   "title": "My Very First Nutcracker",
+   "meta": "California Theatre, San Jose · one-act, about 55 minutes, for toddlers and young kids · live Symphony San Jose",
+   "q": "California Theatre San Jose",
+   "lat": 37.3307,
+   "lon": -121.8862,
+   "url": "https://sanjosetheaters.org/event/first-nutcracker-2026/",
+   "dates": [
+    "2026-12-20",
+    "2026-12-23",
+    "2026-12-27"
+   ],
+   "n": 88
+  },
+  {
    "sec": "mid-dec",
    "when": "Tue Dec 22",
    "title": "Dave Koz & Friends Christmas Tour",
@@ -1303,10 +1427,25 @@ window.WF_DATA = {
    "lat": 37.3305,
    "lon": -121.8885,
    "id": "dave-koz-friends-christmas-tour",
-   "n": 84
+   "n": 89
   },
   {
-   "n": 85,
+   "id": "roaring-camp-new-years-train",
+   "sec": "mid-dec",
+   "cat": "teen",
+   "when": "Dec 26–31 · evenings",
+   "title": "New Year's Holiday Lights Train",
+   "meta": "Santa Cruz Beach Boardwalk · lit-up train through Santa Cruz with a live DJ and light-up hula hoopers",
+   "q": "Santa Cruz Beach Boardwalk",
+   "lat": 36.9643,
+   "lon": -122.0177,
+   "url": "https://roaringcamp.com/holiday-lights",
+   "start": "2026-12-26",
+   "end": "2026-12-31",
+   "n": 90
+  },
+  {
+   "n": 91,
    "sec": "jan",
    "when": "Thu Dec 31",
    "title": "New Year's Eve on the SF waterfront",
@@ -1333,10 +1472,40 @@ window.WF_DATA = {
    "start": "2026-12-31",
    "end": "2026-12-31",
    "id": "first-night-monterey",
-   "n": 86
+   "n": 92
   },
   {
-   "n": 87,
+   "id": "badm-noon-years-eve-2026",
+   "sec": "jan",
+   "cat": "kids",
+   "when": "Thu Dec 31 · 9am–noon",
+   "title": "Noon Year's Eve at Bay Area Discovery Museum",
+   "meta": "Sausalito · kid-friendly countdown and ball drop, dance party, crafts · ticketed",
+   "q": "Bay Area Discovery Museum Sausalito",
+   "lat": 37.8327,
+   "lon": -122.4775,
+   "url": "https://bayareadiscoverymuseum.org/events/",
+   "start": "2026-12-31",
+   "end": "2026-12-31",
+   "n": 93
+  },
+  {
+   "id": "gilroy-gardens-new-years-eve-2026",
+   "sec": "jan",
+   "cat": "teen",
+   "when": "Thu Dec 31 · 4pm–midnight",
+   "title": "New Year's Eve at Gilroy Gardens",
+   "meta": "Gilroy · DJ dance party, North Pole Nights lights and shows, fireworks at midnight · $55 online",
+   "q": "Gilroy Gardens Family Theme Park",
+   "lat": 37.0062,
+   "lon": -121.6326,
+   "url": "https://www.gilroygardens.org/new-years-eve",
+   "start": "2026-12-31",
+   "end": "2026-12-31",
+   "n": 94
+  },
+  {
+   "n": 95,
    "sec": "jan",
    "when": "Sun Jan 10",
    "title": "Last day for Filoli (#6) and San Mateo on Ice (#2)",
@@ -1348,7 +1517,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 88,
+   "n": 96,
    "sec": "tbc",
    "when": "Usually 1st Fri of Dec",
    "title": "San Carlos Night of Holiday Lights",
@@ -1362,7 +1531,7 @@ window.WF_DATA = {
    "url": "https://www.cityofsancarlos.org/residents/community-events/night-of-holiday-lights"
   },
   {
-   "n": 89,
+   "n": 97,
    "sec": "tbc",
    "when": "Usually Dec 1–25 · 5–10pm",
    "title": "Eucalyptus Ave \"Christmas Tree Lane\" lights",
@@ -1376,7 +1545,7 @@ window.WF_DATA = {
    "url": "https://sancarloslife.com/san-carlos-holiday-2024-events-things-to-do/"
   },
   {
-   "n": 90,
+   "n": 98,
    "sec": "tbc",
    "when": "Early December",
    "title": "Burlingame tree lighting & Winterfest",
@@ -1390,7 +1559,7 @@ window.WF_DATA = {
    "url": "https://business.burlingamechamber.org/news/details/holiday-tree-lighting"
   },
   {
-   "n": 91,
+   "n": 99,
    "sec": "tbc",
    "when": "Mid-December",
    "title": "Half Moon Bay Lighted Boat Festival + drone show",
@@ -1404,7 +1573,7 @@ window.WF_DATA = {
    "url": "https://www.visithalfmoonbay.org/events/harbor-boat-lighting"
   },
   {
-   "n": 92,
+   "n": 100,
    "sec": "tbc",
    "when": "All December",
    "title": "Palo Alto's Christmas Tree Lane",
@@ -1429,10 +1598,52 @@ window.WF_DATA = {
    "q": "Capitola Village",
    "url": "https://www.cityofcapitola.org/node/23163",
    "id": "capitola-village-tree-lighting",
-   "n": 93
+   "n": 101
   },
   {
-   "n": 94,
+   "id": "hiller-santa-arrives-by-helicopter",
+   "sec": "tbc",
+   "cat": "kids",
+   "tbc": true,
+   "when": "Usually an early-December Saturday",
+   "title": "Santa Arrives by Helicopter",
+   "meta": "Hiller Aviation Museum, San Carlos · free to watch the landing; museum admission optional",
+   "q": "Hiller Aviation Museum San Carlos",
+   "lat": 37.5134,
+   "lon": -122.2496,
+   "url": "https://www.hiller.org/events/",
+   "n": 102
+  },
+  {
+   "id": "view-teen-center-afterhours",
+   "sec": "tbc",
+   "cat": "teen",
+   "tbc": true,
+   "when": "Monthly Friday nights · check the calendar",
+   "title": "AfterHours at The View Teen Center",
+   "meta": "263 Escuela Ave, Mountain View · free Friday-night activities and snacks for grades 6–12 (free membership needed) · also winter-break hours and trips",
+   "q": "The View Teen Center Mountain View",
+   "lat": 37.392,
+   "lon": -122.096,
+   "url": "https://www.mountainview.gov/our-city/departments/community-services/recreation/youth-teens/the-view-teen-center/programs-and-events",
+   "n": 103
+  },
+  {
+   "id": "mv-library-amplify-teen-voices",
+   "sec": "tbc",
+   "cat": "teen",
+   "tbc": true,
+   "when": "Series · check the library calendar",
+   "title": "Amplify: Teen Voices",
+   "meta": "Mountain View Public Library · teens share their passions with an audience; plus Teen Zone crafts and events",
+   "q": "Mountain View Public Library",
+   "lat": 37.3901,
+   "lon": -122.0832,
+   "url": "https://library.mountainview.gov/learn/children-and-teens/teen-services",
+   "n": 104
+  },
+  {
+   "n": 105,
    "sec": "dog",
    "when": "Saturdays · 11am–4pm",
    "title": "Muttville senior-dog adoption events",
@@ -1449,7 +1660,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 95,
+   "n": 106,
    "sec": "dog",
    "when": "Late Nov – Dec 31",
    "title": "SF SPCA Holiday Windows at Macy's",
@@ -1463,7 +1674,7 @@ window.WF_DATA = {
    "url": "https://www.sfspca.org/holiday"
   },
   {
-   "n": 96,
+   "n": 107,
    "sec": "dog",
    "when": "December",
    "title": "Santa pet photos at Peninsula Humane Society",
@@ -1477,7 +1688,7 @@ window.WF_DATA = {
    "url": "https://www.smdailyjournal.com/news/local/peninsula-humane-society-hosting-three-santa-paws-photo-dates/article_deecff44-35cd-5d26-815b-9b46576a12f5.html"
   },
   {
-   "n": 97,
+   "n": 108,
    "sec": "dog",
    "when": "Any day",
    "title": "Crissy Field East Beach",
@@ -1490,7 +1701,7 @@ window.WF_DATA = {
    "url": "https://www.dogster.com/lifestyle/dog-friendly-activities-san-francisco/"
   },
   {
-   "n": 98,
+   "n": 109,
    "sec": "food",
    "when": "Through Dec 6 · 1–4pm",
    "title": "Flour + Water pizza class",
@@ -1505,7 +1716,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 99,
+   "n": 110,
    "sec": "food",
    "when": "Various dates",
    "title": "North Beach Pizza Experience",
@@ -1518,7 +1729,7 @@ window.WF_DATA = {
    "url": "https://luma.com/d9w1fniq"
   },
   {
-   "n": 100,
+   "n": 111,
    "sec": "food",
    "when": "Various dates",
    "title": "Neapolitan pizza with Chef James",
@@ -1531,7 +1742,7 @@ window.WF_DATA = {
    "url": "https://assets.classbento.com/neapolitan-pizza-making-class-san-francisco"
   },
   {
-   "n": 101,
+   "n": 112,
    "sec": "food",
    "when": "Various dates",
    "title": "New York–style pizza with Chef Daniel",
@@ -1544,7 +1755,7 @@ window.WF_DATA = {
    "url": "https://www.cozymeal.com/lp/pizza-making-classes-in-san-francisco"
   },
   {
-   "n": 102,
+   "n": 113,
    "sec": "food",
    "when": "Various dates",
    "title": "Pizza making at The Cheese School of SF",
@@ -1557,7 +1768,7 @@ window.WF_DATA = {
    "url": "https://coursetakers.com/course/pizza-making-by-the-cheese-school-of-san-francisco"
   },
   {
-   "n": 103,
+   "n": 114,
    "sec": "food",
    "when": "Mondays · 1pm",
    "title": "Counter Culture catalog cupping",
@@ -1570,7 +1781,149 @@ window.WF_DATA = {
    "url": "https://www.eventbrite.com/d/ca--emeryville/coffee-cupping/"
   },
   {
-   "n": 104,
+   "sec": "programs",
+   "cat": "prog",
+   "id": "rsi-stanford-2027",
+   "deadline": "2026-12-11",
+   "when": "Apply by Fri Dec 11, 2026 (11:59pm ET)",
+   "title": "Research Science Institute (RSI) — new Stanford site",
+   "meta": "Stanford · free 6-week summer research program for current juniors · Stanford session June 27 – Aug 7, 2027",
+   "q": "Stanford University",
+   "lat": 37.4275,
+   "lon": -122.1697,
+   "url": "https://www.cee.org/programs/research-science-institute",
+   "n": 115
+  },
+  {
+   "sec": "programs",
+   "cat": "prog",
+   "id": "stanford-summer-session-hs-2027",
+   "deadline": "2027-01-20",
+   "tbc": true,
+   "when": "Regular decision usually Jan 20",
+   "title": "Stanford Summer Session (high school)",
+   "meta": "Stanford · real Stanford courses for credit; residential or commute from home",
+   "q": "Stanford University",
+   "lat": 37.4275,
+   "lon": -122.1697,
+   "url": "https://summer.stanford.edu/students/high-school",
+   "n": 116
+  },
+  {
+   "sec": "programs",
+   "cat": "prog",
+   "id": "cosmos-ucsc-2027",
+   "deadline": "2027-02-05",
+   "when": "Apply Jan 6 – Feb 5, 2027",
+   "title": "COSMOS at UC Santa Cruz",
+   "meta": "UC Santa Cruz · 4-week residential STEM program for California high schoolers (rising 9th–12th) · about $5,800, aid available",
+   "q": "UC Santa Cruz",
+   "lat": 36.9914,
+   "lon": -122.0609,
+   "url": "https://cosmos.ucsc.edu",
+   "n": 117
+  },
+  {
+   "sec": "programs",
+   "cat": "prog",
+   "id": "simr-stanford-2027",
+   "deadline": "2027-02-26",
+   "tbc": true,
+   "when": "Opens Dec 18 · due late Feb 2027",
+   "title": "Stanford Institutes of Medicine Summer Research Program (SIMR)",
+   "meta": "Stanford · 8 weeks in a Stanford lab, tentatively June 7 – July 29, 2027 · must live locally",
+   "q": "Stanford School of Medicine",
+   "lat": 37.4316,
+   "lon": -122.1757,
+   "url": "https://simr.stanford.edu",
+   "n": 118
+  },
+  {
+   "sec": "programs",
+   "cat": "prog",
+   "id": "ucsc-sip-2027",
+   "deadline": "2027-02-26",
+   "when": "Apply Jan 15 – Feb 26, 2027 (noon)",
+   "title": "UCSC Scholar Immersion Program (SIP)",
+   "meta": "UC Santa Cruz · summer research with UCSC mentors across sciences, arts and humanities (formerly the Science Internship Program)",
+   "q": "UC Santa Cruz",
+   "lat": 36.9914,
+   "lon": -122.0609,
+   "url": "https://sip.ucsc.edu",
+   "n": 119
+  },
+  {
+   "sec": "programs",
+   "cat": "prog",
+   "id": "nasa-ostem-summer-2027",
+   "deadline": "2027-03-01",
+   "when": "Apply by Mon Mar 1, 2027",
+   "title": "NASA internships (incl. Ames, Mountain View)",
+   "meta": "NASA Ames, Mountain View · paid summer internships June 7 – Aug 13, 2027 · for graduating seniors 16+, 3.0 GPA, US citizens",
+   "q": "NASA Ames Research Center",
+   "lat": 37.4152,
+   "lon": -122.0636,
+   "url": "https://www.nasa.gov/learning-resources/internship-programs/",
+   "n": 120
+  },
+  {
+   "sec": "programs",
+   "cat": "prog",
+   "id": "stanford-spcs-sumac-2027",
+   "deadline": "2027-03-12",
+   "tbc": true,
+   "when": "Usually due mid-March",
+   "title": "Stanford Pre-Collegiate Summer Institutes & SUMaC",
+   "meta": "Stanford · 2-week enrichment courses (grades 8–11) and the selective SUMaC math camp · 2026 deadline was Mar 13",
+   "q": "Stanford University",
+   "lat": 37.4275,
+   "lon": -122.1697,
+   "url": "https://spcs.stanford.edu/programs/stanford-university-mathematics-camp-sumac",
+   "n": 121
+  },
+  {
+   "sec": "programs",
+   "cat": "prog",
+   "id": "smysp-2027",
+   "deadline": "2027-03-22",
+   "tbc": true,
+   "when": "Usually opens mid-Dec, due late March",
+   "title": "Stanford Medical Youth Science Program (SMYSP)",
+   "meta": "Stanford · free 5-week medicine program for first-gen, low-income NorCal juniors · June 21 – July 23, 2027",
+   "q": "Stanford School of Medicine",
+   "lat": 37.4316,
+   "lon": -122.1757,
+   "url": "https://med.stanford.edu/odme/high-school-students/smysp.html",
+   "n": 122
+  },
+  {
+   "sec": "programs",
+   "cat": "prog",
+   "id": "monterey-bay-aquarium-teen-conservation-leaders",
+   "tbc": true,
+   "when": "Summer program · watch for winter applications",
+   "title": "Monterey Bay Aquarium Teen Conservation Leaders",
+   "meta": "Monterey Bay Aquarium · summer volunteer program with guest, science-communication and animal-care tracks",
+   "q": "Monterey Bay Aquarium",
+   "lat": 36.6182,
+   "lon": -121.9019,
+   "n": 123
+  },
+  {
+   "sec": "programs",
+   "cat": "prog",
+   "id": "second-harvest-teen-volunteering",
+   "when": "Winter break & year-round · book a shift",
+   "title": "Volunteer at Second Harvest of Silicon Valley",
+   "meta": "Food distributions across Santa Clara & San Mateo counties · ages 14+ (parent permission under 18; an adult volunteers alongside teens 15 and under) · counts for school service hours",
+   "q": "Second Harvest of Silicon Valley Curtner",
+   "lat": 37.2928,
+   "lon": -121.879,
+   "url": "https://www.shfb.org/give-help/volunteer/",
+   "n": 124
+  },
+  {
+   "n": 125,
    "sec": "radar",
    "when": "Late April 2027",
    "title": "Bay Area Pizza Week",
@@ -1580,7 +1933,7 @@ window.WF_DATA = {
    "url": "https://www.metrosiliconvalley.com/?p=20189370"
   },
   {
-   "n": 105,
+   "n": 126,
    "sec": "radar",
    "when": "Mid-Aug / Early Nov 2027",
    "title": "SF Pizza, Bagel & Beer Fest · SF Coffee Festival",
