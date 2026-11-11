@@ -1,0 +1,18 @@
+{
+  "name": "weekly-fetch",
+  "private": true,
+  "description": "iPhone app shell (Capacitor) for The Bay Area Weekend Fetch. The website itself needs none of this.",
+  "scripts": {
+    "app:build": "python3 src/build_app.py && npx cap sync ios",
+    "app:open": "npx cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/core": "8.6.0",
+    "@capacitor/ios": "8.6.0",
+    "@capacitor/local-notifications": "8.3.1",
+    "@capacitor/share": "8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.0"
+  }
+}
