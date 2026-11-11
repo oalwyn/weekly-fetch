@@ -539,7 +539,22 @@ window.WF_DATA = {
    "n": 31
   },
   {
-   "n": 32,
+   "id": "yountville-holidays-2026",
+   "sec": "late-nov",
+   "cat": "hol",
+   "when": "Nov 22 – Jan 1",
+   "title": "Holidays in Yountville",
+   "meta": "Yountville · the 'Brightest Town in Napa Valley': lights all over town and 50+ holiday events through December",
+   "q": "Yountville CA",
+   "lat": 38.4016,
+   "lon": -122.3608,
+   "url": "https://wineindustryadvisor.com/2026/11/09/holidays-in-yountville-2/",
+   "start": "2026-11-22",
+   "end": "2027-01-01",
+   "n": 32
+  },
+  {
+   "n": 33,
    "sec": "late-nov",
    "when": "Mon Nov 23",
    "title": "Supermoon night",
@@ -563,10 +578,10 @@ window.WF_DATA = {
    "start": "2026-11-26",
    "end": "2027-01-03",
    "id": "santa-cruz-beach-boardwalk-winter-wonderland",
-   "n": 33
+   "n": 34
   },
   {
-   "n": 34,
+   "n": 35,
    "sec": "late-nov",
    "when": "Opens Fri Nov 27",
    "title": "Christmas in the Park",
@@ -593,7 +608,7 @@ window.WF_DATA = {
    "start": "2026-11-27",
    "end": "2026-11-27",
    "id": "cannery-row-tree-lighting",
-   "n": 35
+   "n": 36
   },
   {
    "id": "santa-cruz-holiday-lights-train",
@@ -624,10 +639,25 @@ window.WF_DATA = {
     "2026-12-22",
     "2026-12-23"
    ],
-   "n": 36
+   "n": 37
   },
   {
-   "n": 37,
+   "id": "marin-holiday-light-spectacular-2026",
+   "sec": "late-nov",
+   "cat": "hol",
+   "when": "Nightly Nov 27 – Jan 3 · 5–9pm",
+   "title": "Holiday Light Spectacular",
+   "meta": "Marin Center Fairgrounds, San Rafael · free walk-through lights, tunnels and displays; Civic Center arches lit up · free holiday movies on select nights",
+   "q": "Marin Center Fairgrounds San Rafael",
+   "lat": 38.0004,
+   "lon": -122.5326,
+   "url": "https://www.marincounty.gov/departments/cultural-services/department-sponsored-events/holiday-light-spectacular",
+   "start": "2026-11-27",
+   "end": "2027-01-03",
+   "n": 38
+  },
+  {
+   "n": 39,
    "sec": "late-nov",
    "when": "Sat Nov 28",
    "title": "Small Business Saturday",
@@ -654,7 +684,7 @@ window.WF_DATA = {
    "lat": 36.5547,
    "lon": -121.9213,
    "id": "andy-grammer",
-   "n": 38
+   "n": 40
   },
   {
    "sec": "late-nov",
@@ -669,7 +699,22 @@ window.WF_DATA = {
    "lat": 36.5998,
    "lon": -121.8946,
    "id": "the-english-beat",
-   "n": 39
+   "n": 41
+  },
+  {
+   "id": "petaluma-santa-tugboat-2026",
+   "sec": "late-nov",
+   "cat": "kids",
+   "when": "Sat Nov 28 · 11:30am",
+   "title": "Santa & Mrs. Claus arrive by tugboat",
+   "meta": "Petaluma Turning Basin · carols, Morris dancers, then Santa steps off a tugboat · free",
+   "q": "Petaluma Turning Basin",
+   "lat": 38.233,
+   "lon": -122.6373,
+   "url": "https://www.visitpetaluma.com/?p=35313",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "n": 42
   },
   {
    "sec": "late-nov",
@@ -684,7 +729,7 @@ window.WF_DATA = {
    "start": "2026-11-30",
    "end": "2026-11-30",
    "id": "pacific-grove-christmas-tree-lighting",
-   "n": 40
+   "n": 43
   },
   {
    "sec": "early-dec",
@@ -699,10 +744,25 @@ window.WF_DATA = {
    "start": "2026-12-01",
    "end": "2027-01-03",
    "id": "ice-skating-by-the-bay",
-   "n": 41
+   "n": 44
   },
   {
-   "n": 42,
+   "id": "postmodern-jukebox-napa-2026",
+   "sec": "early-dec",
+   "cat": "show",
+   "when": "Tue Dec 1 · 8pm",
+   "title": "Scott Bradlee's Postmodern Jukebox",
+   "meta": "Uptown Theatre, Napa",
+   "url": "https://www.tickpick.com/buy-scott-bradlees-postmodern-jukebox-tickets-uptown-theatre-napa-12-1-26-8pm/7938423/",
+   "q": "Uptown Theatre Napa",
+   "lat": 38.2988,
+   "lon": -122.2877,
+   "start": "2026-12-01",
+   "end": "2026-12-01",
+   "n": 45
+  },
+  {
+   "n": 46,
    "sec": "early-dec",
    "when": "Thu Dec 3 · 5–10pm",
    "title": "Downtown First Thursdays block party",
@@ -717,7 +777,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 43,
+   "n": 47,
    "sec": "early-dec",
    "when": "Dec 3–5",
    "title": "Gamble Garden holidays",
@@ -744,7 +804,7 @@ window.WF_DATA = {
    "start": "2026-12-03",
    "end": "2026-12-03",
    "id": "pacific-grove-holiday-parade-of-lights",
-   "n": 44
+   "n": 48
   },
   {
    "sec": "early-dec",
@@ -759,7 +819,7 @@ window.WF_DATA = {
    "lat": 37.4326,
    "lon": -122.1653,
    "id": "hot-club-of-san-francisco-cool-yule",
-   "n": 45
+   "n": 49
   },
   {
    "sec": "early-dec",
@@ -774,7 +834,7 @@ window.WF_DATA = {
    "lat": 37.3893,
    "lon": -122.0817,
    "id": "smuin-s-the-christmas-ballet",
-   "n": 46
+   "n": 50
   },
   {
    "sec": "early-dec",
@@ -789,10 +849,25 @@ window.WF_DATA = {
    "lat": 36.5547,
    "lon": -121.9213,
    "id": "mostly-kosher-holiday-concert",
-   "n": 47
+   "n": 51
   },
   {
-   "n": 48,
+   "id": "celtic-christmas-lbc-2026",
+   "sec": "early-dec",
+   "cat": "show",
+   "when": "Thu Dec 3 · 7:30pm",
+   "title": "A Celtic Christmas",
+   "meta": "Luther Burbank Center, Santa Rosa",
+   "url": "https://americanarenas.com/city/santa-rosa-events/concerts/december/",
+   "q": "Luther Burbank Center for the Arts",
+   "lat": 38.4718,
+   "lon": -122.7329,
+   "start": "2026-12-03",
+   "end": "2026-12-03",
+   "n": 52
+  },
+  {
+   "n": 53,
    "sec": "early-dec",
    "when": "Fri Dec 4 · 6–8pm",
    "title": "Los Altos Holiday Tree Celebration",
@@ -807,7 +882,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 49,
+   "n": 54,
    "sec": "early-dec",
    "when": "Dec 4–27",
    "title": "SF Ballet's The Nutcracker",
@@ -839,7 +914,7 @@ window.WF_DATA = {
     "sun"
    ],
    "id": "christmas-on-the-wharf",
-   "n": 50
+   "n": 55
   },
   {
    "sec": "early-dec",
@@ -854,7 +929,7 @@ window.WF_DATA = {
    "start": "2026-12-04",
    "end": "2026-12-04",
    "id": "carmel-tree-lighting-carmel-plaza-holiday-party",
-   "n": 51
+   "n": 56
   },
   {
    "sec": "early-dec",
@@ -869,7 +944,7 @@ window.WF_DATA = {
    "start": "2026-12-04",
    "end": "2026-12-04",
    "id": "downtown-monterey-tree-lighting",
-   "n": 52
+   "n": 57
   },
   {
    "sec": "early-dec",
@@ -884,10 +959,10 @@ window.WF_DATA = {
    "lat": 36.5998,
    "lon": -121.8946,
    "id": "squirrel-nut-zippers",
-   "n": 53
+   "n": 58
   },
   {
-   "n": 54,
+   "n": 59,
    "sec": "early-dec",
    "when": "Sat Dec 5",
    "title": "Caltrain Holiday Train",
@@ -902,7 +977,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 55,
+   "n": 60,
    "sec": "early-dec",
    "when": "Sat Dec 5",
    "title": "Swedish Christmas Fair (SWEA)",
@@ -917,7 +992,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 56,
+   "n": 61,
    "sec": "early-dec",
    "when": "Sat Dec 5 · 6pm",
    "title": "MAPP art, poetry & music crawl",
@@ -932,7 +1007,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 57,
+   "n": 62,
    "sec": "early-dec",
    "when": "Dec 5–6",
    "title": "Mercatino di Natale (Italian Christmas market)",
@@ -947,7 +1022,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 58,
+   "n": 63,
    "sec": "early-dec",
    "when": "Dec 5–6",
    "title": "Sunset Holiday Mercantile",
@@ -974,7 +1049,7 @@ window.WF_DATA = {
    "start": "2026-12-05",
    "end": "2026-12-05",
    "id": "downtown-santa-cruz-holiday-parade",
-   "n": 59
+   "n": 64
   },
   {
    "sec": "early-dec",
@@ -989,10 +1064,55 @@ window.WF_DATA = {
    "start": "2026-12-05",
    "end": "2026-12-05",
    "id": "santa-cruz-lighted-boat-parade",
-   "n": 60
+   "n": 65
   },
   {
-   "n": 61,
+   "id": "calistoga-lighted-tractor-parade-2026",
+   "sec": "early-dec",
+   "cat": "hol",
+   "when": "Sat Dec 5 · 7–8pm",
+   "title": "Calistoga Lighted Tractor Parade",
+   "meta": "Lincoln Ave, Calistoga · lit-up tractors and farm trucks; ranked one of USA Today's best holiday parades · free, gets very crowded",
+   "q": "1457 Lincoln Ave Calistoga",
+   "lat": 38.5788,
+   "lon": -122.5797,
+   "url": "https://visitcalistoga.com/lighted-tractor-parade",
+   "start": "2026-12-05",
+   "end": "2026-12-05",
+   "n": 66
+  },
+  {
+   "id": "gary-allan-napa-2026",
+   "sec": "early-dec",
+   "cat": "show",
+   "when": "Sat Dec 5 · 8pm",
+   "title": "Gary Allan",
+   "meta": "Uptown Theatre, Napa · country",
+   "url": "https://www.eventworld.com/gary-allan-napa-tickets-12-05-2026/event/563567",
+   "q": "Uptown Theatre Napa",
+   "lat": 38.2988,
+   "lon": -122.2877,
+   "start": "2026-12-05",
+   "end": "2026-12-05",
+   "n": 67
+  },
+  {
+   "id": "schulz-kids-night-dec-2026",
+   "sec": "early-dec",
+   "cat": "kids",
+   "when": "Sat Dec 5 · 5:30–9pm",
+   "title": "Kids Night at the Schulz Museum",
+   "meta": "Charles M. Schulz Museum, Santa Rosa · drop-off night for ages 5–10: pizza, games, cartooning, a Peanuts movie · register ahead",
+   "url": "https://schulzmuseum.org/kids-night-at-the-museum-december-2026/",
+   "q": "Charles M. Schulz Museum",
+   "lat": 38.46,
+   "lon": -122.7357,
+   "start": "2026-12-05",
+   "end": "2026-12-05",
+   "n": 68
+  },
+  {
+   "n": 69,
    "sec": "early-dec",
    "when": "Sun Dec 6",
    "title": "SFMOMA Holiday Makers Market",
@@ -1007,7 +1127,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 62,
+   "n": 70,
    "sec": "early-dec",
    "when": "Sun Dec 6 · 12–5pm",
    "title": "Castro Art Mart",
@@ -1034,7 +1154,7 @@ window.WF_DATA = {
    "start": "2026-12-06",
    "end": "2026-12-06",
    "id": "brighten-the-harbor-lighted-boat-parade",
-   "n": 63
+   "n": 71
   },
   {
    "sec": "early-dec",
@@ -1049,7 +1169,7 @@ window.WF_DATA = {
    "lat": 37.7777,
    "lon": -122.4205,
    "id": "sf-symphony-deck-the-hall",
-   "n": 64
+   "n": 72
   },
   {
    "sec": "early-dec",
@@ -1064,7 +1184,7 @@ window.WF_DATA = {
    "lat": 37.4326,
    "lon": -122.1653,
    "id": "helene-grimaud-piano-recital",
-   "n": 65
+   "n": 73
   },
   {
    "sec": "early-dec",
@@ -1079,7 +1199,52 @@ window.WF_DATA = {
    "lat": 36.5547,
    "lon": -121.9213,
    "id": "pink-martini-all-stars-a-season-of-stars",
-   "n": 66
+   "n": 74
+  },
+  {
+   "id": "mill-valley-winterfest-2026",
+   "sec": "early-dec",
+   "cat": "hol",
+   "when": "Sun Dec 6 · afternoon, tree lighting ~5pm",
+   "title": "Mill Valley Winterfest & Tree Lighting",
+   "meta": "Depot Plaza, Mill Valley · Santa, a kids' train, live music and the town tree lighting · free",
+   "q": "Depot Plaza Mill Valley",
+   "lat": 37.906,
+   "lon": -122.548,
+   "url": "https://enjoymillvalley.com/?p=56055",
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "n": 75
+  },
+  {
+   "id": "santa-rosa-symphony-home-for-the-holidays",
+   "sec": "early-dec",
+   "cat": "show",
+   "when": "Sun Dec 6 · 3pm",
+   "title": "Santa Rosa Symphony Pops: Home for the Holidays",
+   "meta": "Luther Burbank Center, Santa Rosa",
+   "url": "https://www.srsymphony.org/event/home-for-the-holidays/",
+   "q": "Luther Burbank Center for the Arts",
+   "lat": 38.4718,
+   "lon": -122.7329,
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "n": 76
+  },
+  {
+   "id": "moonalice-sweetwater-2026",
+   "sec": "early-dec",
+   "cat": "show",
+   "when": "Sun Dec 6 · 1pm",
+   "title": "Moonalice",
+   "meta": "Sweetwater Music Hall, Mill Valley · daytime show",
+   "url": "https://www.tickpick.com/buy-moonalice-tickets-sweetwater-music-hall-12-6-26-1pm/8099127/",
+   "q": "Sweetwater Music Hall Mill Valley",
+   "lat": 37.9067,
+   "lon": -122.547,
+   "start": "2026-12-06",
+   "end": "2026-12-06",
+   "n": 77
   },
   {
    "sec": "mid-dec",
@@ -1093,10 +1258,10 @@ window.WF_DATA = {
    "lat": 36.9714,
    "lon": -122.0263,
    "id": "the-bad-plus-farewell-tour",
-   "n": 67
+   "n": 78
   },
   {
-   "n": 68,
+   "n": 79,
    "sec": "mid-dec",
    "when": "Dec 8–27",
    "title": "Winter Walk + Patchwork Show makers",
@@ -1123,7 +1288,22 @@ window.WF_DATA = {
    "start": "2026-12-08",
    "end": "2026-12-08",
    "id": "holiday-at-the-inns",
-   "n": 69
+   "n": 80
+  },
+  {
+   "id": "pink-martini-all-stars-santa-rosa",
+   "sec": "mid-dec",
+   "cat": "show",
+   "when": "Tue Dec 8 · 7:30pm",
+   "title": "Pink Martini All-Stars: A Season of Stars",
+   "meta": "Luther Burbank Center, Santa Rosa · from ~$109",
+   "url": "https://www.tickpick.com/buy-pink-martini-all-stars-tickets-luther-burbank-center-for-the-arts-ruth-finley-person-theater-12-8-26-7pm/7995465/",
+   "q": "Luther Burbank Center for the Arts",
+   "lat": 38.4718,
+   "lon": -122.7329,
+   "start": "2026-12-08",
+   "end": "2026-12-08",
+   "n": 81
   },
   {
    "sec": "mid-dec",
@@ -1138,7 +1318,7 @@ window.WF_DATA = {
    "lat": 37.4326,
    "lon": -122.1653,
    "id": "canadian-brass-making-spirits-bright",
-   "n": 70
+   "n": 82
   },
   {
    "sec": "mid-dec",
@@ -1153,10 +1333,10 @@ window.WF_DATA = {
    "lat": 37.7777,
    "lon": -122.4205,
    "id": "sf-symphony-home-for-the-holidays",
-   "n": 71
+   "n": 83
   },
   {
-   "n": 72,
+   "n": 84,
    "sec": "mid-dec",
    "when": "Thu Dec 10 & 17 · 4–8pm",
    "title": "European-style Holiday Market",
@@ -1185,7 +1365,7 @@ window.WF_DATA = {
    "lat": 37.4326,
    "lon": -122.1653,
    "id": "a-chanticleer-christmas",
-   "n": 73
+   "n": 85
   },
   {
    "sec": "mid-dec",
@@ -1200,7 +1380,7 @@ window.WF_DATA = {
    "start": "2026-12-11",
    "end": "2026-12-12",
    "id": "christmas-in-the-adobes",
-   "n": 74
+   "n": 86
   },
   {
    "sec": "mid-dec",
@@ -1215,7 +1395,7 @@ window.WF_DATA = {
    "lat": 36.5998,
    "lon": -121.8946,
    "id": "buckethead",
-   "n": 75
+   "n": 87
   },
   {
    "sec": "mid-dec",
@@ -1230,7 +1410,7 @@ window.WF_DATA = {
    "lat": 36.5547,
    "lon": -121.9213,
    "id": "monterey-peninsula-ballet-the-nutcracker",
-   "n": 76
+   "n": 88
   },
   {
    "sec": "mid-dec",
@@ -1245,10 +1425,25 @@ window.WF_DATA = {
    "lat": 37.3893,
    "lon": -122.0817,
    "id": "pyt-the-night-before-christmas",
-   "n": 77
+   "n": 89
   },
   {
-   "n": 78,
+   "id": "christmas-in-the-vineyards-2026",
+   "sec": "mid-dec",
+   "cat": "show",
+   "when": "Fri–Sat, Dec 11–12",
+   "title": "Christmas in the Vineyards",
+   "meta": "Napa Valley · holiday chamber music from Music in the Vineyards with the Aeternum choir",
+   "q": "Napa CA",
+   "lat": 38.2975,
+   "lon": -122.2869,
+   "url": "https://wineindustryadvisor.com/2026/10/14/music-in-the-vineyards-and-aeternum/",
+   "start": "2026-12-11",
+   "end": "2026-12-12",
+   "n": 90
+  },
+  {
+   "n": 91,
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 10am–6pm",
    "title": "Hometown Holidays",
@@ -1263,7 +1458,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 79,
+   "n": 92,
    "sec": "mid-dec",
    "when": "Sat Dec 12",
    "title": "German Holiday Market",
@@ -1278,7 +1473,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 80,
+   "n": 93,
    "sec": "mid-dec",
    "when": "Sat Dec 12",
    "title": "Black Holiday Market",
@@ -1293,7 +1488,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 81,
+   "n": 94,
    "sec": "mid-dec",
    "when": "Dec 12–13",
    "title": "SJMADE Winter Wonder Market",
@@ -1320,7 +1515,52 @@ window.WF_DATA = {
    "lat": 36.9775,
    "lon": -122.0105,
    "id": "the-wooten-brothers",
-   "n": 82
+   "n": 95
+  },
+  {
+   "id": "sausalito-lighted-boat-parade-2026",
+   "sec": "mid-dec",
+   "cat": "hol",
+   "when": "Sat Dec 12 · 6pm, fireworks ~7:15pm",
+   "title": "Sausalito Lighted Boat Parade & Fireworks",
+   "meta": "Sausalito waterfront, Gabrielson Park · 39th annual Winterfest; Jingle Bell 5K the next morning · free to watch",
+   "q": "Gabrielson Park Sausalito",
+   "lat": 37.8565,
+   "lon": -122.4782,
+   "url": "https://www.eventbrite.com/e/2003319439371",
+   "start": "2026-12-12",
+   "end": "2026-12-12",
+   "n": 96
+  },
+  {
+   "id": "petaluma-lighted-boat-parade-2026",
+   "sec": "mid-dec",
+   "cat": "hol",
+   "when": "Sat Dec 12 · 6pm (tide permitting)",
+   "title": "Petaluma Lighted Boat Parade",
+   "meta": "Petaluma Turning Basin · lit boats come down the river into downtown · free",
+   "q": "Petaluma Turning Basin",
+   "lat": 38.233,
+   "lon": -122.6373,
+   "url": "https://www.visitpetaluma.com/?p=35313",
+   "start": "2026-12-12",
+   "end": "2026-12-12",
+   "n": 97
+  },
+  {
+   "id": "schulz-gingerbread-doghouse-2026",
+   "sec": "mid-dec",
+   "cat": "kids",
+   "when": "Sat–Sun, Dec 12–13",
+   "title": "Gingerbread Doghouse Workshops",
+   "meta": "Charles M. Schulz Museum, Santa Rosa · build Snoopy's doghouse in gingerbread · parent & child session for ages 3–6, others grades 1–6 · $40",
+   "url": "https://schulzmuseum.org/gingerbread-doghouse-workshops-2026/",
+   "q": "Charles M. Schulz Museum",
+   "lat": 38.46,
+   "lon": -122.7357,
+   "start": "2026-12-12",
+   "end": "2026-12-13",
+   "n": 98
   },
   {
    "sec": "mid-dec",
@@ -1335,7 +1575,7 @@ window.WF_DATA = {
    "lat": 37.4326,
    "lon": -122.1653,
    "id": "camila-fernandez-christmas-show",
-   "n": 83
+   "n": 99
   },
   {
    "sec": "mid-dec",
@@ -1350,7 +1590,37 @@ window.WF_DATA = {
    "lat": 36.9714,
    "lon": -122.0263,
    "id": "christian-sands-trio-christmas-stories",
-   "n": 84
+   "n": 100
+  },
+  {
+   "id": "chanticleer-petaluma-2026",
+   "sec": "mid-dec",
+   "cat": "show",
+   "when": "Mon Dec 14",
+   "title": "Chanticleer holiday concert",
+   "meta": "St. Vincent de Paul Church, Petaluma",
+   "url": "https://www.visitpetaluma.com/?p=35313",
+   "q": "St Vincent de Paul Church Petaluma",
+   "lat": 38.237,
+   "lon": -122.642,
+   "start": "2026-12-14",
+   "end": "2026-12-14",
+   "n": 101
+  },
+  {
+   "id": "father-john-misty-napa-2026",
+   "sec": "mid-dec",
+   "cat": "show",
+   "when": "Tue Dec 15 · 8pm",
+   "title": "Father John Misty",
+   "meta": "Uptown Theatre, Napa",
+   "url": "https://americanarenas.com/city/napa-events/december/",
+   "q": "Uptown Theatre Napa",
+   "lat": 38.2988,
+   "lon": -122.2877,
+   "start": "2026-12-15",
+   "end": "2026-12-15",
+   "n": 102
   },
   {
    "sec": "mid-dec",
@@ -1365,10 +1635,25 @@ window.WF_DATA = {
    "lat": 37.7777,
    "lon": -122.4205,
    "id": "sf-symphony-holiday-gaiety",
-   "n": 85
+   "n": 103
   },
   {
-   "n": 86,
+   "id": "nutcracker-magical-christmas-ballet-lbc",
+   "sec": "mid-dec",
+   "cat": "show",
+   "when": "Thu Dec 17 · 7pm",
+   "title": "Nutcracker! Magical Christmas Ballet",
+   "meta": "Luther Burbank Center, Santa Rosa · from ~$60",
+   "url": "https://www.tickpick.com/buy-nutcracker!-magical-christmas-ballet-tickets-luther-burbank-center-for-the-arts-ruth-finley-person-theater-12-17-26-7pm/7995466/",
+   "q": "Luther Burbank Center for the Arts",
+   "lat": 38.4718,
+   "lon": -122.7329,
+   "start": "2026-12-17",
+   "end": "2026-12-17",
+   "n": 104
+  },
+  {
+   "n": 105,
    "sec": "mid-dec",
    "when": "Fri Dec 18 · 5–10pm",
    "title": "Fort Mason Night Market",
@@ -1383,7 +1668,22 @@ window.WF_DATA = {
    "end": "2026-12-18"
   },
   {
-   "n": 87,
+   "id": "elvin-bishop-napa-2026",
+   "sec": "mid-dec",
+   "cat": "show",
+   "when": "Fri Dec 18 · 8pm",
+   "title": "Elvin Bishop",
+   "meta": "Uptown Theatre, Napa · blues rock",
+   "url": "https://www.eventworld.com/elvin-bishop-napa-tickets-12-18-2026/event/566856",
+   "q": "Uptown Theatre Napa",
+   "lat": 38.2988,
+   "lon": -122.2877,
+   "start": "2026-12-18",
+   "end": "2026-12-18",
+   "n": 106
+  },
+  {
+   "n": 107,
    "sec": "mid-dec",
    "when": "Sat Dec 19",
    "title": "Head West market (encore)",
@@ -1413,7 +1713,22 @@ window.WF_DATA = {
     "2026-12-23",
     "2026-12-27"
    ],
-   "n": 88
+   "n": 108
+  },
+  {
+   "id": "john-prine-christmas-napa-2026",
+   "sec": "mid-dec",
+   "cat": "show",
+   "when": "Sun Dec 20 · 8pm",
+   "title": "A John Prine Christmas with The Jenner Fox Band",
+   "meta": "Uptown Theatre, Napa",
+   "url": "https://app.discotech.me/events/38287631-a-john-prine-christmas-with-the-jenner-fox-band-at-uptown-theatre",
+   "q": "Uptown Theatre Napa",
+   "lat": 38.2988,
+   "lon": -122.2877,
+   "start": "2026-12-20",
+   "end": "2026-12-20",
+   "n": 109
   },
   {
    "sec": "mid-dec",
@@ -1427,7 +1742,22 @@ window.WF_DATA = {
    "lat": 37.3305,
    "lon": -121.8885,
    "id": "dave-koz-friends-christmas-tour",
-   "n": 89
+   "n": 110
+  },
+  {
+   "id": "dave-koz-santa-rosa-2026",
+   "sec": "mid-dec",
+   "cat": "show",
+   "when": "Wed Dec 23 · 7:30pm",
+   "title": "Dave Koz & Friends Christmas",
+   "meta": "Luther Burbank Center, Santa Rosa",
+   "url": "https://www.eventworld.com/dave-koz-and-friends-christmas-santa-rosa-tickets-12-23-2026/event/476860",
+   "q": "Luther Burbank Center for the Arts",
+   "lat": 38.4718,
+   "lon": -122.7329,
+   "start": "2026-12-23",
+   "end": "2026-12-23",
+   "n": 111
   },
   {
    "id": "roaring-camp-new-years-train",
@@ -1442,10 +1772,10 @@ window.WF_DATA = {
    "url": "https://roaringcamp.com/holiday-lights",
    "start": "2026-12-26",
    "end": "2026-12-31",
-   "n": 90
+   "n": 112
   },
   {
-   "n": 91,
+   "n": 113,
    "sec": "jan",
    "when": "Thu Dec 31",
    "title": "New Year's Eve on the SF waterfront",
@@ -1472,7 +1802,7 @@ window.WF_DATA = {
    "start": "2026-12-31",
    "end": "2026-12-31",
    "id": "first-night-monterey",
-   "n": 92
+   "n": 114
   },
   {
    "id": "badm-noon-years-eve-2026",
@@ -1487,7 +1817,7 @@ window.WF_DATA = {
    "url": "https://bayareadiscoverymuseum.org/events/",
    "start": "2026-12-31",
    "end": "2026-12-31",
-   "n": 93
+   "n": 115
   },
   {
    "id": "gilroy-gardens-new-years-eve-2026",
@@ -1502,10 +1832,40 @@ window.WF_DATA = {
    "url": "https://www.gilroygardens.org/new-years-eve",
    "start": "2026-12-31",
    "end": "2026-12-31",
-   "n": 94
+   "n": 116
   },
   {
-   "n": 95,
+   "id": "hot-buttered-rum-nye-sweetwater",
+   "sec": "jan",
+   "cat": "show",
+   "when": "Thu Dec 31",
+   "title": "Hot Buttered Rum New Year's Eve",
+   "meta": "Sweetwater Music Hall, Mill Valley",
+   "url": "https://www.jambase.com/show/hot-buttered-rum-sweetwater-music-hall-20261231",
+   "q": "Sweetwater Music Hall Mill Valley",
+   "lat": 37.9067,
+   "lon": -122.547,
+   "start": "2026-12-31",
+   "end": "2026-12-31",
+   "n": 117
+  },
+  {
+   "id": "schulz-happy-new-year-charlie-brown-2026",
+   "sec": "jan",
+   "cat": "kids",
+   "when": "Thu Dec 31 · 10am–4pm",
+   "title": "Happy New Year, Charlie Brown!",
+   "meta": "Charles M. Schulz Museum, Santa Rosa · New Year's with the Peanuts gang, balloon drops · included with admission",
+   "url": "https://schulzmuseum.org/happy-new-year-charlie-brown-3/",
+   "q": "Charles M. Schulz Museum",
+   "lat": 38.46,
+   "lon": -122.7357,
+   "start": "2026-12-31",
+   "end": "2026-12-31",
+   "n": 118
+  },
+  {
+   "n": 119,
    "sec": "jan",
    "when": "Sun Jan 10",
    "title": "Last day for Filoli (#6) and San Mateo on Ice (#2)",
@@ -1517,7 +1877,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 96,
+   "n": 120,
    "sec": "tbc",
    "when": "Usually 1st Fri of Dec",
    "title": "San Carlos Night of Holiday Lights",
@@ -1531,7 +1891,7 @@ window.WF_DATA = {
    "url": "https://www.cityofsancarlos.org/residents/community-events/night-of-holiday-lights"
   },
   {
-   "n": 97,
+   "n": 121,
    "sec": "tbc",
    "when": "Usually Dec 1–25 · 5–10pm",
    "title": "Eucalyptus Ave \"Christmas Tree Lane\" lights",
@@ -1545,7 +1905,7 @@ window.WF_DATA = {
    "url": "https://sancarloslife.com/san-carlos-holiday-2024-events-things-to-do/"
   },
   {
-   "n": 98,
+   "n": 122,
    "sec": "tbc",
    "when": "Early December",
    "title": "Burlingame tree lighting & Winterfest",
@@ -1559,7 +1919,7 @@ window.WF_DATA = {
    "url": "https://business.burlingamechamber.org/news/details/holiday-tree-lighting"
   },
   {
-   "n": 99,
+   "n": 123,
    "sec": "tbc",
    "when": "Mid-December",
    "title": "Half Moon Bay Lighted Boat Festival + drone show",
@@ -1573,7 +1933,7 @@ window.WF_DATA = {
    "url": "https://www.visithalfmoonbay.org/events/harbor-boat-lighting"
   },
   {
-   "n": 100,
+   "n": 124,
    "sec": "tbc",
    "when": "All December",
    "title": "Palo Alto's Christmas Tree Lane",
@@ -1598,7 +1958,7 @@ window.WF_DATA = {
    "q": "Capitola Village",
    "url": "https://www.cityofcapitola.org/node/23163",
    "id": "capitola-village-tree-lighting",
-   "n": 101
+   "n": 125
   },
   {
    "id": "hiller-santa-arrives-by-helicopter",
@@ -1612,7 +1972,7 @@ window.WF_DATA = {
    "lat": 37.5134,
    "lon": -122.2496,
    "url": "https://www.hiller.org/events/",
-   "n": 102
+   "n": 126
   },
   {
    "id": "view-teen-center-afterhours",
@@ -1626,7 +1986,7 @@ window.WF_DATA = {
    "lat": 37.392,
    "lon": -122.096,
    "url": "https://www.mountainview.gov/our-city/departments/community-services/recreation/youth-teens/the-view-teen-center/programs-and-events",
-   "n": 103
+   "n": 127
   },
   {
    "id": "mv-library-amplify-teen-voices",
@@ -1640,10 +2000,94 @@ window.WF_DATA = {
    "lat": 37.3901,
    "lon": -122.0832,
    "url": "https://library.mountainview.gov/learn/children-and-teens/teen-services",
-   "n": 104
+   "n": 128
   },
   {
-   "n": 105,
+   "id": "sonoma-plaza-lighting",
+   "sec": "tbc",
+   "cat": "hol",
+   "tbc": true,
+   "when": "Usually the weekend before Thanksgiving",
+   "title": "Lighting of the Sonoma Plaza",
+   "meta": "Sonoma Plaza · tree lighting, music, food and wine around the historic plaza · free",
+   "q": "Sonoma Plaza",
+   "lat": 38.293,
+   "lon": -122.458,
+   "url": "https://www.sonomacity.org/event/the-lighting-of-the-sonoma-plaza-2",
+   "n": 129
+  },
+  {
+   "id": "santa-rosa-winter-lights",
+   "sec": "tbc",
+   "cat": "hol",
+   "tbc": true,
+   "when": "Usually the day after Thanksgiving · 4–7pm",
+   "title": "Santa Rosa Winter Lights & Tree Lighting",
+   "meta": "Old Courthouse Square, Santa Rosa · tree lighting, Santa, then a holiday skating rink on the square",
+   "q": "Old Courthouse Square Santa Rosa",
+   "lat": 38.4404,
+   "lon": -122.7141,
+   "url": "https://visitsantarosa.com/downtown-winter-lights",
+   "n": 130
+  },
+  {
+   "id": "napa-christmas-parade",
+   "sec": "tbc",
+   "cat": "hol",
+   "tbc": true,
+   "when": "Usually an early-December Saturday · 5pm",
+   "title": "Napa Christmas Parade",
+   "meta": "Downtown Napa · floats, horses, music and Santa on Second, Brown and Third streets · free",
+   "q": "Napa Valley Welcome Center",
+   "lat": 38.2985,
+   "lon": -122.2855,
+   "url": "https://donapa.com/event/christmas-parade/",
+   "n": 131
+  },
+  {
+   "id": "merry-healdsburg",
+   "sec": "tbc",
+   "cat": "hol",
+   "tbc": true,
+   "when": "Usually the first Friday in December",
+   "title": "Merry Healdsburg Tree Lighting & Night Market",
+   "meta": "Healdsburg Plaza · tree lighting, Santa photos, carriage rides, night market · free",
+   "q": "Healdsburg Plaza",
+   "lat": 38.6105,
+   "lon": -122.8692,
+   "url": "https://healdsburg.gov/1066/Merry-Healdsburg",
+   "n": 132
+  },
+  {
+   "id": "tiburon-holiday-festival",
+   "sec": "tbc",
+   "cat": "hol",
+   "tbc": true,
+   "when": "Usually an early-December weekend",
+   "title": "Tiburon Holiday Festival",
+   "meta": "Main St & Ark Row, Tiburon · toddler train, Santa, gingerbread houses, tree lighting · free",
+   "q": "Ark Row Tiburon",
+   "lat": 37.873,
+   "lon": -122.456,
+   "url": "https://www.tiburonchamber.org/holiday-festival",
+   "n": 133
+  },
+  {
+   "id": "merry-meritage-ice-rink",
+   "sec": "tbc",
+   "cat": "hol",
+   "tbc": true,
+   "when": "Usually mid-Nov to early Jan",
+   "title": "Merry Meritage Ice Rink",
+   "meta": "Meritage Resort, Napa · wine country's biggest outdoor rink, fire pits, s'mores, igloos",
+   "q": "Meritage Resort and Spa Napa",
+   "lat": 38.2398,
+   "lon": -122.2705,
+   "url": "https://www.meritageresort.com/experience/merry-meritage-ice-rink",
+   "n": 134
+  },
+  {
+   "n": 135,
    "sec": "dog",
    "when": "Saturdays · 11am–4pm",
    "title": "Muttville senior-dog adoption events",
@@ -1660,7 +2104,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 106,
+   "n": 136,
    "sec": "dog",
    "when": "Late Nov – Dec 31",
    "title": "SF SPCA Holiday Windows at Macy's",
@@ -1674,7 +2118,7 @@ window.WF_DATA = {
    "url": "https://www.sfspca.org/holiday"
   },
   {
-   "n": 107,
+   "n": 137,
    "sec": "dog",
    "when": "December",
    "title": "Santa pet photos at Peninsula Humane Society",
@@ -1688,7 +2132,7 @@ window.WF_DATA = {
    "url": "https://www.smdailyjournal.com/news/local/peninsula-humane-society-hosting-three-santa-paws-photo-dates/article_deecff44-35cd-5d26-815b-9b46576a12f5.html"
   },
   {
-   "n": 108,
+   "n": 138,
    "sec": "dog",
    "when": "Any day",
    "title": "Crissy Field East Beach",
@@ -1701,7 +2145,7 @@ window.WF_DATA = {
    "url": "https://www.dogster.com/lifestyle/dog-friendly-activities-san-francisco/"
   },
   {
-   "n": 109,
+   "n": 139,
    "sec": "food",
    "when": "Through Dec 6 · 1–4pm",
    "title": "Flour + Water pizza class",
@@ -1716,7 +2160,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 110,
+   "n": 140,
    "sec": "food",
    "when": "Various dates",
    "title": "North Beach Pizza Experience",
@@ -1729,7 +2173,7 @@ window.WF_DATA = {
    "url": "https://luma.com/d9w1fniq"
   },
   {
-   "n": 111,
+   "n": 141,
    "sec": "food",
    "when": "Various dates",
    "title": "Neapolitan pizza with Chef James",
@@ -1742,7 +2186,7 @@ window.WF_DATA = {
    "url": "https://assets.classbento.com/neapolitan-pizza-making-class-san-francisco"
   },
   {
-   "n": 112,
+   "n": 142,
    "sec": "food",
    "when": "Various dates",
    "title": "New York–style pizza with Chef Daniel",
@@ -1755,7 +2199,7 @@ window.WF_DATA = {
    "url": "https://www.cozymeal.com/lp/pizza-making-classes-in-san-francisco"
   },
   {
-   "n": 113,
+   "n": 143,
    "sec": "food",
    "when": "Various dates",
    "title": "Pizza making at The Cheese School of SF",
@@ -1768,7 +2212,7 @@ window.WF_DATA = {
    "url": "https://coursetakers.com/course/pizza-making-by-the-cheese-school-of-san-francisco"
   },
   {
-   "n": 114,
+   "n": 144,
    "sec": "food",
    "when": "Mondays · 1pm",
    "title": "Counter Culture catalog cupping",
@@ -1792,7 +2236,7 @@ window.WF_DATA = {
    "lat": 37.4275,
    "lon": -122.1697,
    "url": "https://www.cee.org/programs/research-science-institute",
-   "n": 115
+   "n": 145
   },
   {
    "sec": "programs",
@@ -1807,7 +2251,7 @@ window.WF_DATA = {
    "lat": 37.4275,
    "lon": -122.1697,
    "url": "https://summer.stanford.edu/students/high-school",
-   "n": 116
+   "n": 146
   },
   {
    "sec": "programs",
@@ -1821,7 +2265,7 @@ window.WF_DATA = {
    "lat": 36.9914,
    "lon": -122.0609,
    "url": "https://cosmos.ucsc.edu",
-   "n": 117
+   "n": 147
   },
   {
    "sec": "programs",
@@ -1836,7 +2280,7 @@ window.WF_DATA = {
    "lat": 37.4316,
    "lon": -122.1757,
    "url": "https://simr.stanford.edu",
-   "n": 118
+   "n": 148
   },
   {
    "sec": "programs",
@@ -1850,7 +2294,7 @@ window.WF_DATA = {
    "lat": 36.9914,
    "lon": -122.0609,
    "url": "https://sip.ucsc.edu",
-   "n": 119
+   "n": 149
   },
   {
    "sec": "programs",
@@ -1864,7 +2308,7 @@ window.WF_DATA = {
    "lat": 37.4152,
    "lon": -122.0636,
    "url": "https://www.nasa.gov/learning-resources/internship-programs/",
-   "n": 120
+   "n": 150
   },
   {
    "sec": "programs",
@@ -1879,7 +2323,7 @@ window.WF_DATA = {
    "lat": 37.4275,
    "lon": -122.1697,
    "url": "https://spcs.stanford.edu/programs/stanford-university-mathematics-camp-sumac",
-   "n": 121
+   "n": 151
   },
   {
    "sec": "programs",
@@ -1894,7 +2338,7 @@ window.WF_DATA = {
    "lat": 37.4316,
    "lon": -122.1757,
    "url": "https://med.stanford.edu/odme/high-school-students/smysp.html",
-   "n": 122
+   "n": 152
   },
   {
    "sec": "programs",
@@ -1907,7 +2351,7 @@ window.WF_DATA = {
    "q": "Monterey Bay Aquarium",
    "lat": 36.6182,
    "lon": -121.9019,
-   "n": 123
+   "n": 153
   },
   {
    "sec": "programs",
@@ -1920,10 +2364,10 @@ window.WF_DATA = {
    "lat": 37.2928,
    "lon": -121.879,
    "url": "https://www.shfb.org/give-help/volunteer/",
-   "n": 124
+   "n": 154
   },
   {
-   "n": 125,
+   "n": 155,
    "sec": "radar",
    "when": "Late April 2027",
    "title": "Bay Area Pizza Week",
@@ -1933,7 +2377,7 @@ window.WF_DATA = {
    "url": "https://www.metrosiliconvalley.com/?p=20189370"
   },
   {
-   "n": 126,
+   "n": 156,
    "sec": "radar",
    "when": "Mid-Aug / Early Nov 2027",
    "title": "SF Pizza, Bagel & Beer Fest · SF Coffee Festival",

@@ -311,6 +311,78 @@ window.WF_WALKS = {
 "n": "W24",
 "sec": "walks",
 "cat": "walk"
+},
+{
+"id": "walk-rodeo-beach",
+"title": "Rodeo Beach & the Coastal Trail",
+"when": "Off-leash in some areas",
+"meta": "Marin Headlands · dogs on leash or under voice control on the beach (not the lagoon); leashed on nearby trails",
+"lat": 37.8314,
+"lon": -122.538,
+"q": "Rodeo Beach Marin Headlands",
+"url": "https://home.nps.gov/muwo/planyourvisit/pets.htm",
+"sec": "walks",
+"cat": "walk"
+},
+{
+"id": "walk-muir-beach",
+"title": "Muir Beach",
+"when": "Off-leash on the beach",
+"meta": "Muir Beach, Marin · voice control on the beach itself; leash on the Coastal Trail · Muir Woods is no-dogs",
+"lat": 37.8608,
+"lon": -122.5765,
+"q": "Muir Beach",
+"url": "https://home.nps.gov/muwo/planyourvisit/pets.htm",
+"sec": "walks",
+"cat": "walk"
+},
+{
+"id": "walk-alston-park-napa",
+"title": "Alston Park & Canine Commons",
+"when": "Off-leash",
+"meta": "Napa · about 30 off-leash acres with vineyard views plus a fenced dog run; leashed on the rest of the park",
+"lat": 38.3195,
+"lon": -122.3192,
+"q": "Alston Park Napa",
+"url": "https://dogtrekker.com/directories/alston-park/",
+"sec": "walks",
+"cat": "walk"
+},
+{
+"id": "walk-limantour-beach",
+"title": "Limantour & Kehoe beaches",
+"when": "Leashed",
+"meta": "Point Reyes · dogs only on set beach sections (Limantour southeast of the lot, Kehoe north of the trail), 6-ft leash; no Point Reyes trails",
+"lat": 38.026,
+"lon": -122.878,
+"q": "Limantour Beach Point Reyes",
+"url": "https://home.nps.gov/pore/planyourvisit/pets.htm",
+"sec": "walks",
+"cat": "walk"
+},
+{
+"id": "walk-doran-beach",
+"title": "Doran Beach",
+"when": "Leashed (off-leash area by the boat launch)",
+"meta": "Bodega Bay · 2-mile sandy beach; leashed dogs welcome, plus a small off-leash stretch",
+"lat": 38.313,
+"lon": -123.043,
+"q": "Doran Regional Park Bodega Bay",
+"url": "https://parks.sonomacounty.ca.gov/visit/find-a-park/doran-regional-park",
+"sec": "walks",
+"cat": "walk"
+},
+{
+"id": "walk-spring-lake-santa-rosa",
+"title": "Spring Lake loop",
+"when": "Leashed",
+"meta": "Spring Lake Regional Park, Santa Rosa · 2.3-mile paved loop and ~10 miles of trails; no dogs at the swim lagoon",
+"lat": 38.4567,
+"lon": -122.6493,
+"q": "Spring Lake Regional Park Santa Rosa",
+"url": "https://parks.sonomacounty.ca.gov/visit/find-a-park/spring-lake-regional-park",
+"sec": "walks",
+"cat": "walk"
 }
 ],
 "nodogs": [
@@ -319,6 +391,7 @@ window.WF_WALKS = {
 "Huddart Park, Woodside",
 "Most San Mateo County parks (only a few, like Coyote Point and Pillar Point Bluff, allow leashed dogs)",
 "Midpen preserve creeks and ponds (no water contact)",
-"Most Santa Cruz County state beaches outside the ones listed (and Its Beach is leash-only, despite the \"Dog Beach\" nickname)"
+"Most Santa Cruz County state beaches outside the ones listed (and Its Beach is leash-only, despite the \"Dog Beach\" nickname)",
+"Muir Woods and almost all Point Reyes trails"
 ]
 };
