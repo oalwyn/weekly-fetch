@@ -1,0 +1,4 @@
+src/out_index.html
+__pycache__/
+.DS_Store
+node_modules/
