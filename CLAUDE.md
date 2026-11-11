@@ -75,6 +75,7 @@ Plan agreed with the owner: wrap the site with **Capacitor** (iOS) and add real 
 ### iPhone app: current state (branch `ios-app`)
 - App name "Weekend Fetch", bundle id `io.github.oalwyn.weekendfetch` (chosen by the owner). Capacitor 8.6.0, Swift Package Manager (no CocoaPods).
 - `src/build_app.py` rebuilds the site, then writes an app-only copy to `app/www/` (gitignored): share/invite links point at the live site, the latest `data.js`/`walks.js` are fetched from the live site at launch (saved in localStorage `wf-app-data`/`wf-app-walks`), safe-area CSS, non-blocking web fonts. The website's own `index.html` is not changed.
+- Native features live in `src/native_app.js` (app-only, injected by build_app.py; it wraps `setPlan`, `refreshStars`, `lockedCtl`, `copyOut`): reminders for locked plans (7pm the evening before, 2h before start or 9am on the day) via @capacitor/local-notifications, permission asked on the first lock; "Add to Calendar" via the custom Swift plugin `ios/App/App/WFCalendarPlugin.swift` (EKEventEditViewController, no permission needed on iOS 17+; registered in `MainViewController`); invite links via @capacitor/share.
 - Rebuild the app: `npm run app:build` (= `python3 src/build_app.py && npx cap sync ios`), then build in Xcode (`npm run app:open`). Native project lives in `ios/`.
 
 Notes for the App Store build:

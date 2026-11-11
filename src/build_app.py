@@ -87,6 +87,13 @@ html .wk-h{top:calc(var(--fh,0px) + env(safe-area-inset-top,0px))}
 body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:var(--blue);z-index:30}
 ''' + html[i:]
 
+# 5. native features (reminders, Add to Calendar, share sheet): see src/native_app.js
+i = html.rfind('\nrender();\n')
+assert i > 0
+html = html[:i] + '\n' + open(os.path.join(here, "native_app.js")).read() + html[i:]
+i = html.index('</style>')
+html = html[:i] + '.calbtn{border:1px solid #C9D2DC;background:#fff;color:var(--ink);border-radius:10px;padding:9px 14px;font-size:14px;font-weight:600;min-height:44px}\n' + html[i:]
+
 if os.path.isdir(out):
     shutil.rmtree(out)
 os.makedirs(out)
