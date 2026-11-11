@@ -1,6 +1,6 @@
 {
   "appId": "io.github.oalwyn.weekendfetch",
-  "appName": "Weekend Fetch",
+  "appName": "Bay Fetch",
   "webDir": "app/www",
   "ios": {
     "backgroundColor": "#2F5D8A"

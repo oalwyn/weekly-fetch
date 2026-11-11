@@ -84,10 +84,20 @@ html = html[:i] + '''
 html header{padding-top:calc(12px + env(safe-area-inset-top,0px))}
 html .filters{top:env(safe-area-inset-top,0px)}
 html .wk-h{top:calc(var(--fh,0px) + env(safe-area-inset-top,0px))}
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,textarea,.copyarea{-webkit-user-select:text;user-select:text}
 body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:var(--blue);z-index:30}
 ''' + html[i:]
 
-# 5. native features (reminders, Add to Calendar, share sheet): see src/native_app.js
+# 4b. plan rows showed the END of a range ("5–9pm" became "9pm"): match the whole range first
+rep(r'''t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(?:am|pm)(?:\s*[–-]\s*\d{1,2}(?::\d\d)?\s*(?:am|pm))?/i);''',
+    r'''t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(?:am|pm)?\s*[–-]\s*\d{1,2}(?::\d\d)?\s*(?:am|pm)|\d{1,2}(?::\d\d)?\s*(?:am|pm)/i);''')
+
+# 5. Apple requires the privacy policy to be reachable inside the app
+assert html.count('</footer>') == 1
+rep('</footer>', '<br><a href="%sprivacy.html" style="color:inherit">Privacy policy</a></footer>' % LIVE)
+
+# 6. native features (reminders, Add to Calendar, share sheet): see src/native_app.js
 i = html.rfind('\nrender();\n')
 assert i > 0
 html = html[:i] + '\n' + open(os.path.join(here, "native_app.js")).read() + html[i:]
