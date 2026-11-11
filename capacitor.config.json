@@ -1,0 +1,8 @@
+{
+  "appId": "io.github.oalwyn.weekendfetch",
+  "appName": "Weekend Fetch",
+  "webDir": "app/www",
+  "ios": {
+    "backgroundColor": "#2F5D8A"
+  }
+}

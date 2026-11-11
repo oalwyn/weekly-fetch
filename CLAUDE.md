@@ -72,6 +72,11 @@ Plan agreed with the owner: wrap the site with **Capacitor** (iOS) and add real 
 4. Native share sheet for invite links; ideally universal links so `#list-` invites open the app.
 5. Later: a home-screen widget showing this weekend's plan (WidgetKit, needs Swift).
 
+### iPhone app: current state (branch `ios-app`)
+- App name "Weekend Fetch", bundle id `io.github.oalwyn.weekendfetch` (chosen by the owner). Capacitor 8.6.0, Swift Package Manager (no CocoaPods).
+- `src/build_app.py` rebuilds the site, then writes an app-only copy to `app/www/` (gitignored): share/invite links point at the live site, the latest `data.js`/`walks.js` are fetched from the live site at launch (saved in localStorage `wf-app-data`/`wf-app-walks`), safe-area CSS, non-blocking web fonts. The website's own `index.html` is not changed.
+- Rebuild the app: `npm run app:build` (= `python3 src/build_app.py && npx cap sync ios`), then build in Xcode (`npm run app:open`). Native project lives in `ios/`.
+
 Notes for the App Store build:
 - Keep the website working. Put the app shell in `ios/` (Capacitor), with `webDir` pointing at a build output that includes index.html, data.js, walks.js and the assets.
 - The app should fetch the latest `data.js` from the live site at launch, falling back to the bundled copy, so twice-weekly refreshes reach the app without resubmitting.
