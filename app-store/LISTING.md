@@ -74,7 +74,7 @@ events,weekend,things to do,san francisco,peninsula,south bay,marin,napa,dog fri
 
 ## Screenshots
 
-Upload the five files in `app-store/screenshots/` under **iPhone 6.9" Display**. They're 1320 × 2868, the size Apple asks for. In this order:
+Upload the five files in `app-store/screenshots-6.3/` (1206 × 2622, no transparency) under **iPhone with Dynamic Island (medium display)**. App Store Connect only shows this section when the window is wide. The 1320 × 2868 originals in `app-store/screenshots/` were rejected there as "invalid dimensions". In this order:
 
 1. `1-events.png`: this weekend's events
 2. `2-map.png`: the map
