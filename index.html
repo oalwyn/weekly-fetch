@@ -172,6 +172,32 @@ main{padding:0 10px 40px}
 .copybtn{font-size:15px}
 footer{font-size:13px}
 }
+/* ---------- desktop and laptop (900px+): phones and the iPhone app never reach this ---------- */
+@media (min-width:900px){
+.app{max-width:1180px}
+header{padding:28px 32px 0;background:linear-gradient(90deg,var(--blue) 0%,var(--blue) 46%,rgba(47,93,138,0) 64%),url(banner.svg?v=2) right 78%/auto 165% no-repeat,var(--blue)}
+h1{font-size:40px}
+.slogan{font-size:17px;margin:4px 0 18px}
+.tabs{max-width:640px;margin:0}
+.filters{padding:12px 32px}
+.homechip{max-width:240px}
+main{padding:4px 32px 48px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px;align-content:start}
+main>*{grid-column:1/-1}
+main>.card{grid-column:auto;margin-bottom:16px;align-content:start}
+main>.card .row2{align-self:end}
+/* map tab: big map with the selected event beside it */
+main:has(#mapwrap){grid-template-columns:minmax(0,1fr) 380px}
+main:has(#mapwrap)>*{grid-column:1}
+main:has(#mapwrap)>.mapwrap{height:calc(100vh - 290px);min-height:480px;max-height:none;aspect-ratio:auto!important}
+main:has(#mapwrap)>.sheet{grid-column:2;grid-row:1/span 4;margin-top:10px;align-self:start;position:sticky;top:calc(var(--fh,0px) + 12px)}
+.sheet:empty::before{content:"Click a pin on the map to see that event here.";display:block;padding:18px;border:1.5px dashed #CBD4DD;border-radius:14px;color:var(--mute);font-size:14px;line-height:1.5}
+/* weekend plans: schedules read top to bottom, so keep one comfortable column */
+main:has(.ourhead){display:block;max-width:860px;width:100%;margin:0 auto}
+footer{padding-bottom:40px}
+}
+@media (min-width:1200px){
+main{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
 </style>
 </head>
 <body>
