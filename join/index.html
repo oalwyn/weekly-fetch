@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join a group · The Bay Area Weekend Fetch</title>
+<meta name="theme-color" content="#2F5D8A">
+<link rel="icon" type="image/png" href="../icon-192.png?v=4">
+<style>body{margin:0;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;background:#EEF2F5;color:#1B2430;display:grid;place-items:center;min-height:100vh;padding:20px;box-sizing:border-box}a{color:#2F5D8A;font-weight:600}</style>
+<script>
+// Invite links look like https://theweekendfetch.com/join/?c=ABC123.
+// With Bay Fetch installed on an iPhone, iOS opens the app instead of this page.
+// Otherwise this hands the code to the website, which asks the person to sign in and then joins the group.
+(function(){
+  var c = (new URLSearchParams(location.search).get("c") || "").replace(/[^A-Za-z0-9]/g, "").toUpperCase().slice(0, 10);
+  location.replace("../" + (c ? "#join-" + c : "#our-list"));
+})();
+</script>
+</head>
+<body>
+<p>Opening your invite… If nothing happens, <a href="../#our-list">continue to The Bay Area Weekend Fetch</a>.</p>
+</body>
+</html>
