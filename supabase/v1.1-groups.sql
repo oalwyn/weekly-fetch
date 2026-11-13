@@ -336,7 +336,8 @@ revoke all on function public._me(), public._require_member(uuid), public._new_c
 revoke all on function public.set_my_name(text), public.get_me(), public.create_group(text), public.join_group(text),
   public.leave_group(uuid), public.rename_group(uuid,text), public.rotate_join_code(uuid), public.get_group(uuid),
   public.add_group_pick(uuid,text,jsonb), public.remove_group_pick(uuid,text), public.set_group_lock(uuid,text,date,jsonb),
-  public.convert_legacy_list(text,text,text), public.delete_my_account(), public.log_event(text,text,uuid,text,text) from public;
+  public.convert_legacy_list(text,text,text), public.delete_my_account(), public.log_event(text,text,uuid,text,text) from public, anon;
+-- (Supabase grants new functions to anon by default, so "from public" alone isn't enough.)
 grant execute on function public.set_my_name(text), public.get_me(), public.create_group(text), public.join_group(text),
   public.leave_group(uuid), public.rename_group(uuid,text), public.rotate_join_code(uuid), public.get_group(uuid),
   public.add_group_pick(uuid,text,jsonb), public.remove_group_pick(uuid,text), public.set_group_lock(uuid,text,date,jsonb),

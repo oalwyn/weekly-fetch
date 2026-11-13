@@ -15,6 +15,7 @@ await db.exec(`
   create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('test.uid', true), '')::uuid $$;
   grant usage on schema auth to anon, authenticated; grant execute on function auth.uid() to anon, authenticated;
   grant usage on schema public to anon, authenticated;
+  alter default privileges in schema public grant execute on functions to anon, authenticated;  -- like Supabase
 `);
 await db.exec(fs.readFileSync(repo + '/supabase-setup.sql', 'utf8'));
 await db.exec(fs.readFileSync(repo + '/supabase/v1.1-groups.sql', 'utf8'));
