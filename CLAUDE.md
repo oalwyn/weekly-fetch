@@ -76,6 +76,11 @@ Plan agreed with the owner: wrap the site with **Capacitor** (iOS) and add real 
 **Read `docs/PLAN-v1.1.md` first** (on the owner's Mac only) when Apple's review feedback arrives or before any app change. Don't change the app while it's in review.
 - `docs/PLAN-*.md` are the owner's **private** plans. They're excluded from git in `.git/info/exclude`. Never commit, push, copy or summarize them into tracked files: this repo is public.
 
+### Version 1.1 (branch `v1.1-accounts`, in progress)
+- Database: `supabase/v1.1-groups.sql` (applied to the live project Nov 13, 2026). Tests: `npm run test:db` (in-memory Postgres via PGlite; mimics Supabase's default function grants). The old `picks` RPCs stay for app 1.0.x and the current site.
+- Supabase Auth: Email (magic link) and Apple (native, Client ID = bundle id) enabled; Site URL https://theweekendfetch.com.
+- App ID has Sign In with Apple + Associated Domains enabled.
+
 ### iPhone app: current state (merged into `main`)
 - Home-screen name "Bay Fetch" (App Store name "The Bay Area Weekend Fetch"), bundle id `io.github.oalwyn.weekendfetch` (chosen by the owner). Capacitor 8.6.0, Swift Package Manager (no CocoaPods).
 - App 1.0 (build 1) still has the old address built in, so it can't download fresh events. 1.0.1 (build 2) switches `LIVE` in build_app.py to https://theweekendfetch.com/.
