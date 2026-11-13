@@ -14,9 +14,9 @@ Copy each block into the matching field in App Store Connect.
 | **Primary category** | Lifestyle |
 | **Secondary category** | Travel |
 | **Content rights** | "No, it does not contain, show, or access third-party content." The listings are your own short summaries of public events, with links out. If you prefer to be cautious, answer Yes and confirm you have the right to use it. |
-| **Privacy Policy URL** | https://oalwyn.github.io/weekly-fetch/privacy.html |
+| **Privacy Policy URL** | https://theweekendfetch.com/privacy.html |
 | **Support URL** | https://github.com/oalwyn/weekly-fetch/issues |
-| **Marketing URL** (optional) | https://oalwyn.github.io/weekly-fetch/ |
+| **Marketing URL** (optional) | https://theweekendfetch.com/ |
 | **Price** | Free |
 | **Availability** | United States (the app only covers the Bay Area) |
 | **Version** | 1.0 |
@@ -132,7 +132,7 @@ NATIVE FEATURES TO TRY
 4. Location (optional): Tap the "Mountain View" home button and choose "Use my current location" to sort events by distance. The location is used only on the device.
 
 DATA
-There are no accounts. Shared plans store only a random list code, the first name the user types, and the events they starred, in our Supabase database. Privacy policy: https://oalwyn.github.io/weekly-fetch/privacy.html
+There are no accounts. Shared plans store only a random list code, the first name the user types, and the events they starred, in our Supabase database. Privacy policy: https://theweekendfetch.com/privacy.html
 
 Event links and directions open in Safari or Maps.
 ```

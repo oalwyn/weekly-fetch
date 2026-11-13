@@ -10,7 +10,7 @@ app/www and makes a few app-only changes:
 """
 import os, shutil, subprocess, sys
 
-LIVE = "https://oalwyn.github.io/weekly-fetch/"
+LIVE = "https://theweekendfetch.com/"
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
 out = os.path.join(root, "app", "www")

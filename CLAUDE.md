@@ -6,7 +6,7 @@ This is the project brief for Claude. Read it before changing anything.
 A mobile-first events site for a household in Mountain View, CA (with a dog), shared with other households.
 It covers the North Bay (Marin, Napa, Sonoma, Santa Rosa), SF, the Peninsula, the South Bay, Santa Cruz, Monterey and Carmel.
 
-- Live: https://oalwyn.github.io/weekly-fetch/ (GitHub Pages, branch `main`, repo root)
+- Live: https://theweekendfetch.com/ (GitHub Pages custom domain since Nov 13, 2026; `CNAME` file in repo root; DNS at Porkbun: 4 A + 4 AAAA records to GitHub Pages, `www` CNAME to oalwyn.github.io, Porkbun email-forwarding MX kept). The old https://oalwyn.github.io/weekly-fetch/ address 301-redirects here, but that redirect has no CORS header, so cross-site `fetch()` through the old address fails: always use the new domain in code.
 - Tabs: **Events** (by weekend or by date, with a Filter panel), **Map** (custom SVG coastline with pins), and **Our Weekend Plans** (a shared starred list, locked into specific days).
 - Categories: `hol` holiday, `mkt` markets, `dog`, `food` pizza & coffee, `art`, `show` concerts & shows, `kids` young kids, `teen`, `prog` teen programs (application deadlines), `evt`, plus `walk` dog walks.
 
@@ -72,14 +72,19 @@ Plan agreed with the owner: wrap the site with **Capacitor** (iOS) and add real 
 4. Native share sheet for invite links; ideally universal links so `#list-` invites open the app.
 5. Later: a home-screen widget showing this weekend's plan (WidgetKit, needs Swift).
 
-### iPhone app: current state (branch `ios-app`)
+### iPhone app: submitted to Apple Nov 11, 2026 (v1.0 build 1, App Store Connect app ID 6833697642)
+**Read `docs/PLAN-v1.1.md` first** (on the owner's Mac only) when Apple's review feedback arrives or before any app change. Don't change the app while it's in review.
+- `docs/PLAN-*.md` are the owner's **private** plans. They're excluded from git in `.git/info/exclude`. Never commit, push, copy or summarize them into tracked files: this repo is public.
+
+### iPhone app: current state (merged into `main`)
 - Home-screen name "Bay Fetch" (App Store name "The Bay Area Weekend Fetch"), bundle id `io.github.oalwyn.weekendfetch` (chosen by the owner). Capacitor 8.6.0, Swift Package Manager (no CocoaPods).
+- App 1.0 (build 1) still has the old address built in, so it can't download fresh events. 1.0.1 (build 2) switches `LIVE` in build_app.py to https://theweekendfetch.com/.
 - `src/build_app.py` rebuilds the site, then writes an app-only copy to `app/www/` (gitignored): share/invite links point at the live site, the latest `data.js`/`walks.js` are fetched from the live site at launch (saved in localStorage `wf-app-data`/`wf-app-walks`), safe-area CSS, non-blocking web fonts. The website's own `index.html` is not changed.
 - Native features live in `src/native_app.js` (app-only, injected by build_app.py; it wraps `setPlan`, `refreshStars`, `lockedCtl`, `copyOut`): reminders for locked plans (7pm the evening before, 2h before start or 9am on the day) via @capacitor/local-notifications, permission asked on the first lock; "Add to Calendar" via the custom Swift plugin `ios/App/App/WFCalendarPlugin.swift` (EKEventEditViewController, no permission needed on iOS 17+; registered in `MainViewController`); invite links via @capacitor/share.
 - Rebuild the app: `npm run app:build` (= `python3 src/build_app.py && npx cap sync ios`), then build in Xcode (`npm run app:open`). Native project lives in `ios/`.
 - App-only fixes in build_app.py: plan rows show the full time range (the website's `planRow` regex shows the END of "5–9pm"; `timeOf` sorting has the same bug), no text selection, privacy link in the footer.
 - iPhone-only (`TARGETED_DEVICE_FAMILY = 1`). Icon `ios/App/App/Assets.xcassets/AppIcon.appiconset` rendered from `icon.svg` at 1024px.
-- App Store listing text, privacy-label answers, review notes and upload steps: `app-store/LISTING.md`. Screenshots (6.9", 1320×2868) in `app-store/screenshots/`. Privacy policy: `privacy.html` (live at …/weekly-fetch/privacy.html once merged to `main`).
+- App Store listing text, privacy-label answers, review notes and upload steps: `app-store/LISTING.md`. Screenshots (6.9", 1320×2868) in `app-store/screenshots/`. Privacy policy: `privacy.html` (live at https://theweekendfetch.com/privacy.html).
 
 Notes for the App Store build:
 - Keep the website working. Put the app shell in `ios/` (Capacitor), with `webDir` pointing at a build output that includes index.html, data.js, walks.js and the assets.
