@@ -89,6 +89,34 @@ try:
         ok('You & Sam' in A.inner_text(f'#card-{first}'), "Olivier sees 'You & Sam' after sync")
         plans(A)
         A.screenshot(path=f'{OUT}/e2e-4-group.png', full_page=True)
+        # ---- who's going and meet-up ----
+        if not A.is_visible('.going'): A.click(f'[data-expand="{first}"]'); A.wait_for_timeout(300)
+        ok(A.is_visible('.going') and A.get_attribute('.rbtn.going', 'aria-pressed') == 'true', 'locking it in marks Olivier as going')
+        plans(B)
+        if not B.is_visible('.going'): B.click(f'[data-expand="{first}"]'); B.wait_for_timeout(300)
+        B.click('.rbtn.no'); B.wait_for_timeout(1200)
+        ok(sql(f"select status from group_rsvps r join auth.users u on u.id = r.user_id where u.email = 'sam@example.com' and item_id = '{first}'")[0]['status'] == 'no', "Sam's Can't saved")
+        B.click('.going [data-acct=meet-edit]'); B.wait_for_timeout(200)
+        B.fill('form[data-acctform=meet] input[name=t]', '10:30'); B.fill('form[data-acctform=meet] input[name=p]', 'Front gate'); B.click('form[data-acctform=meet] button.copybtn:not(.alt)'); B.wait_for_timeout(1200)
+        ok(sql(f"select meet_time, meet_place from group_locks where item_id = '{first}'")[0] == {'meet_time': '10:30', 'meet_place': 'Front gate'}, 'meet-up saved')
+        A.evaluate('sync()'); A.wait_for_timeout(1200); plans(A)
+        if not A.is_visible('.going'): A.click(f'[data-expand="{first}"]'); A.wait_for_timeout(300)
+        t = A.inner_text('main')
+        ok('Meet 10:30am · Front gate' in t and "Can't: Sam" in t and 'Going: Olivier' in t, 'Olivier sees the meet-up and who is going')
+        ok('1 going' in A.inner_text(f'.prow:has([data-expand="{first}"]) .pg'), 'folded row shows the headcount')
+        A.screenshot(path=f'{OUT}/e2e-4b-going.png', full_page=True)
+        # ---- second group with a plan the same day: All my plans shows the clash ----
+        day = sql(f"select day::text d from group_locks where item_id = '{first}'")[0]['d']
+        A.click('[data-acct=settings]'); A.wait_for_timeout(200); A.click('[data-acct=add]'); A.wait_for_timeout(200)
+        A.fill('.apanel form[data-acctform=create] input', 'Friends'); A.click('.apanel form[data-acctform=create] button'); A.wait_for_timeout(1500)
+        g2 = sql("select id from groups where name = 'Friends'")[0]['id']
+        sql(f"insert into group_locks(group_id,item_id,day,item) values ('{g2}','zz-hike','{day}','{{\"title\":\"Friends hike\",\"when\":\"Sat\"}}')")
+        A.click('[data-acct=close]') if A.is_visible('[data-acct=close]') else None
+        A.select_option('select[data-gswitch]', '__all'); A.wait_for_timeout(1500)
+        ok(A.locator('.arow').count() == 2 and A.locator('.arow.clash').count() == 2 and 'Clashes with' in A.inner_text('main'), 'All my plans lists both groups and flags the clash')
+        A.screenshot(path=f'{OUT}/e2e-4c-all.png', full_page=True)
+        A.click(f'[data-acct=open-group][data-id="{first}"]'); A.wait_for_timeout(1500)
+        ok(A.is_visible('.going') and 'Friends hike' in A.inner_text(f'.prow:has([data-expand="{first}"])'), 'Open in group returns to the plan, still showing the clash')
         # ---- settings: rename, members, new code (owner), Sam can't make codes ----
         A.click('[data-acct=settings]'); A.wait_for_timeout(300)
         ok('Sam' in A.inner_text('.members') and 'owner' in A.inner_text('.members'), 'members list shows both, with owner')

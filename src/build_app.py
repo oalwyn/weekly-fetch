@@ -89,10 +89,6 @@ input,textarea,.copyarea{-webkit-user-select:text;user-select:text}
 body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:var(--blue);z-index:30}
 ''' + html[i:]
 
-# 4b. plan rows showed the END of a range ("5–9pm" became "9pm"): match the whole range first
-rep(r'''t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(?:am|pm)(?:\s*[–-]\s*\d{1,2}(?::\d\d)?\s*(?:am|pm))?/i);''',
-    r'''t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(?:am|pm)?\s*[–-]\s*\d{1,2}(?::\d\d)?\s*(?:am|pm)|\d{1,2}(?::\d\d)?\s*(?:am|pm)/i);''')
-
 # 5. Apple requires the privacy policy to be reachable inside the app
 assert html.count('</footer>') == 1
 rep('</footer>', '<br><a href="%sprivacy.html" style="color:inherit">Privacy policy</a></footer>' % LIVE)

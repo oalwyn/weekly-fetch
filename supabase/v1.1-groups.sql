@@ -1,5 +1,6 @@
 -- The Bay Area Weekend Fetch / Bay Fetch 1.1: accounts, groups, group plans, usage counts.
 -- Paste this whole file into Supabase > SQL Editor > New query, then press Run. Safe to run more than once.
+-- Then run v1.1-plans-extra.sql too (it updates get_group and set_group_lock; run it again after re-running this file).
 --
 -- Same security model as supabase-setup.sql: tables are locked (RLS on, no table access for
 -- anon/authenticated); everything goes through the functions below, which check auth.uid()

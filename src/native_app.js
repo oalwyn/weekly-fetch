@@ -8,22 +8,7 @@ const CAP = window.Capacitor;
 const capPlugin = name => !CAP ? null : ((CAP.Plugins && CAP.Plugins[name]) || (CAP.registerPlugin ? CAP.registerPlugin(name) : null));
 const LN = capPlugin("LocalNotifications"), SHARE = capPlugin("Share"), CAL = capPlugin("WFCalendar");
 
-// start / end time from text like "Fri Nov 13 · 6–8pm", "Sat · 10:30am", "11–2pm" (hours, 0-24)
-function wfTimes(when){
-  const re = /(\d{1,2})(?::(\d\d))?\s*(am|pm)?(?:\s*[–-]\s*(\d{1,2})(?::(\d\d))?\s*(am|pm))?/ig;
-  let m;
-  while ((m = re.exec(String(when || "")))){
-    const m1 = m[3] && m[3].toLowerCase(), m2 = m[6] && m[6].toLowerCase();
-    if (!m1 && !m2) continue;                       // a date like "Nov 13–14", not a time
-    const h = (hh, mm, mer) => (+hh % 12) + (mer === "pm" ? 12 : 0) + (+(mm || 0)) / 60;
-    let sh = h(m[1], m[2], m1 || m2);
-    let eh = m[4] ? h(m[4], m[5], m2) : null;
-    if (!m1 && eh !== null && sh > eh) sh -= 12;    // "11–2pm" starts at 11am
-    if (eh === null || eh <= sh) eh = sh + 2;
-    return {sh, eh};
-  }
-  return null;
-}
+// wfTimes(when) (start/end hours from listing text) is defined in accounts.js
 const atHour = (day, h) => { const x = new Date(day); x.setHours(Math.floor(h), Math.round((h % 1) * 60), 0, 0); return x; };
 const clock = h => { const hh = Math.floor(h), mm = Math.round((h % 1) * 60); return `${(hh % 12) || 12}${mm ? ":" + String(mm).padStart(2, "0") : ""}${hh < 12 ? "am" : "pm"}`; };
 const planItem = id => DATA.find(d => d.id === id) || (picks.get(id) && picks.get(id).item) || null;
@@ -43,13 +28,17 @@ async function doSchedule(){
   const pending = (await LN.getPending()).notifications || [];
   const ours = pending.filter(n => n.extra && n.extra.wf);
   if (ours.length) await LN.cancel({notifications: ours.map(n => ({id: n.id}))});
-  const now = Date.now(), list = [];
-  for (const [id, set] of locks){
-    if (!set || !set.size) continue;
-    const k = [...set].sort()[0], e = planItem(id);
-    if (!e) continue;
-    const day = parseD(k), t = wfTimes(e.when), place = placeOf(e);
-    const body = [t ? clock(t.sh) : "", place].filter(Boolean).join(" · ") || "It's in your weekend plans.";
+  const now = Date.now(), list = [], seen = new Set();
+  // signed in: every plan in every group (except ones you said "Can't" to); otherwise this device's plans
+  const all = typeof myLockedPlans === "function" ? myLockedPlans() : null;
+  const plans = all || [...locks].filter(([, set]) => set && set.size).map(([id, set]) => ({ id, k: [...set].sort()[0], e: planItem(id), meet: typeof planMeet === "function" ? planMeet(id) : null }));
+  for (const p of plans){
+    const id = p.id, k = p.k, e = p.e;
+    if (!e || seen.has(id + "|" + k)) continue;
+    seen.add(id + "|" + k);
+    const day = parseD(k), mh = p.meet && p.meet.time ? hm2h(p.meet.time) : null;
+    const t = mh != null ? { sh: mh } : wfTimes(e.when), place = (p.meet && p.meet.place) || placeOf(e);
+    const body = [t ? (mh != null ? "Meet " : "") + clock(t.sh) : "", place].filter(Boolean).join(" · ") || "It's in your weekend plans.";
     const eve = atHour(addD(day, -1), 19);
     if (+eve > now) list.push({id: noteId(id + "|eve|" + k), title: "Tomorrow: " + e.title, body, schedule: {at: eve, allowWhileIdle: true}, extra: {wf: 1, item: id}});
     const soon = t ? atHour(day, t.sh - 2) : atHour(day, 9);
@@ -80,19 +69,22 @@ const _lockedCtl = lockedCtl;
 lockedCtl = function(e, k, opts){
   const h = _lockedCtl(e, k, opts);
   if (!CAL) return h;
-  return h.replace(/<\/div>$/, `<button class="calbtn" data-addcal="${esc(e.id)}" data-k="${esc(k)}">📅 Add to Calendar</button></div>`);
+  return h.replace("</div>", `<button class="calbtn" data-addcal="${esc(e.id)}" data-k="${esc(k)}">📅 Add to Calendar</button></div>`);
 };
 document.addEventListener("click", ev => {
   const b = ev.target.closest("button[data-addcal]");
   if (!b || !CAL) return;
   const e = planItem(b.dataset.addcal);
   if (!e) return;
-  const day = parseD(b.dataset.k), t = wfTimes(e.when);
+  const day = parseD(b.dataset.k), meet = typeof planMeet === "function" ? planMeet(e.id) : null;
+  const mh = meet && meet.time ? hm2h(meet.time) : null, et = wfTimes(e.when);
+  const t = mh != null ? { sh: mh, eh: et && et.eh > mh ? et.eh : mh + 2 } : et;
   const link = e.url || ("https://www.google.com/search?q=" + encodeURIComponent(e.q || (e.title + " " + placeOf(e))));
+  const meetNote = meet ? "Meet-up: " + [meet.time ? clock(mh) : "", meet.place].filter(Boolean).join(" · ") : "";
   CAL.addEvent({
     title: e.title,
-    location: placeOf(e),
-    notes: [e.meta, e.when, link].filter(Boolean).join("\n"),
+    location: (meet && meet.place) || placeOf(e),
+    notes: [meetNote, e.meta, e.when, link].filter(Boolean).join("\n"),
     url: link,
     allDay: !t,
     start: +(t ? atHour(day, t.sh) : day),

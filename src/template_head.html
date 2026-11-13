@@ -164,6 +164,31 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .members .tag{font-size:11px}
 .status{font-size:13.5px;font-weight:600;color:#8A3A14;margin:0 0 8px}.status.ok{color:#1F6B4A}
 .okmsg{background:#E3F2EA;color:#1F6B4A;font-weight:600;font-size:14.5px;border-radius:10px;padding:10px 12px;margin:0 0 10px}
+/* v1.1: who's going, meet-ups, clashes, all my plans */
+.going{grid-column:1/-1;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.rsvp{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.rq{font-size:13px;font-weight:600;color:var(--mute);margin-right:2px}
+.rbtn{flex:1;min-width:76px;border:1px solid #CBD4DD;background:#fff;color:var(--ink);border-radius:10px;padding:9px 10px;font:inherit;font-size:14px;font-weight:600;min-height:44px}
+.rbtn.going[aria-pressed="true"]{background:#2E8B5E;border-color:#2E8B5E;color:#fff}
+.rbtn.maybe[aria-pressed="true"]{background:#B07A12;border-color:#B07A12;color:#fff}
+.rbtn.no[aria-pressed="true"]{background:#8A3B32;border-color:#8A3B32;color:#fff}
+.gwho{font-size:13px;color:var(--mute);margin:8px 0 2px;overflow-wrap:anywhere}
+.meet{font-size:14px;font-weight:600;margin:8px 0 0;overflow-wrap:anywhere}
+.meet .linkbtn{margin-left:4px}
+.linkbtn.meetadd{font-size:14px;margin-top:6px;padding:8px 0;min-height:40px}
+.meetform{margin:8px 0 0}.meetform input[type=time]{flex:0 0 130px;min-width:0}
+.pg{display:block;font-size:12.5px;color:#1E6B45;font-weight:600;margin-top:2px;overflow-wrap:anywhere}
+.pc,.aclash{display:block;font-size:12.5px;color:#B3261E;font-weight:700;margin-top:3px;overflow-wrap:anywhere}
+.arow{background:#fff;border-radius:12px;padding:10px 12px;margin:0 0 8px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.arow.clash{box-shadow:inset 3px 0 0 #B3261E,0 1px 2px rgba(0,0,0,.06)}
+.arow.dim{opacity:.55}
+.aw{font-size:12.5px;font-weight:700;color:#1E7A4C;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.gchip{font-size:11px;font-weight:700;color:var(--blue-d);background:#E4EDF6;border-radius:999px;padding:2px 8px}
+.at{font-size:15.5px;font-weight:700;margin-top:2px}
+.al,.ag{font-size:13px;color:var(--mute);overflow-wrap:anywhere}
+.am{font-size:13.5px;font-weight:600;margin-top:4px}
+.arow .linkbtn{padding:6px 0 0}
+
 .copybtn{border:0;background:var(--ink);color:#fff;border-radius:10px;padding:10px 16px;font-size:14px;font-weight:600;min-height:44px}
 .copyarea{width:100%;font:13px/1.5 Inter,sans-serif;border:1px solid #CBD4DD;border-radius:10px;padding:10px;margin-top:4px}
 .zbtn[aria-pressed="true"]{background:#FFD54A;border-color:#1B2430}

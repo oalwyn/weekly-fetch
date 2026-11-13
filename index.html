@@ -171,6 +171,31 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .members .tag{font-size:11px}
 .status{font-size:13.5px;font-weight:600;color:#8A3A14;margin:0 0 8px}.status.ok{color:#1F6B4A}
 .okmsg{background:#E3F2EA;color:#1F6B4A;font-weight:600;font-size:14.5px;border-radius:10px;padding:10px 12px;margin:0 0 10px}
+/* v1.1: who's going, meet-ups, clashes, all my plans */
+.going{grid-column:1/-1;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.rsvp{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.rq{font-size:13px;font-weight:600;color:var(--mute);margin-right:2px}
+.rbtn{flex:1;min-width:76px;border:1px solid #CBD4DD;background:#fff;color:var(--ink);border-radius:10px;padding:9px 10px;font:inherit;font-size:14px;font-weight:600;min-height:44px}
+.rbtn.going[aria-pressed="true"]{background:#2E8B5E;border-color:#2E8B5E;color:#fff}
+.rbtn.maybe[aria-pressed="true"]{background:#B07A12;border-color:#B07A12;color:#fff}
+.rbtn.no[aria-pressed="true"]{background:#8A3B32;border-color:#8A3B32;color:#fff}
+.gwho{font-size:13px;color:var(--mute);margin:8px 0 2px;overflow-wrap:anywhere}
+.meet{font-size:14px;font-weight:600;margin:8px 0 0;overflow-wrap:anywhere}
+.meet .linkbtn{margin-left:4px}
+.linkbtn.meetadd{font-size:14px;margin-top:6px;padding:8px 0;min-height:40px}
+.meetform{margin:8px 0 0}.meetform input[type=time]{flex:0 0 130px;min-width:0}
+.pg{display:block;font-size:12.5px;color:#1E6B45;font-weight:600;margin-top:2px;overflow-wrap:anywhere}
+.pc,.aclash{display:block;font-size:12.5px;color:#B3261E;font-weight:700;margin-top:3px;overflow-wrap:anywhere}
+.arow{background:#fff;border-radius:12px;padding:10px 12px;margin:0 0 8px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.arow.clash{box-shadow:inset 3px 0 0 #B3261E,0 1px 2px rgba(0,0,0,.06)}
+.arow.dim{opacity:.55}
+.aw{font-size:12.5px;font-weight:700;color:#1E7A4C;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.gchip{font-size:11px;font-weight:700;color:var(--blue-d);background:#E4EDF6;border-radius:999px;padding:2px 8px}
+.at{font-size:15.5px;font-weight:700;margin-top:2px}
+.al,.ag{font-size:13px;color:var(--mute);overflow-wrap:anywhere}
+.am{font-size:13.5px;font-weight:600;margin-top:4px}
+.arow .linkbtn{padding:6px 0 0}
+
 .copybtn{border:0;background:var(--ink);color:#fff;border-radius:10px;padding:10px 16px;font-size:14px;font-weight:600;min-height:44px}
 .copyarea{width:100%;font:13px/1.5 Inter,sans-serif;border:1px solid #CBD4DD;border-radius:10px;padding:10px;margin-top:4px}
 .zbtn[aria-pressed="true"]{background:#FFD54A;border-color:#1B2430}
@@ -520,7 +545,7 @@ const allWkOpts = (e, W) => W.flatMap(w=>daysOf(e,w.fri,w.sun));
 // compact plan rows: date/time · activity · place; tap to open the full card
 const openRows = new Set();
 function planRow(e, ctl, k){
-  const open = openRows.has(e.id), t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(?:am|pm)(?:\s*[–-]\s*\d{1,2}(?::\d\d)?\s*(?:am|pm))?/i);
+  const open = openRows.has(e.id), t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(?:am|pm)?\s*[–-]\s*\d{1,2}(?::\d\d)?\s*(?:am|pm)|\d{1,2}(?::\d\d)?\s*(?:am|pm)/i);
   const when = k ? dayLabel(k) + (t ? " · " + t[0] : "") : e.when;
   const place = (e.meta||"").split(" · ")[0];
   return `<div class="prow${k?" locked":""}${open?" open":""}"><button class="prow-h" data-expand="${esc(e.id)}" aria-expanded="${open}">
@@ -1005,7 +1030,8 @@ setTimeout(sync, 0);
    - Functions are wrapped by reassignment (toggleStar, setPlan, renderOurList, sync), so the
      iPhone app's native_app.js can still wrap them afterwards. */
 const ACCT = { client: null, loading: null, user: null, me: null, gid: null, group: null, members: [],
-               ui: { step: "", email: "", panel: "", confirmDelete: false }, msg: "", err: "", busy: false, online: true };
+               ui: { step: "", email: "", panel: "", confirmDelete: false, meetEdit: "" }, msg: "", err: "", busy: false, online: true,
+               rsvp: new Map(), meet: new Map(), all: [], allOk: false, allView: false };
 const SB_REF = (SB_URL.split("//")[1] || "").split(".")[0];
 const SB_AUTH_KEY = "sb-" + SB_REF + "-auth-token";
 const IS_APP = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
@@ -1015,7 +1041,7 @@ const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return 
 const lsSet = (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} };
 const hasSession = () => !!lsGet(SB_AUTH_KEY);
 const inGroup = () => !!(ACCT.user && ACCT.group);
-ACCT.gid = lsGet("wf-gid");
+ACCT.gid = lsGet("wf-gid"); ACCT.allView = lsGet("wf-allview") === "1";
 const PENDING = { tokens: window.__wfTokens || null, join: window.__wfJoin || lsGet("wf-pending-join") };
 if (PENDING.join) { lsSet("wf-pending-join", PENDING.join); state.view = "our-list"; }
 if (window.__wfAuthError) { ACCT.err = "That sign-in link didn't work or has expired. Ask for a new code."; state.view = "our-list"; }
@@ -1069,9 +1095,19 @@ function applyGroup(st){
     if (!m.has(p.item_id)) m.set(p.item_id, { uids: [], item: p.item || { id: p.item_id } });
     const e = m.get(p.item_id); if (!e.uids.includes(uid)) e.uids.push(uid);
   });
-  (st.locks || []).forEach(l => L.set(l.item_id, new Set([String(l.day).slice(0, 10)])));
+  const MT = new Map(), RS = new Map();
+  (st.locks || []).forEach(l => {
+    L.set(l.item_id, new Set([String(l.day).slice(0, 10)]));
+    if (l.meet_time || l.meet_place) MT.set(l.item_id, { time: l.meet_time || "", place: l.meet_place || "" });
+  });
+  (st.rsvps || []).forEach(r => { if (!RS.has(r.item_id)) RS.set(r.item_id, {}); RS.get(r.item_id)[r.user_id] = r.status; });
   picks = m; locks = L; names = nm; shared = true; me = ACCT.user ? ACCT.user.id : me;
-  lsSet("wf-gcache", JSON.stringify({ uid: ACCT.user && ACCT.user.id, gid: st.group.id, st }));
+  ACCT.meet = MT; ACCT.rsvp = RS;
+  saveGroupCache(st);
+}
+function saveGroupCache(st){
+  ACCT.lastSt = st || ACCT.lastSt;
+  if (ACCT.lastSt) lsSet("wf-gcache", JSON.stringify({ uid: ACCT.user && ACCT.user.id, gid: ACCT.lastSt.group.id, st: ACCT.lastSt, all: ACCT.allOk ? ACCT.all : null }));
 }
 // show the last known group right away, before the network answers
 (function useCache(){
@@ -1079,7 +1115,7 @@ function applyGroup(st){
   try {
     const c = JSON.parse(lsGet("wf-gcache") || "null");
     const s = JSON.parse(lsGet(SB_AUTH_KEY) || "null");
-    if (c && s && s.user && c.uid === s.user.id && c.gid === ACCT.gid) { ACCT.user = s.user; applyGroup(c.st); }
+    if (c && s && s.user && c.uid === s.user.id && c.gid === ACCT.gid) { ACCT.user = s.user; if (c.all) { ACCT.all = c.all; ACCT.allOk = true; } applyGroup(c.st); }
   } catch (e) {}
 })();
 
@@ -1092,7 +1128,7 @@ async function loadMe(){
 }
 function leaveGroupMode(){
   // back to this device's stars (or the old shared plan, which gh_sync handles)
-  ACCT.group = null; lsSet("wf-gcache", null);
+  ACCT.group = null; ACCT.lastSt = null; ACCT.all = []; ACCT.allOk = false; ACCT.meet = new Map(); ACCT.rsvp = new Map(); lsSet("wf-gcache", null);
   picks = new Map(); names = {};
   locks = new Map(); try { const s = JSON.parse(localStorage.getItem("wf-locks") || "null"); if (s) locks = new Map(Object.entries(s).map(([k, v]) => [k, new Set(v)])); } catch (e) {}
   shared = !!(LIST && SB_ON); me = ME;
@@ -1102,7 +1138,11 @@ let acctSyncing = false;
 async function acctSync(){
   if (!ACCT.user || !ACCT.gid || acctSyncing) return;
   acctSyncing = true;
-  try { applyGroup(await call("get_group", { p_group: ACCT.gid })); ACCT.online = true; }
+  try {
+    const [st, all] = await Promise.all([call("get_group", { p_group: ACCT.gid }), call("get_my_plans").catch(() => null)]);
+    if (all) { ACCT.all = all; ACCT.allOk = true; }
+    applyGroup(st); ACCT.online = true;
+  }
   catch (e) {
     ACCT.online = false;
     if (/not a member/.test(e.message)) { await loadMe().catch(() => {}); if (ACCT.gid) return acctSync(); }
@@ -1112,7 +1152,7 @@ async function acctSync(){
 // don't wipe a half-typed form when a background sync repaints the plans tab
 function safeRefresh(){
   const a = document.activeElement;
-  if (state.view === "our-list" && a && a.closest && a.closest(".acct") && /INPUT|SELECT|TEXTAREA/.test(a.tagName)) return;
+  if (state.view === "our-list" && a && a.closest && a.closest(".acct,.meetform") && /INPUT|SELECT|TEXTAREA/.test(a.tagName)) return;
   refreshStars();
 }
 
@@ -1155,7 +1195,10 @@ toggleStar = async function(id){
 const _acctSetPlan = setPlan;
 setPlan = async function(id, k){
   if (!inGroup()) { _acctSetPlan(id, k); if (k) logEvent("lock", id); return; }
-  if (k) locks.set(id, new Set([k])); else locks.delete(id);
+  const was = lockKey(id);
+  if (was !== k) ACCT.rsvp.delete(id);
+  if (k) { locks.set(id, new Set([k])); const r = ACCT.rsvp.get(id) || {}; if (!r[ACCT.user.id]) r[ACCT.user.id] = "going"; ACCT.rsvp.set(id, r); }
+  else { locks.delete(id); ACCT.meet.delete(id); }
   refreshStars();
   try { await call("set_group_lock", { p_group: ACCT.gid, p_item: id, p_day: k || null, p_item_json: groupItem(id) }); if (k) logEvent("lock", id); }
   catch (e) { ACCT.online = false; }
@@ -1225,8 +1268,10 @@ function startGroupHTML(){
 }
 function groupBarHTML(){
   const gs = (ACCT.me && ACCT.me.groups) || [];
-  const sw = gs.length > 1 ? `<select class="gsel" data-gswitch aria-label="Switch group">${gs.map(g => `<option value="${ae(g.id)}"${g.id === ACCT.gid ? " selected" : ""}>${ae(g.name)}</option>`).join("")}</select>` : `<span class="gname">${ae(ACCT.group.name)}</span>`;
+  const all = ACCT.allView && gs.length > 1;
+  const sw = gs.length > 1 ? `<select class="gsel" data-gswitch aria-label="Switch group"><option value="__all"${all ? " selected" : ""}>All my plans</option>${gs.map(g => `<option value="${ae(g.id)}"${!all && g.id === ACCT.gid ? " selected" : ""}>${ae(g.name)}</option>`).join("")}</select>` : `<span class="gname">${ae(ACCT.group.name)}</span>`;
   const st = ACCT.online ? `<span class="status ok">● synced · you're ${ae((ACCT.me && ACCT.me.name) || "")}</span>` : `<span class="status">● offline · changes will sync when you're back online</span>`;
+  if (all) return `<div class="acct gbar"><div class="gtop">${sw}${st}</div><p class="ournote small">Locked-in plans from all your groups, so you can spot clashes. Stars you add go to “${ae(ACCT.group.name)}”.</p></div>`;
   let h = `<div class="acct gbar"><div class="gtop">${sw}${st}</div>
     <div class="btnrow"><button class="copybtn" data-acct="invite">Invite someone</button><button class="copybtn alt" data-copy>Copy as text</button><button class="copybtn alt" data-acct="settings" aria-expanded="${ACCT.ui.panel === "settings"}">Group &amp; account</button></div>`;
   if (ACCT.ui.panel === "invite") h += invitePanelHTML();
@@ -1265,6 +1310,8 @@ renderOurList = function(){
   if (!SB_ON) return _acctRenderOurList();
   if (!ACCT.client && !ACCT.loading) setTimeout(() => ensureClient().catch(() => {}), 0);   // warm up for a quick sign-in
   const msgs = `${ACCT.msg ? `<p class="okmsg">${ae(ACCT.msg)}</p>` : ""}${ACCT.err ? `<p class="errmsg">${ae(ACCT.err)}</p>` : ""}`;
+  if (inGroup() && ACCT.allView && ((ACCT.me && ACCT.me.groups) || []).length > 1)
+    return `<div class="ourhead">${msgs}${groupBarHTML()}</div>` + allPlansHTML();
   if (inGroup()){
     const { cur, gone } = ourListItems();
     let h = `<div class="ourhead">${msgs}${groupBarHTML()}<div id="copyout"></div></div>`;
@@ -1282,6 +1329,126 @@ renderOurList = function(){
   old = old.replace(/<div class="setup">[\s\S]*?<\/div><\/div>\s*<p class="ournote">Until then, stars are saved on this phone\.<\/p>/, `<p class="ournote">Until you join a group, stars are saved on this device.</p>`);
   return old.replace('<div class="ourhead">', `<div class="ourhead">${msgs}${card}`);
 };
+
+/* ---- who's going, meet-ups, clashes, "All my plans" ---- */
+// start / end time from text like "Fri Nov 13 · 6–8pm", "Sat · 10:30am", "11–2pm" (hours, 0-24)
+function wfTimes(when){
+  const re = /(\d{1,2})(?::(\d\d))?\s*(am|pm)?(?:\s*[–-]\s*(\d{1,2})(?::(\d\d))?\s*(am|pm))?/ig;
+  let m;
+  while ((m = re.exec(String(when || "")))){
+    const m1 = m[3] && m[3].toLowerCase(), m2 = m[6] && m[6].toLowerCase();
+    if (!m1 && !m2) continue;                       // a date like "Nov 13–14", not a time
+    const h = (hh, mm, mer) => (+hh % 12) + (mer === "pm" ? 12 : 0) + (+(mm || 0)) / 60;
+    let sh = h(m[1], m[2], m1 || m2);
+    let eh = m[4] ? h(m[4], m[5], m2) : null;
+    if (!m1 && eh !== null && sh > eh) sh -= 12;    // "11–2pm" starts at 11am
+    if (eh === null || eh <= sh) eh = sh + 2;
+    return {sh, eh};
+  }
+  return null;
+}
+const hm2h = t => { const m = /^(\d\d):(\d\d)$/.exec(t || ""); return m ? +m[1] + +m[2] / 60 : null; };
+const hClock = h => { const hh = Math.floor(h), mm = Math.round((h % 1) * 60); return `${(hh % 12) || 12}${mm ? ":" + String(mm).padStart(2, "0") : ""}${hh < 12 ? "am" : "pm"}`; };
+const RSVP = [["going", "Going"], ["maybe", "Maybe"], ["no", "Can't"]];
+const RSVP_LABEL = { going: "Going", maybe: "Maybe", no: "Can't go" };
+const planEvent = (id, snap) => DATA.find(d => d.id === id) || snap || (picks.get(id) && picks.get(id).item) || { id, title: id };
+// hours a plan takes up on its day: from the meet-up (or start) to the end; null = time unknown (the whole day)
+function planSpan(e, meetTime){
+  const t = wfTimes(e && e.when), m = hm2h(meetTime);
+  if (m != null) return { s: m, e: t && t.eh > m ? t.eh : m + 2 };
+  return t ? { s: t.sh, e: t.eh } : null;
+}
+// planMeet(id): the meet-up on the open group's plan (the app's reminders and calendar use it)
+function planMeet(id){ return inGroup() ? ACCT.meet.get(id) || null : null; }
+function myPlans(){
+  const today = ymd(TODAY);
+  return (ACCT.all || []).map(p => ({ gid: p.group_id, gname: p.group_name, id: p.item_id, k: String(p.day).slice(0, 10),
+      e: planEvent(p.item_id, p.item), meet: (p.meet_time || p.meet_place) ? { time: p.meet_time || "", place: p.meet_place || "" } : null,
+      mine: p.mine || null, answers: p.answers || [] }))
+    .filter(p => p.k >= today);
+}
+// for the app's reminders: every plan I haven't said "Can't" to, in all my groups (null = use this group's locks)
+function myLockedPlans(){
+  if (!inGroup() || !ACCT.allOk) return null;
+  return myPlans().filter(p => p.mine !== "no");
+}
+function planClashes(){
+  const L = myPlans().filter(p => p.mine !== "no"), out = new Map();
+  L.forEach(p => p.span = planSpan(p.e, p.meet && p.meet.time));
+  for (let i = 0; i < L.length; i++) for (let j = i + 1; j < L.length; j++){
+    const a = L[i], b = L[j];
+    if (a.k !== b.k || a.id === b.id) continue;
+    if (a.span && b.span && !(a.span.s < b.span.e && b.span.s < a.span.e)) continue;
+    [[a, b], [b, a]].forEach(([x, y]) => { const key = x.gid + "|" + x.id; if (!out.has(key)) out.set(key, []); out.get(key).push(y); });
+  }
+  return out;
+}
+const clashText = list => list.map(y => `⚠ Clashes with “${ae(y.e.title || "")}”${y.gid !== ACCT.gid || ACCT.allView ? ` (${ae(y.gname)})` : ""}`).join("<br>");
+function answersLine(answers){
+  const by = { going: [], maybe: [], no: [] };
+  answers.forEach(a => by[a.status] && by[a.status].push(a.name));
+  return [["going", "Going"], ["maybe", "Maybe"], ["no", "Can't"]].filter(([k]) => by[k].length).map(([k, l]) => `${l}: ${ae(by[k].join(", "))}`).join(" · ");
+}
+function meetLine(m){ return m ? `📍 Meet ${m.time ? hClock(hm2h(m.time)) : ""}${m.time && m.place ? " · " : ""}${ae(m.place || "")}` : ""; }
+
+// on a locked-in plan, inside a group: Going / Maybe / Can't, who's going, and the meet-up
+function goingHTML(e){
+  const id = e.id, r = ACCT.rsvp.get(id) || {}, mine = r[ACCT.user.id] || "";
+  const answers = Object.entries(r).map(([uid, status]) => ({ name: names[uid] || "Someone", status }));
+  const waiting = ACCT.members.filter(m => !r[m.id]).map(m => m.id === ACCT.user.id ? "you" : m.name);
+  const m = ACCT.meet.get(id);
+  let meet;
+  if (ACCT.ui.meetEdit === id) meet = `<form class="acctform meetform" data-acctform="meet" data-id="${ae(id)}">
+      <input type="time" name="t" value="${ae((m && m.time) || "")}" aria-label="Meet-up time">
+      <input name="p" maxlength="120" value="${ae((m && m.place) || "")}" placeholder="Where to meet, e.g. the front gate" aria-label="Meet-up place">
+      <button class="copybtn">Save</button><button type="button" class="copybtn alt" data-acct="meet-cancel">Cancel</button></form>`;
+  else if (m) meet = `<p class="meet">${meetLine(m)} <button class="linkbtn" data-acct="meet-edit" data-id="${ae(id)}">Change</button><button class="linkbtn" data-acct="meet-remove" data-id="${ae(id)}">Remove</button></p>`;
+  else meet = `<button class="linkbtn meetadd" data-acct="meet-edit" data-id="${ae(id)}">+ Add a meet-up time &amp; place</button>`;
+  const who = answersLine(answers);
+  return `<div class="going"><div class="rsvp" role="group" aria-label="Are you going?"><span class="rq">You:</span>${RSVP.map(([k, l]) =>
+      `<button class="rbtn ${k}" data-acct="rsvp" data-id="${ae(id)}" data-s="${k}" aria-pressed="${mine === k}">${l}</button>`).join("")}</div>
+    ${who || waiting.length ? `<p class="gwho">${who}${who && waiting.length ? " · " : ""}${waiting.length ? `No answer yet: ${ae(waiting.join(", "))}` : ""}</p>` : ""}${meet}</div>`;
+}
+const _acctLockedCtl = lockedCtl;
+lockedCtl = function(e, k, opts){
+  const h = _acctLockedCtl(e, k, opts);
+  return inGroup() && !ACCT.allView ? h + goingHTML(e) : h;
+};
+// the folded plan row shows the headcount, the meet-up and any clash
+const _acctPlanRow = planRow;
+planRow = function(e, ctl, k){
+  const h = _acctPlanRow(e, ctl, k);
+  if (!k || !inGroup()) return h;
+  const r = ACCT.rsvp.get(e.id) || {}, n = Object.values(r).filter(x => x === "going").length, m = ACCT.meet.get(e.id);
+  const cl = (planClashes().get(ACCT.gid + "|" + e.id) || []).filter(y => y.k === k);
+  const mine = r[ACCT.user.id] === "no" ? "you can't go" : "";
+  const bits = [n ? `${n} going` : "", mine, m ? meetLine(m) : ""].filter(Boolean).join(" · ");
+  const extra = (bits ? `<span class="pg">${bits}</span>` : "") + (cl.length ? `<span class="pc">${clashText(cl)}</span>` : "");
+  return extra ? h.replace('</span><span class="chev"', extra + '</span><span class="chev"') : h;
+};
+
+function allPlansHTML(){
+  if (!ACCT.allOk) return `<div class="empty">Loading your plans…</div>`;
+  const L = myPlans(), cl = planClashes();
+  if (!L.length) return `<div class="empty">Nothing locked in yet in any of your groups.<br>Open a group and tap “Lock it in” on a plan.</div>`;
+  L.sort((a, b) => a.k.localeCompare(b.k) || ((planSpan(a.e, a.meet && a.meet.time) || { s: 99 }).s - (planSpan(b.e, b.meet && b.meet.time) || { s: 99 }).s));
+  const nClash = L.filter(p => cl.has(p.gid + "|" + p.id)).length;
+  let h = nClash ? `<p class="errmsg">⚠ ${nClash} plans overlap. Say “Can't” on the one you'll skip, or move it to another day.</p>` : `<p class="okmsg">No clashes. Every plan has its own time.</p>`;
+  let day = "";
+  for (const p of L){
+    if (p.k !== day){ day = p.k; const d = parseD(day); h += `<div class="sched-d"><span>${DAYF[d.getDay()]} ${MON[d.getMonth()]} ${d.getDate()}</span></div>`; }
+    const sp = planSpan(p.e, null), c = cl.get(p.gid + "|" + p.id) || [];
+    const others = answersLine(p.answers.filter(a => !a.me));
+    h += `<div class="arow${p.mine === "no" ? " dim" : ""}${c.length ? " clash" : ""}">
+      <div class="aw">${sp ? hClock(sp.s) : "Time not listed"} <span class="gchip">${ae(p.gname)}</span></div>
+      <div class="at">${ae(p.e.title || "")}</div><div class="al">${ae((p.e.meta || "").split(" · ")[0])}</div>
+      ${p.meet ? `<div class="am">${meetLine(p.meet)}</div>` : ""}
+      <div class="ag">You: <b>${p.mine ? RSVP_LABEL[p.mine] : "No answer yet"}</b>${others ? " · " + others : ""}</div>
+      ${c.length ? `<div class="aclash">${clashText(c)}</div>` : ""}
+      <button class="linkbtn" data-acct="open-group" data-gid="${ae(p.gid)}" data-id="${ae(p.id)}">Open in ${ae(p.gname)}</button></div>`;
+  }
+  return h;
+}
 
 /* ---- buttons and forms ---- */
 document.addEventListener("click", async ev => {
@@ -1302,6 +1469,20 @@ document.addEventListener("click", async ev => {
       ACCT.msg = `You left “${name}”.`;
     }
     else if (a === "signout") { const c = await ensureClient(); await c.auth.signOut(); signedOutLocally(); ACCT.msg = "Signed out. Your stars on this device are still here."; }
+    else if (a === "rsvp") {
+      const id = b.dataset.id, r = ACCT.rsvp.get(id) || {}, s = r[ACCT.user.id] === b.dataset.s ? null : b.dataset.s;
+      if (s) r[ACCT.user.id] = s; else delete r[ACCT.user.id];
+      ACCT.rsvp.set(id, r); refreshStars();
+      await call("set_rsvp", { p_group: ACCT.gid, p_item: id, p_status: s }); if (s) logEvent("rsvp", id);
+      await acctSync(); return;
+    }
+    else if (a === "meet-edit") ACCT.ui.meetEdit = b.dataset.id;
+    else if (a === "meet-cancel") ACCT.ui.meetEdit = "";
+    else if (a === "meet-remove") { ACCT.meet.delete(b.dataset.id); refreshStars(); await call("set_meetup", { p_group: ACCT.gid, p_item: b.dataset.id, p_time: null, p_place: null }); await acctSync(); return; }
+    else if (a === "open-group") {
+      ACCT.allView = false; lsSet("wf-allview", null); ACCT.gid = b.dataset.gid; lsSet("wf-gid", ACCT.gid);
+      openRows.add(b.dataset.id); refreshStars(); scrollTo(0, 0); await acctSync(); return;
+    }
     else if (a === "delete") ACCT.ui.confirmDelete = true;
     else if (a === "delete-no") ACCT.ui.confirmDelete = false;
     else if (a === "delete-yes") {
@@ -1314,7 +1495,10 @@ document.addEventListener("click", async ev => {
 });
 document.addEventListener("change", async ev => {
   if (!ev.target.matches("select[data-gswitch]")) return;
-  ACCT.gid = ev.target.value; lsSet("wf-gid", ACCT.gid); ACCT.ui.panel = ""; ACCT.msg = ""; await acctSync();
+  ACCT.ui.panel = ""; ACCT.msg = "";
+  if (ev.target.value === "__all") { ACCT.allView = true; lsSet("wf-allview", "1"); logEvent("all_plans"); refreshStars(); await acctSync(); return; }
+  ACCT.allView = false; lsSet("wf-allview", null);
+  ACCT.gid = ev.target.value; lsSet("wf-gid", ACCT.gid); await acctSync();
 });
 document.addEventListener("submit", async ev => {
   const f = ev.target.closest("form[data-acctform]"); if (!f) return;
@@ -1335,6 +1519,11 @@ document.addEventListener("submit", async ev => {
       await call("set_my_name", { p_name: v("name") }); ME = v("name"); lsSet("wf-name", ME); await loadMe();
       const pj = PENDING.join || lsGet("wf-pending-join");    // finish an invite that was waiting for a name
       if (pj) await joinWithCode(pj, true);
+    }
+    else if (kind === "meet") {
+      const id = f.dataset.id, t = v("t"), pl = v("p");
+      await call("set_meetup", { p_group: ACCT.gid, p_item: id, p_time: t || null, p_place: pl || null });
+      ACCT.ui.meetEdit = ""; if (t || pl) logEvent("meetup", id); await acctSync();
     }
     else if (kind === "rename-me") { await call("set_my_name", { p_name: v("name") }); await loadMe(); await acctSync(); ACCT.msg = "Name saved."; }
     else if (kind === "rename-group") { await call("rename_group", { p_group: ACCT.gid, p_name: v("gname") }); await loadMe(); await acctSync(); ACCT.msg = "Group renamed."; }

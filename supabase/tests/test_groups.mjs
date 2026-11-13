@@ -20,6 +20,8 @@ await db.exec(`
 await db.exec(fs.readFileSync(repo + '/supabase-setup.sql', 'utf8'));
 await db.exec(fs.readFileSync(repo + '/supabase/v1.1-groups.sql', 'utf8'));
 await db.exec(fs.readFileSync(repo + '/supabase/v1.1-groups.sql', 'utf8'));   // must be safe to run twice
+await db.exec(fs.readFileSync(repo + '/supabase/v1.1-plans-extra.sql', 'utf8'));
+await db.exec(fs.readFileSync(repo + '/supabase/v1.1-plans-extra.sql', 'utf8'));   // must be safe to run twice
 ok(true, 'script runs twice');
 
 const A = '11111111-1111-1111-1111-111111111111', B = '22222222-2222-2222-2222-222222222222', C = '33333333-3333-3333-3333-333333333333';
@@ -62,6 +64,49 @@ await rpc(`select set_group_lock($1,'evt-2','2026-11-22',null)`, [g.id]);
 await rpc(`select set_group_lock($1,'evt-2',null,null)`, [g.id]);
 st = (await rpc(`select get_group($1) s`, [g.id]))[0].s;
 ok(st.locks.length === 0, 'unlock (make it a maybe) works');
+
+// who's going, meet-up, all my plans
+const day = new Date(Date.now() + 3 * 864e5).toISOString().slice(0, 10), day2 = new Date(Date.now() + 4 * 864e5).toISOString().slice(0, 10);
+await as(A); await rpc(`select add_group_pick($1,'evt-3','{"title":"Parade"}')`, [g.id]);
+await throws(`select set_rsvp($1,'evt-3','going')`, [g.id], /not locked in/, 'no answers before a plan is locked in');
+await rpc(`select set_group_lock($1,'evt-3',$2,'{"title":"Parade"}')`, [g.id, day]);
+st = (await rpc(`select get_group($1) s`, [g.id]))[0].s;
+ok(st.rsvps.length === 1 && st.rsvps[0].user_id === A && st.rsvps[0].status === 'going', 'locking it in marks you as going');
+await as(B); await rpc(`select set_rsvp($1,'evt-3','no')`, [g.id]);
+await throws(`select set_rsvp($1,'evt-3','perhaps')`, [g.id], /unknown answer/, 'unknown answer refused');
+await rpc(`select set_meetup($1,'evt-3','10:30','  Rengstorff   Park lot ')`, [g.id]);
+await throws(`select set_meetup($1,'evt-3','25:00','x')`, [g.id], /should look like/, 'bad meet-up time refused');
+await throws(`select set_meetup($1,'nope','10:00','x')`, [g.id], /not locked in/, 'meet-up needs a locked plan');
+st = (await rpc(`select get_group($1) s`, [g.id]))[0].s;
+const lk = st.locks.find(l => l.item_id === 'evt-3');
+ok(lk.meet_time === '10:30' && lk.meet_place === 'Rengstorff Park lot', 'meet-up saved and tidied');
+ok(st.rsvps.find(r => r.user_id === B).status === 'no', 'answer saved');
+await as(C);
+await throws(`select set_rsvp($1,'evt-3','going')`, [g.id], /not a member/, 'non-member cannot answer');
+await throws(`select set_meetup($1,'evt-3','09:00','x')`, [g.id], /not a member/, 'non-member cannot set meet-up');
+// a second group for A, with a plan the same day
+await as(A); const g2 = (await rpc(`select create_group('Friends') g`))[0].g;
+await rpc(`select add_group_pick($1,'evt-4','{"title":"Hike"}')`, [g2.id]);
+await rpc(`select set_group_lock($1,'evt-4',$2,'{"title":"Hike"}')`, [g2.id, day]);
+let mp = (await rpc(`select get_my_plans() p`))[0].p;
+ok(mp.length === 2 && mp.map(x => x.group_name).sort().join() === 'Friends,Our household', 'all my plans spans both groups');
+const pa = mp.find(x => x.item_id === 'evt-3');
+ok(pa.mine === 'going' && pa.meet_time === '10:30' && pa.answers.length === 2 && pa.answers.some(x => x.name === 'Sam' && x.status === 'no'), 'all my plans shows my answer, meet-up and who is going');
+await as(B); mp = (await rpc(`select get_my_plans() p`))[0].p;
+ok(mp.length === 1 && mp[0].item_id === 'evt-3', "others don't see my other group's plans");
+// moving the day resets answers (except the mover's own going); meet-up stays
+await rpc(`select set_group_lock($1,'evt-3',$2,null)`, [g.id, day2]);
+st = (await rpc(`select get_group($1) s`, [g.id]))[0].s;
+ok(st.rsvps.length === 1 && st.rsvps[0].user_id === B && st.rsvps[0].status === 'going' && st.locks.find(l => l.item_id === 'evt-3').meet_time === '10:30', 'moving the day resets answers, keeps meet-up');
+await rpc(`select set_meetup($1,'evt-3',null,null)`, [g.id]);
+await rpc(`select set_rsvp($1,'evt-3',null)`, [g.id]);
+st = (await rpc(`select get_group($1) s`, [g.id]))[0].s;
+ok(st.rsvps.length === 0 && st.locks.find(l => l.item_id === 'evt-3').meet_time === null, 'answer and meet-up can be cleared');
+await rpc(`select set_rsvp($1,'evt-3','maybe')`, [g.id]);
+await rpc(`select set_group_lock($1,'evt-3',null,null)`, [g.id]);
+ok((await rpc(`select count(*)::int n from group_rsvps where item_id = 'evt-3'`))[0].n === 0, 'unlocking clears answers');
+await as(A); await rpc(`select leave_group($1)`, [g2.id]);
+await as(B);
 
 // owner-only code rotation
 await throws(`select rotate_join_code($1)`, [g.id], /only the group owner/, 'member cannot rotate code');

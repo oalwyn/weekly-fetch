@@ -276,7 +276,7 @@ const allWkOpts = (e, W) => W.flatMap(w=>daysOf(e,w.fri,w.sun));
 // compact plan rows: date/time · activity · place; tap to open the full card
 const openRows = new Set();
 function planRow(e, ctl, k){
-  const open = openRows.has(e.id), t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(?:am|pm)(?:\s*[–-]\s*\d{1,2}(?::\d\d)?\s*(?:am|pm))?/i);
+  const open = openRows.has(e.id), t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(?:am|pm)?\s*[–-]\s*\d{1,2}(?::\d\d)?\s*(?:am|pm)|\d{1,2}(?::\d\d)?\s*(?:am|pm)/i);
   const when = k ? dayLabel(k) + (t ? " · " + t[0] : "") : e.when;
   const place = (e.meta||"").split(" · ")[0];
   return `<div class="prow${k?" locked":""}${open?" open":""}"><button class="prow-h" data-expand="${esc(e.id)}" aria-expanded="${open}">

@@ -14,6 +14,7 @@ await db.exec(`
 `);
 await db.exec(fs.readFileSync(repo + '/supabase-setup.sql', 'utf8'));
 await db.exec(fs.readFileSync(repo + '/supabase/v1.1-groups.sql', 'utf8'));
+await db.exec(fs.readFileSync(repo + '/supabase/v1.1-plans-extra.sql', 'utf8'));
 const b64 = o => Buffer.from(JSON.stringify(o)).toString('base64url');
 const jwt = (sub, email) => `${b64({ alg: 'HS256', typ: 'JWT' })}.${b64({ sub, email, role: 'authenticated', aud: 'authenticated', exp: Math.floor(Date.now() / 1000) + 86400 })}.sig`;
 const uidOf = auth => { try { const p = JSON.parse(Buffer.from((auth || '').split(' ')[1].split('.')[1], 'base64url')); return p.sub || null; } catch (e) { return null; } };
