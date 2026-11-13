@@ -80,6 +80,7 @@ Plan agreed with the owner: wrap the site with **Capacitor** (iOS) and add real 
 - Database: `supabase/v1.1-groups.sql` (applied to the live project Nov 13, 2026). Tests: `npm run test:db` (in-memory Postgres via PGlite; mimics Supabase's default function grants). The old `picks` RPCs stay for app 1.0.x and the current site.
 - Supabase Auth: Email (magic link) and Apple (native, Client ID = bundle id) enabled; Site URL https://theweekendfetch.com.
 - App ID has Sign In with Apple + Associated Domains enabled.
+- Sign-in emails: Supabase custom SMTP via Resend (connected with Resend's Supabase integration; Resend account shared with Cazavera; domain theweekendfetch.com verified, DNS at Porkbun: resend._domainkey TXT, send/rsend CNAMEs, _dmarc TXT; Resend's receiving MX deliberately NOT added so Porkbun email forwarding keeps working). Sender noreply@theweekendfetch.com. Templates "Magic link or OTP" and "Confirm sign up" show {{ .Token }} (subject too). Email OTP length set to 6 (was 8), expiry 3600s; src/accounts.js expects 6 digits.
 
 ### iPhone app: current state (merged into `main`)
 - Home-screen name "Bay Fetch" (App Store name "The Bay Area Weekend Fetch"), bundle id `io.github.oalwyn.weekendfetch` (chosen by the owner). Capacitor 8.6.0, Swift Package Manager (no CocoaPods).
