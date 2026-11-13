@@ -69,7 +69,10 @@ const _refreshStars = refreshStars;
 refreshStars = function(){ _refreshStars(); scheduleReminders(); };
 // tapping a reminder opens Our Weekend Plans
 if (LN) try {
-  LN.addListener("localNotificationActionPerformed", () => { state.view = "our-list"; render(); scrollTo(0, 0); });
+  LN.addListener("localNotificationActionPerformed", ev => {
+    state.view = "our-list"; render(); scrollTo(0, 0);
+    if (typeof logEvent === "function") logEvent("reminder_tapped", ev && ev.notification && ev.notification.extra && ev.notification.extra.item);
+  });
 } catch(e) {}
 
 /* 2. Add to Calendar */
@@ -95,7 +98,10 @@ document.addEventListener("click", ev => {
     start: +(t ? atHour(day, t.sh) : day),
     end: +(t ? atHour(day, t.eh) : day)
   }).then(r => {
-    if (r && r.saved){ b.textContent = "✓ In your calendar"; setTimeout(() => b.textContent = "📅 Add to Calendar", 3000); }
+    if (r && r.saved){
+      b.textContent = "✓ In your calendar"; setTimeout(() => b.textContent = "📅 Add to Calendar", 3000);
+      if (typeof logEvent === "function") logEvent("calendar_add", e.id);
+    }
   }).catch(() => {
     b.textContent = "Calendar not available"; setTimeout(() => b.textContent = "📅 Add to Calendar", 3000);
   });
@@ -112,5 +118,40 @@ copyOut = function(t, text, okMsg, label){
     dialogTitle: "Invite someone to plan"
   }).catch(() => {});   // closing the share sheet without sending is fine
 };
+
+/* 4. v1.1: Sign in with Apple (accounts.js shows the button when WF_APPLE_SIGNIN exists) */
+const APPLE = capPlugin("WFAppleSignIn");
+const hex = buf => Array.from(new Uint8Array(buf), b => b.toString(16).padStart(2, "0")).join("");
+if (APPLE && typeof ensureClient === "function") window.WF_APPLE_SIGNIN = async function(){
+  const raw = hex(crypto.getRandomValues(new Uint8Array(24)));
+  const hashed = hex(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(raw)));
+  let r;
+  try { r = await APPLE.authorize({ nonce: hashed }); }
+  catch (e) { if (/cancel/i.test(String((e && (e.code || e.message)) || e))) return false; throw e; }
+  const c = await ensureClient();
+  const { error } = await c.auth.signInWithIdToken({ provider: "apple", token: r.identityToken, nonce: raw });
+  if (error) throw error;
+  // Apple only shares the first name on the very first sign-in: use it as the suggested name
+  if (r.givenName && !ME) { ME = r.givenName; try { localStorage.setItem("wf-name", ME); } catch (e) {} }
+  return true;
+};
+
+/* 5. v1.1: invite links (https://theweekendfetch.com/join/?c=CODE) open the app */
+const APPP = capPlugin("App");
+function openFromLink(u){
+  let url; try { url = new URL(u); } catch (e) { return; }
+  if (!/^\/join\/?$/.test(url.pathname)) return;
+  const c = (url.searchParams.get("c") || "").replace(/[^A-Za-z0-9]/g, "").toUpperCase().slice(0, 10);
+  if (!c || typeof PENDING === "undefined") return;
+  PENDING.join = c; try { localStorage.setItem("wf-pending-join", c); } catch (e) {}
+  state.view = "our-list";
+  if (ACCT.user && ACCT.me && ACCT.me.name) joinWithCode(c, true).catch(e => { ACCT.err = friendly(e); }).then(() => refreshStars());
+  else { if (SB_ON) startAccounts(); render(); }
+  scrollTo(0, 0);
+}
+if (APPP) {
+  try { APPP.addListener("appUrlOpen", ev => openFromLink(ev && ev.url)); } catch (e) {}
+  try { APPP.getLaunchUrl().then(r => r && r.url && openFromLink(r.url)).catch(() => {}); } catch (e) {}
+}
 
 scheduleReminders();

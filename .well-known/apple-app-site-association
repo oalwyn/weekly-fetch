@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "6AUG5CZ27G.io.github.oalwyn.weekendfetch",
+        "appIDs": ["6AUG5CZ27G.io.github.oalwyn.weekendfetch"],
+        "paths": ["/join", "/join/", "/join/*"],
+        "components": [
+          { "/": "/join", "comment": "invite links: /join/?c=CODE" },
+          { "/": "/join/*" }
+        ]
+      }
+    ]
+  }
+}

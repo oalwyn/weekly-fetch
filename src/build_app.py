@@ -111,4 +111,6 @@ open(os.path.join(out, "index.html"), "w").write(html)
 for name in ["data.js", "walks.js", "banner.svg", "icon.svg", "icon-192.png", "icon-512.png",
              "apple-touch-icon.png", "manifest.webmanifest"]:
     shutil.copy(os.path.join(root, name), out)
+# v1.1: the Supabase and QR libraries are loaded on demand from ./vendor/ (bundled, works offline)
+shutil.copytree(os.path.join(root, "vendor"), os.path.join(out, "vendor"))
 print("app ok", os.path.relpath(out, root))

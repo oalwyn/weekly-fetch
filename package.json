@@ -8,6 +8,7 @@
     "test:db": "node supabase/tests/test_groups.mjs"
   },
   "dependencies": {
+    "@capacitor/app": "8.1.2",
     "@capacitor/core": "8.6.0",
     "@capacitor/ios": "8.6.0",
     "@capacitor/local-notifications": "8.3.1",

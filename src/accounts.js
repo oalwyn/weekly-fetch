@@ -140,9 +140,9 @@ function signedOutLocally(){
 
 /* ---- actions ---- */
 const groupItem = id => itemSnap(id);
-const _toggleStar = toggleStar;
+const _acctToggleStar = toggleStar;
 toggleStar = async function(id){
-  if (!inGroup()) { _toggleStar(id); if (starredByMe(id)) logEvent("star", id); return; }
+  if (!inGroup()) { _acctToggleStar(id); if (starredByMe(id)) logEvent("star", id); return; }
   const mine = starredByMe(id), uid = ACCT.user.id, p = picks.get(id) || { uids: [], item: groupItem(id) };
   p.uids = mine ? p.uids.filter(u => u !== uid) : p.uids.concat(uid);
   if (p.uids.length) picks.set(id, p); else { picks.delete(id); locks.delete(id); }
@@ -153,17 +153,17 @@ toggleStar = async function(id){
   } catch (e) { ACCT.online = false; }
   acctSync();
 };
-const _setPlan = setPlan;
+const _acctSetPlan = setPlan;
 setPlan = async function(id, k){
-  if (!inGroup()) { _setPlan(id, k); if (k) logEvent("lock", id); return; }
+  if (!inGroup()) { _acctSetPlan(id, k); if (k) logEvent("lock", id); return; }
   if (k) locks.set(id, new Set([k])); else locks.delete(id);
   refreshStars();
   try { await call("set_group_lock", { p_group: ACCT.gid, p_item: id, p_day: k || null, p_item_json: groupItem(id) }); if (k) logEvent("lock", id); }
   catch (e) { ACCT.online = false; }
   acctSync();
 };
-const _sync = sync;
-sync = function(){ return inGroup() ? acctSync() : _sync(); };
+const _acctSync = sync;
+sync = function(){ return inGroup() ? acctSync() : _acctSync(); };
 
 async function joinWithCode(code, fromLink){
   const g = await call("join_group", { p_code: code });
@@ -193,7 +193,7 @@ function qrSVG(text){
 const ae = s => esc(s);
 function acctCard(inner, cls){ return `<div class="setup acct${cls ? " " + cls : ""}">${inner}</div>`; }
 function signInHTML(){
-  const appleBtn = IS_APP && window.WF_APPLE_SIGNIN ? `<button class="copybtn apple" data-acct="apple">Sign in with Apple</button>` : "";
+  const appleBtn = IS_APP && window.WF_APPLE_SIGNIN ? `<button class="copybtn apple" data-acct="apple"><span class="alogo" aria-hidden="true">&#xF8FF;</span> Sign in with Apple</button>` : "";
   if (ACCT.ui.step === "code") return acctCard(`<strong>Check your email</strong>
     <p class="ournote">We sent a 6-digit code to <b>${ae(ACCT.ui.email)}</b>. Enter it here${IS_APP ? "" : ", or tap the link in the email on this device"}.</p>
     <form class="acctform" data-acctform="verify"><input name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456" aria-label="6-digit code" required>
@@ -261,9 +261,9 @@ function settingsHTML(){
     <div class="fsec">Account</div>${del}</div>`;
 }
 
-const _renderOurList = renderOurList;
+const _acctRenderOurList = renderOurList;
 renderOurList = function(){
-  if (!SB_ON) return _renderOurList();
+  if (!SB_ON) return _acctRenderOurList();
   if (!ACCT.client && !ACCT.loading) setTimeout(() => ensureClient().catch(() => {}), 0);   // warm up for a quick sign-in
   const msgs = `${ACCT.msg ? `<p class="okmsg">${ae(ACCT.msg)}</p>` : ""}${ACCT.err ? `<p class="errmsg">${ae(ACCT.err)}</p>` : ""}`;
   if (inGroup()){
@@ -278,7 +278,7 @@ renderOurList = function(){
   else if (ACCT.me && !ACCT.me.name) card = nameHTML();
   else if (ACCT.me) card = startGroupHTML() + `<p class="ournote small">Signed in as ${ae(ACCT.user.email || "you")} · <button class="linkbtn" data-acct="signout">Sign out</button></p>`;
   else card = acctCard(`<p class="ournote">Signing you in…</p>`);
-  let old = _renderOurList();
+  let old = _acctRenderOurList();
   // retire the old "start an anonymous shared plan" card; existing old shared plans keep working
   old = old.replace(/<div class="setup">[\s\S]*?<\/div><\/div>\s*<p class="ournote">Until then, stars are saved on this phone\.<\/p>/, `<p class="ournote">Until you join a group, stars are saved on this device.</p>`);
   return old.replace('<div class="ourhead">', `<div class="ourhead">${msgs}${card}`);
@@ -290,7 +290,7 @@ document.addEventListener("click", async ev => {
   const a = b.dataset.acct; ACCT.msg = ""; ACCT.err = "";
   try {
     if (a === "restart") ACCT.ui.step = "";
-    else if (a === "apple") { await window.WF_APPLE_SIGNIN(); await afterSignIn(); }
+    else if (a === "apple") { if (await window.WF_APPLE_SIGNIN() !== false) await afterSignIn(); }
     else if (a === "invite") { await loadScript(QR_LIB).catch(() => {}); ACCT.ui.panel = ACCT.ui.panel === "invite" ? "" : "invite"; }
     else if (a === "share") return shareInvite(b);
     else if (a === "close") ACCT.ui.panel = "";
@@ -366,6 +366,7 @@ async function afterSignIn(){
 }
 function friendly(e){
   const m = String((e && e.message) || e);
+  if (/AuthorizationError|AuthenticationServices|Apple didn't return/i.test(m)) return "Sign in with Apple didn't finish. Check that you're signed in to your Apple Account in Settings, or use your email instead.";
   if (/rate limit|too many/i.test(m)) return "Too many tries. Please wait a few minutes and try again.";
   if (/expired|invalid/i.test(m) && /otp|token|code/i.test(m)) return "That code didn't work or has expired. Check the email or ask for a new code.";
   if (/sign in required|JWT/i.test(m)) return "Please sign in again.";
