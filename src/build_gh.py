@@ -31,6 +31,17 @@ mod=open('gh_sync.js').read().replace('__SB_URL__',cfg['url']).replace('__SB_KEY
 i=html.rfind('\nrender();\n')
 assert i>0
 html=html[:i]+'\n'+mod+html[i:]
+# v1.1 accounts and groups, right after the old shared-list code (it wraps some of its functions)
+i=html.rfind('\nrender();\n')
+html=html[:i]+'\n'+open('accounts.js').read()+html[i:]
+# catch a sign-in link (#access_token=...) or a join link (#join-CODE) before any other code rewrites the address
+EARLY=('<script>(function(){var h=location.hash||"",u=location.pathname+location.search,'
+       'go=function(){try{history.replaceState(null,"",u+"#our-list")}catch(e){}};'
+       'if(/access_token=/.test(h)){var p=new URLSearchParams(h.slice(1));window.__wfTokens={access_token:p.get("access_token"),refresh_token:p.get("refresh_token")};go()}'
+       'else if(/^#join-[A-Za-z0-9]{4,10}$/.test(h)){window.__wfJoin=h.slice(6).toUpperCase();go()}'
+       'else if(/error_description=/.test(h)){window.__wfAuthError=1;go()}})();</script>\n')
+assert html.count('<script src="./data.js"></script>')==1
+html=html.replace('<script src="./data.js"></script>', EARLY+'<script src="./data.js"></script>')
 html=html.replace('.okmsg{','.setup{background:#fff;border-radius:14px;padding:14px 16px;margin:0 0 12px}.setup strong{font-size:16px}\n.okmsg{',1)
 open(sys.argv[1] if len(sys.argv)>1 else os.path.join("..","index.html"),'w').write(html)
 print("ok", len(html))

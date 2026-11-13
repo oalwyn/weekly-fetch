@@ -44,9 +44,13 @@ async def main():
             pg.on("dialog", lambda d: asyncio.ensure_future(d.accept(name)))
             return pg
         me = await phone("Ken")
+        # v1.1 retires starting new anonymous shared lists (groups replace them), but existing
+        # #list- plans must keep working until people move them into a group: start from one.
+        await me.context.add_init_script("localStorage.setItem('wf-list','smoketestsmoketestsmoke1');localStorage.setItem('wf-name','Ken')")
         await me.goto(f"http://localhost:{PORT}/"); await me.wait_for_timeout(400)
         ids = await me.evaluate("DATA.filter(e=>!isPast(e)&&e.cat!=='walk'&&e.cat!=='prog').slice(0,4).map(e=>e.id)")
-        await me.click("button[data-view='our-list']"); await me.click("button[data-startlist]"); await me.wait_for_timeout(400)
+        await me.click("button[data-view='our-list']"); await me.wait_for_timeout(400)
+        assert await me.evaluate("!!document.querySelector('form[data-acctform=email]')"), "sign-in card missing on plans tab"
         for i in ids:
             await me.evaluate(f"toggleStar({json.dumps(i)})"); await me.wait_for_timeout(120)
         assert sum(1 for r in DB if not r["who"].startswith("__lock__")) == len(ids), "stars did not reach the shared list"
