@@ -25,16 +25,17 @@ a{color:var(--blue)}
 <body>
 <header>
   <h1>Privacy Policy</h1>
-  <p>The Bay Area Weekend Fetch: the website and the “Bay Fetch” iPhone app · Effective November 11, 2026</p>
+  <p>The Bay Area Weekend Fetch: the website and the “Bay Fetch” iPhone app · Updated for version 1.1, November 2026</p>
 </header>
 <main>
 <section>
   <h2>The short version</h2>
   <ul>
-    <li>No accounts, no ads, no analytics and no tracking.</li>
-    <li>Almost everything stays on your phone.</li>
-    <li>Only if you use <strong>shared plans</strong> do we store anything: a random list code, the first name you type, and the events you starred or locked in.</li>
-    <li>We never sell or share your information with anyone for advertising.</li>
+    <li>No ads and no tracking across other companies' apps or websites. We never sell your information.</li>
+    <li>Browsing events needs no account, and most things stay on your phone.</li>
+    <li>If you <strong>sign in</strong> to plan weekends with a group, we store your email address (or Apple sign-in), the first name you choose, your groups, and the events you star or lock in.</li>
+    <li>We count how the app is used (for example, how many times an event's page is opened) so we can improve it. We never sell them or use them for ads.</li>
+    <li>You can delete your account, and what's linked to it, from inside the app at any time.</li>
   </ul>
 </section>
 
@@ -42,7 +43,7 @@ a{color:var(--blue)}
   <h2>What stays on your device</h2>
   <p>These are saved only on your phone or browser and are never sent to us:</p>
   <ul>
-    <li>Your stars and locked-in plans (when you're not using shared plans), your filters and view settings.</li>
+    <li>Your stars and locked-in plans when you're not signed in to a group, plus your filters and view settings.</li>
     <li>Your “home” spot for distances. If you tap <em>Use my current location</em>, your location is read once, rounded, and used on your device to show how far away events are. It is never sent to us. If you type an address, city or ZIP instead, only that text is sent to OpenStreetMap's address lookup to find it on the map (see below).</li>
     <li>A saved copy of the event list, so the app works without a signal.</li>
   </ul>
@@ -50,21 +51,46 @@ a{color:var(--blue)}
 </section>
 
 <section>
-  <h2>Shared plans (optional)</h2>
-  <p>If you start or join a shared plan, the following is stored in our database so everyone on the plan sees the same list:</p>
+  <h2>Accounts and groups (optional)</h2>
+  <p>You only need an account to plan with other people. When you sign in, we store:</p>
   <ul>
-    <li><strong>A list code:</strong> a random 24-character code created on your phone. It is not linked to your phone, email or Apple ID.</li>
-    <li><strong>Your first name</strong>, exactly as you type it, so others can see who starred what. You can use a nickname.</li>
-    <li><strong>The events you star or lock in</strong>, the day you locked them in, and a copy of the public event details (title, time, place, link).</li>
+    <li><strong>Your email address</strong>, if you sign in with an emailed code. We use it only to send you sign-in codes, never for marketing.</li>
+    <li><strong>Your Apple sign-in</strong>, if you use Sign in with Apple. Apple gives us an account identifier and an email address, which can be a private relay address if you choose “Hide My Email”. Apple may also share your first name the first time.</li>
+    <li><strong>The first name you choose</strong>, shown to people in your groups next to the events you star. You can use a nickname and change it any time.</li>
+    <li><strong>Your groups:</strong> each group's name, its members' first names, and its join code.</li>
+    <li><strong>The events you star or lock in</strong> for a group, the day you locked them in, and a copy of the public event details (title, time, place, link).</li>
   </ul>
-  <p>Anyone who has your invite link can see and change that list, so share it only with people you plan with. The database is hosted by <a href="https://supabase.com/privacy">Supabase</a> on our behalf.</p>
-  <p>To remove your information, unstar your events (this removes your name from them). When the last person unstars an event, it and its plans are deleted. To have an entire shared list deleted, contact us (below) with its list code.</p>
+  <p>People in your groups can see your first name and what you starred or locked in for that group. Anyone with a group's join code or invite link can join it, so share it only with people you plan with. A group's owner can make a new code at any time, which stops old invite links from working.</p>
+</section>
+
+<section>
+  <h2>Usage counts</h2>
+  <p>To understand what's useful and improve the app, we record simple events: the app being opened, signing in, starring or locking in an event, creating, joining or inviting to a group, adding to your calendar, tapping a reminder, and opening an event's “More info” or “Directions” link. Each record has the kind of event, which listing it was about, the time, whether it came from the website or the iPhone app, and:</p>
+  <ul>
+    <li>if you're signed in, your account (and the group you were viewing);</li>
+    <li>if you're not, a random code created on your device. It isn't your phone's advertising identifier and isn't connected to your name or email.</li>
+  </ul>
+  <p>We don't use these counts for advertising, and we don't combine them with information from other companies. We may share totals that can't identify anyone (for example, “120 people opened this event's page this month”) with event organizers or partners.</p>
+</section>
+
+<section>
+  <h2>Older shared plans</h2>
+  <p>Before accounts, shared plans used an anonymous list code, your first name as typed, and your starred events. Those plans keep working for now. When you sign in, you can move a plan into a group; its stars and locked-in days are copied over. Old shared plans will be retired in a future version.</p>
+</section>
+
+<section>
+  <h2>Deleting your information</h2>
+  <ul>
+    <li><strong>Delete your account</strong> in the app or on the website: Our Weekend Plans → Group &amp; account → Delete my account. This permanently removes your account, your name and your stars from every group. Groups you were in stay for their other members. Usage counts you created are kept only as anonymous totals, no longer connected to you.</li>
+    <li><strong>Leave a group</strong> to remove your stars from it. When the last person leaves, the group is deleted.</li>
+    <li>For anything else, including deleting an older shared plan, contact us (below).</li>
+  </ul>
 </section>
 
 <section>
   <h2>iPhone features</h2>
   <ul>
-    <li><strong>Reminders:</strong> if you allow notifications, reminders for your locked-in plans are scheduled on your phone. Nothing about them is sent to us.</li>
+    <li><strong>Reminders:</strong> if you allow notifications, reminders for your locked-in plans are scheduled on your phone. Nothing about them is sent to us, apart from the usage count when you tap one.</li>
     <li><strong>Add to Calendar:</strong> opens Apple's New Event screen, filled in. The app can't see or read your calendar. You choose whether to add the event.</li>
     <li><strong>Invites:</strong> the share sheet sends the invite link using whichever app you pick (Messages, Mail and so on). We don't see who you send it to.</li>
   </ul>
@@ -72,11 +98,13 @@ a{color:var(--blue)}
 
 <section>
   <h2>Services we rely on</h2>
-  <p>Like any website, these services receive standard technical information (such as your IP address and device type) when the app or website loads content from them:</p>
+  <p>These companies process information for us only to run the app. Like any website, they also receive standard technical information (such as your IP address and device type) when the app or website contacts them:</p>
   <ul>
+    <li><strong>Supabase</strong> runs our sign-in and database (accounts, groups, plans, usage counts). See the <a href="https://supabase.com/privacy">Supabase privacy policy</a>.</li>
+    <li><strong>Resend</strong> sends our sign-in code emails, so it receives your email address and the code. See the <a href="https://resend.com/legal/privacy-policy">Resend privacy policy</a>.</li>
+    <li><strong>Apple</strong> handles Sign in with Apple if you use it.</li>
     <li><strong>GitHub Pages</strong> (GitHub, Inc.) hosts the website and the event list the app downloads.</li>
     <li><strong>Google Fonts</strong> (Google LLC) provides the fonts.</li>
-    <li><strong>Supabase</strong> stores shared plans, as described above.</li>
     <li><strong>OpenStreetMap Nominatim</strong> (OpenStreetMap Foundation) turns a home address you type into a map position. It receives only what you type. See the <a href="https://osmfoundation.org/wiki/Privacy_Policy">OSM privacy policy</a>.</li>
   </ul>
   <p>Links to event pages and to Google Maps directions open those sites, which have their own privacy policies.</p>

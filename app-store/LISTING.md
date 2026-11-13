@@ -68,7 +68,20 @@ No ads. No tracking. No account needed.
 events,weekend,things to do,san francisco,peninsula,south bay,marin,napa,dog friendly,markets,family
 ```
 
-## What's New (for later versions; not needed for 1.0)
+## What's New
+
+**1.1** (accounts and groups):
+
+```
+Plan weekends with your people.
+• Sign in with Apple or with your email to start a group for your household or friends.
+• Invite people with a link, a 6-letter code or a QR code. Invite links open the app.
+• Be in several groups and switch between them.
+• Already sharing a plan? Move it into a group in one tap, stars and all.
+• Browsing still needs no account, and you can delete your account any time.
+```
+
+**1.0.1:** the app now gets its twice-weekly event updates from our new home, theweekendfetch.com.
 
 ---
 
@@ -88,16 +101,27 @@ Apple scales these down for smaller iPhones automatically.
 
 ## App Privacy ("nutrition label")
 
+Answers for **version 1.1** (accounts, groups, usage counts). Update the published answers **before submitting 1.1**; 1.0/1.0.1 used the shorter list at the bottom.
+
 **Do you or your third-party partners collect data from this app?** Yes
 
-| Data type | Collected? | Used for | Linked to the user? | Used for tracking? |
+| Data type | Used for | Linked to the user? | Tracking? | What it is |
 |---|---|---|---|---|
-| Contact Info → **Name** | Yes, only if they use shared plans (the first name they type) | App Functionality | Yes (cautious answer: it's shown to others on the list) | No |
-| User Content → **Other User Content** | Yes, the events they star and lock in on a shared plan | App Functionality | Yes | No |
-| Location | **No.** GPS location stays on the phone. A typed home address goes to OpenStreetMap's lookup in real time and isn't stored, which falls under Apple's "optional disclosure" rules. If you'd rather be cautious, declare *Coarse Location → App Functionality, not linked, no tracking*. | | | |
-| Everything else (contacts, identifiers, usage data, diagnostics…) | No | | | |
+| Contact Info → **Email Address** | App Functionality | Yes | No | Email sign-in codes (or the address Apple provides with Sign in with Apple) |
+| Contact Info → **Name** | App Functionality | Yes | No | The first name shown to group members |
+| User Content → **Other User Content** | App Functionality | Yes | No | Stars, locked-in days and group names |
+| Identifiers → **User ID** | App Functionality, Analytics | Yes | No | The account identifier |
+| Identifiers → **Device ID** | Analytics | **No** | No | A random code created on the device, used only for signed-out usage counts (not the advertising identifier) |
+| Usage Data → **Product Interaction** | Analytics | Yes | No | Usage counts (app opens, stars, locks, invites, "More info"/"Directions" taps). Linked when signed in |
+| Location | not collected | | | GPS stays on the phone. A typed home address goes to OpenStreetMap's lookup in real time and isn't stored (Apple's "optional disclosure" case). To be cautious, declare *Coarse Location → App Functionality, not linked, no tracking* |
+| Everything else (contacts, diagnostics, purchases, browsing history…) | not collected | | | |
 
-**Tracking:** No. The app doesn't track people across other companies' apps or websites.
+**Tracking:** No. The app doesn't track people across other companies' apps or websites, and has no ad networks.
+
+<details><summary>1.0 / 1.0.1 answers (published Nov 11, 2026)</summary>
+
+Name (App Functionality, linked, no tracking) and Other User Content (App Functionality, linked, no tracking). Nothing else.
+</details>
 
 ---
 
@@ -111,28 +135,31 @@ One judgment call: a few listings mention wine walks or beer festivals. If you w
 
 ## App Review Information
 
-**Sign-in required:** No (the app has no accounts).
+**Sign-in required:** leave **unticked**. Everything except shared group plans works without an account, and reviewers can create an account themselves with Sign in with Apple or any email address (the 6-digit code arrives by email). If Apple asks for a demo account anyway, create one with an email inbox you control and paste its address here.
 
 **Contact:** your name, phone number and email. Only Apple's review team sees these.
 
-**Notes** (paste into the "Notes" box):
+**Notes for 1.1** (paste into the "Notes" box):
 
 ```
-Thank you for reviewing The Bay Area Weekend Fetch.
+Thank you for reviewing The Bay Area Weekend Fetch 1.1.
 
-No sign-in is needed. Everything works right away.
+Browsing events needs no account. Accounts are optional and only used to plan weekends with a group.
 
-WHAT THE APP DOES
-A curated guide to Bay Area events (refreshed twice a week) with a shared weekend planner for households.
+WHAT'S NEW IN 1.1: ACCOUNTS AND GROUPS
+- Sign in on the "Our Weekend Plans" tab with Sign in with Apple, or with any email address (we email a 6-digit code; no password).
+- After choosing a first name, create a group (e.g. "Our household"). The invite screen shows a link, a 6-letter join code and a QR code; "Share invite" opens the iOS share sheet.
+- Invite links (https://theweekendfetch.com/join/?c=CODE) open the app via universal links and join the group after sign-in.
+- Group & account: rename, see members, make a new join code (owner), leave the group, sign out, and Delete my account (in-app account deletion, with confirmation).
 
 NATIVE FEATURES TO TRY
-1. Reminders: On the Events tab, tap the star on any event this weekend. Open "Our Weekend Plans", tap the event, then tap "Lock it in". The app asks for notification permission and schedules reminders for the evening before (7pm) and 2 hours before the start time.
-2. Add to Calendar: On a locked-in plan, tap "Add to Calendar". iOS's own New Event screen opens, already filled in with the title, place, date and time.
-3. Shared plans and the share sheet: On "Our Weekend Plans", tap "Start our shared plans" and type any first name. Then tap "Invite someone to plan" to open the iOS share sheet with the invite link. Anyone who opens that link (in the app or on the website) joins the same plan, and stars and locked-in days sync between phones.
+1. Reminders: On the Events tab, star an event this weekend. Open "Our Weekend Plans", tap the event, then "Lock it in". The app asks for notification permission and schedules reminders for the evening before (7pm) and 2 hours before the start time.
+2. Add to Calendar: On a locked-in plan, tap "Add to Calendar". iOS's own New Event screen opens, filled in.
+3. Share sheet: In a group, tap "Invite someone", then "Share invite".
 4. Location (optional): Tap the "Mountain View" home button and choose "Use my current location" to sort events by distance. The location is used only on the device.
 
 DATA
-There are no accounts. Shared plans store only a random list code, the first name the user types, and the events they starred, in our Supabase database. Privacy policy: https://theweekendfetch.com/privacy.html
+Accounts, groups, stars and simple usage counts are stored in our Supabase database; sign-in emails are sent by Resend. No ads, no tracking. Privacy policy: https://theweekendfetch.com/privacy.html
 
 Event links and directions open in Safari or Maps.
 ```
