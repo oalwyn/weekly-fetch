@@ -7,12 +7,18 @@ try { const h = JSON.parse(localStorage.getItem("wf-home") || "null"); if (h && 
 const BBOX = /*BBOX*/[0,0,0,0];
 const MAP_W = /*W*/0, MAP_H = /*H*/0;
 const COAST = "/*COAST*/";
-const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Teen programs",color:"#8D6E63"},evt:{label:"Events",color:"#4A5562"}};
+const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},sport:{label:"Sports",color:"#9C2B2B"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Teen programs",color:"#8D6E63"},evt:{label:"Events",color:"#4A5562"}};
 const SECTIONS = (WF.sections || [["week","This week"]]).slice();
 { const i = SECTIONS.findIndex(s=>s[0]==="dog"); SECTIONS.splice(i>=0?i+1:1, 0, ["walks","Dog walks · closest to home first"]); }
 const VIEWS = ["events","map","our-list"];
+/* ---- interests: categories this person said "no" to are hidden from Events and the Map (saved on this device) ---- */
+const LIKES = [["hol","Holiday events & lights"],["mkt","Markets & fairs"],["dog","Dog-friendly events & walks"],["food","Pizza, coffee & food"],["art","Art & museums"],["show","Concerts, theater & comedy"],["sport","Sports games"],["kids","Things for young kids"],["teen","Things for teens"],["prog","Teen programs to apply for"],["evt","Other special events"]];
+let likesOff = new Set(), likesSet = false;
+try { const v = localStorage.getItem("wf-likes-off"); if (v!==null){ likesSet = true; likesOff = new Set(JSON.parse(v)); } } catch(e) {}
+const likeKey = c => c==="walk" ? "dog" : (c in CATS ? c : "evt");
+function saveLikes(){ likesSet = true; try { localStorage.setItem("wf-likes-off", JSON.stringify([...likesOff])); } catch(e) {} }
 
-let state = {view:"events", cat:"all", dist:0, sel:null, group:"weekend", editHome:false, homeMsg:""};
+let state = {view:"events", cat:"all", dist:0, sel:null, group:"weekend", editHome:false, homeMsg:"", likesOpen:!likesSet};
 try { const d = +localStorage.getItem("wf-dist"); if ([15,30,60].includes(d)) state.dist = d; } catch(e) {}
 try { const g = localStorage.getItem("wf-group"); if (g==="weekend"||g==="date") state.group = g; } catch(e) {}
 /* ---- dates & weekends ---- */
@@ -107,7 +113,20 @@ function whoLine(id){
   return `<span class="who">★ ${esc(list.join(" & "))}</span>`;
 }
 function filtered(){
-  return DATA.filter(e => (state.cat==="all" || e.cat===state.cat || (state.cat==="dog" && e.cat==="walk")) && (!state.dist || (e.mi!=null && e.mi<=state.dist)));
+  return DATA.filter(e => (state.cat==="all" ? !likesOff.has(likeKey(e.cat)) : (e.cat===state.cat || (state.cat==="dog" && e.cat==="walk"))) && (!state.dist || (e.mi!=null && e.mi<=state.dist)));
+}
+// "Free" or "Tickets" pill; a ticketed event with a ticket page links straight to it
+const okUrl = u => typeof u==="string" && /^https?:\/\//.test(u);
+function priceHTML(e){
+  if (e.price==="free") return `<span class="price free">Free</span>`;
+  if (e.price==="tickets"){ const u = okUrl(e.tix) ? e.tix : okUrl(e.url) ? e.url : ""; return u ? `<a class="price tix" href="${esc(u)}" target="_blank" rel="noopener">Tickets ↗</a>` : `<span class="price tix">Tickets required</span>`; }
+  return "";
+}
+function likesBox(){
+  if (!state.likesOpen || state.view==="our-list") return "";
+  return `<div class="likesbox"><strong>${likesSet?"Your interests":"What are you into?"}</strong><p class="ournote">Say no to anything you'd rather not see, and it's hidden from Events and the Map. You can change this any time under Filter events.</p>
+  <div class="likes">${LIKES.map(([k,t])=>{ const on=!likesOff.has(k); return `<div class="like"><i class="dot" style="background:${CATS[k].color}"></i><span>${t}</span><div class="yn" role="group" aria-label="${esc(t)}"><button data-like="${k}" data-v="1" aria-pressed="${on}">Yes</button><button data-like="${k}" data-v="0" aria-pressed="${!on}">No</button></div></div>`; }).join("")}</div>
+  <div class="btnrow"><button class="copybtn" data-likesdone>Done · show ${DATA.filter(e=>!isPast(e)&&!likesOff.has(likeKey(e.cat))).length} events</button>${likesOff.size?`<button class="copybtn alt" data-likesall>Show everything</button>`:""}</div></div>`;
 }
 function cardHTML(e, gone, extra, cls){
   const c = CATS[e.cat] || CATS.evt;
@@ -115,7 +134,7 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(e.meta)}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 const DISTS = [[0,"Any distance"],[15,"15 mi"],[30,"30 mi"],[60,"60 mi"]];
@@ -123,7 +142,7 @@ function renderFilters(){
   const f = document.getElementById("filters");
   if (state.view==="our-list"){ f.innerHTML=""; f.style.display="none"; return; }
   f.style.display="";
-  const catLabel = state.cat==="all" ? "All" : CATS[state.cat].label;
+  const catLabel = state.cat==="all" ? (likesOff.size ? "My interests" : "All") : CATS[state.cat].label;
   const distLabel = state.dist ? `Within ${state.dist} mi` : "Any distance";
   const active = (state.cat!=="all") + (!!state.dist);
   let h = `<div class="fbar"><button class="filterbtn${active?" on":""}" data-filtopen aria-expanded="${!!state.filtOpen}" aria-controls="fpanel">
@@ -131,9 +150,9 @@ function renderFilters(){
     <span class="ftxt"><span class="flabel">Filter events</span><span class="fsum">${esc(catLabel)} · ${distLabel}</span></span>${active?`<span class="fcount">${active}</span>`:""}<span class="fcaret">${state.filtOpen?"▴":"▾"}</span></button>
     <button class="chip homechip" data-sethome aria-label="Change home location, now ${esc(HOME.name)}">📍 ${esc(HOME.name)}</button></div>`;
   if (state.filtOpen){
-    h += `<div class="fpanel" id="fpanel"><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">All events</button>`;
+    h += `<div class="fpanel" id="fpanel"><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">${likesOff.size?"All my interests":"All events"}</button>`;
     for (const k in CATS) h += `<button class="chip" data-cat="${k}" aria-pressed="${state.cat===k}"><i class="dot" style="background:${CATS[k].color}"></i>${CATS[k].label}</button>`;
-    h += `</div><div class="fsec">Distance from ${esc(HOME.name)} <button class="linkbtn" data-sethome>change</button></div><div class="dseg" role="group" aria-label="Distance">${DISTS.map(([v,t])=>`<button data-distv="${v}" aria-pressed="${state.dist===v}">${t}</button>`).join("")}</div>
+    h += `</div><div class="fsec">My interests <button class="linkbtn" data-likesopen>edit</button></div><p class="fnote">${likesOff.size ? "Hiding: " + esc([...likesOff].map(k=>CATS[k]?CATS[k].label:k).join(", ")) : "Showing every kind of event."}</p><div class="fsec">Distance from ${esc(HOME.name)} <button class="linkbtn" data-sethome>change</button></div><div class="dseg" role="group" aria-label="Distance">${DISTS.map(([v,t])=>`<button data-distv="${v}" aria-pressed="${state.dist===v}">${t}</button>`).join("")}</div>
     <div class="fdone">${active?`<button class="copybtn alt" data-freset>Clear filters</button>`:""}<button class="copybtn" data-filtopen>Done · show ${filtered().filter(e=>!isPast(e)).length}</button></div></div>`;
   }
   f.innerHTML = h;
@@ -452,7 +471,7 @@ function render(){
   const m = document.getElementById("main");
   if (state.view==="map"){ m.innerHTML = mapHTML(); requestAnimationFrame(bindMap); }
   else m.innerHTML = state.view==="our-list" ? renderOurList() : renderEvents();
-  if (state.view!=="our-list") m.insertAdjacentHTML("afterbegin", homeBox());
+  if (state.view!=="our-list") m.insertAdjacentHTML("afterbegin", homeBox() + likesBox());
   document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px");
   document.documentElement.style.setProperty("--fh", document.getElementById("filters").offsetHeight+"px");
 }
@@ -460,7 +479,7 @@ function refreshStars(){
   // update stars in place without resetting the map or scroll
   if (state.view==="our-list"){ const y=scrollY; document.getElementById("main").innerHTML = renderOurList(); scrollTo(0,y); }
   else if (state.view==="map"){ drawMap(); showSheet(); }
-  else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + renderEvents(); scrollTo(0,y); }
+  else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + likesBox() + renderEvents(); scrollTo(0,y); }
   updateCount();
 }
 async function toggleStar(id){
@@ -528,6 +547,10 @@ document.addEventListener("click", ev=>{
   else if (t.dataset.jump){ const el=document.getElementById(t.dataset.jump); if(el){ const off=document.getElementById("filters").offsetHeight+8; scrollTo({top:el.getBoundingClientRect().top+scrollY-off, behavior:"smooth"}); } }
   else if (t.dataset.group){ state.group=t.dataset.group; try{localStorage.setItem("wf-group",state.group);}catch(e){} render(); }
   else if (t.dataset.cat){ state.cat=t.dataset.cat; render(); }
+  else if (t.dataset.like){ t.dataset.v==="1" ? likesOff.delete(t.dataset.like) : likesOff.add(t.dataset.like); saveLikes(); if (state.cat!=="all" && likesOff.has(state.cat)) state.cat="all"; const y=scrollY; render(); scrollTo(0,y); }
+  else if (t.hasAttribute("data-likesdone")){ saveLikes(); state.likesOpen=false; render(); window.scrollTo(0,0); }
+  else if (t.hasAttribute("data-likesall")){ likesOff.clear(); saveLikes(); const y=scrollY; render(); scrollTo(0,y); }
+  else if (t.hasAttribute("data-likesopen")){ state.filtOpen=false; state.editHome=false; state.likesOpen=true; render(); window.scrollTo(0,0); }
   else if (t.hasAttribute("data-filtopen")){ state.filtOpen = !state.filtOpen; render(); }
   else if (t.dataset.distv!=null){ state.dist = +t.dataset.distv; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); }
   else if (t.hasAttribute("data-freset")){ state.cat="all"; state.dist=0; try{localStorage.setItem("wf-dist",0);}catch(e){} render(); }

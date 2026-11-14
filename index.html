@@ -48,7 +48,23 @@ main{flex:1;padding:0 12px 40px}
 .num{font-size:11px;font-weight:600;color:var(--mute)}
 .tag{font-size:11px;font-weight:600;border-radius:999px;padding:3px 9px}
 .c-hol{background:#FBE9E1;color:#8A3A14}.c-mkt{background:#E6EEF6;color:#1F4A73}.c-dog{background:#E3F2EA;color:#1F6B4A}
-.c-walk{background:#DDF1F1;color:#0B5E61}.c-food{background:#FFF1D6;color:#7A4E00}.c-art{background:#EEE8F6;color:#4E3A78}.c-evt{background:#EEF2F5;color:#1B2430}.c-show{background:#FBE6EE;color:#8A1F4C}.c-kids{background:#E8F4DC;color:#3B6B17}.c-teen{background:#E6E9F7;color:#3A47A0}.c-prog{background:#F1E9E5;color:#5D4037}
+.c-walk{background:#DDF1F1;color:#0B5E61}.c-food{background:#FFF1D6;color:#7A4E00}.c-art{background:#EEE8F6;color:#4E3A78}.c-evt{background:#EEF2F5;color:#1B2430}.c-show{background:#FBE6EE;color:#8A1F4C}.c-kids{background:#E8F4DC;color:#3B6B17}.c-teen{background:#E6E9F7;color:#3A47A0}.c-prog{background:#F1E9E5;color:#5D4037}.c-sport{background:#F7E4E4;color:#7A1F1F}
+.price{font-size:11px;font-weight:700;border-radius:6px;padding:3px 8px;text-decoration:none;border:1px solid}
+.price.free{background:#E3F2EA;color:#1F6B4A;border-color:#A9D6BE}
+.price.tix{background:#FFF6E0;color:#7A4E00;border-color:#E8C77A}
+a.price.tix{padding:6px 10px;margin:-3px 0}
+.likesbox{background:#fff;border:1px solid var(--line,#E2E7EC);border-radius:14px;padding:14px;margin:10px 0}
+.likesbox strong{font-size:17px}
+.likes{display:flex;flex-direction:column;margin:8px 0 4px}
+.like{display:flex;align-items:center;gap:10px;padding:6px 0;border-top:1px solid #EEF1F4;font-size:15px}
+.like span{flex:1}
+.like .dot{width:10px;height:10px;border-radius:50%;flex:none}
+.yn{display:flex;border:1px solid #CBD4DD;border-radius:10px;overflow:hidden;flex:none}
+.yn button{border:0;background:#fff;font-size:14px;font-weight:600;padding:0 14px;min-height:40px;color:var(--mute)}
+.yn button+button{border-left:1px solid #CBD4DD}
+.yn button[data-v="1"][aria-pressed="true"]{background:#2E8B5E;color:#fff}
+.yn button[data-v="0"][aria-pressed="true"]{background:#5A6472;color:#fff}
+.fnote{font-size:13px;color:var(--mute);margin:0 2px 6px}
 .plan-h{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:12px 6px 6px}.plan-h.locked{color:#1E7A4C}
 .card.locked{box-shadow:inset 4px 0 0 #2E8B5E}
 .lockrow{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
@@ -222,7 +238,7 @@ main{padding:0 10px 40px}
 .card .title{font-size:18px;line-height:1.3;margin:4px 0}
 .card .meta{font-size:15px;line-height:1.5;color:#4A5462}
 .num{font-size:13px}
-.tag,.who,.tbc{font-size:13px}
+.tag,.who,.tbc,.price{font-size:13px}
 .dist{font-size:14px}
 .lbtn{font-size:15px;padding:12px 8px;min-height:46px}
 .ournote,.note,.legend,.nodogs{font-size:14.5px}
@@ -286,12 +302,18 @@ try { const h = JSON.parse(localStorage.getItem("wf-home") || "null"); if (h && 
 const BBOX = [36.45, 38.72, -123.12, -121.55];
 const MAP_W = 1000, MAP_H = 1825;
 const COAST = "M756,1825L757,1821L761,1817L761,1814L751,1802L750,1782L749,1779L745,1776L745,1769L745,1766L747,1765L758,1764L761,1762L761,1761L756,1755L755,1740L753,1739L742,1738L740,1733L735,1730L734,1726L730,1722L730,1719L734,1715L735,1706L740,1702L741,1693L742,1692L748,1691L750,1689L751,1675L753,1672L760,1672L764,1677L770,1678L784,1696L794,1697L798,1695L804,1686L808,1682L810,1679L814,1675L818,1669L820,1659L824,1655L825,1646L829,1644L830,1641L831,1621L835,1613L835,1588L837,1585L840,1582L841,1561L842,1558L845,1555L846,1552L846,1528L844,1525L841,1522L840,1519L835,1515L835,1506L831,1501L830,1492L820,1481L818,1472L814,1465L810,1461L808,1452L804,1448L803,1439L798,1432L795,1429L793,1425L786,1418L779,1416L775,1410L764,1409L760,1404L757,1405L754,1409L747,1411L740,1421L737,1423L722,1423L720,1421L717,1418L705,1418L703,1421L702,1428L701,1429L698,1428L695,1423L692,1423L689,1423L685,1429L670,1430L667,1428L664,1423L648,1423L645,1421L642,1418L631,1416L628,1412L624,1408L622,1405L618,1401L615,1396L609,1395L602,1388L600,1383L593,1382L590,1376L584,1375L581,1374L575,1365L571,1361L569,1357L565,1354L561,1348L559,1345L556,1342L554,1337L549,1334L548,1325L544,1321L541,1316L538,1312L534,1308L532,1305L528,1301L526,1297L524,1296L508,1295L501,1284L496,1281L495,1270L494,1269L488,1268L486,1266L485,1258L481,1253L479,1245L476,1243L466,1242L464,1237L459,1234L458,1225L455,1222L453,1219L453,1206L449,1200L448,1190L445,1188L443,1185L445,1182L448,1179L449,1170L452,1165L449,1159L453,1150L452,1076L448,1070L443,1066L442,1056L438,1052L437,1043L433,1039L433,1025L427,1018L426,996L417,988L413,982L392,980L390,978L389,969L385,965L384,956L380,953L379,950L384,943L384,928L384,923L380,920L379,918L379,905L381,902L388,900L391,896L395,892L396,889L396,825L395,822L392,819L390,816L390,785L389,782L386,779L384,776L384,750L386,747L396,747L399,745L401,741L405,737L405,729L402,727L376,726L373,721L369,718L368,714L363,711L356,700L349,699L345,693L339,692L332,685L329,680L317,679L315,674L310,671L309,667L302,660L276,660L273,661L271,665L268,665L264,665L260,660L253,659L247,650L247,643L245,640L237,639L233,633L227,632L223,626L217,625L215,623L210,616L209,601L207,600L200,599L193,587L187,581L185,580L179,579L175,573L169,572L165,566L153,565L149,559L142,558L137,553L122,553L117,558L104,559L100,565L94,566L92,569L92,576L93,578L97,582L97,585L73,585L71,585L70,582L67,577L67,575L70,570L71,560L76,556L77,547L82,543L83,534L86,529L87,514L92,510L93,500L97,496L99,487L102,482L103,467L106,464L108,462L107,447L103,443L99,436L97,427L94,424L92,422L92,407L87,403L82,394L83,387L84,387L89,390L90,390L97,383L98,374L96,372L87,363L82,353L77,349L76,346L74,344L69,343L67,342L62,336L60,333L56,329L53,324L49,324L46,326L46,329L49,334L48,337L43,343L40,342L34,336L30,329L29,326L29,307L33,300L33,286L29,280L24,276L23,273L19,269L17,260L13,256L7,246L3,242L0,237L-1,250L-1,1825L0,1826L750,1826L756,1825Z M685,1020L687,1019L687,1015L684,1013L682,1010L681,990L678,988L668,988L664,982L648,981L645,979L644,956L634,945L633,936L628,929L624,925L622,916L619,913L617,910L617,872L617,869L613,863L612,849L608,845L607,841L602,838L598,832L597,822L590,815L588,814L582,814L578,818L574,814L566,813L561,805L559,796L558,794L551,793L549,792L548,776L547,773L535,772L531,767L525,766L521,760L508,759L502,750L502,729L504,727L509,726L511,725L512,714L514,713L521,712L522,710L523,707L522,694L519,693L515,699L512,697L512,683L517,676L515,673L508,672L506,670L505,655L504,654L499,659L492,660L488,665L484,665L481,664L478,660L468,659L465,658L464,643L462,640L459,641L456,644L453,643L452,635L449,629L448,622L445,619L443,616L443,607L446,605L451,606L454,610L456,612L459,607L466,600L478,599L479,597L480,595L480,569L482,566L488,566L492,572L501,572L504,572L508,566L521,565L525,559L531,557L532,556L533,549L535,546L541,545L542,543L543,534L547,532L548,529L546,526L541,525L539,523L538,514L534,510L531,506L528,503L526,500L521,493L514,492L510,486L503,484L499,479L492,477L488,473L482,472L478,466L466,465L464,460L461,459L459,462L458,469L457,472L451,477L445,479L441,484L435,486L431,491L429,491L426,487L423,486L419,492L408,493L406,496L406,533L405,536L402,539L400,542L400,562L402,565L409,566L413,572L419,573L421,574L422,578L432,587L433,595L432,597L431,599L426,599L423,599L419,593L416,594L415,610L413,611L412,610L409,606L408,606L406,609L406,617L410,620L411,623L411,630L408,632L398,633L396,635L396,637L399,639L408,640L411,641L415,647L416,658L418,659L425,660L431,666L438,678L441,680L443,685L448,689L448,692L448,698L446,699L442,700L436,699L433,698L433,690L431,688L428,689L425,692L418,692L412,685L411,674L406,671L403,666L401,667L400,676L400,685L411,695L412,705L415,710L415,717L411,723L412,730L415,732L429,732L436,727L449,727L452,728L455,732L462,733L468,742L469,756L470,759L474,762L475,777L479,782L481,792L485,796L490,803L484,813L481,814L479,809L476,808L475,809L474,814L468,814L465,816L465,817L468,823L469,837L474,842L474,845L474,863L474,865L469,869L469,872L471,873L478,875L485,881L489,889L489,892L488,893L482,895L481,896L481,899L482,900L488,906L489,907L515,907L517,910L518,919L519,920L552,922L559,929L562,933L568,935L569,936L570,943L572,946L588,947L591,949L592,959L597,963L602,972L607,976L609,980L615,981L618,976L621,974L631,975L633,978L633,990L635,993L638,996L639,1006L641,1008L648,1009L656,1020L664,1021L685,1020Z M485,738L484,739L481,738L479,729L475,725L474,716L476,713L479,714L481,718L485,722L485,738Z M80,826L73,826L71,825L71,822L74,820L80,820L82,823L80,826Z";
-const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Teen programs",color:"#8D6E63"},evt:{label:"Events",color:"#4A5562"}};
+const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},sport:{label:"Sports",color:"#9C2B2B"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Teen programs",color:"#8D6E63"},evt:{label:"Events",color:"#4A5562"}};
 const SECTIONS = (WF.sections || [["week","This week"]]).slice();
 { const i = SECTIONS.findIndex(s=>s[0]==="dog"); SECTIONS.splice(i>=0?i+1:1, 0, ["walks","Dog walks · closest to home first"]); }
 const VIEWS = ["events","map","our-list"];
+/* ---- interests: categories this person said "no" to are hidden from Events and the Map (saved on this device) ---- */
+const LIKES = [["hol","Holiday events & lights"],["mkt","Markets & fairs"],["dog","Dog-friendly events & walks"],["food","Pizza, coffee & food"],["art","Art & museums"],["show","Concerts, theater & comedy"],["sport","Sports games"],["kids","Things for young kids"],["teen","Things for teens"],["prog","Teen programs to apply for"],["evt","Other special events"]];
+let likesOff = new Set(), likesSet = false;
+try { const v = localStorage.getItem("wf-likes-off"); if (v!==null){ likesSet = true; likesOff = new Set(JSON.parse(v)); } } catch(e) {}
+const likeKey = c => c==="walk" ? "dog" : (c in CATS ? c : "evt");
+function saveLikes(){ likesSet = true; try { localStorage.setItem("wf-likes-off", JSON.stringify([...likesOff])); } catch(e) {} }
 
-let state = {view:"events", cat:"all", dist:0, sel:null, group:"weekend", editHome:false, homeMsg:""};
+let state = {view:"events", cat:"all", dist:0, sel:null, group:"weekend", editHome:false, homeMsg:"", likesOpen:!likesSet};
 try { const d = +localStorage.getItem("wf-dist"); if ([15,30,60].includes(d)) state.dist = d; } catch(e) {}
 try { const g = localStorage.getItem("wf-group"); if (g==="weekend"||g==="date") state.group = g; } catch(e) {}
 /* ---- dates & weekends ---- */
@@ -384,7 +406,20 @@ function whoLine(id){
   return `<span class="who">★ ${esc(list.join(" & "))}</span>`;
 }
 function filtered(){
-  return DATA.filter(e => (state.cat==="all" || e.cat===state.cat || (state.cat==="dog" && e.cat==="walk")) && (!state.dist || (e.mi!=null && e.mi<=state.dist)));
+  return DATA.filter(e => (state.cat==="all" ? !likesOff.has(likeKey(e.cat)) : (e.cat===state.cat || (state.cat==="dog" && e.cat==="walk"))) && (!state.dist || (e.mi!=null && e.mi<=state.dist)));
+}
+// "Free" or "Tickets" pill; a ticketed event with a ticket page links straight to it
+const okUrl = u => typeof u==="string" && /^https?:\/\//.test(u);
+function priceHTML(e){
+  if (e.price==="free") return `<span class="price free">Free</span>`;
+  if (e.price==="tickets"){ const u = okUrl(e.tix) ? e.tix : okUrl(e.url) ? e.url : ""; return u ? `<a class="price tix" href="${esc(u)}" target="_blank" rel="noopener">Tickets ↗</a>` : `<span class="price tix">Tickets required</span>`; }
+  return "";
+}
+function likesBox(){
+  if (!state.likesOpen || state.view==="our-list") return "";
+  return `<div class="likesbox"><strong>${likesSet?"Your interests":"What are you into?"}</strong><p class="ournote">Say no to anything you'd rather not see, and it's hidden from Events and the Map. You can change this any time under Filter events.</p>
+  <div class="likes">${LIKES.map(([k,t])=>{ const on=!likesOff.has(k); return `<div class="like"><i class="dot" style="background:${CATS[k].color}"></i><span>${t}</span><div class="yn" role="group" aria-label="${esc(t)}"><button data-like="${k}" data-v="1" aria-pressed="${on}">Yes</button><button data-like="${k}" data-v="0" aria-pressed="${!on}">No</button></div></div>`; }).join("")}</div>
+  <div class="btnrow"><button class="copybtn" data-likesdone>Done · show ${DATA.filter(e=>!isPast(e)&&!likesOff.has(likeKey(e.cat))).length} events</button>${likesOff.size?`<button class="copybtn alt" data-likesall>Show everything</button>`:""}</div></div>`;
 }
 function cardHTML(e, gone, extra, cls){
   const c = CATS[e.cat] || CATS.evt;
@@ -392,7 +427,7 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(e.meta)}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 const DISTS = [[0,"Any distance"],[15,"15 mi"],[30,"30 mi"],[60,"60 mi"]];
@@ -400,7 +435,7 @@ function renderFilters(){
   const f = document.getElementById("filters");
   if (state.view==="our-list"){ f.innerHTML=""; f.style.display="none"; return; }
   f.style.display="";
-  const catLabel = state.cat==="all" ? "All" : CATS[state.cat].label;
+  const catLabel = state.cat==="all" ? (likesOff.size ? "My interests" : "All") : CATS[state.cat].label;
   const distLabel = state.dist ? `Within ${state.dist} mi` : "Any distance";
   const active = (state.cat!=="all") + (!!state.dist);
   let h = `<div class="fbar"><button class="filterbtn${active?" on":""}" data-filtopen aria-expanded="${!!state.filtOpen}" aria-controls="fpanel">
@@ -408,9 +443,9 @@ function renderFilters(){
     <span class="ftxt"><span class="flabel">Filter events</span><span class="fsum">${esc(catLabel)} · ${distLabel}</span></span>${active?`<span class="fcount">${active}</span>`:""}<span class="fcaret">${state.filtOpen?"▴":"▾"}</span></button>
     <button class="chip homechip" data-sethome aria-label="Change home location, now ${esc(HOME.name)}">📍 ${esc(HOME.name)}</button></div>`;
   if (state.filtOpen){
-    h += `<div class="fpanel" id="fpanel"><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">All events</button>`;
+    h += `<div class="fpanel" id="fpanel"><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">${likesOff.size?"All my interests":"All events"}</button>`;
     for (const k in CATS) h += `<button class="chip" data-cat="${k}" aria-pressed="${state.cat===k}"><i class="dot" style="background:${CATS[k].color}"></i>${CATS[k].label}</button>`;
-    h += `</div><div class="fsec">Distance from ${esc(HOME.name)} <button class="linkbtn" data-sethome>change</button></div><div class="dseg" role="group" aria-label="Distance">${DISTS.map(([v,t])=>`<button data-distv="${v}" aria-pressed="${state.dist===v}">${t}</button>`).join("")}</div>
+    h += `</div><div class="fsec">My interests <button class="linkbtn" data-likesopen>edit</button></div><p class="fnote">${likesOff.size ? "Hiding: " + esc([...likesOff].map(k=>CATS[k]?CATS[k].label:k).join(", ")) : "Showing every kind of event."}</p><div class="fsec">Distance from ${esc(HOME.name)} <button class="linkbtn" data-sethome>change</button></div><div class="dseg" role="group" aria-label="Distance">${DISTS.map(([v,t])=>`<button data-distv="${v}" aria-pressed="${state.dist===v}">${t}</button>`).join("")}</div>
     <div class="fdone">${active?`<button class="copybtn alt" data-freset>Clear filters</button>`:""}<button class="copybtn" data-filtopen>Done · show ${filtered().filter(e=>!isPast(e)).length}</button></div></div>`;
   }
   f.innerHTML = h;
@@ -729,7 +764,7 @@ function render(){
   const m = document.getElementById("main");
   if (state.view==="map"){ m.innerHTML = mapHTML(); requestAnimationFrame(bindMap); }
   else m.innerHTML = state.view==="our-list" ? renderOurList() : renderEvents();
-  if (state.view!=="our-list") m.insertAdjacentHTML("afterbegin", homeBox());
+  if (state.view!=="our-list") m.insertAdjacentHTML("afterbegin", homeBox() + likesBox());
   document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px");
   document.documentElement.style.setProperty("--fh", document.getElementById("filters").offsetHeight+"px");
 }
@@ -737,7 +772,7 @@ function refreshStars(){
   // update stars in place without resetting the map or scroll
   if (state.view==="our-list"){ const y=scrollY; document.getElementById("main").innerHTML = renderOurList(); scrollTo(0,y); }
   else if (state.view==="map"){ drawMap(); showSheet(); }
-  else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + renderEvents(); scrollTo(0,y); }
+  else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + likesBox() + renderEvents(); scrollTo(0,y); }
   updateCount();
 }
 async function toggleStar(id){
@@ -805,6 +840,10 @@ document.addEventListener("click", ev=>{
   else if (t.dataset.jump){ const el=document.getElementById(t.dataset.jump); if(el){ const off=document.getElementById("filters").offsetHeight+8; scrollTo({top:el.getBoundingClientRect().top+scrollY-off, behavior:"smooth"}); } }
   else if (t.dataset.group){ state.group=t.dataset.group; try{localStorage.setItem("wf-group",state.group);}catch(e){} render(); }
   else if (t.dataset.cat){ state.cat=t.dataset.cat; render(); }
+  else if (t.dataset.like){ t.dataset.v==="1" ? likesOff.delete(t.dataset.like) : likesOff.add(t.dataset.like); saveLikes(); if (state.cat!=="all" && likesOff.has(state.cat)) state.cat="all"; const y=scrollY; render(); scrollTo(0,y); }
+  else if (t.hasAttribute("data-likesdone")){ saveLikes(); state.likesOpen=false; render(); window.scrollTo(0,0); }
+  else if (t.hasAttribute("data-likesall")){ likesOff.clear(); saveLikes(); const y=scrollY; render(); scrollTo(0,y); }
+  else if (t.hasAttribute("data-likesopen")){ state.filtOpen=false; state.editHome=false; state.likesOpen=true; render(); window.scrollTo(0,0); }
   else if (t.hasAttribute("data-filtopen")){ state.filtOpen = !state.filtOpen; render(); }
   else if (t.dataset.distv!=null){ state.dist = +t.dataset.distv; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); }
   else if (t.hasAttribute("data-freset")){ state.cat="all"; state.dist=0; try{localStorage.setItem("wf-dist",0);}catch(e){} render(); }
