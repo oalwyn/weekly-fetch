@@ -51,7 +51,7 @@ Always check changes at a 390px-wide viewport. Pushing to `main` deploys in abou
 - Sync polls every 20s and on tab focus.
 
 ## Scheduled refresh
-A Claude scheduled task ("Bay Area Weekend Fetch refresh (Mon + Thu)", 5:17am Pacific) runs in Anthropic's cloud. It researches events and **rewrites only `data.js`**, then commits and pushes to `main`.
+A Claude Code cloud routine ("Bay Area Weekend Fetch refresh (Mon + Thu, cloud)", id `trig_01MWa7xLMXTGeKADFvB6Nz3X`, 5:17am Pacific, https://claude.ai/code/routines/trig_01MWa7xLMXTGeKADFvB6Nz3X) runs in Anthropic's cloud with this repo attached as its source and no connectors. First successful run Nov 13, 2026. (The original routine, `trig_01QNAircTq1649aLoj2meAVz`, was created as a Cowork task with no repo or shell tools, so every fire was dropped before a session started; it is disabled.) It researches events and **rewrites only `data.js`**, then commits and pushes to `main`.
 So always `git pull` before working, and don't hand-edit `data.js` in ways the refresh would undo. Its prompt can be changed from claude.ai if categories or regions change.
 
 ## Commit conventions
@@ -76,7 +76,7 @@ Plan agreed with the owner: wrap the site with **Capacitor** (iOS) and add real 
 **Read `docs/PLAN-v1.1.md` first** (on the owner's Mac only) when Apple's review feedback arrives or before any app change. Don't change the app while it's in review.
 - `docs/PLAN-*.md` are the owner's **private** plans. They're excluded from git in `.git/info/exclude`. Never commit, push, copy or summarize them into tracked files: this repo is public.
 
-### Version 1.1 (branch `v1.1-accounts`, in progress)
+### Version 1.1 (website live Nov 13, 2026; app 1.1 build 5 submitted to Apple Nov 13; 1.0.1 approved)
 - Database: `supabase/v1.1-groups.sql` (applied to the live project Nov 13, 2026). Then `supabase/v1.1-plans-extra.sql`: who's going (`group_rsvps`, `set_rsvp`), meet-ups (`set_meetup`, columns on `group_locks`), `get_my_plans` for the "All my plans" view and clash warnings; it redefines `get_group` and `set_group_lock`, so re-run it after re-running v1.1-groups.sql. Tests: `npm run test:db` (in-memory Postgres via PGlite; mimics Supabase's default function grants). The old `picks` RPCs stay for app 1.0.x and the current site.
 - Supabase Auth: Email (magic link) and Apple (native, Client ID = bundle id) enabled; Site URL https://theweekendfetch.com.
 - App ID has Sign In with Apple + Associated Domains enabled.
