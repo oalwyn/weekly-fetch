@@ -7,12 +7,12 @@ try { const h = JSON.parse(localStorage.getItem("wf-home") || "null"); if (h && 
 const BBOX = /*BBOX*/[0,0,0,0];
 const MAP_W = /*W*/0, MAP_H = /*H*/0;
 const COAST = "/*COAST*/";
-const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},sport:{label:"Sports",color:"#9C2B2B"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Teen programs",color:"#8D6E63"},evt:{label:"Events",color:"#4A5562"}};
+const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},sport:{label:"Sports",color:"#9C2B2B"},film:{label:"Movies",color:"#283593"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Teen programs",color:"#8D6E63"},evt:{label:"Events",color:"#4A5562"}};
 const SECTIONS = (WF.sections || [["week","This week"]]).slice();
 { const i = SECTIONS.findIndex(s=>s[0]==="dog"); SECTIONS.splice(i>=0?i+1:1, 0, ["walks","Dog walks · closest to home first"]); }
 const VIEWS = ["events","map","our-list"];
 /* ---- interests: categories this person said "no" to are hidden from Events and the Map (saved on this device) ---- */
-const LIKES = [["hol","Holiday events & lights"],["mkt","Markets & fairs"],["dog","Dog-friendly events & walks"],["food","Pizza, coffee & food"],["art","Art & museums"],["show","Concerts, theater & comedy"],["sport","Sports games"],["kids","Things for young kids"],["teen","Things for teens"],["prog","Teen programs to apply for"],["evt","Other special events"]];
+const LIKES = [["hol","Holiday events & lights"],["mkt","Markets & fairs"],["dog","Dog-friendly events & walks"],["food","Pizza, coffee & food"],["art","Art & museums"],["show","Concerts, theater & comedy"],["sport","Sports games"],["film","New movies in theaters"],["kids","Things for young kids"],["teen","Things for teens"],["prog","Teen programs to apply for"],["evt","Other special events"]];
 let likesOff = new Set(), likesSet = false;
 try { const v = localStorage.getItem("wf-likes-off"); if (v!==null){ likesSet = true; likesOff = new Set(JSON.parse(v)); } } catch(e) {}
 const likeKey = c => c==="walk" ? "dog" : (c in CATS ? c : "evt");
@@ -113,7 +113,7 @@ function whoLine(id){
   return `<span class="who">★ ${esc(list.join(" & "))}</span>`;
 }
 function filtered(){
-  return DATA.filter(e => (state.cat==="all" ? !likesOff.has(likeKey(e.cat)) : (e.cat===state.cat || (state.cat==="dog" && e.cat==="walk"))) && (!state.dist || (e.mi!=null && e.mi<=state.dist)));
+  return DATA.filter(e => (state.cat==="all" ? !likesOff.has(likeKey(e.cat)) : (e.cat===state.cat || (state.cat==="dog" && e.cat==="walk"))) && (!state.dist || (e.mi!=null && e.mi<=state.dist) || (e.cat==="film" && e.lat==null)));
 }
 // "Free" or "Tickets" pill; a ticketed event with a ticket page links straight to it
 const okUrl = u => typeof u==="string" && /^https?:\/\//.test(u);
@@ -121,6 +121,15 @@ function priceHTML(e){
   if (e.price==="free") return `<span class="price free">Free</span>`;
   if (e.price==="tickets"){ const u = okUrl(e.tix) ? e.tix : okUrl(e.url) ? e.url : ""; return u ? `<a class="price tix" href="${esc(u)}" target="_blank" rel="noopener">Tickets ↗</a>` : `<span class="price tix">Tickets required</span>`; }
   return "";
+}
+// new movies: "Showtimes" searches for screenings near home (Google lists Bay Area theaters and times)
+const showtimesUrl = e => "https://www.google.com/search?q=" + encodeURIComponent(`${e.title} showtimes near ${HOME.name}`);
+const isRelease = e => e.cat==="film" && e.lat==null;
+function filmRow(e){
+  const mine = starredByMe(e.id);
+  return `<div class="crow film"><button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
+  <div><span class="ct">${esc(e.title)}</span><span class="cw">${esc(e.when)}${e.meta?` · ${esc(e.meta.replace(/^In theaters( nationwide)?( · )?/i,""))}`:""}</span></div>
+  <span class="flinks"><a href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener">Showtimes ↗</a>${e.url?`<a href="${esc(e.url)}" target="_blank" rel="noopener">Trailer & info ↗</a>`:""}</span></div>`;
 }
 function likesBox(){
   if (state.view==="our-list") return "";
@@ -135,7 +144,7 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(e.meta)}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 const DISTS = [[0,"Any distance"],[15,"15 mi"],[30,"30 mi"],[60,"60 mi"]];
@@ -170,7 +179,8 @@ function segHTML(){
 function renderByWeekend(){
   const all = filtered().filter(e=>!isPast(e));
   const progs = all.filter(e=>e.cat==="prog");
-  const items = all.filter(e=>e.cat!=="prog");
+  const films = all.filter(isRelease);
+  const items = all.filter(e=>e.cat!=="prog" && !isRelease(e));
   if (state.cat==="prog") return progs.length ? band("wk-progs","Teen winter & summer programs","Sorted by application deadline · apply ahead","#6D4C41") + progs.map(e=>cardHTML(e)).join("") : `<div class="empty">No programs right now.</div>`;
   const W = weekends(), lastSun = W[3].sun;
   const used = new Set();
@@ -180,8 +190,10 @@ function renderByWeekend(){
     const main = items.filter(e=>occurs(e,w.fri,w.sun)==="main").sort(byStart);
     const ong = items.filter(e=>occurs(e,w.fri,w.sun)==="ongoing");
     main.forEach(e=>used.add(e.id)); ong.forEach(e=>used.add(e.id));
-    h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${main.length} event${main.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}`, WKC[i]);
-    h += main.length ? main.map(e=>cardHTML(e)).join("") : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
+    const fl = films.filter(e=>{ const s=startOf(e); return s && s>=addD(w.fri,-2) && s<=w.sun; }).sort(byStart);
+    h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${main.length} event${main.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}${fl.length?` · 🎬 ${fl.length} new movie${fl.length===1?"":"s"}`:""}`, WKC[i]);
+    if (fl.length) h += `<div class="filmbox"><div class="section-h">🎬 New in theaters${i===0?" this weekend":""}</div>${fl.map(filmRow).join("")}</div>`;
+    h += main.length ? main.map(e=>cardHTML(e)).join("") : fl.length ? "" : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
     if (ong.length) h += `<div class="section-h">Also open this weekend</div>` + ong.map(compactHTML).join("");
   });
   const between = items.filter(e=>!used.has(e.id) && startOf(e) && startOf(e)<=lastSun && !e.days && occurs(e,TODAY,lastSun)==="main").sort(byStart);
