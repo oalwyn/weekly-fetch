@@ -23,26 +23,145 @@ const PENDING = { tokens: window.__wfTokens || null, join: window.__wfJoin || ls
 if (PENDING.join) { lsSet("wf-pending-join", PENDING.join); state.view = "our-list"; }
 if (window.__wfAuthError) { ACCT.err = "That sign-in link didn't work or has expired. Ask for a new code."; state.view = "our-list"; }
 
-/* ---- usage counts: plain fetch, so signed-out visitors never download the Supabase library ---- */
+/* ---- engagement measurement (supabase/v1.3-analytics.sql) ----
+   Plain fetch, so signed-out visitors never download the Supabase library. Never throws, never blocks the app.
+   Group plan changes are recorded by the server itself (the RPCs below get a small context object instead).
+   Recorded: event name, listing id + its category/region, a session code, platform, app version, environment,
+   how the session arrived (UTM tags / invite / search engine / site name; never full URLs).
+   Signed out: a random device code (replaced on sign-out). Signed in: the account (taken from the token by the server). */
+const WF_VERSION = String(window.WF_VERSION || "web-dev").replace(/[^A-Za-z0-9._+-]/g, "").slice(0, 24);
+const WF_ENV = window.WF_ENV || (/(^|\.)theweekendfetch\.com$/.test(location.hostname) ? "production" : "development");
+const rid = () => { try { if (crypto.randomUUID) return crypto.randomUUID(); } catch (e) {}
+  const b = new Uint8Array(16); try { crypto.getRandomValues(b); } catch (e) { for (let i = 0; i < 16; i++) b[i] = Math.random() * 256 | 0; }
+  b[6] = (b[6] & 15) | 64; b[8] = (b[8] & 63) | 128; const h = [...b].map(x => x.toString(16).padStart(2, "0")).join("");
+  return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`; };
+const shortId = () => rid().replace(/-/g, "").slice(0, 20);
 let ANON = lsGet("wf-anon");
-if (!ANON) { ANON = "a" + Math.random().toString(36).slice(2) + Date.now().toString(36); lsSet("wf-anon", ANON); }
-function logEvent(kind, item){
-  // the website also sends the same events to Google Analytics (not loaded in the app)
-  try { if (typeof window.gtag === "function" && kind !== "app_open") window.gtag("event", kind, item ? { item_id: String(item).slice(0, 100) } : {}); } catch (e) {}
-  if (!SB_ON) return;
-  let token = SB_KEY;
-  try { const s = JSON.parse(lsGet(SB_AUTH_KEY) || "null"); if (s && s.access_token && s.expires_at * 1000 > Date.now()) token = s.access_token; } catch (e) {}
+if (!ANON || !/^[A-Za-z0-9_-]{6,40}$/.test(ANON)) { ANON = "a" + shortId(); lsSet("wf-anon", ANON); }
+function newDeviceCode(){ ANON = "a" + shortId(); lsSet("wf-anon", ANON); }
+// regions used in reports (approximate, from the listing's map position)
+function regionOf(e){
+  if (!e || e.lat == null || e.lon == null) return null;
+  const a = +e.lat, o = +e.lon;
+  if (a < 36.85) return "monterey";
+  if (a < 37.12 && o < -121.6) return "santa_cruz";
+  if (a >= 37.83) return o > -122.33 ? "east_bay" : "north_bay";
+  if (a >= 37.70 && o <= -122.35) return "sf";
+  if (o > -122.33 && a >= 37.60) return "east_bay";
+  if (a >= 37.43 || o < -122.25) return "peninsula";
+  return "south_bay";
+}
+const itemOf = id => (typeof DATA !== "undefined" && DATA.find(d => d.id === id)) || (picks.get(id) && picks.get(id).item) || null;
+function itemFields(id){
+  const e = itemOf(id); const cat = e && e.cat && /^[a-z]{1,20}$/.test(e.cat) ? e.cat : null;
+  return { item_id: id || null, category: cat, region: regionOf(e) };
+}
+// where on screen something was tapped (cards, plan rows, the map card, movie rows)
+let LAST_PLACEMENT = null;
+function placementOf(el){
+  if (!el || !el.closest) return null;
+  if (el.closest("#sheet")) return "map_card";
+  if (el.closest(".wfsheet")) return "plans_popup";
+  if (el.closest(".filmbox")) return "film_row";
+  if (el.closest(".prow")) return state.view === "our-list" ? "plan_row" : "row";
+  if (el.closest(".crow")) return "compact_row";
+  if (el.closest(".card")) return state.view === "our-list" ? "plan_card" : "event_card";
+  return state.view === "our-list" ? "plans_tab" : state.view === "map" ? "map" : "events_tab";
+}
+document.addEventListener("click", ev => { LAST_PLACEMENT = placementOf(ev.target); }, true);
+document.addEventListener("change", ev => { LAST_PLACEMENT = placementOf(ev.target); }, true);
+// sessions: 30 minutes without activity starts a new one; signing in or out always does (so they're never linked)
+const SESS_KEY = "wf-sess";
+function readSess(){ try { return JSON.parse(sessionStorage.getItem(SESS_KEY) || "null"); } catch (e) { return null; } }
+function writeSess(x){ try { sessionStorage.setItem(SESS_KEY, JSON.stringify(x)); } catch (e) {} MEM_SESS = x; }
+let MEM_SESS = null;
+function acquisition(){
+  const tok = v => (v || "").toLowerCase().replace(/[^a-z0-9._-]/g, "").slice(0, 60) || null;
+  let p; try { p = new URLSearchParams(location.search); } catch (e) { p = new URLSearchParams(""); }
+  let source = tok(p.get("utm_source")) || tok(p.get("ref")), medium = tok(p.get("utm_medium")), campaign = tok(p.get("utm_campaign"));
+  if (!source) {
+    if (PENDING.join || /^\/join\//.test(location.pathname)) { source = "invite"; medium = "invite"; }
+    else if (IS_APP) source = "app";
+    else {
+      let h = ""; try { h = new URL(document.referrer).hostname.toLowerCase(); } catch (e) {}
+      if (h && h !== location.hostname) {
+        const search = /(^|\.)(google|bing|duckduckgo|yahoo|ecosia|search\.brave)\./.test(h);
+        source = search ? "search" : tok(h.replace(/^www\./, "")); medium = search ? "organic" : "referral";
+      }
+    }
+  }
+  return { source: source || "direct", medium, campaign, landing_path: location.pathname };
+}
+function session(forceNew){
+  let x = MEM_SESS || readSess(); const now = Date.now();
+  if (forceNew || !x || now - x.last > 30 * 60e3) x = { id: "s" + shortId(), last: now, acq: acquisition(), sent: false, isNew: true };
+  else x.isNew = false;
+  x.last = now; writeSess(x); return x;
+}
+function trackCtx(extra){
+  const x = session();
+  return Object.assign({ session_id: x.id, platform: IS_APP ? "ios" : "web", app_version: WF_VERSION, environment: WF_ENV,
+    client_ts: new Date().toISOString(), placement: LAST_PLACEMENT }, extra || {});
+}
+// remembers taps for a second so a double tap is one record
+const RECENT = new Map();
+function track(name, d){
   try {
-    fetch(`${SB_URL}/rest/v1/rpc/log_event`, { method: "POST", keepalive: true,
-      headers: { apikey: SB_KEY, Authorization: "Bearer " + token, "Content-Type": "application/json" },
-      body: JSON.stringify({ p_kind: kind, p_item: item || null, p_group: inGroup() ? ACCT.group.id : null, p_anon: ANON, p_platform: IS_APP ? "ios" : "web" }) }).catch(() => {});
+    if (!SB_ON) return;
+    d = d || {};
+    const key = name + "|" + (d.item_id || "") + "|" + JSON.stringify(d.props || {}), t = Date.now();
+    if (RECENT.has(key) && t - RECENT.get(key) < 1000) return;
+    RECENT.set(key, t);
+    if (d.item_id && !d.category && !d.region) Object.assign(d, itemFields(d.item_id), { item_id: d.item_id });
+    const x = session();
+    const e = Object.assign({ record_id: rid(), event_name: name, client_ts: new Date().toISOString(), anon_id: ANON, session_id: x.id,
+      platform: IS_APP ? "ios" : "web", app_version: WF_VERSION, environment: WF_ENV, placement: d.placement !== undefined ? d.placement : LAST_PLACEMENT }, d);
+    if (!x.sent) { Object.assign(e, x.acq); x.sent = true; writeSess(x); }   // how this session arrived goes on its first record
+    sendRecord(e);
   } catch (e) {}
 }
+const QUEUE_KEY = "wf-aq";
+function tokenNow(){
+  try { const s = JSON.parse(lsGet(SB_AUTH_KEY) || "null"); if (s && s.access_token && s.expires_at * 1000 > Date.now() + 30e3) return Promise.resolve({ token: s.access_token, uid: s.user && s.user.id }); 
+    if (s && s.refresh_token) return ensureClient().then(c => c.auth.getSession()).then(r => { const ss = r.data && r.data.session; return ss ? { token: ss.access_token, uid: ss.user.id } : { token: SB_KEY, uid: null }; }); } catch (e) {}
+  return Promise.resolve({ token: SB_KEY, uid: null });
+}
+function postRecord(e, token){
+  return fetch(`${SB_URL}/rest/v1/rpc/log_client_event`, { method: "POST", keepalive: true,
+    headers: { apikey: SB_KEY, Authorization: "Bearer " + token, "Content-Type": "application/json" }, body: JSON.stringify({ p_event_json: e }) })
+    .then(r => { if (!r.ok && r.status >= 500) throw new Error("server " + r.status); return r; });
+}
+function sendRecord(e){
+  tokenNow().then(({ token, uid }) => {
+    if (uid) delete e.anon_id;                        // signed-in records never carry the device code
+    return postRecord(e, token).then(flushQueue, () => {   // offline: keep up to 50 for later (the server ignores repeats)
+      try { const q = JSON.parse(lsGet(QUEUE_KEY) || "[]"); q.push({ e, uid: uid || null }); lsSet(QUEUE_KEY, JSON.stringify(q.slice(-50))); } catch (x) {}
+    });
+  }).catch(() => {});
+}
+let FLUSHING = false;
+function flushQueue(){
+  if (FLUSHING) return; let q; try { q = JSON.parse(lsGet(QUEUE_KEY) || "[]"); } catch (e) { q = []; }
+  if (!q.length) return; FLUSHING = true; lsSet(QUEUE_KEY, null);
+  tokenNow().then(({ token, uid }) => Promise.all(q.filter(r => (r.uid || null) === (uid || null))   // never send one person's records as another's
+    .map(r => postRecord(r.e, token).catch(() => {})))).catch(() => {}).then(() => { FLUSHING = false; });
+}
+// older call sites and the iPhone app's native_app.js use these names
+function logEvent(kind, item){
+  const map = { calendar_add: "calendar_added", reminder_tapped: "reminder_tapped" };
+  if (map[kind]) track(map[kind], item ? { item_id: item } : {});
+}
+// outbound links: booking (Tickets), info (More info / Trailer / Showtimes), directions, App Store. A click is not a purchase.
 document.addEventListener("click", ev => {
   const a = ev.target.closest("a[data-k], a.lbtn"); if (!a) return;
-  if (a.dataset.k) { logEvent(a.dataset.k, a.dataset.ev || null); return; }
-  const card = a.closest("[id^=card-]"); const id = card ? card.id.slice(5) : null;
-  logEvent(/maps/.test(a.href) ? "outbound_directions" : "outbound_more_info", id);
+  let host = null; try { host = new URL(a.href).hostname.toLowerCase(); } catch (e) {}
+  const card = a.closest("[id^=card-]"); const id = a.dataset.ev || (card ? card.id.slice(5) : null);
+  const k = a.dataset.k || (/maps/.test(a.href) ? "directions" : "info");
+  const name = { outbound_tickets: "outbound_booking_clicked", outbound_showtimes: "outbound_info_clicked", outbound_more_info: "outbound_info_clicked",
+                 app_store: "app_store_clicked", directions: "directions_clicked", info: "outbound_info_clicked" }[k] || "outbound_info_clicked";
+  if (name === "app_store_clicked") return track(name, { dest_host: host });
+  track(name, Object.assign(itemFields(id), { dest_host: host, outbound_id: rid(), placement: placementOf(a),
+    props: name === "outbound_info_clicked" ? { kind: k === "outbound_showtimes" ? "showtimes" : "info" } : undefined }));
 }, true);
 
 /* ---- loading the Supabase client only when needed ---- */
@@ -58,9 +177,13 @@ function ensureClient(){
   });
   return ACCT.loading;
 }
+// plan changes are recorded by the server; these calls carry the session/placement context for that record
+const CTX_FNS = new Set(["add_group_pick", "remove_group_pick", "set_group_lock", "set_rsvp", "set_meetup", "create_group", "join_group", "leave_group"]);
 async function call(fn, args){
   const c = await ensureClient();
-  const { data, error } = await c.rpc(fn, args || {});
+  args = Object.assign({}, args || {});
+  if (CTX_FNS.has(fn)) { try { args.p_ctx_json = Object.assign(trackCtx(args.p_item ? itemFields(args.p_item) : {}), args.p_ctx_json || {}); } catch (e) { delete args.p_ctx_json; } }
+  const { data, error } = await c.rpc(fn, args);
   if (error) throw new Error(error.message || String(error));
   return data;
 }
@@ -103,6 +226,7 @@ function saveGroupCache(st){
 
 async function loadMe(){
   ACCT.me = await call("get_me");
+  call("analytics_is_admin").then(v => { if (ACCT.isAdmin !== !!v) { ACCT.isAdmin = !!v; safeRefresh(); } }).catch(() => {});
   const ids = (ACCT.me.groups || []).map(g => g.id);
   if (!ids.includes(ACCT.gid)) ACCT.gid = ids[0] || null;
   lsSet("wf-gid", ACCT.gid);
@@ -157,6 +281,8 @@ async function startAccounts(){
 if (SB_ON && (hasSession() || PENDING.tokens || PENDING.join)) setTimeout(startAccounts, 0);
 
 function signedOutLocally(){
+  if (!lsGet("wf-internal")) newDeviceCode();   // a fresh device code, so the next person here isn't blended with this account (not on the owner's marked devices)
+  session(true);
   ACCT.user = null; ACCT.me = null; ACCT.gid = null; lsSet("wf-gid", null);
   leaveGroupMode(); ACCT.ui = { step: "", email: "", panel: "", confirmDelete: false }; safeRefresh();
 }
@@ -165,7 +291,11 @@ function signedOutLocally(){
 const groupItem = id => itemSnap(id);
 const _acctToggleStar = toggleStar;
 toggleStar = async function(id){
-  if (!inGroup()) { _acctToggleStar(id); if (starredByMe(id)) logEvent("star", id); return; }
+  if (!inGroup()) {   // plans kept on this device: recorded after the local change has been made
+    const was = starredByMe(id); await _acctToggleStar(id); const now = starredByMe(id);
+    if (now !== was) track(now ? "event_starred" : "event_unstarred", { item_id: id });
+    return;
+  }
   // on a group's plan, the star means "in this plan"; elsewhere it means "in any of my plans"
   const inPlanView = state.view === "our-list" && !ACCT.allView;
   const minein = ACCT.mine.get(id) || new Set();
@@ -193,20 +323,25 @@ async function setInPlan(id, gid, on, noSync){
   }
   refreshStars(); renderSheet();
   try {
-    if (on) { await call("add_group_pick", { p_group: gid, p_item: id, p_item_json: groupItem(id) }); logEvent("star", id); }
+    if (on) await call("add_group_pick", { p_group: gid, p_item: id, p_item_json: groupItem(id) });
     else await call("remove_group_pick", { p_group: gid, p_item: id });
   } catch (e) { ACCT.online = false; }
   if (!noSync) acctSync();
 }
 const _acctSetPlan = setPlan;
 setPlan = async function(id, k){
-  if (!inGroup()) { _acctSetPlan(id, k); if (k) logEvent("lock", id); return; }
+  if (!inGroup()) {
+    const was = lockKey(id) || null; await _acctSetPlan(id, k); const now = lockKey(id) || null;
+    if (now !== was) track(now ? (was ? "event_lock_moved" : "event_locked_in") : "event_unlocked",
+      Object.assign(itemFields(id), { occurrence_id: id + "@" + (now || was), props: was && now ? { moved_from: was } : undefined }));
+    return;
+  }
   const was = lockKey(id);
   if (was !== k) ACCT.rsvp.delete(id);
   if (k) { locks.set(id, new Set([k])); const r = ACCT.rsvp.get(id) || {}; if (!r[ACCT.user.id]) r[ACCT.user.id] = "going"; ACCT.rsvp.set(id, r); }
   else { locks.delete(id); ACCT.meet.delete(id); }
   refreshStars();
-  try { await call("set_group_lock", { p_group: ACCT.gid, p_item: id, p_day: k || null, p_item_json: groupItem(id) }); if (k) logEvent("lock", id); }
+  try { await call("set_group_lock", { p_group: ACCT.gid, p_item: id, p_day: k || null, p_item_json: groupItem(id) }); }
   catch (e) { ACCT.online = false; }
   acctSync();
 };
@@ -214,21 +349,23 @@ const _acctSync = sync;
 sync = function(){ return inGroup() ? acctSync() : _acctSync(); };
 
 async function joinWithCode(code, fromLink){
-  const g = await call("join_group", { p_code: code });
+  const g = await call("join_group", { p_code: code, p_ctx_json: { via: fromLink ? "link" : "code" } });
   lsSet("wf-pending-join", null); PENDING.join = null; window.__wfJoin = null;
   if (g && g.error) { ACCT.err = fromLink ? "That invite link has expired or was changed. Ask for a new one." : "No group has that code. Check the 6 characters and try again."; return false; }
   ACCT.gid = g.id; lsSet("wf-gid", g.id); await loadMe(); await acctSync();
   ACCT.msg = `You've joined “${g.name}”. Stars and locked-in days now sync with everyone in it.`; ACCT.err = "";
-  ACCT.ui.panel = ""; logEvent("join_group"); return true;
+  ACCT.ui.panel = ""; return true;
 }
 const inviteLink2 = () => LIVE_SITE + "join/?c=" + encodeURIComponent(ACCT.group ? ACCT.group.code : "");
 async function shareInvite(btn){
   const link = inviteLink2(), text = `Plan weekends with me on The Bay Area Weekend Fetch. Join our group “${ACCT.group.name}”: ${link} (or enter code ${ACCT.group.code})`;
-  logEvent("share_invite");
+  // opening the share sheet is a request; only a completed share (or a copy) counts as shared
+  const gid = ACCT.group.id;
+  track("invite_share_opened", { group_id: gid });
   const SH = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Share;
-  if (IS_APP && SH) { try { await SH.share({ title: "Plan weekends with me", text: `Join our group “${ACCT.group.name}” on Bay Fetch (code ${ACCT.group.code}):`, url: link, dialogTitle: "Invite someone" }); } catch (e) {} return; }
-  if (navigator.share) { try { await navigator.share({ title: "Plan weekends with me", text, url: link }); return; } catch (e) { if (e && e.name === "AbortError") return; } }
-  try { await navigator.clipboard.writeText(text); btn.textContent = "Invite copied ✓"; setTimeout(() => btn.textContent = "Share invite", 2500); }
+  if (IS_APP && SH) { try { await SH.share({ title: "Plan weekends with me", text: `Join our group “${ACCT.group.name}” on Bay Fetch (code ${ACCT.group.code}):`, url: link, dialogTitle: "Invite someone" }); track("invite_shared", { group_id: gid, props: { channel: "ios_share" } }); } catch (e) {} return; }
+  if (navigator.share) { try { await navigator.share({ title: "Plan weekends with me", text, url: link }); track("invite_shared", { group_id: gid, props: { channel: "web_share" } }); return; } catch (e) { if (e && e.name === "AbortError") return; } }
+  try { await navigator.clipboard.writeText(text); track("invite_link_copied", { group_id: gid }); btn.textContent = "Invite copied ✓"; setTimeout(() => btn.textContent = "Share invite", 2500); }
   catch (e) { ACCT.ui.panel = "invite"; refreshStars(); }
 }
 function qrSVG(text){
@@ -311,9 +448,11 @@ function settingsHTML(){
     <div class="fsec">Join code: <b>${ae(ACCT.group.code)}</b>${owner ? ` <button class="linkbtn" data-acct="newcode">Make a new code</button>` : ""}</div>
     ${owner ? `<p class="ournote small">A new code stops old invite links from working. Current members stay.</p>` : ""}
     <div class="btnrow"><button class="copybtn alt" data-acct="add">Start or join another group</button><button class="copybtn alt" data-acct="leave">Leave this group</button><button class="copybtn alt" data-acct="signout">Sign out</button></div>
-    <div class="fsec">Account</div>${del}</div>`;
+    <div class="fsec">Account</div>${del}${deviceCodeHTML()}${ACCT.isAdmin ? `<div class="fsec">Owner</div><button class="copybtn alt" data-acct="mark-device">${lsGet("wf-internal") ? "✓ This device is marked as yours" : "Mark this device as mine (leave it out of the stats)"}</button>` : ""}</div>`;
 }
 
+// shown so people can ask us to delete what this device recorded while signed out
+const deviceCodeHTML = () => `<p class="ournote small devcode">Device code for privacy requests: <span>${ae(ANON)}</span></p>`;
 const _acctRenderOurList = renderOurList;
 renderOurList = function(){
   if (!SB_ON) return _acctRenderOurList();
@@ -335,7 +474,7 @@ renderOurList = function(){
   else card = acctCard(`<p class="ournote">Signing you in…</p>`);
   let old = _acctRenderOurList();
   // retire the old "start an anonymous shared plan" card; existing old shared plans keep working
-  old = old.replace(/<div class="setup">[\s\S]*?<\/div><\/div>\s*<p class="ournote">Until then, stars are saved on this phone\.<\/p>/, `<p class="ournote">Until you join a group, stars are saved on this device.</p>`);
+  old = old.replace(/<div class="setup">[\s\S]*?<\/div><\/div>\s*<p class="ournote">Until then, stars are saved on this phone\.<\/p>/, `<p class="ournote">Until you join a group, stars are saved on this device.</p>`) + deviceCodeHTML();
   return old.replace('<div class="ourhead">', `<div class="ourhead">${msgs}${card}`);
 };
 
@@ -532,9 +671,10 @@ document.addEventListener("click", async ev => {
       const id = b.dataset.id, r = ACCT.rsvp.get(id) || {}, s = r[ACCT.user.id] === b.dataset.s ? null : b.dataset.s;
       if (s) r[ACCT.user.id] = s; else delete r[ACCT.user.id];
       ACCT.rsvp.set(id, r); refreshStars();
-      await call("set_rsvp", { p_group: ACCT.gid, p_item: id, p_status: s }); if (s) logEvent("rsvp", id);
+      await call("set_rsvp", { p_group: ACCT.gid, p_item: id, p_status: s });
       await acctSync(); return;
     }
+    else if (a === "mark-device") { await call("admin_mark_internal", { p_anon: ANON, p_note: IS_APP ? "iPhone app" : "browser" }); lsSet("wf-internal", "1"); ACCT.msg = "This device is now left out of the stats, including its past activity."; }
     else if (a === "make-main") { lsSet("wf-main", ACCT.gid); ACCT.msg = `“${ACCT.group.name}” is now your main plan. New stars go here.`; }
     else if (a === "plans-pick") { showPlansSheet(b.dataset.id, "edit"); return; }
     else if (a === "plan-toggle") { const id = b.dataset.id, g = b.dataset.gid; ACCT.sheet.touched = true; await setInPlan(id, g, !(ACCT.mine.get(id) || new Set()).has(g)); return; }
@@ -559,7 +699,7 @@ document.addEventListener("click", async ev => {
 document.addEventListener("change", async ev => {
   if (!ev.target.matches("select[data-gswitch]")) return;
   ACCT.ui.panel = ""; ACCT.msg = "";
-  if (ev.target.value === "__all") { ACCT.allView = true; logEvent("all_plans"); refreshStars(); await acctSync(); return; }
+  if (ev.target.value === "__all") { ACCT.allView = true; track("all_plans_viewed"); refreshStars(); await acctSync(); return; }
   ACCT.allView = false;
   ACCT.gid = ev.target.value; lsSet("wf-gid", ACCT.gid); await acctSync();
 });
@@ -586,14 +726,14 @@ document.addEventListener("submit", async ev => {
     else if (kind === "meet") {
       const id = f.dataset.id, t = v("t"), pl = v("p");
       await call("set_meetup", { p_group: ACCT.gid, p_item: id, p_time: t || null, p_place: pl || null });
-      ACCT.ui.meetEdit = ""; if (t || pl) logEvent("meetup", id); await acctSync();
+      ACCT.ui.meetEdit = ""; await acctSync();
     }
     else if (kind === "rename-me") { await call("set_my_name", { p_name: v("name") }); await loadMe(); await acctSync(); ACCT.msg = "Name saved."; }
     else if (kind === "rename-group") { await call("rename_group", { p_group: ACCT.gid, p_name: v("gname") }); await loadMe(); await acctSync(); ACCT.msg = "Group renamed."; }
     else if (kind === "create") {
       const g = await call("create_group", { p_name: v("gname") });
       ACCT.gid = g.id; lsSet("wf-gid", g.id); await loadMe(); await acctSync(); ACCT.ui.panel = "invite"; await loadScript(QR_LIB).catch(() => {});
-      ACCT.msg = `“${g.name}” is ready. Invite people with the link, the QR code or the code ${g.code}.`; logEvent("create_group");
+      ACCT.msg = `“${g.name}” is ready. Invite people with the link, the QR code or the code ${g.code}.`;
     } else if (kind === "join") { await joinWithCode(v("code"), false); }
     else if (kind === "convert") {
       const g = await call("convert_legacy_list", { p_list: LIST, p_group_name: v("gname"), p_my_old_name: ME || "" });
@@ -607,7 +747,7 @@ document.addEventListener("submit", async ev => {
 async function afterSignIn(){
   const c = await ensureClient(); const { data } = await c.auth.getSession();
   ACCT.user = data.session && data.session.user; if (!ACCT.user) throw new Error("sign-in didn't finish");
-  ACCT.ui.step = ""; logEvent("sign_in");
+  ACCT.ui.step = ""; session(true); track("sign_in", { placement: null });
   await loadMe();
   if (!ACCT.me.name && ME) { await call("set_my_name", { p_name: ME }).catch(() => {}); await loadMe(); }
   const pj = PENDING.join || lsGet("wf-pending-join");
@@ -626,4 +766,11 @@ function friendly(e){
 }
 setInterval(() => { if (document.visibilityState === "visible" && inGroup()) acctSync(); }, 20000);
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && inGroup()) acctSync(); });
-logEvent("app_open");
+track(IS_APP ? "app_open" : "page_view", { placement: null });
+setTimeout(flushQueue, 3000);
+// coming back after 30 minutes away starts a new session
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState !== "visible") return;
+  const x = MEM_SESS || readSess();
+  if (!x || Date.now() - x.last > 30 * 60e3) track(IS_APP ? "app_open" : "page_view", { placement: null, props: { reason: "resume" } });
+});

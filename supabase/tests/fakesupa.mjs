@@ -15,6 +15,7 @@ await db.exec(`
 await db.exec(fs.readFileSync(repo + '/supabase-setup.sql', 'utf8'));
 await db.exec(fs.readFileSync(repo + '/supabase/v1.1-groups.sql', 'utf8'));
 await db.exec(fs.readFileSync(repo + '/supabase/v1.1-plans-extra.sql', 'utf8'));
+await db.exec(fs.readFileSync(repo + '/supabase/v1.3-analytics.sql', 'utf8'));
 const b64 = o => Buffer.from(JSON.stringify(o)).toString('base64url');
 const jwt = (sub, email) => `${b64({ alg: 'HS256', typ: 'JWT' })}.${b64({ sub, email, role: 'authenticated', aud: 'authenticated', exp: Math.floor(Date.now() / 1000) + 86400 })}.sig`;
 const uidOf = auth => { try { const p = JSON.parse(Buffer.from((auth || '').split(' ')[1].split('.')[1], 'base64url')); return p.sub || null; } catch (e) { return null; } };
@@ -37,6 +38,7 @@ async function handle(req, res, body){
   if (url.pathname === '/auth/v1/user') { const uid = uidOf(req.headers.authorization); const u = (await db.query(`select id, email from auth.users where id = $1`, [uid])).rows[0]; return u ? send(res, 200, { id: u.id, email: u.email, aud: 'authenticated', role: 'authenticated' }) : send(res, 401, { msg: 'no user' }); }
   if (url.pathname === '/auth/v1/logout') return send(res, 204);
   if (url.pathname === '/test/events') return send(res, 200, (await db.query(`select kind, item_id, user_id is not null as signed_in, anon_id is not null as anon, platform from usage_events order by id`)).rows);
+  if (url.pathname === '/test/analytics') return send(res, 200, (await db.query(`select event_name, evidence, item_id, group_id is not null as in_group, user_id is not null as signed_in, anon_id, session_id, placement, category, region, platform, environment, source, landing_path, dest_host, outbound_id is not null as has_outbound_id, props from analytics_events order by received_at, record_id`)).rows);
   if (url.pathname === '/test/sql') return send(res, 200, (await db.query(j.sql)).rows);
   const m = url.pathname.match(/^\/rest\/v1\/rpc\/(\w+)$/);
   if (m) {

@@ -92,7 +92,7 @@ document.addEventListener("click", ev => {
   }).then(r => {
     if (r && r.saved){
       b.textContent = "✓ In your calendar"; setTimeout(() => b.textContent = "📅 Add to Calendar", 3000);
-      if (typeof logEvent === "function") logEvent("calendar_add", e.id);
+      if (typeof track === "function") track("calendar_added", { item_id: e.id, occurrence_id: e.id + "@" + b.dataset.k, placement: "plan_card" });   // iOS reported the event as saved
     }
   }).catch(() => {
     b.textContent = "Calendar not available"; setTimeout(() => b.textContent = "📅 Add to Calendar", 3000);

@@ -4,8 +4,9 @@
   "description": "iPhone app shell (Capacitor) for The Bay Area Weekend Fetch. The website itself needs none of this.",
   "scripts": {
     "app:build": "python3 src/build_app.py && npx cap sync ios",
+    "app:release": "WF_RELEASE=1 python3 src/build_app.py && npx cap sync ios",
     "app:open": "npx cap open ios",
-    "test:db": "node supabase/tests/test_groups.mjs"
+    "test:db": "node supabase/tests/test_groups.mjs && node supabase/tests/test_analytics.mjs"
   },
   "dependencies": {
     "@capacitor/app": "8.1.2",

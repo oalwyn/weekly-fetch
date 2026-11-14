@@ -62,7 +62,9 @@ html=html[:i]+'\n'+mod+html[i:]
 i=html.rfind('\nrender();\n')
 html=html[:i]+'\n'+open('accounts.js').read()+html[i:]
 # catch a sign-in link (#access_token=...) or a join link (#join-CODE) before any other code rewrites the address
-EARLY=('<script>(function(){var h=location.hash||"",u=location.pathname+location.search,'
+import datetime
+WEBVER='web-'+datetime.date.today().strftime('%Y%m%d')
+EARLY=('<script>window.WF_VERSION="'+WEBVER+'";(function(){var h=location.hash||"",u=location.pathname+location.search,'
        'go=function(){try{history.replaceState(null,"",u+"#our-list")}catch(e){}};'
        'if(/access_token=/.test(h)){var p=new URLSearchParams(h.slice(1));window.__wfTokens={access_token:p.get("access_token"),refresh_token:p.get("refresh_token")};go()}'
        'else if(/^#join-[A-Za-z0-9]{4,10}$/.test(h)){window.__wfJoin=h.slice(6).toUpperCase();go()}'
@@ -75,4 +77,9 @@ assert html.count(PAIR)==1
 html=html.replace(PAIR, '<script>/*wf-data*/(function(){var v=Math.floor(Date.now()/3e5);document.write(\'<script src="./data.js?v=\'+v+\'"><\\/script><script src="./walks.js?v=\'+v+\'"><\\/script>\')})();</script>')
 html=html.replace('.okmsg{','.setup{background:#fff;border-radius:14px;padding:14px 16px;margin:0 0 12px}.setup strong{font-size:16px}\n.okmsg{',1)
 open(sys.argv[1] if len(sys.argv)>1 else os.path.join("..","index.html"),'w').write(html)
+# owner-only engagement dashboard (reads only through admin_* functions that check the signed-in account)
+if len(sys.argv) <= 1:
+    adm=open('admin.html').read().replace('__SB_URL__',cfg['url']).replace('__SB_KEY__',cfg['key'])
+    os.makedirs(os.path.join('..','admin'), exist_ok=True)
+    open(os.path.join('..','admin','index.html'),'w').write(adm)
 print("ok", len(html))

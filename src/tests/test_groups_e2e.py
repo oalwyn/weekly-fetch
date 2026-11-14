@@ -180,9 +180,11 @@ try:
         ok(len(sql("select 1 from auth.users where email = 'olivier@example.com'")) == 0, 'account deleted')
         ok(A.is_visible('form[data-acctform=email]') and 'deleted' in A.inner_text('main'), 'after deletion, back to signed-out view')
         # ---- usage counts and errors ----
-        ev = json.loads(urllib.request.urlopen(FAKE + '/test/events').read()); kinds = [e['kind'] for e in ev]
-        for k in ['app_open', 'sign_in', 'create_group', 'star', 'lock', 'join_group']: ok(k in kinds, f'usage count recorded: {k}')
-        ok(all(e['platform'] == 'web' for e in ev), 'usage counts tagged web')
+        ev = json.loads(urllib.request.urlopen(FAKE + '/test/analytics').read()); kinds = [e['event_name'] for e in ev]
+        for k in ['page_view', 'sign_in', 'group_created', 'event_starred', 'event_locked_in', 'group_joined', 'rsvp_set', 'meetup_set']: ok(k in kinds, f'usage recorded: {k}')
+        ok(not json.loads(urllib.request.urlopen(FAKE + '/test/events').read()), 'the old usage table gets nothing new from this version')
+        # records sent from the page carry the platform (the test's own direct SQL inserts and old-plan conversions have no page context)
+        ok(all(e['platform'] == 'web' for e in ev if e['session_id']), 'usage records from the page tagged web')
         ok(not errs, 'no page errors: ' + ' | '.join(errs[:5]))
         b.close()
 finally:

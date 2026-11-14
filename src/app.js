@@ -448,10 +448,10 @@ function bindMap(){
     if (pts.size===1){ if(Math.abs(ev.clientX-prev[0])+Math.abs(ev.clientY-prev[1])>1) moved=true; vb[0]-=(ev.clientX-prev[0])/r.width*vb[2]; vb[1]-=(ev.clientY-prev[1])/r.height*vb[3]; svg.setAttribute("viewBox",vb.join(" ")); }
     else if (pts.size===2){ const [a,b]=[...pts.values()]; const d=Math.hypot(a[0]-b[0],a[1]-b[1]); if(last){ const [cx,cy]=toSvg((a[0]+b[0])/2,(a[1]+b[1])/2); zoom(last/d,cx,cy);} last=d; moved=true; }
   });
-  const up = ev=>{ pts.delete(ev.pointerId); if(pts.size<2) last=null; if(pts.size===0){ if(moved) drawMap(); else { const g=document.elementFromPoint(ev.clientX,ev.clientY)?.closest("[data-pin]"); if(g){ state.sel=g.dataset.pin; drawMap(); showSheet(); document.getElementById("sheet").scrollIntoView({behavior:"smooth",block:"nearest"}); } } } };
+  const up = ev=>{ pts.delete(ev.pointerId); if(pts.size<2) last=null; if(pts.size===0){ if(moved) drawMap(); else { const g=document.elementFromPoint(ev.clientX,ev.clientY)?.closest("[data-pin]"); if(g){ state.sel=g.dataset.pin; drawMap(); showSheet(); if (typeof track==="function") track("map_event_opened",{item_id:state.sel, placement:"map"}); document.getElementById("sheet").scrollIntoView({behavior:"smooth",block:"nearest"}); } } } };
   svg.addEventListener("pointerup", up); svg.addEventListener("pointercancel", up);
   svg.addEventListener("wheel", ev=>{ ev.preventDefault(); const [cx,cy]=toSvg(ev.clientX,ev.clientY); zoom(ev.deltaY>0?1.15:0.87,cx,cy); }, {passive:false});
-  svg.addEventListener("keydown", ev=>{ const g=ev.target.closest&&ev.target.closest("[data-pin]"); if(g&&(ev.key==="Enter"||ev.key===" ")){ ev.preventDefault(); state.sel=g.dataset.pin; drawMap(); showSheet(); } });
+  svg.addEventListener("keydown", ev=>{ const g=ev.target.closest&&ev.target.closest("[data-pin]"); if(g&&(ev.key==="Enter"||ev.key===" ")){ ev.preventDefault(); state.sel=g.dataset.pin; drawMap(); showSheet(); if (typeof track==="function") track("map_event_opened",{item_id:state.sel, placement:"map"}); } });
 }
 /* ---------- home location ---------- */
 function homeBox(){
@@ -488,6 +488,15 @@ function gpsHome(){
 }
 /* ---------- render ---------- */
 function updateCount(){ const n = starredIds().length; document.getElementById("savedCount").textContent = n ? `(${n})` : ""; }
+let lastEmptySig = "";
+function noteEmpty(){
+  // a filtered list that shows nothing (recorded once per filter combination)
+  const m = document.getElementById("main"); if (!m || state.view==="our-list") return;
+  const empty = [...m.querySelectorAll(".empty")].some(x=>/No events match/.test(x.textContent));
+  const sig = state.view+"|"+state.cat+"|"+state.dist+"|"+[...likesOff].sort().join(",");
+  if (empty && sig!==lastEmptySig && typeof track==="function"){ lastEmptySig = sig; track("results_empty",{placement:null, props:{filter_type:"combined", value:sig.slice(0,100), result_count:0}}); }
+  if (!empty) lastEmptySig = "";
+}
 function render(){
   document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected", t.dataset.view===state.view));
   updateCount(); renderFilters();
@@ -497,6 +506,7 @@ function render(){
   if (state.view!=="our-list") m.insertAdjacentHTML("afterbegin", homeBox() + likesBox());
   document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px");
   document.documentElement.style.setProperty("--fh", document.getElementById("filters").offsetHeight+"px");
+  noteEmpty();
 }
 function refreshStars(){
   // update stars in place without resetting the map or scroll
@@ -569,13 +579,13 @@ document.addEventListener("click", ev=>{
   if (t.dataset.view){ if (typeof window.gtag==="function") window.gtag("event","tab_view",{tab:t.dataset.view}); state.view=t.dataset.view; try{localStorage.setItem("wf-view2",state.view);}catch(e){} render(); syncHash(); window.scrollTo(0,0); }
   else if (t.dataset.jump){ const el=document.getElementById(t.dataset.jump); if(el){ const off=document.getElementById("filters").offsetHeight+8; scrollTo({top:el.getBoundingClientRect().top+scrollY-off, behavior:"smooth"}); } }
   else if (t.dataset.group){ state.group=t.dataset.group; try{localStorage.setItem("wf-group",state.group);}catch(e){} render(); }
-  else if (t.dataset.cat){ state.cat=t.dataset.cat; render(); if (typeof logEvent==="function" && state.cat!=="all") logEvent("filter", state.cat); }
+  else if (t.dataset.cat){ state.cat=t.dataset.cat; render(); if (typeof track==="function") track("filter_applied",{placement:null, props:{filter_type:"category", value:state.cat}}); }
   else if (t.dataset.like){ t.dataset.v==="1" ? likesOff.delete(t.dataset.like) : likesOff.add(t.dataset.like); saveLikes(); if (state.cat!=="all" && likesOff.has(state.cat)) state.cat="all"; const y=scrollY; render(); scrollTo(0,y); }
-  else if (t.hasAttribute("data-likesdone")){ saveLikes(); if (typeof logEvent==="function") logEvent("interests", likesOff.size ? "no:" + [...likesOff].join(",") : "all"); state.likesOpen=false; render(); window.scrollTo(0,0); }
+  else if (t.hasAttribute("data-likesdone")){ saveLikes(); if (typeof track==="function") track("filter_applied",{placement:null, props:{filter_type:"interests", value: likesOff.size ? "no:" + [...likesOff].sort().join(",") : "all"}}); state.likesOpen=false; render(); window.scrollTo(0,0); }
   else if (t.hasAttribute("data-likesall")){ likesOff.clear(); saveLikes(); const y=scrollY; render(); scrollTo(0,y); }
   else if (t.hasAttribute("data-likesopen")){ state.filtOpen=false; state.editHome=false; state.likesOpen=true; render(); window.scrollTo(0,0); }
   else if (t.hasAttribute("data-filtopen")){ state.filtOpen = !state.filtOpen; render(); }
-  else if (t.dataset.distv!=null){ state.dist = +t.dataset.distv; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); }
+  else if (t.dataset.distv!=null){ state.dist = +t.dataset.distv; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); if (typeof track==="function") track("filter_applied",{placement:null, props:{filter_type:"distance", value:String(state.dist)}}); }
   else if (t.hasAttribute("data-freset")){ state.cat="all"; state.dist=0; try{localStorage.setItem("wf-dist",0);}catch(e){} render(); }
   else if (t.hasAttribute("data-sethome")){ state.filtOpen = false; state.editHome = !state.editHome; state.homeMsg=""; render(); if (state.editHome) setTimeout(()=>{ const i=document.getElementById("homeq"); if(i) i.focus(); },50); }
   else if (t.hasAttribute("data-homefind")){ findHome(); }
@@ -583,7 +593,7 @@ document.addEventListener("click", ev=>{
   else if (t.hasAttribute("data-homereset")){ setHome({...HOME_DEFAULT}); try{localStorage.removeItem("wf-home");}catch(e){} }
   else if (t.hasAttribute("data-homeclose")){ state.editHome=false; render(); }
   else if (t.dataset.star){ toggleStar(t.dataset.star); }
-  else if (t.dataset.expand){ const id=t.dataset.expand; openRows.has(id)?openRows.delete(id):openRows.add(id); refreshStars(); }
+  else if (t.dataset.expand){ const id=t.dataset.expand; const opening=!openRows.has(id); opening?openRows.add(id):openRows.delete(id); refreshStars(); if (opening && typeof track==="function") track("event_detail_viewed",{item_id:id, placement:"plan_row"}); }
   else if (t.hasAttribute("data-expandall")){ const ids=[...document.querySelectorAll("[data-expand]")].map(b=>b.dataset.expand); const all=ids.every(i=>openRows.has(i)); ids.forEach(i=>all?openRows.delete(i):openRows.add(i)); refreshStars(); }
   else if (t.dataset.lock){ toggleLock(t.dataset.lock, t.dataset.k); }
   else if (t.dataset.preset){ vb = fitAspect([...PRESETS[t.dataset.preset]]); drawMap(); }

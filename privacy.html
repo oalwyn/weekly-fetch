@@ -34,7 +34,7 @@ a{color:var(--blue)}
     <li>No ads and no tracking across other companies' apps or websites. We never sell your information.</li>
     <li>Browsing events needs no account, and most things stay on your phone.</li>
     <li>If you <strong>sign in</strong> to plan weekends with a group, we store your email address (or Apple sign-in), the first name you choose, your groups, and the events you star or lock in.</li>
-    <li>We count how the app is used (for example, how many times an event's page is opened) so we can improve it. We never sell them or use them for ads.</li>
+    <li>We keep simple usage records (for example, that an event was starred or its ticket link was tapped) so we can see what's useful. We keep them for 13 months, never sell them and never use them for ads.</li>
     <li>The <strong>website</strong> (not the iPhone app) also uses Google Analytics to measure visits, with Google's advertising features turned off. It's skipped if your browser sends a “Do Not Track” or Global Privacy Control signal.</li>
     <li>You can delete your account, and what's linked to it, from inside the app at any time.</li>
   </ul>
@@ -65,13 +65,22 @@ a{color:var(--blue)}
 </section>
 
 <section>
-  <h2>Usage counts</h2>
-  <p>To understand what's useful and improve the app, we record simple events: the app being opened, signing in, starring or locking in an event, creating, joining or inviting to a group, adding to your calendar, tapping a reminder, opening an event's “More info”, “Directions”, “Tickets” or movie “Showtimes” link, tapping the App Store link, choosing a filter, and saving your interests (which kinds of events you chose to hide). Each record has the kind of event, which listing it was about, the time, whether it came from the website or the iPhone app, and:</p>
+  <h2>Usage records</h2>
+  <p>To understand what's useful and improve the app, we record simple events:</p>
   <ul>
-    <li>if you're signed in, your account (and the group you were viewing);</li>
-    <li>if you're not, a random code created on your device. It isn't your phone's advertising identifier and isn't connected to your name or email.</li>
+    <li>opening the app or website, and switching to a new session after 30 minutes away;</li>
+    <li>opening an event in a plan or on the map, choosing a filter or distance, saving your interests (which kinds of events you hide), and a filtered list coming up empty;</li>
+    <li>starring or un-starring an event, locking it in to a day, moving or unlocking it, answering Going / Maybe / Can't, and setting or clearing a meet-up (we record that a meet-up was set, not the place you typed);</li>
+    <li>creating, joining or leaving a group, opening the share sheet for an invite and completing or copying it, viewing “All my plans”, and signing in;</li>
+    <li>adding a plan to your calendar (when iOS reports it was saved) and tapping a reminder;</li>
+    <li>tapping an event's “Tickets”, “More info”, “Directions” or movie “Showtimes” link (we record the website's name, such as ticketmaster.com, not the full address), and tapping the App Store link.</li>
   </ul>
-  <p>We don't use these counts for advertising, and we don't combine them with information from other companies. We may share totals that can't identify anyone (for example, “120 people opened this event's page this month”) with event organizers or partners.</p>
+  <p>Each record has the kind of event, which listing it was about (with its category and area), the time, whether it came from the website or the iPhone app, the app version, a random session code that changes after 30 minutes away or when you sign in or out, and, for the first record of a session, how you arrived: campaign tags in the link (such as utm_source), an invite link, a search engine, or the name of the website that linked to us. We never record the rest of a link or address, what you type, your home location, invite codes, names or emails in these records. Changes to a group's plan are recorded by our server when they're saved. Each record also has one of:</p>
+  <ul>
+    <li>if you're signed in, your account (and the group, for group activity);</li>
+    <li>if you're not, a random device code created on your device. It isn't your phone's advertising identifier and isn't connected to your name, email or account. Signing out replaces it with a new one.</li>
+  </ul>
+  <p>We keep these records for <strong>13 months</strong>. After that we keep only weekly totals that aren't connected to any account or device. We don't use them for advertising, and we don't combine them with information from other companies. We may share totals that can't identify anyone (for example, “120 people opened this event's page this month”) with event organizers or partners.</p>
 </section>
 
 <section>
@@ -82,7 +91,8 @@ a{color:var(--blue)}
 <section>
   <h2>Deleting your information</h2>
   <ul>
-    <li><strong>Delete your account</strong> in the app or on the website: Our Weekend Plans → Group &amp; account → Delete my account. This permanently removes your account, your name and your stars from every group. Groups you were in stay for their other members. Usage counts you created are kept only as anonymous totals, no longer connected to you.</li>
+    <li><strong>Delete your account</strong> in the app or on the website: Our Weekend Plans → Group &amp; account → Delete my account. This permanently removes your account, your name and your stars from every group. Groups you were in stay for their other members. Usage records you created stay as individual records but are no longer connected to you or your account.</li>
+    <li><strong>Activity while signed out</strong> is connected only to a device code. To have it deleted, contact us (below) with that code. You'll find it at the bottom of Our Weekend Plans in the app and on the website.<span id="devcode"></span></li>
     <li><strong>Leave a group</strong> to remove your stars from it. When the last person leaves, the group is deleted.</li>
     <li>For anything else, including deleting an older shared plan, contact us (below).</li>
   </ul>
@@ -137,5 +147,6 @@ a{color:var(--blue)}
   <p class="small"><a href="./">← Back to The Bay Area Weekend Fetch</a></p>
 </section>
 </main>
+<script>try{var c=localStorage.getItem("wf-anon");if(c&&/^[A-Za-z0-9_-]{6,40}$/.test(c))document.getElementById("devcode").textContent=" This browser's device code: "+c+".";}catch(e){}</script>
 </body>
 </html>

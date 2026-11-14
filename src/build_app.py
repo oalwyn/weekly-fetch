@@ -90,6 +90,13 @@ input,textarea,.copyarea{-webkit-user-select:text;user-select:text}
 body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:var(--blue);z-index:30}
 ''' + html[i:]
 
+# 4b2. measurement tags: app version from the Xcode project; "production" only for release builds (WF_RELEASE=1, see npm run app:release)
+pbx = open(os.path.join(root, "ios", "App", "App.xcodeproj", "project.pbxproj")).read()
+mv = re.search(r"MARKETING_VERSION = ([0-9.]+);", pbx).group(1); bn = re.search(r"CURRENT_PROJECT_VERSION = ([0-9]+);", pbx).group(1)
+env = "production" if os.environ.get("WF_RELEASE") == "1" else "development"
+html, nver = re.subn(r'window\.WF_VERSION="[^"]*";', 'window.WF_VERSION="ios-%s+%s";window.WF_ENV="%s";' % (mv, bn, env), html)
+assert nver == 1, "version tag not found"
+print("app measurement tags: ios-%s+%s, %s" % (mv, bn, env))
 # 4c. website-only bits: the "Get the iPhone app" bar and Safari's App Store banner
 html = re.sub(r'<!--appbar-->.*?<!--/appbar-->\n?', '', html, flags=re.S)
 html = re.sub(r'<meta name="apple-itunes-app"[^>]*>\n?', '', html)
