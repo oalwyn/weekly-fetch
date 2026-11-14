@@ -51,7 +51,7 @@ FIND SOMETHING TO DO
 PLAN YOUR WEEKEND TOGETHER
 • Star anything that looks fun. It lands in Our Weekend Plans.
 • "Lock it in" for the day you'll actually go, and your weekend schedule builds itself.
-• Start a shared plan and invite your household with one tap. Stars and plans sync across everyone's phones, with no account or sign-up.
+• Start a group for your household or friends and invite them with a link. Stars, locked-in days, who's going and meet-up times sync across everyone's phones.
 
 NEVER MISS IT
 • Reminders the evening before and two hours before each locked-in plan
@@ -61,7 +61,7 @@ NEVER MISS IT
 FRESH EVERY WEEK
 The event list is refreshed every Monday and Thursday morning, and the app picks up new events automatically.
 
-No ads. No tracking. No account needed.
+No ads. No tracking. Browsing needs no account.
 ```
 
 ## Keywords (100 characters max, no spaces after commas)
@@ -72,7 +72,7 @@ events,weekend,things to do,san francisco,peninsula,south bay,marin,napa,dog fri
 
 ## What's New
 
-**1.2** (sports, movies, prices; build 6 uploaded Nov 14, 2026, to submit once 1.1 is approved):
+**1.2** (sports, movies, prices; build 6, submitted Nov 14, 2026; the description was updated at the same time):
 
 ```
 More to do, and easier to choose.
