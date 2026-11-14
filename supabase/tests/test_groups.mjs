@@ -88,6 +88,8 @@ await throws(`select set_meetup($1,'evt-3','09:00','x')`, [g.id], /not a member/
 await as(A); const g2 = (await rpc(`select create_group('Friends') g`))[0].g;
 await rpc(`select add_group_pick($1,'evt-4','{"title":"Hike"}')`, [g2.id]);
 await rpc(`select set_group_lock($1,'evt-4',$2,'{"title":"Hike"}')`, [g2.id, day]);
+const mpk = (await rpc(`select get_my_picks() p`))[0].p;
+ok(mpk.length === 2 && mpk.some(x => x.group_id === g.id && x.item_id === 'evt-3') && mpk.some(x => x.group_id === g2.id && x.item_id === 'evt-4'), 'get_my_picks lists my stars in each group');
 let mp = (await rpc(`select get_my_plans() p`))[0].p;
 ok(mp.length === 2 && mp.map(x => x.group_name).sort().join() === 'Friends,Our household', 'all my plans spans both groups');
 const pa = mp.find(x => x.item_id === 'evt-3');

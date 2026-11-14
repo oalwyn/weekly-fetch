@@ -195,6 +195,14 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .al,.ag{font-size:13px;color:var(--mute);overflow-wrap:anywhere}
 .am{font-size:13.5px;font-weight:600;margin-top:4px}
 .arow .linkbtn{padding:6px 0 0}
+.wfsheet{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:60;max-width:560px;margin:0 auto;background:var(--ink);color:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 6px 24px rgba(0,0,0,.28);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.sh-t{flex:1 1 100%;font-weight:600;font-size:14.5px;overflow-wrap:anywhere}
+.sh-b{display:flex;flex-wrap:wrap;gap:6px;align-items:center;flex:1}
+.sh-l{font-size:13px;opacity:.85}
+.pchip{border:1px solid rgba(255,255,255,.55);background:transparent;color:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;font-weight:600;min-height:40px}
+.pchip[aria-pressed="true"]{background:#fff;color:var(--ink);border-color:#fff}
+.sh-x{margin-left:auto;border:0;background:none;color:#fff;text-decoration:underline;font:inherit;font-size:14px;padding:8px 4px;min-height:40px}
+.plansbtn{border:1px solid #CBD4DD;background:#fff;color:var(--blue);border-radius:999px;padding:3px 10px;font:inherit;font-size:12px;font-weight:600;min-height:28px}
 
 .copybtn{border:0;background:var(--ink);color:#fff;border-radius:10px;padding:10px 16px;font-size:14px;font-weight:600;min-height:44px}
 .copyarea{width:100%;font:13px/1.5 Inter,sans-serif;border:1px solid #CBD4DD;border-radius:10px;padding:10px;margin-top:4px}
@@ -350,7 +358,8 @@ let pendingImport = [];
 function picksLink(){ return PAGE_URL + "#picks-" + starredIds().map(code).join("-"); }
 setTimeout(syncHash, 0);
 
-const starredByMe = id => shared ? !!(picks.get(id) && picks.get(id).uids.includes(me)) : localSaved.has(id);
+// with an account and groups, accounts.js answers "starred in any of my plans" (acctStarred); otherwise this list or this device
+const starredByMe = id => { const a = typeof acctStarred === "function" ? acctStarred(id) : null; return a !== null ? a : shared ? !!(picks.get(id) && picks.get(id).uids.includes(me)) : localSaved.has(id); };
 const starredIds = () => shared ? [...picks.keys()] : [...localSaved];
 const pickers = id => shared && picks.get(id) ? picks.get(id).uids : [];
 
@@ -1031,7 +1040,7 @@ setTimeout(sync, 0);
      iPhone app's native_app.js can still wrap them afterwards. */
 const ACCT = { client: null, loading: null, user: null, me: null, gid: null, group: null, members: [],
                ui: { step: "", email: "", panel: "", confirmDelete: false, meetEdit: "" }, msg: "", err: "", busy: false, online: true,
-               rsvp: new Map(), meet: new Map(), all: [], allOk: false, allView: false };
+               rsvp: new Map(), meet: new Map(), all: [], allOk: false, allView: false, mine: new Map(), mineOk: false, sheet: null };
 const SB_REF = (SB_URL.split("//")[1] || "").split(".")[0];
 const SB_AUTH_KEY = "sb-" + SB_REF + "-auth-token";
 const IS_APP = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
@@ -1041,7 +1050,8 @@ const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return 
 const lsSet = (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} };
 const hasSession = () => !!lsGet(SB_AUTH_KEY);
 const inGroup = () => !!(ACCT.user && ACCT.group);
-ACCT.gid = lsGet("wf-gid"); ACCT.allView = lsGet("wf-allview") === "1";
+// the plans tab always opens on your main plan (stars go there too)
+ACCT.gid = lsGet("wf-main") || lsGet("wf-gid");
 const PENDING = { tokens: window.__wfTokens || null, join: window.__wfJoin || lsGet("wf-pending-join") };
 if (PENDING.join) { lsSet("wf-pending-join", PENDING.join); state.view = "our-list"; }
 if (window.__wfAuthError) { ACCT.err = "That sign-in link didn't work or has expired. Ask for a new code."; state.view = "our-list"; }
@@ -1107,7 +1117,8 @@ function applyGroup(st){
 }
 function saveGroupCache(st){
   ACCT.lastSt = st || ACCT.lastSt;
-  if (ACCT.lastSt) lsSet("wf-gcache", JSON.stringify({ uid: ACCT.user && ACCT.user.id, gid: ACCT.lastSt.group.id, st: ACCT.lastSt, all: ACCT.allOk ? ACCT.all : null }));
+  if (ACCT.lastSt) lsSet("wf-gcache", JSON.stringify({ uid: ACCT.user && ACCT.user.id, gid: ACCT.lastSt.group.id, st: ACCT.lastSt, all: ACCT.allOk ? ACCT.all : null,
+    mine: ACCT.mineOk ? [...ACCT.mine].map(([k, v]) => [k, [...v]]) : null }));
 }
 // show the last known group right away, before the network answers
 (function useCache(){
@@ -1115,7 +1126,8 @@ function saveGroupCache(st){
   try {
     const c = JSON.parse(lsGet("wf-gcache") || "null");
     const s = JSON.parse(lsGet(SB_AUTH_KEY) || "null");
-    if (c && s && s.user && c.uid === s.user.id && c.gid === ACCT.gid) { ACCT.user = s.user; if (c.all) { ACCT.all = c.all; ACCT.allOk = true; } applyGroup(c.st); }
+    if (c && s && s.user && c.uid === s.user.id && c.gid === ACCT.gid) { ACCT.user = s.user; if (c.all) { ACCT.all = c.all; ACCT.allOk = true; }
+      if (c.mine) { ACCT.mine = new Map(c.mine.map(([k, v]) => [k, new Set(v)])); ACCT.mineOk = true; } applyGroup(c.st); }
   } catch (e) {}
 })();
 
@@ -1124,11 +1136,12 @@ async function loadMe(){
   const ids = (ACCT.me.groups || []).map(g => g.id);
   if (!ids.includes(ACCT.gid)) ACCT.gid = ids[0] || null;
   lsSet("wf-gid", ACCT.gid);
+  if (lsGet("wf-main") && !ids.includes(lsGet("wf-main"))) lsSet("wf-main", null);
   if (!ACCT.gid) { ACCT.group = null; leaveGroupMode(); }
 }
 function leaveGroupMode(){
   // back to this device's stars (or the old shared plan, which gh_sync handles)
-  ACCT.group = null; ACCT.lastSt = null; ACCT.all = []; ACCT.allOk = false; ACCT.meet = new Map(); ACCT.rsvp = new Map(); lsSet("wf-gcache", null);
+  ACCT.group = null; ACCT.lastSt = null; ACCT.all = []; ACCT.allOk = false; ACCT.mine = new Map(); ACCT.mineOk = false; ACCT.meet = new Map(); ACCT.rsvp = new Map(); lsSet("wf-gcache", null);
   picks = new Map(); names = {};
   locks = new Map(); try { const s = JSON.parse(localStorage.getItem("wf-locks") || "null"); if (s) locks = new Map(Object.entries(s).map(([k, v]) => [k, new Set(v)])); } catch (e) {}
   shared = !!(LIST && SB_ON); me = ME;
@@ -1139,8 +1152,9 @@ async function acctSync(){
   if (!ACCT.user || !ACCT.gid || acctSyncing) return;
   acctSyncing = true;
   try {
-    const [st, all] = await Promise.all([call("get_group", { p_group: ACCT.gid }), call("get_my_plans").catch(() => null)]);
+    const [st, all, mine] = await Promise.all([call("get_group", { p_group: ACCT.gid }), call("get_my_plans").catch(() => null), call("get_my_picks").catch(() => null)]);
     if (all) { ACCT.all = all; ACCT.allOk = true; }
+    if (mine) { const M = new Map(); mine.forEach(x => { if (!M.has(x.item_id)) M.set(x.item_id, new Set()); M.get(x.item_id).add(x.group_id); }); ACCT.mine = M; ACCT.mineOk = true; }
     applyGroup(st); ACCT.online = true;
   }
   catch (e) {
@@ -1166,7 +1180,7 @@ async function startAccounts(){
     if (!ACCT.user) { if (inGroup() || ACCT.group) leaveGroupMode(); safeRefresh(); return; }
     await loadMe();
     if (PENDING.join) await joinWithCode(PENDING.join, true);
-    else if (ACCT.gid) await acctSync();
+    else { ACCT.gid = mainGid() || ACCT.gid; lsSet("wf-gid", ACCT.gid); if (ACCT.gid) await acctSync(); }
     safeRefresh();
   } catch (e) { ACCT.err = "Couldn't reach the shared plans service. Check your connection."; safeRefresh(); }
 }
@@ -1182,16 +1196,38 @@ const groupItem = id => itemSnap(id);
 const _acctToggleStar = toggleStar;
 toggleStar = async function(id){
   if (!inGroup()) { _acctToggleStar(id); if (starredByMe(id)) logEvent("star", id); return; }
-  const mine = starredByMe(id), uid = ACCT.user.id, p = picks.get(id) || { uids: [], item: groupItem(id) };
-  p.uids = mine ? p.uids.filter(u => u !== uid) : p.uids.concat(uid);
-  if (p.uids.length) picks.set(id, p); else { picks.delete(id); locks.delete(id); }
-  refreshStars();
-  try {
-    if (mine) await call("remove_group_pick", { p_group: ACCT.gid, p_item: id });
-    else { await call("add_group_pick", { p_group: ACCT.gid, p_item: id, p_item_json: groupItem(id) }); logEvent("star", id); }
-  } catch (e) { ACCT.online = false; }
+  // on a group's plan, the star means "in this plan"; elsewhere it means "in any of my plans"
+  const inPlanView = state.view === "our-list" && !ACCT.allView;
+  const minein = ACCT.mine.get(id) || new Set();
+  if (inPlanView) return setInPlan(id, ACCT.gid, !(picks.get(id) && picks.get(id).uids.includes(ACCT.user.id)));
+  if (minein.size || (!ACCT.mineOk && starredByMe(id))) {
+    const gids = minein.size ? [...minein] : [ACCT.gid];
+    const names = gids.map(g => groupName(g));
+    await Promise.all(gids.map(g => setInPlan(id, g, false, true)));
+    showSheet(id, "removed", names); acctSync(); return;
+  }
+  const main = mainGid();
+  await setInPlan(id, main, true, true);
+  if (myGroups().length > 1) showSheet(id, "added"); else showSheet(null);
   acctSync();
 };
+// add or remove my star on one plan (group)
+async function setInPlan(id, gid, on, noSync){
+  const uid = ACCT.user.id, set = ACCT.mine.get(id) || new Set();
+  on ? set.add(gid) : set.delete(gid);
+  if (set.size) ACCT.mine.set(id, set); else ACCT.mine.delete(id);
+  if (gid === ACCT.gid) {
+    const p = picks.get(id) || { uids: [], item: groupItem(id) };
+    p.uids = on ? (p.uids.includes(uid) ? p.uids : p.uids.concat(uid)) : p.uids.filter(u => u !== uid);
+    if (p.uids.length) picks.set(id, p); else { picks.delete(id); locks.delete(id); }
+  }
+  refreshStars(); renderSheet();
+  try {
+    if (on) { await call("add_group_pick", { p_group: gid, p_item: id, p_item_json: groupItem(id) }); logEvent("star", id); }
+    else await call("remove_group_pick", { p_group: gid, p_item: id });
+  } catch (e) { ACCT.online = false; }
+  if (!noSync) acctSync();
+}
 const _acctSetPlan = setPlan;
 setPlan = async function(id, k){
   if (!inGroup()) { _acctSetPlan(id, k); if (k) logEvent("lock", id); return; }
@@ -1269,9 +1305,9 @@ function startGroupHTML(){
 function groupBarHTML(){
   const gs = (ACCT.me && ACCT.me.groups) || [];
   const all = ACCT.allView && gs.length > 1;
-  const sw = gs.length > 1 ? `<select class="gsel" data-gswitch aria-label="Switch group"><option value="__all"${all ? " selected" : ""}>All my plans</option>${gs.map(g => `<option value="${ae(g.id)}"${!all && g.id === ACCT.gid ? " selected" : ""}>${ae(g.name)}</option>`).join("")}</select>` : `<span class="gname">${ae(ACCT.group.name)}</span>`;
+  const sw = gs.length > 1 ? `<select class="gsel" data-gswitch aria-label="Switch group"><option value="__all"${all ? " selected" : ""}>All my plans</option>${gs.map(g => `<option value="${ae(g.id)}"${!all && g.id === ACCT.gid ? " selected" : ""}>${ae(g.name)}${g.id === mainGid() ? " (main)" : ""}</option>`).join("")}</select>` : `<span class="gname">${ae(ACCT.group.name)}</span>`;
   const st = ACCT.online ? `<span class="status ok">● synced · you're ${ae((ACCT.me && ACCT.me.name) || "")}</span>` : `<span class="status">● offline · changes will sync when you're back online</span>`;
-  if (all) return `<div class="acct gbar"><div class="gtop">${sw}${st}</div><p class="ournote small">Locked-in plans from all your groups, so you can spot clashes. Stars you add go to “${ae(ACCT.group.name)}”.</p></div>`;
+  if (all) return `<div class="acct gbar"><div class="gtop">${sw}${st}</div><p class="ournote small">Locked-in plans from all your groups, so you can spot clashes. Stars you add go to your main plan, “${ae(groupName(mainGid()))}”.</p></div>`;
   let h = `<div class="acct gbar"><div class="gtop">${sw}${st}</div>
     <div class="btnrow"><button class="copybtn" data-acct="invite">Invite someone</button><button class="copybtn alt" data-copy>Copy as text</button><button class="copybtn alt" data-acct="settings" aria-expanded="${ACCT.ui.panel === "settings"}">Group &amp; account</button></div>`;
   if (ACCT.ui.panel === "invite") h += invitePanelHTML();
@@ -1298,6 +1334,9 @@ function settingsHTML(){
     <form class="acctform" data-acctform="rename-me"><input name="name" maxlength="30" value="${ae(ACCT.me.name || "")}" aria-label="Your name"><button class="copybtn alt">Save</button></form>
     <div class="fsec">Group name</div>
     <form class="acctform" data-acctform="rename-group"><input name="gname" maxlength="40" value="${ae(ACCT.group.name)}" aria-label="Group name"><button class="copybtn alt">Save</button></form>
+    ${(ACCT.me.groups || []).length > 1 ? (ACCT.gid === mainGid()
+      ? `<p class="ournote small">“${ae(ACCT.group.name)}” is your main plan: stars go here first.</p>`
+      : `<div class="btnrow"><button class="copybtn alt" data-acct="make-main">Make “${ae(ACCT.group.name)}” my main plan</button></div><p class="ournote small">Stars go to your main plan first. You can add them to other plans after.</p>`) : ""}
     <div class="fsec">Members</div><ul class="members">${members}</ul>
     <div class="fsec">Join code: <b>${ae(ACCT.group.code)}</b>${owner ? ` <button class="linkbtn" data-acct="newcode">Make a new code</button>` : ""}</div>
     ${owner ? `<p class="ournote small">A new code stops old invite links from working. Current members stay.</p>` : ""}
@@ -1450,6 +1489,56 @@ function allPlansHTML(){
   return h;
 }
 
+/* ---- main plan, "which plans is this in?" ---- */
+const myGroups = () => (ACCT.me && ACCT.me.groups) || [];
+const groupName = gid => (myGroups().find(g => g.id === gid) || { name: "your plan" }).name;
+function mainGid(){
+  const ids = myGroups().map(g => g.id), m = lsGet("wf-main");
+  return ids.includes(m) ? m : (ids[0] || null);
+}
+// event cards and the map: starred = in any of my plans (null = let app.js decide)
+function acctStarred(id){
+  if (!inGroup() || !ACCT.mineOk || (state.view === "our-list" && !ACCT.allView)) return null;
+  return !!(ACCT.mine.get(id) && ACCT.mine.get(id).size);
+}
+// card label: which of my plans it's in, e.g. "★ Household: You & Sam · Friends: You", plus a "Plans" button
+const _acctWhoLine = whoLine;
+whoLine = function(id){
+  const gs = myGroups();
+  if (!inGroup() || !ACCT.mineOk || gs.length < 2 || state.view === "our-list") return _acctWhoLine(id);
+  const mine = ACCT.mine.get(id) || new Set(), parts = [];
+  for (const g of gs){
+    let who = [];
+    if (g.id === ACCT.gid) who = pickers(id).map(x => x === ACCT.user.id ? "You" : (names[x] || "Someone")).sort((a, b) => a === "You" ? -1 : b === "You" ? 1 : 0);
+    else if (mine.has(g.id)) who = ["You"];
+    if (who.length) parts.push(`${g.name}: ${who.join(" & ")}`);
+  }
+  const btn = mine.size ? `<button class="plansbtn" data-acct="plans-pick" data-id="${ae(id)}" aria-label="Choose which plans this is in">Plans ▾</button>` : "";
+  return (parts.length ? `<span class="who">★ ${ae(parts.join(" · "))}</span>` : "") + btn;
+};
+// the little panel at the bottom: after a star ("Also add to Friends"), after an unstar, or from the Plans button
+let sheetTimer = null;
+function showSheet(id, mode, names){
+  clearTimeout(sheetTimer);
+  ACCT.sheet = id ? { id, mode, names: names || [], touched: false } : null;
+  renderSheet();
+  if (id && mode !== "edit") sheetTimer = setTimeout(() => { if (ACCT.sheet && !ACCT.sheet.touched) showSheet(null); }, mode === "removed" ? 3500 : 7000);
+}
+function renderSheet(){
+  let el = document.getElementById("wfsheet");
+  if (!ACCT.sheet) { if (el) el.remove(); return; }
+  if (!el) { el = document.createElement("div"); el.id = "wfsheet"; el.className = "wfsheet"; el.setAttribute("role", "status"); document.body.appendChild(el); }
+  const { id, mode } = ACCT.sheet, e = planEvent(id), mine = ACCT.mine.get(id) || new Set();
+  const chip = g => `<button class="pchip" data-acct="plan-toggle" data-id="${ae(id)}" data-gid="${ae(g.id)}" aria-pressed="${mine.has(g.id)}">${mine.has(g.id) ? "✓" : "+"} ${ae(g.name)}</button>`;
+  let h;
+  if (mode === "removed") h = `<div class="sh-t">Removed from ${ae(ACCT.sheet.names.join(" and "))}</div>`;
+  else if (mode === "added") {
+    const main = mainGid(), others = myGroups().filter(g => g.id !== main);
+    h = `<div class="sh-t">★ Added to <b>${ae(groupName(main))}</b></div><div class="sh-b"><span class="sh-l">Also add to:</span>${others.map(chip).join("")}</div>`;
+  } else h = `<div class="sh-t">Which plans is “${ae(e.title || "")}” in?</div><div class="sh-b">${myGroups().map(chip).join("")}</div>`;
+  el.innerHTML = h + `<button class="sh-x" data-acct="sheet-close" aria-label="Close">Done</button>`;
+}
+
 /* ---- buttons and forms ---- */
 document.addEventListener("click", async ev => {
   const b = ev.target.closest("[data-acct]"); if (!b) return;
@@ -1476,11 +1565,15 @@ document.addEventListener("click", async ev => {
       await call("set_rsvp", { p_group: ACCT.gid, p_item: id, p_status: s }); if (s) logEvent("rsvp", id);
       await acctSync(); return;
     }
+    else if (a === "make-main") { lsSet("wf-main", ACCT.gid); ACCT.msg = `“${ACCT.group.name}” is now your main plan. New stars go here.`; }
+    else if (a === "plans-pick") { showSheet(b.dataset.id, "edit"); return; }
+    else if (a === "plan-toggle") { const id = b.dataset.id, g = b.dataset.gid; ACCT.sheet.touched = true; await setInPlan(id, g, !(ACCT.mine.get(id) || new Set()).has(g)); return; }
+    else if (a === "sheet-close") { showSheet(null); return; }
     else if (a === "meet-edit") ACCT.ui.meetEdit = b.dataset.id;
     else if (a === "meet-cancel") ACCT.ui.meetEdit = "";
     else if (a === "meet-remove") { ACCT.meet.delete(b.dataset.id); refreshStars(); await call("set_meetup", { p_group: ACCT.gid, p_item: b.dataset.id, p_time: null, p_place: null }); await acctSync(); return; }
     else if (a === "open-group") {
-      ACCT.allView = false; lsSet("wf-allview", null); ACCT.gid = b.dataset.gid; lsSet("wf-gid", ACCT.gid);
+      ACCT.allView = false; ACCT.gid = b.dataset.gid; lsSet("wf-gid", ACCT.gid);
       openRows.add(b.dataset.id); refreshStars(); scrollTo(0, 0); await acctSync(); return;
     }
     else if (a === "delete") ACCT.ui.confirmDelete = true;
@@ -1496,8 +1589,8 @@ document.addEventListener("click", async ev => {
 document.addEventListener("change", async ev => {
   if (!ev.target.matches("select[data-gswitch]")) return;
   ACCT.ui.panel = ""; ACCT.msg = "";
-  if (ev.target.value === "__all") { ACCT.allView = true; lsSet("wf-allview", "1"); logEvent("all_plans"); refreshStars(); await acctSync(); return; }
-  ACCT.allView = false; lsSet("wf-allview", null);
+  if (ev.target.value === "__all") { ACCT.allView = true; logEvent("all_plans"); refreshStars(); await acctSync(); return; }
+  ACCT.allView = false;
   ACCT.gid = ev.target.value; lsSet("wf-gid", ACCT.gid); await acctSync();
 });
 document.addEventListener("submit", async ev => {

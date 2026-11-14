@@ -81,7 +81,8 @@ let pendingImport = [];
 function picksLink(){ return PAGE_URL + "#picks-" + starredIds().map(code).join("-"); }
 setTimeout(syncHash, 0);
 
-const starredByMe = id => shared ? !!(picks.get(id) && picks.get(id).uids.includes(me)) : localSaved.has(id);
+// with an account and groups, accounts.js answers "starred in any of my plans" (acctStarred); otherwise this list or this device
+const starredByMe = id => { const a = typeof acctStarred === "function" ? acctStarred(id) : null; return a !== null ? a : shared ? !!(picks.get(id) && picks.get(id).uids.includes(me)) : localSaved.has(id); };
 const starredIds = () => shared ? [...picks.keys()] : [...localSaved];
 const pickers = id => shared && picks.get(id) ? picks.get(id).uids : [];
 

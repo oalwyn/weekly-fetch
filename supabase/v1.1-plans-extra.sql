@@ -126,11 +126,21 @@ begin
     where l.day >= current_date - 1), '[]'::jsonb);
 end $$;
 
+-- Which of my groups I've starred each event in (event cards show "In Household · Friends").
+create or replace function public.get_my_picks() returns jsonb
+language plpgsql stable security definer set search_path = public as $$
+declare me uuid := _me();
+begin
+  return coalesce((select jsonb_agg(jsonb_build_object('group_id', p.group_id, 'item_id', p.item_id))
+    from group_picks p join group_members m on m.group_id = p.group_id and m.user_id = me
+    where p.user_id = me), '[]'::jsonb);
+end $$;
+
 -- ---------- who may call what ----------
 revoke all on function public._locks_clear_rsvps() from public, anon, authenticated;
 revoke all on function public.set_group_lock(uuid,text,date,jsonb), public.set_rsvp(uuid,text,text),
-  public.set_meetup(uuid,text,text,text), public.get_group(uuid), public.get_my_plans() from public, anon;
+  public.set_meetup(uuid,text,text,text), public.get_group(uuid), public.get_my_plans(), public.get_my_picks() from public, anon;
 grant execute on function public.set_group_lock(uuid,text,date,jsonb), public.set_rsvp(uuid,text,text),
-  public.set_meetup(uuid,text,text,text), public.get_group(uuid), public.get_my_plans() to authenticated;
+  public.set_meetup(uuid,text,text,text), public.get_group(uuid), public.get_my_plans(), public.get_my_picks() to authenticated;
 
 notify pgrst, 'reload schema';
