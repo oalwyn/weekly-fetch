@@ -57,6 +57,7 @@ So always `git pull` before working, and don't hand-edit `data.js` in ways the r
 ## Engagement and search (Nov 14, 2026)
 - Usage counts go to `usage_events` through the `log_event` RPC (accounts.js `logEvent`; links carry `data-k`/`data-ev`). Kinds added in `supabase/v1.2-usage.sql` (applied): outbound_tickets, outbound_showtimes, filter, interests, app_store. Report: `supabase/reports/engagement.sql` (run in Supabase SQL editor). Any new kind must be added to the check constraint first, and listed in privacy.html.
 - Website-only extras in build_gh.py: SEO meta/Open Graph/JSON-LD, the "Get the free iPhone app" bar (`<!--appbar-->`, stripped by build_app.py with the `apple-itunes-app` tag). `robots.txt`, `sitemap.xml`, IndexNow key file `ededfd8e14023c622cfe6135cd6389ca.txt` (Bing etc.).
+- Google Search Console and Bing Webmaster Tools verified Nov 14, 2026 by meta tags in build_gh.py (`google-site-verification`, `msvalidate.01`): never remove them. Sitemaps submitted to both.
 - data.js/walks.js load with a 5-minute `?v=` tag (`/*wf-data*/` loader in build_gh.py; build_app.py swaps it for the app loader).
 - Event fields added: `price` ("free"/"tickets"), `tix` (ticket page), `ha` (sports: home/away/neutral). Categories added: `sport`, `film` (movie releases have no lat/lon; the site adds a Showtimes link).
 
