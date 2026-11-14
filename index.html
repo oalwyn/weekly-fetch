@@ -49,6 +49,8 @@ main{flex:1;padding:0 12px 40px}
 .tag{font-size:11px;font-weight:600;border-radius:999px;padding:3px 9px}
 .c-hol{background:#FBE9E1;color:#8A3A14}.c-mkt{background:#E6EEF6;color:#1F4A73}.c-dog{background:#E3F2EA;color:#1F6B4A}
 .c-walk{background:#DDF1F1;color:#0B5E61}.c-food{background:#FFF1D6;color:#7A4E00}.c-art{background:#EEE8F6;color:#4E3A78}.c-evt{background:#EEF2F5;color:#1B2430}.c-show{background:#FBE6EE;color:#8A1F4C}.c-kids{background:#E8F4DC;color:#3B6B17}.c-teen{background:#E6E9F7;color:#3A47A0}.c-prog{background:#F1E9E5;color:#5D4037}.c-sport{background:#F7E4E4;color:#7A1F1F}.c-film{background:#E6E8F5;color:#283593}
+.ha{font-size:11px;font-weight:700;border-radius:6px;padding:3px 8px}
+.ha-home{background:#1B3F63;color:#fff}.ha-away{background:#fff;color:#1B3F63;border:1px solid #1B3F63}.ha-neutral{background:#EEF2F5;color:#1B2430}
 .filmbox{background:#fff;border-radius:14px;padding:4px 12px 8px;margin:10px 0;border-left:4px solid #283593}
 .filmbox .section-h{margin:8px 0 2px}
 .crow.film .flinks{display:flex;flex-direction:column;gap:6px;align-items:flex-end;flex:none}
@@ -245,7 +247,7 @@ main{padding:0 10px 40px}
 .card .title{font-size:18px;line-height:1.3;margin:4px 0}
 .card .meta{font-size:15px;line-height:1.5;color:#4A5462}
 .num{font-size:13px}
-.tag,.who,.tbc,.price{font-size:13px}
+.tag,.who,.tbc,.price,.ha{font-size:13px}
 .dist{font-size:14px}
 .lbtn{font-size:15px;padding:12px 8px;min-height:46px}
 .ournote,.note,.legend,.nodogs{font-size:14.5px}
@@ -416,6 +418,13 @@ function filtered(){
 }
 // "Free" or "Tickets" pill; a ticketed event with a ticket page links straight to it
 const okUrl = u => typeof u==="string" && /^https?:\/\//.test(u);
+// sports: Home / Away / Neutral site, from the "ha" field, else read from the title ("A vs. B" = home, "A at B" / "A @ B" = away)
+function haHTML(e){
+  if (e.cat!=="sport") return "";
+  const t = e.ha || (/\s(at|@)\s/i.test(e.title||"") ? "away" : /\svs?\.?\s/i.test(e.title||"") ? "home" : "");
+  const L = {home:"Home game", away:"Away game", neutral:"Neutral site"}[t];
+  return L ? `<span class="ha ha-${t}">${L}</span>` : "";
+}
 function priceHTML(e){
   if (e.price==="free") return `<span class="price free">Free</span>`;
   if (e.price==="tickets"){ const u = okUrl(e.tix) ? e.tix : okUrl(e.url) ? e.url : ""; return u ? `<a class="price tix" href="${esc(u)}" target="_blank" rel="noopener">Tickets ↗</a>` : `<span class="price tix">Tickets required</span>`; }
@@ -443,7 +452,7 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(e.meta)}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 const DISTS = [[0,"Any distance"],[15,"15 mi"],[30,"30 mi"],[60,"60 mi"]];
