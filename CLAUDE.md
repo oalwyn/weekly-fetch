@@ -54,6 +54,12 @@ Always check changes at a 390px-wide viewport. Pushing to `main` deploys in abou
 A Claude Code cloud routine ("Bay Area Weekend Fetch refresh (Mon + Thu, cloud)", id `trig_01MWa7xLMXTGeKADFvB6Nz3X`, 5:17am Pacific, https://claude.ai/code/routines/trig_01MWa7xLMXTGeKADFvB6Nz3X) runs in Anthropic's cloud with this repo attached as its source and no connectors. First successful run Nov 13, 2026. (The original routine, `trig_01QNAircTq1649aLoj2meAVz`, was created as a Cowork task with no repo or shell tools, so every fire was dropped before a session started; it is disabled.) It researches events and **rewrites only `data.js`**, then commits and pushes to `main`.
 So always `git pull` before working, and don't hand-edit `data.js` in ways the refresh would undo. Its prompt can be changed from claude.ai if categories or regions change.
 
+## Engagement and search (Nov 14, 2026)
+- Usage counts go to `usage_events` through the `log_event` RPC (accounts.js `logEvent`; links carry `data-k`/`data-ev`). Kinds added in `supabase/v1.2-usage.sql` (applied): outbound_tickets, outbound_showtimes, filter, interests, app_store. Report: `supabase/reports/engagement.sql` (run in Supabase SQL editor). Any new kind must be added to the check constraint first, and listed in privacy.html.
+- Website-only extras in build_gh.py: SEO meta/Open Graph/JSON-LD, the "Get the free iPhone app" bar (`<!--appbar-->`, stripped by build_app.py with the `apple-itunes-app` tag). `robots.txt`, `sitemap.xml`, IndexNow key file `ededfd8e14023c622cfe6135cd6389ca.txt` (Bing etc.).
+- data.js/walks.js load with a 5-minute `?v=` tag (`/*wf-data*/` loader in build_gh.py; build_app.py swaps it for the app loader).
+- Event fields added: `price` ("free"/"tickets"), `tix` (ticket page), `ha` (sports: home/away/neutral). Categories added: `sport`, `film` (movie releases have no lat/lon; the site adds a Showtimes link).
+
 ## Commit conventions
 `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit`, with the message ending in:
 `Co-Authored-By: Claude <noreply@anthropic.com>`
