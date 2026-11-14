@@ -90,6 +90,10 @@ input,textarea,.copyarea{-webkit-user-select:text;user-select:text}
 body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:var(--blue);z-index:30}
 ''' + html[i:]
 
+# 4c. website-only bits: the "Get the iPhone app" bar and Safari's App Store banner
+html = re.sub(r'<!--appbar-->.*?<!--/appbar-->\n?', '', html, flags=re.S)
+html = re.sub(r'<meta name="apple-itunes-app"[^>]*>\n?', '', html)
+assert 'appbar' not in html.split('<style>')[0] and 'id="appbar"' not in html
 # 5. Apple requires the privacy policy to be reachable inside the app
 assert html.count('</footer>') == 1
 rep('</footer>', '<br><a href="%sprivacy.html" style="color:inherit">Privacy policy</a></footer>' % LIVE)

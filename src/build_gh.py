@@ -12,6 +12,23 @@ rep('<meta name="theme-color" content="#2F5D8A">','''<meta name="theme-color" co
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=4">
 <link rel="icon" type="image/png" href="icon-192.png?v=4">''')
+# search engines, link previews and the App Store (website only; build_app.py strips the <!--appbar--> block and the app banner tag)
+rep('<title>The Bay Area Weekend Fetch</title>','''<title>The Bay Area Weekend Fetch · Bay Area events this weekend</title>
+<meta name="description" content="Things to do this weekend in the San Francisco Bay Area: holiday markets and lights, concerts and shows, sports games, new movies, dog-friendly outings and kids' events, from Marin and Napa to San Jose, Santa Cruz and Carmel. Free or ticketed, with a shared weekend planner.">
+<link rel="canonical" href="https://theweekendfetch.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Bay Area Weekend Fetch">
+<meta property="og:title" content="The Bay Area Weekend Fetch">
+<meta property="og:description" content="What's on this weekend around the Bay Area, refreshed every Monday and Thursday. Star events and plan them with friends.">
+<meta property="og:url" content="https://theweekendfetch.com/">
+<meta property="og:image" content="https://theweekendfetch.com/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="apple-itunes-app" content="app-id=6833697642">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"The Bay Area Weekend Fetch","url":"https://theweekendfetch.com/","description":"Things to do this weekend in the San Francisco Bay Area."},{"@type":"MobileApplication","name":"The Bay Area Weekend Fetch","operatingSystem":"iOS","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://apps.apple.com/app/id6833697642"}]}</script>''')
+rep('<header id="hdr">','''<!--appbar--><div class="appbar" id="appbar"><span>📱 Get the free iPhone app</span><a href="https://apps.apple.com/app/id6833697642" target="_blank" rel="noopener" data-k="app_store">Download on the App Store ›</a><button aria-label="Hide" onclick="this.parentNode.remove();try{localStorage.setItem('wf-appbar-off','1')}catch(e){}">×</button></div><script>try{if(localStorage.getItem('wf-appbar-off'))document.getElementById('appbar').remove()}catch(e){}</script><!--/appbar-->
+<header id="hdr">''')
+rep('.okmsg{','.appbar{display:flex;align-items:center;gap:10px;background:#0E2338;color:#fff;font-size:13px;padding:7px 8px 7px 14px}.appbar span{flex:1}.appbar a{color:#fff;font-weight:700;text-decoration:none;background:#2F5D8A;border-radius:8px;padding:6px 10px;white-space:nowrap}.appbar button{background:none;border:0;color:#B9C7D6;font-size:20px;line-height:1;padding:4px 6px}\n.okmsg{')
+rep('Check with the organizer before you go.<br>','Check with the organizer before you go.<br>Things to do in San Francisco, the Peninsula, Silicon Valley, Santa Cruz, Monterey, Carmel, Marin, Napa and Sonoma. <a href="privacy.html" style="color:inherit">Privacy</a><br>')
 rep('const PAGE_URL = "https://claude.ai/artifact/H7osiXWK9HTJwUmtsebTjA";','const PAGE_URL = location.origin + location.pathname;')
 # 1. stop writing picks into the address bar: this site saves them normally
 start=html.index('function syncHash(){'); end=html.index('\n}',start)+2

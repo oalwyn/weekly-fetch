@@ -37,7 +37,8 @@ function logEvent(kind, item){
   } catch (e) {}
 }
 document.addEventListener("click", ev => {
-  const a = ev.target.closest("a.lbtn"); if (!a) return;
+  const a = ev.target.closest("a[data-k], a.lbtn"); if (!a) return;
+  if (a.dataset.k) { logEvent(a.dataset.k, a.dataset.ev || null); return; }
   const card = a.closest("[id^=card-]"); const id = card ? card.id.slice(5) : null;
   logEvent(/maps/.test(a.href) ? "outbound_directions" : "outbound_more_info", id);
 }, true);

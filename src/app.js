@@ -126,7 +126,7 @@ function haHTML(e){
 }
 function priceHTML(e){
   if (e.price==="free") return `<span class="price free">Free</span>`;
-  if (e.price==="tickets"){ const u = okUrl(e.tix) ? e.tix : okUrl(e.url) ? e.url : ""; return u ? `<a class="price tix" href="${esc(u)}" target="_blank" rel="noopener">Tickets ↗</a>` : `<span class="price tix">Tickets required</span>`; }
+  if (e.price==="tickets"){ const u = okUrl(e.tix) ? e.tix : okUrl(e.url) ? e.url : ""; return u ? `<a class="price tix" href="${esc(u)}" target="_blank" rel="noopener" data-k="outbound_tickets" data-ev="${esc(e.id)}">Tickets ↗</a>` : `<span class="price tix">Tickets required</span>`; }
   return "";
 }
 // new movies: "Showtimes" searches for screenings near home (Google lists Bay Area theaters and times)
@@ -136,7 +136,7 @@ function filmRow(e){
   const mine = starredByMe(e.id);
   return `<div class="crow film"><button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
   <div><span class="ct">${esc(e.title)}</span><span class="cw">${esc(e.when)}${e.meta?` · ${esc(e.meta.replace(/^In theaters( nationwide)?( · )?/i,""))}`:""}</span></div>
-  <span class="flinks"><a href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener">Showtimes ↗</a>${e.url?`<a href="${esc(e.url)}" target="_blank" rel="noopener">Trailer & info ↗</a>`:""}</span></div>`;
+  <span class="flinks"><a href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>${e.url?`<a href="${esc(e.url)}" target="_blank" rel="noopener" data-k="outbound_more_info" data-ev="${esc(e.id)}">Trailer & info ↗</a>`:""}</span></div>`;
 }
 function likesBox(){
   if (state.view==="our-list") return "";
@@ -151,7 +151,7 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(e.meta)}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 const DISTS = [[0,"Any distance"],[15,"15 mi"],[30,"30 mi"],[60,"60 mi"]];
@@ -178,7 +178,7 @@ function compactHTML(e){
   const mine = starredByMe(e.id);
   return `<div class="crow"><button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
   <div><span class="ct">${esc(e.title)}</span><span class="cw">${esc(e.when)} · ${esc((e.meta||"").split(" · ")[0])}${e.mi!=null?` · ${e.mi} mi`:""}</span></div>
-  <a href="${esc(infoUrl(e))}" target="_blank" rel="noopener">Info ↗</a></div>`;
+  <a href="${esc(infoUrl(e))}" target="_blank" rel="noopener" data-k="outbound_more_info" data-ev="${esc(e.id)}">Info ↗</a></div>`;
 }
 function segHTML(){
   return `<div class="seg" role="group" aria-label="Group events"><button data-group="date" aria-pressed="${state.group==='date'}">By date</button><button data-group="weekend" aria-pressed="${state.group==='weekend'}">By weekend</button></div>`;
@@ -566,9 +566,9 @@ document.addEventListener("click", ev=>{
   if (t.dataset.view){ state.view=t.dataset.view; try{localStorage.setItem("wf-view2",state.view);}catch(e){} render(); syncHash(); window.scrollTo(0,0); }
   else if (t.dataset.jump){ const el=document.getElementById(t.dataset.jump); if(el){ const off=document.getElementById("filters").offsetHeight+8; scrollTo({top:el.getBoundingClientRect().top+scrollY-off, behavior:"smooth"}); } }
   else if (t.dataset.group){ state.group=t.dataset.group; try{localStorage.setItem("wf-group",state.group);}catch(e){} render(); }
-  else if (t.dataset.cat){ state.cat=t.dataset.cat; render(); }
+  else if (t.dataset.cat){ state.cat=t.dataset.cat; render(); if (typeof logEvent==="function" && state.cat!=="all") logEvent("filter", state.cat); }
   else if (t.dataset.like){ t.dataset.v==="1" ? likesOff.delete(t.dataset.like) : likesOff.add(t.dataset.like); saveLikes(); if (state.cat!=="all" && likesOff.has(state.cat)) state.cat="all"; const y=scrollY; render(); scrollTo(0,y); }
-  else if (t.hasAttribute("data-likesdone")){ saveLikes(); state.likesOpen=false; render(); window.scrollTo(0,0); }
+  else if (t.hasAttribute("data-likesdone")){ saveLikes(); if (typeof logEvent==="function") logEvent("interests", likesOff.size ? "no:" + [...likesOff].join(",") : "all"); state.likesOpen=false; render(); window.scrollTo(0,0); }
   else if (t.hasAttribute("data-likesall")){ likesOff.clear(); saveLikes(); const y=scrollY; render(); scrollTo(0,y); }
   else if (t.hasAttribute("data-likesopen")){ state.filtOpen=false; state.editHome=false; state.likesOpen=true; render(); window.scrollTo(0,0); }
   else if (t.hasAttribute("data-filtopen")){ state.filtOpen = !state.filtOpen; render(); }

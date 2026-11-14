@@ -11,7 +11,18 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=4">
 <link rel="icon" type="image/png" href="icon-192.png?v=4">
-<title>The Bay Area Weekend Fetch</title>
+<title>The Bay Area Weekend Fetch · Bay Area events this weekend</title>
+<meta name="description" content="Things to do this weekend in the San Francisco Bay Area: holiday markets and lights, concerts and shows, sports games, new movies, dog-friendly outings and kids' events, from Marin and Napa to San Jose, Santa Cruz and Carmel. Free or ticketed, with a shared weekend planner.">
+<link rel="canonical" href="https://theweekendfetch.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Bay Area Weekend Fetch">
+<meta property="og:title" content="The Bay Area Weekend Fetch">
+<meta property="og:description" content="What's on this weekend around the Bay Area, refreshed every Monday and Thursday. Star events and plan them with friends.">
+<meta property="og:url" content="https://theweekendfetch.com/">
+<meta property="og:image" content="https://theweekendfetch.com/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="apple-itunes-app" content="app-id=6833697642">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"The Bay Area Weekend Fetch","url":"https://theweekendfetch.com/","description":"Things to do this weekend in the San Francisco Bay Area."},{"@type":"MobileApplication","name":"The Bay Area Weekend Fetch","operatingSystem":"iOS","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://apps.apple.com/app/id6833697642"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -176,7 +187,8 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .acctor{text-align:center;color:var(--mute);font-size:13px;margin:4px 0 10px}
 .copybtn.apple{background:#000;color:#fff;width:100%;margin:4px 0 10px}
 .copybtn.apple .alogo{font-family:-apple-system,system-ui;font-size:1.15em;line-height:1}
-.errmsg,.setup{background:#fff;border-radius:14px;padding:14px 16px;margin:0 0 12px}.setup strong{font-size:16px}
+.errmsg,.appbar{display:flex;align-items:center;gap:10px;background:#0E2338;color:#fff;font-size:13px;padding:7px 8px 7px 14px}.appbar span{flex:1}.appbar a{color:#fff;font-weight:700;text-decoration:none;background:#2F5D8A;border-radius:8px;padding:6px 10px;white-space:nowrap}.appbar button{background:none;border:0;color:#B9C7D6;font-size:20px;line-height:1;padding:4px 6px}
+.setup{background:#fff;border-radius:14px;padding:14px 16px;margin:0 0 12px}.setup strong{font-size:16px}
 .okmsg{overflow-wrap:anywhere}
 .copybtn.danger{background:#B3261E}
 .copybtn[disabled]{opacity:.55}
@@ -195,6 +207,7 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .members{margin:4px 0 10px;padding-left:20px;font-size:14.5px;line-height:1.7}
 .members .tag{font-size:11px}
 .status{font-size:13.5px;font-weight:600;color:#8A3A14;margin:0 0 8px}.status.ok{color:#1F6B4A}
+.appbar{display:flex;align-items:center;gap:10px;background:#0E2338;color:#fff;font-size:13px;padding:7px 8px 7px 14px}.appbar span{flex:1}.appbar a{color:#fff;font-weight:700;text-decoration:none;background:#2F5D8A;border-radius:8px;padding:6px 10px;white-space:nowrap}.appbar button{background:none;border:0;color:#B9C7D6;font-size:20px;line-height:1;padding:4px 6px}
 .okmsg{background:#E3F2EA;color:#1F6B4A;font-weight:600;font-size:14.5px;border-radius:10px;padding:10px 12px;margin:0 0 10px}
 /* v1.1: who's going, meet-ups, clashes, all my plans */
 .going{grid-column:1/-1;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
@@ -285,6 +298,7 @@ main{grid-template-columns:repeat(3,minmax(0,1fr))}
 </head>
 <body>
 <div class="app">
+<!--appbar--><div class="appbar" id="appbar"><span>📱 Get the free iPhone app</span><a href="https://apps.apple.com/app/id6833697642" target="_blank" rel="noopener" data-k="app_store">Download on the App Store ›</a><button aria-label="Hide" onclick="this.parentNode.remove();try{localStorage.setItem('wf-appbar-off','1')}catch(e){}">×</button></div><script>try{if(localStorage.getItem('wf-appbar-off'))document.getElementById('appbar').remove()}catch(e){}</script><!--/appbar-->
 <header id="hdr">
   <h1>The Bay Area <span class="nb">Weekend Fetch</span></h1>
   <p class="slogan">Get up, get out, go fetch the weekend. 🐾</p>
@@ -296,7 +310,7 @@ main{grid-template-columns:repeat(3,minmax(0,1fr))}
 </header>
 <div class="filters" id="filters" aria-label="Filter events"></div>
 <main id="main"></main>
-<footer>Event details come from public listings. Check with the organizer before you go.<br>Refreshed every Monday and Thursday morning. Your stars are kept between refreshes.</footer>
+<footer>Event details come from public listings. Check with the organizer before you go.<br>Things to do in San Francisco, the Peninsula, Silicon Valley, Santa Cruz, Monterey, Carmel, Marin, Napa and Sonoma. <a href="privacy.html" style="color:inherit">Privacy</a><br>Refreshed every Monday and Thursday morning. Your stars are kept between refreshes.</footer>
 </div>
 <script>(function(){var h=location.hash||"",u=location.pathname+location.search,go=function(){try{history.replaceState(null,"",u+"#our-list")}catch(e){}};if(/access_token=/.test(h)){var p=new URLSearchParams(h.slice(1));window.__wfTokens={access_token:p.get("access_token"),refresh_token:p.get("refresh_token")};go()}else if(/^#join-[A-Za-z0-9]{4,10}$/.test(h)){window.__wfJoin=h.slice(6).toUpperCase();go()}else if(/error_description=/.test(h)){window.__wfAuthError=1;go()}})();</script>
 <script>/*wf-data*/(function(){var v=Math.floor(Date.now()/3e5);document.write('<script src="./data.js?v='+v+'"><\/script><script src="./walks.js?v='+v+'"><\/script>')})();</script>
@@ -427,7 +441,7 @@ function haHTML(e){
 }
 function priceHTML(e){
   if (e.price==="free") return `<span class="price free">Free</span>`;
-  if (e.price==="tickets"){ const u = okUrl(e.tix) ? e.tix : okUrl(e.url) ? e.url : ""; return u ? `<a class="price tix" href="${esc(u)}" target="_blank" rel="noopener">Tickets ↗</a>` : `<span class="price tix">Tickets required</span>`; }
+  if (e.price==="tickets"){ const u = okUrl(e.tix) ? e.tix : okUrl(e.url) ? e.url : ""; return u ? `<a class="price tix" href="${esc(u)}" target="_blank" rel="noopener" data-k="outbound_tickets" data-ev="${esc(e.id)}">Tickets ↗</a>` : `<span class="price tix">Tickets required</span>`; }
   return "";
 }
 // new movies: "Showtimes" searches for screenings near home (Google lists Bay Area theaters and times)
@@ -437,7 +451,7 @@ function filmRow(e){
   const mine = starredByMe(e.id);
   return `<div class="crow film"><button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
   <div><span class="ct">${esc(e.title)}</span><span class="cw">${esc(e.when)}${e.meta?` · ${esc(e.meta.replace(/^In theaters( nationwide)?( · )?/i,""))}`:""}</span></div>
-  <span class="flinks"><a href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener">Showtimes ↗</a>${e.url?`<a href="${esc(e.url)}" target="_blank" rel="noopener">Trailer & info ↗</a>`:""}</span></div>`;
+  <span class="flinks"><a href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>${e.url?`<a href="${esc(e.url)}" target="_blank" rel="noopener" data-k="outbound_more_info" data-ev="${esc(e.id)}">Trailer & info ↗</a>`:""}</span></div>`;
 }
 function likesBox(){
   if (state.view==="our-list") return "";
@@ -452,7 +466,7 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(e.meta)}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 const DISTS = [[0,"Any distance"],[15,"15 mi"],[30,"30 mi"],[60,"60 mi"]];
@@ -479,7 +493,7 @@ function compactHTML(e){
   const mine = starredByMe(e.id);
   return `<div class="crow"><button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
   <div><span class="ct">${esc(e.title)}</span><span class="cw">${esc(e.when)} · ${esc((e.meta||"").split(" · ")[0])}${e.mi!=null?` · ${e.mi} mi`:""}</span></div>
-  <a href="${esc(infoUrl(e))}" target="_blank" rel="noopener">Info ↗</a></div>`;
+  <a href="${esc(infoUrl(e))}" target="_blank" rel="noopener" data-k="outbound_more_info" data-ev="${esc(e.id)}">Info ↗</a></div>`;
 }
 function segHTML(){
   return `<div class="seg" role="group" aria-label="Group events"><button data-group="date" aria-pressed="${state.group==='date'}">By date</button><button data-group="weekend" aria-pressed="${state.group==='weekend'}">By weekend</button></div>`;
@@ -867,9 +881,9 @@ document.addEventListener("click", ev=>{
   if (t.dataset.view){ state.view=t.dataset.view; try{localStorage.setItem("wf-view2",state.view);}catch(e){} render(); syncHash(); window.scrollTo(0,0); }
   else if (t.dataset.jump){ const el=document.getElementById(t.dataset.jump); if(el){ const off=document.getElementById("filters").offsetHeight+8; scrollTo({top:el.getBoundingClientRect().top+scrollY-off, behavior:"smooth"}); } }
   else if (t.dataset.group){ state.group=t.dataset.group; try{localStorage.setItem("wf-group",state.group);}catch(e){} render(); }
-  else if (t.dataset.cat){ state.cat=t.dataset.cat; render(); }
+  else if (t.dataset.cat){ state.cat=t.dataset.cat; render(); if (typeof logEvent==="function" && state.cat!=="all") logEvent("filter", state.cat); }
   else if (t.dataset.like){ t.dataset.v==="1" ? likesOff.delete(t.dataset.like) : likesOff.add(t.dataset.like); saveLikes(); if (state.cat!=="all" && likesOff.has(state.cat)) state.cat="all"; const y=scrollY; render(); scrollTo(0,y); }
-  else if (t.hasAttribute("data-likesdone")){ saveLikes(); state.likesOpen=false; render(); window.scrollTo(0,0); }
+  else if (t.hasAttribute("data-likesdone")){ saveLikes(); if (typeof logEvent==="function") logEvent("interests", likesOff.size ? "no:" + [...likesOff].join(",") : "all"); state.likesOpen=false; render(); window.scrollTo(0,0); }
   else if (t.hasAttribute("data-likesall")){ likesOff.clear(); saveLikes(); const y=scrollY; render(); scrollTo(0,y); }
   else if (t.hasAttribute("data-likesopen")){ state.filtOpen=false; state.editHome=false; state.likesOpen=true; render(); window.scrollTo(0,0); }
   else if (t.hasAttribute("data-filtopen")){ state.filtOpen = !state.filtOpen; render(); }
@@ -1137,7 +1151,8 @@ function logEvent(kind, item){
   } catch (e) {}
 }
 document.addEventListener("click", ev => {
-  const a = ev.target.closest("a.lbtn"); if (!a) return;
+  const a = ev.target.closest("a[data-k], a.lbtn"); if (!a) return;
+  if (a.dataset.k) { logEvent(a.dataset.k, a.dataset.ev || null); return; }
   const card = a.closest("[id^=card-]"); const id = card ? card.id.slice(5) : null;
   logEvent(/maps/.test(a.href) ? "outbound_directions" : "outbound_more_info", id);
 }, true);
