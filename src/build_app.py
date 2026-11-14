@@ -8,7 +8,7 @@ app/www and makes a few app-only changes:
   - the latest data.js / walks.js are downloaded from the live site at launch and kept
     for next time, so the twice-weekly refresh reaches the app without a new App Store release
 """
-import os, shutil, subprocess, sys
+import re, os, shutil, subprocess, sys
 
 LIVE = "https://theweekendfetch.com/"
 here = os.path.dirname(os.path.abspath(__file__))
@@ -70,7 +70,8 @@ LOADER = r'''<script src="./data.js"></script>
   addEventListener("load", function(){ setTimeout(refresh, 300); });
 })();
 </script>''' % LIVE
-rep('<script src="./data.js"></script>\n<script src="./walks.js"></script>', LOADER)
+m = re.search(r'<script>/\*wf-data\*/.*?</script>', html); assert m, "website data loader not found"
+html = html[:m.start()] + LOADER + html[m.end():]
 
 # 3. iPhone screen edges: keep the header and sticky bars clear of the clock and camera cutout
 rep('<meta name="viewport" content="width=device-width, initial-scale=1">',
