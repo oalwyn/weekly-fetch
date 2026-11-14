@@ -91,6 +91,9 @@ Plan agreed with the owner: wrap the site with **Capacitor** (iOS) and add real 
 - App 1.1 (build 3): native Sign in with Apple (`WFAppleSignInPlugin` in ios/App/App/WFCalendarPlugin.swift → `window.WF_APPLE_SIGNIN` in native_app.js → `signInWithIdToken` with a SHA-256 nonce); `ios/App/App/App.entitlements` (Sign in with Apple + `applinks:theweekendfetch.com`, linked via CODE_SIGN_ENTITLEMENTS); @capacitor/app 8.1.2 opens invite links `https://theweekendfetch.com/join/?c=CODE` (`/.well-known/apple-app-site-association`, served thanks to `.nojekyll`); build_app.py copies `vendor/` into the app. accounts.js wrappers are named `_acct*` so they don't clash with native_app.js's `_setPlan` etc.
 - Sign-in emails: Supabase custom SMTP via Resend (connected with Resend's Supabase integration; Resend account shared with Cazavera; domain theweekendfetch.com verified, DNS at Porkbun: resend._domainkey TXT, send/rsend CNAMEs, _dmarc TXT; Resend's receiving MX deliberately NOT added so Porkbun email forwarding keeps working). Sender noreply@theweekendfetch.com. Templates "Magic link or OTP" and "Confirm sign up" show {{ .Token }} (subject too). Email OTP length set to 6 (was 8), expiry 3600s; src/accounts.js expects 6 digits.
 
+### Version 1.2 (prepared Nov 14, 2026)
+- Build 1.2 (6) uploaded to App Store Connect, not yet submitted: submit it once 1.1 is approved (What's New and review notes in `app-store/LISTING.md`). Adds sports/movies, Free/Tickets labels, the interests checklist and the past-day lock fix. Privacy answers unchanged.
+
 ### iPhone app: current state (merged into `main`)
 - Home-screen name "Bay Fetch" (App Store name "The Bay Area Weekend Fetch"), bundle id `io.github.oalwyn.weekendfetch` (chosen by the owner). Capacitor 8.6.0, Swift Package Manager (no CocoaPods).
 - App 1.0 (build 1) still has the old address built in, so it can't download fresh events. 1.0.1 (build 2) switches `LIVE` in build_app.py to https://theweekendfetch.com/.
