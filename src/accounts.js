@@ -174,11 +174,11 @@ toggleStar = async function(id){
     const gids = minein.size ? [...minein] : [ACCT.gid];
     const names = gids.map(g => groupName(g));
     await Promise.all(gids.map(g => setInPlan(id, g, false, true)));
-    showSheet(id, "removed", names); acctSync(); return;
+    showPlansSheet(id, "removed", names); acctSync(); return;
   }
   const main = mainGid();
   await setInPlan(id, main, true, true);
-  if (myGroups().length > 1) showSheet(id, "added"); else showSheet(null);
+  if (myGroups().length > 1) showPlansSheet(id, "added"); else showPlansSheet(null);
   acctSync();
 };
 // add or remove my star on one plan (group)
@@ -488,11 +488,11 @@ whoLine = function(id){
 };
 // the little panel at the bottom: after a star ("Also add to Friends"), after an unstar, or from the Plans button
 let sheetTimer = null;
-function showSheet(id, mode, names){
+function showPlansSheet(id, mode, names){
   clearTimeout(sheetTimer);
   ACCT.sheet = id ? { id, mode, names: names || [], touched: false } : null;
   renderSheet();
-  if (id && mode !== "edit") sheetTimer = setTimeout(() => { if (ACCT.sheet && !ACCT.sheet.touched) showSheet(null); }, mode === "removed" ? 3500 : 7000);
+  if (id && mode !== "edit") sheetTimer = setTimeout(() => { if (ACCT.sheet && !ACCT.sheet.touched) showPlansSheet(null); }, mode === "removed" ? 3500 : 7000);
 }
 function renderSheet(){
   let el = document.getElementById("wfsheet");
@@ -536,9 +536,9 @@ document.addEventListener("click", async ev => {
       await acctSync(); return;
     }
     else if (a === "make-main") { lsSet("wf-main", ACCT.gid); ACCT.msg = `“${ACCT.group.name}” is now your main plan. New stars go here.`; }
-    else if (a === "plans-pick") { showSheet(b.dataset.id, "edit"); return; }
+    else if (a === "plans-pick") { showPlansSheet(b.dataset.id, "edit"); return; }
     else if (a === "plan-toggle") { const id = b.dataset.id, g = b.dataset.gid; ACCT.sheet.touched = true; await setInPlan(id, g, !(ACCT.mine.get(id) || new Set()).has(g)); return; }
-    else if (a === "sheet-close") { showSheet(null); return; }
+    else if (a === "sheet-close") { showPlansSheet(null); return; }
     else if (a === "meet-edit") ACCT.ui.meetEdit = b.dataset.id;
     else if (a === "meet-cancel") ACCT.ui.meetEdit = "";
     else if (a === "meet-remove") { ACCT.meet.delete(b.dataset.id); refreshStars(); await call("set_meetup", { p_group: ACCT.gid, p_item: b.dataset.id, p_time: null, p_place: null }); await acctSync(); return; }

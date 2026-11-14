@@ -427,6 +427,8 @@ function showSheet(){
   const s = document.getElementById("sheet"); if(!s) return;
   const e = DATA.find(d=>d.id===state.sel);
   s.innerHTML = e ? cardHTML(e) : "";
+  // on a phone the card sits below the map: bring it into view
+  if (e){ const r = s.getBoundingClientRect(); if (r.top > innerHeight - 120) s.scrollIntoView({block:"nearest", behavior:"smooth"}); }
 }
 function zoom(f, cx, cy){
   const nw = Math.min(MAP_W*1.4, Math.max(MAP_W*0.025, vb[2]*f)); const k = nw/vb[2];
