@@ -25,6 +25,7 @@ rep('<title>The Bay Area Weekend Fetch</title>','''<title>The Bay Area Weekend F
 <meta name="twitter:card" content="summary">
 <meta name="apple-itunes-app" content="app-id=6833697642">
 <meta name="google-site-verification" content="2N3Uxn8G6NY2M8kNgwB9BkPi0ISLloUzPGOYMEj6YGY">
+<meta name="msvalidate.01" content="B7752A49FADD355C226B4174CB823640">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"The Bay Area Weekend Fetch","url":"https://theweekendfetch.com/","description":"Things to do this weekend in the San Francisco Bay Area."},{"@type":"MobileApplication","name":"The Bay Area Weekend Fetch","operatingSystem":"iOS","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://apps.apple.com/app/id6833697642"}]}</script>''')
 rep('<header id="hdr">','''<!--appbar--><div class="appbar" id="appbar"><span>📱 Get the free iPhone app</span><a href="https://apps.apple.com/app/id6833697642" target="_blank" rel="noopener" data-k="app_store">Download on the App Store ›</a><button aria-label="Hide" onclick="this.parentNode.remove();try{localStorage.setItem('wf-appbar-off','1')}catch(e){}">×</button></div><script>try{if(localStorage.getItem('wf-appbar-off'))document.getElementById('appbar').remove()}catch(e){}</script><!--/appbar-->
 <header id="hdr">''')
