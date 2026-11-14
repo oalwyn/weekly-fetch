@@ -70,14 +70,16 @@ events,weekend,things to do,san francisco,peninsula,south bay,marin,napa,dog fri
 
 ## What's New
 
-**1.1** (accounts and groups):
+**1.1** (accounts and groups; submitted Nov 13, 2026 with build 5):
 
 ```
 Plan weekends with your people.
-• Sign in with Apple or with your email to start a group for your household or friends.
+• Sign in with Apple or your email, then start a group for your household or friends.
 • Invite people with a link, a 6-letter code or a QR code. Invite links open the app.
-• Be in several groups and switch between them.
-• Already sharing a plan? Move it into a group in one tap, stars and all.
+• Stars go to your main plan, and one tap adds them to another group too.
+• See who's going: Going, Maybe or Can't on every locked-in plan.
+• Add a meet-up time and place. Reminders and Add to Calendar use it.
+• All my plans: every group's plans in one place, with clashes flagged.
 • Browsing still needs no account, and you can delete your account any time.
 ```
 
@@ -101,7 +103,7 @@ Apple scales these down for smaller iPhones automatically.
 
 ## App Privacy ("nutrition label")
 
-Answers for **version 1.1** (accounts, groups, usage counts). Update the published answers **before submitting 1.1**; 1.0/1.0.1 used the shorter list at the bottom.
+Answers for **version 1.1** (accounts, groups, usage counts). Published in App Store Connect on Nov 13, 2026 (Coarse Location not declared, as in 1.0); 1.0/1.0.1 used the shorter list at the bottom.
 
 **Do you or your third-party partners collect data from this app?** Yes
 
@@ -150,6 +152,9 @@ WHAT'S NEW IN 1.1: ACCOUNTS AND GROUPS
 - Sign in on the "Our Weekend Plans" tab with Sign in with Apple, or with any email address (we email a 6-digit code; no password).
 - After choosing a first name, create a group (e.g. "Our household"). The invite screen shows a link, a 6-letter join code and a QR code; "Share invite" opens the iOS share sheet.
 - Invite links (https://theweekendfetch.com/join/?c=CODE) open the app via universal links and join the group after sign-in.
+- Stars go to your main group; with two or more groups, a pop-up offers "Also add to" the others.
+- On a locked-in plan: Going / Maybe / Can't, who's going, and a meet-up time and place.
+- "All my plans" (group menu) lists locked-in plans from every group and flags clashes.
 - Group & account: rename, see members, make a new join code (owner), leave the group, sign out, and Delete my account (in-app account deletion, with confirmation).
 
 NATIVE FEATURES TO TRY
