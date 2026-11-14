@@ -41,9 +41,11 @@ The Bay Area Weekend Fetch is a hand-picked guide to what's on this weekend and 
 
 FIND SOMETHING TO DO
 • Holiday events, markets, concerts and shows, art, food and coffee
+• Sports games (pro, college and high school, men's and women's) and new movies in theaters
+• Free or ticketed at a glance, with a direct link to buy tickets
 • Picks for young kids, teens and teen programs (with application deadlines)
 • Dog-friendly events and dog walks, with notes on where dogs aren't allowed
-• Browse by weekend or by date, filter by category and distance from home
+• Browse by weekend or by date, filter by category and distance from home, or hide what you're not into
 • See everything on a map of the Bay Area coast
 
 PLAN YOUR WEEKEND TOGETHER
@@ -69,6 +71,18 @@ events,weekend,things to do,san francisco,peninsula,south bay,marin,napa,dog fri
 ```
 
 ## What's New
+
+**1.2** (sports, movies, prices; build 6 uploaded Nov 14, 2026, to submit once 1.1 is approved):
+
+```
+More to do, and easier to choose.
+• Sports: pro, college and high school games, men's and women's, marked Home, Away or Neutral site.
+• New movies: what's opening in theaters each weekend, with showtimes near you.
+• Free or Tickets on every event. Tap Tickets to go straight to the official ticket page.
+• Pick your interests: say no to what you don't want, and it's hidden from Events and the Map.
+• More events across the Peninsula and South Bay, including theater, museums and holiday weeks.
+• Fixed: on a Saturday, "Lock it in" no longer offers the day before.
+```
 
 **1.1** (accounts and groups; submitted Nov 13, 2026 with build 5):
 
@@ -114,7 +128,7 @@ Answers for **version 1.1** (accounts, groups, usage counts). Published in App S
 | User Content → **Other User Content** | App Functionality | Yes | No | Stars, locked-in days and group names |
 | Identifiers → **User ID** | App Functionality, Analytics | Yes | No | The account identifier |
 | Identifiers → **Device ID** | Analytics | **No** | No | A random code created on the device, used only for signed-out usage counts (not the advertising identifier) |
-| Usage Data → **Product Interaction** | Analytics | Yes | No | Usage counts (app opens, stars, locks, invites, "More info"/"Directions" taps). Linked when signed in |
+| Usage Data → **Product Interaction** | Analytics | Yes | No | Usage counts (app opens, stars, locks, invites, "More info"/"Directions"/"Tickets"/"Showtimes" taps, filters, interests). Linked when signed in. 1.2 adds kinds of taps but no new data types, so the answers don't change |
 | Location | not collected | | | GPS stays on the phone. A typed home address goes to OpenStreetMap's lookup in real time and isn't stored (Apple's "optional disclosure" case). To be cautious, declare *Coarse Location → App Functionality, not linked, no tracking* |
 | Everything else (contacts, diagnostics, purchases, browsing history…) | not collected | | | |
 
@@ -141,7 +155,26 @@ One judgment call: a few listings mention wine walks or beer festivals. If you w
 
 **Contact:** your name, phone number and email. Only Apple's review team sees these.
 
-**Notes for 1.1** (paste into the "Notes" box):
+**Notes for 1.2** (paste into the "Notes" box, replacing the 1.1 notes):
+
+```
+Thank you for reviewing The Bay Area Weekend Fetch 1.2.
+
+Browsing events needs no account. Accounts are optional and only used to plan weekends with a group (see the 1.1 notes below, unchanged).
+
+WHAT'S NEW IN 1.2
+- Sports and movie listings. Sports games show "Home game", "Away game" or "Neutral site". Each weekend has a "New in theaters" box; "Showtimes" opens a web search for showtimes near the user's home location, in Safari.
+- Events show "Free" or "Tickets". "Tickets" opens the official ticket page in Safari. The app doesn't sell tickets and has no in-app purchases.
+- "Pick your interests" (Events tab, above the list): Yes/No per category; "No" hides that category from Events and the Map. Saved on the device.
+- Fix: past days are no longer offered when locking in a plan.
+
+To try it: open the Events tab, tap "Pick your interests", say No to a category and tap Done; open Filter events and choose "Sports" or "Movies".
+
+DATA
+Same as 1.1: accounts, groups, stars and simple usage counts (now also taps on Tickets/Showtimes, filters and interests) are stored in our Supabase database. No ads, no tracking, no third-party analytics in the app. Privacy policy: https://theweekendfetch.com/privacy.html
+```
+
+**Notes for 1.1** (for reference):
 
 ```
 Thank you for reviewing The Bay Area Weekend Fetch 1.1.
