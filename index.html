@@ -613,9 +613,10 @@ function planGroups(cur){
     }
     if (e.cat==="prog"){ dl.push(e); continue; }
     if (e.cat==="walk"){ any.push(e); continue; }
-    if (isLong(e) && W.some(w=>daysOf(e,w.fri,w.sun).length)){ flex.push(e); continue; }
+    if (isLong(e) && W.some(w=>daysOf(e,w.fri,w.sun).some(x=>parseD(x)>=TODAY))){ flex.push(e); continue; }
     let placed = false;
-    groups.forEach(g=>{ const ds = daysOf(e,g.w.fri,g.w.sun); if (ds.length && !isLong(e)){ g.maybe.push({e,opts:ds}); placed = true; } });
+    // only days from today on can be locked in (on a Saturday, this weekend's Friday is already over)
+    groups.forEach(g=>{ const ds = daysOf(e,g.w.fri,g.w.sun).filter(x=>parseD(x)>=TODAY); if (ds.length && !isLong(e)){ g.maybe.push({e,opts:ds}); placed = true; } });
     if (placed) continue;
     const ds = daysOf(e, TODAY, far).filter(x=>!wkDays.has(x));
     if (ds.length && parseD(ds[0]) <= lastSun) wn.maybe.push({e,opts:ds.filter(x=>parseD(x)<=lastSun)});
@@ -637,7 +638,7 @@ function lockedCtl(e, k, opts){
   const move = opts && opts.length > 1 ? `<select class="locksel small" data-plan="${esc(e.id)}" aria-label="Move ${esc(e.title)} to another day"><option value="">Move to…</option>${opts.filter(x=>x!==k).map(x=>`<option value="${x}">${dayLabel(x)}</option>`).join("")}</select>` : "";
   return `<div class="lockrow"><button class="lockbtn" data-lock="${esc(e.id)}" data-k="${k}" aria-pressed="true">✓ Locked in · ${dayLabel(k)}</button>${move}<span class="locknote">Tap to make it a maybe</span></div>`;
 }
-const allWkOpts = (e, W) => W.flatMap(w=>daysOf(e,w.fri,w.sun));
+const allWkOpts = (e, W) => W.flatMap(w=>daysOf(e,w.fri,w.sun)).filter(x=>parseD(x)>=TODAY);
 // compact plan rows: date/time · activity · place; tap to open the full card
 const openRows = new Set();
 function planRow(e, ctl, k){
@@ -651,10 +652,10 @@ function planRow(e, ctl, k){
 function weekendHTML(g, W){
   const keys = Object.keys(g.days), n = keys.reduce((s,k)=>s+g.days[k].length,0), m = g.maybe.length;
   let h = ``+band(g.id,esc(g.title),`${esc(g.sub)} · ${n?`<strong class="lockc">${n} locked in</strong>`:"nothing locked in"}${m?` · ${m} maybe${m===1?"":"s"}`:""}`, g.wk?WKC[g.i]:null);
-  h += `<div class="sched">` + keys.map(k=>{
+  h += `<div class="sched">` + keys.filter(k=>parseD(k)>=TODAY).map(k=>{
     const d = parseD(k), list = g.days[k];
     const head = `<div class="sched-d${list.length?"":" free"}"><span>${DAYF[d.getDay()]} ${MON[d.getMonth()]} ${d.getDate()}</span>${list.length?"":`<em>Free</em>`}</div>`;
-    return head + list.map(({e})=>planRow(e,lockedCtl(e,k,isLong(e)?allWkOpts(e,W):daysOf(e,g.w.fri,g.w.sun)),k)).join("");
+    return head + list.map(({e})=>planRow(e,lockedCtl(e,k,isLong(e)?allWkOpts(e,W):daysOf(e,g.w.fri,g.w.sun).filter(x=>parseD(x)>=TODAY)),k)).join("");
   }).join("") + `</div>`;
   if (m) h += `<div class="plan-h">Maybe this weekend</div>` + g.maybe.map(({e,opts})=>planRow(e,planCtl(e,opts))).join("");
   return h;

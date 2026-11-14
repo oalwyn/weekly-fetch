@@ -65,7 +65,7 @@ try:
         ok('theweekendfetch.com/join/?c=' + code in A.inner_text('.ilink'), 'invite link uses the new domain')
         A.screenshot(path=f'{OUT}/e2e-3-invite.png', full_page=True)
         A.click('[data-acct=close]'); A.click('button[data-view="events"]'); A.wait_for_timeout(500)
-        first = A.get_attribute('[data-star]', 'data-star'); A.click(f'[data-star="{first}"]'); A.wait_for_timeout(1200)
+        first = A.get_attribute('article.card [data-star]', 'data-star'); A.click(f'[data-star="{first}"]'); A.wait_for_timeout(1200)
         rows = sql(f"select who from group_picks where item_id = '{first}'"); ok(len(rows) == 1, 'star saved to the group')
         plans(A); A.click(f'[data-expand="{first}"]'); A.wait_for_timeout(300)
         lock = A.query_selector(f'[data-lock="{first}"]') or None
@@ -90,10 +90,15 @@ try:
         plans(A)
         A.screenshot(path=f'{OUT}/e2e-4-group.png', full_page=True)
         # ---- who's going and meet-up ----
-        if not A.is_visible('.going'): A.click(f'[data-expand="{first}"]'); A.wait_for_timeout(300)
+        def show_going(pg):
+            # wait for the group to sync, then make sure the plan row is open
+            pg.evaluate('sync()'); pg.wait_for_timeout(1200)
+            for _ in range(2):
+                if pg.is_visible('.going'): break
+                pg.click(f'[data-expand="{first}"]'); pg.wait_for_timeout(500)
+        show_going(A)
         ok(A.is_visible('.going') and A.get_attribute('.rbtn.going', 'aria-pressed') == 'true', 'locking it in marks Olivier as going')
-        plans(B)
-        if not B.is_visible('.going'): B.click(f'[data-expand="{first}"]'); B.wait_for_timeout(300)
+        plans(B); show_going(B)
         B.click('.rbtn.no'); B.wait_for_timeout(1200)
         ok(sql(f"select status from group_rsvps r join auth.users u on u.id = r.user_id where u.email = 'sam@example.com' and item_id = '{first}'")[0]['status'] == 'no', "Sam's Can't saved")
         B.click('.going [data-acct=meet-edit]'); B.wait_for_timeout(200)
@@ -120,7 +125,7 @@ try:
         # ---- main plan: a star from Events goes to Household; the pop-up offers Friends ----
         hh = sql("select id from groups where name = 'Our household'")[0]['id']
         A.click('button[data-view="events"]'); A.wait_for_timeout(500)
-        second = next(i for i in A.evaluate("[...document.querySelectorAll('[data-star]')].map(b=>b.dataset.star)") if i != first)
+        second = next(i for i in A.evaluate("[...document.querySelectorAll('article.card [data-star]')].map(b=>b.dataset.star)") if i != first)
         A.click(f'[data-star="{second}"]'); A.wait_for_timeout(1200)
         where = lambda: sorted(r['group_id'] for r in sql(f"select group_id from group_picks where item_id = '{second}'"))
         ok(where() == [hh], 'a star from Events goes to the main plan only')
