@@ -105,7 +105,7 @@ copyOut = function(t, text, okMsg, label){
   if (!SHARE || !/#list-/.test(text)) return _copyOut(t, text, okMsg, label);
   SHARE.share({
     title: "Plan weekends with me",
-    text: "Join our weekend plans on The Bay Area Weekend Fetch:",
+    text: `Join our weekend plans on ${CITY.brand}:`,
     url: text,
     dialogTitle: "Invite someone to plan"
   }).catch(() => {});   // closing the share sheet without sending is fine

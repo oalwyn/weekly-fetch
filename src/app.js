@@ -1,7 +1,11 @@
 const WF = window.WF_DATA || {updated:"", items:[]};
 const WALKS = window.WF_WALKS || {items:[], nodogs:[]};
 const DATA = WF.items.concat(WALKS.items);
-const HOME_DEFAULT = {name:"Mountain View", lat:37.3861, lon:-122.0839};
+// this page's city (src/cities/<key>.json, injected by the build)
+const CITY = window.WF_CITY;
+const HOME_DEFAULT = {...CITY.home};
+const KM = CITY.units === "km";
+const UNIT = KM ? "km" : "mi";
 let HOME = {...HOME_DEFAULT};
 try { const h = JSON.parse(localStorage.getItem("wf-home") || "null"); if (h && isFinite(h.lat) && isFinite(h.lon)) HOME = h; } catch(e) {}
 const BBOX = /*BBOX*/[0,0,0,0];
@@ -19,7 +23,7 @@ const likeKey = c => c==="walk" ? "dog" : (c in CATS ? c : "evt");
 function saveLikes(){ likesSet = true; try { localStorage.setItem("wf-likes-off", JSON.stringify([...likesOff])); } catch(e) {} }
 
 let state = {view:"events", cat:"all", dist:0, sel:null, group:"weekend", editHome:false, homeMsg:"", likesOpen:false};
-try { const d = +localStorage.getItem("wf-dist"); if ([15,30,60].includes(d)) state.dist = d; } catch(e) {}
+try { const d = +localStorage.getItem("wf-dist"); if (CITY.dists.includes(d)) state.dist = d; } catch(e) {}
 try { const g = localStorage.getItem("wf-group"); if (g==="weekend"||g==="date") state.group = g; } catch(e) {}
 /* ---- dates & weekends ---- */
 const DAYMS = 864e5, DAYN = ["sun","mon","tue","wed","thu","fri","sat"], MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -94,7 +98,7 @@ const pickers = id => shared && picks.get(id) ? picks.get(id).uids : [];
 
 function miles(a,b,c,d){const R=3958.8,r=Math.PI/180;const x=Math.sin((c-a)*r/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin((d-b)*r/2)**2;return 2*R*Math.asin(Math.sqrt(x));}
 function measure(){
-  DATA.forEach(e=>{ e.mi = e.lat!=null ? Math.round(miles(HOME.lat,HOME.lon,e.lat,e.lon)) : null; });
+  DATA.forEach(e=>{ e.mi = e.lat!=null ? Math.round(miles(HOME.lat,HOME.lon,e.lat,e.lon) * (KM ? 1.609344 : 1)) : null; });   // in the city's unit (mi or km)
   // dog walks: closest to home first
   const w = DATA.filter(e=>e.cat==="walk").sort((x,y)=>(x.mi??999)-(y.mi??999));
   const rest = DATA.filter(e=>e.cat!=="walk"); DATA.length = 0; DATA.push(...rest, ...w);
@@ -151,16 +155,16 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(e.meta)}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} mi</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
-const DISTS = [[0,"Any distance"],[15,"15 mi"],[30,"30 mi"],[60,"60 mi"]];
+const DISTS = [[0,"Any distance"], ...CITY.dists.map(d=>[d, d+" "+UNIT])];
 function renderFilters(){
   const f = document.getElementById("filters");
   if (state.view==="our-list"){ f.innerHTML=""; f.style.display="none"; return; }
   f.style.display="";
   const catLabel = state.cat==="all" ? (likesOff.size ? "My interests" : "All") : CATS[state.cat].label;
-  const distLabel = state.dist ? `Within ${state.dist} mi` : "Any distance";
+  const distLabel = state.dist ? `Within ${state.dist} ${UNIT}` : "Any distance";
   const active = (state.cat!=="all") + (!!state.dist);
   let h = `<div class="fbar"><button class="filterbtn${active?" on":""}" data-filtopen aria-expanded="${!!state.filtOpen}" aria-controls="fpanel">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4-2v-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
@@ -177,7 +181,7 @@ function renderFilters(){
 function compactHTML(e){
   const mine = starredByMe(e.id);
   return `<div class="crow"><button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-  <div><span class="ct">${esc(e.title)}</span><span class="cw">${esc(e.when)} · ${esc((e.meta||"").split(" · ")[0])}${e.mi!=null?` · ${e.mi} mi`:""}</span></div>
+  <div><span class="ct">${esc(e.title)}</span><span class="cw">${esc(e.when)} · ${esc((e.meta||"").split(" · ")[0])}${e.mi!=null?` · ${e.mi} ${UNIT}`:""}</span></div>
   <a href="${esc(infoUrl(e))}" target="_blank" rel="noopener" data-k="outbound_more_info" data-ev="${esc(e.id)}">Info ↗</a></div>`;
 }
 function segHTML(){
@@ -366,7 +370,7 @@ function renderOurList(){
 function listText(){
   const {cur} = ourListItems(), P = planGroups(cur);
   const line = e => { const t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(am|pm)/i); return `${e.title}${t?" "+t[0]:""} (${(e.meta||"").split(" · ")[0]})`; };
-  let t = "Our weekend plans (The Bay Area Weekend Fetch)\n";
+  let t = `Our weekend plans (${CITY.brand})\n`;
   for (const g of P.groups){
     const keys = Object.keys(g.days); if (!keys.some(k=>g.days[k].length) && !g.maybe.length) continue;
     t += `\n${g.title} (${fmtRange(g.w.fri,g.w.sun)})\n`;
@@ -385,9 +389,11 @@ function listText(){
 }
 /* ---------- map ---------- */
 const proj = (lat,lon) => [ (lon-BBOX[2])/(BBOX[3]-BBOX[2])*MAP_W, (BBOX[1]-lat)/(BBOX[1]-BBOX[0])*MAP_H ];
-function boxAround(lat,lon,spanMi){ const [x,y]=proj(lat,lon); const w=spanMi/((BBOX[3]-BBOX[2])*69*Math.cos(37.6*Math.PI/180))*MAP_W; return [x-w/2,y-w/2,w,w]; }
-const PRESETS = {"Bay Area":boxAround(37.68,-122.25,58), "San Francisco":boxAround(37.783,-122.43,8), "Peninsula":boxAround(37.56,-122.27,24), "Near home":boxAround(HOME.lat,HOME.lon,11), "San Jose":boxAround(37.33,-121.89,6), "Santa Cruz":boxAround(36.975,-122.0,10), "Monterey & Carmel":boxAround(36.59,-121.90,10), "Marin":boxAround(37.95,-122.55,22), "Napa & Sonoma":boxAround(38.38,-122.50,42), "Everything":[0,0,MAP_W,MAP_H]};
-let vb = [...PRESETS["Bay Area"]];
+const MIDLAT = (BBOX[0]+BBOX[1])/2;
+function boxAround(lat,lon,spanMi){ const [x,y]=proj(lat,lon); const w=spanMi/((BBOX[3]-BBOX[2])*69*Math.cos(MIDLAT*Math.PI/180))*MAP_W; return [x-w/2,y-w/2,w,w]; }
+// map views (spans in miles): [name, lat, lon, span]; "Near home" follows home, "Everything" is the whole map
+const PRESETS = Object.fromEntries(CITY.presets.map(([k,la,lo,sp]) => [k, k==="Everything" ? [0,0,MAP_W,MAP_H] : k==="Near home" ? boxAround(HOME.lat,HOME.lon,sp) : boxAround(la,lo,sp)]));
+let vb = [...PRESETS[CITY.map_start]];
 try { const s = JSON.parse(localStorage.getItem("wf-vb2")); if (s && s.length===4) vb = s; } catch(e) {}
 let starOnly = false;
 function mapHTML(){
@@ -415,9 +421,9 @@ function drawMap(){
     });
   });
   const [hx,hy]=proj(HOME.lat,HOME.lon);
-  const labels = [["San Francisco",37.745,-122.47],["Daly City",37.675,-122.48],["San Mateo",37.535,-122.33],["Redwood City",37.47,-122.25],["Palo Alto",37.425,-122.17],["San Jose",37.36,-121.92],["Half Moon Bay",37.44,-122.43],["Oakland",37.83,-122.23],["Pacific Ocean",37.25,-122.55],["SF Bay",37.6,-122.25],["Santa Cruz",37.0,-122.02],["Capitola",36.99,-121.95],["Watsonville",36.92,-121.77],["Monterey Bay",36.8,-122.0],["Monterey",36.6,-121.86],["Pacific Grove",36.635,-121.93],["Carmel",36.545,-121.9],["Salinas",36.68,-121.66],["Sausalito",37.86,-122.49],["Tiburon",37.885,-122.44],["San Rafael",37.975,-122.53],["Mill Valley",37.91,-122.56],["Point Reyes",38.07,-122.84],["Petaluma",38.235,-122.64],["Sonoma",38.29,-122.46],["Napa",38.30,-122.29],["Santa Rosa",38.44,-122.71],["Healdsburg",38.61,-122.87],["Calistoga",38.58,-122.58],["St. Helena",38.505,-122.47]];
+  const labels = CITY.labels;
   const lf = 12*pxPer;
-  const lab = labels.map(([t,la,lo])=>{const [x,y]=proj(la,lo);const water=t==="Pacific Ocean"||t==="SF Bay"||t==="Monterey Bay";return `<text x="${x}" y="${y}" text-anchor="middle" font-size="${lf}" font-weight="600" fill="${water?'#5F86A8':'#8A8F94'}" font-family="Inter,sans-serif" font-style="${water?'italic':'normal'}" pointer-events="none">${t}</text>`}).join("");
+  const lab = labels.map(([t,la,lo,w])=>{const [x,y]=proj(la,lo);const water=!!w;return `<text x="${x}" y="${y}" text-anchor="middle" font-size="${lf}" font-weight="600" fill="${water?'#5F86A8':'#8A8F94'}" font-family="Inter,sans-serif" font-style="${water?'italic':'normal'}" pointer-events="none">${t}</text>`}).join("");
   svg.setAttribute("viewBox", vb.join(" "));
   svg.innerHTML = `<rect x="-2000" y="-2000" width="${MAP_W+4000}" height="${MAP_H+4000}" fill="#F3F1EA"/><path d="${COAST}" fill="#CFE0EE" fill-rule="evenodd" stroke="#A9C3DA" stroke-width="${1.2*pxPer}"/>${lab}
   <circle cx="${hx}" cy="${hy}" r="${8*pxPer}" fill="#fff" stroke="#B9531F" stroke-width="${3.5*pxPer}"/><text x="${hx+12*pxPer}" y="${hy+24*pxPer}" text-anchor="middle" font-size="${lf}" font-weight="700" fill="#B9531F" font-family="Inter,sans-serif" pointer-events="none">Home</text>${pins}`;
@@ -463,7 +469,7 @@ function homeBox(){
 }
 function setHome(h, msg){
   HOME = h; try { localStorage.setItem("wf-home", JSON.stringify(h)); } catch(e) {}
-  PRESETS["Near home"] = boxAround(h.lat, h.lon, 11);
+  PRESETS["Near home"] = boxAround(h.lat, h.lon, CITY.near_home_span);
   measure(); state.homeMsg = msg || `Home set to ${h.name}. Distances updated.`; render();
 }
 async function findHome(){
@@ -471,12 +477,12 @@ async function findHome(){
   if (!q) return;
   state.homeMsg = "Looking it up…"; const keep = q; render(); const j = document.getElementById("homeq"); if (j) j.value = keep;
   try {
-    const r = await fetch("https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=us&q=" + encodeURIComponent(q), {headers:{"Accept":"application/json"}});
+    const r = await fetch("https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=" + CITY.country + "&q=" + encodeURIComponent(q), {headers:{"Accept":"application/json"}});
     const res = await r.json();
     if (!res || !res.length){ state.homeMsg = "Couldn't find that. Try adding the city, or just a ZIP code."; render(); return; }
     const lat = +res[0].lat, lon = +res[0].lon, a = res[0].address || {};
     const name = (q.length <= 22 ? q : (res[0].name || q.split(",")[0])).slice(0, 28);
-    const far = miles(lat, lon, 37.2, -122.0) > 120;
+    const far = miles(lat, lon, CITY.far.lat, CITY.far.lon) > CITY.far.mi;
     setHome({name, lat, lon}, far ? `Home set to ${name}, but that's a long way from these events, so most distances will be large.` : "");
   } catch(e) { state.homeMsg = "Couldn't reach the address lookup. Check your connection, or use your current location."; render(); }
 }

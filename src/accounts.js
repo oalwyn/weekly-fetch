@@ -39,17 +39,14 @@ const shortId = () => rid().replace(/-/g, "").slice(0, 20);
 let ANON = lsGet("wf-anon");
 if (!ANON || !/^[A-Za-z0-9_-]{6,40}$/.test(ANON)) { ANON = "a" + shortId(); lsSet("wf-anon", ANON); }
 function newDeviceCode(){ ANON = "a" + shortId(); lsSet("wf-anon", ANON); }
-// regions used in reports (approximate, from the listing's map position)
+// regions used in reports (approximate, from the listing's map position): the city's ordered rules
+// [key, minLat, maxLat, minLon, maxLon] — first rule whose bounds all hold (lat >= minLat, lat < maxLat, lon > minLon, lon < maxLon)
 function regionOf(e){
   if (!e || e.lat == null || e.lon == null) return null;
   const a = +e.lat, o = +e.lon;
-  if (a < 36.85) return "monterey";
-  if (a < 37.12 && o < -121.6) return "santa_cruz";
-  if (a >= 37.83) return o > -122.33 ? "east_bay" : "north_bay";
-  if (a >= 37.70 && o <= -122.35) return "sf";
-  if (o > -122.33 && a >= 37.60) return "east_bay";
-  if (a >= 37.43 || o < -122.25) return "peninsula";
-  return "south_bay";
+  for (const [k, la0, la1, lo0, lo1] of CITY.regions)
+    if ((la0 == null || a >= la0) && (la1 == null || a < la1) && (lo0 == null || o > lo0) && (lo1 == null || o < lo1)) return k;
+  return null;
 }
 const itemOf = id => (typeof DATA !== "undefined" && DATA.find(d => d.id === id)) || (picks.get(id) && picks.get(id).item) || null;
 function itemFields(id){
@@ -358,7 +355,7 @@ async function joinWithCode(code, fromLink){
 }
 const inviteLink2 = () => LIVE_SITE + "join/?c=" + encodeURIComponent(ACCT.group ? ACCT.group.code : "");
 async function shareInvite(btn){
-  const link = inviteLink2(), text = `Plan weekends with me on The Bay Area Weekend Fetch. Join our group “${ACCT.group.name}”: ${link} (or enter code ${ACCT.group.code})`;
+  const link = inviteLink2(), text = `Plan weekends with me on ${CITY.brand}. Join our group “${ACCT.group.name}”: ${link} (or enter code ${ACCT.group.code})`;
   // opening the share sheet is a request; only a completed share (or a copy) counts as shared
   const gid = ACCT.group.id;
   track("invite_share_opened", { group_id: gid });

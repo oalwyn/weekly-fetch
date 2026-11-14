@@ -13,14 +13,16 @@ rep('<meta name="theme-color" content="#2F5D8A">','''<meta name="theme-color" co
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=4">
 <link rel="icon" type="image/png" href="icon-192.png?v=4">''')
 # search engines, link previews and the App Store (website only; build_app.py strips the <!--appbar--> block and the app banner tag)
-rep('<title>The Bay Area Weekend Fetch</title>','''<title>The Bay Area Weekend Fetch · Bay Area events this weekend</title>
-<meta name="description" content="Things to do this weekend in the San Francisco Bay Area: holiday markets and lights, concerts and shows, sports games, new movies, dog-friendly outings and kids' events, from Marin and Napa to San Jose, Santa Cruz and Carmel. Free or ticketed, with a shared weekend planner.">
-<link rel="canonical" href="https://theweekendfetch.com/">
+SEO=CITYCFG['seo']; PAGEURL='https://theweekendfetch.com/'+(CITYCFG['path']+'/' if CITYCFG['path'] else '')
+_esc=lambda t: t.replace('&','&amp;').replace('"','&quot;')
+rep('<title>%s</title>' % CITYCFG['brand'],'''<title>'''+SEO['title']+'''</title>
+<meta name="description" content="'''+_esc(SEO['description'])+'''">
+<link rel="canonical" href="'''+PAGEURL+'''">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="The Bay Area Weekend Fetch">
-<meta property="og:title" content="The Bay Area Weekend Fetch">
-<meta property="og:description" content="What's on this weekend around the Bay Area, refreshed every Monday and Thursday. Star events and plan them with friends.">
-<meta property="og:url" content="https://theweekendfetch.com/">
+<meta property="og:site_name" content="'''+CITYCFG['brand']+'''">
+<meta property="og:title" content="'''+CITYCFG['brand']+'''">
+<meta property="og:description" content="'''+_esc(SEO['og_description'])+'''">
+<meta property="og:url" content="'''+PAGEURL+'''">
 <meta property="og:image" content="https://theweekendfetch.com/icon-512.png">
 <meta name="twitter:card" content="summary">
 <meta name="apple-itunes-app" content="app-id=6833697642">
@@ -34,11 +36,11 @@ rep('<title>The Bay Area Weekend Fetch</title>','''<title>The Bay Area Weekend F
   gtag("js", new Date());
   gtag("config", "G-HS0P25R6JR", { allow_google_signals: false, allow_ad_personalization_signals: false });
 })();</script><!--/ga-->
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"The Bay Area Weekend Fetch","url":"https://theweekendfetch.com/","description":"Things to do this weekend in the San Francisco Bay Area."},{"@type":"MobileApplication","name":"The Bay Area Weekend Fetch","operatingSystem":"iOS","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://apps.apple.com/app/id6833697642"}]}</script>''')
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"'''+CITYCFG['brand']+'''","url":"'''+PAGEURL+'''","description":"'''+SEO['web_description']+'''"},{"@type":"MobileApplication","name":"The Bay Area Weekend Fetch","operatingSystem":"iOS","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://apps.apple.com/app/id6833697642"}]}</script>''')
 rep('<header id="hdr">','''<!--appbar--><div class="appbar" id="appbar"><span>📱 Get the free iPhone app</span><a href="https://apps.apple.com/app/id6833697642" target="_blank" rel="noopener" data-k="app_store">Download on the App Store ›</a><button aria-label="Hide" onclick="this.parentNode.remove();try{localStorage.setItem('wf-appbar-off','1')}catch(e){}">×</button></div><script>try{if(localStorage.getItem('wf-appbar-off'))document.getElementById('appbar').remove()}catch(e){}</script><!--/appbar-->
 <header id="hdr">''')
 rep('.okmsg{','.appbar{display:flex;align-items:center;gap:10px;background:#0E2338;color:#fff;font-size:13px;padding:7px 8px 7px 14px}.appbar span{flex:1}.appbar a{color:#fff;font-weight:700;text-decoration:none;background:#2F5D8A;border-radius:8px;padding:6px 10px;white-space:nowrap}.appbar button{background:none;border:0;color:#B9C7D6;font-size:20px;line-height:1;padding:4px 6px}\n.okmsg{')
-rep('Check with the organizer before you go.<br>','Check with the organizer before you go.<br>Things to do in San Francisco, the Peninsula, Silicon Valley, Santa Cruz, Monterey, Carmel, Marin, Napa and Sonoma. <a href="privacy.html" style="color:inherit">Privacy</a><br>')
+rep('Check with the organizer before you go.<br>','Check with the organizer before you go.<br>'+SEO['footer_places']+' <a href="privacy.html" style="color:inherit">Privacy</a><br>')
 rep('const PAGE_URL = "https://claude.ai/artifact/H7osiXWK9HTJwUmtsebTjA";','const PAGE_URL = location.origin + location.pathname;')
 # 1. stop writing picks into the address bar: this site saves them normally
 start=html.index('function syncHash(){'); end=html.index('\n}',start)+2
@@ -76,9 +78,18 @@ PAIR='<script src="./data.js"></script>\n<script src="./walks.js"></script>'
 assert html.count(PAIR)==1
 html=html.replace(PAIR, '<script>/*wf-data*/(function(){var v=Math.floor(Date.now()/3e5);document.write(\'<script src="./data.js?v=\'+v+\'"><\\/script><script src="./walks.js?v=\'+v+\'"><\\/script>\')})();</script>')
 html=html.replace('.okmsg{','.setup{background:#fff;border-radius:14px;padding:14px 16px;margin:0 0 12px}.setup strong{font-size:16px}\n.okmsg{',1)
-open(sys.argv[1] if len(sys.argv)>1 else os.path.join("..","index.html"),'w').write(html)
+# pages for other cities live in a folder: shared files (icons, banner, vendor scripts, privacy page) come from the site root;
+# the city's own data.js/walks.js stay next to its page. City-specific saved settings get their own keys in this browser.
+if CITYCFG['path']:
+    html = re.sub(r'(href|src)="(?!https?:|/|#|data:|\./data\.js|\./walks\.js)(\./)?', r'\1="/', html)
+    html = html.replace('url(banner.svg', 'url(/banner.svg').replace('"./vendor/', '"/vendor/')
+    html = html.replace('<link rel="manifest" href="/manifest.webmanifest">', '<link rel="manifest" href="/%s/manifest.webmanifest">' % CITYCFG['path'])
+    ns = '<script>/*city-storage*/(function(){var C=%s,K={"wf-home":1,"wf-dist":1,"wf-vb2":1,"wf-saved-ids":1,"wf-locks":1,"wf-gid":1,"wf-main":1,"wf-gcache":1,"wf-view2":1,"wf-list":1,"wf-cache":1,"wf-lcache":1,"wf-queue":1,"wf-list-converted":1,"wf-group":1};var P=Storage.prototype,g=P.getItem,s=P.setItem,r=P.removeItem,f=function(k){return K[k]?k+"@"+C:k};P.getItem=function(k){return g.call(this,f(k))};P.setItem=function(k,v){return s.call(this,f(k),v)};P.removeItem=function(k){return r.call(this,f(k))};})();</script>\n' % json.dumps(CITYCFG['key'])
+    html = html.replace('<script>window.WF_CITY=', ns + '<script>window.WF_CITY=', 1)
+os.makedirs(os.path.dirname(os.path.abspath(OUTFILE)), exist_ok=True)
+open(OUTFILE,'w').write(html)
 # owner-only engagement dashboard (reads only through admin_* functions that check the signed-in account)
-if len(sys.argv) <= 1:
+if not CITYCFG['path']:
     adm=open('admin.html').read().replace('__SB_URL__',cfg['url']).replace('__SB_KEY__',cfg['key'])
     os.makedirs(os.path.join('..','admin'), exist_ok=True)
     open(os.path.join('..','admin','index.html'),'w').write(adm)
