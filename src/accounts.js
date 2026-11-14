@@ -27,6 +27,8 @@ if (window.__wfAuthError) { ACCT.err = "That sign-in link didn't work or has exp
 let ANON = lsGet("wf-anon");
 if (!ANON) { ANON = "a" + Math.random().toString(36).slice(2) + Date.now().toString(36); lsSet("wf-anon", ANON); }
 function logEvent(kind, item){
+  // the website also sends the same events to Google Analytics (not loaded in the app)
+  try { if (typeof window.gtag === "function" && kind !== "app_open") window.gtag("event", kind, item ? { item_id: String(item).slice(0, 100) } : {}); } catch (e) {}
   if (!SB_ON) return;
   let token = SB_KEY;
   try { const s = JSON.parse(lsGet(SB_AUTH_KEY) || "null"); if (s && s.access_token && s.expires_at * 1000 > Date.now()) token = s.access_token; } catch (e) {}

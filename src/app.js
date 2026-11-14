@@ -563,7 +563,7 @@ async function connect(){
 }
 document.addEventListener("click", ev=>{
   const t = ev.target.closest("button"); if(!t) return;
-  if (t.dataset.view){ state.view=t.dataset.view; try{localStorage.setItem("wf-view2",state.view);}catch(e){} render(); syncHash(); window.scrollTo(0,0); }
+  if (t.dataset.view){ if (typeof window.gtag==="function") window.gtag("event","tab_view",{tab:t.dataset.view}); state.view=t.dataset.view; try{localStorage.setItem("wf-view2",state.view);}catch(e){} render(); syncHash(); window.scrollTo(0,0); }
   else if (t.dataset.jump){ const el=document.getElementById(t.dataset.jump); if(el){ const off=document.getElementById("filters").offsetHeight+8; scrollTo({top:el.getBoundingClientRect().top+scrollY-off, behavior:"smooth"}); } }
   else if (t.dataset.group){ state.group=t.dataset.group; try{localStorage.setItem("wf-group",state.group);}catch(e){} render(); }
   else if (t.dataset.cat){ state.cat=t.dataset.cat; render(); if (typeof logEvent==="function" && state.cat!=="all") logEvent("filter", state.cat); }
