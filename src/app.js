@@ -18,7 +18,7 @@ try { const v = localStorage.getItem("wf-likes-off"); if (v!==null){ likesSet = 
 const likeKey = c => c==="walk" ? "dog" : (c in CATS ? c : "evt");
 function saveLikes(){ likesSet = true; try { localStorage.setItem("wf-likes-off", JSON.stringify([...likesOff])); } catch(e) {} }
 
-let state = {view:"events", cat:"all", dist:0, sel:null, group:"weekend", editHome:false, homeMsg:"", likesOpen:!likesSet};
+let state = {view:"events", cat:"all", dist:0, sel:null, group:"weekend", editHome:false, homeMsg:"", likesOpen:false};
 try { const d = +localStorage.getItem("wf-dist"); if ([15,30,60].includes(d)) state.dist = d; } catch(e) {}
 try { const g = localStorage.getItem("wf-group"); if (g==="weekend"||g==="date") state.group = g; } catch(e) {}
 /* ---- dates & weekends ---- */
@@ -123,8 +123,9 @@ function priceHTML(e){
   return "";
 }
 function likesBox(){
-  if (!state.likesOpen || state.view==="our-list") return "";
-  return `<div class="likesbox"><strong>${likesSet?"Your interests":"What are you into?"}</strong><p class="ournote">Say no to anything you'd rather not see, and it's hidden from Events and the Map. You can change this any time under Filter events.</p>
+  if (state.view==="our-list") return "";
+  if (!state.likesOpen) return `<button class="likesbar" data-likesopen><span>✓ ${likesOff.size ? `My interests · hiding ${likesOff.size}` : "Pick your interests"}</span><span class="lb-r">${likesOff.size?"Edit":"Optional"} ▾</span></button>`;
+  return `<div class="likesbox"><div class="lb-h"><strong>${likesSet?"Your interests":"What are you into?"}</strong><button class="linkbtn" data-likesdone>Close ▴</button></div><p class="ournote">Say no to anything you'd rather not see, and it's hidden from Events and the Map. You can change this any time under Filter events.</p>
   <div class="likes">${LIKES.map(([k,t])=>{ const on=!likesOff.has(k); return `<div class="like"><i class="dot" style="background:${CATS[k].color}"></i><span>${t}</span><div class="yn" role="group" aria-label="${esc(t)}"><button data-like="${k}" data-v="1" aria-pressed="${on}">Yes</button><button data-like="${k}" data-v="0" aria-pressed="${!on}">No</button></div></div>`; }).join("")}</div>
   <div class="btnrow"><button class="copybtn" data-likesdone>Done · show ${DATA.filter(e=>!isPast(e)&&!likesOff.has(likeKey(e.cat))).length} events</button>${likesOff.size?`<button class="copybtn alt" data-likesall>Show everything</button>`:""}</div></div>`;
 }
