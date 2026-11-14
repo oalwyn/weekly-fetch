@@ -1,0 +1,33 @@
+{
+  "key": "sydney",
+  "path": "sydney",
+  "brand": "Sydney Harbour Fetch",
+  "short": "Sydney",
+  "h1": "Sydney Harbour <span class=\"nb\">Fetch</span>",
+  "coast": "coast_sydney.json",
+  "tz": "Australia/Sydney",
+  "units": "km",
+  "dists": [10, 25, 50],
+  "country": "au",
+  "home": {"name": "Sydney CBD", "lat": -33.8731, "lon": 151.2070},
+  "far": {"lat": -33.87, "lon": 151.05, "mi": 90},
+  "near_home_span": 7,
+  "map_start": "Greater Sydney",
+  "presets": [["Greater Sydney", -33.87, 151.10, 34], ["City & Harbour", -33.862, 151.215, 5], ["Eastern Beaches", -33.905, 151.255, 6], ["North Shore & Beaches", -33.74, 151.25, 20],
+              ["Near home", null, null, 7], ["Inner West", -33.885, 151.155, 6], ["Parramatta & West", -33.80, 150.95, 22], ["Blue Mountains", -33.70, 150.40, 22],
+              ["Wollongong", -34.40, 150.88, 16], ["Central Coast", -33.42, 151.35, 16], ["Everything"]],
+  "labels": [["Sydney", -33.868, 151.209], ["Parramatta", -33.815, 151.003], ["Manly", -33.797, 151.287], ["Bondi", -33.891, 151.274], ["Coogee", -33.921, 151.257],
+             ["Chatswood", -33.797, 151.181], ["Cronulla", -34.055, 151.152], ["Liverpool", -33.92, 150.923], ["Penrith", -33.751, 150.694], ["Katoomba", -33.714, 150.311],
+             ["Palm Beach", -33.598, 151.324], ["Hornsby", -33.704, 151.099], ["Wollongong", -34.425, 150.893], ["Gosford", -33.425, 151.342], ["Newtown", -33.898, 151.179],
+             ["Tasman Sea", -33.95, 151.42, 1], ["Sydney Harbour", -33.842, 151.245, 1], ["Botany Bay", -34.0, 151.19, 1], ["Broken Bay", -33.565, 151.32, 1]],
+  "regions": [["central_coast", -33.57, null, null, null], ["wollongong", null, -34.20, null, null], ["blue_mountains", null, null, null, 150.64],
+              ["west", null, null, null, 151.09], ["eastern_beaches", null, null, 151.235, null], ["north", -33.852, null, null, null],
+              ["st_george_sutherland", null, -33.95, null, null], ["inner_west", null, null, null, 151.185], ["city"]],
+  "seo": {
+    "title": "Sydney Harbour Fetch · things to do in Sydney this weekend",
+    "description": "Things to do this weekend in Sydney: Christmas markets and carols, summer festivals, concerts and theatre, cricket and football, new movies, dog-friendly beaches and kids' events, from the Northern Beaches to Parramatta, Bondi and Wollongong. Free or ticketed, with a shared weekend planner.",
+    "og_description": "What's on this weekend around Sydney, refreshed twice a week. Star events and plan them with friends.",
+    "web_description": "Things to do this weekend in Sydney, Australia.",
+    "footer_places": "Things to do in the City, the Eastern Beaches, the Inner West, the North Shore and Northern Beaches, Parramatta, the Blue Mountains, Wollongong and the Central Coast."
+  }
+}

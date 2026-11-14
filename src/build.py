@@ -16,7 +16,7 @@ for CITY_KEY in CITY_KEYS:
     js = (open('app.js').read()
           .replace('/*BBOX*/[0,0,0,0]', json.dumps(c['bbox']))
           .replace('/*W*/0', str(c['W'])).replace('/*H*/0', str(c['H']))
-          .replace('"/*COAST*/"', json.dumps(c['d'])))
+          .replace('"/*COAST*/"', json.dumps(c['d'])).replace('"/*RULE*/"', json.dumps(c.get('rule', 'evenodd'))))
     head = (open('template_head.html').read()
             .replace('<title>The Bay Area Weekend Fetch</title>', '<title>%s</title>' % CITYCFG['brand'])
             .replace('<h1>The Bay Area <span class="nb">Weekend Fetch</span></h1>', '<h1>%s</h1>' % CITYCFG['h1']))

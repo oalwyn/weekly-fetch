@@ -11,6 +11,7 @@ try { const h = JSON.parse(localStorage.getItem("wf-home") || "null"); if (h && 
 const BBOX = /*BBOX*/[0,0,0,0];
 const MAP_W = /*W*/0, MAP_H = /*H*/0;
 const COAST = "/*COAST*/";
+const COAST_RULE = "/*RULE*/";
 const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},sport:{label:"Sports",color:"#9C2B2B"},film:{label:"Movies",color:"#283593"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Teen programs",color:"#8D6E63"},evt:{label:"Events",color:"#4A5562"}};
 const SECTIONS = (WF.sections || [["week","This week"]]).slice();
 { const i = SECTIONS.findIndex(s=>s[0]==="dog"); SECTIONS.splice(i>=0?i+1:1, 0, ["walks","Dog walks · closest to home first"]); }
@@ -425,7 +426,7 @@ function drawMap(){
   const lf = 12*pxPer;
   const lab = labels.map(([t,la,lo,w])=>{const [x,y]=proj(la,lo);const water=!!w;return `<text x="${x}" y="${y}" text-anchor="middle" font-size="${lf}" font-weight="600" fill="${water?'#5F86A8':'#8A8F94'}" font-family="Inter,sans-serif" font-style="${water?'italic':'normal'}" pointer-events="none">${t}</text>`}).join("");
   svg.setAttribute("viewBox", vb.join(" "));
-  svg.innerHTML = `<rect x="-2000" y="-2000" width="${MAP_W+4000}" height="${MAP_H+4000}" fill="#F3F1EA"/><path d="${COAST}" fill="#CFE0EE" fill-rule="evenodd" stroke="#A9C3DA" stroke-width="${1.2*pxPer}"/>${lab}
+  svg.innerHTML = `<rect x="-2000" y="-2000" width="${MAP_W+4000}" height="${MAP_H+4000}" fill="#F3F1EA"/><path d="${COAST}" fill="#CFE0EE" fill-rule="${COAST_RULE}" stroke="#A9C3DA" stroke-width="${1.2*pxPer}"/>${lab}
   <circle cx="${hx}" cy="${hy}" r="${8*pxPer}" fill="#fff" stroke="#B9531F" stroke-width="${3.5*pxPer}"/><text x="${hx+12*pxPer}" y="${hy+24*pxPer}" text-anchor="middle" font-size="${lf}" font-weight="700" fill="#B9531F" font-family="Inter,sans-serif" pointer-events="none">Home</text>${pins}`;
   try { localStorage.setItem("wf-vb2", JSON.stringify(vb)); } catch(e) {}
 }

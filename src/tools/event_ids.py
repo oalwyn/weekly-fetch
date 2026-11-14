@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Event ID stability and history for data.js (engagement measurement).
 
-  python3 src/tools/event_ids.py check [REF]   compare data.js with git REF (default HEAD); exit 1 if an event
+  python3 src/tools/event_ids.py check [REF] [--file=sydney/data.js]   compare data.js with git REF (default HEAD); exit 1 if an event
                                                seems to have been re-listed under a new id
   python3 src/tools/event_ids.py catalog > catalog.csv
                                                every id ever published, with first/last seen and title, from git history
@@ -51,8 +51,12 @@ def git_show(ref, path="data.js"):
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "check"
     if cmd == "check":
-        ref = sys.argv[2] if len(sys.argv) > 2 else "HEAD"
-        old = parse(git_show(ref)); new = parse(open(os.path.join(ROOT, "data.js")).read())
+        args = [a for a in sys.argv[2:] if not a.startswith("--file=")]
+        f = next((a[7:] for a in sys.argv[2:] if a.startswith("--file=")), "data.js")   # e.g. --file=sydney/data.js
+        ref = args[0] if args else "HEAD"
+        try: old = parse(git_show(ref, f))
+        except subprocess.CalledProcessError: print(f"no earlier {f} in {ref}: nothing to compare"); old = []
+        new = parse(open(os.path.join(ROOT, f)).read())
         reids, removed, added = compare(old, new)
         print(f"kept {len(new) - len(added)}, removed {len(removed)}, added {len(added)}")
         for a, b in reids: print(f"RE-ID: {a} -> {b}  (keep the old id {a})")

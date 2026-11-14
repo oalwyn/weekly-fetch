@@ -81,7 +81,10 @@ html=html.replace('.okmsg{','.setup{background:#fff;border-radius:14px;padding:1
 # pages for other cities live in a folder: shared files (icons, banner, vendor scripts, privacy page) come from the site root;
 # the city's own data.js/walks.js stay next to its page. City-specific saved settings get their own keys in this browser.
 if CITYCFG['path']:
-    html = re.sub(r'(href|src)="(?!https?:|/|#|data:|\./data\.js|\./walks\.js)(\./)?', r'\1="/', html)
+    # the iPhone app is Bay Area only for now: no App Store bar or banner on other cities' pages
+    html = re.sub(r'<!--appbar-->.*?<!--/appbar-->\n?', '', html, flags=re.S)
+    html = re.sub(r'<meta name="apple-itunes-app"[^>]*>\n?', '', html)
+    html = re.sub(r'(href|src)="(?!https?:|/|#|\$|data:|\./data\.js|\./walks\.js)(\./)?', r'\1="/', html)
     html = html.replace('url(banner.svg', 'url(/banner.svg').replace('"./vendor/', '"/vendor/')
     html = html.replace('<link rel="manifest" href="/manifest.webmanifest">', '<link rel="manifest" href="/%s/manifest.webmanifest">' % CITYCFG['path'])
     ns = '<script>/*city-storage*/(function(){var C=%s,K={"wf-home":1,"wf-dist":1,"wf-vb2":1,"wf-saved-ids":1,"wf-locks":1,"wf-gid":1,"wf-main":1,"wf-gcache":1,"wf-view2":1,"wf-list":1,"wf-cache":1,"wf-lcache":1,"wf-queue":1,"wf-list-converted":1,"wf-group":1};var P=Storage.prototype,g=P.getItem,s=P.setItem,r=P.removeItem,f=function(k){return K[k]?k+"@"+C:k};P.getItem=function(k){return g.call(this,f(k))};P.setItem=function(k,v){return s.call(this,f(k),v)};P.removeItem=function(k){return r.call(this,f(k))};})();</script>\n' % json.dumps(CITYCFG['key'])
