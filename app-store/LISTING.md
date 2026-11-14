@@ -72,7 +72,7 @@ events,weekend,things to do,san francisco,peninsula,south bay,marin,napa,dog fri
 
 ## What's New
 
-**1.2** (sports, movies, prices; build 6, submitted Nov 14, 2026; the description was updated at the same time):
+**1.2** (sports, movies, prices; build 6 submitted Nov 14, 2026, then pulled and resubmitted with build 7 the same day for the map-pin fix; the description was updated at the same time):
 
 ```
 More to do, and easier to choose.
@@ -81,7 +81,7 @@ More to do, and easier to choose.
 • Free or Tickets on every event. Tap Tickets to go straight to the official ticket page.
 • Pick your interests: say no to what you don't want, and it's hidden from Events and the Map.
 • More events across the Peninsula and South Bay, including theater, museums and holiday weeks.
-• Fixed: on a Saturday, "Lock it in" no longer offers the day before.
+• Fixes: tapping a pin on the map shows the event again, and on a Saturday "Lock it in" no longer offers the day before.
 ```
 
 **1.1** (accounts and groups; submitted Nov 13, 2026 with build 5):
@@ -167,6 +167,7 @@ WHAT'S NEW IN 1.2
 - Events show "Free" or "Tickets". "Tickets" opens the official ticket page in Safari. The app doesn't sell tickets and has no in-app purchases.
 - "Pick your interests" (Events tab, above the list): Yes/No per category; "No" hides that category from Events and the Map. Saved on the device.
 - Fix: past days are no longer offered when locking in a plan.
+- Fix: tapping a pin on the Map tab shows the event card again (it showed nothing in 1.1).
 
 To try it: open the Events tab, tap "Pick your interests", say No to a category and tap Done; open Filter events and choose "Sports" or "Movies".
 

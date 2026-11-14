@@ -92,7 +92,7 @@ Plan agreed with the owner: wrap the site with **Capacitor** (iOS) and add real 
 - Sign-in emails: Supabase custom SMTP via Resend (connected with Resend's Supabase integration; Resend account shared with Cazavera; domain theweekendfetch.com verified, DNS at Porkbun: resend._domainkey TXT, send/rsend CNAMEs, _dmarc TXT; Resend's receiving MX deliberately NOT added so Porkbun email forwarding keeps working). Sender noreply@theweekendfetch.com. Templates "Magic link or OTP" and "Confirm sign up" show {{ .Token }} (subject too). Email OTP length set to 6 (was 8), expiry 3600s; src/accounts.js expects 6 digits.
 
 ### Version 1.2 (submitted Nov 14, 2026)
-- 1.1 approved and released. Build 1.2 (6) submitted to App Review Nov 14, 2026 (automatic release; What's New, description and review notes in `app-store/LISTING.md`). Adds sports/movies, Free/Tickets labels, the interests checklist and the past-day lock fix. Privacy answers unchanged.
+- 1.1 approved and released. Build 1.2 (7) submitted to App Review Nov 14, 2026 (build 6 was pulled from review for the map-pin fix) (automatic release; What's New, description and review notes in `app-store/LISTING.md`). Adds sports/movies, Free/Tickets labels, the interests checklist and the past-day lock fix. Privacy answers unchanged.
 
 ### iPhone app: current state (merged into `main`)
 - Home-screen name "Bay Fetch" (App Store name "The Bay Area Weekend Fetch"), bundle id `io.github.oalwyn.weekendfetch` (chosen by the owner). Capacitor 8.6.0, Swift Package Manager (no CocoaPods).
