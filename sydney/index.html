@@ -356,7 +356,7 @@ function suggest(){
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', suggest); else suggest();
 })();
 </script><!--/citysw-->
-<script>window.WF_VERSION="web-20261114";(function(){var h=location.hash||"",u=location.pathname+location.search,go=function(){try{history.replaceState(null,"",u+"#our-list")}catch(e){}};if(/access_token=/.test(h)){var p=new URLSearchParams(h.slice(1));window.__wfTokens={access_token:p.get("access_token"),refresh_token:p.get("refresh_token")};go()}else if(/^#join-[A-Za-z0-9]{4,10}$/.test(h)){window.__wfJoin=h.slice(6).toUpperCase();go()}else if(/error_description=/.test(h)){window.__wfAuthError=1;go()}})();</script>
+<script>window.WF_VERSION="web-20261115";(function(){var h=location.hash||"",u=location.pathname+location.search,go=function(){try{history.replaceState(null,"",u+"#our-list")}catch(e){}};if(/access_token=/.test(h)){var p=new URLSearchParams(h.slice(1));window.__wfTokens={access_token:p.get("access_token"),refresh_token:p.get("refresh_token")};go()}else if(/^#join-[A-Za-z0-9]{4,10}$/.test(h)){window.__wfJoin=h.slice(6).toUpperCase();go()}else if(/error_description=/.test(h)){window.__wfAuthError=1;go()}})();</script>
 <script>/*wf-data*/(function(){var v=Math.floor(Date.now()/3e5);document.write('<script src="./data.js?v='+v+'"><\/script><script src="./walks.js?v='+v+'"><\/script>')})();</script>
 <script>
 const WF = window.WF_DATA || {updated:"", items:[]};
@@ -1276,7 +1276,7 @@ function session(forceNew){
 }
 function trackCtx(extra){
   const x = session();
-  return Object.assign({ session_id: x.id, platform: IS_APP ? "ios" : "web", app_version: WF_VERSION, environment: WF_ENV,
+  return Object.assign({ session_id: x.id, platform: IS_APP ? "ios" : "web", app_version: WF_VERSION, environment: WF_ENV, city: CITY.key,
     client_ts: new Date().toISOString(), placement: LAST_PLACEMENT }, extra || {});
 }
 // remembers taps for a second so a double tap is one record
@@ -1291,7 +1291,7 @@ function track(name, d){
     if (d.item_id && !d.category && !d.region) Object.assign(d, itemFields(d.item_id), { item_id: d.item_id });
     const x = session();
     const e = Object.assign({ record_id: rid(), event_name: name, client_ts: new Date().toISOString(), anon_id: ANON, session_id: x.id,
-      platform: IS_APP ? "ios" : "web", app_version: WF_VERSION, environment: WF_ENV, placement: d.placement !== undefined ? d.placement : LAST_PLACEMENT }, d);
+      platform: IS_APP ? "ios" : "web", app_version: WF_VERSION, environment: WF_ENV, city: CITY.key, placement: d.placement !== undefined ? d.placement : LAST_PLACEMENT }, d);
     if (!x.sent) { Object.assign(e, x.acq); x.sent = true; writeSess(x); }   // how this session arrived goes on its first record
     sendRecord(e);
   } catch (e) {}

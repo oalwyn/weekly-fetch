@@ -37,6 +37,7 @@ ul{margin:4px 0 4px 18px;padding:0}
 <p class="sub">Owner only. Every number below comes from production records, with development, test and owner activity left out.</p>
 <div id="msg"></div>
 <div class="bar" id="controls" hidden>
+  <label>City <select id="city"><option value="">All cities</option><option value="bayarea">Bay Area</option><option value="sydney">Sydney</option></select></label>
   <label>Weeks <select id="weeks"><option>4</option><option selected>8</option><option>12</option><option>26</option></select></label>
   <button class="primary" id="refresh">Refresh</button>
   <button id="csvWeekly">Weekly CSV</button>
@@ -55,6 +56,7 @@ const SB_REF = (SB_URL.split("//")[1] || "").split(".")[0];
 const client = window.supabase.createClient(SB_URL, SB_KEY, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false, storageKey: "sb-" + SB_REF + "-auth-token" } });
 const $ = id => document.getElementById(id);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const CITY_NAMES = Object.assign({"bayarea": "Bay Area", "sydney": "Sydney"}, { unknown: "Unknown (older page)" });
 const NA = '<span class="na">not yet eligible</span>';
 const pct = (n, d) => d ? `${n} / ${d} (${Math.round(100 * n / d)}%)` : NA;
 let REPORT = null;
@@ -81,6 +83,10 @@ function render(r){
   <ul><li><b>Visitor</b> = one browser or app install while signed out (not a person). <b>Account</b> = one signed-in account. The same person can be both; they are never added together here.</li>
   <li><b>Meaningful action</b> = star, lock-in, a confirmed change to a group plan (move, Going/Maybe/Can't, meet-up), calendar add confirmed by iOS, or a click on a Tickets link. A booking click is not a purchase; a locked-in plan is not attendance.</li>
   <li>Generated ${esc(new Date(r.generated_at).toLocaleString())}. "not yet eligible" means the time window hasn't ended, not zero.</li></ul></div>`;
+  const CN = c => (CITY_NAMES[c] || c);
+  h += `<section><h2>Cities</h2><p class="def">Every city side by side for the selected weeks${r.city ? "" : ""}. ${r.city ? "The rest of this page shows <b>" + esc(CN(r.city)) + "</b> only." : "The rest of this page shows all cities together; pick one above to see it alone."} A visitor who uses two cities counts in each.</p>` +
+    table([["City", x => esc(CN(x.city))], ["Visitors and accounts", x => x.identities], ["With a meaningful action", x => x.meaningful_identities], ["Active groups", x => x.active_groups],
+      ["Event views", x => x.views], ["Stars", x => x.stars], ["Locked", x => x.locks], ["Booking clicks", x => x.booking_clicks]], r.by_city || []) + `</section>`;
   h += `<section><h2>Weekly</h2><p class="def">Distinct identities per reporting week. Groups: active = a confirmed plan change that week; collaborative = at least two different accounts contributed that week.</p>` +
     table([["Week of", x => esc(x.week)], ["Visitors", x => x.visitors], ["New visitors", x => x.new_visitors], ["Accounts", x => x.accounts], ["New accounts", x => x.new_accounts],
       ["Meaningful: visitors", x => x.wmu_anonymous], ["Meaningful: accounts", x => x.wmu_accounts], ["Active groups", x => x.active_groups], ["Collaborative groups", x => x.collaborative_groups],
@@ -120,7 +126,7 @@ function render(r){
 }
 async function load(){
   $("msg").innerHTML = ""; $("out").innerHTML = "<p class='sub'>Loading…</p>";
-  const { data, error } = await client.rpc("admin_report", { p_weeks: +$("weeks").value });
+  const { data, error } = await client.rpc("admin_report", { p_weeks: +$("weeks").value, p_city: $("city").value || null });
   if (error) { $("msg").innerHTML = `<div class="err">${esc(error.message)}</div>`; $("out").innerHTML = ""; return; }
   REPORT = data; render(data);
 }
@@ -132,13 +138,13 @@ async function load(){
   const today = new Date(), ago = new Date(Date.now() - 28 * 864e5);
   $("to").value = today.toISOString().slice(0, 10); $("from").value = ago.toISOString().slice(0, 10);
   $("controls").hidden = false;
-  $("refresh").onclick = load; $("weeks").onchange = load;
-  $("csvWeekly").onclick = () => REPORT && download("fetch-weekly.csv", csv(REPORT.weekly.map(w => { const o = Object.assign({}, w); delete o.actions;
+  $("refresh").onclick = load; $("weeks").onchange = load; $("city").onchange = load;
+  $("csvWeekly").onclick = () => REPORT && download(`fetch-weekly${$("city").value ? "-" + $("city").value : ""}.csv`, csv(REPORT.weekly.map(w => { const o = Object.assign({}, w); delete o.actions;
     ACTIONS.forEach(a => { const v = w.actions && w.actions[a[0]]; o[a[0] + "_records"] = v ? v.records : 0; o[a[0] + "_identities"] = v ? v.identities : 0; }); return o; })));
   $("csvRaw").onclick = async () => {
-    const { data, error } = await client.rpc("admin_export", { p_from: $("from").value, p_to: $("to").value, p_include_excluded: $("incl").checked });
+    const { data, error } = await client.rpc("admin_export", { p_from: $("from").value, p_to: $("to").value, p_include_excluded: $("incl").checked, p_city: $("city").value || null });
     if (error) { $("msg").innerHTML = `<div class="err">${esc(error.message)}</div>`; return; }
-    download(`fetch-records-${$("from").value}-to-${$("to").value}.csv`, csv(data));
+    download(`fetch-records${$("city").value ? "-" + $("city").value : ""}-${$("from").value}-to-${$("to").value}.csv`, csv(data));
   };
   load();
 })();

@@ -94,6 +94,8 @@ open(OUTFILE,'w').write(html)
 # owner-only engagement dashboard (reads only through admin_* functions that check the signed-in account)
 if not CITYCFG['path']:
     adm=open('admin.html').read().replace('__SB_URL__',cfg['url']).replace('__SB_KEY__',cfg['key'])
+    adm=(adm.replace('__CITY_OPTIONS__', ''.join('<option value="%s">%s</option>' % (c['key'], c['short']) for c in CITIES))
+            .replace('__CITY_NAMES__', json.dumps({c['key']: c['short'] for c in CITIES})))
     os.makedirs(os.path.join('..','admin'), exist_ok=True)
     open(os.path.join('..','admin','index.html'),'w').write(adm)
 print("ok", len(html))

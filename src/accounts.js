@@ -97,7 +97,7 @@ function session(forceNew){
 }
 function trackCtx(extra){
   const x = session();
-  return Object.assign({ session_id: x.id, platform: IS_APP ? "ios" : "web", app_version: WF_VERSION, environment: WF_ENV,
+  return Object.assign({ session_id: x.id, platform: IS_APP ? "ios" : "web", app_version: WF_VERSION, environment: WF_ENV, city: CITY.key,
     client_ts: new Date().toISOString(), placement: LAST_PLACEMENT }, extra || {});
 }
 // remembers taps for a second so a double tap is one record
@@ -112,7 +112,7 @@ function track(name, d){
     if (d.item_id && !d.category && !d.region) Object.assign(d, itemFields(d.item_id), { item_id: d.item_id });
     const x = session();
     const e = Object.assign({ record_id: rid(), event_name: name, client_ts: new Date().toISOString(), anon_id: ANON, session_id: x.id,
-      platform: IS_APP ? "ios" : "web", app_version: WF_VERSION, environment: WF_ENV, placement: d.placement !== undefined ? d.placement : LAST_PLACEMENT }, d);
+      platform: IS_APP ? "ios" : "web", app_version: WF_VERSION, environment: WF_ENV, city: CITY.key, placement: d.placement !== undefined ? d.placement : LAST_PLACEMENT }, d);
     if (!x.sent) { Object.assign(e, x.acq); x.sent = true; writeSess(x); }   // how this session arrived goes on its first record
     sendRecord(e);
   } catch (e) {}
