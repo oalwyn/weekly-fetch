@@ -18,7 +18,7 @@ Copy each block into the matching field in App Store Connect.
 | **Support URL** | https://github.com/oalwyn/weekly-fetch/issues |
 | **Marketing URL** (optional) | https://theweekendfetch.com/ |
 | **Price** | Free |
-| **Availability** | United States and Australia (from 1.3: Bay Area and Sydney) |
+| **Availability** | United States; add Australia once 1.3 (with Sydney) is approved |
 | **Version** | 1.0 |
 | **Copyright** | 2026 *your name* |
 
@@ -75,7 +75,7 @@ events,weekend,things to do,san francisco,sydney,bay area,marin,napa,dog friendl
 
 ## What's New
 
-**1.3** (cities; build 8 uploaded Nov 15, 2026):
+**1.3** (cities; build 8 submitted Nov 15, 2026, automatic release):
 
 ```
 Now in two cities, with a new name.
