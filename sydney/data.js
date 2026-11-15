@@ -1,9 +1,9 @@
 window.WF_DATA = {
- "updated": "Updated Sunday, 15 Nov 2026 · this week + the next two months",
+ "updated": "Updated Monday, 16 Nov 2026 · this week + the next two months",
  "sections": [
   [
    "week",
-   "This week · Nov 15–22"
+   "This week · Nov 16–22"
   ],
   [
    "late-nov",
@@ -45,6 +45,23 @@ window.WF_DATA = {
  "items": [
   {
    "n": 1,
+   "id": "syd-hockney-carriageworks-2026",
+   "sec": "week",
+   "when": "Now–Sun Jan 24",
+   "title": "David Hockney: Bigger & Closer (not smaller & further away)",
+   "meta": "Carriageworks, Eveleigh · immersive exhibition · from $39.90 + $5 booking fee",
+   "cat": "art",
+   "url": "https://carriageworks.com.au/events/david-hockney-bigger-closer-not-smaller-further-away/",
+   "price": "tickets",
+   "tix": "https://my.carriageworks.com.au/events/?view=calendar&kid=88",
+   "lat": -33.8933,
+   "lon": 151.1941,
+   "q": "Carriageworks Eveleigh",
+   "start": "2026-10-22",
+   "end": "2027-01-24"
+  },
+  {
+   "n": 2,
    "id": "syd-slnsw-definitive-dupain-2026",
    "sec": "week",
    "when": "Now–Sun Jul 18",
@@ -60,7 +77,23 @@ window.WF_DATA = {
    "end": "2027-07-18"
   },
   {
-   "n": 2,
+   "n": 3,
+   "id": "syd-hurstville-anatomy-lessons-2026",
+   "sec": "week",
+   "when": "Now–Sun Dec 6",
+   "title": "Michele Beevors: Anatomy Lessons",
+   "meta": "Hurstville Museum & Gallery, 14 MacMahon St, Hurstville · free · life-sized knitted animal skeletons",
+   "cat": "art",
+   "url": "https://www.georgesriver.nsw.gov.au/Community/Events/What’s-On-Event-Information/Exhibition-Michele-Beevors-Anatomy-Lessons",
+   "price": "free",
+   "lat": -33.9672,
+   "lon": 151.1015,
+   "q": "Hurstville Museum & Gallery",
+   "start": "2026-11-16",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 4,
    "id": "syd-agnsw-nolan-origins-2026",
    "sec": "week",
    "when": "Now–Sun Feb 7",
@@ -76,24 +109,7 @@ window.WF_DATA = {
    "end": "2027-02-07"
   },
   {
-   "n": 3,
-   "id": "syd-hockney-carriageworks-2026",
-   "sec": "week",
-   "when": "Now–Sun Jan 24",
-   "title": "David Hockney: Bigger & Closer (not smaller & further away)",
-   "meta": "Carriageworks, Eveleigh · immersive exhibition · from $39.90 + $5 booking fee",
-   "cat": "art",
-   "url": "https://carriageworks.com.au/events/david-hockney-bigger-closer-not-smaller-further-away/",
-   "tix": "https://my.carriageworks.com.au/events/?view=calendar&kid=88",
-   "price": "tickets",
-   "lat": -33.8933,
-   "lon": 151.1941,
-   "q": "Carriageworks Eveleigh",
-   "start": "2026-10-22",
-   "end": "2027-01-24"
-  },
-  {
-   "n": 4,
+   "n": 5,
    "id": "syd-powerhouse-parramatta-opening-festival-2026",
    "sec": "week",
    "when": "Now–Sun Nov 29",
@@ -108,70 +124,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 5,
-   "id": "syd-film-ebenezer",
-   "sec": "week",
-   "when": "In cinemas now (opened Thu Nov 12)",
-   "title": "Ebenezer: A Christmas Carol",
-   "meta": "In cinemas · M · Gothic Christmas fantasy · 1h 55m",
-   "cat": "film",
-   "url": "https://www.ebenezermovie.com/",
-   "price": "tickets",
-   "start": "2026-11-12",
-   "end": "2026-11-22"
-  },
-  {
    "n": 6,
-   "id": "syd-finders-keepers-carriageworks-nov-2026",
-   "sec": "week",
-   "when": "Sun Nov 15 · 10am–5pm (low-sensory hour 9–10am)",
-   "title": "Finders Keepers",
-   "meta": "Carriageworks, Eveleigh · design and handmade market, 170+ makers · $7 entry, under-13s free",
-   "cat": "mkt",
-   "url": "https://thefinderskeepers.com/markets-calendar.html",
-   "tix": "https://www.universe.com/tfk-ss-syd26",
-   "price": "tickets",
-   "lat": -33.8933,
-   "lon": 151.1941,
-   "q": "Carriageworks Eveleigh",
-   "start": "2026-11-15",
-   "end": "2026-11-15"
-  },
-  {
-   "n": 7,
-   "id": "syd-heffron-park-markets-maroubra",
-   "sec": "week",
-   "when": "Sun Nov 15 · 8am–2pm (3rd Sunday monthly)",
-   "title": "Heffron Park Markets",
-   "meta": "Heffron Park netball stadium, Bunnerong Rd, Maroubra · 100+ stalls, food, live music · free entry",
-   "cat": "mkt",
-   "url": "https://www.randwick.nsw.gov.au/community/whats-on/events/regular/heffron-park-markets",
-   "price": "free",
-   "lat": -33.9497,
-   "lon": 151.2386,
-   "q": "Heffron Park Maroubra",
-   "start": "2026-11-15",
-   "end": "2026-11-15"
-  },
-  {
-   "n": 8,
-   "id": "syd-iron-maiden-allianz-2026-11-15",
-   "sec": "week",
-   "when": "Sun Nov 15, 7:20pm (gates 5:30pm)",
-   "title": "Iron Maiden: Run For Your Lives World Tour",
-   "meta": "Allianz Stadium, Moore Park · with Megadeth",
-   "cat": "show",
-   "url": "https://www.allianzstadium.com.au/events/iron_maiden_run_for_your_lives_world_tour",
-   "tix": "https://www.ticketmaster.com.au/iron-maiden-run-for-your-lives-sydney-15-11-2026/event/2500645788A53CB3",
-   "price": "tickets",
-   "lat": -33.8891,
-   "lon": 151.2247,
-   "q": "Allianz Stadium Moore Park",
-   "start": "2026-11-15",
-   "end": "2026-11-15"
-  },
-  {
-   "n": 9,
    "id": "syd-six-the-musical-theatre-royal-2026",
    "sec": "week",
    "when": "Now–Sun Dec 20 · sing-along Sun Dec 13, 5pm",
@@ -179,8 +132,8 @@ window.WF_DATA = {
    "meta": "Theatre Royal Sydney, CBD · musical",
    "cat": "show",
    "url": "https://theatreroyalsydney.com/shows/six-the-musical-2026/",
-   "tix": "https://ticket.theatreroyalsydney.com/en/buyingflow/tickets/120",
    "price": "tickets",
+   "tix": "https://ticket.theatreroyalsydney.com/en/buyingflow/tickets/120",
    "lat": -33.8689,
    "lon": 151.2093,
    "q": "Theatre Royal Sydney",
@@ -188,7 +141,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 10,
+   "n": 7,
    "id": "syd-stc-strong-is-the-new-pretty-2026",
    "sec": "week",
    "when": "Now–Sat Dec 12 · mostly 7:30pm",
@@ -204,7 +157,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 11,
+   "n": 8,
    "id": "syd-agnsw-super-nature-2026",
    "sec": "week",
    "when": "Now–Sun Feb 14",
@@ -220,7 +173,25 @@ window.WF_DATA = {
    "end": "2027-02-14"
   },
   {
-   "n": 12,
+   "n": 9,
+   "id": "syd-thunder-w-v-stars-w-2026-11-16",
+   "sec": "week",
+   "when": "Mon Nov 16, 7.10pm",
+   "title": "Sydney Thunder vs. Melbourne Stars (women's)",
+   "meta": "Drummoyne Oval, Drummoyne · WBBL|12 · women's",
+   "cat": "sport",
+   "url": "https://www.sydneythunder.com.au/matches",
+   "price": "tickets",
+   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=THUNW0327",
+   "ha": "home",
+   "lat": -33.8517,
+   "lon": 151.1553,
+   "q": "Drummoyne Oval",
+   "start": "2026-11-16",
+   "end": "2026-11-16"
+  },
+  {
+   "n": 10,
    "id": "syd-stc-whispering-jack-2026",
    "sec": "week",
    "when": "Sun Nov 15–Sun Jan 3",
@@ -236,25 +207,7 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 13,
-   "id": "syd-thunder-w-v-stars-w-2026-11-16",
-   "sec": "week",
-   "when": "Mon Nov 16, 7.10pm",
-   "title": "Sydney Thunder vs. Melbourne Stars (women's)",
-   "meta": "Drummoyne Oval, Drummoyne · WBBL|12 · women's",
-   "cat": "sport",
-   "url": "https://www.sydneythunder.com.au/matches",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=THUNW0327",
-   "price": "tickets",
-   "ha": "home",
-   "lat": -33.8517,
-   "lon": 151.1553,
-   "q": "Drummoyne Oval",
-   "start": "2026-11-16",
-   "end": "2026-11-16"
-  },
-  {
-   "n": 14,
+   "n": 11,
    "id": "syd-bell-shakespeare-macbeth-2026",
    "sec": "week",
    "when": "Wed Nov 18–Sun Dec 6 · mostly 7pm, Sat 1pm, Sun 4pm",
@@ -270,19 +223,67 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 15,
+   "n": 12,
+   "id": "syd-fm-eq",
+   "sec": "week",
+   "when": "Wednesdays & Saturdays 8am–2pm (until Dec 19)",
+   "title": "EQ Markets (growers & flower market)",
+   "meta": "The Market Canopy, Entertainment Quarter, 122 Lang Rd, Moore Park · farmers market · dogs welcome · last market Dec 19",
+   "cat": "mkt",
+   "url": "https://www.entertainmentquarter.com.au/visit/eq-markets",
+   "price": "free",
+   "lat": -33.8925,
+   "lon": 151.2263,
+   "q": "EQ Markets, Entertainment Quarter, Moore Park",
+   "dates": [
+    "2026-11-18",
+    "2026-11-21",
+    "2026-11-25",
+    "2026-11-28",
+    "2026-12-02",
+    "2026-12-05",
+    "2026-12-09",
+    "2026-12-12",
+    "2026-12-16",
+    "2026-12-19"
+   ]
+  },
+  {
+   "n": 13,
+   "id": "syd-fm-parramatta",
+   "sec": "week",
+   "when": "Wednesdays 7:30am–2:30pm (until Dec 16)",
+   "title": "Parramatta Farmers Market",
+   "meta": "Centenary Square, Church St, Parramatta · farmers market · 2026 season ends Dec 16",
+   "cat": "mkt",
+   "url": "https://atparramatta.com/whats-on/parramatta-farmers-market",
+   "price": "free",
+   "lat": -33.8155,
+   "lon": 151.0036,
+   "q": "Parramatta Farmers Market, Centenary Square",
+   "dates": [
+    "2026-11-18",
+    "2026-11-25",
+    "2026-12-02",
+    "2026-12-09",
+    "2026-12-16"
+   ]
+  },
+  {
+   "n": 14,
    "id": "syd-film-bad-apples",
    "sec": "week",
    "when": "Opens Thu Nov 19",
    "title": "Bad Apples",
    "meta": "In cinemas · MA15+ · Comedy thriller · 1h 40m",
    "cat": "film",
+   "url": "https://www.paramountmovies.com/movies/bad-apples",
    "price": "tickets",
    "start": "2026-11-19",
    "end": "2026-11-22"
   },
   {
-   "n": 16,
+   "n": 15,
    "id": "syd-film-hunger-games-sunrise-on-the-reaping",
    "sec": "week",
    "when": "Opens Thu Nov 19",
@@ -290,6 +291,19 @@ window.WF_DATA = {
    "meta": "In cinemas · M · Sci-fi action · 2h 30m",
    "cat": "film",
    "url": "https://hungergames.movie/",
+   "price": "tickets",
+   "start": "2026-11-19",
+   "end": "2026-11-22"
+  },
+  {
+   "n": 16,
+   "id": "syd-film-zombucha",
+   "sec": "week",
+   "when": "Opens Thu Nov 19",
+   "title": "Zombucha!",
+   "meta": "In cinemas · M · Australian horror comedy · 1h 50m",
+   "cat": "film",
+   "url": "https://maslowentertainment.com/films/zombucha",
    "price": "tickets",
    "start": "2026-11-19",
    "end": "2026-11-22"
@@ -312,24 +326,52 @@ window.WF_DATA = {
   },
   {
    "n": 18,
-   "id": "syd-comedy-store-friday-showcase-2026",
+   "id": "syd-fm-wollongong",
    "sec": "week",
-   "when": "Fri Nov 20 & Fri Nov 27, 8:30pm",
-   "title": "The Comedy Store: Friday Showcase",
-   "meta": "The Comedy Store, Entertainment Quarter, Moore Park · stand-up lineup",
-   "cat": "show",
-   "url": "https://www.comedystore.com.au/event/the-friday-showcase-35/",
-   "price": "tickets",
-   "lat": -33.8917,
-   "lon": 151.2266,
-   "q": "The Comedy Store Moore Park",
+   "when": "Fridays 8am–3pm",
+   "title": "Crown St. Markets Friday Produce Market",
+   "meta": "Crown Street Mall, Wollongong · produce market · day trip",
+   "cat": "mkt",
+   "url": "https://www.crownstmarkets.com.au",
+   "price": "free",
+   "lat": -34.4247,
+   "lon": 150.893,
+   "q": "Crown Street Mall, Wollongong",
    "dates": [
     "2026-11-20",
-    "2026-11-27"
+    "2026-11-27",
+    "2026-12-04",
+    "2026-12-11",
+    "2026-12-18",
+    "2027-01-08",
+    "2027-01-15"
    ]
   },
   {
    "n": 19,
+   "id": "syd-fm-narrabeen",
+   "sec": "week",
+   "when": "Fridays 8am–1pm",
+   "title": "The Beaches Farmers Market",
+   "meta": "1472 Pittwater Rd, North Narrabeen · farmers market · back Jan 8 after the holidays",
+   "cat": "mkt",
+   "url": "https://www.organicfoodmarkets.com.au/Markets_Solo?market=NORTH%20NARRABEEN&id=61",
+   "price": "free",
+   "lat": -33.709,
+   "lon": 151.2975,
+   "q": "The Beaches Market, 1472 Pittwater Rd, North Narrabeen",
+   "dates": [
+    "2026-11-20",
+    "2026-11-27",
+    "2026-12-04",
+    "2026-12-11",
+    "2026-12-18",
+    "2027-01-08",
+    "2027-01-15"
+   ]
+  },
+  {
+   "n": 20,
    "id": "syd-wanderers-v-adelaide-2026-11-20",
    "sec": "week",
    "when": "Fri Nov 20, 7.40pm",
@@ -337,26 +379,8 @@ window.WF_DATA = {
    "meta": "CommBank Stadium, Parramatta · A-League Men · men's (women v Phoenix 4.50pm, same ticket)",
    "cat": "sport",
    "url": "https://www.commbankstadium.com.au/events/n2026_27_a_league_men_mw5_wanderers_v_adelaide_united",
-   "tix": "https://www.ticketmaster.com.au/202627-ws-wanderers-isuzu-ute-a-parramatta-20-11-2026/event/25006512DEC652B1",
    "price": "tickets",
-   "ha": "home",
-   "lat": -33.8075,
-   "lon": 151.0024,
-   "q": "CommBank Stadium Parramatta",
-   "start": "2026-11-20",
-   "end": "2026-11-20"
-  },
-  {
-   "n": 20,
-   "id": "syd-wanderers-w-v-phoenix-w-2026-11-20",
-   "sec": "week",
-   "when": "Fri Nov 20, 4.50pm",
-   "title": "Western Sydney Wanderers vs. Wellington Phoenix (women's)",
-   "meta": "CommBank Stadium, Parramatta · A-League Women · women's (double-header: men v Adelaide 7.40pm)",
-   "cat": "sport",
-   "url": "https://www.commbankstadium.com.au/events/n2026_27_a_league_men_mw5_wanderers_v_adelaide_united",
    "tix": "https://www.ticketmaster.com.au/202627-ws-wanderers-isuzu-ute-a-parramatta-20-11-2026/event/25006512DEC652B1",
-   "price": "tickets",
    "ha": "home",
    "lat": -33.8075,
    "lon": 151.0024,
@@ -366,6 +390,65 @@ window.WF_DATA = {
   },
   {
    "n": 21,
+   "id": "syd-wanderers-w-v-phoenix-w-2026-11-20",
+   "sec": "week",
+   "when": "Fri Nov 20, 4.50pm",
+   "title": "Western Sydney Wanderers vs. Wellington Phoenix (women's)",
+   "meta": "CommBank Stadium, Parramatta · A-League Women · women's (double-header: men v Adelaide 7.40pm)",
+   "cat": "sport",
+   "url": "https://www.commbankstadium.com.au/events/n2026_27_a_league_men_mw5_wanderers_v_adelaide_united",
+   "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/202627-ws-wanderers-isuzu-ute-a-parramatta-20-11-2026/event/25006512DEC652B1",
+   "ha": "home",
+   "lat": -33.8075,
+   "lon": 151.0024,
+   "q": "CommBank Stadium Parramatta",
+   "start": "2026-11-20",
+   "end": "2026-11-20"
+  },
+  {
+   "n": 22,
+   "id": "syd-fm-bondi",
+   "sec": "week",
+   "when": "Saturdays 9am–1pm",
+   "title": "Bondi Farmers Market",
+   "meta": "Bondi Beach Public School, Campbell Pde & Warners Ave, Bondi Beach · farmers market",
+   "cat": "mkt",
+   "url": "https://bondimarkets.com.au/bondi-farmers-markets",
+   "price": "free",
+   "lat": -33.8893,
+   "lon": 151.2771,
+   "q": "Bondi Farmers Market, Bondi Beach Public School",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2026-12-26",
+    "2027-01-02",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 23,
+   "id": "syd-boy-soda-powerhouse-rooftop-2026",
+   "sec": "week",
+   "when": "Sat Nov 21, 5pm–9pm",
+   "title": "BOY SODA live on the Powerhouse rooftop",
+   "meta": "ING Pavilion, Level 4, Powerhouse Parramatta · ARIA-winning soul/R&B singer, sunset set, Carolina Gasolina supports · free drop-in",
+   "cat": "teen",
+   "url": "https://powerhouse.com.au/program/opening-fest-boy-soda",
+   "price": "free",
+   "lat": -33.8125,
+   "lon": 151.006,
+   "q": "Powerhouse Parramatta",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 24,
    "id": "syd-carriageworks-farmers-market-saturdays",
    "sec": "week",
    "when": "Saturdays · 8am–1pm",
@@ -389,7 +472,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 22,
+   "n": 25,
    "id": "syd-cronulla-christmas-market-2026",
    "sec": "week",
    "when": "Sat Nov 21–Sun Nov 22 · 10am–4pm",
@@ -404,7 +487,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 23,
+   "n": 26,
    "id": "syd-glebe-markets-saturdays",
    "sec": "week",
    "when": "Saturdays · 10am–4pm",
@@ -428,7 +511,89 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 24,
+   "n": 27,
+   "id": "syd-hurstville-museum-open-day-2026",
+   "sec": "week",
+   "when": "Sat Nov 21",
+   "title": "Hurstville Museum & Gallery Open Day",
+   "meta": "Hurstville Museum & Gallery, Hurstville · free · live animals, animal hats, frog treasure hunt",
+   "cat": "kids",
+   "url": "https://www.georgesriver.nsw.gov.au/Community/Events/What’s-On-Event-Information/Hurstville-Museum-Gallery-Open-Day",
+   "price": "free",
+   "lat": -33.9672,
+   "lon": 151.1015,
+   "q": "Hurstville Museum & Gallery",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 28,
+   "id": "syd-fm-kings-cross",
+   "sec": "week",
+   "when": "Saturdays 8am–2pm",
+   "title": "Kings Cross Organic Market",
+   "meta": "Fitzroy Gardens, Macleay St, Potts Point · farmers market · closed Dec 26 & Jan 2",
+   "cat": "mkt",
+   "url": "https://www.organicfoodmarkets.com.au/Markets_Solo?market=KINGS%20CROSS&id=14",
+   "price": "free",
+   "lat": -33.8737,
+   "lon": 151.2257,
+   "q": "Fitzroy Gardens, Macleay St, Potts Point",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 29,
+   "id": "syd-fm-northside",
+   "sec": "week",
+   "when": "1st & 3rd Saturdays 8am–12pm",
+   "title": "Northside Produce Market",
+   "meta": "Ted Mack Civic Park, 200 Miller St, North Sydney · farmers market · no market Jan 2",
+   "cat": "mkt",
+   "url": "https://www.northsydney.nsw.gov.au/markets/northside-produce-market",
+   "price": "free",
+   "lat": -33.838,
+   "lon": 151.2072,
+   "q": "Northside Produce Market, Ted Mack Civic Park, North Sydney",
+   "dates": [
+    "2026-11-21",
+    "2026-12-05",
+    "2026-12-19",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 30,
+   "id": "syd-fm-orange-grove",
+   "sec": "week",
+   "when": "Saturdays 8am–1pm",
+   "title": "Orange Grove Organic Farmers Market",
+   "meta": "Orange Grove Public School, cnr Perry St & Balmain Rd, Lilyfield · farmers market · closed Dec 26 & Jan 2",
+   "cat": "mkt",
+   "url": "https://www.organicfoodmarkets.com.au/Markets_Solo?market=LEICHHARDT&id=4",
+   "price": "free",
+   "lat": -33.871,
+   "lon": 151.16,
+   "q": "Orange Grove Organic Market, Orange Grove Public School, Lilyfield",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 31,
    "id": "syd-paddington-markets-saturdays",
    "sec": "week",
    "when": "Saturdays · 10am–4pm (growers from 9am)",
@@ -452,7 +617,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 25,
+   "n": 32,
    "id": "syd-mca-philippe-parreno-5-moons-2026",
    "sec": "week",
    "when": "Opens Sat Nov 21 (runs to Apr 26)",
@@ -468,7 +633,23 @@ window.WF_DATA = {
    "end": "2027-04-26"
   },
   {
-   "n": 26,
+   "n": 33,
+   "id": "syd-philippine-christmas-festival-2026",
+   "sec": "week",
+   "when": "Sat Nov 21–Sun Nov 22, 9am–8pm",
+   "title": "Philippines Christmas (Pasko) Festival",
+   "meta": "Tumbalong Park, Darling Harbour · free · food stalls, lanterns, performances",
+   "cat": "hol",
+   "url": "https://www.darlingharbour.com/whats-on/events/philippine-christmas-festival",
+   "price": "free",
+   "lat": -33.8762,
+   "lon": 151.2007,
+   "q": "Tumbalong Park",
+   "start": "2026-11-21",
+   "end": "2026-11-22"
+  },
+  {
+   "n": 34,
    "id": "syd-penrith-piece-by-piece-2026",
    "sec": "week",
    "when": "Opens Sat Nov 21, 6pm (runs to Feb 28)",
@@ -484,7 +665,30 @@ window.WF_DATA = {
    "end": "2027-02-28"
   },
   {
-   "n": 27,
+   "n": 35,
+   "id": "syd-fm-ramsgate",
+   "sec": "week",
+   "when": "Saturdays 8am–1pm",
+   "title": "Ramsgate Food Market",
+   "meta": "Chuter Ave, Ramsgate Beach · farmers market · closed Dec 26 & Jan 2",
+   "cat": "mkt",
+   "url": "https://www.organicfoodmarkets.com.au/Markets_Solo?market=RAMSGATE%20BEACH&id=57",
+   "price": "free",
+   "lat": -33.983,
+   "lon": 151.15,
+   "q": "Ramsgate Food Market, Chuter Ave, Ramsgate Beach",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 36,
    "id": "syd-robyn-afterpay-arena-2026-11-21",
    "sec": "week",
    "when": "Sat Nov 21, 8pm",
@@ -500,7 +704,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 28,
+   "n": 37,
    "id": "syd-rozelle-collectors-market-saturdays",
    "sec": "week",
    "when": "Saturdays · 9am–3pm (closed Dec 26)",
@@ -524,7 +728,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 29,
+   "n": 38,
    "id": "syd-sixers-w-v-scorchers-w-2026-11-21",
    "sec": "week",
    "when": "Sat Nov 21, 3.30pm",
@@ -532,8 +736,8 @@ window.WF_DATA = {
    "meta": "North Sydney Oval, North Sydney · WBBL|12 · women's",
    "cat": "sport",
    "url": "https://www.sydneysixers.com.au/matches",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=SIXERSW326",
    "price": "tickets",
+   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=SIXERSW326",
    "ha": "home",
    "lat": -33.8386,
    "lon": 151.2147,
@@ -542,7 +746,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 30,
+   "n": 39,
    "id": "syd-78-storey-treehouse-2026",
    "sec": "week",
    "when": "Sat Nov 21, 10:30am, 12:30pm & 3:30pm",
@@ -558,7 +762,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 31,
+   "n": 40,
    "id": "syd-belvoir-coconut-children-2026",
    "sec": "week",
    "when": "Sat Nov 21–Sun Dec 20",
@@ -566,8 +770,8 @@ window.WF_DATA = {
    "meta": "Belvoir St Theatre (Upstairs), Surry Hills · Vivian Pham adaptation · from $78 (students $43)",
    "cat": "show",
    "url": "https://belvoir.com.au/productions/the-coconut-children/",
-   "tix": "https://my.belvoir.com.au/overview/14658",
    "price": "tickets",
+   "tix": "https://my.belvoir.com.au/overview/14658",
    "lat": -33.8896,
    "lon": 151.2093,
    "q": "Belvoir St Theatre Surry Hills",
@@ -575,7 +779,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 32,
+   "n": 41,
    "id": "syd-the-rocks-markets-weekends",
    "sec": "week",
    "when": "Saturdays & Sundays · 10am–5pm (Fridays 10am–3pm)",
@@ -607,7 +811,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 33,
+   "n": 42,
    "id": "syd-abc-day-kids-powerhouse-2026",
    "sec": "week",
    "when": "Sun Nov 22, 10am–3pm",
@@ -623,7 +827,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 34,
+   "n": 43,
    "id": "syd-bondi-markets-sundays",
    "sec": "week",
    "when": "Sundays · 10am–4pm",
@@ -647,7 +851,30 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 35,
+   "n": 44,
+   "id": "syd-fm-marrickville",
+   "sec": "week",
+   "when": "Sundays 9am–3pm",
+   "title": "Marrickville Organic Markets",
+   "meta": "Addison Road Centre, 142 Addison Rd, Marrickville · farmers market · closed Dec 27 & Jan 3",
+   "cat": "mkt",
+   "url": "https://www.organicfoodmarkets.com.au/Markets_Solo?market=MARRICKVILLE&id=15",
+   "price": "free",
+   "lat": -33.9024,
+   "lon": 151.1625,
+   "q": "Marrickville Organic Markets, Addison Road Centre",
+   "dates": [
+    "2026-11-22",
+    "2026-11-29",
+    "2026-12-06",
+    "2026-12-13",
+    "2026-12-20",
+    "2027-01-10",
+    "2027-01-17"
+   ]
+  },
+  {
+   "n": 45,
    "id": "syd-peter-pan-q-theatre-2026",
    "sec": "late-nov",
    "when": "Tue Nov 24–Fri Nov 27",
@@ -663,27 +890,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 36,
-   "id": "syd-zarna-garg-seymour-2026",
-   "sec": "late-nov",
-   "when": "Tue Nov 24, Wed Nov 25, Fri Nov 27 & Sat Nov 28, 7:30pm",
-   "title": "Zarna Garg: The Million Dollar Excuses Tour",
-   "meta": "York Theatre, Seymour Centre, Chippendale · comedy · from $80",
-   "cat": "show",
-   "url": "https://www.seymourcentre.com/event/zarna-garg/",
-   "price": "tickets",
-   "lat": -33.8889,
-   "lon": 151.1928,
-   "q": "Seymour Centre Chippendale",
-   "dates": [
-    "2026-11-24",
-    "2026-11-25",
-    "2026-11-27",
-    "2026-11-28"
-   ]
-  },
-  {
-   "n": 37,
+   "n": 46,
    "id": "syd-moonlight-cinema-2026",
    "sec": "late-nov",
    "when": "Wed Nov 25–Sun Mar 28, evenings",
@@ -698,15 +905,15 @@ window.WF_DATA = {
    "end": "2027-03-28"
   },
   {
-   "n": 38,
+   "n": 47,
    "id": "syd-australian-pga-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26–Sun Nov 29",
    "title": "BMW Australian PGA Championship",
    "meta": "The Lakes Golf Club, Eastlakes · men's golf",
    "cat": "sport",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=PGACHAMP26",
    "price": "tickets",
+   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=PGACHAMP26",
    "ha": "neutral",
    "lat": -33.9257,
    "lon": 151.1874,
@@ -715,7 +922,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 39,
+   "n": 48,
    "id": "syd-film-hexed",
    "sec": "late-nov",
    "when": "Opens Thu Nov 26",
@@ -728,7 +935,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 40,
+   "n": 49,
    "id": "syd-film-focker-in-law",
    "sec": "late-nov",
    "when": "Opens Thu Nov 26",
@@ -741,7 +948,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 41,
+   "n": 50,
    "id": "syd-parramatta-christmas-markets-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26 (tree lighting 8pm) & Thu Dec 17–Tue Dec 22 · 11am–9pm",
@@ -764,7 +971,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 42,
+   "n": 51,
    "id": "syd-parramatta-christmas-tree-lighting-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26, 11am–9pm · tree lit 8pm",
@@ -780,7 +987,7 @@ window.WF_DATA = {
    "end": "2026-11-26"
   },
   {
-   "n": 43,
+   "n": 52,
    "id": "syd-pitt-street-mall-canopy-of-light-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26–Sat Jan 9, nightly 6pm–11:55pm",
@@ -796,7 +1003,7 @@ window.WF_DATA = {
    "end": "2027-01-09"
   },
   {
-   "n": 44,
+   "n": 53,
    "id": "syd-martin-place-christmas-tree-lighting-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26, 6:30pm–8:30pm · sleigh leaves Customs House 8:05pm, lighting ~8:30pm",
@@ -812,7 +1019,7 @@ window.WF_DATA = {
    "end": "2026-11-26"
   },
   {
-   "n": 45,
+   "n": 54,
    "id": "syd-superposition-festival-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26–Sun Nov 29",
@@ -820,8 +1027,8 @@ window.WF_DATA = {
    "meta": "Katoomba, Blackheath, Mt Victoria, Wentworth Falls & Penrith · block parties (Hermitude, Haiku Hands), walks, ghost tours, feasts · tickets per event",
    "cat": "evt",
    "url": "https://superpositionfestival.com/",
-   "tix": "https://superpositionfestival.ferve.tickets/events",
    "price": "tickets",
+   "tix": "https://superpositionfestival.ferve.tickets/events",
    "lat": -33.7125,
    "lon": 150.311,
    "q": "Blue Mountains Cultural Centre Katoomba",
@@ -829,7 +1036,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 46,
+   "n": 55,
    "id": "syd-sixers-w-v-stars-w-2026-11-26",
    "sec": "late-nov",
    "when": "Thu Nov 26, 7.10pm",
@@ -837,8 +1044,8 @@ window.WF_DATA = {
    "meta": "North Sydney Oval, North Sydney · WBBL|12 · women's (Thunder v Strikers 3.40pm, same ground)",
    "cat": "sport",
    "url": "https://www.sydneysixers.com.au/matches",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=SIXERSW426",
    "price": "tickets",
+   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=SIXERSW426",
    "ha": "home",
    "lat": -33.8386,
    "lon": 151.2147,
@@ -847,7 +1054,7 @@ window.WF_DATA = {
    "end": "2026-11-26"
   },
   {
-   "n": 47,
+   "n": 56,
    "id": "syd-thunder-w-v-strikers-w-2026-11-26",
    "sec": "late-nov",
    "when": "Thu Nov 26, 3.40pm",
@@ -855,8 +1062,8 @@ window.WF_DATA = {
    "meta": "North Sydney Oval, North Sydney · WBBL|12 · women's (double-header with Sixers v Stars 7.10pm)",
    "cat": "sport",
    "url": "https://www.sydneythunder.com.au/matches",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=SIXERSW426",
    "price": "tickets",
+   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=SIXERSW426",
    "ha": "home",
    "lat": -33.8386,
    "lon": 151.2147,
@@ -865,7 +1072,7 @@ window.WF_DATA = {
    "end": "2026-11-26"
   },
   {
-   "n": 48,
+   "n": 57,
    "id": "syd-film-the-fox",
    "sec": "late-nov",
    "when": "Opens Thu Nov 26",
@@ -878,19 +1085,20 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 49,
+   "n": 58,
    "id": "syd-film-cliff-booth",
    "sec": "late-nov",
    "when": "Opens Thu Nov 26",
    "title": "The Further Mis-Adventures of Cliff Booth",
    "meta": "In cinemas · CTC (rating to come) · Thriller · 2h 21m",
    "cat": "film",
+   "url": "https://www.cliffboothfilm.com/",
    "price": "tickets",
    "start": "2026-11-26",
    "end": "2026-11-29"
   },
   {
-   "n": 50,
+   "n": 59,
    "id": "syd-campbelltown-light-the-tree-2026",
    "sec": "late-nov",
    "when": "Fri Nov 27, 6pm–9pm · tree lit ~8pm",
@@ -906,7 +1114,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 51,
+   "n": 60,
    "id": "syd-schools-spectacular-2026",
    "sec": "late-nov",
    "when": "Fri Nov 27 11am & 7pm · Sat Nov 28 1pm & 7pm",
@@ -922,7 +1130,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 52,
+   "n": 61,
    "id": "syd-blacktown-christmas-carols-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28, 5pm–9pm",
@@ -938,7 +1146,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 53,
+   "n": 62,
    "id": "syd-am-dinosaurs-of-patagonia-2026",
    "sec": "late-nov",
    "when": "Opens Sat Nov 28 (runs to May 2)",
@@ -954,24 +1162,7 @@ window.WF_DATA = {
    "end": "2027-05-02"
   },
   {
-   "n": 54,
-   "id": "syd-dirty-dancing-in-concert-2026",
-   "sec": "late-nov",
-   "when": "Sat Nov 28, 3pm & 8pm · Sun Nov 29, 1pm",
-   "title": "Dirty Dancing in Concert",
-   "meta": "Darling Harbour Theatre, ICC Sydney, Darling Harbour · film with live band",
-   "cat": "show",
-   "url": "https://iccsydney.com.au/events/dirty-dancing-in-concert/",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=DDICJF26",
-   "price": "tickets",
-   "lat": -33.8749,
-   "lon": 151.199,
-   "q": "ICC Sydney Darling Harbour",
-   "start": "2026-11-28",
-   "end": "2026-11-29"
-  },
-  {
-   "n": 55,
+   "n": 63,
    "id": "syd-double-bay-christmas-festival-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28 · market 12–6pm, food to 9pm, then concert and fireworks",
@@ -986,7 +1177,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 56,
+   "n": 64,
    "id": "syd-bmcc-fantastic-forms-2026",
    "sec": "late-nov",
    "when": "Opens Sat Nov 28 (runs to Feb 7)",
@@ -1001,7 +1192,7 @@ window.WF_DATA = {
    "end": "2027-02-07"
   },
   {
-   "n": 57,
+   "n": 65,
    "id": "syd-glebe-christmas-fair-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28, 12pm–8pm · Santa's sleigh ride 2pm",
@@ -1017,7 +1208,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 58,
+   "n": 66,
    "id": "syd-kim-wilde-enmore-2026-11-28",
    "sec": "late-nov",
    "when": "Sat Nov 28, doors 6:30pm (Kim Wilde 9:30pm)",
@@ -1025,8 +1216,8 @@ window.WF_DATA = {
    "meta": "Enmore Theatre, Newtown · 80s pop concert",
    "cat": "show",
    "url": "https://www.enmoretheatre.com.au/event/kim-wilde-2/",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=WILDEKI26",
    "price": "tickets",
+   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=WILDEKI26",
    "lat": -33.8995,
    "lon": 151.1739,
    "q": "Enmore Theatre Newtown",
@@ -1034,7 +1225,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 59,
+   "n": 67,
    "id": "syd-kirribilli-markets-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28 (50th anniversary), Sun Dec 6 & 13, Sat Dec 19, Sun Jan 10 · 8:30am–3pm",
@@ -1055,7 +1246,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 60,
+   "n": 68,
    "id": "syd-martin-place-christmas-markets-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28–Thu Dec 24 (selected days) · 11am–9:15pm",
@@ -1090,7 +1281,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 61,
+   "n": 69,
    "id": "syd-flames-v-fire-2026-11-28",
    "sec": "late-nov",
    "when": "Sat Nov 28, 3pm",
@@ -1107,7 +1298,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 62,
+   "n": 70,
    "id": "syd-thunder-w-v-sixers-w-2026-11-28",
    "sec": "late-nov",
    "when": "Sat Nov 28, 7.10pm",
@@ -1115,8 +1306,8 @@ window.WF_DATA = {
    "meta": "Drummoyne Oval, Drummoyne · WBBL|12 Sydney Smash · women's",
    "cat": "sport",
    "url": "https://www.sydneythunder.com.au/matches",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=THUNW0427",
    "price": "tickets",
+   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=THUNW0427",
    "ha": "home",
    "lat": -33.8517,
    "lon": 151.1553,
@@ -1125,7 +1316,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 63,
+   "n": 71,
    "id": "syd-australian-ballet-nutcracker-sydney-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28–Wed Dec 16 · mostly 7:30pm, some 1:30pm matinees",
@@ -1141,7 +1332,7 @@ window.WF_DATA = {
    "end": "2026-12-16"
   },
   {
-   "n": 64,
+   "n": 72,
    "id": "syd-scg-t20i-england-2026-11-29",
    "sec": "late-nov",
    "when": "Sun Nov 29, 7.15pm",
@@ -1158,7 +1349,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 65,
+   "n": 73,
    "id": "syd-coogee-island-challenge-2026",
    "sec": "late-nov",
    "when": "Sun Nov 29, from 8:30am",
@@ -1166,8 +1357,8 @@ window.WF_DATA = {
    "meta": "Coogee Beach, Coogee · 800m junior dash & community swim, 1km, 2.4km round Wedding Cake Island · Coogee SLSC",
    "cat": "evt",
    "url": "https://coogeeoceanevents.com.au/event/coogee-island-challenge/",
-   "tix": "https://raceroster.com/events/2026/139849/coogee-island-challenge",
    "price": "tickets",
+   "tix": "https://raceroster.com/events/2026/139849/coogee-island-challenge",
    "lat": -33.9205,
    "lon": 151.2577,
    "q": "Coogee Surf Life Saving Club",
@@ -1175,7 +1366,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 66,
+   "n": 74,
    "id": "syd-powerhouse-exoskeleton-design-2026",
    "sec": "late-nov",
    "when": "Sun Nov 29, 10am–2pm",
@@ -1183,8 +1374,8 @@ window.WF_DATA = {
    "meta": "Powerhouse Parramatta, Learning Studios · engineering, prototyping in teams · $30",
    "cat": "teen",
    "url": "https://powerhouse.com.au/program/engineering-academy-exoskeleton-design-ages-12-15-opening-fest",
-   "tix": "https://book.powerhouse.com.au/6422/6425",
    "price": "tickets",
+   "tix": "https://book.powerhouse.com.au/6422/6425",
    "lat": -33.8181,
    "lon": 151.009,
    "q": "Powerhouse Parramatta",
@@ -1192,23 +1383,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 67,
-   "id": "syd-martin-place-choirs-2026",
-   "sec": "early-dec",
-   "when": "Tue Dec 1–Mon Dec 21, nightly 6pm–8pm",
-   "title": "Choirs under the Martin Place Christmas tree",
-   "meta": "Martin Place, CBD · free · Salvation Army band and choir Dec 22–24",
-   "cat": "hol",
-   "url": "https://whatson.cityofsydney.nsw.gov.au/events/choirs-in-the-city-martin-place",
-   "price": "free",
-   "lat": -33.8678,
-   "lon": 151.2105,
-   "q": "Martin Place Sydney",
-   "start": "2026-12-01",
-   "end": "2026-12-21"
-  },
-  {
-   "n": 68,
+   "n": 75,
    "id": "syd-j-cole-sydney-2026-12-02",
    "sec": "early-dec",
    "when": "Tue Dec 1 & Wed Dec 2, 7pm",
@@ -1224,7 +1399,7 @@ window.WF_DATA = {
    "end": "2026-12-02"
   },
   {
-   "n": 69,
+   "n": 76,
    "id": "syd-sso-harry-potter-philosophers-stone-2026",
    "sec": "early-dec",
    "when": "Wed Dec 2–Sat Dec 5 · 7pm, plus Sat 2pm · film with live orchestra",
@@ -1240,7 +1415,20 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 70,
+   "n": 77,
+   "id": "syd-film-behemoth",
+   "sec": "early-dec",
+   "when": "Opens Thu Dec 3",
+   "title": "Behemoth!",
+   "meta": "In cinemas · M · Music drama · 2h 7m",
+   "cat": "film",
+   "url": "https://movies.disney.com.au/behemoth",
+   "price": "tickets",
+   "start": "2026-12-03",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 78,
    "id": "syd-film-boss-cat",
    "sec": "early-dec",
    "when": "Opens Thu Dec 3",
@@ -1253,7 +1441,24 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 71,
+   "n": 79,
+   "id": "syd-forma-veronicas-peach-prc-2026",
+   "sec": "early-dec",
+   "when": "Thu Dec 3, 5pm–11pm",
+   "title": "FORMA: The Veronicas & Peach PRC",
+   "meta": "Tumbalong Park, Darling Harbour · open-air pop gig, Cat & Calmell support · licensed all-ages (3+ need a ticket) · tickets",
+   "cat": "teen",
+   "url": "https://www.darlingharbour.com/whats-on/events/forma-(open-air)",
+   "price": "tickets",
+   "tix": "https://formapresents.com.au/",
+   "lat": -33.876,
+   "lon": 151.2005,
+   "q": "Tumbalong Park, Darling Harbour",
+   "start": "2026-12-03",
+   "end": "2026-12-03"
+  },
+  {
+   "n": 80,
    "id": "syd-northern-beaches-christmas-choral-concert-2026",
    "sec": "early-dec",
    "when": "Thu Dec 3 · gates 5pm, concert 6pm",
@@ -1269,7 +1474,20 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 72,
+   "n": 81,
+   "id": "syd-film-the-uprising",
+   "sec": "early-dec",
+   "when": "Opens Thu Dec 3",
+   "title": "The Uprising",
+   "meta": "In cinemas · MA15+ · Historical war drama · 2h 8m",
+   "cat": "film",
+   "url": "https://www.focusfeatures.com/the-uprising",
+   "price": "tickets",
+   "start": "2026-12-03",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 82,
    "id": "syd-film-violent-night-2",
    "sec": "early-dec",
    "when": "Opens Thu Dec 3",
@@ -1282,25 +1500,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 73,
-   "id": "syd-barangaroo-markets-christmas-2026",
-   "sec": "early-dec",
-   "when": "Fri Dec 4 & Fri Dec 18 · 11am–8pm",
-   "title": "Barangaroo Markets Christmas Edition",
-   "meta": "Barangaroo, Sydney CBD · harbourside Christmas shopping and food · free entry",
-   "cat": "mkt",
-   "url": "https://www.barangaroo.com/whats-on/campaigns/christmas-at-barangaroo",
-   "price": "free",
-   "lat": -33.861,
-   "lon": 151.2015,
-   "q": "Barangaroo Sydney",
-   "dates": [
-    "2026-12-04",
-    "2026-12-18"
-   ]
-  },
-  {
-   "n": 74,
+   "n": 83,
    "id": "syd-magm-chromatic-luminosity-2026",
    "sec": "early-dec",
    "when": "Opens Fri Dec 4 (runs to Feb 21)",
@@ -1316,7 +1516,7 @@ window.WF_DATA = {
    "end": "2027-02-21"
   },
   {
-   "n": 75,
+   "n": 84,
    "id": "syd-hawks-v-kings-2026-12-04",
    "sec": "early-dec",
    "when": "Fri Dec 4, 7.30pm",
@@ -1333,7 +1533,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 76,
+   "n": 85,
    "id": "syd-big-live-nutcracker-capitol-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4–Wed Dec 23 · matinees & evenings",
@@ -1341,8 +1541,8 @@ window.WF_DATA = {
    "meta": "Capitol Theatre, Haymarket · Christmas ballet",
    "cat": "show",
    "url": "https://www.capitoltheatre.com.au/the-nutcracker",
-   "tix": "https://www.ticketmaster.com.au/the-nutcracker-tickets/artist/804130?venueId=155850",
    "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/the-nutcracker-tickets/artist/804130?venueId=155850",
    "lat": -33.8807,
    "lon": 151.2052,
    "q": "Capitol Theatre Sydney",
@@ -1350,7 +1550,7 @@ window.WF_DATA = {
    "end": "2026-12-23"
   },
   {
-   "n": 77,
+   "n": 86,
    "id": "syd-campbelltown-christmas-carols-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5, 5pm–9pm · Santa ~8:30pm, fireworks 9pm",
@@ -1366,7 +1566,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 78,
+   "n": 87,
    "id": "syd-carols-in-willoughby-park-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5, 4pm–9pm · carols ~6:30pm",
@@ -1382,7 +1582,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 79,
+   "n": 88,
    "id": "syd-christmas-live-taronga-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5, 6–8:30pm (zoo entry from 2pm included)",
@@ -1398,7 +1598,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 80,
+   "n": 89,
    "id": "syd-darling-harbour-christmas-fireworks-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5, 12 & 19, 9pm · floating tree Nov 20–Dec 26",
@@ -1417,7 +1617,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 81,
+   "n": 90,
    "id": "syd-magic-of-christmas-carss-park-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5, 4:30pm–9pm",
@@ -1433,7 +1633,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 82,
+   "n": 91,
    "id": "syd-gosford-scale-donna-marcus-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5–Sun Jan 31 (opening Fri Dec 4, 6pm)",
@@ -1449,7 +1649,7 @@ window.WF_DATA = {
    "end": "2027-01-31"
   },
   {
-   "n": 83,
+   "n": 92,
    "id": "syd-agnsw-takashi-murakami-2026",
    "sec": "early-dec",
    "when": "Opens Sat Dec 5 (runs to Jul 18)",
@@ -1457,8 +1657,8 @@ window.WF_DATA = {
    "meta": "Art Gallery of NSW (Naala Badu), The Domain · adults from $40, youth $15, under-12s free",
    "cat": "art",
    "url": "https://www.artgallery.nsw.gov.au/whats-on/exhibitions/takashi-murakami/",
-   "tix": "https://tickets.artgallery.nsw.gov.au/events/6b1b1591-ae87-3669-08f7-5c2d7c905010",
    "price": "tickets",
+   "tix": "https://tickets.artgallery.nsw.gov.au/events/6b1b1591-ae87-3669-08f7-5c2d7c905010",
    "lat": -33.8679,
    "lon": 151.2177,
    "q": "Art Gallery of New South Wales Naala Badu",
@@ -1466,7 +1666,7 @@ window.WF_DATA = {
    "end": "2027-07-18"
   },
   {
-   "n": 84,
+   "n": 93,
    "id": "syd-wanderers-v-perth-2026-12-05",
    "sec": "early-dec",
    "when": "Sat Dec 5, 7.40pm",
@@ -1483,7 +1683,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 85,
+   "n": 94,
    "id": "syd-clovelly-carols-2026",
    "sec": "early-dec",
    "when": "Sun Dec 6, 4pm–7pm",
@@ -1499,7 +1699,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 86,
+   "n": 95,
    "id": "syd-penrith-symphony-messiah-2026",
    "sec": "early-dec",
    "when": "Sun Dec 6",
@@ -1515,7 +1715,23 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 87,
+   "n": 96,
+   "id": "syd-pyrmont-christmas-concert-2026",
+   "sec": "early-dec",
+   "when": "Sun Dec 6, 5:30–8:30pm",
+   "title": "Pyrmont Christmas Concert",
+   "meta": "Pirrama Park, Pyrmont · free · harbourside carols and picnic",
+   "cat": "hol",
+   "url": "https://whatson.cityofsydney.nsw.gov.au/events/pyrmont-christmas-concert",
+   "price": "free",
+   "lat": -33.8655,
+   "lon": 151.1966,
+   "q": "Pirrama Park Pyrmont",
+   "start": "2026-12-06",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 97,
    "id": "syd-sydney-fc-v-victory-2026-12-06",
    "sec": "early-dec",
    "when": "Sun Dec 6, 5pm",
@@ -1523,8 +1739,8 @@ window.WF_DATA = {
    "meta": "Allianz Stadium, Moore Park · A-League Men · men's",
    "cat": "sport",
    "url": "https://www.allianzstadium.com.au/events/n2026_27_a_league_men_mw7_sydney_fc_v_victory",
-   "tix": "https://www.ticketmaster.com.au/202627-isuzu-ute-aleague-sydney-fc-sydney-06-12-2026/event/250064FFC3E68EBB",
    "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/202627-isuzu-ute-aleague-sydney-fc-sydney-06-12-2026/event/250064FFC3E68EBB",
    "ha": "home",
    "lat": -33.889,
    "lon": 151.225,
@@ -1533,7 +1749,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 88,
+   "n": 98,
    "id": "syd-back-to-the-tivoli-christmas-glen-street-2026",
    "sec": "early-dec",
    "when": "Mon Dec 7, 11am",
@@ -1541,8 +1757,8 @@ window.WF_DATA = {
    "meta": "Glen Street Theatre, Belrose · festive variety show + morning tea · from $36",
    "cat": "show",
    "url": "https://www.glenstreet.com.au/whats-on/back-tivoli-christmas-spectacular",
-   "tix": "https://GST1.sales.ticketsearch.com/sales/salesevent/164270",
    "price": "tickets",
+   "tix": "https://GST1.sales.ticketsearch.com/sales/salesevent/164270",
    "lat": -33.738,
    "lon": 151.2135,
    "q": "Glen Street Theatre Belrose",
@@ -1550,7 +1766,7 @@ window.WF_DATA = {
    "end": "2026-12-07"
   },
   {
-   "n": 89,
+   "n": 99,
    "id": "syd-nida-open-teen-summer-2026",
    "sec": "early-dec",
    "when": "Mon Dec 7–Fri Jan 22 (1–5 day courses)",
@@ -1566,53 +1782,97 @@ window.WF_DATA = {
    "end": "2027-01-22"
   },
   {
-   "n": 90,
-   "id": "syd-jimmy-eat-world-sydney-2026-12-10",
+   "n": 100,
+   "id": "syd-carols-by-the-sea-bondi-2026",
    "sec": "early-dec",
-   "when": "Thu Dec 10, 8pm (doors 7pm)",
-   "title": "Jimmy Eat World: Bleed American 25th anniversary",
-   "meta": "Hordern Pavilion, Moore Park · with Ruby Fields · from $153 (GA)",
-   "cat": "show",
-   "url": "https://thehordern.com.au/event/jimmy-eat-world/",
-   "tix": "https://www.axs.com/au/events/1542677/jimmy-eat-world-tickets",
-   "price": "tickets",
-   "lat": -33.8916,
-   "lon": 151.2241,
-   "q": "Hordern Pavilion Moore Park",
-   "start": "2026-12-10",
-   "end": "2026-12-10"
+   "when": "Wed Dec 9, from 5pm",
+   "title": "Carols by the Sea, Bondi",
+   "meta": "Bondi Park (Dolphin Court), Bondi Beach · free · Bondi Brass, local school choirs · alcohol and glass free",
+   "cat": "hol",
+   "url": "https://www.waverley.nsw.gov.au/recreation/events/events/carols_by_the_sea",
+   "price": "free",
+   "lat": -33.8912,
+   "lon": 151.2768,
+   "q": "Bondi Pavilion",
+   "start": "2026-12-09",
+   "end": "2026-12-09"
   },
   {
-   "n": 91,
-   "id": "syd-film-sunny-dancer",
+   "n": 101,
+   "id": "syd-christmas-actually-soh-2026",
+   "sec": "early-dec",
+   "when": "Wed Dec 9–Sun Dec 13",
+   "title": "Christmas Actually (live)",
+   "meta": "Playhouse, Sydney Opera House · Christmas cabaret · $99–$119",
+   "cat": "show",
+   "url": "https://www.sydneyoperahouse.com/cabaret/christmas-actually",
+   "price": "tickets",
+   "lat": -33.8568,
+   "lon": 151.2153,
+   "q": "Sydney Opera House",
+   "start": "2026-12-09",
+   "end": "2026-12-13"
+  },
+  {
+   "n": 102,
+   "id": "syd-film-big-girls-dont-cry",
    "sec": "early-dec",
    "when": "Opens Thu Dec 10",
-   "title": "Sunny Dancer",
-   "meta": "In cinemas · M · Comedy-drama · 1h 46m",
+   "title": "Big Girls Don't Cry",
+   "meta": "In cinemas · MA15+ · NZ coming-of-age drama · 1h 40m",
    "cat": "film",
+   "url": "https://www.madman.com.au/big-girls-dont-cry/",
    "price": "tickets",
    "start": "2026-12-10",
    "end": "2026-12-13"
   },
   {
-   "n": 92,
-   "id": "syd-a-perfect-circle-2026-12-11",
+   "n": 103,
+   "id": "syd-brandenburg-noel-noel-2026",
    "sec": "early-dec",
-   "when": "Fri Dec 11, 7:45pm",
-   "title": "A Perfect Circle",
-   "meta": "TikTok Entertainment Centre (ICC Sydney Theatre), Darling Harbour · concert",
+   "when": "Thu Dec 10–Sat Dec 12",
+   "title": "Noël! Noël! (Australian Brandenburg Orchestra)",
+   "meta": "City Recital Hall, Angel Place, CBD · Christmas baroque concert · $50–$186",
    "cat": "show",
-   "url": "https://tiktokentcent.com/event/a-perfect-circle/",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=EATTELPS26",
+   "url": "https://www.brandenburg.com.au/live-concerts/events/noel-noel-2026/",
    "price": "tickets",
-   "lat": -33.8749,
-   "lon": 151.199,
-   "q": "ICC Sydney Theatre Darling Harbour",
-   "start": "2026-12-11",
-   "end": "2026-12-11"
+   "lat": -33.8664,
+   "lon": 151.2087,
+   "q": "City Recital Hall",
+   "start": "2026-12-10",
+   "end": "2026-12-12"
   },
   {
-   "n": 93,
+   "n": 104,
+   "id": "syd-nutcracker-on-ice-rooty-hill-2026",
+   "sec": "early-dec",
+   "when": "Thu Dec 10–Sun Dec 20 (no show Dec 14)",
+   "title": "The Nutcracker on Ice (Imperial Ice Stars)",
+   "meta": "Coliseum Theatre, West HQ, Rooty Hill · ice ballet · from $68",
+   "cat": "show",
+   "url": "https://www.coliseumtheatre.com.au/whats-on/the-nutcracker-on-ice/",
+   "price": "tickets",
+   "lat": -33.7707,
+   "lon": 150.8435,
+   "q": "Coliseum Theatre Rooty Hill",
+   "start": "2026-12-10",
+   "end": "2026-12-20"
+  },
+  {
+   "n": 105,
+   "id": "syd-film-zero-ad",
+   "sec": "early-dec",
+   "when": "Opens Thu Dec 10",
+   "title": "Zero A.D.: The Birth of Christ",
+   "meta": "In cinemas · M · Biblical drama · 1h 55m",
+   "cat": "film",
+   "url": "https://www.angel.com/movies/zero-ad",
+   "price": "tickets",
+   "start": "2026-12-10",
+   "end": "2026-12-13"
+  },
+  {
+   "n": 106,
    "id": "syd-believe-christmas-musical-2026",
    "sec": "early-dec",
    "when": "Fri Dec 11–Mon Dec 21 (Fri–Sun + Mon 21), 11am–2pm & evening sessions",
@@ -1635,7 +1895,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 94,
+   "n": 107,
    "id": "syd-christmas-by-the-beach-dee-why-2026",
    "sec": "early-dec",
    "when": "Fri Dec 11, 4pm–7:30pm · carols 6pm",
@@ -1651,7 +1911,7 @@ window.WF_DATA = {
    "end": "2026-12-11"
   },
   {
-   "n": 95,
+   "n": 108,
    "id": "syd-handels-messiah-sydney-opera-house-2026",
    "sec": "early-dec",
    "when": "Fri Dec 11 8pm · Sat Dec 12 & Sun Dec 13 1pm",
@@ -1670,7 +1930,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 96,
+   "n": 109,
    "id": "syd-bayside-carols-by-the-sea-2026",
    "sec": "early-dec",
    "when": "Sat Dec 12, 6pm–9pm",
@@ -1686,7 +1946,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 97,
+   "n": 110,
    "id": "syd-carols-in-parramatta-park-2026",
    "sec": "early-dec",
    "when": "Sat Dec 12, from 3pm · main show 5pm, fireworks 9pm",
@@ -1702,7 +1962,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 98,
+   "n": 111,
    "id": "syd-balmain-carols-in-the-park-2026",
    "sec": "early-dec",
    "when": "Sat Dec 12, from 7pm · raffle 8pm",
@@ -1717,7 +1977,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 99,
+   "n": 112,
    "id": "syd-christmas-in-the-gardens-auburn-2026",
    "sec": "early-dec",
    "when": "Sat Dec 12, 5pm–9pm",
@@ -1733,7 +1993,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 100,
+   "n": 113,
    "id": "syd-courtney-marie-andrews-factory-2026-12-12",
    "sec": "early-dec",
    "when": "Sat Dec 12, 8pm",
@@ -1741,8 +2001,8 @@ window.WF_DATA = {
    "meta": "Factory Theatre, Marrickville · folk/country concert",
    "cat": "show",
    "url": "https://www.factorytheatre.com.au/event/courtney-marie-andrews/",
-   "tix": "https://aucentury.sales.ticketsearch.com/sales/salesevent/168728",
    "price": "tickets",
+   "tix": "https://aucentury.sales.ticketsearch.com/sales/salesevent/168728",
    "lat": -33.9097,
    "lon": 151.1616,
    "q": "Factory Theatre Marrickville",
@@ -1750,7 +2010,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 101,
+   "n": 114,
    "id": "syd-harry-styles-sydney-2026-12-12",
    "sec": "early-dec",
    "when": "Sat Dec 12 & Sun Dec 13, 5pm",
@@ -1758,8 +2018,8 @@ window.WF_DATA = {
    "meta": "Accor Stadium, Sydney Olympic Park · stadium concert",
    "cat": "show",
    "url": "https://www.accorstadium.com.au/events/harry_styles_together_together_tour_2026",
-   "tix": "https://www.ticketmaster.com.au/event/250064346C5043CE",
    "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/event/250064346C5043CE",
    "lat": -33.8474,
    "lon": 151.0634,
    "q": "Accor Stadium Sydney Olympic Park",
@@ -1767,7 +2027,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 102,
+   "n": 115,
    "id": "syd-michelle-buteau-enmore-2026-12-12",
    "sec": "early-dec",
    "when": "Sat Dec 12, 6:30pm",
@@ -1775,8 +2035,8 @@ window.WF_DATA = {
    "meta": "Enmore Theatre, Newtown · stand-up comedy",
    "cat": "show",
    "url": "https://www.enmoretheatre.com.au/event/michelle-buteau/",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=MICTEAU26",
    "price": "tickets",
+   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=MICTEAU26",
    "lat": -33.8995,
    "lon": 151.1739,
    "q": "Enmore Theatre Newtown",
@@ -1784,7 +2044,23 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 103,
+   "n": 116,
+   "id": "syd-surry-hills-christmas-fair-2026",
+   "sec": "early-dec",
+   "when": "Sat Dec 12, 12–10pm",
+   "title": "Surry Hills Christmas Fair",
+   "meta": "Crown Street, Surry Hills · free · street fair, stalls and live music",
+   "cat": "hol",
+   "url": "https://whatson.cityofsydney.nsw.gov.au/events/surry-hills-christmas-fair",
+   "price": "free",
+   "lat": -33.8862,
+   "lon": 151.2129,
+   "q": "Crown Street Surry Hills",
+   "start": "2026-12-12",
+   "end": "2026-12-12"
+  },
+  {
+   "n": 117,
    "id": "syd-vladswim-balmoral-2026",
    "sec": "early-dec",
    "when": "Sat Dec 12",
@@ -1800,23 +2076,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 104,
-   "id": "syd-carols-by-cabaret-hayes-2026",
-   "sec": "early-dec",
-   "when": "Sun Dec 13, 6:30pm",
-   "title": "Carols by Cabaret 2026",
-   "meta": "Hayes Theatre, Potts Point · Christmas cabaret for Wayside Chapel · from $99",
-   "cat": "show",
-   "url": "https://hayestheatre.com.au/event/carols-by-cabaret-2026/",
-   "price": "tickets",
-   "lat": -33.8735,
-   "lon": 151.2245,
-   "q": "Hayes Theatre Potts Point",
-   "start": "2026-12-13",
-   "end": "2026-12-13"
-  },
-  {
-   "n": 105,
+   "n": 118,
    "id": "syd-carols-on-the-common-2026",
    "sec": "early-dec",
    "when": "Sun Dec 13, 5pm–9:30pm · fireworks finale",
@@ -1832,24 +2092,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 106,
-   "id": "syd-greatest-christmas-show-icc-2026",
-   "sec": "early-dec",
-   "when": "Sun Dec 13, 3:30pm & 7:30pm",
-   "title": "The Greatest Christmas Show",
-   "meta": "Darling Harbour Theatre, ICC Sydney, Darling Harbour · family Christmas variety show",
-   "cat": "kids",
-   "url": "https://iccsydney.com.au/events/the-greatest-christmas-show/",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=GREXMAS26",
-   "price": "tickets",
-   "lat": -33.8749,
-   "lon": 151.199,
-   "q": "ICC Sydney Darling Harbour",
-   "start": "2026-12-13",
-   "end": "2026-12-13"
-  },
-  {
-   "n": 107,
+   "n": 119,
    "id": "syd-guns-n-roses-sydney-2026-12-14",
    "sec": "mid-dec",
    "when": "Mon Dec 14, 6:15pm (gates 5:30pm)",
@@ -1857,8 +2100,8 @@ window.WF_DATA = {
    "meta": "ENGIE Stadium, Sydney Showground, Sydney Olympic Park · with Airbourne",
    "cat": "show",
    "url": "https://www.sydneyshowground.com.au/whats-on/guns-n-roses-world-tour/",
-   "tix": "https://www.livenation.com.au/event/guns-n-roses-world-tour-2026-sydney-tickets-edp1657731",
    "price": "tickets",
+   "tix": "https://www.livenation.com.au/event/guns-n-roses-world-tour-2026-sydney-tickets-edp1657731",
    "lat": -33.8434,
    "lon": 151.071,
    "q": "ENGIE Stadium Sydney Showground",
@@ -1866,7 +2109,7 @@ window.WF_DATA = {
    "end": "2026-12-14"
   },
   {
-   "n": 108,
+   "n": 120,
    "id": "syd-very-cranky-bear-2026",
    "sec": "mid-dec",
    "when": "Tue Dec 15–Wed Dec 23, 10:30am, 12:30pm & 3pm sessions",
@@ -1882,7 +2125,7 @@ window.WF_DATA = {
    "end": "2026-12-23"
   },
   {
-   "n": 109,
+   "n": 121,
    "id": "syd-film-dune-part-three",
    "sec": "mid-dec",
    "when": "Opens Wed Dec 16",
@@ -1895,7 +2138,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 110,
+   "n": 122,
    "id": "syd-film-avengers-doomsday",
    "sec": "mid-dec",
    "when": "Opens Thu Dec 17",
@@ -1908,7 +2151,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 111,
+   "n": 123,
    "id": "syd-christmas-carol-goes-wrong-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 17–Tue Dec 29 (not Dec 21 or 25), 1:30pm & 7pm",
@@ -1935,40 +2178,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 112,
-   "id": "syd-love-actually-in-concert-2026",
-   "sec": "mid-dec",
-   "when": "Thu Dec 17, 7:30pm",
-   "title": "Love Actually in Concert",
-   "meta": "TikTok Entertainment Centre (ICC Sydney Theatre), Darling Harbour · film with The Metropolitan Orchestra",
-   "cat": "show",
-   "url": "https://tiktokentcent.com/event/love-actually-in-concert/",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=LOVESINS26",
-   "price": "tickets",
-   "lat": -33.8749,
-   "lon": 151.199,
-   "q": "ICC Sydney Theatre Darling Harbour",
-   "start": "2026-12-17",
-   "end": "2026-12-17"
-  },
-  {
-   "n": 113,
-   "id": "syd-storytime-ballet-cinderella-2026",
-   "sec": "mid-dec",
-   "when": "Thu Dec 17–Sun Jan 3, 11am, 2pm or 4pm",
-   "title": "Storytime Ballet: Cinderella (The Australian Ballet)",
-   "meta": "Drama Theatre, Sydney Opera House · for ages 3+ · 55 min · from $59",
-   "cat": "kids",
-   "url": "https://www.sydneyoperahouse.com/the-australian-ballet/2026-season/storytime-ballet-cinderella",
-   "price": "tickets",
-   "lat": -33.8568,
-   "lon": 151.2153,
-   "q": "Sydney Opera House",
-   "start": "2026-12-17",
-   "end": "2027-01-03"
-  },
-  {
-   "n": 114,
+   "n": 124,
    "id": "syd-wiggles-wollongong-2026-12-17",
    "sec": "mid-dec",
    "when": "Thu Dec 17, 10am & 1:30pm",
@@ -1976,8 +2186,8 @@ window.WF_DATA = {
    "meta": "WIN Entertainment Centre, Wollongong · selling quick",
    "cat": "kids",
    "url": "https://thewiggles.com/pages/the-wiggles-sparkle-big-show",
-   "tix": "https://www.ticketmaster.com.au/the-wiggles-tickets/artist/705291",
    "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/the-wiggles-tickets/artist/705291",
    "lat": -34.4289,
    "lon": 150.899,
    "q": "WIN Entertainment Centre Wollongong",
@@ -1985,7 +2195,7 @@ window.WF_DATA = {
    "end": "2026-12-17"
   },
   {
-   "n": 115,
+   "n": 125,
    "id": "syd-troy-kinne-monty-franklin-penrith-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 17",
@@ -2001,7 +2211,7 @@ window.WF_DATA = {
    "end": "2026-12-17"
   },
   {
-   "n": 116,
+   "n": 126,
    "id": "syd-carols-in-the-stadium-gosford-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19 · gates 4:30pm, carols 6pm–9pm, fireworks finale",
@@ -2017,7 +2227,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 117,
+   "n": 127,
    "id": "syd-hillsong-carols-norwest-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19 & Sun Dec 20 · shows 1pm, 4pm, 7pm",
@@ -2033,24 +2243,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 118,
-   "id": "syd-pond-metro-2026-12-19",
-   "sec": "mid-dec",
-   "when": "Sat Dec 19, 8pm",
-   "title": "POND",
-   "meta": "Metro Theatre, CBD · concert",
-   "cat": "show",
-   "url": "https://www.metrotheatre.com.au/event/pond/",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=PONDTER26",
-   "price": "tickets",
-   "lat": -33.8761,
-   "lon": 151.2066,
-   "q": "Metro Theatre Sydney",
-   "start": "2026-12-19",
-   "end": "2026-12-19"
-  },
-  {
-   "n": 119,
+   "n": 128,
    "id": "syd-thunder-v-sixers-2026-12-19",
    "sec": "mid-dec",
    "when": "Sat Dec 19, 7.15pm",
@@ -2058,8 +2251,8 @@ window.WF_DATA = {
    "meta": "ENGIE Stadium, Sydney Olympic Park · BBL|16 Sydney Smash · men's",
    "cat": "sport",
    "url": "https://www.sydneythunder.com.au/matches",
-   "tix": "https://www.ticketmaster.com.au/bbl-sydney-thunder-v-sydney-sixers-olympic-park-19-12-2026/event/130064FC8CE92749",
    "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/bbl-sydney-thunder-v-sydney-sixers-olympic-park-19-12-2026/event/130064FC8CE92749",
    "ha": "home",
    "lat": -33.8434,
    "lon": 151.071,
@@ -2068,7 +2261,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 120,
+   "n": 129,
    "id": "syd-christmas-spectacular-state-theatre-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19 & Sun Dec 20, 2pm & 6:30pm",
@@ -2084,7 +2277,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 121,
+   "n": 130,
    "id": "syd-carols-in-the-domain-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19, 1pm–11pm · TV broadcast from 8pm",
@@ -2092,8 +2285,8 @@ window.WF_DATA = {
    "meta": "The Domain, CBD · free general admission, reserved seating ticketed",
    "cat": "hol",
    "url": "https://www.botanicgardens.org.au/whats-on/carols-domain",
-   "tix": "https://carolsinthedomain.com/tickets",
    "price": "free",
+   "tix": "https://carolsinthedomain.com/tickets",
    "lat": -33.868,
    "lon": 151.2155,
    "q": "The Domain Sydney",
@@ -2101,7 +2294,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 122,
+   "n": 131,
    "id": "syd-wiggles-sydney-2026-12-19",
    "sec": "mid-dec",
    "when": "Sat Dec 19, 10am, 1:30pm & 4:30pm",
@@ -2109,8 +2302,8 @@ window.WF_DATA = {
    "meta": "Afterpay Arena (ex-Qudos Bank Arena), Sydney Olympic Park · selling quick",
    "cat": "kids",
    "url": "https://thewiggles.com/pages/the-wiggles-sparkle-big-show",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=HPCSMB26",
    "price": "tickets",
+   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=HPCSMB26",
    "lat": -33.8467,
    "lon": 151.0628,
    "q": "Qudos Bank Arena Sydney Olympic Park",
@@ -2118,7 +2311,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 123,
+   "n": 132,
    "id": "syd-wentworth-point-christmas-twilight-market-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19 · 5pm–9pm",
@@ -2134,7 +2327,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 124,
+   "n": 133,
    "id": "syd-coogee-carols-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 20, 6:30pm–8:30pm",
@@ -2150,7 +2343,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 125,
+   "n": 134,
    "id": "syd-christmas-stories-ra-spratt-2026",
    "sec": "mid-dec",
    "when": "Mon Dec 21, 2pm",
@@ -2166,7 +2359,7 @@ window.WF_DATA = {
    "end": "2026-12-21"
   },
   {
-   "n": 126,
+   "n": 135,
    "id": "syd-sixers-v-renegades-2026-12-22",
    "sec": "mid-dec",
    "when": "Tue Dec 22, 7.15pm",
@@ -2174,8 +2367,8 @@ window.WF_DATA = {
    "meta": "Sydney Cricket Ground, Moore Park · BBL|16 · men's",
    "cat": "sport",
    "url": "https://www.sydneycricketground.com.au/events/bbl_16_sydney_sixers_v_melbourne_renegades",
-   "tix": "https://www.ticketmaster.com.au/bbl-sydney-sixers-v-melbourne-renegades-moore-park-22-12-2026/event/250064F5D0A75403",
    "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/bbl-sydney-sixers-v-melbourne-renegades-moore-park-22-12-2026/event/250064F5D0A75403",
    "ha": "home",
    "lat": -33.8915,
    "lon": 151.2247,
@@ -2184,7 +2377,7 @@ window.WF_DATA = {
    "end": "2026-12-22"
   },
   {
-   "n": 127,
+   "n": 136,
    "id": "syd-the-entrance-carols-in-the-park-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 24, 6pm–9pm · fireworks finale",
@@ -2199,7 +2392,7 @@ window.WF_DATA = {
    "end": "2026-12-24"
   },
   {
-   "n": 128,
+   "n": 137,
    "id": "syd-kings-v-hawks-2026-12-25",
    "sec": "mid-dec",
    "when": "Fri Dec 25, 7.30pm",
@@ -2207,8 +2400,8 @@ window.WF_DATA = {
    "meta": "Afterpay Arena, Sydney Olympic Park · NBL Christmas Night · men's · from $25",
    "cat": "sport",
    "url": "https://www.sydneykings.com/tickets",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=KINGSI27",
    "price": "tickets",
+   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=KINGSI27",
    "ha": "home",
    "lat": -33.8469,
    "lon": 151.0705,
@@ -2217,19 +2410,7 @@ window.WF_DATA = {
    "end": "2026-12-25"
   },
   {
-   "n": 129,
-   "id": "syd-film-a-talent-for-murder",
-   "sec": "mid-dec",
-   "when": "Opens Sat Dec 26 (Boxing Day)",
-   "title": "A Talent for Murder",
-   "meta": "In cinemas · M · Drama · 1h 46m",
-   "cat": "film",
-   "price": "tickets",
-   "start": "2026-12-26",
-   "end": "2026-12-27"
-  },
-  {
-   "n": 130,
+   "n": 138,
    "id": "syd-film-jumanji-boxing-day",
    "sec": "mid-dec",
    "when": "Opens Sat Dec 26 (Boxing Day)",
@@ -2241,7 +2422,7 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 131,
+   "n": 139,
    "id": "syd-sydney-to-hobart-start-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 26, 1pm",
@@ -2258,7 +2439,7 @@ window.WF_DATA = {
    "end": "2026-12-26"
   },
   {
-   "n": 132,
+   "n": 140,
    "id": "syd-sixers-v-heat-2026-12-26",
    "sec": "mid-dec",
    "when": "Sat Dec 26, 6.05pm",
@@ -2266,8 +2447,8 @@ window.WF_DATA = {
    "meta": "Sydney Cricket Ground, Moore Park · BBL|16 Boxing Day · men's",
    "cat": "sport",
    "url": "https://www.sydneycricketground.com.au/events/bbl_16_sydney_sixers_v_brisbane_heat",
-   "tix": "https://www.ticketmaster.com.au/bbl-boxing-day-sydney-sixers-v-moore-park-26-12-2026/event/250064F79C7A3B44",
    "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/bbl-boxing-day-sydney-sixers-v-moore-park-26-12-2026/event/250064F79C7A3B44",
    "ha": "home",
    "lat": -33.8915,
    "lon": 151.2247,
@@ -2276,32 +2457,20 @@ window.WF_DATA = {
    "end": "2026-12-26"
   },
   {
-   "n": 133,
+   "n": 141,
    "id": "syd-film-angry-birds-movie-3",
    "sec": "mid-dec",
    "when": "Opens Sat Dec 26 (Boxing Day)",
    "title": "The Angry Birds Movie 3",
    "meta": "In cinemas · CTC (rating to come) · Animated family comedy · 1h 36m",
    "cat": "film",
+   "url": "https://www.angrybirds.movie/",
    "price": "tickets",
    "start": "2026-12-26",
    "end": "2026-12-27"
   },
   {
-   "n": 134,
-   "id": "syd-film-the-debut",
-   "sec": "mid-dec",
-   "when": "Opens Sat Dec 26 (Boxing Day)",
-   "title": "The Debut",
-   "meta": "In cinemas · CTC (rating to come) · Drama · 1h 45m",
-   "cat": "film",
-   "url": "https://www.madman.com.au/the-debut/",
-   "price": "tickets",
-   "start": "2026-12-26",
-   "end": "2026-12-27"
-  },
-  {
-   "n": 135,
+   "n": 142,
    "id": "syd-wanderers-v-jets-2026-12-26",
    "sec": "mid-dec",
    "when": "Sat Dec 26, 7.40pm",
@@ -2318,7 +2487,7 @@ window.WF_DATA = {
    "end": "2026-12-26"
   },
   {
-   "n": 136,
+   "n": 143,
    "id": "syd-flames-v-jewels-2026-12-29",
    "sec": "mid-dec",
    "when": "Tue Dec 29, 5pm",
@@ -2335,7 +2504,7 @@ window.WF_DATA = {
    "end": "2026-12-29"
   },
   {
-   "n": 137,
+   "n": 144,
    "id": "syd-kings-v-melbourne-united-2026-12-29",
    "sec": "mid-dec",
    "when": "Tue Dec 29, 7.30pm",
@@ -2343,8 +2512,8 @@ window.WF_DATA = {
    "meta": "Afterpay Arena, Sydney Olympic Park · NBL · men's (double-header with Flames 5pm) · from $25",
    "cat": "sport",
    "url": "https://www.sydneykings.com/tickets",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=KINGSJ27",
    "price": "tickets",
+   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=KINGSJ27",
    "ha": "home",
    "lat": -33.8469,
    "lon": 151.0705,
@@ -2353,7 +2522,7 @@ window.WF_DATA = {
    "end": "2026-12-29"
   },
   {
-   "n": 138,
+   "n": 145,
    "id": "syd-mariners-w-v-city-w-2026-12-31",
    "sec": "mid-dec",
    "when": "Thu Dec 31, 4.50pm",
@@ -2370,7 +2539,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 139,
+   "n": 146,
    "id": "syd-coogee-sparkles-nye-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31 · 9pm fireworks (15 min, no midnight show) · roving entertainment 2pm–8pm",
@@ -2386,35 +2555,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 140,
-   "id": "syd-darling-harbour-nye-fireworks-2026",
-   "sec": "mid-dec",
-   "when": "Thu Dec 31 · fireworks 9pm and midnight (precinct open from 1pm)",
-   "title": "Darling Harbour New Year's Eve fireworks",
-   "meta": "Cockle Bay, Darling Harbour · free, no tickets, first come first served (Pyrmont Bridge closed as a viewing spot)",
-   "cat": "hol",
-   "url": "https://www.darlingharbour.com/whats-on/campaigns/new-years-eve",
-   "price": "free",
-   "lat": -33.8737,
-   "lon": 151.199,
-   "q": "Darling Harbour Sydney",
-   "start": "2026-12-31",
-   "end": "2026-12-31"
-  },
-  {
-   "n": 141,
-   "id": "syd-film-the-cat-in-the-hat",
-   "sec": "mid-dec",
-   "when": "Opens Thu Dec 31",
-   "title": "Dr. Seuss' The Cat in the Hat",
-   "meta": "In cinemas · CTC (rating to come) · Animated family",
-   "cat": "film",
-   "price": "tickets",
-   "start": "2026-12-31",
-   "end": "2027-01-03"
-  },
-  {
-   "n": 142,
+   "n": 147,
    "id": "syd-frenchs-forest-nye-fireworks-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31, 9pm",
@@ -2430,7 +2571,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 143,
+   "n": 148,
    "id": "syd-liverpool-nye-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31 · evening, rides, live shows and fireworks",
@@ -2445,7 +2586,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 144,
+   "n": 149,
    "id": "syd-manly-nye-fireworks-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31, 9pm",
@@ -2461,7 +2602,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 145,
+   "n": 150,
    "id": "syd-dee-why-nye-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31, 5pm–9pm (no fireworks here)",
@@ -2477,7 +2618,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 146,
+   "n": 151,
    "id": "syd-parramatta-nye-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31, 5pm–9:30pm · fireworks 9pm",
@@ -2493,7 +2634,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 147,
+   "n": 152,
    "id": "syd-sydney-nye-fireworks-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31 · 9pm family fireworks, midnight fireworks",
@@ -2509,32 +2650,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 148,
-   "id": "syd-film-i-play-rocky",
-   "sec": "mid-dec",
-   "when": "Opens Fri Jan 1",
-   "title": "I Play Rocky",
-   "meta": "In cinemas · M · Drama · 2h 8m",
-   "cat": "film",
-   "price": "tickets",
-   "start": "2027-01-01",
-   "end": "2027-01-03"
-  },
-  {
-   "n": 149,
-   "id": "syd-film-werwulf",
-   "sec": "mid-dec",
-   "when": "Opens Fri Jan 1",
-   "title": "Werwulf",
-   "meta": "In cinemas · CTC (rating to come) · Horror",
-   "cat": "film",
-   "url": "https://www.universalpictures.com.au/micro/werwulf",
-   "price": "tickets",
-   "start": "2027-01-01",
-   "end": "2027-01-03"
-  },
-  {
-   "n": 150,
+   "n": 153,
    "id": "syd-opera-australia-la-boheme-2027",
    "sec": "mid-dec",
    "when": "Sat Jan 2–Mar 17 · mostly 7:30pm, Sat Jan 2 12:30pm",
@@ -2550,7 +2666,7 @@ window.WF_DATA = {
    "end": "2027-03-17"
   },
   {
-   "n": 151,
+   "n": 154,
    "id": "syd-sydney-fc-w-v-roar-w-2027-01-02",
    "sec": "mid-dec",
    "when": "Sat Jan 2, 4.50pm",
@@ -2558,8 +2674,8 @@ window.WF_DATA = {
    "meta": "Allianz Stadium, Moore Park · A-League Women · women's (double-header; men v Roar 7.40pm)",
    "cat": "sport",
    "url": "https://www.allianzstadium.com.au/events/n2026_27_a_league_men_mw11__sydney_fc_v_brisbane_r",
-   "tix": "https://www.ticketmaster.com.au/event/250064FFC79B936E",
    "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/event/250064FFC79B936E",
    "ha": "home",
    "lat": -33.889,
    "lon": 151.225,
@@ -2568,7 +2684,7 @@ window.WF_DATA = {
    "end": "2027-01-02"
   },
   {
-   "n": 152,
+   "n": 155,
    "id": "syd-thunder-v-scorchers-2027-01-02",
    "sec": "mid-dec",
    "when": "Sat Jan 2, 7.15pm",
@@ -2576,8 +2692,8 @@ window.WF_DATA = {
    "meta": "ENGIE Stadium, Sydney Olympic Park · BBL|16 · men's",
    "cat": "sport",
    "url": "https://www.sydneythunder.com.au/matches",
-   "tix": "https://www.ticketmaster.com.au/bbl-sydney-thunder-v-perth-scorchers-olympic-park-02-01-2027/event/130064FDDD02826B",
    "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/bbl-sydney-thunder-v-perth-scorchers-olympic-park-02-01-2027/event/130064FDDD02826B",
    "ha": "home",
    "lat": -33.8434,
    "lon": 151.071,
@@ -2586,7 +2702,7 @@ window.WF_DATA = {
    "end": "2027-01-02"
   },
   {
-   "n": 153,
+   "n": 156,
    "id": "syd-united-cup-2027",
    "sec": "mid-dec",
    "when": "Sat Jan 2–Sun Jan 10, day 10.30am / night 5.30pm",
@@ -2594,8 +2710,8 @@ window.WF_DATA = {
    "meta": "Ken Rosewall Arena, Sydney Olympic Park · United Cup · men's & women's · final Sun Jan 10, 5.30pm",
    "cat": "sport",
    "url": "https://www.unitedcup.com/en/sydney/gate-opening-times",
-   "tix": "https://www.ticketmaster.com.au/unitedcup",
    "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/unitedcup",
    "ha": "neutral",
    "lat": -33.8459,
    "lon": 151.0704,
@@ -2604,7 +2720,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 154,
+   "n": 157,
    "id": "syd-newport-pool-to-peak-2027",
    "sec": "mid-dec",
    "when": "Sun Jan 3, from 8:30am",
@@ -2612,8 +2728,8 @@ window.WF_DATA = {
    "meta": "Newport Beach, Newport · 400m, 800m and 2km · Newport SLSC · entries close Jan 2, capped at 800",
    "cat": "evt",
    "url": "https://oceanswims.com/event/newport-pool-to-peak/",
-   "tix": "https://newport.oceanswims.com",
    "price": "tickets",
+   "tix": "https://newport.oceanswims.com",
    "lat": -33.6538,
    "lon": 151.3225,
    "q": "Newport Surf Life Saving Club",
@@ -2621,7 +2737,7 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 155,
+   "n": 158,
    "id": "syd-scg-new-year-test-nz-2027",
    "sec": "jan",
    "when": "Mon Jan 4–Fri Jan 8, 10.30am",
@@ -2638,7 +2754,7 @@ window.WF_DATA = {
    "end": "2027-01-08"
   },
   {
-   "n": 156,
+   "n": 159,
    "id": "syd-into-space-2027",
    "sec": "jan",
    "when": "Wed Jan 6–Thu Jan 14 (not Sun Jan 10), 10:30am & 1:30pm",
@@ -2662,7 +2778,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 157,
+   "n": 160,
    "id": "syd-westpac-openair-2027",
    "sec": "jan",
    "when": "Wed Jan 6–Fri Feb 19 (program out Dec 1, tickets Dec 14)",
@@ -2678,23 +2794,7 @@ window.WF_DATA = {
    "end": "2027-02-19"
   },
   {
-   "n": 158,
-   "id": "syd-make-a-kite-kite-choir-2027",
-   "sec": "jan",
-   "when": "Thu Jan 7–Sun Jan 10, 10am, 11am, 2pm & 3pm",
-   "title": "Make a Kite & Record a Wish + Kite Choir (Sydney Festival)",
-   "meta": "Centre for Creativity, Sydney Opera House · ages 5+ · 40-min workshop · free",
-   "cat": "kids",
-   "url": "https://www.sydneyoperahouse.com/sydney-festival-2027/make-a-kite-record-a-wish",
-   "price": "free",
-   "lat": -33.8568,
-   "lon": 151.2153,
-   "q": "Sydney Opera House",
-   "start": "2027-01-07",
-   "end": "2027-01-10"
-  },
-  {
-   "n": 159,
+   "n": 161,
    "id": "syd-sydney-festival-2027",
    "sec": "jan",
    "when": "Thu Jan 7–Mon Jan 25 · 94 events, 21 free",
@@ -2709,7 +2809,7 @@ window.WF_DATA = {
    "end": "2027-01-25"
   },
   {
-   "n": 160,
+   "n": 162,
    "id": "syd-sydney-festival-hannah-gadsby-2027",
    "sec": "jan",
    "when": "Thu Jan 7–Sun Jan 10",
@@ -2725,7 +2825,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 161,
+   "n": 163,
    "id": "syd-waverider-2027",
    "sec": "jan",
    "when": "Thu Jan 7–Sun Jan 17 (first show Thu 5:15pm)",
@@ -2741,7 +2841,7 @@ window.WF_DATA = {
    "end": "2027-01-17"
   },
   {
-   "n": 162,
+   "n": 164,
    "id": "syd-sydney-festival-haribo-kimchi-2027",
    "sec": "jan",
    "when": "Fri Jan 8–Mon Jan 11",
@@ -2757,23 +2857,7 @@ window.WF_DATA = {
    "end": "2027-01-11"
   },
   {
-   "n": 163,
-   "id": "syd-sydney-festival-the-party-2027",
-   "sec": "jan",
-   "when": "Fri Jan 8, 10pm–late",
-   "title": "Sydney Festival: The Party (House of Mince)",
-   "meta": "The Cutaway, Barangaroo · free",
-   "cat": "evt",
-   "url": "https://www.sydneyfestival.org.au/events/the-party",
-   "price": "free",
-   "lat": -33.8607,
-   "lon": 151.2007,
-   "q": "The Cutaway Barangaroo",
-   "start": "2027-01-08",
-   "end": "2027-01-08"
-  },
-  {
-   "n": 164,
+   "n": 165,
    "id": "syd-sydney-festival-the-yard-2027",
    "sec": "jan",
    "when": "Fri Jan 8–Sun Jan 24, from 5pm",
@@ -2789,7 +2873,7 @@ window.WF_DATA = {
    "end": "2027-01-24"
   },
   {
-   "n": 165,
+   "n": 166,
    "id": "syd-future-fiestas-2027",
    "sec": "jan",
    "when": "Sat Jan 9–Sat Jan 23; workshops 10am–4pm, parades Sat Jan 9 & 23, 5pm",
@@ -2805,7 +2889,7 @@ window.WF_DATA = {
    "end": "2027-01-23"
   },
   {
-   "n": 166,
+   "n": 167,
    "id": "syd-hooks-neverland-2027",
    "sec": "jan",
    "when": "Sat Jan 9–Sun Jan 17 (no Mon), 2pm/3pm & evening shows",
@@ -2829,7 +2913,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 167,
+   "n": 168,
    "id": "syd-bilgola-billy-swim-2027",
    "sec": "jan",
    "when": "Sun Jan 10, 9am",
@@ -2837,8 +2921,8 @@ window.WF_DATA = {
    "meta": "Bilgola Beach, Bilgola · 500m (9am) and 1.5km (10am) ocean swims",
    "cat": "evt",
    "url": "https://oceanswims.com/event/bilgola-ocean-swim/",
-   "tix": "https://bilgola.oceanswims.com",
    "price": "tickets",
+   "tix": "https://bilgola.oceanswims.com",
    "lat": -33.6463,
    "lon": 151.3271,
    "q": "Bilgola Surf Life Saving Club",
@@ -2846,7 +2930,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 168,
+   "n": 169,
    "id": "syd-sixers-v-scorchers-2027-01-10",
    "sec": "jan",
    "when": "Sun Jan 10, 2.10pm",
@@ -2854,8 +2938,8 @@ window.WF_DATA = {
    "meta": "Sydney Cricket Ground, Moore Park · BBL|16 · men's",
    "cat": "sport",
    "url": "https://www.sydneycricketground.com.au/events/bbl_16__sydney_sixers_v_perth_scorchers",
-   "tix": "https://www.ticketmaster.com.au/bbl-sydney-sixers-v-perth-scorchers-moore-park-10-01-2027/event/250064F79CBE3B83",
    "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/bbl-sydney-sixers-v-perth-scorchers-moore-park-10-01-2027/event/250064F79CBE3B83",
    "ha": "home",
    "lat": -33.8915,
    "lon": 151.2247,
@@ -2864,7 +2948,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 169,
+   "n": 170,
    "id": "syd-atyp-summer-workshops-2027",
    "sec": "jan",
    "when": "Mon Jan 11–Fri Jan 22 (2–5 day courses)",
@@ -2880,7 +2964,7 @@ window.WF_DATA = {
    "end": "2027-01-22"
   },
   {
-   "n": 170,
+   "n": 171,
    "id": "syd-boy-who-found-his-way-home-2027",
    "sec": "jan",
    "when": "Mon Jan 11–Sun Jan 17 (Mon 7pm at PHIVE)",
@@ -2896,7 +2980,7 @@ window.WF_DATA = {
    "end": "2027-01-17"
   },
   {
-   "n": 171,
+   "n": 172,
    "id": "syd-dinosaur-world-live-wollongong-2027",
    "sec": "jan",
    "when": "Tue Jan 12, 3pm & 6pm; Wed Jan 13, 10am, 12:30pm & 3pm",
@@ -2904,8 +2988,8 @@ window.WF_DATA = {
    "meta": "IPAC (Illawarra Performing Arts Centre), Wollongong · ages 3+ · 55 min · $69.90",
    "cat": "kids",
    "url": "https://merrigong.com.au/shows/dinosaurworld/",
-   "tix": "https://boxoffice.merrigong.com.au/EventAvailability?EventId=6230",
    "price": "tickets",
+   "tix": "https://boxoffice.merrigong.com.au/EventAvailability?EventId=6230",
    "lat": -34.4268,
    "lon": 150.8935,
    "q": "Illawarra Performing Arts Centre Wollongong",
@@ -2913,7 +2997,7 @@ window.WF_DATA = {
    "end": "2027-01-13"
   },
   {
-   "n": 172,
+   "n": 173,
    "id": "syd-sydney-festival-waynapuni-pools-2027",
    "sec": "jan",
    "when": "Tue Jan 12–Sun Jan 24",
@@ -2929,7 +3013,7 @@ window.WF_DATA = {
    "end": "2027-01-24"
   },
   {
-   "n": 173,
+   "n": 174,
    "id": "syd-opera-australia-magic-flute-2027",
    "sec": "jan",
    "when": "Wed Jan 13–Mar 23 · mostly 7:30pm, Sat 12:30pm",
@@ -2945,22 +3029,6 @@ window.WF_DATA = {
    "end": "2027-03-23"
   },
   {
-   "n": 174,
-   "id": "syd-peter-allen-hayes-2027",
-   "sec": "jan",
-   "when": "Wed Jan 13–Sat Feb 6 · Wed–Sat 7:30pm",
-   "title": "Peter Allen: Not The Boy Next Door",
-   "meta": "Hayes Theatre, Potts Point · concert celebrating Peter Allen · from $55 (under 35s)",
-   "cat": "show",
-   "url": "https://hayestheatre.com.au/event/peter-allen-not-the-boy-next-door/",
-   "price": "tickets",
-   "lat": -33.8735,
-   "lon": 151.2245,
-   "q": "Hayes Theatre Potts Point",
-   "start": "2027-01-13",
-   "end": "2027-02-06"
-  },
-  {
    "n": 175,
    "id": "syd-rodrigo-y-gabriela-enmore-2027-01-14",
    "sec": "jan",
@@ -2969,8 +3037,8 @@ window.WF_DATA = {
    "meta": "Enmore Theatre, Newtown · concert",
    "cat": "show",
    "url": "https://www.enmoretheatre.com.au/event/rodrigo-y-gabriela-2/",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=RODRYGAB27",
    "price": "tickets",
+   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=RODRYGAB27",
    "lat": -33.8995,
    "lon": 151.1739,
    "q": "Enmore Theatre Newtown",
@@ -2995,22 +3063,6 @@ window.WF_DATA = {
   },
   {
    "n": 177,
-   "id": "syd-sydney-festival-hes-so-unusual-2027",
-   "sec": "jan",
-   "when": "Fri Jan 15–Sun Jan 24",
-   "title": "Sydney Festival: He's So Unusual",
-   "meta": "Sydney Opera House, Bennelong Point · from $49",
-   "cat": "show",
-   "url": "https://www.sydneyfestival.org.au/events/hes-so-unusual",
-   "price": "tickets",
-   "lat": -33.8568,
-   "lon": 151.2153,
-   "q": "Sydney Opera House",
-   "start": "2027-01-15",
-   "end": "2027-01-24"
-  },
-  {
-   "n": 178,
    "id": "syd-sixers-v-thunder-2027-01-15",
    "sec": "jan",
    "when": "Fri Jan 15, 7.15pm",
@@ -3018,8 +3070,8 @@ window.WF_DATA = {
    "meta": "Sydney Cricket Ground, Moore Park · BBL|16 Sydney Smash · men's",
    "cat": "sport",
    "url": "https://www.sydneycricketground.com.au/events/bbl_16_sydney_sixers_v_sydney_thunder",
-   "tix": "https://www.ticketmaster.com.au/bbl-sydney-smash-sydney-sixers-v-moore-park-15-01-2027/event/250064F1B3B162AC",
    "price": "tickets",
+   "tix": "https://www.ticketmaster.com.au/bbl-sydney-smash-sydney-sixers-v-moore-park-15-01-2027/event/250064F1B3B162AC",
    "ha": "home",
    "lat": -33.8915,
    "lon": 151.2247,
@@ -3028,23 +3080,23 @@ window.WF_DATA = {
    "end": "2027-01-15"
   },
   {
-   "n": 179,
-   "id": "syd-very-hungry-caterpillar-show-seymour-2027",
+   "n": 178,
+   "id": "syd-sydney-festival-wasia-project-2027",
    "sec": "jan",
-   "when": "Fri Jan 15–Sun Jan 17 · 10am & 12pm (Sat also 3pm)",
-   "title": "The Very Hungry Caterpillar Show",
-   "meta": "Everest Theatre, Seymour Centre, Chippendale · ages 18 months+ · from $45",
-   "cat": "kids",
-   "url": "https://www.seymourcentre.com/event/the-very-hungry-caterpillar-show/",
+   "when": "Fri Jan 15",
+   "title": "Wasia Project (Sydney Festival)",
+   "meta": "City Recital Hall, Angel Place · UK sibling duo, incl. Heartstopper's Will Gao; first full-band Australian show · flashing lights/haze · tickets",
+   "cat": "teen",
+   "url": "https://www.sydneyfestival.org.au/events/wasia-project",
    "price": "tickets",
-   "lat": -33.8889,
-   "lon": 151.1928,
-   "q": "Seymour Centre Chippendale",
+   "lat": -33.8667,
+   "lon": 151.2083,
+   "q": "City Recital Hall",
    "start": "2027-01-15",
-   "end": "2027-01-17"
+   "end": "2027-01-15"
   },
   {
-   "n": 180,
+   "n": 179,
    "id": "syd-warriewood-mona-vale-swim-2027",
    "sec": "jan",
    "when": "Sun Jan 17, 8:30am",
@@ -3052,13 +3104,29 @@ window.WF_DATA = {
    "meta": "Mona Vale Beach, Mona Vale · 1km family fun swim (12+, 8:30am), 2.26km Warriewood to Mona Vale (10am)",
    "cat": "evt",
    "url": "https://oceanswims.com/event/mona-vale-ocean-swim/",
-   "tix": "https://monavale.oceanswims.com",
    "price": "tickets",
+   "tix": "https://monavale.oceanswims.com",
    "lat": -33.6795,
    "lon": 151.311,
    "q": "Mona Vale Surf Life Saving Club",
    "start": "2027-01-17",
    "end": "2027-01-17"
+  },
+  {
+   "n": 180,
+   "id": "syd-sydney-festival-onefour-penrith-chamber-orchestra-2027",
+   "sec": "jan",
+   "when": "Fri Jan 22–Sat Jan 23",
+   "title": "ONEFOUR & the Penrith Chamber Orchestra (Sydney Festival)",
+   "meta": "The Joan Sutherland Performing Arts Centre, Penrith · Western Sydney drill group meets strings, world premiere · recommended 15+ · tickets",
+   "cat": "teen",
+   "url": "https://www.sydneyfestival.org.au/events/one-four-the-penrith-chamber-orchestra",
+   "price": "tickets",
+   "lat": -33.751,
+   "lon": 150.693,
+   "q": "The Joan Sutherland Performing Arts Centre, Penrith",
+   "start": "2027-01-22",
+   "end": "2027-01-23"
   },
   {
    "n": 181,
@@ -3079,22 +3147,67 @@ window.WF_DATA = {
   },
   {
    "n": 182,
-   "id": "syd-santa-paws-centennial-park-2026",
+   "id": "syd-double-bay-pet-friendly-santa-photos-2026",
    "sec": "dog",
-   "when": "Sun Nov 15 · 8am–1pm",
-   "title": "Santa Paws",
-   "meta": "Centennial Park Dog Park, Federation Valley, Paddington · pet Santa photos, Doggie Dash, contests, rescue adoptions · free entry, photos from $40",
+   "when": "Weekends Nov 21–Dec 20 + Mon Dec 21 · 10-min slots",
+   "title": "Pet-friendly Santa photo sessions, Double Bay",
+   "meta": "InterContinental Sydney Double Bay, 33 Cross St, Double Bay · \"Pink Christmas Fairytale\" set, bring the dog; all digital images (25+) · from about $87, book ahead",
    "cat": "dog",
-   "url": "https://www.ozzietailsofhope.com.au/events/santa-paws-tickets",
-   "price": "free",
-   "lat": -33.898,
-   "lon": 151.237,
-   "q": "Federation Valley Centennial Park",
-   "start": "2026-11-15",
-   "end": "2026-11-15"
+   "url": "https://www.eventbrite.com.au/e/2026-santa-photos-double-bay-sunday-13th-of-december-tickets-2003440411201",
+   "price": "tickets",
+   "lat": -33.877,
+   "lon": 151.242,
+   "q": "InterContinental Sydney Double Bay",
+   "dates": [
+    "2026-11-21",
+    "2026-11-29",
+    "2026-12-05",
+    "2026-12-06",
+    "2026-12-12",
+    "2026-12-13",
+    "2026-12-19",
+    "2026-12-20",
+    "2026-12-21"
+   ]
   },
   {
    "n": 183,
+   "id": "syd-cronulla-rsl-pet-friendly-santa-photos-2026",
+   "sec": "dog",
+   "when": "Sun Nov 22 & Sat Dec 5 · 10-min slots",
+   "title": "Pet-friendly Santa photos, Cronulla RSL",
+   "meta": "Cronulla RSL, Gerrale St, Cronulla · \"Santa's Workshop Wonderland\" set; family, friends and pets welcome; 20–25 digital images · from about $85",
+   "cat": "dog",
+   "url": "https://www.eventbrite.com.au/e/2026-santa-photos-cronulla-rsl-december-5th-tickets-2003112585666",
+   "price": "tickets",
+   "lat": -34.0545,
+   "lon": 151.1555,
+   "q": "Cronulla RSL",
+   "dates": [
+    "2026-11-22",
+    "2026-12-05"
+   ]
+  },
+  {
+   "n": 184,
+   "id": "syd-kellyville-pets-santa-paws-claws-2026",
+   "sec": "dog",
+   "when": "From about Thu Nov 26 to Christmas Eve · book a 5-min slot",
+   "title": "Santa Paws & Claws pet photos at Kellyville Pets",
+   "meta": "Kellyville Pets, 1-15 Millcroft Way, Beaumont Hills · dogs, cats, birds, reptiles welcome; sensitive-dog sessions (muzzle reactive dogs); upstairs set, stairs only · $60 package incl. $5 to Animal Welfare League NSW",
+   "cat": "dog",
+   "url": "https://www.kellyvillepets.com.au/pages/santa-paws-claws-photos",
+   "price": "tickets",
+   "tix": "https://bookings.santaphotography.com.au/l/5605-kellyville-pets",
+   "lat": -33.699,
+   "lon": 150.942,
+   "q": "Kellyville Pets, Beaumont Hills",
+   "tbc": true,
+   "start": "2026-11-26",
+   "end": "2026-12-24"
+  },
+  {
+   "n": 185,
    "id": "syd-santa-paws-dan-mahoney-reserve-2026",
    "sec": "dog",
    "when": "Sat Dec 5 · 5pm–7pm",
@@ -3110,7 +3223,23 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 184,
+   "n": 186,
+   "id": "syd-jolly-christmas-night-markets-2026",
+   "sec": "dog",
+   "when": "Thu Dec 10–Sun Dec 20 · 4pm–10:30pm daily",
+   "title": "Jolly Christmas Night Markets (dogs welcome)",
+   "meta": "Circular Quay & The Rocks (Customs House, First Fleet Park) · 100+ wooden huts, giant tree, free nightly Christmas show at First Fleet Park; organiser FAQ: pets welcome · free entry",
+   "cat": "dog",
+   "url": "https://jollymarket.com.au/",
+   "price": "free",
+   "lat": -33.8614,
+   "lon": 151.2108,
+   "q": "Customs House, Circular Quay",
+   "start": "2026-12-10",
+   "end": "2026-12-20"
+  },
+  {
+   "n": 187,
    "id": "syd-surry-hills-santa-paws-dog-parade-2026",
    "sec": "dog",
    "when": "Sat Dec 12 · 12pm–1pm (register 11–11:45am)",
@@ -3126,7 +3255,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 185,
+   "n": 188,
    "id": "syd-good-food-wine-show-christmas-2026",
    "sec": "food",
    "when": "Fri Nov 20 (4–9pm)–Sun Nov 22 (10am–5pm)",
@@ -3134,8 +3263,8 @@ window.WF_DATA = {
    "meta": "ICC Sydney, Darling Harbour · tastings, chefs, festive produce · from $34.95",
    "cat": "food",
    "url": "https://goodfoodshow.com.au/sydney/",
-   "tix": "https://goodfoodshow.flicket.io/tours/801b443e-14f4-4ab6-9ab6-0fd2aed120b9",
    "price": "tickets",
+   "tix": "https://goodfoodshow.flicket.io/tours/801b443e-14f4-4ab6-9ab6-0fd2aed120b9",
    "lat": -33.8745,
    "lon": 151.1985,
    "q": "ICC Sydney",
@@ -3143,7 +3272,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 186,
+   "n": 189,
    "id": "syd-eat-drink-nights-wentworth-point-nov-2026",
    "sec": "food",
    "when": "Sat Nov 21 · 5pm–9pm",
@@ -3159,7 +3288,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 187,
+   "n": 190,
    "id": "syd-canterbury-night-market-nov-2026",
    "sec": "food",
    "when": "Fri Nov 27 · 5pm–9:30pm",
@@ -3174,7 +3303,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 188,
+   "n": 191,
    "id": "syd-nsw-wine-cellar-door-the-rocks-2026",
    "sec": "food",
    "when": "Sat Nov 28–Sun Nov 29 · 10am–7pm",
@@ -3189,7 +3318,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 189,
+   "n": 192,
    "id": "syd-eat-drink-nights-cronulla-dec-2026",
    "sec": "food",
    "when": "Fri Dec 4–Sat Dec 5 · 5pm–9pm",
@@ -3204,7 +3333,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 190,
+   "n": 193,
    "id": "syd-north-sydney-twilight-food-fair-2026",
    "sec": "food",
    "when": "Fridays Dec 4, 11, 18, Jan 8, 15 · 4pm–7pm",
@@ -3225,7 +3354,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 191,
+   "n": 194,
    "id": "syd-le-marche-french-markets-dec-2026",
    "sec": "food",
    "when": "Sun Dec 6 · 9:30am–2pm",
@@ -3241,7 +3370,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 192,
+   "n": 195,
    "id": "syd-eat-drink-nights-bankstown-dec-2026",
    "sec": "food",
    "when": "Sat Dec 12 · 5pm–9pm",
@@ -3257,7 +3386,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 193,
+   "n": 196,
    "id": "syd-syo-summer-symphony-2027",
    "sec": "programs",
    "when": "Video auditions due Thu Nov 19",
@@ -3272,7 +3401,23 @@ window.WF_DATA = {
    "deadline": "2026-11-19"
   },
   {
-   "n": 194,
+   "n": 197,
+   "id": "syd-unsw-scix-2027",
+   "sec": "programs",
+   "when": "Registrations open now, first-come (projects allocated in November)",
+   "title": "SciX@UNSW 2027 science research program (senior high school)",
+   "meta": "UNSW Kensington · mentored project + Summer School Mon Jan 18–Fri Jan 22 · no selection criteria · $780 (fee-waiver round closed Nov 7)",
+   "cat": "prog",
+   "url": "https://www.unsw.edu.au/science/study-with-us/scix-school-extension-program",
+   "price": "tickets",
+   "lat": -33.9173,
+   "lon": 151.2313,
+   "q": "UNSW Kensington",
+   "tbc": true,
+   "deadline": "2026-11-30"
+  },
+  {
+   "n": 198,
    "id": "syd-syo-scholarships-2027",
    "sec": "programs",
    "when": "Applications close Sun Dec 6",
@@ -3287,7 +3432,7 @@ window.WF_DATA = {
    "deadline": "2026-12-06"
   },
   {
-   "n": 195,
+   "n": 199,
    "id": "syd-ynsw-youth-parliament-2027",
    "sec": "programs",
    "when": "Applications close Sun Dec 6",
@@ -3302,7 +3447,7 @@ window.WF_DATA = {
    "deadline": "2026-12-06"
   },
   {
-   "n": 196,
+   "n": 200,
    "id": "syd-syo-summer-school-2027",
    "sec": "programs",
    "when": "Enrolments close Thu Dec 10",
@@ -3317,7 +3462,22 @@ window.WF_DATA = {
    "deadline": "2026-12-10"
   },
   {
-   "n": 197,
+   "n": 201,
+   "id": "syd-combined-schools-musical-metro-2027",
+   "sec": "programs",
+   "when": "Applications close Fri Dec 11",
+   "title": "Combined Schools Musical 2027, Metropolitan Sydney (NSW public schools)",
+   "meta": "NSW Dept of Education Arts Unit · schools apply for up to 40 students in an ensemble; individuals can apply for the lead company · public school students K–12",
+   "cat": "prog",
+   "url": "https://artsunit.nsw.edu.au/local-arts-program/combined-schools-musical-metropolitan-sydney",
+   "price": "free",
+   "lat": -33.8688,
+   "lon": 151.2093,
+   "q": "The Arts Unit NSW",
+   "deadline": "2026-12-11"
+  },
+  {
+   "n": 202,
    "id": "syd-gondwana-scc-scholarships-2027",
    "sec": "programs",
    "when": "December audition round Tue Dec 15 (January round Wed Jan 27)",
@@ -3333,7 +3493,22 @@ window.WF_DATA = {
    "deadline": "2026-12-15"
   },
   {
-   "n": 198,
+   "n": 203,
+   "id": "syd-nsw-youth-development-scholarships-2027",
+   "sec": "programs",
+   "when": "Applications close Fri Feb 12, 2027, 5pm",
+   "title": "NSW Youth Development Scholarships 2027 ($1,000, Years 10–12)",
+   "meta": "Homes NSW · for students in social housing or out-of-home care · 1,600+ scholarships for laptops, books, uniforms · apply online",
+   "cat": "prog",
+   "url": "https://www.nsw.gov.au/housing-and-construction/social-affordable/public-housing-tenants/jobseekers-and-students/youth-development-scholarships",
+   "price": "free",
+   "lat": -33.8688,
+   "lon": 151.2093,
+   "q": "Homes NSW",
+   "deadline": "2027-02-12"
+  },
+  {
+   "n": 204,
    "id": "syd-sso-playerlink-wollongong-2027",
    "sec": "programs",
    "when": "Applications (audition video) close Fri Mar 5, 2027",
@@ -3346,6 +3521,102 @@ window.WF_DATA = {
    "lon": 150.893,
    "q": "Wollongong NSW",
    "deadline": "2027-03-05"
+  },
+  {
+   "n": 205,
+   "id": "syd-flickerfest-2027",
+   "sec": "radar",
+   "when": "Fri Jan 22–Sun Jan 31",
+   "title": "Flickerfest International Short Film Festival (36th)",
+   "meta": "Bondi Pavilion, Bondi Beach · short films under the stars",
+   "cat": "film",
+   "url": "https://flickerfest.com.au/",
+   "price": "tickets",
+   "lat": -33.8912,
+   "lon": 151.2768,
+   "q": "Bondi Pavilion",
+   "start": "2027-01-22",
+   "end": "2027-01-31"
+  },
+  {
+   "n": 206,
+   "id": "syd-australia-day-2027",
+   "sec": "radar",
+   "when": "Tue Jan 26, 2027 · dawn to fireworks",
+   "title": "Australia Day in Sydney 2027",
+   "meta": "Circular Quay, Barangaroo & the harbour · Dawn Reflection 5:20am, WugulOra Ceremony 7:30am (Barangaroo Reserve), Ferrython 12:10pm, Australia Day Live concert + fireworks 7:30pm · free",
+   "cat": "hol",
+   "url": "https://www.australiaday.com.au/whats-on/whats-on-sydney",
+   "price": "free",
+   "lat": -33.861,
+   "lon": 151.211,
+   "q": "Circular Quay",
+   "start": "2027-01-26",
+   "end": "2027-01-26"
+  },
+  {
+   "n": 207,
+   "id": "syd-laneway-festival-2027",
+   "sec": "radar",
+   "when": "Fri Feb 12, 2027",
+   "title": "Laneway Festival Sydney 2027",
+   "meta": "Centennial Park · Fontaines D.C., Hayley Williams and more · 16+ (reported) · tickets",
+   "cat": "show",
+   "url": "https://lanewayfestival.com/sydney/home",
+   "price": "tickets",
+   "lat": -33.899,
+   "lon": 151.233,
+   "q": "Centennial Park, Sydney",
+   "start": "2027-02-12",
+   "end": "2027-02-12"
+  },
+  {
+   "n": 208,
+   "id": "syd-mardi-gras-festival-2027",
+   "sec": "radar",
+   "when": "Fri Feb 12–Sun Mar 7, 2027 (parade expected Sat Mar 6)",
+   "title": "Sydney Gay and Lesbian Mardi Gras 2027: HYPERBLOOM",
+   "meta": "Oxford St, Darlinghurst & venues citywide · 49th festival; parade date not yet on the official site · free and ticketed events",
+   "cat": "evt",
+   "url": "https://www.mardigras.org.au/",
+   "price": "tickets",
+   "lat": -33.879,
+   "lon": 151.218,
+   "q": "Oxford Street, Darlinghurst",
+   "start": "2027-02-12",
+   "end": "2027-03-07"
+  },
+  {
+   "n": 209,
+   "id": "syd-eastwood-lunar-new-year-2027",
+   "sec": "radar",
+   "when": "Sat Feb 13, 2027 · 12pm–9pm",
+   "title": "Eastwood Lunar New Year Festival (Year of the Goat)",
+   "meta": "Railway Pde, Eastwood (Koreatown) 12–5pm, then Eastwood Oval 4–9pm · City of Ryde · free",
+   "cat": "hol",
+   "url": "https://www.ryde.nsw.gov.au/Events/Lunar-New-Year",
+   "price": "free",
+   "lat": -33.7915,
+   "lon": 151.079,
+   "q": "Eastwood Oval",
+   "start": "2027-02-13",
+   "end": "2027-02-13"
+  },
+  {
+   "n": 210,
+   "id": "syd-royal-easter-show-2027",
+   "sec": "radar",
+   "when": "Fri Mar 19–Tue Mar 30, 2027",
+   "title": "Sydney Royal Easter Show 2027",
+   "meta": "Sydney Showground, Sydney Olympic Park · rides, showbags, animals, arena shows · tickets",
+   "cat": "evt",
+   "url": "https://www.eastershow.com.au/",
+   "price": "tickets",
+   "lat": -33.844,
+   "lon": 151.068,
+   "q": "Sydney Showground",
+   "start": "2027-03-19",
+   "end": "2027-03-30"
   }
  ]
 };
