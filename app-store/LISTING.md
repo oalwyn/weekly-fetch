@@ -8,7 +8,7 @@ Copy each block into the matching field in App Store Connect.
 
 | Field | Value |
 |---|---|
-| **Name** | The Bay Area Weekend Fetch |
+| **Name** | The Weekend Fetch (was The Bay Area Weekend Fetch until 1.3) |
 | **Subtitle** | Events & shared weekend plans |
 | **Bundle ID** | io.github.oalwyn.weekendfetch |
 | **Primary category** | Lifestyle |
@@ -18,11 +18,11 @@ Copy each block into the matching field in App Store Connect.
 | **Support URL** | https://github.com/oalwyn/weekly-fetch/issues |
 | **Marketing URL** (optional) | https://theweekendfetch.com/ |
 | **Price** | Free |
-| **Availability** | United States (the app only covers the Bay Area) |
+| **Availability** | United States and Australia (from 1.3: Bay Area and Sydney) |
 | **Version** | 1.0 |
 | **Copyright** | 2026 *your name* |
 
-The home-screen name under the icon is **Bay Fetch**. That's set inside the app, not in App Store Connect.
+The home-screen name under the icon is **Weekend Fetch** (Bay Fetch until 1.3). That's set inside the app, not in App Store Connect.
 
 ---
 
@@ -37,7 +37,10 @@ Holiday markets, tree lightings, dog-friendly outings and more, from Napa to Car
 ```
 Get up, get out, go fetch the weekend.
 
-The Bay Area Weekend Fetch is a hand-picked guide to what's on this weekend and the next two months, from Napa, Sonoma and Marin through San Francisco, the Peninsula and the South Bay, down to Santa Cruz, Monterey and Carmel.
+The Weekend Fetch is a hand-picked guide to what's on this weekend and the next two months, in two cities:
+• The Bay Area: from Napa, Sonoma and Marin through San Francisco, the Peninsula and the South Bay, down to Santa Cruz, Monterey and Carmel.
+• Sydney: from the Northern Beaches and the Harbour to Parramatta, the Blue Mountains, Wollongong and the Central Coast.
+Switch city any time from the top of the screen.
 
 FIND SOMETHING TO DO
 • Holiday events, markets, concerts and shows, art, food and coffee
@@ -67,10 +70,21 @@ No ads. No tracking. Browsing needs no account.
 ## Keywords (100 characters max, no spaces after commas)
 
 ```
-events,weekend,things to do,san francisco,peninsula,south bay,marin,napa,dog friendly,markets,family
+events,weekend,things to do,san francisco,sydney,bay area,marin,napa,dog friendly,markets,family
 ```
 
 ## What's New
+
+**1.3** (cities; build 8 uploaded Nov 15, 2026):
+
+```
+Now in two cities, with a new name.
+• The Weekend Fetch now covers Sydney as well as the Bay Area. Tap the city at the top to switch; the app remembers your pick.
+• New name and a new sunny icon.
+• Movies: after you lock one in, add your showtime and see how it fits around your other plans that day.
+• Weekly farmers markets in each weekend's list.
+• Your weekend plans now list events by start time.
+```
 
 **1.2** (sports, movies, prices; build 6 submitted Nov 14, 2026, then pulled and resubmitted with build 7 the same day for the map-pin fix; the description was updated at the same time):
 
@@ -154,6 +168,12 @@ One judgment call: a few listings mention wine walks or beer festivals. If you w
 **Sign-in required:** leave **unticked**. Everything except shared group plans works without an account, and reviewers can create an account themselves with Sign in with Apple or any email address (the 6-digit code arrives by email). If Apple asks for a demo account anyway, create one with an email inbox you control and paste its address here.
 
 **Contact:** your name, phone number and email. Only Apple's review team sees these.
+
+**Notes for 1.3** (paste into the "Notes" box above the 1.2 notes):
+
+```
+1.3 adds a second city (Sydney, Australia) and renames the app The Weekend Fetch. Tap "Bay Area" at the top left of the screen to switch to Sydney and back. Everything else works as before: browsing needs no account, and accounts are only for planning with a group.
+```
 
 **Notes for 1.2** (paste into the "Notes" box, replacing the 1.1 notes):
 
