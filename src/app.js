@@ -29,7 +29,8 @@ try { const g = localStorage.getItem("wf-group"); if (g==="weekend"||g==="date")
 /* ---- dates & weekends ---- */
 const DAYMS = 864e5, DAYN = ["sun","mon","tue","wed","thu","fri","sat"], MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const parseD = s => { const [y,m,d] = String(s).split("-").map(Number); return new Date(y, m-1, d); };
-const TODAY = (()=>{ const t = new Date(); t.setHours(0,0,0,0); return t; })();
+// "today" is the city's date (a Sydney page viewed from California still shows Sydney's weekend)
+const TODAY = (()=>{ try { const p = new Intl.DateTimeFormat("en-CA",{timeZone:CITY.tz,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()).split("-").map(Number); if (p.length===3 && p.every(isFinite)) return new Date(p[0],p[1]-1,p[2]); } catch(e) {} const t = new Date(); t.setHours(0,0,0,0); return t; })();
 const addD = (d,n) => { const x = new Date(d); x.setDate(x.getDate()+n); return x; };
 function weekends(){
   const dow = TODAY.getDay();
