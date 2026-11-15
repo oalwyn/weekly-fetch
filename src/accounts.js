@@ -360,7 +360,7 @@ async function shareInvite(btn){
   const gid = ACCT.group.id;
   track("invite_share_opened", { group_id: gid });
   const SH = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Share;
-  if (IS_APP && SH) { try { await SH.share({ title: "Plan weekends with me", text: `Join our group “${ACCT.group.name}” on Bay Fetch (code ${ACCT.group.code}):`, url: link, dialogTitle: "Invite someone" }); track("invite_shared", { group_id: gid, props: { channel: "ios_share" } }); } catch (e) {} return; }
+  if (IS_APP && SH) { try { await SH.share({ title: "Plan weekends with me", text: `Join our group “${ACCT.group.name}” on Weekend Fetch (code ${ACCT.group.code}):`, url: link, dialogTitle: "Invite someone" }); track("invite_shared", { group_id: gid, props: { channel: "ios_share" } }); } catch (e) {} return; }
   if (navigator.share) { try { await navigator.share({ title: "Plan weekends with me", text, url: link }); track("invite_shared", { group_id: gid, props: { channel: "web_share" } }); return; } catch (e) { if (e && e.name === "AbortError") return; } }
   try { await navigator.clipboard.writeText(text); track("invite_link_copied", { group_id: gid }); btn.textContent = "Invite copied ✓"; setTimeout(() => btn.textContent = "Share invite", 2500); }
   catch (e) { ACCT.ui.panel = "invite"; refreshStars(); }

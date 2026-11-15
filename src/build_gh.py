@@ -52,7 +52,7 @@ html=html[:start]+'''function syncHash(){
 rep('\nconnect();','\n')
 rep('setTimeout(()=>t.textContent="Send my picks",2500)','setTimeout(()=>t.textContent="Share my picks",2500)')
 rep('Link copied. Paste it into a text or email, then open it on the other device.','Link copied. Paste it into a text to someone you plan with, or open it on your other device.')
-rep('Refreshed every Monday and Thursday morning. Stars are kept between refreshes.','Refreshed every Monday and Thursday morning. Your stars are kept between refreshes.')
+rep('Refreshed every Monday morning. Stars are kept between refreshes.','Refreshed every Monday morning. Your stars are kept between refreshes.')
 assert 'Saving to the shared list' not in html and 'signed in' not in html.lower().replace('signed-in',''), [m.start() for m in re.finditer('signed in',html)]
 import sys, json
 cfg=json.load(open('sb.json'))
@@ -84,8 +84,9 @@ if CITYCFG['path']:
     # the iPhone app is Bay Area only for now: no App Store bar or banner on other cities' pages
     html = re.sub(r'<!--appbar-->.*?<!--/appbar-->\n?', '', html, flags=re.S)
     html = re.sub(r'<meta name="apple-itunes-app"[^>]*>\n?', '', html)
-    html = re.sub(r'(href|src)="(?!https?:|/|#|\$|data:|\./data\.js|\./walks\.js)(\./)?', r'\1="/', html)
-    html = html.replace('url(banner.svg', 'url(/' + CITYCFG.get('banner', 'banner.svg'))   # each city has its own header art.replace('"./vendor/', '"/vendor/')
+    html = re.sub(r'''(href|src)="(?!https?:|/|#|\$|'|data:|\./data\.js|\./walks\.js)(\./)?''', r'\1="/', html)
+    html = html.replace('url(banner.svg', 'url(/' + CITYCFG.get('banner', 'banner.svg'))   # each city has its own header art
+    html = html.replace('"./vendor/', '"/vendor/')   # sign-in and QR libraries live at the site root
     html = html.replace('<link rel="manifest" href="/manifest.webmanifest">', '<link rel="manifest" href="/%s/manifest.webmanifest">' % CITYCFG['path'])
     ns = '<script>/*city-storage*/(function(){var C=%s,K={"wf-home":1,"wf-dist":1,"wf-vb2":1,"wf-saved-ids":1,"wf-locks":1,"wf-gid":1,"wf-main":1,"wf-gcache":1,"wf-view2":1,"wf-list":1,"wf-cache":1,"wf-lcache":1,"wf-queue":1,"wf-list-converted":1,"wf-group":1};var P=Storage.prototype,g=P.getItem,s=P.setItem,r=P.removeItem,f=function(k){return K[k]?k+"@"+C:k};P.getItem=function(k){return g.call(this,f(k))};P.setItem=function(k,v){return s.call(this,f(k),v)};P.removeItem=function(k){return r.call(this,f(k))};})();</script>\n' % json.dumps(CITYCFG['key'])
     html = html.replace('<script>window.WF_CITY=', ns + '<script>window.WF_CITY=', 1)

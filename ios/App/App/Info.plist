@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Bay Fetch</string>
+	<string>Weekend Fetch</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,11 +27,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCalendarsUsageDescription</key>
-	<string>Bay Fetch adds your locked-in plans to your calendar when you tap Add to Calendar.</string>
+	<string>Weekend Fetch adds your locked-in plans to your calendar when you tap Add to Calendar.</string>
 	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
-	<string>Bay Fetch adds your locked-in plans to your calendar when you tap Add to Calendar.</string>
+	<string>Weekend Fetch adds your locked-in plans to your calendar when you tap Add to Calendar.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Bay Fetch uses your location only when you tap Use my current location, to show how far away each event is. It stays on your phone.</string>
+	<string>Weekend Fetch uses your location only when you tap Use my current location, to show how far away each event is. It stays on your phone.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

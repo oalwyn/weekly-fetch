@@ -18,7 +18,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sydney Harbour Fetch">
 <meta property="og:title" content="Sydney Harbour Fetch">
-<meta property="og:description" content="What's on this weekend around Sydney, refreshed twice a week. Star events and plan them with friends.">
+<meta property="og:description" content="What's on this weekend around Sydney, refreshed every Monday. Star events and plan them with friends.">
 <meta property="og:url" content="https://theweekendfetch.com/sydney/">
 <meta property="og:image" content="https://theweekendfetch.com/icon-512.png">
 <meta name="twitter:card" content="summary">
@@ -323,7 +323,7 @@ main{grid-template-columns:repeat(3,minmax(0,1fr))}
 </header>
 <div class="filters" id="filters" aria-label="Filter events"></div>
 <main id="main"></main>
-<footer>Event details come from public listings. Check with the organizer before you go.<br>Things to do in the City, the Eastern Beaches, the Inner West, the North Shore and Northern Beaches, Parramatta, the Blue Mountains, Wollongong and the Central Coast. <a href="/privacy.html" style="color:inherit">Privacy</a><br>Refreshed every Monday and Thursday morning. Your stars are kept between refreshes.</footer>
+<footer>Event details come from public listings. Check with the organizer before you go.<br>Things to do in the City, the Eastern Beaches, the Inner West, the North Shore and Northern Beaches, Parramatta, the Blue Mountains, Wollongong and the Central Coast. <a href="/privacy.html" style="color:inherit">Privacy</a><br>Refreshed every Monday morning. Your stars are kept between refreshes.</footer>
 </div>
 <script>/*city-storage*/(function(){var C="sydney",K={"wf-home":1,"wf-dist":1,"wf-vb2":1,"wf-saved-ids":1,"wf-locks":1,"wf-gid":1,"wf-main":1,"wf-gcache":1,"wf-view2":1,"wf-list":1,"wf-cache":1,"wf-lcache":1,"wf-queue":1,"wf-list-converted":1,"wf-group":1};var P=Storage.prototype,g=P.getItem,s=P.setItem,r=P.removeItem,f=function(k){return K[k]?k+"@"+C:k};P.getItem=function(k){return g.call(this,f(k))};P.setItem=function(k,v){return s.call(this,f(k),v)};P.removeItem=function(k){return r.call(this,f(k))};})();</script>
 <script>window.WF_CITY={"key": "sydney", "path": "sydney", "brand": "Sydney Harbour Fetch", "short": "Sydney", "h1": "Sydney Harbour <span class=\"nb\">Fetch</span>", "coast": "coast_sydney.json", "banner": "banner_sydney.svg", "tz": "Australia/Sydney", "units": "km", "dists": [10, 25, 50], "country": "au", "home": {"name": "Sydney CBD", "lat": -33.8731, "lon": 151.207}, "far": {"lat": -33.87, "lon": 151.05, "mi": 90}, "near_home_span": 7, "map_start": "Greater Sydney", "presets": [["Greater Sydney", -33.87, 151.1, 34], ["City & Harbour", -33.862, 151.215, 5], ["Eastern Beaches", -33.905, 151.255, 6], ["North Shore & Beaches", -33.74, 151.25, 20], ["Near home", null, null, 7], ["Inner West", -33.885, 151.155, 6], ["Parramatta & West", -33.8, 150.95, 22], ["Blue Mountains", -33.7, 150.4, 22], ["Wollongong", -34.4, 150.88, 16], ["Central Coast", -33.42, 151.35, 16], ["Everything"]], "labels": [["Sydney", -33.868, 151.209], ["Parramatta", -33.815, 151.003], ["Manly", -33.797, 151.287], ["Bondi", -33.891, 151.274], ["Coogee", -33.921, 151.257], ["Chatswood", -33.797, 151.181], ["Cronulla", -34.055, 151.152], ["Liverpool", -33.92, 150.923], ["Penrith", -33.751, 150.694], ["Katoomba", -33.714, 150.311], ["Palm Beach", -33.598, 151.324], ["Hornsby", -33.704, 151.099], ["Wollongong", -34.425, 150.893], ["Gosford", -33.425, 151.342], ["Newtown", -33.898, 151.179], ["Tasman Sea", -33.95, 151.42, 1], ["Sydney Harbour", -33.842, 151.245, 1], ["Botany Bay", -34.0, 151.19, 1], ["Broken Bay", -33.565, 151.32, 1]], "regions": [["central_coast", -33.57, null, null, null], ["wollongong", null, -34.2, null, null], ["blue_mountains", null, null, null, 150.64], ["west", null, null, null, 151.09], ["eastern_beaches", null, null, 151.235, null], ["north", -33.852, null, null, null], ["st_george_sutherland", null, -33.95, null, null], ["inner_west", null, null, null, 151.185], ["city"]]};</script>
@@ -350,7 +350,7 @@ function suggest(){
   var hdr = document.getElementById('hdr'); if (!hdr) return;
   var bar = document.createElement('div'); bar.className = 'citytip'; bar.setAttribute('role', 'status');
   bar.innerHTML = '<span>Looks like you’re near ' + other.short + '. See <b>' + other.brand + '</b>?</span>'
-    + '<a class="go" href="/' + other.url + '" data-city="' + other.key + '">Switch</a>'
+    + '<a class="go" href="' + other.url + '" data-city="' + other.key + '">Switch</a>'
     + '<button type="button" aria-label="No thanks">✕</button>';
   bar.querySelector('button').onclick = function(){ set('wf-city-asked', '1'); bar.remove(); };
   hdr.parentNode.insertBefore(bar, hdr);
@@ -1215,7 +1215,7 @@ const SB_REF = (SB_URL.split("//")[1] || "").split(".")[0];
 const SB_AUTH_KEY = "sb-" + SB_REF + "-auth-token";
 const IS_APP = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
 const LIVE_SITE = "https://theweekendfetch.com/";
-const SB_LIB = "./vendor/supabase-2.118.0.js", QR_LIB = "./vendor/qrcode-1.4.4.js";
+const SB_LIB = "/vendor/supabase-2.118.0.js", QR_LIB = "/vendor/qrcode-1.4.4.js";
 const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
 const lsSet = (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} };
 const hasSession = () => !!lsGet(SB_AUTH_KEY);
@@ -1563,7 +1563,7 @@ async function shareInvite(btn){
   const gid = ACCT.group.id;
   track("invite_share_opened", { group_id: gid });
   const SH = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Share;
-  if (IS_APP && SH) { try { await SH.share({ title: "Plan weekends with me", text: `Join our group “${ACCT.group.name}” on Bay Fetch (code ${ACCT.group.code}):`, url: link, dialogTitle: "Invite someone" }); track("invite_shared", { group_id: gid, props: { channel: "ios_share" } }); } catch (e) {} return; }
+  if (IS_APP && SH) { try { await SH.share({ title: "Plan weekends with me", text: `Join our group “${ACCT.group.name}” on Weekend Fetch (code ${ACCT.group.code}):`, url: link, dialogTitle: "Invite someone" }); track("invite_shared", { group_id: gid, props: { channel: "ios_share" } }); } catch (e) {} return; }
   if (navigator.share) { try { await navigator.share({ title: "Plan weekends with me", text, url: link }); track("invite_shared", { group_id: gid, props: { channel: "web_share" } }); return; } catch (e) { if (e && e.name === "AbortError") return; } }
   try { await navigator.clipboard.writeText(text); track("invite_link_copied", { group_id: gid }); btn.textContent = "Invite copied ✓"; setTimeout(() => btn.textContent = "Share invite", 2500); }
   catch (e) { ACCT.ui.panel = "invite"; refreshStars(); }

@@ -19,7 +19,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Bay Area Weekend Fetch">
 <meta property="og:title" content="The Bay Area Weekend Fetch">
-<meta property="og:description" content="What's on this weekend around the Bay Area, refreshed every Monday and Thursday. Star events and plan them with friends.">
+<meta property="og:description" content="What's on this weekend around the Bay Area, refreshed every Monday. Star events and plan them with friends.">
 <meta property="og:url" content="https://theweekendfetch.com/">
 <meta property="og:image" content="https://theweekendfetch.com/icon-512.png">
 <meta name="twitter:card" content="summary">
@@ -326,7 +326,7 @@ main{grid-template-columns:repeat(3,minmax(0,1fr))}
 </header>
 <div class="filters" id="filters" aria-label="Filter events"></div>
 <main id="main"></main>
-<footer>Event details come from public listings. Check with the organizer before you go.<br>Things to do in San Francisco, the Peninsula, Silicon Valley, Santa Cruz, Monterey, Carmel, Marin, Napa and Sonoma. <a href="privacy.html" style="color:inherit">Privacy</a><br>Refreshed every Monday and Thursday morning. Your stars are kept between refreshes.</footer>
+<footer>Event details come from public listings. Check with the organizer before you go.<br>Things to do in San Francisco, the Peninsula, Silicon Valley, Santa Cruz, Monterey, Carmel, Marin, Napa and Sonoma. <a href="privacy.html" style="color:inherit">Privacy</a><br>Refreshed every Monday morning. Your stars are kept between refreshes.</footer>
 </div>
 <script>window.WF_CITY={"key": "bayarea", "path": "", "brand": "The Bay Area Weekend Fetch", "short": "Bay Area", "h1": "The Bay Area <span class=\"nb\">Weekend Fetch</span>", "coast": "coast.json", "banner": "banner.svg", "tz": "America/Los_Angeles", "units": "mi", "dists": [15, 30, 60], "country": "us", "home": {"name": "Mountain View", "lat": 37.3861, "lon": -122.0839}, "far": {"lat": 37.2, "lon": -122.0, "mi": 120}, "near_home_span": 11, "map_start": "Bay Area", "presets": [["Bay Area", 37.68, -122.25, 58], ["San Francisco", 37.783, -122.43, 8], ["Peninsula", 37.56, -122.27, 24], ["Near home", null, null, 11], ["San Jose", 37.33, -121.89, 6], ["Santa Cruz", 36.975, -122.0, 10], ["Monterey & Carmel", 36.59, -121.9, 10], ["Marin", 37.95, -122.55, 22], ["Napa & Sonoma", 38.38, -122.5, 42], ["Everything"]], "labels": [["San Francisco", 37.745, -122.47], ["Daly City", 37.675, -122.48], ["San Mateo", 37.535, -122.33], ["Redwood City", 37.47, -122.25], ["Palo Alto", 37.425, -122.17], ["San Jose", 37.36, -121.92], ["Half Moon Bay", 37.44, -122.43], ["Oakland", 37.83, -122.23], ["Pacific Ocean", 37.25, -122.55, 1], ["SF Bay", 37.6, -122.25, 1], ["Santa Cruz", 37.0, -122.02], ["Capitola", 36.99, -121.95], ["Watsonville", 36.92, -121.77], ["Monterey Bay", 36.8, -122.0, 1], ["Monterey", 36.6, -121.86], ["Pacific Grove", 36.635, -121.93], ["Carmel", 36.545, -121.9], ["Salinas", 36.68, -121.66], ["Sausalito", 37.86, -122.49], ["Tiburon", 37.885, -122.44], ["San Rafael", 37.975, -122.53], ["Mill Valley", 37.91, -122.56], ["Point Reyes", 38.07, -122.84], ["Petaluma", 38.235, -122.64], ["Sonoma", 38.29, -122.46], ["Napa", 38.3, -122.29], ["Santa Rosa", 38.44, -122.71], ["Healdsburg", 38.61, -122.87], ["Calistoga", 38.58, -122.58], ["St. Helena", 38.505, -122.47]], "regions": [["monterey", null, 36.85, null, null], ["santa_cruz", null, 37.12, null, -121.6], ["east_bay", 37.83, null, -122.33, null], ["north_bay", 37.83, null, null, null], ["sf", 37.7, null, null, -122.35], ["east_bay", 37.6, null, -122.33, null], ["peninsula", 37.43, null, null, null], ["peninsula", null, null, null, -122.25], ["south_bay"]]};</script>
 <!--citysw--><script>window.WF_CITIES=[{"key": "bayarea", "short": "Bay Area", "brand": "The Bay Area Weekend Fetch", "url": "/", "tz": "America/Los_Angeles"}, {"key": "sydney", "short": "Sydney", "brand": "Sydney Harbour Fetch", "url": "/sydney/", "tz": "Australia/Sydney"}];(function(){
@@ -1565,7 +1565,7 @@ async function shareInvite(btn){
   const gid = ACCT.group.id;
   track("invite_share_opened", { group_id: gid });
   const SH = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Share;
-  if (IS_APP && SH) { try { await SH.share({ title: "Plan weekends with me", text: `Join our group “${ACCT.group.name}” on Bay Fetch (code ${ACCT.group.code}):`, url: link, dialogTitle: "Invite someone" }); track("invite_shared", { group_id: gid, props: { channel: "ios_share" } }); } catch (e) {} return; }
+  if (IS_APP && SH) { try { await SH.share({ title: "Plan weekends with me", text: `Join our group “${ACCT.group.name}” on Weekend Fetch (code ${ACCT.group.code}):`, url: link, dialogTitle: "Invite someone" }); track("invite_shared", { group_id: gid, props: { channel: "ios_share" } }); } catch (e) {} return; }
   if (navigator.share) { try { await navigator.share({ title: "Plan weekends with me", text, url: link }); track("invite_shared", { group_id: gid, props: { channel: "web_share" } }); return; } catch (e) { if (e && e.name === "AbortError") return; } }
   try { await navigator.clipboard.writeText(text); track("invite_link_copied", { group_id: gid }); btn.textContent = "Invite copied ✓"; setTimeout(() => btn.textContent = "Share invite", 2500); }
   catch (e) { ACCT.ui.panel = "invite"; refreshStars(); }
