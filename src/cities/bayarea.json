@@ -5,6 +5,7 @@
   "short": "Bay Area",
   "h1": "The Bay Area <span class=\"nb\">Weekend Fetch</span>",
   "coast": "coast.json",
+  "banner": "banner.svg",
   "tz": "America/Los_Angeles",
   "units": "mi",
   "dists": [15, 30, 60],

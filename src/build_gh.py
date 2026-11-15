@@ -10,8 +10,8 @@ rep('<meta name="theme-color" content="#2F5D8A">','''<meta name="theme-color" co
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=4">
-<link rel="icon" type="image/png" href="icon-192.png?v=4">''')
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=5">
+<link rel="icon" type="image/png" href="icon-192.png?v=5">''')
 # search engines, link previews and the App Store (website only; build_app.py strips the <!--appbar--> block and the app banner tag)
 SEO=CITYCFG['seo']; PAGEURL='https://theweekendfetch.com/'+(CITYCFG['path']+'/' if CITYCFG['path'] else '')
 _esc=lambda t: t.replace('&','&amp;').replace('"','&quot;')
@@ -85,7 +85,7 @@ if CITYCFG['path']:
     html = re.sub(r'<!--appbar-->.*?<!--/appbar-->\n?', '', html, flags=re.S)
     html = re.sub(r'<meta name="apple-itunes-app"[^>]*>\n?', '', html)
     html = re.sub(r'(href|src)="(?!https?:|/|#|\$|data:|\./data\.js|\./walks\.js)(\./)?', r'\1="/', html)
-    html = html.replace('url(banner.svg', 'url(/banner.svg').replace('"./vendor/', '"/vendor/')
+    html = html.replace('url(banner.svg', 'url(/' + CITYCFG.get('banner', 'banner.svg'))   # each city has its own header art.replace('"./vendor/', '"/vendor/')
     html = html.replace('<link rel="manifest" href="/manifest.webmanifest">', '<link rel="manifest" href="/%s/manifest.webmanifest">' % CITYCFG['path'])
     ns = '<script>/*city-storage*/(function(){var C=%s,K={"wf-home":1,"wf-dist":1,"wf-vb2":1,"wf-saved-ids":1,"wf-locks":1,"wf-gid":1,"wf-main":1,"wf-gcache":1,"wf-view2":1,"wf-list":1,"wf-cache":1,"wf-lcache":1,"wf-queue":1,"wf-list-converted":1,"wf-group":1};var P=Storage.prototype,g=P.getItem,s=P.setItem,r=P.removeItem,f=function(k){return K[k]?k+"@"+C:k};P.getItem=function(k){return g.call(this,f(k))};P.setItem=function(k,v){return s.call(this,f(k),v)};P.removeItem=function(k){return r.call(this,f(k))};})();</script>\n' % json.dumps(CITYCFG['key'])
     html = html.replace('<script>window.WF_CITY=', ns + '<script>window.WF_CITY=', 1)

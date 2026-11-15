@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="xMaxYMax slice">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F5D8A"/><stop offset=".42" stop-color="#3E6690"/><stop offset=".62" stop-color="#C8806A"/><stop offset=".7" stop-color="#E9895B"/><stop offset="1" stop-color="#F6C46B"/></linearGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B3F63"/><stop offset="1" stop-color="#14304D"/></linearGradient></defs>
+<rect width="1200" height="336" fill="url(#sky)"/>
+<circle cx="960" cy="322" r="78" fill="#FFE3A3"/>
+<path d="M0 314 C120 290 240 298 380 308 C470 302 560 300 640 310 C690 306 730 304 760 310 L760 340 L0 340Z" fill="#7A4A6B" opacity=".5"/>
+<rect y="336" width="1200" height="264" fill="url(#sea)"/>
+<!-- Harbour Bridge: steel arch between granite pylons -->
+<g fill="#33445A">
+<rect x="770" y="316" width="440" height="10"/>
+<path d="M790 322 Q955 120 1120 322 L1106 322 Q955 146 804 322Z"/>
+</g>
+<g stroke="#33445A" stroke-width="3" opacity=".9">
+<path d="M830 262 V318 M865 222 V318 M900 196 V318 M935 182 V318 M975 182 V318 M1010 196 V318 M1045 222 V318 M1080 262 V318"/>
+</g>
+<g stroke="#33445A" stroke-width="5" stroke-linejoin="round" fill="none"><path d="M804 322 L830 262 L865 222 L900 196 L935 182 L975 182 L1010 196 L1045 222 L1080 262 L1106 322"/></g>
+<g fill="#8C7466">
+<rect x="756" y="248" width="34" height="88"/><rect x="752" y="242" width="42" height="10"/>
+<rect x="1120" y="248" width="34" height="88"/><rect x="1116" y="242" width="42" height="10"/>
+</g>
+<!-- Opera House: white sails on a podium -->
+<g fill="#F7F1E6">
+<rect x="566" y="322" width="170" height="16"/>
+<path d="M584 324 C590 284 610 260 632 250 C624 280 622 304 626 324Z"/>
+<path d="M618 324 C626 278 650 248 680 236 C668 272 664 300 668 324Z"/>
+<path d="M660 324 C668 290 688 270 712 262 C702 288 700 306 704 324Z"/>
+</g>
+<g fill="#E3D6C3"><path d="M626 324 C622 304 624 280 632 250 C634 280 634 304 636 324Z"/><path d="M668 324 C664 300 668 272 680 236 C680 272 678 300 680 324Z"/></g>
+<g stroke="#FFE3A3" stroke-width="4" stroke-linecap="round" opacity=".5"><path d="M910 352 H1010 M930 368 H990"/></g>
+</svg>

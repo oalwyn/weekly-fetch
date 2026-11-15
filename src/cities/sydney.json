@@ -5,6 +5,7 @@
   "short": "Sydney",
   "h1": "Sydney Harbour <span class=\"nb\">Fetch</span>",
   "coast": "coast_sydney.json",
+  "banner": "banner_sydney.svg",
   "tz": "Australia/Sydney",
   "units": "km",
   "dists": [10, 25, 50],
