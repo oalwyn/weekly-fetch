@@ -105,7 +105,9 @@ a.price.tix{padding:6px 10px;margin:-3px 0}
 .sched{margin:0 0 6px}.sched-d{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:15px;margin:12px 6px 6px;padding-bottom:4px;border-bottom:1px solid #D5DCE3}.sched-d.free{color:var(--mute);font-weight:600}.sched-d em{font-style:normal;font-weight:500;font-size:13px}
 .locksel{font:inherit;font-size:14px;font-weight:600;color:#1E6B45;border:1px solid #2E8B5E;border-radius:10px;padding:9px 10px;min-height:44px;background:#fff;max-width:100%}
 .planned{font-size:12px;font-weight:600;color:#fff;background:#2E8B5E;border-radius:999px;padding:3px 9px}
-.locknote{font-size:12.5px;color:var(--mute)}.lockc{color:#1E7A4C}
+.locknote{font-size:12.5px;color:var(--mute)}
+.showt{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink)}.showt input{font:inherit;font-size:16px;border:1px solid #CBD4DD;border-radius:10px;padding:6px 10px;min-height:40px;background:#fff;color:var(--ink)}
+.lockc{color:#1E7A4C}
 .dist{font-size:12px;color:var(--mute)}
 .tbc{font-size:11px;font-weight:600;color:#8A3A14}
 .maplink{margin-left:auto;font-size:13px;font-weight:600;text-decoration:none;padding:6px 2px}
@@ -626,6 +628,23 @@ function setLock(id,k,on){ const s = locks.get(id) || new Set(); on ? s.add(k) :
 const lockKey = id => { const s = locks.get(id); return s && s.size ? [...s].sort()[0] : null; };
 function setPlan(id,k){ locks.delete(id); if (k) setLock(id,k,true); persistLocks(); refreshStars(); }
 function toggleLock(id,k){ setPlan(id, isLocked(id,k) ? null : k); }
+// your showtime for a locked-in movie ("HH:MM"), kept on this device; inside a group, accounts.js uses the group's shared meet-up time instead
+let stimes = {};
+try { stimes = JSON.parse(localStorage.getItem("wf-stimes") || "{}") || {}; } catch(e) {}
+function planTime(id){ return stimes[id] || null; }
+function setShowtime(id, t){ setStime(id, t); }
+function setStime(id, t){ if (t) stimes[id] = t; else delete stimes[id]; try { localStorage.setItem("wf-stimes", JSON.stringify(stimes)); } catch(e) {} refreshStars(); }
+const clk = h => { const hh = Math.floor(h) % 24, mm = Math.round((h % 1) * 60); return `${(hh % 12) || 12}${mm ? ":" + String(mm).padStart(2, "0") : ""}${hh < 12 ? "am" : "pm"}`; };
+const t2h = t => { const m = /^(\d\d):(\d\d)/.exec(t || ""); return m ? +m[1] + +m[2] / 60 : null; };
+// running time in hours from meta like "· 1h 56m" or "· 112 min" (null if not listed)
+const runtimeOf = e => { const m = /(\d)\s*h(?:r|ours?)?(?:\s*(\d{1,2})\s*m)?/i.exec(e.meta || "") , n = /(\d{2,3})\s*min/i.exec(e.meta || ""); return m ? +m[1] + (+(m[2] || 0)) / 60 : n ? +n[1] / 60 : null; };
+// "7:15–9:15pm" for a movie with a showtime (trailers included: +15 min; 2h if the running time isn't listed)
+const showRange = (e, t) => { const s = t2h(t); if (s == null) return ""; const en = s + (runtimeOf(e) || 1.75) + 0.25, a = clk(s), b = clk(en); return (a.slice(-2) === b.slice(-2) ? a.slice(0, -2) : a) + "–" + b; };
+function showtimeHTML(e){
+  if (e.cat !== "film") return "";
+  const t = planTime(e.id) || "";
+  return `<label class="showt">🎬 Your showtime <input type="time" data-stime="${esc(e.id)}" value="${esc(t)}" aria-label="Showtime for ${esc(e.title)}"></label>${t ? `<span class="locknote">${esc(showRange(e, t))}</span>` : `<span class="locknote">Add it to see what else fits that day</span>`}`;
+}
 const isLong = e => !e.dates && !!e.start && (!!e.days || !e.end || (parseD(e.end)-parseD(e.start))/DAYMS > 3);
 const DAYF = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 const dayLabel = k => { const d = parseD(k); return `${DAYN[d.getDay()][0].toUpperCase()+DAYN[d.getDay()].slice(1)} ${MON[d.getMonth()]} ${d.getDate()}`; };
@@ -639,7 +658,11 @@ function daysOf(e, a, b){
   for (; t<=b && t<=en && n<120; t = addD(t,1), n++){ if (!e.days || e.days.includes(DAYN[t.getDay()])) out.push(ymd(t)); }
   return out;
 }
-const timeOf = e => { const m = String(e.when||"").match(/(\d{1,2})(?::(\d\d))?\s*(am|pm)/i); if (!m) return 99; let h = +m[1] % 12; if (/pm/i.test(m[3])) h += 12; return h + (+(m[2]||0))/60; };
+const timeOf = e => { const st = e.cat==="film" && t2h(planTime(e.id)); if (st || st === 0) return st; const w = String(e.when||"");
+  // a range like "6:30–9:30pm" or "11–2pm" starts at its first time (meridiem borrowed from the end when missing)
+  const r = w.match(/(\d{1,2})(?::(\d\d))?\s*(am|pm)?\s*[–-]\s*(\d{1,2})(?::(\d\d))?\s*(am|pm)/i);
+  if (r){ const hr = (hh,mm,mer)=> (+hh % 12) + (/pm/i.test(mer) ? 12 : 0) + (+(mm||0))/60; let sh = hr(r[1],r[2],r[3]||r[6]); if (!r[3] && sh > hr(r[4],r[5],r[6])) sh -= 12; return sh; }
+  const m = w.match(/(\d{1,2})(?::(\d\d))?\s*(am|pm)/i); if (!m) return 99; let h = +m[1] % 12; if (/pm/i.test(m[3])) h += 12; return h + (+(m[2]||0))/60; };
 function planGroups(cur){
   const W = weekends(), lastSun = W[3].sun, far = addD(TODAY, 120);
   const wkDays = new Set(W.flatMap(w=>[w.fri,w.sat,w.sun].map(ymd)));
@@ -678,14 +701,15 @@ function planCtl(e, opts){
 }
 function lockedCtl(e, k, opts){
   const move = opts && opts.length > 1 ? `<select class="locksel small" data-plan="${esc(e.id)}" aria-label="Move ${esc(e.title)} to another day"><option value="">Move to…</option>${opts.filter(x=>x!==k).map(x=>`<option value="${x}">${dayLabel(x)}</option>`).join("")}</select>` : "";
-  return `<div class="lockrow"><button class="lockbtn" data-lock="${esc(e.id)}" data-k="${k}" aria-pressed="true">✓ Locked in · ${dayLabel(k)}</button>${move}<span class="locknote">Tap to make it a maybe</span></div>`;
+  return `<div class="lockrow"><button class="lockbtn" data-lock="${esc(e.id)}" data-k="${k}" aria-pressed="true">✓ Locked in · ${dayLabel(k)}</button>${move}<span class="locknote">Tap to make it a maybe</span>${showtimeHTML(e)}</div>`;
 }
 const allWkOpts = (e, W) => W.flatMap(w=>daysOf(e,w.fri,w.sun)).filter(x=>parseD(x)>=TODAY);
 // compact plan rows: date/time · activity · place; tap to open the full card
 const openRows = new Set();
 function planRow(e, ctl, k){
   const open = openRows.has(e.id), t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(?:am|pm)?\s*[–-]\s*\d{1,2}(?::\d\d)?\s*(?:am|pm)|\d{1,2}(?::\d\d)?\s*(?:am|pm)/i);
-  const when = k ? dayLabel(k) + (t ? " · " + t[0] : "") : e.when;
+  const st = k && e.cat==="film" && planTime(e.id);
+  const when = k ? dayLabel(k) + (st ? " · " + showRange(e, st) : t ? " · " + t[0] : "") : e.when;
   const place = (e.meta||"").split(" · ")[0];
   return `<div class="prow${k?" locked":""}${open?" open":""}"><button class="prow-h" data-expand="${esc(e.id)}" aria-expanded="${open}">
     <span class="pmark" aria-hidden="true">${k?"✓":"?"}</span><span class="pbody"><span class="pw">${esc(when)}</span><span class="pt">${esc(e.title)}</span><span class="pl">${esc(place)}</span></span><span class="chev" aria-hidden="true">${open?"▴":"▾"}</span>
@@ -979,7 +1003,7 @@ document.addEventListener("click", ev=>{
     try { navigator.clipboard.writeText(txt).then(()=>{ t.textContent="Copied ✓"; setTimeout(()=>t.textContent="Copy list as text",2000); }, fallback); } catch(e) { fallback(); }
   }
 });
-document.addEventListener("change", ev=>{ if (ev.target.matches("select[data-dist]")){ state.dist = +ev.target.value; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); return; } const s = ev.target.closest("select[data-plan]"); if (s && s.value) setPlan(s.dataset.plan, s.value); });
+document.addEventListener("change", ev=>{ if (ev.target.matches("select[data-dist]")){ state.dist = +ev.target.value; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); return; } const s = ev.target.closest("select[data-plan]"); if (s && s.value) setPlan(s.dataset.plan, s.value); const st = ev.target.closest("input[data-stime]"); if (st) setShowtime(st.dataset.stime, st.value); });
 window.addEventListener("hashchange", ()=>{ const h=location.hash.slice(1); if(VIEWS.includes(h)&&h!==state.view){ state.view=h; render(); } });
 window.addEventListener("resize", ()=>{ if(state.view==="map"){ vb=fitAspect(vb); drawMap(); } document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px"); });
 /* ---------- shared "Our list" via Supabase (GitHub site) ---------- */
@@ -1681,6 +1705,7 @@ const planEvent = (id, snap) => DATA.find(d => d.id === id) || snap || (picks.ge
 // hours a plan takes up on its day: from the meet-up (or start) to the end; null = time unknown (the whole day)
 function planSpan(e, meetTime){
   const t = wfTimes(e && e.when), m = hm2h(meetTime);
+  if (m != null && e && e.cat === "film") return { s: m, e: m + (runtimeOf(e) || 1.75) + 0.25 };   // a movie: showtime + running time
   if (m != null) return { s: m, e: t && t.eh > m ? t.eh : m + 2 };
   return t ? { s: t.sh, e: t.eh } : null;
 }
@@ -1715,7 +1740,10 @@ function answersLine(answers){
   answers.forEach(a => by[a.status] && by[a.status].push(a.name));
   return [["going", "Going"], ["maybe", "Maybe"], ["no", "Can't"]].filter(([k]) => by[k].length).map(([k, l]) => `${l}: ${ae(by[k].join(", "))}`).join(" · ");
 }
-function meetLine(m){ return m ? `📍 Meet ${m.time ? hClock(hm2h(m.time)) : ""}${m.time && m.place ? " · " : ""}${ae(m.place || "")}` : ""; }
+function meetLine(m, e){
+  if (m && e && e.cat === "film") return m.place ? `🎬 ${ae(m.place)}` : "";        // the showtime itself is in the row's time
+  return m ? `📍 Meet ${m.time ? hClock(hm2h(m.time)) : ""}${m.time && m.place ? " · " : ""}${ae(m.place || "")}` : "";
+}
 
 // on a locked-in plan, inside a group: Going / Maybe / Can't, who's going, and the meet-up
 function goingHTML(e){
@@ -1724,17 +1752,25 @@ function goingHTML(e){
   const waiting = ACCT.members.filter(m => !r[m.id]).map(m => m.id === ACCT.user.id ? "you" : m.name);
   const m = ACCT.meet.get(id);
   let meet;
+  const film = e.cat === "film";
   if (ACCT.ui.meetEdit === id) meet = `<form class="acctform meetform" data-acctform="meet" data-id="${ae(id)}">
-      <input type="time" name="t" value="${ae((m && m.time) || "")}" aria-label="Meet-up time">
-      <input name="p" maxlength="120" value="${ae((m && m.place) || "")}" placeholder="Where to meet, e.g. the front gate" aria-label="Meet-up place">
+      <input type="time" name="t" value="${ae((m && m.time) || "")}" aria-label="${film ? "Showtime" : "Meet-up time"}">
+      <input name="p" maxlength="120" value="${ae((m && m.place) || "")}" placeholder="${film ? "Which theater?" : "Where to meet, e.g. the front gate"}" aria-label="${film ? "Theater" : "Meet-up place"}">
       <button class="copybtn">Save</button><button type="button" class="copybtn alt" data-acct="meet-cancel">Cancel</button></form>`;
+  else if (m && film) meet = `<p class="meet">🎬 Showtime ${m.time ? ae(showRange(e, m.time)) : "not set"}${m.place ? " · " + ae(m.place) : ""} <button class="linkbtn" data-acct="meet-edit" data-id="${ae(id)}">Change</button><button class="linkbtn" data-acct="meet-remove" data-id="${ae(id)}">Remove</button></p>`;
   else if (m) meet = `<p class="meet">${meetLine(m)} <button class="linkbtn" data-acct="meet-edit" data-id="${ae(id)}">Change</button><button class="linkbtn" data-acct="meet-remove" data-id="${ae(id)}">Remove</button></p>`;
+  else if (film) meet = `<button class="linkbtn meetadd" data-acct="meet-edit" data-id="${ae(id)}">🎬 + Add your showtime &amp; theater</button>`;
   else meet = `<button class="linkbtn meetadd" data-acct="meet-edit" data-id="${ae(id)}">+ Add a meet-up time &amp; place</button>`;
   const who = answersLine(answers);
   return `<div class="going"><div class="rsvp" role="group" aria-label="Are you going?"><span class="rq">You:</span>${RSVP.map(([k, l]) =>
       `<button class="rbtn ${k}" data-acct="rsvp" data-id="${ae(id)}" data-s="${k}" aria-pressed="${mine === k}">${l}</button>`).join("")}</div>
     ${who || waiting.length ? `<p class="gwho">${who}${who && waiting.length ? " · " : ""}${waiting.length ? `No answer yet: ${ae(waiting.join(", "))}` : ""}</p>` : ""}${meet}</div>`;
 }
+// a movie's showtime: inside a group it's the shared meet-up time (everyone sees it; reminders and calendar use it)
+const _acctPlanTime = planTime;
+planTime = id => inGroup() ? ((ACCT.meet.get(id) || {}).time || null) : _acctPlanTime(id);
+const _acctShowtimeHTML = showtimeHTML;
+showtimeHTML = e => inGroup() ? "" : _acctShowtimeHTML(e);
 const _acctLockedCtl = lockedCtl;
 lockedCtl = function(e, k, opts){
   const h = _acctLockedCtl(e, k, opts);
@@ -1748,7 +1784,7 @@ planRow = function(e, ctl, k){
   const r = ACCT.rsvp.get(e.id) || {}, n = Object.values(r).filter(x => x === "going").length, m = ACCT.meet.get(e.id);
   const cl = (planClashes().get(ACCT.gid + "|" + e.id) || []).filter(y => y.k === k);
   const mine = r[ACCT.user.id] === "no" ? "you can't go" : "";
-  const bits = [n ? `${n} going` : "", mine, m ? meetLine(m) : ""].filter(Boolean).join(" · ");
+  const bits = [n ? `${n} going` : "", mine, m ? meetLine(m, e) : ""].filter(Boolean).join(" · ");
   const extra = (bits ? `<span class="pg">${bits}</span>` : "") + (cl.length ? `<span class="pc">${clashText(cl)}</span>` : "");
   return extra ? h.replace('</span><span class="chev"', extra + '</span><span class="chev"') : h;
 };
@@ -1763,12 +1799,12 @@ function allPlansHTML(){
   let day = "";
   for (const p of L){
     if (p.k !== day){ day = p.k; const d = parseD(day); h += `<div class="sched-d"><span>${DAYF[d.getDay()]} ${MON[d.getMonth()]} ${d.getDate()}</span></div>`; }
-    const sp = planSpan(p.e, null), c = cl.get(p.gid + "|" + p.id) || [];
+    const sp = planSpan(p.e, p.e.cat === "film" && p.meet ? p.meet.time : null), c = cl.get(p.gid + "|" + p.id) || [];
     const others = answersLine(p.answers.filter(a => !a.me));
     h += `<div class="arow${p.mine === "no" ? " dim" : ""}${c.length ? " clash" : ""}">
       <div class="aw">${sp ? hClock(sp.s) : "Time not listed"} <span class="gchip">${ae(p.gname)}</span></div>
       <div class="at">${ae(p.e.title || "")}</div><div class="al">${ae((p.e.meta || "").split(" · ")[0])}</div>
-      ${p.meet ? `<div class="am">${meetLine(p.meet)}</div>` : ""}
+      ${p.meet && meetLine(p.meet, p.e) ? `<div class="am">${meetLine(p.meet, p.e)}</div>` : ""}
       <div class="ag">You: <b>${p.mine ? RSVP_LABEL[p.mine] : "No answer yet"}</b>${others ? " · " + others : ""}</div>
       ${c.length ? `<div class="aclash">${clashText(c)}</div>` : ""}
       <button class="linkbtn" data-acct="open-group" data-gid="${ae(p.gid)}" data-id="${ae(p.id)}">Open in ${ae(p.gname)}</button></div>`;

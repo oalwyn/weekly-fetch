@@ -109,6 +109,21 @@ try:
         t = A.inner_text('main')
         ok('Meet 10:30am · Front gate' in t and "Can't: Sam" in t and 'Going: Olivier' in t, 'Olivier sees the meet-up and who is going')
         ok('1 going' in A.inner_text(f'.prow:has([data-expand="{first}"]) .pg'), 'folded row shows the headcount')
+        # ---- a movie: lock it in, add the showtime; the plan row shows the time it takes up ----
+        film = A.evaluate('''() => { const f = DATA.find(e => e.cat === "film" && daysOf(e, TODAY, addD(TODAY, 30)).length); if (!f) return null;
+            toggleStar(f.id); return [f.id, daysOf(f, TODAY, addD(TODAY, 30))[0]]; }''')
+        if film:
+            fid, fday = film; A.wait_for_timeout(1200); A.evaluate(f'setPlan("{fid}", "{fday}")'); A.wait_for_timeout(1200)
+            A.evaluate('sync()'); A.wait_for_timeout(1000); plans(A)
+            if not A.is_visible(f'.prow:has([data-expand="{fid}"]) .going'): A.click(f'[data-expand="{fid}"]'); A.wait_for_timeout(400)
+            ok('Add your showtime' in A.inner_text(f'.prow:has([data-expand="{fid}"])'), 'a locked-in movie offers to add the showtime')
+            A.click(f'.prow:has([data-expand="{fid}"]) [data-acct=meet-edit]'); A.wait_for_timeout(200)
+            A.fill('form[data-acctform=meet] input[name=t]', '19:15'); A.fill('form[data-acctform=meet] input[name=p]', 'Century 16'); A.click('form[data-acctform=meet] button.copybtn:not(.alt)'); A.wait_for_timeout(1200)
+            ok(sql(f"select meet_time from group_locks where item_id = '{fid}'")[0]['meet_time'] == '19:15', 'showtime saved to the group')
+            row = A.inner_text(f'.prow:has([data-expand="{fid}"]) .prow-h')
+            ok('7:15' in row and 'Century 16' in row, f'plan row shows the showtime and theater ({row!r})')
+            A.evaluate(f'setPlan("{fid}", null); toggleStar("{fid}")'); A.wait_for_timeout(1500)   # put things back for the checks below
+        else: ok(True, 'no movie in the next 30 days to test showtimes with')
         A.screenshot(path=f'{OUT}/e2e-4b-going.png', full_page=True)
         # ---- second group with a plan the same day: All my plans shows the clash ----
         day = sql(f"select day::text d from group_locks where item_id = '{first}'")[0]['d']

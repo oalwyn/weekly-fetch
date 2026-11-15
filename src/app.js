@@ -265,6 +265,23 @@ function setLock(id,k,on){ const s = locks.get(id) || new Set(); on ? s.add(k) :
 const lockKey = id => { const s = locks.get(id); return s && s.size ? [...s].sort()[0] : null; };
 function setPlan(id,k){ locks.delete(id); if (k) setLock(id,k,true); persistLocks(); refreshStars(); }
 function toggleLock(id,k){ setPlan(id, isLocked(id,k) ? null : k); }
+// your showtime for a locked-in movie ("HH:MM"), kept on this device; inside a group, accounts.js uses the group's shared meet-up time instead
+let stimes = {};
+try { stimes = JSON.parse(localStorage.getItem("wf-stimes") || "{}") || {}; } catch(e) {}
+function planTime(id){ return stimes[id] || null; }
+function setShowtime(id, t){ setStime(id, t); }
+function setStime(id, t){ if (t) stimes[id] = t; else delete stimes[id]; try { localStorage.setItem("wf-stimes", JSON.stringify(stimes)); } catch(e) {} refreshStars(); }
+const clk = h => { const hh = Math.floor(h) % 24, mm = Math.round((h % 1) * 60); return `${(hh % 12) || 12}${mm ? ":" + String(mm).padStart(2, "0") : ""}${hh < 12 ? "am" : "pm"}`; };
+const t2h = t => { const m = /^(\d\d):(\d\d)/.exec(t || ""); return m ? +m[1] + +m[2] / 60 : null; };
+// running time in hours from meta like "· 1h 56m" or "· 112 min" (null if not listed)
+const runtimeOf = e => { const m = /(\d)\s*h(?:r|ours?)?(?:\s*(\d{1,2})\s*m)?/i.exec(e.meta || "") , n = /(\d{2,3})\s*min/i.exec(e.meta || ""); return m ? +m[1] + (+(m[2] || 0)) / 60 : n ? +n[1] / 60 : null; };
+// "7:15–9:15pm" for a movie with a showtime (trailers included: +15 min; 2h if the running time isn't listed)
+const showRange = (e, t) => { const s = t2h(t); if (s == null) return ""; const en = s + (runtimeOf(e) || 1.75) + 0.25, a = clk(s), b = clk(en); return (a.slice(-2) === b.slice(-2) ? a.slice(0, -2) : a) + "–" + b; };
+function showtimeHTML(e){
+  if (e.cat !== "film") return "";
+  const t = planTime(e.id) || "";
+  return `<label class="showt">🎬 Your showtime <input type="time" data-stime="${esc(e.id)}" value="${esc(t)}" aria-label="Showtime for ${esc(e.title)}"></label>${t ? `<span class="locknote">${esc(showRange(e, t))}</span>` : `<span class="locknote">Add it to see what else fits that day</span>`}`;
+}
 const isLong = e => !e.dates && !!e.start && (!!e.days || !e.end || (parseD(e.end)-parseD(e.start))/DAYMS > 3);
 const DAYF = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 const dayLabel = k => { const d = parseD(k); return `${DAYN[d.getDay()][0].toUpperCase()+DAYN[d.getDay()].slice(1)} ${MON[d.getMonth()]} ${d.getDate()}`; };
@@ -278,7 +295,11 @@ function daysOf(e, a, b){
   for (; t<=b && t<=en && n<120; t = addD(t,1), n++){ if (!e.days || e.days.includes(DAYN[t.getDay()])) out.push(ymd(t)); }
   return out;
 }
-const timeOf = e => { const m = String(e.when||"").match(/(\d{1,2})(?::(\d\d))?\s*(am|pm)/i); if (!m) return 99; let h = +m[1] % 12; if (/pm/i.test(m[3])) h += 12; return h + (+(m[2]||0))/60; };
+const timeOf = e => { const st = e.cat==="film" && t2h(planTime(e.id)); if (st || st === 0) return st; const w = String(e.when||"");
+  // a range like "6:30–9:30pm" or "11–2pm" starts at its first time (meridiem borrowed from the end when missing)
+  const r = w.match(/(\d{1,2})(?::(\d\d))?\s*(am|pm)?\s*[–-]\s*(\d{1,2})(?::(\d\d))?\s*(am|pm)/i);
+  if (r){ const hr = (hh,mm,mer)=> (+hh % 12) + (/pm/i.test(mer) ? 12 : 0) + (+(mm||0))/60; let sh = hr(r[1],r[2],r[3]||r[6]); if (!r[3] && sh > hr(r[4],r[5],r[6])) sh -= 12; return sh; }
+  const m = w.match(/(\d{1,2})(?::(\d\d))?\s*(am|pm)/i); if (!m) return 99; let h = +m[1] % 12; if (/pm/i.test(m[3])) h += 12; return h + (+(m[2]||0))/60; };
 function planGroups(cur){
   const W = weekends(), lastSun = W[3].sun, far = addD(TODAY, 120);
   const wkDays = new Set(W.flatMap(w=>[w.fri,w.sat,w.sun].map(ymd)));
@@ -317,14 +338,15 @@ function planCtl(e, opts){
 }
 function lockedCtl(e, k, opts){
   const move = opts && opts.length > 1 ? `<select class="locksel small" data-plan="${esc(e.id)}" aria-label="Move ${esc(e.title)} to another day"><option value="">Move to…</option>${opts.filter(x=>x!==k).map(x=>`<option value="${x}">${dayLabel(x)}</option>`).join("")}</select>` : "";
-  return `<div class="lockrow"><button class="lockbtn" data-lock="${esc(e.id)}" data-k="${k}" aria-pressed="true">✓ Locked in · ${dayLabel(k)}</button>${move}<span class="locknote">Tap to make it a maybe</span></div>`;
+  return `<div class="lockrow"><button class="lockbtn" data-lock="${esc(e.id)}" data-k="${k}" aria-pressed="true">✓ Locked in · ${dayLabel(k)}</button>${move}<span class="locknote">Tap to make it a maybe</span>${showtimeHTML(e)}</div>`;
 }
 const allWkOpts = (e, W) => W.flatMap(w=>daysOf(e,w.fri,w.sun)).filter(x=>parseD(x)>=TODAY);
 // compact plan rows: date/time · activity · place; tap to open the full card
 const openRows = new Set();
 function planRow(e, ctl, k){
   const open = openRows.has(e.id), t = String(e.when||"").match(/\d{1,2}(?::\d\d)?\s*(?:am|pm)?\s*[–-]\s*\d{1,2}(?::\d\d)?\s*(?:am|pm)|\d{1,2}(?::\d\d)?\s*(?:am|pm)/i);
-  const when = k ? dayLabel(k) + (t ? " · " + t[0] : "") : e.when;
+  const st = k && e.cat==="film" && planTime(e.id);
+  const when = k ? dayLabel(k) + (st ? " · " + showRange(e, st) : t ? " · " + t[0] : "") : e.when;
   const place = (e.meta||"").split(" · ")[0];
   return `<div class="prow${k?" locked":""}${open?" open":""}"><button class="prow-h" data-expand="${esc(e.id)}" aria-expanded="${open}">
     <span class="pmark" aria-hidden="true">${k?"✓":"?"}</span><span class="pbody"><span class="pw">${esc(when)}</span><span class="pt">${esc(e.title)}</span><span class="pl">${esc(place)}</span></span><span class="chev" aria-hidden="true">${open?"▴":"▾"}</span>
@@ -618,7 +640,7 @@ document.addEventListener("click", ev=>{
     try { navigator.clipboard.writeText(txt).then(()=>{ t.textContent="Copied ✓"; setTimeout(()=>t.textContent="Copy list as text",2000); }, fallback); } catch(e) { fallback(); }
   }
 });
-document.addEventListener("change", ev=>{ if (ev.target.matches("select[data-dist]")){ state.dist = +ev.target.value; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); return; } const s = ev.target.closest("select[data-plan]"); if (s && s.value) setPlan(s.dataset.plan, s.value); });
+document.addEventListener("change", ev=>{ if (ev.target.matches("select[data-dist]")){ state.dist = +ev.target.value; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); return; } const s = ev.target.closest("select[data-plan]"); if (s && s.value) setPlan(s.dataset.plan, s.value); const st = ev.target.closest("input[data-stime]"); if (st) setShowtime(st.dataset.stime, st.value); });
 window.addEventListener("hashchange", ()=>{ const h=location.hash.slice(1); if(VIEWS.includes(h)&&h!==state.view){ state.view=h; render(); } });
 window.addEventListener("resize", ()=>{ if(state.view==="map"){ vb=fitAspect(vb); drawMap(); } document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px"); });
 render();

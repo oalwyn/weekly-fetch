@@ -500,6 +500,7 @@ const planEvent = (id, snap) => DATA.find(d => d.id === id) || snap || (picks.ge
 // hours a plan takes up on its day: from the meet-up (or start) to the end; null = time unknown (the whole day)
 function planSpan(e, meetTime){
   const t = wfTimes(e && e.when), m = hm2h(meetTime);
+  if (m != null && e && e.cat === "film") return { s: m, e: m + (runtimeOf(e) || 1.75) + 0.25 };   // a movie: showtime + running time
   if (m != null) return { s: m, e: t && t.eh > m ? t.eh : m + 2 };
   return t ? { s: t.sh, e: t.eh } : null;
 }
@@ -534,7 +535,10 @@ function answersLine(answers){
   answers.forEach(a => by[a.status] && by[a.status].push(a.name));
   return [["going", "Going"], ["maybe", "Maybe"], ["no", "Can't"]].filter(([k]) => by[k].length).map(([k, l]) => `${l}: ${ae(by[k].join(", "))}`).join(" · ");
 }
-function meetLine(m){ return m ? `📍 Meet ${m.time ? hClock(hm2h(m.time)) : ""}${m.time && m.place ? " · " : ""}${ae(m.place || "")}` : ""; }
+function meetLine(m, e){
+  if (m && e && e.cat === "film") return m.place ? `🎬 ${ae(m.place)}` : "";        // the showtime itself is in the row's time
+  return m ? `📍 Meet ${m.time ? hClock(hm2h(m.time)) : ""}${m.time && m.place ? " · " : ""}${ae(m.place || "")}` : "";
+}
 
 // on a locked-in plan, inside a group: Going / Maybe / Can't, who's going, and the meet-up
 function goingHTML(e){
@@ -543,17 +547,25 @@ function goingHTML(e){
   const waiting = ACCT.members.filter(m => !r[m.id]).map(m => m.id === ACCT.user.id ? "you" : m.name);
   const m = ACCT.meet.get(id);
   let meet;
+  const film = e.cat === "film";
   if (ACCT.ui.meetEdit === id) meet = `<form class="acctform meetform" data-acctform="meet" data-id="${ae(id)}">
-      <input type="time" name="t" value="${ae((m && m.time) || "")}" aria-label="Meet-up time">
-      <input name="p" maxlength="120" value="${ae((m && m.place) || "")}" placeholder="Where to meet, e.g. the front gate" aria-label="Meet-up place">
+      <input type="time" name="t" value="${ae((m && m.time) || "")}" aria-label="${film ? "Showtime" : "Meet-up time"}">
+      <input name="p" maxlength="120" value="${ae((m && m.place) || "")}" placeholder="${film ? "Which theater?" : "Where to meet, e.g. the front gate"}" aria-label="${film ? "Theater" : "Meet-up place"}">
       <button class="copybtn">Save</button><button type="button" class="copybtn alt" data-acct="meet-cancel">Cancel</button></form>`;
+  else if (m && film) meet = `<p class="meet">🎬 Showtime ${m.time ? ae(showRange(e, m.time)) : "not set"}${m.place ? " · " + ae(m.place) : ""} <button class="linkbtn" data-acct="meet-edit" data-id="${ae(id)}">Change</button><button class="linkbtn" data-acct="meet-remove" data-id="${ae(id)}">Remove</button></p>`;
   else if (m) meet = `<p class="meet">${meetLine(m)} <button class="linkbtn" data-acct="meet-edit" data-id="${ae(id)}">Change</button><button class="linkbtn" data-acct="meet-remove" data-id="${ae(id)}">Remove</button></p>`;
+  else if (film) meet = `<button class="linkbtn meetadd" data-acct="meet-edit" data-id="${ae(id)}">🎬 + Add your showtime &amp; theater</button>`;
   else meet = `<button class="linkbtn meetadd" data-acct="meet-edit" data-id="${ae(id)}">+ Add a meet-up time &amp; place</button>`;
   const who = answersLine(answers);
   return `<div class="going"><div class="rsvp" role="group" aria-label="Are you going?"><span class="rq">You:</span>${RSVP.map(([k, l]) =>
       `<button class="rbtn ${k}" data-acct="rsvp" data-id="${ae(id)}" data-s="${k}" aria-pressed="${mine === k}">${l}</button>`).join("")}</div>
     ${who || waiting.length ? `<p class="gwho">${who}${who && waiting.length ? " · " : ""}${waiting.length ? `No answer yet: ${ae(waiting.join(", "))}` : ""}</p>` : ""}${meet}</div>`;
 }
+// a movie's showtime: inside a group it's the shared meet-up time (everyone sees it; reminders and calendar use it)
+const _acctPlanTime = planTime;
+planTime = id => inGroup() ? ((ACCT.meet.get(id) || {}).time || null) : _acctPlanTime(id);
+const _acctShowtimeHTML = showtimeHTML;
+showtimeHTML = e => inGroup() ? "" : _acctShowtimeHTML(e);
 const _acctLockedCtl = lockedCtl;
 lockedCtl = function(e, k, opts){
   const h = _acctLockedCtl(e, k, opts);
@@ -567,7 +579,7 @@ planRow = function(e, ctl, k){
   const r = ACCT.rsvp.get(e.id) || {}, n = Object.values(r).filter(x => x === "going").length, m = ACCT.meet.get(e.id);
   const cl = (planClashes().get(ACCT.gid + "|" + e.id) || []).filter(y => y.k === k);
   const mine = r[ACCT.user.id] === "no" ? "you can't go" : "";
-  const bits = [n ? `${n} going` : "", mine, m ? meetLine(m) : ""].filter(Boolean).join(" · ");
+  const bits = [n ? `${n} going` : "", mine, m ? meetLine(m, e) : ""].filter(Boolean).join(" · ");
   const extra = (bits ? `<span class="pg">${bits}</span>` : "") + (cl.length ? `<span class="pc">${clashText(cl)}</span>` : "");
   return extra ? h.replace('</span><span class="chev"', extra + '</span><span class="chev"') : h;
 };
@@ -582,12 +594,12 @@ function allPlansHTML(){
   let day = "";
   for (const p of L){
     if (p.k !== day){ day = p.k; const d = parseD(day); h += `<div class="sched-d"><span>${DAYF[d.getDay()]} ${MON[d.getMonth()]} ${d.getDate()}</span></div>`; }
-    const sp = planSpan(p.e, null), c = cl.get(p.gid + "|" + p.id) || [];
+    const sp = planSpan(p.e, p.e.cat === "film" && p.meet ? p.meet.time : null), c = cl.get(p.gid + "|" + p.id) || [];
     const others = answersLine(p.answers.filter(a => !a.me));
     h += `<div class="arow${p.mine === "no" ? " dim" : ""}${c.length ? " clash" : ""}">
       <div class="aw">${sp ? hClock(sp.s) : "Time not listed"} <span class="gchip">${ae(p.gname)}</span></div>
       <div class="at">${ae(p.e.title || "")}</div><div class="al">${ae((p.e.meta || "").split(" · ")[0])}</div>
-      ${p.meet ? `<div class="am">${meetLine(p.meet)}</div>` : ""}
+      ${p.meet && meetLine(p.meet, p.e) ? `<div class="am">${meetLine(p.meet, p.e)}</div>` : ""}
       <div class="ag">You: <b>${p.mine ? RSVP_LABEL[p.mine] : "No answer yet"}</b>${others ? " · " + others : ""}</div>
       ${c.length ? `<div class="aclash">${clashText(c)}</div>` : ""}
       <button class="linkbtn" data-acct="open-group" data-gid="${ae(p.gid)}" data-id="${ae(p.id)}">Open in ${ae(p.gname)}</button></div>`;
