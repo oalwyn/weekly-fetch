@@ -44,7 +44,23 @@ window.WF_DATA = {
  ],
  "items": [
   {
-   "n": 1,
+   "id": "syd-hockney-carriageworks-2026",
+   "sec": "week",
+   "when": "Now–Sun Jan 24",
+   "title": "David Hockney: Bigger & Closer (not smaller & further away)",
+   "meta": "Carriageworks, Eveleigh · exhibition",
+   "cat": "art",
+   "url": "https://www.sydney.com/destinations/sydney/inner-sydney/redfern-and-waterloo/events/david-hockney-bigger-closer-not-smaller-further-away",
+   "price": "tickets",
+   "lat": -33.8933,
+   "lon": 151.1941,
+   "q": "Carriageworks Eveleigh",
+   "start": "2026-10-22",
+   "end": "2027-01-24",
+   "n": 1
+  },
+  {
+   "n": 2,
    "id": "syd-affordable-art-fair-2026",
    "sec": "week",
    "when": "Fri Nov 13–Sun Nov 15",
@@ -59,7 +75,7 @@ window.WF_DATA = {
    "end": "2026-11-15"
   },
   {
-   "n": 2,
+   "n": 3,
    "id": "syd-finders-keepers-carriageworks-nov-2026",
    "sec": "week",
    "when": "Sun Nov 15 · 10am–5pm (low-sensory 9–10am)",
@@ -73,7 +89,7 @@ window.WF_DATA = {
    "end": "2026-11-15"
   },
   {
-   "n": 3,
+   "n": 4,
    "id": "syd-heffron-park-markets-maroubra",
    "sec": "week",
    "when": "Sun Nov 15 · 8am–2pm",
@@ -87,7 +103,7 @@ window.WF_DATA = {
    "end": "2026-11-15"
   },
   {
-   "n": 4,
+   "n": 5,
    "id": "syd-film-ebenezer",
    "sec": "week",
    "when": "Opens Thu Nov 19",
@@ -99,7 +115,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 5,
+   "n": 6,
    "id": "syd-wanderers-v-adelaide-2026-11-20",
    "sec": "week",
    "when": "Fri Nov 20 · 7:40pm",
@@ -115,7 +131,7 @@ window.WF_DATA = {
    "end": "2026-11-20"
   },
   {
-   "n": 6,
+   "n": 7,
    "id": "syd-glebe-markets-saturdays",
    "sec": "week",
    "when": "Saturdays · 10am–4pm",
@@ -135,7 +151,24 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 7,
+   "id": "syd-sixers-w-v-scorchers-w-2026-11-21",
+   "sec": "week",
+   "when": "Sat Nov 21",
+   "title": "Sydney Sixers vs. Perth Scorchers (women's)",
+   "meta": "North Sydney Oval, North Sydney · WBBL|12 · women's",
+   "cat": "sport",
+   "url": "https://www.sydneysixers.com.au/matches",
+   "price": "tickets",
+   "ha": "home",
+   "lat": -33.8386,
+   "lon": 151.2147,
+   "q": "North Sydney Oval",
+   "start": "2026-11-21",
+   "end": "2026-11-21",
+   "n": 8
+  },
+  {
+   "n": 9,
    "id": "syd-martin-place-christmas-tree-lighting-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26 · after Santa's sleigh ride from Customs House",
@@ -150,7 +183,7 @@ window.WF_DATA = {
    "end": "2026-11-26"
   },
   {
-   "n": 8,
+   "n": 10,
    "id": "syd-film-the-fox",
    "sec": "late-nov",
    "when": "Opens Thu Nov 26",
@@ -162,7 +195,41 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 9,
+   "id": "syd-sixers-w-v-stars-w-2026-11-26",
+   "sec": "late-nov",
+   "when": "Thu Nov 26",
+   "title": "Sydney Sixers vs. Melbourne Stars (women's)",
+   "meta": "North Sydney Oval, North Sydney · WBBL|12 · women's",
+   "cat": "sport",
+   "url": "https://www.sydneysixers.com.au/matches",
+   "price": "tickets",
+   "ha": "home",
+   "lat": -33.8386,
+   "lon": 151.2147,
+   "q": "North Sydney Oval",
+   "start": "2026-11-26",
+   "end": "2026-11-26",
+   "n": 11
+  },
+  {
+   "id": "syd-australian-pga-2026",
+   "sec": "late-nov",
+   "when": "Thu Nov 26–Sun Nov 29",
+   "title": "BMW Australian PGA Championship",
+   "meta": "The Lakes Golf Club, Mascot · men's golf",
+   "cat": "sport",
+   "url": "https://www.sydney.com/destinations/sydney/sydney-east/events/bmw-australian-pga-championship",
+   "price": "tickets",
+   "ha": "neutral",
+   "lat": -33.9257,
+   "lon": 151.1874,
+   "q": "The Lakes Golf Club Mascot",
+   "start": "2026-11-26",
+   "end": "2026-11-29",
+   "n": 12
+  },
+  {
+   "n": 13,
    "id": "syd-martin-place-christmas-markets-2026",
    "sec": "late-nov",
    "when": "Wed–Sat from late Nov to Dec 24 (opening day Nov 28 or 29, to confirm)",
@@ -178,7 +245,7 @@ window.WF_DATA = {
    "end": "2026-12-24"
   },
   {
-   "n": 10,
+   "n": 14,
    "id": "syd-australian-ballet-nutcracker-sydney-2026",
    "sec": "late-nov",
    "when": "Nov 28–Dec 16 · see season page for times",
@@ -194,7 +261,41 @@ window.WF_DATA = {
    "end": "2026-12-16"
   },
   {
-   "n": 11,
+   "id": "syd-thunder-w-v-sixers-w-2026-11-28",
+   "sec": "late-nov",
+   "when": "Sat Nov 28",
+   "title": "Sydney Thunder vs. Sydney Sixers (women's)",
+   "meta": "Drummoyne Oval, Drummoyne · WBBL|12 · women's",
+   "cat": "sport",
+   "url": "https://www.sydneysixers.com.au/matches",
+   "price": "tickets",
+   "ha": "home",
+   "lat": -33.8517,
+   "lon": 151.1553,
+   "q": "Drummoyne Oval",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "n": 15
+  },
+  {
+   "id": "syd-scg-t20i-england-2026-11-29",
+   "sec": "late-nov",
+   "when": "Sun Nov 29",
+   "title": "Australia vs. England T20I",
+   "meta": "Sydney Cricket Ground, Moore Park · men's T20 international",
+   "cat": "sport",
+   "url": "https://www.sydneycricketground.com.au/articles/summer_2026_27_international_cricket_locked_in_for",
+   "price": "tickets",
+   "ha": "neutral",
+   "lat": -33.8915,
+   "lon": 151.2247,
+   "q": "Sydney Cricket Ground",
+   "start": "2026-11-29",
+   "end": "2026-11-29",
+   "n": 16
+  },
+  {
+   "n": 17,
    "id": "syd-martin-place-choirs-2026",
    "sec": "early-dec",
    "when": "Dec 1–21 · 6pm–8pm",
@@ -209,7 +310,7 @@ window.WF_DATA = {
    "end": "2026-12-21"
   },
   {
-   "n": 12,
+   "n": 18,
    "id": "syd-sso-harry-potter-philosophers-stone-2026",
    "sec": "early-dec",
    "when": "Dec 2–5 · film with live orchestra",
@@ -225,7 +326,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 13,
+   "n": 19,
    "id": "syd-j-cole-sydney-2026-12-02",
    "sec": "early-dec",
    "when": "Wed Dec 2",
@@ -241,7 +342,7 @@ window.WF_DATA = {
    "end": "2026-12-02"
   },
   {
-   "n": 14,
+   "n": 20,
    "id": "syd-film-focker-in-law",
    "sec": "early-dec",
    "when": "Opens Thu Dec 3",
@@ -253,7 +354,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 15,
+   "n": 21,
    "id": "syd-wanderers-v-perth-2026-12-05",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 7:40pm",
@@ -270,7 +371,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 16,
+   "n": 22,
    "id": "syd-sydney-fc-v-victory-2026-12-06",
    "sec": "early-dec",
    "when": "Sun Dec 6",
@@ -286,7 +387,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 17,
+   "n": 23,
    "id": "syd-jimmy-eat-world-sydney-2026-12-10",
    "sec": "early-dec",
    "when": "Thu Dec 10",
@@ -301,23 +402,7 @@ window.WF_DATA = {
    "end": "2026-12-10"
   },
   {
-   "n": 18,
-   "id": "syd-harry-styles-sydney-2026-12-12",
-   "sec": "early-dec",
-   "when": "Sat Dec 12",
-   "title": "Harry Styles",
-   "meta": "Accor Stadium, Sydney Olympic Park · concert (date per listings, confirm on Ticketek)",
-   "cat": "show",
-   "price": "tickets",
-   "lat": -33.8474,
-   "lon": 151.0634,
-   "q": "Accor Stadium Sydney Olympic Park",
-   "tbc": true,
-   "start": "2026-12-12",
-   "end": "2026-12-12"
-  },
-  {
-   "n": 19,
+   "n": 24,
    "id": "syd-handels-messiah-sydney-opera-house-2026",
    "sec": "early-dec",
    "when": "Fri Dec 11 8pm · Sat Dec 12 & Sun Dec 13 1pm",
@@ -336,7 +421,23 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 20,
+   "n": 25,
+   "id": "syd-harry-styles-sydney-2026-12-12",
+   "sec": "early-dec",
+   "when": "Sat Dec 12",
+   "title": "Harry Styles",
+   "meta": "Accor Stadium, Sydney Olympic Park · concert (date per listings, confirm on Ticketek)",
+   "cat": "show",
+   "price": "tickets",
+   "lat": -33.8474,
+   "lon": 151.0634,
+   "q": "Accor Stadium Sydney Olympic Park",
+   "tbc": true,
+   "start": "2026-12-12",
+   "end": "2026-12-12"
+  },
+  {
+   "n": 26,
    "id": "syd-guns-n-roses-sydney-2026-12-14",
    "sec": "mid-dec",
    "when": "Mon Dec 14",
@@ -352,7 +453,7 @@ window.WF_DATA = {
    "end": "2026-12-14"
   },
   {
-   "n": 21,
+   "n": 27,
    "id": "syd-film-dune-part-three",
    "sec": "mid-dec",
    "when": "Opens Thu Dec 17",
@@ -364,7 +465,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 22,
+   "n": 28,
    "id": "syd-carols-in-the-domain-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19 · afternoon to 11pm, main show in the evening",
@@ -380,7 +481,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 23,
+   "n": 29,
    "id": "syd-thunder-v-sixers-2026-12-19",
    "sec": "mid-dec",
    "when": "Sat Dec 19 · night",
@@ -396,7 +497,24 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 24,
+   "id": "syd-sixers-v-renegades-2026-12-22",
+   "sec": "mid-dec",
+   "when": "Tue Dec 22",
+   "title": "Sydney Sixers vs. Melbourne Renegades",
+   "meta": "Sydney Cricket Ground, Moore Park · BBL|16 · men's",
+   "cat": "sport",
+   "url": "https://www.sydneysixers.com.au/matches",
+   "price": "tickets",
+   "ha": "home",
+   "lat": -33.8915,
+   "lon": 151.2247,
+   "q": "Sydney Cricket Ground",
+   "start": "2026-12-22",
+   "end": "2026-12-22",
+   "n": 30
+  },
+  {
+   "n": 31,
    "id": "syd-kings-v-hawks-2026-12-25",
    "sec": "mid-dec",
    "when": "Fri Dec 25 · 7:30pm",
@@ -412,7 +530,7 @@ window.WF_DATA = {
    "end": "2026-12-25"
   },
   {
-   "n": 25,
+   "n": 32,
    "id": "syd-sydney-to-hobart-start-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 26 · start in the afternoon",
@@ -428,7 +546,7 @@ window.WF_DATA = {
    "end": "2026-12-26"
   },
   {
-   "n": 26,
+   "n": 33,
    "id": "syd-wanderers-v-jets-2026-12-26",
    "sec": "mid-dec",
    "when": "Sat Dec 26 · 7:40pm",
@@ -444,7 +562,7 @@ window.WF_DATA = {
    "end": "2026-12-26"
   },
   {
-   "n": 27,
+   "n": 34,
    "id": "syd-film-jumanji-boxing-day",
    "sec": "mid-dec",
    "when": "Opens Sat Dec 26 (Boxing Day)",
@@ -456,7 +574,7 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 28,
+   "n": 35,
    "id": "syd-film-angry-birds-movie-3",
    "sec": "mid-dec",
    "when": "Opens Sat Dec 26 (Boxing Day)",
@@ -468,7 +586,24 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 29,
+   "id": "syd-sixers-v-heat-2026-12-26",
+   "sec": "mid-dec",
+   "when": "Sat Dec 26",
+   "title": "Sydney Sixers vs. Brisbane Heat",
+   "meta": "Sydney Cricket Ground, Moore Park · BBL|16 · men's",
+   "cat": "sport",
+   "url": "https://www.sydneysixers.com.au/matches",
+   "price": "tickets",
+   "ha": "home",
+   "lat": -33.8915,
+   "lon": 151.2247,
+   "q": "Sydney Cricket Ground",
+   "start": "2026-12-26",
+   "end": "2026-12-26",
+   "n": 36
+  },
+  {
+   "n": 37,
    "id": "syd-kings-v-melbourne-united-2026-12-29",
    "sec": "mid-dec",
    "when": "Tue Dec 29",
@@ -485,7 +620,7 @@ window.WF_DATA = {
    "end": "2026-12-29"
   },
   {
-   "n": 30,
+   "n": 38,
    "id": "syd-sydney-nye-fireworks-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31 · family fireworks 9pm, midnight fireworks",
@@ -501,7 +636,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 31,
+   "n": 39,
    "id": "syd-darling-harbour-nye-fireworks-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31 · fireworks 9pm and midnight",
@@ -517,7 +652,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 32,
+   "n": 40,
    "id": "syd-scg-new-year-test-nz-2027",
    "sec": "jan",
    "when": "Mon Jan 4–Fri Jan 8 · 10:30am",
@@ -534,7 +669,7 @@ window.WF_DATA = {
    "end": "2027-01-08"
   },
   {
-   "n": 33,
+   "n": 41,
    "id": "syd-sydney-festival-2027",
    "sec": "jan",
    "when": "Jan 7–25 · 94 events, 21 free",
@@ -548,7 +683,121 @@ window.WF_DATA = {
    "end": "2027-01-25"
   },
   {
-   "n": 34,
+   "id": "syd-sydney-festival-hannah-gadsby-2027",
+   "sec": "jan",
+   "when": "Thu Jan 7–Sun Jan 10",
+   "title": "Sydney Festival: Hannah Gadsby",
+   "meta": "Roslyn Packer Theatre, Walsh Bay · comedy · $79–$99 + fee",
+   "cat": "show",
+   "url": "https://www.sydneyfestival.org.au/events/hannah-gadsby",
+   "price": "tickets",
+   "lat": -33.8575,
+   "lon": 151.2045,
+   "q": "Roslyn Packer Theatre Walsh Bay",
+   "start": "2027-01-07",
+   "end": "2027-01-10",
+   "n": 42
+  },
+  {
+   "id": "syd-sydney-festival-the-party-2027",
+   "sec": "jan",
+   "when": "Fri Jan 8",
+   "title": "Sydney Festival: The Party (House of Mince)",
+   "meta": "The Cutaway, Barangaroo · free",
+   "cat": "evt",
+   "url": "https://www.sydneyfestival.org.au/events/the-party",
+   "price": "free",
+   "lat": -33.8607,
+   "lon": 151.2007,
+   "q": "The Cutaway Barangaroo",
+   "start": "2027-01-08",
+   "end": "2027-01-08",
+   "n": 43
+  },
+  {
+   "id": "syd-sydney-festival-haribo-kimchi-2027",
+   "sec": "jan",
+   "when": "Fri Jan 8–Mon Jan 11",
+   "title": "Sydney Festival: Haribo Kimchi",
+   "meta": "Powerhouse Parramatta · theatre · $49–$65 + fee",
+   "cat": "show",
+   "url": "https://www.sydneyfestival.org.au/events/haribo-kimchi",
+   "price": "tickets",
+   "lat": -33.812,
+   "lon": 151.002,
+   "q": "Powerhouse Parramatta",
+   "start": "2027-01-08",
+   "end": "2027-01-11",
+   "n": 44
+  },
+  {
+   "id": "syd-sixers-v-scorchers-2027-01-10",
+   "sec": "jan",
+   "when": "Sun Jan 10",
+   "title": "Sydney Sixers vs. Perth Scorchers",
+   "meta": "Sydney Cricket Ground, Moore Park · BBL|16 · men's",
+   "cat": "sport",
+   "url": "https://www.sydneysixers.com.au/matches",
+   "price": "tickets",
+   "ha": "home",
+   "lat": -33.8915,
+   "lon": 151.2247,
+   "q": "Sydney Cricket Ground",
+   "start": "2027-01-10",
+   "end": "2027-01-10",
+   "n": 45
+  },
+  {
+   "id": "syd-sydney-festival-waynapuni-pools-2027",
+   "sec": "jan",
+   "when": "Tue Jan 12–Sun Jan 24",
+   "title": "Sydney Festival: Waynapuni Pools",
+   "meta": "Barangaroo Reserve, Barangaroo · $79 + fee",
+   "cat": "show",
+   "url": "https://www.sydneyfestival.org.au/events/waynapuni-pools",
+   "price": "tickets",
+   "lat": -33.8575,
+   "lon": 151.2001,
+   "q": "Barangaroo Reserve",
+   "start": "2027-01-12",
+   "end": "2027-01-24",
+   "n": 46
+  },
+  {
+   "id": "syd-sixers-v-thunder-2027-01-15",
+   "sec": "jan",
+   "when": "Fri Jan 15",
+   "title": "Sydney Sixers vs. Sydney Thunder",
+   "meta": "Sydney Cricket Ground, Moore Park · BBL|16 · men's",
+   "cat": "sport",
+   "url": "https://www.sydneysixers.com.au/matches",
+   "price": "tickets",
+   "ha": "home",
+   "lat": -33.8915,
+   "lon": 151.2247,
+   "q": "Sydney Cricket Ground",
+   "start": "2027-01-15",
+   "end": "2027-01-15",
+   "n": 47
+  },
+  {
+   "id": "syd-sydney-festival-hes-so-unusual-2027",
+   "sec": "jan",
+   "when": "Fri Jan 15–Sun Jan 24",
+   "title": "Sydney Festival: He's So Unusual",
+   "meta": "Sydney Opera House, Bennelong Point · from $49",
+   "cat": "show",
+   "url": "https://www.sydneyfestival.org.au/events/hes-so-unusual",
+   "price": "tickets",
+   "lat": -33.8568,
+   "lon": 151.2153,
+   "q": "Sydney Opera House",
+   "start": "2027-01-15",
+   "end": "2027-01-24",
+   "n": 48
+  },
+  {
+   "n": 49,
    "id": "syd-pitt-street-mall-canopy-of-light-2026",
    "sec": "tbc",
    "when": "Pitt Street Mall, nightly lights over the festive season (dates to confirm)",
