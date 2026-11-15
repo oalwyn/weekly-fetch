@@ -530,6 +530,7 @@ begin
 end $$;
 
 -- the records every KPI is computed from: production, not internal (re-checked against the current internal list)
+drop view if exists public.analytics_kpi;
 create or replace view public.analytics_kpi with (security_invoker = true) as
 select e.*,
   case when e.user_id is not null then 'u:' || e.user_id::text when e.anon_id is not null then 'a:' || e.anon_id end as identity,

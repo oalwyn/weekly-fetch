@@ -64,13 +64,14 @@ try:
             bk = [x for x in recs() if x['event_name'] == 'outbound_booking_clicked']
             ok(len(bk) == 1 and bk[0]['dest_host'] and bk[0]['has_outbound_id'], '[3][9] a double tap on Tickets is one outbound_booking_clicked with destination host and click id')
             ok(not any('purchase' in x['event_name'] or 'order' in x['event_name'] for x in recs()), '[9] nothing is labeled a purchase')
+            ok(recs() and all(x['city'] == 'bayarea' for x in recs()), 'every record from the Bay Area page carries city bayarea')
         else: ok(False, 'no Tickets link on the page to test')
         # filters and map
         A.click('[data-filtopen]'); A.click('button[data-cat="sport"]'); A.wait_for_timeout(500)
         ok(any(x['event_name'] == 'filter_applied' and x['props'] and x['props'].get('value') == 'sport' for x in recs()), 'filter_applied with the category')
         A.click('button[data-cat="all"]'); A.click('[data-filtopen]')
         A.click('button[data-view="map"]'); A.wait_for_timeout(800)
-        A.evaluate("""() => { const g=document.querySelector('[data-pin]'); const r=g.getBoundingClientRect(); const o={bubbles:true,clientX:r.x+r.width/2,clientY:r.y+r.height/2,pointerId:1,isPrimary:true};
+        A.evaluate("""() => { const g=[...document.querySelectorAll('[data-pin]')].find(p => { const r=p.getBoundingClientRect(); const h=document.elementFromPoint(r.x+r.width/2, r.y+r.height/2); return h && h.closest('[data-pin]'); }); const r=g.getBoundingClientRect(); const o={bubbles:true,clientX:r.x+r.width/2,clientY:r.y+r.height/2,pointerId:1,isPrimary:true};
           const s=document.getElementById('map'); s.dispatchEvent(new PointerEvent('pointerdown',o)); s.dispatchEvent(new PointerEvent('pointerup',o)); }""")
         A.wait_for_timeout(600)
         ok(any(x['event_name'] == 'map_event_opened' for x in recs()), 'map_event_opened when a pin shows its card')

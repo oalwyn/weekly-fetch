@@ -23,9 +23,10 @@ await db.exec(`
   alter default privileges in schema public grant execute on functions to anon, authenticated;  -- like Supabase
 `);
 await db.exec(fs.readFileSync(repo + '/supabase-setup.sql', 'utf8'));
-for (const f of ['v1.1-groups.sql', 'v1.1-plans-extra.sql', 'v1.3-analytics.sql', 'v1.3-analytics.sql'])
+for (const f of ['v1.1-groups.sql', 'v1.1-plans-extra.sql', 'v1.3-analytics.sql', 'v1.3-analytics.sql', 'v1.4-city.sql', 'v1.4-city.sql'])
   await db.exec(fs.readFileSync(repo + '/supabase/' + f, 'utf8'));
-ok(true, 'scripts run (analytics twice)');
+ok(true, 'scripts run (analytics and city twice)');
+ok((await q(`select 1 from pg_proc where proname in ('admin_report','admin_export')`)).length === 2, 'one version of each report function (no ambiguous overloads)');
 ok((await q(`select proname, pg_get_function_identity_arguments(oid) a from pg_proc where proname in ('add_group_pick','set_group_lock','join_group','leave_group','set_rsvp')`)).length === 5,
   'one version of each plan function (no ambiguous overloads)');
 
@@ -227,11 +228,40 @@ const expAll = (await one(`select admin_export((now() - interval '60 days')::dat
 ok(expAll.length === 12 && expAll.filter(x => x.excluded_from_kpis).length === 2, '[11] export with exclusions marks the 2 excluded rows');
 ok(!JSON.stringify(exp).match(/@|Ann|Ben|email/), '[13] export holds no emails or names');
 
+// ---- v1.4: records split by city ----
+ok((await one(`select _city_of('sydney', null, 'web') c`)).c === 'sydney' && (await one(`select _city_of(null, 'syd-carols', 'web') c`)).c === 'sydney'
+  && (await one(`select _city_of(null, 'tree-lighting', 'web') c`)).c === 'bayarea' && (await one(`select _city_of('Bad City!', null, 'ios') c`)).c === 'bayarea'
+  && (await one(`select _city_of(null, null, 'web') c`)).c === null, 'city: sent value, else syd- ids are Sydney, other events and the iPhone app are Bay Area, else unknown');
+await as(null);
+await q(`select log_client_event($1::jsonb)`, [ev({ event_name: 'outbound_booking_clicked', anon_id: 'aSydney001', session_id: 'sessSYD001', item_id: 'syd-carols', city: 'sydney' })]);
+await q(`select log_client_event($1::jsonb)`, [ev({ event_name: 'page_view', anon_id: 'aSydney001', session_id: 'sessSYD001', city: 'sydney' })]);
+await q(`select log_client_event($1::jsonb)`, [ev({ event_name: 'event_starred', anon_id: 'aSydney002', session_id: 'sessSYD002', item_id: 'syd-bondi' })]);
+await q(`select log_client_event($1::jsonb)`, [ev({ event_name: 'page_view', anon_id: 'aBayArea01', session_id: 'sessBAY001', city: 'bayarea' })]);
+ok(await count(`anon_id = 'aSydney001' and city = 'sydney'`) === 2, 'city: client records keep the city they were sent with');
+ok(await count(`anon_id = 'aSydney002' and city = 'sydney'`) === 1, 'city: a record without a city but with a Sydney event id is Sydney');
+await as(A);
+await q(`select add_group_pick($1,'syd-ferry','{"title":"Ferry"}', $2::jsonb)`, [g.id, ctx({ city: 'sydney' })]);
+await q(`select add_group_pick($1,'syd-opera','{"title":"Opera"}')`, [g.id]);
+await q(`select add_group_pick($1,'evt-older-app','{"title":"Old app star"}')`, [g.id]);
+ok(await count(`event_name = 'event_starred' and item_id in ('syd-ferry','syd-opera') and city = 'sydney'`) === 2, 'city: group plan changes are Sydney with the city in context, or from the event id (older app)');
+ok(await count(`event_name = 'event_starred' and item_id = 'evt-older-app' and city = 'bayarea'`) === 1, 'city: an older app star without context is Bay Area');
+await as(OWNER);
+const syd = (await one(`select admin_report(8, 'sydney') r`)).r;
+const allc = (await one(`select admin_report(8) r`)).r;
+const sydStars = syd.weekly.reduce((n, w) => n + ((w.actions && w.actions.event_starred && w.actions.event_starred.records) || 0), 0);
+ok(syd.city === 'sydney' && sydStars === 3 && syd.top_items.every(x => x.item_id.startsWith('syd-')), 'city: the Sydney report counts only Sydney records');
+const bc = Object.fromEntries(allc.by_city.map(x => [x.city, x]));
+ok(bc.sydney && bc.sydney.identities === 3 && bc.sydney.booking_clicks === 1 && bc.bayarea, 'city: by_city compares cities side by side');
+ok(allc.weekly.reduce((n, w) => n + w.visitors, 0) > syd.weekly.reduce((n, w) => n + w.visitors, 0), 'city: all-cities totals include more than Sydney');
+const sydExp = (await one(`select admin_export((now() - interval '60 days')::date, now()::date, false, 'sydney') r`)).r;
+ok(sydExp.length === 5 && sydExp.every(x => x.city === 'sydney'), 'city: export can be narrowed to one city and includes the city column');
+
 // retention job folds old records into identifier-free weekly totals
 await db.exec(`insert into analytics_events(record_id, event_name, received_at, anon_id, platform, environment, evidence)
   values ('${uuid()}','page_view', now() - interval '15 months', 'aOldOne01', 'web', 'production', 'client_observed')`);
 const removed = (await one(`select _analytics_retention() n`)).n;
 ok(removed === 1 && +(await one(`select count(*) n from analytics_weekly where event_name = 'page_view'`)).n === 1, 'retention: records past 13 months become weekly totals');
+ok((await one(`select city from analytics_weekly where event_name = 'page_view'`)).city === '', 'retention: weekly totals keep a city column');
 
 console.log(`${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
