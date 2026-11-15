@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!--citysw--><script>try{var wfc=localStorage.getItem("wf-city"),wfm={"sydney": "/sydney/"};if(wfc&&wfm[wfc]&&!location.hash&&!location.search)location.replace(wfm[wfc])}catch(e){}</script><!--/citysw-->
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="apple-mobile-web-app-title" content="Weekend Fetch">
@@ -169,6 +171,7 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .card.inrow{margin:0;border-radius:0;box-shadow:none;border-top:1px solid var(--line);padding-top:10px}
 .card.inrow .when,.card.inrow .title{display:none}
 .plantools{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--mute);margin:10px 6px 0}
+.citysw{position:relative;display:inline-block;margin:0 0 6px;font-size:13px;z-index:30}.citysw summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;background:rgba(20,48,77,.55);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:5px 12px;font-weight:600;min-height:32px;box-sizing:border-box}.citysw summary::-webkit-details-marker{display:none}.citymenu{position:absolute;left:0;top:calc(100% + 6px);background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(10,25,40,.25);padding:6px;min-width:230px}.citymenu a{display:block;padding:10px 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:700;font-size:15px}.citymenu a:hover{background:var(--bg)}.citymenu a[aria-current]{background:var(--bg)}.citymenu a[aria-current]{position:relative;padding-right:34px}.citymenu a[aria-current]::after{content:"✓";color:var(--blue);position:absolute;right:12px;top:50%;transform:translateY(-50%)}.citymenu small{display:block;font-weight:400;color:var(--mute);font-size:12px;margin-top:1px}.citytip{display:flex;align-items:center;gap:10px;background:#FFF4DC;color:var(--ink);padding:10px 16px;font-size:14px;border-bottom:1px solid #F0D9A8}.citytip span{flex:1}.citytip .go{background:var(--blue);color:#fff;border-radius:999px;padding:7px 14px;font-weight:700;text-decoration:none;min-height:34px;box-sizing:border-box;display:inline-flex;align-items:center}.citytip button{border:0;background:transparent;font-size:16px;color:var(--mute);min-width:36px;min-height:36px;cursor:pointer}
 .slogan{font-size:15px;font-weight:500;color:#E3ECF5;margin:2px 0 14px;font-style:italic}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .distsel{position:relative;padding:0;display:flex;align-items:center}.distsel select{appearance:none;-webkit-appearance:none;border:0;background:transparent;font:inherit;font-weight:600;color:inherit;padding:8px 30px 8px 14px;min-height:38px;border-radius:999px}
@@ -310,6 +313,7 @@ main{grid-template-columns:repeat(3,minmax(0,1fr))}
 <div class="app">
 <!--appbar--><div class="appbar" id="appbar"><span>📱 Get the free iPhone app</span><a href="https://apps.apple.com/app/id6833697642" target="_blank" rel="noopener" data-k="app_store">Download on the App Store ›</a><button aria-label="Hide" onclick="this.parentNode.remove();try{localStorage.setItem('wf-appbar-off','1')}catch(e){}">×</button></div><script>try{if(localStorage.getItem('wf-appbar-off'))document.getElementById('appbar').remove()}catch(e){}</script><!--/appbar-->
 <header id="hdr">
+  <!--citysw--><details class="citysw" id="citySw"><summary aria-label="Change city">📍 <span>Bay Area</span> <span aria-hidden="true">▾</span></summary><div class="citymenu"><a href="/" data-city="bayarea" aria-current="page">Bay Area<small>The Bay Area Weekend Fetch</small></a><a href="/sydney/" data-city="sydney">Sydney<small>Sydney Harbour Fetch</small></a></div></details><!--/citysw-->
   <h1>The Bay Area <span class="nb">Weekend Fetch</span></h1>
   <p class="slogan">Get up, get out, go fetch the weekend. 🐾</p>
   <div class="tabs" role="tablist">
@@ -323,6 +327,37 @@ main{grid-template-columns:repeat(3,minmax(0,1fr))}
 <footer>Event details come from public listings. Check with the organizer before you go.<br>Things to do in San Francisco, the Peninsula, Silicon Valley, Santa Cruz, Monterey, Carmel, Marin, Napa and Sonoma. <a href="privacy.html" style="color:inherit">Privacy</a><br>Refreshed every Monday and Thursday morning. Your stars are kept between refreshes.</footer>
 </div>
 <script>window.WF_CITY={"key": "bayarea", "path": "", "brand": "The Bay Area Weekend Fetch", "short": "Bay Area", "h1": "The Bay Area <span class=\"nb\">Weekend Fetch</span>", "coast": "coast.json", "banner": "banner.svg", "tz": "America/Los_Angeles", "units": "mi", "dists": [15, 30, 60], "country": "us", "home": {"name": "Mountain View", "lat": 37.3861, "lon": -122.0839}, "far": {"lat": 37.2, "lon": -122.0, "mi": 120}, "near_home_span": 11, "map_start": "Bay Area", "presets": [["Bay Area", 37.68, -122.25, 58], ["San Francisco", 37.783, -122.43, 8], ["Peninsula", 37.56, -122.27, 24], ["Near home", null, null, 11], ["San Jose", 37.33, -121.89, 6], ["Santa Cruz", 36.975, -122.0, 10], ["Monterey & Carmel", 36.59, -121.9, 10], ["Marin", 37.95, -122.55, 22], ["Napa & Sonoma", 38.38, -122.5, 42], ["Everything"]], "labels": [["San Francisco", 37.745, -122.47], ["Daly City", 37.675, -122.48], ["San Mateo", 37.535, -122.33], ["Redwood City", 37.47, -122.25], ["Palo Alto", 37.425, -122.17], ["San Jose", 37.36, -121.92], ["Half Moon Bay", 37.44, -122.43], ["Oakland", 37.83, -122.23], ["Pacific Ocean", 37.25, -122.55, 1], ["SF Bay", 37.6, -122.25, 1], ["Santa Cruz", 37.0, -122.02], ["Capitola", 36.99, -121.95], ["Watsonville", 36.92, -121.77], ["Monterey Bay", 36.8, -122.0, 1], ["Monterey", 36.6, -121.86], ["Pacific Grove", 36.635, -121.93], ["Carmel", 36.545, -121.9], ["Salinas", 36.68, -121.66], ["Sausalito", 37.86, -122.49], ["Tiburon", 37.885, -122.44], ["San Rafael", 37.975, -122.53], ["Mill Valley", 37.91, -122.56], ["Point Reyes", 38.07, -122.84], ["Petaluma", 38.235, -122.64], ["Sonoma", 38.29, -122.46], ["Napa", 38.3, -122.29], ["Santa Rosa", 38.44, -122.71], ["Healdsburg", 38.61, -122.87], ["Calistoga", 38.58, -122.58], ["St. Helena", 38.505, -122.47]], "regions": [["monterey", null, 36.85, null, null], ["santa_cruz", null, 37.12, null, -121.6], ["east_bay", 37.83, null, -122.33, null], ["north_bay", 37.83, null, null, null], ["sf", 37.7, null, null, -122.35], ["east_bay", 37.6, null, -122.33, null], ["peninsula", 37.43, null, null, null], ["peninsula", null, null, null, -122.25], ["south_bay"]]};</script>
+<!--citysw--><script>window.WF_CITIES=[{"key": "bayarea", "short": "Bay Area", "brand": "The Bay Area Weekend Fetch", "url": "/", "tz": "America/Los_Angeles"}, {"key": "sydney", "short": "Sydney", "brand": "Sydney Harbour Fetch", "url": "/sydney/", "tz": "Australia/Sydney"}];(function(){
+/* City switch (website only; build_app.py leaves it out of the Bay Area-only iPhone app).
+   Picking a city remembers it in localStorage "wf-city" (one key for the whole site), so the site root opens that city next time.
+   A first-time visitor whose time zone is in another city's part of the world gets a one-time suggestion to switch. */
+var C = window.WF_CITY, L = window.WF_CITIES || [];
+function get(k){ try { return localStorage.getItem(k); } catch (e) { return null; } }
+function set(k, v){ try { localStorage.setItem(k, v); } catch (e) {} }
+document.addEventListener('click', function(e){
+  var a = e.target.closest && e.target.closest('[data-city]');
+  if (a) set('wf-city', a.getAttribute('data-city'));
+  var d = document.getElementById('citySw');
+  if (d && d.open && !d.contains(e.target)) d.open = false;
+});
+function suggest(){
+  if (get('wf-city') || get('wf-city-asked')) return;
+  var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  var area = function(z){ return (z || '').split('/')[0]; };
+  if (!tz || area(tz) === area(C.tz)) return;
+  var other = L.filter(function(c){ return c.key !== C.key && (c.tz === tz || area(c.tz) === area(tz)); })[0];
+  if (!other) return;
+  var hdr = document.getElementById('hdr'); if (!hdr) return;
+  var bar = document.createElement('div'); bar.className = 'citytip'; bar.setAttribute('role', 'status');
+  bar.innerHTML = '<span>Looks like you’re near ' + other.short + '. See <b>' + other.brand + '</b>?</span>'
+    + '<a class="go" href="' + other.url + '" data-city="' + other.key + '">Switch</a>'
+    + '<button type="button" aria-label="No thanks">✕</button>';
+  bar.querySelector('button').onclick = function(){ set('wf-city-asked', '1'); bar.remove(); };
+  hdr.parentNode.insertBefore(bar, hdr);
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', suggest); else suggest();
+})();
+</script><!--/citysw-->
 <script>window.WF_VERSION="web-20261114";(function(){var h=location.hash||"",u=location.pathname+location.search,go=function(){try{history.replaceState(null,"",u+"#our-list")}catch(e){}};if(/access_token=/.test(h)){var p=new URLSearchParams(h.slice(1));window.__wfTokens={access_token:p.get("access_token"),refresh_token:p.get("refresh_token")};go()}else if(/^#join-[A-Za-z0-9]{4,10}$/.test(h)){window.__wfJoin=h.slice(6).toUpperCase();go()}else if(/error_description=/.test(h)){window.__wfAuthError=1;go()}})();</script>
 <script>/*wf-data*/(function(){var v=Math.floor(Date.now()/3e5);document.write('<script src="./data.js?v='+v+'"><\/script><script src="./walks.js?v='+v+'"><\/script>')})();</script>
 <script>

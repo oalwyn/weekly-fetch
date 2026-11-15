@@ -101,6 +101,7 @@ print("app measurement tags: ios-%s+%s, %s" % (mv, bn, env))
 html = re.sub(r'<!--appbar-->.*?<!--/appbar-->\n?', '', html, flags=re.S)
 html = re.sub(r'<meta name="apple-itunes-app"[^>]*>\n?', '', html)
 html = re.sub(r'<!--ga-->.*?<!--/ga-->\n?', '', html, flags=re.S)
+html = re.sub(r'<!--citysw-->.*?<!--/citysw-->(\n  |\n)?', '', html, flags=re.S)   # the app is Bay Area only for now: no city switch
 assert 'G-HS0P25R6JR' not in html
 assert 'appbar' not in html.split('<style>')[0] and 'id="appbar"' not in html
 # 5. Apple requires the privacy policy to be reachable inside the app
