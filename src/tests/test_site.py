@@ -69,7 +69,8 @@ async def main():
         await me.click(".fdone [data-filtopen]"); await me.wait_for_timeout(200)
         assert await me.evaluate("document.querySelectorAll('#main .card,#main .crow').length") > 0, "show filter empty"
         await me.click("button[data-view='map']"); await me.wait_for_timeout(300)
-        assert await me.evaluate("document.querySelectorAll('[data-pin]').length") > 10, "map has no pins"
+        await me.click("[data-mapwhen='all']"); await me.wait_for_timeout(200)
+        assert await me.evaluate("document.querySelectorAll('[data-pin]').length") > 10, "map has no pins (all dates)"
         await b.close()
     assert not errs, "page errors: " + "; ".join(errs)
 

@@ -12,18 +12,18 @@ const BBOX = /*BBOX*/[0,0,0,0];
 const MAP_W = /*W*/0, MAP_H = /*H*/0;
 const COAST = "/*COAST*/";
 const COAST_RULE = "/*RULE*/";
-const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},sport:{label:"Sports",color:"#9C2B2B"},film:{label:"Movies",color:"#283593"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Teen programs",color:"#8D6E63"},evt:{label:"Events",color:"#4A5562"}};
+const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog-friendly",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},sport:{label:"Sports",color:"#9C2B2B"},film:{label:"Movies",color:"#283593"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Teen programs",color:"#8D6E63"},evt:{label:"Other",color:"#4A5562"}};
 const SECTIONS = (WF.sections || [["week","This week"]]).slice();
 { const i = SECTIONS.findIndex(s=>s[0]==="dog"); SECTIONS.splice(i>=0?i+1:1, 0, ["walks","Dog walks · closest to home first"]); }
 const VIEWS = ["events","map","our-list"];
 /* ---- interests: categories this person said "no" to are hidden from Events and the Map (saved on this device) ---- */
-const LIKES = [["hol","Holiday events & lights"],["mkt","Markets & fairs"],["dog","Dog-friendly events & walks"],["food","Pizza, coffee & food"],["art","Art & museums"],["show","Concerts, theater & comedy"],["sport","Sports games"],["film","New movies in theaters"],["kids","Things for young kids"],["teen","Things for teens"],["prog","Teen programs to apply for"],["evt","Other special events"]];
+const LIKES = [["hol","lights, Santa, holiday fairs"],["mkt","farmers, craft and holiday markets"],["dog","events and dog walks"],["food","and other food spots"],["art","museums and galleries"],["show","concerts, theater, comedy"],["sport","games to go and watch"],["film","new in theaters"],["kids","things for little ones"],["teen","things for teens"],["prog","programs to apply for"],["evt","special events that fit nowhere else"]];   // [category, hint]; the name is CATS[k].label
 let likesOff = new Set(), likesSet = false;
 try { const v = localStorage.getItem("wf-likes-off"); if (v!==null){ likesSet = true; likesOff = new Set(JSON.parse(v)); } } catch(e) {}
 const likeKey = c => c==="walk" ? "dog" : (c in CATS ? c : "evt");
 function saveLikes(){ likesSet = true; try { localStorage.setItem("wf-likes-off", JSON.stringify([...likesOff])); } catch(e) {} }
 
-let state = {view:"events", cat:"all", dist:0, sel:null, group:"weekend", editHome:false, homeMsg:"", likesOpen:false};
+let state = {q:"", searchOpen:false, free:false, dogok:false, day:"", mapWhen:"wk0", view:"events", cat:"all", dist:0, sel:null, group:"weekend", editHome:false, homeMsg:"", likesOpen:false};
 try { const d = +localStorage.getItem("wf-dist"); if (CITY.dists.includes(d)) state.dist = d; } catch(e) {}
 try { const g = localStorage.getItem("wf-group"); if (g==="weekend"||g==="date") state.group = g; } catch(e) {}
 /* ---- dates & weekends ---- */
@@ -118,8 +118,15 @@ function whoLine(id){
   list.sort((a,b)=> a==="You" ? -1 : b==="You" ? 1 : 0);
   return `<span class="who">★ ${esc(list.join(" & "))}</span>`;
 }
+// quick filters: free, dog-friendly, Saturday/Sunday; and the search box
+const isDogOk = e => e.cat==="dog" || e.cat==="walk" || (/\b(dog[- ]friendly|dogs? (are |on leash )?welcome|leashed dogs|dogs on leash|pets welcome|bring (your|the) (dog|pup))/i.test(e.meta||"") && !/\bno (dogs|pets)\b/i.test(e.meta||""));
+const DOW = {sat:6, sun:0};
+const onDow = (e, d) => e.cat==="walk" || daysOf(e, TODAY, addD(TODAY,120)).some(x=>parseD(x).getDay()===d);
+const norm = t => String(t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+const matchQ = e => { const hay = norm([e.title,e.meta,e.when,(CATS[e.cat]||CATS.evt).label].join(" ")); return norm(state.q).split(/\s+/).filter(Boolean).every(w=>hay.includes(w)); };
 function filtered(){
-  return DATA.filter(e => (state.cat==="all" ? !likesOff.has(likeKey(e.cat)) : (e.cat===state.cat || (state.cat==="dog" && e.cat==="walk"))) && (!state.dist || (e.mi!=null && e.mi<=state.dist) || (e.cat==="film" && e.lat==null)));
+  return DATA.filter(e => (state.cat==="all" ? !likesOff.has(likeKey(e.cat)) : (e.cat===state.cat || (state.cat==="dog" && e.cat==="walk"))) && (!state.dist || (e.mi!=null && e.mi<=state.dist) || (e.cat==="film" && e.lat==null))
+    && (!state.free || e.price==="free" || e.cat==="walk") && (!state.dogok || isDogOk(e)) && (!state.day || onDow(e, DOW[state.day])) && (!state.q || matchQ(e)));
 }
 // "Free" or "Tickets" pill; a ticketed event with a ticket page links straight to it
 const okUrl = u => typeof u==="string" && /^https?:\/\//.test(u);
@@ -166,16 +173,23 @@ function likesBox(){
   if (state.view==="our-list") return "";
   if (!state.likesOpen) return "";   // opened from Filter events › My interests (kept off the main screen to keep it calm)
   return `<div class="likesbox"><div class="lb-h"><strong>${likesSet?"Your interests":"What are you into?"}</strong><button class="linkbtn" data-likesdone>Close ▴</button></div><p class="ournote">Say no to anything you'd rather not see, and it's hidden from Events and the Map. You can change this any time under Filter events.</p>
-  <div class="likes">${LIKES.map(([k,t])=>{ const on=!likesOff.has(k); return `<div class="like"><i class="dot" style="background:${CATS[k].color}"></i><span>${t}</span><div class="yn" role="group" aria-label="${esc(t)}"><button data-like="${k}" data-v="1" aria-pressed="${on}">Yes</button><button data-like="${k}" data-v="0" aria-pressed="${!on}">No</button></div></div>`; }).join("")}</div>
+  <div class="likes">${LIKES.map(([k,t])=>{ const on=!likesOff.has(k); return `<div class="like"><i class="dot" style="background:${CATS[k].color}"></i><span>${CATS[k].label}<small>${t}</small></span><div class="yn" role="group" aria-label="${esc(CATS[k].label)}"><button data-like="${k}" data-v="1" aria-pressed="${on}">Yes</button><button data-like="${k}" data-v="0" aria-pressed="${!on}">No</button></div></div>`; }).join("")}</div>
   <div class="btnrow"><button class="copybtn" data-likesdone>Done · show ${DATA.filter(e=>!isPast(e)&&!likesOff.has(likeKey(e.cat))).length} events</button>${likesOff.size?`<button class="copybtn alt" data-likesall>Show everything</button>`:""}</div></div>`;
 }
 const FREE_SEG = /^(free|free entry|free admission|free drop-in|free walk-in)$/i;
 const metaText = e => e.price==="free" ? (e.meta||"").split(" · ").filter(s=>!FREE_SEG.test(s.trim())).join(" · ") : (e.meta||"");
+// once something has opened, "Opens Fri Nov 13" reads as "Now through Jan 1" (movies: "In theaters now")
+function whenText(e){
+  const w = String(e.when||""); if (!/^Opens\b/i.test(w) || !e.start || parseD(e.start) >= TODAY) return w;
+  const more = w.split(" · ").slice(1).join(" · "), t = e.end && parseD(e.end);
+  const now = e.cat==="film" ? "In theaters now" : t ? `Now through ${MON[t.getMonth()]} ${t.getDate()}` : "Now open";
+  return now + (more ? " · " + more : "");
+}
 function cardHTML(e, gone, extra, cls){
   const c = CATS[e.cat] || CATS.evt;
   const mine = starredByMe(e.id);
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
-    <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(metaText(e))}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
+    <div><div class="when">${esc(whenText(e))}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(metaText(e))}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
     <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
@@ -187,14 +201,17 @@ function renderFilters(){
   f.style.display="";
   const catLabel = state.cat==="all" ? (likesOff.size ? "My interests" : "All") : CATS[state.cat].label;
   const distLabel = state.dist ? `Within ${state.dist} ${UNIT}` : "Any distance";
-  const active = (state.cat!=="all") + (!!state.dist);
+  const quick = [state.free&&"Free", state.dogok&&"Dog-friendly", state.day&&(state.day==="sat"?"Saturday":"Sunday")].filter(Boolean);
+  const active = (state.cat!=="all") + (!!state.dist) + quick.length;
   let h = `<div class="fbar"><button class="filterbtn${active?" on":""}" data-filtopen aria-expanded="${!!state.filtOpen}" aria-controls="fpanel">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4-2v-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-    <span class="ftxt"><span class="flabel">Filter events</span><span class="fsum">${esc(catLabel)} · ${distLabel}</span></span>${active?`<span class="fcount">${active}</span>`:""}<span class="fcaret">${state.filtOpen?"▴":"▾"}</span></button>
-    <button class="chip homechip" data-sethome aria-label="Change home location, now ${esc(HOME.name)}">📍 ${esc(HOME.name)}</button></div>`;
+    <span class="ftxt"><span class="flabel">Filter<span class="xw"> events</span></span><span class="fsum">${esc([catLabel, distLabel, ...quick].join(" · "))}</span></span>${active?`<span class="fcount">${active}</span>`:""}<span class="fcaret">${state.filtOpen?"▴":"▾"}</span></button>
+    <button class="chip searchbtn" data-search aria-label="Search events"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <button class="chip homechip" data-sethome aria-label="Change home location, now ${esc(HOME.name)}">🏠 ${esc(HOME.name)}</button></div>`;
+  if (state.searchOpen) h = `<div class="fbar sbar"><input type="search" id="q" value="${esc(state.q)}" placeholder="Search events, places, towns" aria-label="Search events" autocomplete="off" enterkeyhint="search"><button class="chip" data-searchclose>Cancel</button></div>`;
   if (state.filtOpen){
-    h += `<div class="fpanel" id="fpanel"><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">${likesOff.size?"All my interests":"All events"}</button>`;
-    for (const k in CATS) h += `<button class="chip" data-cat="${k}" aria-pressed="${state.cat===k}"><i class="dot" style="background:${CATS[k].color}"></i>${CATS[k].label}</button>`;
+    h += `<div class="fpanel" id="fpanel"><div class="fsec">Quick picks</div><div class="fwrap">${[["free","Free"],["dogok","🐕 Dog-friendly"],["sat","Saturday"],["sun","Sunday"]].map(([k,t])=>`<button class="chip" data-quick="${k}" aria-pressed="${k==="sat"||k==="sun" ? state.day===k : !!state[k]}">${t}</button>`).join("")}</div><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">${likesOff.size?"All my interests":"All events"}</button>`;
+    for (const k in CATS) if (k!=="walk") h += `<button class="chip" data-cat="${k}" aria-pressed="${state.cat===k}"><i class="dot" style="background:${CATS[k].color}"></i>${CATS[k].label}</button>`;
     h += `</div><div class="fsec">My interests <button class="linkbtn" data-likesopen>edit</button></div><p class="fnote">${likesOff.size ? "Hiding: " + esc([...likesOff].map(k=>CATS[k]?CATS[k].label:k).join(", ")) : "Showing every kind of event."}</p><div class="fsec">Distance from ${esc(HOME.name)} <button class="linkbtn" data-sethome>change</button></div><div class="dseg" role="group" aria-label="Distance">${DISTS.map(([v,t])=>`<button data-distv="${v}" aria-pressed="${state.dist===v}">${t}</button>`).join("")}</div>
     <div class="fdone">${active?`<button class="copybtn alt" data-freset>Clear filters</button>`:""}<button class="copybtn" data-filtopen>Done · show ${filtered().filter(e=>!isPast(e)).length}</button></div></div>`;
   }
@@ -203,11 +220,29 @@ function renderFilters(){
 function compactHTML(e){
   const mine = starredByMe(e.id);
   return `<div class="crow"><button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-  <div><span class="ct">${esc(e.title)}</span><span class="cw">${esc(e.when)} · ${esc((e.meta||"").split(" · ")[0])}${e.mi!=null?` · ${e.mi} ${UNIT}`:""}</span></div>
+  <div><span class="ct">${esc(e.title)}</span><span class="cw">${esc(whenText(e))} · ${esc((e.meta||"").split(" · ")[0])}${e.mi!=null?` · ${e.mi} ${UNIT}`:""}</span></div>
   <a href="${esc(infoUrl(e))}" target="_blank" rel="noopener" data-k="outbound_more_info" data-ev="${esc(e.id)}">Info ↗</a></div>`;
 }
 function segHTML(){
   return `<div class="seg" role="group" aria-label="Group events"><button data-group="date" aria-pressed="${state.group==='date'}">By date</button><button data-group="weekend" aria-pressed="${state.group==='weekend'}">By weekend</button></div>`;
+}
+// a calm first look: about 8 events a weekend (yours first, then nearest, a mix of kinds), the rest one tap away
+const TOP = 8, showAll = new Set();
+const trimming = () => state.cat==="all" && !state.q;
+function topPicks(list){
+  if (!trimming() || list.length <= TOP + 2) return list;
+  const mine = list.filter(e=>starredByMe(e.id) || lockKey(e.id));
+  const rest = list.filter(e=>!mine.includes(e)).sort((a,b)=>(a.mi==null?40:a.mi)-(b.mi==null?40:b.mi));
+  const pick = new Set(mine), per = {};
+  mine.forEach(e=>per[e.cat]=(per[e.cat]||0)+1);
+  for (const e of rest){ if (pick.size>=TOP) break; if ((per[e.cat]||0)>=2) continue; pick.add(e); per[e.cat]=(per[e.cat]||0)+1; }
+  for (const e of rest){ if (pick.size>=TOP) break; pick.add(e); }
+  return list.filter(e=>pick.has(e));
+}
+const moreBtn = (key, n, what) => `<button class="moreb" data-more="${key}" aria-expanded="${showAll.has(key)}">${showAll.has(key) ? "Show fewer ▴" : `Show all ${n} ${what} ▾`}</button>`;
+function cardsTrimmed(key, list, what){
+  const top = topPicks(list); if (top.length===list.length || showAll.has(key)) return list.map(e=>cardHTML(e)).join("") + (top.length<list.length ? moreBtn(key, list.length, what) : "");
+  return top.map(e=>cardHTML(e)).join("") + moreBtn(key, list.length, what);
 }
 function renderByWeekend(){
   const all = filtered().filter(e=>!isPast(e));
@@ -220,34 +255,40 @@ function renderByWeekend(){
   const byStart = (a,b)=> (startOf(a)||0)-(startOf(b)||0);
   let h = "";
   W.forEach((w,i)=>{
-    const main = items.filter(e=>occurs(e,w.fri,w.sun)==="main").sort(byStart);
-    const ong = items.filter(e=>occurs(e,w.fri,w.sun)==="ongoing");
+    const onDay = e => !state.day || daysOf(e, state.day==="sat"?w.sat:w.sun, state.day==="sat"?w.sat:w.sun).length > 0;
+    const main = items.filter(e=>occurs(e,w.fri,w.sun)==="main" && onDay(e)).sort(byStart);
+    const ong = items.filter(e=>occurs(e,w.fri,w.sun)==="ongoing" && onDay(e));
     main.forEach(e=>used.add(e.id)); ong.forEach(e=>used.add(e.id));
     const fl = films.filter(e=>{ const s=startOf(e); return s && s>=addD(w.fri,-2) && s<=w.sun; }).sort(byStart);
     const mk = main.filter(isWeeklyMkt), rest = mk.length>1 ? main.filter(e=>!isWeeklyMkt(e)) : main;
     h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${rest.length} event${rest.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}${mk.length>1?` · 🧺 ${mk.length} markets`:""}${fl.length?` · 🎬 ${fl.length} new movie${fl.length===1?"":"s"}`:""}`, WKC[i]);
     if (mk.length>1) h += pickBox("m"+i, mk, "mkt", w.fri, w.sun);
     if (fl.length) h += pickBox("f"+i, fl, "film", w.fri, w.sun);
-    h += rest.length ? rest.map(e=>cardHTML(e)).join("") : (fl.length || mk.length>1) ? "" : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
-    if (ong.length) h += `<div class="section-h">Also open this weekend</div>` + ong.map(compactHTML).join("");
+    h += rest.length ? cardsTrimmed("w"+i, rest, "events") : (fl.length || mk.length>1) ? "" : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
+    if (ong.length){ const k="o"+i, open = showAll.has(k) || !trimming() || ong.length<=3; h += open ? `<div class="section-h">Also open this weekend</div>` + ong.map(compactHTML).join("") + (ong.length>3 && trimming() ? moreBtn(k, ong.length, "") : "") : `<button class="moreb alsob" data-more="${k}" aria-expanded="false">Also open this weekend (${ong.length}) ▾</button>`; }
   });
   const between = items.filter(e=>!used.has(e.id) && startOf(e) && startOf(e)<=lastSun && !e.days && occurs(e,TODAY,lastSun)==="main").sort(byStart);
   if (between.length){ h += ``+band("",`Weeknights in between`,`Mon–Thu events before ${MON[lastSun.getMonth()]} ${lastSun.getDate()}`)+`` + between.map(e=>cardHTML(e)).join(""); between.forEach(e=>used.add(e.id)); }
   const later = items.filter(e=>!used.has(e.id) && ((startOf(e) && startOf(e)>lastSun) || e.sec==="radar")).sort(byStart);
-  if (later.length){ h += ``+band("wk-later",`Later`,`After ${MON[lastSun.getMonth()]} ${lastSun.getDate()}`)+`` + later.map(e=>cardHTML(e)).join(""); later.forEach(e=>used.add(e.id)); }
+  if (later.length){ h += ``+band("wk-later",`Later`,`After ${MON[lastSun.getMonth()]} ${lastSun.getDate()}`)+`` + cardsTrimmed("later", later, "later events"); later.forEach(e=>used.add(e.id)); }
   const tbc = items.filter(e=>!used.has(e.id) && e.tbc);
   if (tbc.length){ h += ``+band("",`Dates not posted yet`,`Usually happen in December`)+`` + tbc.map(compactHTML).join(""); tbc.forEach(e=>used.add(e.id)); }
   const any = items.filter(e=>!used.has(e.id) && e.cat!=="walk");
   if (any.length) h += ``+band("",`Any weekend`,`Classes and recurring things you can book or do most weekends`)+`` + any.map(compactHTML).join("");
   if (progs.length) h += band("wk-progs","Teen winter & summer programs","Sorted by application deadline · apply ahead","#6D4C41") + progs.map(e=>cardHTML(e)).join("");
   const walks = items.filter(e=>!used.has(e.id) && e.cat==="walk");
-  if (walks.length) h += ``+band("",`Dog walks`,`Always on · closest to home first`)+`` + walks.map(compactHTML).join("");
+  if (walks.length) h += ``+band("wk-walks",`Dog walks`,`Always on · closest to home first`)+`` + walks.map(compactHTML).join("");
   return h || `<div class="empty">No events match these filters.</div>`;
 }
+function renderSearch(){
+  const res = filtered().filter(e=>!isPast(e)).sort((a,b)=>(startOf(a)||new Date(2100,0,1))-(startOf(b)||new Date(2100,0,1)));
+  return `<p class="wk-sub sres">${res.length} match${res.length===1?"":"es"} for “${esc(state.q.trim())}”</p>` + (res.length ? res.map(e=>e.cat==="walk"?compactHTML(e):cardHTML(e)).join("") : `<div class="empty">Nothing matches. Try a town, a venue or one word.</div>`);
+}
 function renderEvents(){
+  if (state.q.trim()) return renderSearch();
   if (state.group==="weekend"){
-    const W = weekends();
-    const jump = `<div class="jump">${W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}<button data-jump="wk-later">Later</button></div>`;
+    const W = weekends(), f = filtered();
+    const jump = `<div class="jump">${W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}<button data-jump="wk-later">Later</button>${f.some(e=>e.cat==="prog"&&!isPast(e))?`<button data-jump="wk-progs">Teen programs</button>`:""}${f.some(e=>e.cat==="walk")?`<button data-jump="wk-walks">Dog walks</button>`:""}</div>`;
     return segHTML() + jump + renderByWeekend();
   }
   return segHTML() + renderEventsByDate();
@@ -339,7 +380,7 @@ function planGroups(cur){
     }
     if (e.cat==="prog"){ dl.push(e); continue; }
     if (e.cat==="walk"){ any.push(e); continue; }
-    if ((isLong(e) || isWeeklyMkt(e)) && W.some(w=>daysOf(e,w.fri,w.sun).some(x=>parseD(x)>=TODAY))){ flex.push(e); continue; }
+    if (multiWk(e, W) && W.some(w=>daysOf(e,w.fri,w.sun).some(x=>parseD(x)>=TODAY))){ flex.push(e); continue; }
     let placed = false;
     // only days from today on can be locked in (on a Saturday, this weekend's Friday is already over)
     groups.forEach(g=>{ const ds = daysOf(e,g.w.fri,g.w.sun).filter(x=>parseD(x)>=TODAY); if (ds.length && !isLong(e)){ g.maybe.push({e,opts:ds}); placed = true; } });
@@ -364,6 +405,8 @@ function lockedCtl(e, k, opts){
   const move = opts && opts.length > 1 ? `<select class="locksel small" data-plan="${esc(e.id)}" aria-label="Move ${esc(e.title)} to another day"><option value="">Move to…</option>${opts.filter(x=>x!==k).map(x=>`<option value="${x}">${dayLabel(x)}</option>`).join("")}</select>` : "";
   return `<div class="lockrow"><button class="lockbtn" data-lock="${esc(e.id)}" data-k="${k}" aria-pressed="true">✓ Locked in · ${dayLabel(k)}</button>${move}<span class="locknote">Tap to make it a maybe</span>${showtimeHTML(e)}</div>`;
 }
+// on over several weekends (long runs, weekly markets, "select nights"): one "pick a day" row, not a maybe on every weekend
+const multiWk = (e, W) => isLong(e) || isWeeklyMkt(e) || W.filter(w=>daysOf(e,w.fri,w.sun).some(x=>parseD(x)>=TODAY)).length > 1;
 const allWkOpts = (e, W) => W.flatMap(w=>daysOf(e,w.fri,w.sun)).filter(x=>parseD(x)>=TODAY);
 // compact plan rows: date/time · activity · place; tap to open the full card
 const openRows = new Set();
@@ -378,11 +421,12 @@ function planRow(e, ctl, k){
 }
 function weekendHTML(g, W){
   const keys = Object.keys(g.days), n = keys.reduce((s,k)=>s+g.days[k].length,0), m = g.maybe.length;
+  if (!n && !m) return band(g.id,esc(g.title),`${esc(g.sub)} · nothing planned yet`, g.wk?WKC[g.i]:null);
   let h = ``+band(g.id,esc(g.title),`${esc(g.sub)} · ${n?`<strong class="lockc">${n} locked in</strong>`:"nothing locked in"}${m?` · ${m} maybe${m===1?"":"s"}`:""}`, g.wk?WKC[g.i]:null);
   h += `<div class="sched">` + keys.filter(k=>parseD(k)>=TODAY).map(k=>{
     const d = parseD(k), list = g.days[k];
     const head = `<div class="sched-d${list.length?"":" free"}"><span>${DAYF[d.getDay()]} ${MON[d.getMonth()]} ${d.getDate()}</span>${list.length?"":`<em>Nothing planned</em>`}</div>`;
-    return head + list.map(({e})=>planRow(e,lockedCtl(e,k,isLong(e)||isWeeklyMkt(e)?allWkOpts(e,W):daysOf(e,g.w.fri,g.w.sun).filter(x=>parseD(x)>=TODAY)),k)).join("");
+    return head + list.map(({e})=>planRow(e,lockedCtl(e,k,multiWk(e,W)?allWkOpts(e,W):daysOf(e,g.w.fri,g.w.sun).filter(x=>parseD(x)>=TODAY)),k)).join("");
   }).join("") + `</div>`;
   if (m) h += `<div class="plan-h">Maybe this weekend</div>` + g.maybe.map(({e,opts})=>planRow(e,planCtl(e,opts))).join("");
   return h;
@@ -398,11 +442,11 @@ function planHTML(cur, gone){
   const P = planGroups(cur);
   let h = `<div class="jump">${P.W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}${P.later.locked.length+P.later.maybe.length?`<button data-jump="wk-later">Later</button>`:""}</div>`;
   h += `<div class="plantools"><span>Tap a plan to see details</span><button class="linkbtn" data-expandall>${cur.length && cur.every(e=>openRows.has(e.id))?"Collapse all":"Expand all"}</button></div>`;
-  P.groups.forEach(g=>{ h += weekendHTML(g, P.W); });
   if (P.flex.length){
-    h += ``+band("",`Pick a day`,`These run over several weekends. Choose the day you'll go and it moves into that weekend's schedule.`)+``;
+    h += ``+band("",`Pick a day`,`You starred these and they run over several weekends. Choose the day you'll go and it moves into that weekend's schedule.`)+``;
     h += P.flex.map(e=>planRow(e,planCtl(e,allWkOpts(e,P.W)))).join("");
   }
+  P.groups.forEach(g=>{ h += weekendHTML(g, P.W); });
   h += listGroupHTML(P.wn) + listGroupHTML(P.later);
   if (P.dl.length) h += band("wk-dl","Deadlines to remember","Teen programs you starred, soonest first","#6D4C41") + P.dl.map(e=>planRow(e,"")).join("");
   if (P.any.length) h += ``+band("",`Anytime`,`Walks, classes and things without a date yet`)+`` + P.any.map(compactHTML).join("");
@@ -445,18 +489,27 @@ let vb = [...PRESETS[CITY.map_start]];
 try { const s = JSON.parse(localStorage.getItem("wf-vb2")); if (s && s.length===4) vb = s; } catch(e) {}
 let starOnly = false;
 function mapHTML(){
-  return `<div class="zoombar">${Object.keys(PRESETS).map(k=>`<button class="zbtn" data-preset="${k}">${k}</button>`).join("")}<button class="zbtn" data-staronly aria-pressed="${starOnly}">★ Starred only</button></div>
+  const W = weekends();
+  return `<div class="seg mapwhen" role="group" aria-label="Which dates">${[["wk0","This weekend"],["wk1","Next"],["all","All dates"]].map(([k,t])=>`<button data-mapwhen="${k}" aria-pressed="${state.mapWhen===k}">${t}</button>`).join("")}</div><p class="note mapn" id="mapn"></p><div class="zoombar">${Object.keys(PRESETS).map(k=>`<button class="zbtn" data-preset="${k}">${k}</button>`).join("")}<button class="zbtn" data-staronly aria-pressed="${starOnly}">★ Starred only</button></div>
   <div class="mapwrap" id="mapwrap" style="aspect-ratio:${MAP_W}/${MAP_H}"><svg id="map" role="img" aria-label="Map of event locations around ${esc(CITY.short)}"></svg>
   <div class="zctl"><button data-zoom="0.6" aria-label="Zoom in">+</button><button data-zoom="1.6" aria-label="Zoom out">−</button></div></div>
   <div class="legend">${Object.keys(CATS).map(k=>`<span><i style="background:${CATS[k].color}"></i>${CATS[k].label}</span>`).join("")}<span><i style="background:#fff;border:3px solid #B9531F;width:12px;height:12px"></i>Home</span><span><i style="background:#FFD54A;border:2px solid #1B2430"></i>Starred</span></div>
   <div class="note">Tap a pin to see the event. Drag to pan, pinch or use +/− to zoom. Pins are approximate.</div>
   <div class="sheet" id="sheet"></div>`;
 }
+function mapItems(){
+  const W = weekends(), w = state.mapWhen==="all" ? null : W[+state.mapWhen.slice(2)];
+  const walksToo = state.cat==="dog" || state.cat==="walk" || state.dogok;
+  return filtered().filter(e=>e.lat!=null && !isPast(e) && (!starOnly || starredIds().includes(e.id))
+    && (!w || (e.cat==="walk" ? walksToo : occurs(e, w.fri, w.sun))));
+}
+function mapCount(){ const n = document.getElementById("mapn"); if (!n) return; const k = mapItems().length, W = weekends(), w = state.mapWhen==="all" ? null : W[+state.mapWhen.slice(2)];
+  n.textContent = `${k} event${k===1?"":"s"} on the map` + (w ? `, ${fmtRange(w.fri, w.sun)}` : ", all dates"); }
 function drawMap(){
   const svg = document.getElementById("map"); if(!svg) return;
   const pxPer = svg.clientWidth ? vb[2]/svg.clientWidth : 1;
   const r = 11*pxPer, fs = 11*pxPer;
-  const items = filtered().filter(e=>e.lat!=null && !isPast(e) && (!starOnly || starredIds().includes(e.id)));
+  const items = mapItems();
   const groups = {};
   items.forEach(e=>{ const k=e.lat.toFixed(3)+","+e.lon.toFixed(3); (groups[k]=groups[k]||[]).push(e); });
   let pins = "";
@@ -556,7 +609,7 @@ function render(){
   document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected", t.dataset.view===state.view));
   updateCount(); renderFilters();
   const m = document.getElementById("main");
-  if (state.view==="map"){ m.innerHTML = mapHTML(); requestAnimationFrame(bindMap); }
+  if (state.view==="map"){ m.innerHTML = mapHTML(); requestAnimationFrame(bindMap); requestAnimationFrame(mapCount); }
   else m.innerHTML = state.view==="our-list" ? renderOurList() : renderEvents();
   if (state.view!=="our-list") m.insertAdjacentHTML("afterbegin", homeBox() + likesBox());
   document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px");
@@ -641,7 +694,12 @@ document.addEventListener("click", ev=>{
   else if (t.hasAttribute("data-likesopen")){ state.filtOpen=false; state.editHome=false; state.likesOpen=true; render(); window.scrollTo(0,0); }
   else if (t.hasAttribute("data-filtopen")){ state.filtOpen = !state.filtOpen; render(); }
   else if (t.dataset.distv!=null){ state.dist = +t.dataset.distv; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); if (typeof track==="function") track("filter_applied",{placement:null, props:{filter_type:"distance", value:String(state.dist)}}); }
-  else if (t.hasAttribute("data-freset")){ state.cat="all"; state.dist=0; try{localStorage.setItem("wf-dist",0);}catch(e){} render(); }
+  else if (t.dataset.quick){ const k=t.dataset.quick; if (k==="sat"||k==="sun") state.day = state.day===k ? "" : k; else state[k] = !state[k]; render(); if (typeof track==="function") track("filter_applied",{placement:null, props:{filter_type:"quick", value:k}}); }
+  else if (t.hasAttribute("data-search")){ state.searchOpen=true; state.filtOpen=false; render(); setTimeout(()=>{ const i=document.getElementById("q"); if(i) i.focus(); },30); }
+  else if (t.hasAttribute("data-searchclose")){ state.searchOpen=false; state.q=""; render(); }
+  else if (t.dataset.more){ const k=t.dataset.more; showAll.has(k) ? showAll.delete(k) : showAll.add(k); refreshStars(); }
+  else if (t.dataset.mapwhen){ state.mapWhen=t.dataset.mapwhen; document.querySelectorAll("[data-mapwhen]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.mapwhen===state.mapWhen)); drawMap(); mapCount(); }
+  else if (t.hasAttribute("data-freset")){ state.cat="all"; state.dist=0; state.free=false; state.dogok=false; state.day=""; try{localStorage.setItem("wf-dist",0);}catch(e){} render(); }
   else if (t.hasAttribute("data-sethome")){ state.filtOpen = false; state.editHome = !state.editHome; state.homeMsg=""; render(); if (state.editHome) setTimeout(()=>{ const i=document.getElementById("homeq"); if(i) i.focus(); },50); }
   else if (t.hasAttribute("data-homefind")){ findHome(); }
   else if (t.hasAttribute("data-homegps")){ gpsHome(); }
@@ -665,6 +723,10 @@ document.addEventListener("click", ev=>{
     try { navigator.clipboard.writeText(txt).then(()=>{ t.textContent="Copied ✓"; setTimeout(()=>t.textContent="Copy list as text",2000); }, fallback); } catch(e) { fallback(); }
   }
 });
+document.addEventListener("input", ev=>{ if (ev.target.id==="q"){ state.q = ev.target.value; if (state.view==="map"){ drawMap(); mapCount(); } else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + likesBox() + renderEvents(); if (!state.q) scrollTo(0,y); } } });
+document.addEventListener("keydown", ev=>{ if (ev.target.id==="q" && ev.key==="Enter") ev.target.blur(); if (ev.target.id==="q" && ev.key==="Escape"){ state.searchOpen=false; state.q=""; render(); } });
+// a card's description shows two lines; tap it for the rest
+document.addEventListener("click", ev=>{ const m = ev.target.closest(".card .meta"); if (m && !ev.target.closest("a,button")) m.classList.toggle("full"); });
 document.addEventListener("change", ev=>{ if (ev.target.matches("select[data-pick]")){ pickSel[ev.target.dataset.pick] = ev.target.value; refreshStars(); const s = document.getElementById(ev.target.id); if (s) s.focus({preventScroll:true}); return; } if (ev.target.matches("select[data-dist]")){ state.dist = +ev.target.value; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); return; } const s = ev.target.closest("select[data-plan]"); if (s && s.value) setPlan(s.dataset.plan, s.value); const st = ev.target.closest("input[data-stime]"); if (st) setShowtime(st.dataset.stime, st.value); });
 window.addEventListener("hashchange", ()=>{ const h=location.hash.slice(1); if(VIEWS.includes(h)&&h!==state.view){ state.view=h; render(); } });
 window.addEventListener("resize", ()=>{ if(state.view==="map"){ vb=fitAspect(vb); drawMap(); } document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px"); });
