@@ -156,7 +156,7 @@ function renderOurList(){
     h += `<p class="ournote">Your stars are saved on this phone.</p>${cur.length || gone.length ? `<div class="btnrow"><button class="copybtn" data-sendlink>Share my picks</button><button class="copybtn alt" data-copy>Copy as text</button></div>` : ""}`;
   }
   h += `<div id="copyout"></div></div>`;
-  if (!cur.length && !gone.length) return h + `<div class="empty">Nothing starred yet.<br>Tap the ☆ on any event and it lands here${LIST ? " for everyone on your list" : ""}.</div>`;
+  if (!cur.length && !gone.length) return h + `<div class="empty">${EMPTY_STAR()}Nothing starred yet.<br>Tap the ☆ on any event and it lands here${LIST ? " for everyone on your list" : ""}.</div>`;
   return h + planHTML(cur, gone);
 }
 function copyOut(t, text, okMsg, label){

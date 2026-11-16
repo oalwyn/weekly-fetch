@@ -41,7 +41,13 @@ main{flex:1;padding:0 12px 40px}
 .card .meta{font-size:13px;color:var(--mute);line-height:1.45}
 .card .row2{grid-column:1/-1;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px}
 .num{font-size:11px;font-weight:600;color:var(--mute)}
-.tag{font-size:11px;font-weight:600;border-radius:999px;padding:3px 9px}
+.tag{font-size:11px;font-weight:600;border-radius:999px;padding:3px 9px;display:inline-flex;align-items:center;gap:4px}.tag .ico{width:1.25em;height:1.25em}
+.dist{display:inline-flex;align-items:center;gap:2px}.dist .ico{width:1.1em;height:1.1em;opacity:.8}
+.cico{display:inline-flex;margin-right:6px}.cico .ico{width:18px;height:18px}.chip .ico{width:18px;height:18px}.chip>.ico{margin-right:5px}
+.pk-h .cico .ico{width:20px;height:20px}
+.emptyico{display:block;color:#E9895B;margin:0 auto 8px}.emptyico .ico.big{width:56px;height:56px;vertical-align:0}
+.citysw summary .ico{width:15px;height:15px}
+.meet .ico,.showt .ico,.pmeta .ico{width:1.1em;height:1.1em;vertical-align:-.2em}
 .c-hol{background:#FBE9E1;color:#8A3A14}.c-mkt{background:#E6EEF6;color:#1F4A73}.c-dog{background:#E3F2EA;color:#1F6B4A}
 .c-walk{background:#DDF1F1;color:#0B5E61}.c-food{background:#FFF1D6;color:#7A4E00}.c-art{background:#EEE8F6;color:#4E3A78}.c-evt{background:#EEF2F5;color:#1B2430}.c-show{background:#FBE6EE;color:#8A1F4C}.c-kids{background:#E8F4DC;color:#3B6B17}.c-teen{background:#E6E9F7;color:#3A47A0}.c-prog{background:#F1E9E5;color:#5D4037}.c-sport{background:#F7E4E4;color:#7A1F1F}.c-film{background:#E6E8F5;color:#283593}
 .ha{font-size:11px;font-weight:700;border-radius:6px;padding:3px 8px}
@@ -166,7 +172,7 @@ main>.card .meta.full,.pickbox .card .meta.full{display:block;-webkit-line-clamp
 .distsel{position:relative;padding:0;display:flex;align-items:center}.distsel select{appearance:none;-webkit-appearance:none;border:0;background:transparent;font:inherit;font-weight:600;color:inherit;padding:8px 30px 8px 14px;min-height:38px;border-radius:999px}
 .distsel::after{content:"▾";position:absolute;right:12px;pointer-events:none;font-size:12px}
 .distsel.on{background:var(--warm);border-color:var(--warm);color:#fff}
-.homechip{max-width:44%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.homechip .ico{width:16px;height:16px;margin-right:3px}.homechip{padding-left:10px;padding-right:10px;max-width:46%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .homebox{background:#fff;border-radius:14px;padding:14px 16px;margin:12px 0}.homebox strong{font-size:16px}
 .homeform{display:flex;gap:8px;margin:8px 0}.homeform input{flex:1;min-width:0;font:inherit;font-size:16px;border:1px solid #CBD4DD;border-radius:10px;padding:10px 12px;min-height:44px}
 .homemsg{color:#1E7A4C;font-weight:600}.ournote.small{font-size:12px}

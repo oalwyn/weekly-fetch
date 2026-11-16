@@ -460,7 +460,7 @@ renderOurList = function(){
   if (inGroup()){
     const { cur, gone } = ourListItems();
     let h = `<div class="ourhead">${msgs}${groupBarHTML()}<div id="copyout"></div></div>`;
-    if (!cur.length && !gone.length) return h + `<div class="empty">Nothing starred yet in “${ae(ACCT.group.name)}”.<br>Tap the ☆ on any event and it lands here for everyone in the group.</div>`;
+    if (!cur.length && !gone.length) return h + `<div class="empty">${EMPTY_STAR()}Nothing starred yet in “${ae(ACCT.group.name)}”.<br>Tap the ☆ on any event and it lands here for everyone in the group.</div>`;
     return h + planHTML(cur, gone);
   }
   // not in a group: sign-in / name / start-or-join card, then today's plans (this device or the old shared plan)
@@ -536,8 +536,8 @@ function answersLine(answers){
   return [["going", "Going"], ["maybe", "Maybe"], ["no", "Can't"]].filter(([k]) => by[k].length).map(([k, l]) => `${l}: ${ae(by[k].join(", "))}`).join(" · ");
 }
 function meetLine(m, e){
-  if (m && e && e.cat === "film") return m.place ? `🎬 ${ae(m.place)}` : "";        // the showtime itself is in the row's time
-  return m ? `📍 Meet ${m.time ? hClock(hm2h(m.time)) : ""}${m.time && m.place ? " · " : ""}${ae(m.place || "")}` : "";
+  if (m && e && e.cat === "film") return m.place ? `${wfIco("film")} ${ae(m.place)}` : "";        // the showtime itself is in the row's time
+  return m ? `${wfIco("pin")} Meet ${m.time ? hClock(hm2h(m.time)) : ""}${m.time && m.place ? " · " : ""}${ae(m.place || "")}` : "";
 }
 
 // on a locked-in plan, inside a group: Going / Maybe / Can't, who's going, and the meet-up
@@ -552,9 +552,9 @@ function goingHTML(e){
       <input type="time" name="t" value="${ae((m && m.time) || "")}" aria-label="${film ? "Showtime" : "Meet-up time"}">
       <input name="p" maxlength="120" value="${ae((m && m.place) || "")}" placeholder="${film ? "Which theater?" : "Where to meet, e.g. the front gate"}" aria-label="${film ? "Theater" : "Meet-up place"}">
       <button class="copybtn">Save</button><button type="button" class="copybtn alt" data-acct="meet-cancel">Cancel</button></form>`;
-  else if (m && film) meet = `<p class="meet">🎬 Showtime ${m.time ? ae(showRange(e, m.time)) : "not set"}${m.place ? " · " + ae(m.place) : ""} <button class="linkbtn" data-acct="meet-edit" data-id="${ae(id)}">Change</button><button class="linkbtn" data-acct="meet-remove" data-id="${ae(id)}">Remove</button></p>`;
+  else if (m && film) meet = `<p class="meet">${wfIco("film")} Showtime ${m.time ? ae(showRange(e, m.time)) : "not set"}${m.place ? " · " + ae(m.place) : ""} <button class="linkbtn" data-acct="meet-edit" data-id="${ae(id)}">Change</button><button class="linkbtn" data-acct="meet-remove" data-id="${ae(id)}">Remove</button></p>`;
   else if (m) meet = `<p class="meet">${meetLine(m)} <button class="linkbtn" data-acct="meet-edit" data-id="${ae(id)}">Change</button><button class="linkbtn" data-acct="meet-remove" data-id="${ae(id)}">Remove</button></p>`;
-  else if (film) meet = `<button class="linkbtn meetadd" data-acct="meet-edit" data-id="${ae(id)}">🎬 + Add your showtime &amp; theater</button>`;
+  else if (film) meet = `<button class="linkbtn meetadd" data-acct="meet-edit" data-id="${ae(id)}">${wfIco("film")} + Add your showtime &amp; theater</button>`;
   else meet = `<button class="linkbtn meetadd" data-acct="meet-edit" data-id="${ae(id)}">+ Add a meet-up time &amp; place</button>`;
   const who = answersLine(answers);
   return `<div class="going"><div class="rsvp" role="group" aria-label="Are you going?"><span class="rq">You:</span>${RSVP.map(([k, l]) =>

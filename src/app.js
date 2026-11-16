@@ -167,7 +167,7 @@ function pickBox(key, list, kind, a, b){
   const label = e => (starredByMe(e.id)?"★ ":"") + (fm ? [nm(e), days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : [e.title, opens(e)]).filter(Boolean).join(" · ");
   const title = fm ? (list.every(e=>/farmers/i.test(e.title)) ? "Farmers markets" : "Weekly markets") : "New in theaters";
   const n = `${list.length} ${fm?"market":"movie"}${list.length===1?"":"s"}`;
-  return `<div class="pickbox ${fm?"mktbox":"filmbox"}"><label class="pk-h"${list.length>1?` for="pk-${key}"`:""}><span>${fm?"🧺":"🎬"} ${title}</span><span class="pk-n">${n}</span></label>${list.length>1?`<select id="pk-${key}" data-pick="${key}">${sorted.map(e=>`<option value="${esc(e.id)}"${e===sel?" selected":""}>${esc(label(e))}</option>`).join("")}</select>`:""}${cardHTML(sel,false,"","inbox")}</div>`;
+  return `<div class="pickbox ${fm?"mktbox":"filmbox"}"><label class="pk-h"${list.length>1?` for="pk-${key}"`:""}><span><span class="cico" style="color:${CATS[fm?"mkt":"film"].color}">${wfIco(fm?"mkt":"film")}</span>${title}</span><span class="pk-n">${n}</span></label>${list.length>1?`<select id="pk-${key}" data-pick="${key}">${sorted.map(e=>`<option value="${esc(e.id)}"${e===sel?" selected":""}>${esc(label(e))}</option>`).join("")}</select>`:""}${cardHTML(sel,false,"","inbox")}</div>`;
 }
 function likesBox(){
   if (state.view==="our-list") return "";
@@ -191,11 +191,16 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(whenText(e))}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(metaText(e))}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${wfIco(e.cat in CATS?e.cat:"evt")}${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${wfIco("pin")}${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 // icons by Gregor Cresnar (Noun Project, royalty-free on the owner's Noun Pro plan); sources in src/icons
 const ICO_SEARCH = '<svg class="ico" viewBox="180 180 840 840" aria-hidden="true"><path fill="currentColor" d="m540 840c64.688 0 126.24-20.391 178.22-58.922l16.688-12.375 184.22 184.22c8.8594 8.8594 25.078 8.8594 33.938 0 9.375-9.375 9.375-24.609 0-33.938l-184.22-184.22 12.375-16.688c38.531-51.938 58.922-113.62 58.922-178.22 0-165.47-134.53-300-300-300s-300 134.53-300 300 134.53 300 300 300zm0-552c138.94 0 252 113.06 252 252s-113.06 252-252 252-252-113.06-252-252 113.06-252 252-252z"/></svg>', ICO_HOME = '<svg class="ico" viewBox="180 180 840 840" aria-hidden="true"><path fill="currentColor" d="m616.92 496.92c9.375-9.375 9.375-24.609 0-33.938-4.5469-4.5469-10.547-6.9375-16.922-6.9375s-12.469 2.5312-16.922 6.9375c-9.375 9.375-9.375 24.609 0 33.938 8.8594 8.8594 25.078 8.8594 33.938 0zM336 948h528c52.922 0 96-43.078 96-96v-301.31c0-37.078-16.688-71.531-45.844-94.312l-215.76-169.45c-12.938-10.219-25.219-17.625-37.688-22.688-19.312-8.0625-39.703-12-60.609-12-35.062 0-69.375 11.766-96.609 33.234l-217.69 171c-29.156 22.922-45.844 57.234-45.844 94.312v301.31c0 52.922 43.078 96 96 96zm336-48h-144v-144c0-39.703 32.297-72 72-72s72 32.297 72 72zm-384-349.31c0-22.219 10.078-42.844 27.469-56.625l218.16-171.37c39.141-30.703 93.609-30.703 132.71 0l218.16 171.24c17.531 13.781 27.469 34.453 27.469 56.625v301.31c0 26.531-21.469 48-48 48h-144v-144c0-66.141-53.859-120-120-120s-120 53.859-120 120v144h-144c-26.531 0-48-21.469-48-48v-301.31z"/></svg>';
+// line icons for each category (Gregor Cresnar, Noun Project; src/icons). build.py fills WF_ICONS from src/icons/paths.json
+const WF_ICONS = /*ICONS*/{};
+const ICO_KEY = {hol:"holiday-gift-7647994", mkt:"markets-basket-7647949", dog:"dog-paw-1686619", walk:"dog-paw-1686619", food:"food-coffee-7648022", art:"art-paintbrush-7649979", show:"shows-microphone-7648374", sport:"sports-arena-7649252", film:"movies-video-7274354", kids:"kids-teddy-7649884", teen:"teens-headphones-7648703", prog:"programs-book-7649981", evt:"other-ticket-7274265", pin:"location-pin-7648253", star:"plans-star-7648091"};
+function wfIco(k, cls){ const v = WF_ICONS[ICO_KEY[k] || k]; if (!v) return ""; return `<svg class="${cls||"ico"}" viewBox="${v.vb}" aria-hidden="true">${v.d.map(d=>`<path fill="currentColor" d="${d}"/>`).join("")}</svg>`; }
+const EMPTY_STAR = () => `<span class="emptyico">${wfIco("star","ico big")}</span>`;
 const DISTS = [[0,"Any distance"], ...CITY.dists.map(d=>[d, d+" "+UNIT])];
 function renderFilters(){
   const f = document.getElementById("filters");
@@ -212,8 +217,8 @@ function renderFilters(){
     <button class="chip homechip" data-sethome aria-label="Change home location, now ${esc(HOME.name)}">${ICO_HOME} ${esc(HOME.name)}</button></div>`;
   if (state.searchOpen) h = `<div class="fbar sbar"><input type="search" id="q" value="${esc(state.q)}" placeholder="Search events, places, towns" aria-label="Search events" autocomplete="off" enterkeyhint="search"><button class="chip" data-searchclose>Cancel</button></div>`;
   if (state.filtOpen){
-    h += `<div class="fpanel" id="fpanel"><div class="fsec">Quick picks</div><div class="fwrap">${[["free","Free"],["dogok","🐕 Dog-friendly"],["sat","Saturday"],["sun","Sunday"]].map(([k,t])=>`<button class="chip" data-quick="${k}" aria-pressed="${k==="sat"||k==="sun" ? state.day===k : !!state[k]}">${t}</button>`).join("")}</div><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">${likesOff.size?"All my interests":"All events"}</button>`;
-    for (const k in CATS) if (k!=="walk") h += `<button class="chip" data-cat="${k}" aria-pressed="${state.cat===k}"><i class="dot" style="background:${CATS[k].color}"></i>${CATS[k].label}</button>`;
+    h += `<div class="fpanel" id="fpanel"><div class="fsec">Quick picks</div><div class="fwrap">${[["free","Free"],["dogok",wfIco("dog")+"Dog-friendly"],["sat","Saturday"],["sun","Sunday"]].map(([k,t])=>`<button class="chip" data-quick="${k}" aria-pressed="${k==="sat"||k==="sun" ? state.day===k : !!state[k]}">${t}</button>`).join("")}</div><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">${likesOff.size?"All my interests":"All events"}</button>`;
+    for (const k in CATS) if (k!=="walk") h += `<button class="chip" data-cat="${k}" aria-pressed="${state.cat===k}"><span class="cico" style="color:${CATS[k].color}">${wfIco(k)}</span>${CATS[k].label}</button>`;
     h += `</div><div class="fsec">My interests <button class="linkbtn" data-likesopen>edit</button></div><p class="fnote">${likesOff.size ? "Hiding: " + esc([...likesOff].map(k=>CATS[k]?CATS[k].label:k).join(", ")) : "Showing every kind of event."}</p><div class="fsec">Distance from ${esc(HOME.name)} <button class="linkbtn" data-sethome>change</button></div><div class="dseg" role="group" aria-label="Distance">${DISTS.map(([v,t])=>`<button data-distv="${v}" aria-pressed="${state.dist===v}">${t}</button>`).join("")}</div>
     <div class="fdone">${active?`<button class="copybtn alt" data-freset>Clear filters</button>`:""}<button class="copybtn" data-filtopen>Done · show ${filtered().filter(e=>!isPast(e)).length}</button></div></div>`;
   }
@@ -263,7 +268,7 @@ function renderByWeekend(){
     main.forEach(e=>used.add(e.id)); ong.forEach(e=>used.add(e.id));
     const fl = films.filter(e=>{ const s=startOf(e); return s && s>=addD(w.fri,-2) && s<=w.sun; }).sort(byStart);
     const mk = main.filter(isWeeklyMkt), rest = mk.length>1 ? main.filter(e=>!isWeeklyMkt(e)) : main;
-    h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${rest.length} event${rest.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}${mk.length>1?` · 🧺 ${mk.length} markets`:""}${fl.length?` · 🎬 ${fl.length} new movie${fl.length===1?"":"s"}`:""}`, WKC[i]);
+    h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${rest.length} event${rest.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}${mk.length>1?` · ${mk.length} markets`:""}${fl.length?` · ${fl.length} new movie${fl.length===1?"":"s"}`:""}`, WKC[i]);
     if (mk.length>1) h += pickBox("m"+i, mk, "mkt", w.fri, w.sun);
     if (fl.length) h += pickBox("f"+i, fl, "film", w.fri, w.sun);
     h += rest.length ? cardsTrimmed("w"+i, rest, "events") : (fl.length || mk.length>1) ? "" : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
@@ -292,7 +297,7 @@ function renderEvents(){
   if (state.q.trim()) return renderSearch();
   if (state.group==="weekend"){
     const W = weekends(), f = filtered();
-    const jump = `<div class="jump">${W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}<button data-jump="wk-later">Later</button><span class="jsep" aria-hidden="true"></span>${QCATS.filter(k=>state.cat===k || !likesOff.has(k)).map(k=>`<button class="qcat" data-qcat="${k}" aria-pressed="${state.cat===k}">${CATS[k].label}</button>`).join("")}</div>`;
+    const jump = `<div class="jump">${W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}<button data-jump="wk-later">Later</button><span class="jsep" aria-hidden="true"></span>${QCATS.filter(k=>state.cat===k || !likesOff.has(k)).map(k=>`<button class="qcat" data-qcat="${k}" aria-pressed="${state.cat===k}"><span class="cico" style="color:${CATS[k].color}">${wfIco(k)}</span>${CATS[k].label}</button>`).join("")}</div>`;
     return segHTML() + jump + renderByWeekend();
   }
   return segHTML() + renderEventsByDate();
@@ -349,7 +354,7 @@ const showRange = (e, t) => { const s = t2h(t); if (s == null) return ""; const 
 function showtimeHTML(e){
   if (e.cat !== "film") return "";
   const t = planTime(e.id) || "";
-  return `<label class="showt">🎬 Your showtime <input type="time" data-stime="${esc(e.id)}" value="${esc(t)}" aria-label="Showtime for ${esc(e.title)}"></label>${t ? `<span class="locknote">${esc(showRange(e, t))}</span>` : `<span class="locknote">Add it to see what else fits that day</span>`}`;
+  return `<label class="showt">${wfIco("film")} Your showtime <input type="time" data-stime="${esc(e.id)}" value="${esc(t)}" aria-label="Showtime for ${esc(e.title)}"></label>${t ? `<span class="locknote">${esc(showRange(e, t))}</span>` : `<span class="locknote">Add it to see what else fits that day</span>`}`;
 }
 const isLong = e => !e.dates && !!e.start && (!!e.days || !e.end || (parseD(e.end)-parseD(e.start))/DAYMS > 3);
 const DAYF = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -460,7 +465,7 @@ function planHTML(cur, gone){
 function renderOurList(){
   const {cur, gone} = ourListItems();
   let h = `<div class="ourhead">${importedMsg?`<p class="okmsg">${esc(importedMsg)}</p>`:""}<p class="ournote">Your stars are saved on this device.</p>${cur.length?`<div class="btnrow"><button class="copybtn alt" data-copy>Copy as text</button></div>`:""}<div id="copyout"></div></div>`;
-  if (!cur.length && !gone.length) return h + `<div class="empty">Nothing starred yet.<br>Tap the ☆ on any event and it lands here.</div>`;
+  if (!cur.length && !gone.length) return h + `<div class="empty">${EMPTY_STAR()}Nothing starred yet.<br>Tap the ☆ on any event and it lands here.</div>`;
   return h + planHTML(cur, gone);
 }
 function listText(){

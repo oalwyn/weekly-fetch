@@ -14,11 +14,13 @@ for k in CITY_KEYS:
     cc = json.load(open(os.path.join('cities', k + '.json')))
     if not cc['path'] or os.path.exists(os.path.join('..', cc['path'], 'data.js')):
         CITIES.append({'key': k, 'short': cc['short'], 'near': cc.get('near', cc['short']), 'brand': cc['brand'], 'url': '/' + (cc['path'] + '/' if cc['path'] else ''), 'tz': cc['tz']})
+_pin = json.load(open(os.path.join('icons', 'paths.json')))['location-pin-7648253']
+PIN_SVG = '<svg class="ico" viewBox="%s" aria-hidden="true">%s</svg>' % (_pin['vb'], ''.join('<path fill="currentColor" d="%s"/>' % d for d in _pin['d']))
 def city_switch(cfg):
     """Header city switch, the city-suggestion script and (site root only) the remembered-city redirect.
     Wrapped in <!--citysw--> so build_app.py can leave it out of the Bay Area-only iPhone app."""
     links = ''.join('<a href="%s" data-city="%s"%s>%s<small>%s</small></a>' % (c['url'], c['key'], ' aria-current="page"' if c['key'] == cfg['key'] else '', c['short'], c['brand']) for c in CITIES)
-    sw = '<!--citysw--><details class="citysw" id="citySw"><summary aria-label="Change city">📍 <span>%s</span> <span aria-hidden="true">▾</span></summary><div class="citymenu">%s</div></details><!--/citysw-->\n  ' % (cfg['short'], links)
+    sw = '<!--citysw--><details class="citysw" id="citySw"><summary aria-label="Change city">%s<span>%s</span> <span aria-hidden="true">▾</span></summary><div class="citymenu">%s</div></details><!--/citysw-->\n  ' % (PIN_SVG, cfg['short'], links)
     js = ('<!--citysw--><script>window.WF_CITIES=' + json.dumps(CITIES, ensure_ascii=False) + ';' + open('city_switch.js').read() + '</script><!--/citysw-->\n')
     redirect = ''
     if not cfg['path']:
@@ -30,7 +32,8 @@ for CITY_KEY in CITY_KEYS:
     if CITYCFG['path'] and not os.path.exists(os.path.join('..', CITYCFG['path'], 'data.js')):
         print('skipping', CITY_KEY, '(no data yet)'); continue
     c = json.load(open(CITYCFG['coast']))
-    js = (open('app.js').read()
+    ICONS = json.load(open(os.path.join('icons', 'paths.json')))
+    js = (open('app.js').read().replace('/*ICONS*/{}', json.dumps(ICONS, separators=(',', ':')))
           .replace('/*BBOX*/[0,0,0,0]', json.dumps(c['bbox']))
           .replace('/*W*/0', str(c['W'])).replace('/*H*/0', str(c['H']))
           .replace('"/*COAST*/"', json.dumps(c['d'])).replace('"/*RULE*/"', json.dumps(c.get('rule', 'evenodd'))))
