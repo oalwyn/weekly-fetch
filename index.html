@@ -681,7 +681,7 @@ function renderEvents(){
   if (state.q.trim()) return renderSearch();
   if (state.group==="weekend"){
     const W = weekends(), f = filtered();
-    const jump = `<div class="jump">${QCATS.filter(k=>state.cat===k || !likesOff.has(k)).map(k=>`<button class="qcat" data-qcat="${k}" aria-pressed="${state.cat===k}">${CATS[k].label}</button>`).join("")}<span class="jsep" aria-hidden="true"></span>${W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}<button data-jump="wk-later">Later</button></div>`;
+    const jump = `<div class="jump">${W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}<button data-jump="wk-later">Later</button><span class="jsep" aria-hidden="true"></span>${QCATS.filter(k=>state.cat===k || !likesOff.has(k)).map(k=>`<button class="qcat" data-qcat="${k}" aria-pressed="${state.cat===k}">${CATS[k].label}</button>`).join("")}</div>`;
     return segHTML() + jump + renderByWeekend();
   }
   return segHTML() + renderEventsByDate();
