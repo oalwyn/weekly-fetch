@@ -126,7 +126,7 @@ const norm = t => String(t||"").toLowerCase().normalize("NFD").replace(/[\u0300-
 const matchQ = e => { const hay = norm([e.title,e.meta,e.when,(CATS[e.cat]||CATS.evt).label].join(" ")); return norm(state.q).split(/\s+/).filter(Boolean).every(w=>hay.includes(w)); };
 function filtered(){
   return DATA.filter(e => (state.cat==="all" ? !likesOff.has(likeKey(e.cat)) : (e.cat===state.cat || (state.cat==="dog" && e.cat==="walk"))) && (!state.dist || (e.mi!=null && e.mi<=state.dist) || (e.cat==="film" && e.lat==null))
-    && (!state.free || e.price==="free" || e.cat==="walk") && (!state.dogok || isDogOk(e)) && (!state.day || onDow(e, DOW[state.day])) && (!state.q || matchQ(e)));
+    && (!state.local || e.local) && (!state.free || e.price==="free" || e.cat==="walk") && (!state.dogok || isDogOk(e)) && (!state.day || onDow(e, DOW[state.day])) && (!state.q || matchQ(e)));
 }
 // "Free" or "Tickets" pill; a ticketed event with a ticket page links straight to it
 const okUrl = u => typeof u==="string" && /^https?:\/\//.test(u);
@@ -157,17 +157,17 @@ const pickSel = {};   // box key -> chosen event id (kept while the page is open
 const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 const shortName = e => e.title.replace(/\s*\(.*\)\s*$/,"").replace(/\s+(farmers'?\s+)?markets?$/i,"").trim() || e.title;
 function pickBox(key, list, kind, a, b){
-  const fm = kind==="mkt";
-  const sorted = fm ? [...list].sort((x,y)=>(x.mi==null?1e9:x.mi)-(y.mi==null?1e9:y.mi)) : list;
+  const fm = kind==="mkt", lc = kind==="local";
+  const sorted = (fm || lc) ? [...list].sort((x,y)=>(x.mi==null?1e9:x.mi)-(y.mi==null?1e9:y.mi)) : list;
   let sel = pickSel[key] && sorted.find(e=>e.id===pickSel[key]);
   if (!sel) sel = sorted.find(e=>lockKey(e.id)) || sorted.find(e=>starredByMe(e.id)) || sorted[0];
   const days = e => { if (!a || !e.dates) return ""; return [...new Set(e.dates.map(parseD).filter(t=>t>=a&&t<=b).map(t=>cap(DAYN[t.getDay()])))].join(" & "); };
   const opens = e => { const s = startOf(e); return s && a ? "opens " + cap(DAYN[s.getDay()]) : ""; };
   const nm = e => sorted.filter(x=>shortName(x)===shortName(e)).length>1 ? e.title : shortName(e);   // two "Bondi"s: use the full names
-  const label = e => (starredByMe(e.id)?"★ ":"") + (fm ? [nm(e), days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : [e.title, opens(e)]).filter(Boolean).join(" · ");
-  const title = fm ? (list.every(e=>/farmers/i.test(e.title)) ? "Farmers markets" : "Weekly markets") : "New in theaters";
-  const n = `${list.length} ${fm?"market":"movie"}${list.length===1?"":"s"}`;
-  return `<div class="pickbox ${fm?"mktbox":"filmbox"}"><label class="pk-h"${list.length>1?` for="pk-${key}"`:""}><span><span class="cico" style="color:${CATS[fm?"mkt":"film"].color}">${wfIco(fm?"mkt":"film")}</span>${title}</span><span class="pk-n">${n}</span></label>${list.length>1?`<select id="pk-${key}" data-pick="${key}">${sorted.map(e=>`<option value="${esc(e.id)}"${e===sel?" selected":""}>${esc(label(e))}</option>`).join("")}</select>`:""}${cardHTML(sel,false,"","inbox")}</div>`;
+  const label = e => (starredByMe(e.id)?"★ ":"") + (lc ? [e.biz || (e.meta||"").split(" · ")[0].split(",")[0], days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : fm ? [nm(e), days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : [e.title, opens(e)]).filter(Boolean).join(" · ");
+  const title = lc ? "Shop local this weekend" : fm ? (list.every(e=>/farmers/i.test(e.title)) ? "Farmers markets" : "Weekly markets") : "New in theaters";
+  const n = lc ? `${list.length} nearby` : `${list.length} ${fm?"market":"movie"}${list.length===1?"":"s"}`;
+  return `<div class="pickbox ${lc?"localbox":fm?"mktbox":"filmbox"}"><label class="pk-h"${list.length>1?` for="pk-${key}"`:""}><span><span class="cico" style="color:${lc?"#1D7A55":CATS[fm?"mkt":"film"].color}">${wfIco(lc?"local":fm?"mkt":"film")}</span>${title}</span><span class="pk-n">${n}</span></label>${list.length>1?`<select id="pk-${key}" data-pick="${key}">${sorted.map(e=>`<option value="${esc(e.id)}"${e===sel?" selected":""}>${esc(label(e))}</option>`).join("")}</select>`:""}${cardHTML(sel,false,"","inbox")}</div>`;
 }
 /* ---- Rainy Day: indoor places (rainy.js, hand-picked per city) + this weekend's events under a roof + forecast ---- */
 const RAINY = (window.WF_RAINY && WF_RAINY.items) || [];
@@ -233,14 +233,14 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(whenText(e))}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(metaText(e))}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${wfIco(e.cat in CATS?e.cat:"evt")}${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${wfIco("pin")}${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}${e.local?`<span class="localb" title="${esc(e.biz||"")}">${wfIco("local")}Local</span>`:""}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${wfIco(e.cat in CATS?e.cat:"evt")}${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${wfIco("pin")}${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 // icons by Gregor Cresnar (Noun Project, royalty-free on the owner's Noun Pro plan); sources in src/icons
 const ICO_SEARCH = '<svg class="ico" viewBox="180 180 840 840" aria-hidden="true"><path fill="currentColor" d="m540 840c64.688 0 126.24-20.391 178.22-58.922l16.688-12.375 184.22 184.22c8.8594 8.8594 25.078 8.8594 33.938 0 9.375-9.375 9.375-24.609 0-33.938l-184.22-184.22 12.375-16.688c38.531-51.938 58.922-113.62 58.922-178.22 0-165.47-134.53-300-300-300s-300 134.53-300 300 134.53 300 300 300zm0-552c138.94 0 252 113.06 252 252s-113.06 252-252 252-252-113.06-252-252 113.06-252 252-252z"/></svg>', ICO_HOME = '<svg class="ico" viewBox="180 180 840 840" aria-hidden="true"><path fill="currentColor" d="m616.92 496.92c9.375-9.375 9.375-24.609 0-33.938-4.5469-4.5469-10.547-6.9375-16.922-6.9375s-12.469 2.5312-16.922 6.9375c-9.375 9.375-9.375 24.609 0 33.938 8.8594 8.8594 25.078 8.8594 33.938 0zM336 948h528c52.922 0 96-43.078 96-96v-301.31c0-37.078-16.688-71.531-45.844-94.312l-215.76-169.45c-12.938-10.219-25.219-17.625-37.688-22.688-19.312-8.0625-39.703-12-60.609-12-35.062 0-69.375 11.766-96.609 33.234l-217.69 171c-29.156 22.922-45.844 57.234-45.844 94.312v301.31c0 52.922 43.078 96 96 96zm336-48h-144v-144c0-39.703 32.297-72 72-72s72 32.297 72 72zm-384-349.31c0-22.219 10.078-42.844 27.469-56.625l218.16-171.37c39.141-30.703 93.609-30.703 132.71 0l218.16 171.24c17.531 13.781 27.469 34.453 27.469 56.625v301.31c0 26.531-21.469 48-48 48h-144v-144c0-66.141-53.859-120-120-120s-120 53.859-120 120v144h-144c-26.531 0-48-21.469-48-48v-301.31z"/></svg>';
 // line icons for each category (Gregor Cresnar, Noun Project; src/icons). build.py fills WF_ICONS from src/icons/paths.json
 const WF_ICONS = /*ICONS*/{};
-const ICO_KEY = {hol:"holiday-gift-7647994", mkt:"markets-basket-7647949", dog:"dog-paw-1686619", walk:"dog-paw-1686619", food:"food-coffee-7648022", art:"art-paintbrush-7649979", show:"shows-microphone-7648374", sport:"sports-arena-7649252", film:"movies-video-7274354", kids:"kids-teddy-7649884", teen:"teens-headphones-7648703", prog:"programs-book-7649981", evt:"other-ticket-7274265", pin:"location-pin-7648253", star:"plans-star-7648091"};
+const ICO_KEY = {hol:"holiday-gift-7647994", mkt:"markets-basket-7647949", dog:"dog-paw-1686619", walk:"dog-paw-1686619", food:"food-coffee-7648022", art:"art-paintbrush-7649979", show:"shows-microphone-7648374", sport:"sports-arena-7649252", film:"movies-video-7274354", kids:"kids-teddy-7649884", teen:"teens-headphones-7648703", prog:"programs-book-7649981", evt:"other-ticket-7274265", pin:"location-pin-7648253", star:"plans-star-7648091", local:"local-shop-7647950"};
 function wfIco(k, cls){ const v = WF_ICONS[ICO_KEY[k] || k]; if (!v) return ""; return `<svg class="${cls||"ico"}" viewBox="${v.vb}" aria-hidden="true">${v.d.map(d=>`<path fill="currentColor" d="${d}"/>`).join("")}</svg>`; }
 const EMPTY_STAR = () => `<span class="emptyico">${wfIco("star","ico big")}</span>`;
 const DISTS = [[0,"Any distance"], ...CITY.dists.map(d=>[d, d+" "+UNIT])];
@@ -250,7 +250,7 @@ function renderFilters(){
   f.style.display="";
   const catLabel = state.cat==="all" ? (likesOff.size ? "My interests" : "All") : CATS[state.cat].label;
   const distLabel = state.dist ? `Within ${state.dist} ${UNIT}` : "Any distance";
-  const quick = [state.free&&"Free", state.dogok&&"Dog-friendly", state.day&&(state.day==="sat"?"Saturday":"Sunday")].filter(Boolean);
+  const quick = [state.local&&"Local business", state.free&&"Free", state.dogok&&"Dog-friendly", state.day&&(state.day==="sat"?"Saturday":"Sunday")].filter(Boolean);
   const active = (state.cat!=="all") + (!!state.dist) + quick.length;
   let h = `<div class="fbar"><button class="filterbtn${active?" on":""}" data-filtopen aria-expanded="${!!state.filtOpen}" aria-controls="fpanel">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4-2v-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
@@ -259,7 +259,7 @@ function renderFilters(){
     <button class="chip homechip" data-sethome aria-label="Change home location, now ${esc(HOME.name)}">${ICO_HOME} ${esc(HOME.name)}</button></div>`;
   if (state.searchOpen) h = `<div class="fbar sbar"><input type="search" id="q" value="${esc(state.q)}" placeholder="Search events, places, towns" aria-label="Search events" autocomplete="off" enterkeyhint="search"><button class="chip" data-searchclose>Cancel</button></div>`;
   if (state.filtOpen){
-    h += `<div class="fpanel" id="fpanel"><div class="fsec">Quick picks</div><div class="fwrap">${[["free","Free"],["dogok",wfIco("dog")+"Dog-friendly"],["sat","Saturday"],["sun","Sunday"]].map(([k,t])=>`<button class="chip" data-quick="${k}" aria-pressed="${k==="sat"||k==="sun" ? state.day===k : !!state[k]}">${t}</button>`).join("")}</div><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">${likesOff.size?"All my interests":"All events"}</button>`;
+    h += `<div class="fpanel" id="fpanel"><div class="fsec">Quick picks</div><div class="fwrap">${[["local",wfIco("local")+"Local business"],["free","Free"],["dogok",wfIco("dog")+"Dog-friendly"],["sat","Saturday"],["sun","Sunday"]].map(([k,t])=>`<button class="chip" data-quick="${k}" aria-pressed="${k==="sat"||k==="sun" ? state.day===k : !!state[k]}">${t}</button>`).join("")}</div><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">${likesOff.size?"All my interests":"All events"}</button>`;
     for (const k in CATS) if (k!=="walk") h += `<button class="chip" data-cat="${k}" aria-pressed="${state.cat===k}"><span class="cico" style="color:${CATS[k].color}">${wfIco(k)}</span>${CATS[k].label}</button>`;
     h += `</div><div class="fsec">My interests <button class="linkbtn" data-likesopen>edit</button></div><p class="fnote">${likesOff.size ? "Hiding: " + esc([...likesOff].map(k=>CATS[k]?CATS[k].label:k).join(", ")) : "Showing every kind of event."}</p><div class="fsec">Distance from ${esc(HOME.name)} <button class="linkbtn" data-sethome>change</button></div><div class="dseg" role="group" aria-label="Distance">${DISTS.map(([v,t])=>`<button data-distv="${v}" aria-pressed="${state.dist===v}">${t}</button>`).join("")}</div>
     <div class="fdone">${active?`<button class="copybtn alt" data-freset>Clear filters</button>`:""}<button class="copybtn" data-filtopen>Done · show ${filtered().filter(e=>!isPast(e)).length}</button></div></div>`;
@@ -284,7 +284,8 @@ function topPicks(list){
   const rest = list.filter(e=>!mine.includes(e)).sort((a,b)=>(a.mi==null?40:a.mi)-(b.mi==null?40:b.mi));
   const pick = new Set(mine), per = {};
   mine.forEach(e=>per[e.cat]=(per[e.cat]||0)+1);
-  for (const e of rest){ if (pick.size>=TOP) break; if ((per[e.cat]||0)>=2) continue; pick.add(e); per[e.cat]=(per[e.cat]||0)+1; }
+  rest.filter(e=>e.local).slice(0,2).forEach(e=>{ if (pick.size<TOP){ pick.add(e); per[e.cat]=(per[e.cat]||0)+1; } });   // small local businesses get a guaranteed spot
+  for (const e of rest){ if (pick.size>=TOP) break; if (pick.has(e) || (per[e.cat]||0)>=2) continue; pick.add(e); per[e.cat]=(per[e.cat]||0)+1; }
   for (const e of rest){ if (pick.size>=TOP) break; pick.add(e); }
   return list.filter(e=>pick.has(e));
 }
@@ -306,14 +307,18 @@ function renderByWeekend(){
   W.forEach((w,i)=>{
     const onDay = e => !state.day || daysOf(e, state.day==="sat"?w.sat:w.sun, state.day==="sat"?w.sat:w.sun).length > 0;
     const main = items.filter(e=>occurs(e,w.fri,w.sun)==="main" && onDay(e)).sort(byStart);
-    const ong = items.filter(e=>occurs(e,w.fri,w.sun)==="ongoing" && onDay(e));
+    let ong = items.filter(e=>occurs(e,w.fri,w.sun)==="ongoing" && onDay(e));
     main.forEach(e=>used.add(e.id)); ong.forEach(e=>used.add(e.id));
     const fl = films.filter(e=>{ const s=startOf(e); return s && s>=addD(w.fri,-2) && s<=w.sun; }).sort(byStart);
-    const mk = main.filter(isWeeklyMkt), rest = mk.length>1 ? main.filter(e=>!isWeeklyMkt(e)) : main;
-    h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${rest.length} event${rest.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}${mk.length>1?` · ${mk.length} markets`:""}${fl.length?` · ${fl.length} new movie${fl.length===1?"":"s"}`:""}`, WKC[i]);
+    const mk = main.filter(isWeeklyMkt); let rest = mk.length>1 ? main.filter(e=>!isWeeklyMkt(e)) : main;
+    // small local businesses: one "Shop local" box (nearest first) when there are two or more this weekend
+    const lc = trimming() ? [...main, ...ong].filter(e=>e.local && !isWeeklyMkt(e)) : [], useLc = lc.length > 1;
+    if (useLc){ rest = rest.filter(e=>!lc.includes(e)); ong = ong.filter(e=>!lc.includes(e)); }
+    h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${rest.length} event${rest.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}${useLc?` · ${lc.length} local`:""}${mk.length>1?` · ${mk.length} markets`:""}${fl.length?` · ${fl.length} new movie${fl.length===1?"":"s"}`:""}`, WKC[i]);
+    if (useLc) h += pickBox("l"+i, lc, "local", w.fri, w.sun);
     if (mk.length>1) h += pickBox("m"+i, mk, "mkt", w.fri, w.sun);
     if (fl.length) h += pickBox("f"+i, fl, "film", w.fri, w.sun);
-    h += rest.length ? cardsTrimmed("w"+i, rest, "events") : (fl.length || mk.length>1) ? "" : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
+    h += rest.length ? cardsTrimmed("w"+i, rest, "events") : (fl.length || mk.length>1 || useLc) ? "" : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
     if (ong.length){ const k="o"+i, open = showAll.has(k) || !trimming() || ong.length<=3; h += open ? `<div class="section-h">Also open this weekend</div>` + ong.map(compactHTML).join("") + (ong.length>3 && trimming() ? moreBtn(k, ong.length, "") : "") : `<button class="moreb alsob" data-more="${k}" aria-expanded="false">Also open this weekend (${ong.length}) ▾</button>`; }
   });
   const between = items.filter(e=>!used.has(e.id) && startOf(e) && startOf(e)<=lastSun && !e.days && occurs(e,TODAY,lastSun)==="main").sort(byStart);
@@ -754,7 +759,7 @@ document.addEventListener("click", ev=>{
   else if (t.dataset.more){ const k=t.dataset.more; showAll.has(k) ? showAll.delete(k) : showAll.add(k); refreshStars(); }
   else if (t.dataset.mapwhen){ state.mapWhen=t.dataset.mapwhen; document.querySelectorAll("[data-mapwhen]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.mapwhen===state.mapWhen)); drawMap(); mapCount(); }
   else if (t.dataset.rf){ state.rf = t.dataset.rf; refreshStars(); }
-  else if (t.hasAttribute("data-freset")){ state.cat="all"; state.dist=0; state.free=false; state.dogok=false; state.day=""; try{localStorage.setItem("wf-dist",0);}catch(e){} render(); }
+  else if (t.hasAttribute("data-freset")){ state.cat="all"; state.dist=0; state.local=false; state.free=false; state.dogok=false; state.day=""; try{localStorage.setItem("wf-dist",0);}catch(e){} render(); }
   else if (t.hasAttribute("data-sethome")){ state.filtOpen = false; state.editHome = !state.editHome; state.homeMsg=""; render(); if (state.editHome) setTimeout(()=>{ const i=document.getElementById("homeq"); if(i) i.focus(); },50); }
   else if (t.hasAttribute("data-homefind")){ findHome(); }
   else if (t.hasAttribute("data-homegps")){ gpsHome(); }

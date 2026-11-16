@@ -88,6 +88,10 @@ So always `git pull` before working, and don't hand-edit `data.js` in ways the r
 - Fourth tab `#rainy` (slate, set apart from the other three): a forecast card (Open-Meteo `precipitation_probability_max` for this weekend's Fri–Sun at the home location rounded to 0.1°, cached 3 h in localStorage `wf-wx`; described in privacy.html), filter chips (All / Little kids / Teens / Dog OK / Free), "Indoors this weekend" (this weekend's events where `isIndoor()`: movies, or the venue text looks indoor), then the venues from rainy.js grouped and sorted by distance from home.
 - rainy.js loads with data.js/walks.js (website `/*wf-data*/` loader; the app loader keeps `wf-app-rainy`, `wf-app-rainy-sydney`). The app gets the tab in its next release.
 
+## Local small businesses (Nov 16, 2026)
+- Event fields `local: 1` and `biz` (business name) mark activities run by independent local businesses. The site shows a green "Local" badge, a "Local business" quick pick in Filter, saves up to 2 top-pick spots per weekend for the nearest ones, and when a weekend has 2+ of them puts them in a "Shop local this weekend" box (nearest first) above the market/movie boxes.
+- Both refresh prompts (Bay Area and Sydney) were updated Nov 16, 2026 to find 15–25 / 12–20 such weekend activities, home turf first, and to keep `local`/`biz`. The first refresh with this is Nov 23 (Sydney Nov 22 PT). Until then only a handful of Bay Area items are marked (hand-tagged Nov 16).
+
 ## Commit conventions
 `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit`, with the message ending in:
 `Co-Authored-By: Claude <noreply@anthropic.com>`

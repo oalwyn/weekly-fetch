@@ -630,7 +630,9 @@ window.WF_DATA = {
    "lon": -122.045,
    "q": "Westside Santa Cruz Swift Street",
    "start": "2026-11-21",
-   "end": "2026-11-21"
+   "end": "2026-11-21",
+   "local": 1,
+   "biz": "Westside Santa Cruz shops"
   },
   {
    "n": 36,
@@ -725,7 +727,9 @@ window.WF_DATA = {
    "lon": -121.964,
    "q": "Patchen Rancho Farm, 17430 Old Summit Rd, Los Gatos",
    "start": "2026-11-21",
-   "end": "2026-12-24"
+   "end": "2026-12-24",
+   "local": 1,
+   "biz": "Patchen Christmas Tree Farm"
   },
   {
    "n": 42,
@@ -2111,7 +2115,9 @@ window.WF_DATA = {
    "lon": -122.2412,
    "q": "Thomas Fogarty Winery, 19501 Skyline Blvd, Woodside",
    "start": "2026-12-05",
-   "end": "2026-12-05"
+   "end": "2026-12-05",
+   "local": 1,
+   "biz": "Thomas Fogarty Winery"
   },
   {
    "n": 123,
@@ -2127,7 +2133,9 @@ window.WF_DATA = {
    "lon": -121.8037,
    "q": "Lester Estate Wines, Corralitos",
    "start": "2026-12-05",
-   "end": "2026-12-05"
+   "end": "2026-12-05",
+   "local": 1,
+   "biz": "Lester Estate Wines"
   },
   {
    "n": 124,
@@ -2337,7 +2345,9 @@ window.WF_DATA = {
    "lon": -122.4075,
    "q": "Union Square San Francisco",
    "start": "2026-12-08",
-   "end": "2026-12-27"
+   "end": "2026-12-27",
+   "local": 1,
+   "biz": "Patchwork Show makers"
   },
   {
    "n": 137,
@@ -3573,7 +3583,9 @@ window.WF_DATA = {
    "lon": -122.4153,
    "q": "Santa's Tree Farm, 78 Pilarcitos Creek Rd, Half Moon Bay",
    "start": "2026-11-14",
-   "end": "2026-12-23"
+   "end": "2026-12-23",
+   "local": 1,
+   "biz": "Santa's Tree Farm"
   },
   {
    "n": 214,
@@ -3763,6 +3775,24 @@ window.WF_DATA = {
    "lat": 37.2928,
    "lon": -121.879,
    "q": "Second Harvest of Silicon Valley Curtner"
+  },
+  {
+   "n": 227,
+   "id": "los-altos-small-business-saturday-2026",
+   "sec": "late-nov",
+   "when": "Sat Nov 28",
+   "title": "Small Business Saturday in Downtown Los Altos",
+   "meta": "Downtown Los Altos (Main & State St) · shop the independent stores, cafés and boutiques",
+   "cat": "evt",
+   "url": "https://downtownlosaltos.org/events/tag/shop-small",
+   "lat": 37.3797,
+   "lon": -122.1155,
+   "q": "Main and State Streets, Los Altos, CA",
+   "start": "2026-11-28",
+   "end": "2026-11-28",
+   "price": "free",
+   "local": 1,
+   "biz": "Los Altos Village Association"
   }
  ]
 };
