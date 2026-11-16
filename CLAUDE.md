@@ -17,6 +17,7 @@ It covers the North Bay (Marin, Napa, Sonoma, Santa Rosa), SF, the Peninsula, th
 | `index.html` | **Built file, do not hand-edit.** Rebuild with `python3 src/build.py`. |
 | `data.js` | Event data (`window.WF_DATA = {updated, sections, items}`). Rewritten twice a week by a scheduled Claude task (see below). Source of truth for events. |
 | `walks.js` | Dog walks (`window.WF_WALKS = {items, nodogs}`), edited by hand. |
+| `rainy.js`, `sydney/rainy.js` | Rainy Day venues (`window.WF_RAINY = {updated, items}`: `id, name, grp` museum/play/cozy/dog, `town, lat, lon, url, note, tags` kids/teens/dog/free, `price`), hand-researched Nov 16, 2026 with every url checked. The refresh routines don't touch it. |
 | `src/app.js` | Main app: rendering, filters, weekends, map, plans, locks. |
 | `src/gh_sync.js` | Shared list sync via Supabase (overrides `toggleStar`, `renderOurList`, `setPlan`, `toggleLock` from app.js). |
 | `src/template_head.html`, `src/template_tail.html` | Page markup and all CSS. Mobile rules live in `@media (max-width:600px)`. |
@@ -82,6 +83,10 @@ So always `git pull` before working, and don't hand-edit `data.js` in ways the r
 - Google Analytics 4 (property "The Bay Area Weekend Fetch" 564352091 in the owner's GA account "Cazavera", measurement ID G-HS0P25R6JR), website only: `<!--ga-->` block in build_gh.py (stripped from the app by build_app.py). Google signals and ad personalization off; not loaded under GPC/Do Not Track. `logEvent` also sends each event to GA. Linked to Search Console. Described in privacy.html; adding GA to the app would need new App Store privacy answers.
 - data.js/walks.js load with a 5-minute `?v=` tag (`/*wf-data*/` loader in build_gh.py; build_app.py swaps it for the app loader).
 - Event fields added: `price` ("free"/"tickets"), `tix` (ticket page), `ha` (sports: home/away/neutral). Categories added: `sport`, `film` (movie releases have no lat/lon; the site adds a Showtimes link).
+
+## Rainy Day tab (Nov 16, 2026)
+- Fourth tab `#rainy` (slate, set apart from the other three): a forecast card (Open-Meteo `precipitation_probability_max` for this weekend's Fri–Sun at the home location rounded to 0.1°, cached 3 h in localStorage `wf-wx`; described in privacy.html), filter chips (All / Little kids / Teens / Dog OK / Free), "Indoors this weekend" (this weekend's events where `isIndoor()`: movies, or the venue text looks indoor), then the venues from rainy.js grouped and sorted by distance from home.
+- rainy.js loads with data.js/walks.js (website `/*wf-data*/` loader; the app loader keeps `wf-app-rainy`, `wf-app-rainy-sydney`). The app gets the tab in its next release.
 
 ## Commit conventions
 `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit`, with the message ending in:

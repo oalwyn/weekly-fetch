@@ -15,7 +15,7 @@ const COAST_RULE = "/*RULE*/";
 const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog-friendly",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},sport:{label:"Sports",color:"#9C2B2B"},film:{label:"Movies",color:"#283593"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Teen programs",color:"#8D6E63"},evt:{label:"Other",color:"#4A5562"}};
 const SECTIONS = (WF.sections || [["week","This week"]]).slice();
 { const i = SECTIONS.findIndex(s=>s[0]==="dog"); SECTIONS.splice(i>=0?i+1:1, 0, ["walks","Dog walks · closest to home first"]); }
-const VIEWS = ["events","map","our-list"];
+const VIEWS = ["events","map","our-list","rainy"];
 /* ---- interests: categories this person said "no" to are hidden from Events and the Map (saved on this device) ---- */
 const LIKES = [["hol","lights, Santa, holiday fairs"],["mkt","farmers, craft and holiday markets"],["dog","events and dog walks"],["food","and other food spots"],["art","museums and galleries"],["show","concerts, theater, comedy"],["sport","games to go and watch"],["film","new in theaters"],["kids","things for little ones"],["teen","things for teens"],["prog","programs to apply for"],["evt","special events that fit nowhere else"]];   // [category, hint]; the name is CATS[k].label
 let likesOff = new Set(), likesSet = false;
@@ -169,6 +169,48 @@ function pickBox(key, list, kind, a, b){
   const n = `${list.length} ${fm?"market":"movie"}${list.length===1?"":"s"}`;
   return `<div class="pickbox ${fm?"mktbox":"filmbox"}"><label class="pk-h"${list.length>1?` for="pk-${key}"`:""}><span><span class="cico" style="color:${CATS[fm?"mkt":"film"].color}">${wfIco(fm?"mkt":"film")}</span>${title}</span><span class="pk-n">${n}</span></label>${list.length>1?`<select id="pk-${key}" data-pick="${key}">${sorted.map(e=>`<option value="${esc(e.id)}"${e===sel?" selected":""}>${esc(label(e))}</option>`).join("")}</select>`:""}${cardHTML(sel,false,"","inbox")}</div>`;
 }
+/* ---- Rainy Day: indoor places (rainy.js, hand-picked per city) + this weekend's events under a roof + forecast ---- */
+const RAINY = (window.WF_RAINY && WF_RAINY.items) || [];
+const RGRP = [["museum","Museums & aquariums","rain-museum-7649208","#6E55A8"],["play","Play, bounce & climb","rain-playground-7649240","#5E9E2F"],["cozy","Cozy & slow","rain-library-7649242","#2F6FA8"],["dog","Dog-friendly indoors","dog-paw-1686619","#2E8B5E"]];
+const RF = [["all","All"],["kids","Little kids","kids"],["teens","Teens","teen"],["dog","Dog OK","dog"],["free","Free"]];
+const INDOOR_RX = /\b(museum|gallery|theat(er|re)|cinema|hall|library|auditorium|indoor|conservatory|pavilion|arena|chapel|church|cathedral|aquarium|playhouse|opera house)\b/i, OUTDOOR_RX = /\b(outdoor|open-air|trail|beach|hike|parade|plaza|square|lawn|garden walk|on the green)\b/i;
+const isIndoor = e => e.cat==="film" || ((["show","art","kids","teen","evt","hol","food"].includes(e.cat)) && INDOOR_RX.test(e.meta||"") && !OUTDOOR_RX.test(e.meta||""));
+function renderRainy(){
+  const W = weekends()[0], rf = state.rf || "all";
+  const okTag = v => rf==="all" || (v.tags||[]).includes(rf);
+  const vdist = v => v.lat!=null ? Math.round(miles(HOME.lat,HOME.lon,v.lat,v.lon) * (KM ? 1.609344 : 1)) : null;
+  let h = `<div class="rainhead"><h2>${wfIco("rain-umbrella-7274380")}Plan B for wet weekends</h2><p>When the plans wash out: indoor places to go, and this weekend's events that happen under a roof.</p><div class="wx" id="wx" aria-live="polite"></div></div>`;
+  h += `<div class="rfbar" role="group" aria-label="Show">${RF.map(([k,t,ic])=>`<button class="chip" data-rf="${k}" aria-pressed="${rf===k}">${ic?wfIco(ic):""}${t}</button>`).join("")}</div>`;
+  const evs = DATA.filter(e=>!isPast(e) && occurs(e,W.fri,W.sun) && isIndoor(e) && (rf==="all" || (rf==="kids"&&e.cat==="kids") || (rf==="teens"&&e.cat==="teen") || (rf==="free"&&e.price==="free") || (rf==="dog"&&isDogOk(e))))
+    .sort((a,b)=>(a.cat==="film")-(b.cat==="film") || (a.mi==null?999:a.mi)-(b.mi==null?999:b.mi));
+  if (evs.length){ const k="rain-ev", all=showAll.has(k)||evs.length<=6; h += `<div class="section-h">Indoors this weekend · ${fmtRange(W.fri,W.sun)}</div>` + (all?evs:evs.slice(0,6)).map(compactHTML).join("") + (evs.length>6 ? moreBtn(k, evs.length, "indoor events") : ""); }
+  for (const [g,label,ic,col] of RGRP){
+    const list = RAINY.filter(v=>v.grp===g && okTag(v)).map(v=>({...v, d:vdist(v)})).sort((a,b)=>(a.d==null?1e9:a.d)-(b.d==null?1e9:b.d));
+    if (!list.length) continue;
+    h += `<div class="section-h">${label} <span class="rcount">${list.length} place${list.length===1?"":"s"}</span></div>` + list.map(v=>`<div class="rrow"><span class="rico" style="color:${col}">${wfIco(ic)}</span><div class="rb"><b>${esc(v.name)}</b><span>${esc(v.town)}${v.d!=null?` · ${v.d} ${UNIT}`:""}</span>${v.note?`<span class="rnote">${esc(v.note)}</span>`:""}<span class="rtags">${(v.tags||[]).filter(t=>t!=="free").map(t=>`<i class="rt rt-${t}">${{kids:"Kids",teens:"Teens",dog:"Dog OK"}[t]||t}</i>`).join("")}${v.price==="free"?`<i class="rt rt-free">Free</i>`:v.price?`<i class="rt">${esc(v.price)}</i>`:""}</span></div><a class="rgo" href="${esc(v.url)}" target="_blank" rel="noopener">Info ↗</a></div>`).join("") + (g==="dog" ? `<p class="ournote small">Dog rules change; check with the venue before you go.</p>` : "");
+  }
+  if (!RAINY.length && !evs.length) h += `<div class="empty">No rainy-day ideas for this city yet.</div>`;
+  return h;
+}
+// weekend forecast from Open-Meteo (free, no account): only a rounded home location is sent; cached for 3 hours
+let WX = null;
+function wxWord(p){ return p==null ? "" : p>=60 ? "Rain likely" : p>=30 ? "Showers possible" : "Mostly dry"; }
+function paintForecast(){
+  const el = document.getElementById("wx"); if (!el) return;
+  if (!WX || !WX.days){ el.innerHTML = WX && WX.err ? `<span class="wxnote">Forecast unavailable right now.</span>` : `<span class="wxnote">Checking the weekend forecast…</span>`; return; }
+  const W = weekends()[0], want = [W.fri, W.sat, W.sun].map(ymd);
+  const days = want.map(d=>[d, WX.days[d]]).filter(([d,v])=>v);
+  if (!days.length){ el.innerHTML = `<span class="wxnote">Forecast not out yet for this weekend.</span>`; return; }
+  el.innerHTML = days.map(([d,v])=>{ const t=parseD(d), wet=v.p>=50; return `<span class="wxd${wet?" wet":""}">${DAYF[t.getDay()].slice(0,3)}<b>${wet?wfIco("rain-umbrella-7274380"):""}${v.p}%</b><small>${wxWord(v.p)}</small></span>`; }).join("") + `<span class="wxsrc">Chance of rain near ${esc(HOME.name)} · <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></span>`;
+}
+function loadForecast(){
+  const lat = Math.round(HOME.lat*10)/10, lon = Math.round(HOME.lon*10)/10, key = lat+","+lon;
+  try { const c = JSON.parse(localStorage.getItem("wf-wx")||"null"); if (c && c.key===key && Date.now()-c.t < 3*3600e3){ WX = c; paintForecast(); return; } } catch(e) {}
+  paintForecast();
+  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=precipitation_probability_max&timezone=${encodeURIComponent(CITY.tz)}&forecast_days=10`)
+    .then(r=>r.ok?r.json():Promise.reject()).then(j=>{ const days={}; (j.daily.time||[]).forEach((d,i)=>{ const p=j.daily.precipitation_probability_max[i]; if (p!=null) days[d]={p}; }); WX={key, t:Date.now(), days}; try{ localStorage.setItem("wf-wx", JSON.stringify(WX)); }catch(e){} paintForecast(); })
+    .catch(()=>{ WX={err:1}; paintForecast(); });
+}
 function likesBox(){
   if (state.view==="our-list") return "";
   if (!state.likesOpen) return "";   // opened from Filter events › My interests (kept off the main screen to keep it calm)
@@ -204,7 +246,7 @@ const EMPTY_STAR = () => `<span class="emptyico">${wfIco("star","ico big")}</spa
 const DISTS = [[0,"Any distance"], ...CITY.dists.map(d=>[d, d+" "+UNIT])];
 function renderFilters(){
   const f = document.getElementById("filters");
-  if (state.view==="our-list"){ f.innerHTML=""; f.style.display="none"; return; }
+  if (state.view==="our-list" || state.view==="rainy"){ f.innerHTML=""; f.style.display="none"; return; }
   f.style.display="";
   const catLabel = state.cat==="all" ? (likesOff.size ? "My interests" : "All") : CATS[state.cat].label;
   const distLabel = state.dist ? `Within ${state.dist} ${UNIT}` : "Any distance";
@@ -619,8 +661,9 @@ function render(){
   updateCount(); renderFilters();
   const m = document.getElementById("main");
   if (state.view==="map"){ m.innerHTML = mapHTML(); requestAnimationFrame(bindMap); requestAnimationFrame(mapCount); }
-  else m.innerHTML = state.view==="our-list" ? renderOurList() : renderEvents();
-  if (state.view!=="our-list") m.insertAdjacentHTML("afterbegin", homeBox() + likesBox());
+  else m.innerHTML = state.view==="our-list" ? renderOurList() : state.view==="rainy" ? renderRainy() : renderEvents();
+  if (state.view==="rainy") loadForecast();
+  if (state.view!=="our-list" && state.view!=="rainy") m.insertAdjacentHTML("afterbegin", homeBox() + likesBox());
   document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px");
   document.documentElement.style.setProperty("--fh", document.getElementById("filters").offsetHeight+"px");
   noteEmpty();
@@ -629,6 +672,7 @@ function refreshStars(){
   // update stars in place without resetting the map or scroll
   if (state.view==="our-list"){ const y=scrollY; document.getElementById("main").innerHTML = renderOurList(); scrollTo(0,y); }
   else if (state.view==="map"){ drawMap(); showSheet(); }
+  else if (state.view==="rainy"){ const y=scrollY; document.getElementById("main").innerHTML = renderRainy(); paintForecast(); scrollTo(0,y); }
   else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + likesBox() + renderEvents(); scrollTo(0,y); }
   updateCount();
 }
@@ -709,6 +753,7 @@ document.addEventListener("click", ev=>{
   else if (t.hasAttribute("data-searchclose")){ state.searchOpen=false; state.q=""; render(); }
   else if (t.dataset.more){ const k=t.dataset.more; showAll.has(k) ? showAll.delete(k) : showAll.add(k); refreshStars(); }
   else if (t.dataset.mapwhen){ state.mapWhen=t.dataset.mapwhen; document.querySelectorAll("[data-mapwhen]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.mapwhen===state.mapWhen)); drawMap(); mapCount(); }
+  else if (t.dataset.rf){ state.rf = t.dataset.rf; refreshStars(); }
   else if (t.hasAttribute("data-freset")){ state.cat="all"; state.dist=0; state.free=false; state.dogok=false; state.day=""; try{localStorage.setItem("wf-dist",0);}catch(e){} render(); }
   else if (t.hasAttribute("data-sethome")){ state.filtOpen = false; state.editHome = !state.editHome; state.homeMsg=""; render(); if (state.editHome) setTimeout(()=>{ const i=document.getElementById("homeq"); if(i) i.focus(); },50); }
   else if (t.hasAttribute("data-homefind")){ findHome(); }
