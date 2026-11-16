@@ -132,7 +132,7 @@ async function load(){
 }
 (async () => {
   const { data } = await client.auth.getSession();
-  if (!data.session) { $("msg").innerHTML = `<div class="note">Sign in on <a href="../#our-list">Our Weekend Plans</a> with the owner account, then come back to this page.</div>`; return; }
+  if (!data.session) { $("msg").innerHTML = `<div class="note">Sign in on <a href="../#our-list">Our Plans</a> with the owner account, then come back to this page.</div>`; return; }
   const ok = await client.rpc("analytics_is_admin");
   if (ok.error || !ok.data) { $("msg").innerHTML = `<div class="err">This account doesn't have access to the engagement report.</div>`; return; }
   const today = new Date(), ago = new Date(Date.now() - 28 * 864e5);
