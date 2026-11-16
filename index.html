@@ -572,8 +572,9 @@ function pickBox(key, list, kind, a, b){
   if (!sel) sel = sorted.find(e=>lockKey(e.id)) || sorted.find(e=>starredByMe(e.id)) || sorted[0];
   const days = e => { if (!a || !e.dates) return ""; return [...new Set(e.dates.map(parseD).filter(t=>t>=a&&t<=b).map(t=>cap(DAYN[t.getDay()])))].join(" & "); };
   const opens = e => { const s = startOf(e); return s && a ? "opens " + cap(DAYN[s.getDay()]) : ""; };
+  const bizName = e => e.biz || (e.meta||"").split(" · ")[0].split(",")[0];
   const nm = e => sorted.filter(x=>shortName(x)===shortName(e)).length>1 ? e.title : shortName(e);   // two "Bondi"s: use the full names
-  const label = e => (starredByMe(e.id)?"★ ":"") + (lc ? [e.biz || (e.meta||"").split(" · ")[0].split(",")[0], days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : fm ? [nm(e), days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : [e.title, opens(e)]).filter(Boolean).join(" · ");
+  const label = e => (starredByMe(e.id)?"★ ":"") + (lc ? [bizName(e) + (sorted.filter(x=>bizName(x)===bizName(e)).length>1 ? ": " + e.title.replace(/\s*\(.*?\)/g,"").slice(0,32) : ""), days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : fm ? [nm(e), days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : [e.title, opens(e)]).filter(Boolean).join(" · ");
   const title = lc ? "Shop local this weekend" : fm ? (list.every(e=>/farmers/i.test(e.title)) ? "Farmers markets" : "Weekly markets") : "New in theaters";
   const n = lc ? `${list.length} nearby` : `${list.length} ${fm?"market":"movie"}${list.length===1?"":"s"}`;
   return `<div class="pickbox ${lc?"localbox":fm?"mktbox":"filmbox"}"><label class="pk-h"${list.length>1?` for="pk-${key}"`:""}><span><span class="cico" style="color:${lc?"#1D7A55":CATS[fm?"mkt":"film"].color}">${wfIco(lc?"local":fm?"mkt":"film")}</span>${title}</span><span class="pk-n">${n}</span></label>${list.length>1?`<select id="pk-${key}" data-pick="${key}">${sorted.map(e=>`<option value="${esc(e.id)}"${e===sel?" selected":""}>${esc(label(e))}</option>`).join("")}</select>`:""}${cardHTML(sel,false,"","inbox")}</div>`;
