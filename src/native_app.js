@@ -56,7 +56,7 @@ setPlan = function(id, k){
 // stars and plans change (here or on someone else's phone, via sync): update the reminders
 const _refreshStars = refreshStars;
 refreshStars = function(){ _refreshStars(); scheduleReminders(); };
-// tapping a reminder opens Our Weekend Plans
+// tapping a reminder opens Our Plans
 if (LN) try {
   LN.addListener("localNotificationActionPerformed", ev => {
     state.view = "our-list"; render(); scrollTo(0, 0);

@@ -7,7 +7,8 @@ A mobile-first events site for a household in Mountain View, CA (with a dog), sh
 It covers the North Bay (Marin, Napa, Sonoma, Santa Rosa), SF, the Peninsula, the South Bay, Santa Cruz, Monterey and Carmel.
 
 - Live: https://theweekendfetch.com/ (GitHub Pages custom domain since Nov 13, 2026; `CNAME` file in repo root; DNS at Porkbun: 4 A + 4 AAAA records to GitHub Pages, `www` CNAME to oalwyn.github.io, Porkbun email-forwarding MX kept). The old https://oalwyn.github.io/weekly-fetch/ address 301-redirects here, but that redirect has no CORS header, so cross-site `fetch()` through the old address fails: always use the new domain in code.
-- Tabs: **Events** (by weekend or by date, with a Filter panel), **Map** (custom SVG coastline with pins), and **Our Weekend Plans** (a shared starred list, locked into specific days).
+- Tabs (renamed Nov 16, 2026): **What's On** (events by weekend or by date, with a Filter panel; was "Events"), **Explore** (the map: custom SVG coastline with pins; was "Map"), and **Our Plans** (shared starred list, locked into specific days; was "Our Weekend Plans"; app 1.3 and older still show the old names, and privacy.html mentions both).
+- Tab, search and home icons: Gregor Cresnar line icons from Noun Project (owner's Noun Pro plan, royalty-free, no credit needed), saved in `src/icons/` and inlined as SVG with `fill="currentColor"` so CSS colours them. Keep any new icons in the same style (his "softline" sets, 48-unit stroke).
 - Categories: `hol` holiday, `mkt` markets, `dog`, `food` pizza & coffee, `art`, `show` concerts & shows, `kids` young kids, `teen`, `prog` teen programs (application deadlines), `evt`, plus `walk` dog walks.
 
 ## Files

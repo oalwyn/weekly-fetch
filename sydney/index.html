@@ -49,7 +49,8 @@ h1{margin:4px 0 2px;font-family:'Bricolage Grotesque',Inter,sans-serif;font-weig
 .sub{font-size:13px;color:#E3ECF5;margin:0 0 14px}
 .tabs{display:flex;gap:6px;align-items:flex-end;margin:0 -6px}
 .tab{flex:1;border:0;border-radius:12px 12px 0 0;font-weight:700;font-size:14px;line-height:1.15;padding:6px 4px;height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;filter:saturate(.75) brightness(.93)}
-.tab .ti{font-size:18px;line-height:1}
+.tab .ti{font-size:18px;line-height:1;display:inline-flex}.tab .ti .ico{width:22px;height:22px}
+.ico{width:1.15em;height:1.15em;flex:none;vertical-align:-.2em}
 .tab[data-view="events"]{background:#DCEAF7;color:#1B3F63}
 .tab[data-view="map"]{background:#D3EFEA;color:#0B5E61}
 .tab[data-view="our-list"]{background:#FBE1CF;color:#8A3A12}
@@ -146,7 +147,7 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .wk-h{font-family:'Bricolage Grotesque',Inter,sans-serif;font-size:20px;line-height:1.2;margin:28px -4px 0;padding:11px 16px;border-radius:12px;background:#4A5562;color:#fff;position:sticky;top:var(--fh,0px);z-index:12;box-shadow:0 2px 8px rgba(27,36,48,.18)}
 .wk-sub{font-size:13.5px;color:var(--mute);margin:8px 6px 10px}
 .fbar{display:flex;gap:8px;align-items:center}
-.searchbtn{flex:none;width:46px;min-height:46px;padding:0;display:inline-flex;align-items:center;justify-content:center}.searchbtn svg{width:20px;height:20px}
+.searchbtn{flex:none;width:46px;min-height:46px;padding:0;display:inline-flex;align-items:center;justify-content:center}.searchbtn svg{width:22px;height:22px}
 .sbar input{flex:1;min-width:0;font:inherit;font-size:16px;border:1.5px solid var(--blue);border-radius:12px;padding:10px 14px;min-height:46px;background:#fff;color:var(--ink)}
 .sres{margin:12px 6px 8px}
 .jump .qcat{display:inline-flex;align-items:center;gap:6px}.jump .jsep{flex:none;width:1px;background:#CBD4DD;margin:6px 4px}.jump .qcat[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -280,7 +281,7 @@ header h1{font-size:22px;margin:0 0 10px}
 header h1 .nb{white-space:normal}
 .tab{height:44px;flex-direction:row;gap:6px}
 .tab[aria-selected="true"]{height:50px}
-.tab .ti{font-size:16px}
+.tab .ti{font-size:16px}.tab .ti .ico{width:20px;height:20px}
 .tab .tw{display:none}
 .xw{display:none}
 .filterbtn .flabel{white-space:nowrap}
@@ -344,9 +345,9 @@ main{grid-template-columns:repeat(3,minmax(0,1fr))}
   <h1>Sydney Harbour <span class="nb">Fetch</span></h1>
   <p class="slogan">Get up, get out, go fetch the weekend. 🐾</p>
   <div class="tabs" role="tablist">
-    <button class="tab" role="tab" data-view="events" aria-selected="true"><span class="ti">📅</span>Events</button>
-    <button class="tab" role="tab" data-view="map" aria-selected="false"><span class="ti">🗺️</span>Map</button>
-    <button class="tab" role="tab" data-view="our-list" aria-selected="false"><span class="ti">⭐</span><span>Our <span class="tw">Weekend </span>Plans <span id="savedCount"></span></span></button>
+    <button class="tab" role="tab" data-view="events" aria-selected="true"><span class="ti"><svg class="ico" viewBox="180 180 840 840" aria-hidden="true"><path fill="currentColor" d="m384 960h432c79.453 0 144-64.547 144-144v-312c0-71.062-53.062-132.24-123.47-142.31l-20.531-3v-94.688c0-13.219-10.781-24-24-24s-24 10.781-24 24v96h-144v-96c0-13.219-10.781-24-24-24s-24 10.781-24 24v96h-144v-96c0-13.219-10.781-24-24-24s-24 10.781-24 24v94.688l-20.531 3c-70.312 10.078-123.47 71.297-123.47 142.31v312c0 79.453 64.547 144 144 144zm-96-456c0-52.922 43.078-96 96-96h432c52.922 0 96 43.078 96 96v72h-624zm0 120h624v192c0 52.922-43.078 96-96 96h-432c-52.922 0-96-43.078-96-96z"/></svg></span>What's On</button>
+    <button class="tab" role="tab" data-view="map" aria-selected="false"><span class="ti"><svg class="ico" viewBox="180 180 840 840" aria-hidden="true"><path fill="currentColor" d="m948 336c0-25.547-13.781-49.453-35.859-62.297-21.375-12.375-50.391-12.469-71.859-0.23438l-136.31 77.859-182.63-81.234c-20.297-9-45.703-7.6875-64.922 3.2344l-168 96c-22.312 12.844-36.234 36.703-36.234 62.531v432c0 25.547 13.781 49.453 35.859 62.297 21.375 12.375 50.531 12.469 71.859 0.23438l136.31-77.859 182.63 81.234c20.297 9 45.703 7.6875 64.922-3.2344l168-96c22.453-12.844 36.234-36.703 36.234-62.531zm-480 473.39-132.14 75.469c-3.375 1.9219-7.5469 3-11.859 3s-8.7656-1.0781-12.141-3c-7.3125-4.3125-12-12.234-12-20.766v-174.61l168-96v216zm0-271.31-168 96v-202.08c0-8.625 4.6875-16.547 12.141-20.859l155.86-89.062zm216 341.53-168-74.625v-216l168 74.625zm0-268.55-168-74.625v-216l168 74.625zm216 156.94c0 8.625-4.6875 16.547-12.141 20.859l-155.86 89.062v-216l168-96zm0-257.39-168 96v-216l132.14-75.469c6.7031-3.8438 17.297-3.8438 24 0 7.3125 4.3125 12 12.234 12 20.766v174.61z"/></svg></span>Explore</button>
+    <button class="tab" role="tab" data-view="our-list" aria-selected="false"><span class="ti"><svg class="ico" viewBox="180 180 840 840" aria-hidden="true"><path fill="currentColor" d="m370.55 705.14-29.531 172.08c-4.6875 27.234 6.375 54.234 28.688 70.453 21.234 15.375 52.688 17.625 75.844 5.5312l154.55-81.234 154.55 81.234c23.297 12.234 54.609 9.9375 75.844-5.5312 22.312-16.219 33.375-43.219 28.688-70.453l-29.531-172.08 125.06-121.78c19.781-19.312 26.766-47.531 18.234-73.781-8.5312-26.297-30.844-45-58.078-48.938l-172.78-25.078-77.297-156.61c-12.234-24.703-36.938-40.078-64.547-40.078s-52.312 15.375-64.547 40.078l-77.297 156.61-172.78 25.078c-27.375 3.9375-49.547 22.781-58.078 48.938-8.5312 26.297-1.5469 54.469 18.234 73.781l125.06 121.78zm-97.547-180.84c2.8594-8.8594 10.078-15 19.312-16.312l166.55-24.234c19.547-2.8594 36.469-15.141 45.234-32.766l74.531-150.84c4.0781-8.3906 12.141-13.312 21.469-13.312 9.375 0 17.391 5.0625 21.469 13.453l74.391 150.84c8.7656 17.766 25.688 30 45.234 32.766l166.55 24.234c9.2344 1.3125 16.453 7.4531 19.312 16.312 2.8594 8.8594 0.60938 18-6.1406 24.609l-120.47 117.47c-14.156 13.781-20.625 33.609-17.297 53.156l28.453 165.84c1.5469 9.2344-2.0625 18-9.4688 23.391-6.7031 4.9219-17.859 5.7656-25.219 1.9219l-148.92-78.375c-17.156-9-38.625-9-55.781 0l-148.92 78.375c-3.2344 1.6875-6.9375 2.5312-10.922 2.5312-5.2969 0-10.547-1.5469-14.297-4.4531-7.5469-5.5312-11.156-14.297-9.4688-23.531l28.453-165.84c3.375-19.453-3.1406-39.375-17.297-53.156l-120.47-117.47c-6.7031-6.4688-9-15.703-6.1406-24.609z"/></svg></span><span>Our Plans <span id="savedCount"></span></span></button>
   </div>
 </header>
 <div class="filters" id="filters" aria-label="Filter events"></div>
@@ -583,6 +584,8 @@ function cardHTML(e, gone, extra, cls){
     <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
+// icons by Gregor Cresnar (Noun Project, royalty-free on the owner's Noun Pro plan); sources in src/icons
+const ICO_SEARCH = '<svg class="ico" viewBox="180 180 840 840" aria-hidden="true"><path fill="currentColor" d="m540 840c64.688 0 126.24-20.391 178.22-58.922l16.688-12.375 184.22 184.22c8.8594 8.8594 25.078 8.8594 33.938 0 9.375-9.375 9.375-24.609 0-33.938l-184.22-184.22 12.375-16.688c38.531-51.938 58.922-113.62 58.922-178.22 0-165.47-134.53-300-300-300s-300 134.53-300 300 134.53 300 300 300zm0-552c138.94 0 252 113.06 252 252s-113.06 252-252 252-252-113.06-252-252 113.06-252 252-252z"/></svg>', ICO_HOME = '<svg class="ico" viewBox="180 180 840 840" aria-hidden="true"><path fill="currentColor" d="m616.92 496.92c9.375-9.375 9.375-24.609 0-33.938-4.5469-4.5469-10.547-6.9375-16.922-6.9375s-12.469 2.5312-16.922 6.9375c-9.375 9.375-9.375 24.609 0 33.938 8.8594 8.8594 25.078 8.8594 33.938 0zM336 948h528c52.922 0 96-43.078 96-96v-301.31c0-37.078-16.688-71.531-45.844-94.312l-215.76-169.45c-12.938-10.219-25.219-17.625-37.688-22.688-19.312-8.0625-39.703-12-60.609-12-35.062 0-69.375 11.766-96.609 33.234l-217.69 171c-29.156 22.922-45.844 57.234-45.844 94.312v301.31c0 52.922 43.078 96 96 96zm336-48h-144v-144c0-39.703 32.297-72 72-72s72 32.297 72 72zm-384-349.31c0-22.219 10.078-42.844 27.469-56.625l218.16-171.37c39.141-30.703 93.609-30.703 132.71 0l218.16 171.24c17.531 13.781 27.469 34.453 27.469 56.625v301.31c0 26.531-21.469 48-48 48h-144v-144c0-66.141-53.859-120-120-120s-120 53.859-120 120v144h-144c-26.531 0-48-21.469-48-48v-301.31z"/></svg>';
 const DISTS = [[0,"Any distance"], ...CITY.dists.map(d=>[d, d+" "+UNIT])];
 function renderFilters(){
   const f = document.getElementById("filters");
@@ -595,8 +598,8 @@ function renderFilters(){
   let h = `<div class="fbar"><button class="filterbtn${active?" on":""}" data-filtopen aria-expanded="${!!state.filtOpen}" aria-controls="fpanel">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4-2v-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
     <span class="ftxt"><span class="flabel">Filter<span class="xw"> events</span></span><span class="fsum">${esc([catLabel, distLabel, ...quick].join(" · "))}</span></span>${active?`<span class="fcount">${active}</span>`:""}<span class="fcaret">${state.filtOpen?"▴":"▾"}</span></button>
-    <button class="chip searchbtn" data-search aria-label="Search events"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
-    <button class="chip homechip" data-sethome aria-label="Change home location, now ${esc(HOME.name)}">🏠 ${esc(HOME.name)}</button></div>`;
+    <button class="chip searchbtn" data-search aria-label="Search events">${ICO_SEARCH}</button>
+    <button class="chip homechip" data-sethome aria-label="Change home location, now ${esc(HOME.name)}">${ICO_HOME} ${esc(HOME.name)}</button></div>`;
   if (state.searchOpen) h = `<div class="fbar sbar"><input type="search" id="q" value="${esc(state.q)}" placeholder="Search events, places, towns" aria-label="Search events" autocomplete="off" enterkeyhint="search"><button class="chip" data-searchclose>Cancel</button></div>`;
   if (state.filtOpen){
     h += `<div class="fpanel" id="fpanel"><div class="fsec">Quick picks</div><div class="fwrap">${[["free","Free"],["dogok","🐕 Dog-friendly"],["sat","Saturday"],["sun","Sunday"]].map(([k,t])=>`<button class="chip" data-quick="${k}" aria-pressed="${k==="sat"||k==="sun" ? state.day===k : !!state[k]}">${t}</button>`).join("")}</div><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">${likesOff.size?"All my interests":"All events"}</button>`;
