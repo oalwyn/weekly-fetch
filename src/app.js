@@ -280,6 +280,8 @@ function renderByWeekend(){
   if (walks.length) h += ``+band("wk-walks",`Dog walks`,`Always on · closest to home first`)+`` + walks.map(compactHTML).join("");
   return h || `<div class="empty">No events match these filters.</div>`;
 }
+// the three kinds most people look for: one tap to show only those (tap again for everything)
+const QCATS = ["hol","mkt","dog"];
 function renderSearch(){
   const res = filtered().filter(e=>!isPast(e)).sort((a,b)=>(startOf(a)||new Date(2100,0,1))-(startOf(b)||new Date(2100,0,1)));
   return `<p class="wk-sub sres">${res.length} match${res.length===1?"":"es"} for “${esc(state.q.trim())}”</p>` + (res.length ? res.map(e=>e.cat==="walk"?compactHTML(e):cardHTML(e)).join("") : `<div class="empty">Nothing matches. Try a town, a venue or one word.</div>`);
@@ -288,7 +290,7 @@ function renderEvents(){
   if (state.q.trim()) return renderSearch();
   if (state.group==="weekend"){
     const W = weekends(), f = filtered();
-    const jump = `<div class="jump">${W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}<button data-jump="wk-later">Later</button>${f.some(e=>e.cat==="prog"&&!isPast(e))?`<button data-jump="wk-progs">Teen programs</button>`:""}${f.some(e=>e.cat==="walk")?`<button data-jump="wk-walks">Dog walks</button>`:""}</div>`;
+    const jump = `<div class="jump">${QCATS.filter(k=>state.cat===k || !likesOff.has(k)).map(k=>`<button class="qcat" data-qcat="${k}" aria-pressed="${state.cat===k}"><i class="dot" style="background:${CATS[k].color}"></i>${CATS[k].label}</button>`).join("")}<span class="jsep" aria-hidden="true"></span>${W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}<button data-jump="wk-later">Later</button></div>`;
     return segHTML() + jump + renderByWeekend();
   }
   return segHTML() + renderEventsByDate();
@@ -694,6 +696,7 @@ document.addEventListener("click", ev=>{
   else if (t.hasAttribute("data-likesopen")){ state.filtOpen=false; state.editHome=false; state.likesOpen=true; render(); window.scrollTo(0,0); }
   else if (t.hasAttribute("data-filtopen")){ state.filtOpen = !state.filtOpen; render(); }
   else if (t.dataset.distv!=null){ state.dist = +t.dataset.distv; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); if (typeof track==="function") track("filter_applied",{placement:null, props:{filter_type:"distance", value:String(state.dist)}}); }
+  else if (t.dataset.qcat){ state.cat = state.cat===t.dataset.qcat ? "all" : t.dataset.qcat; render(); window.scrollTo(0,0); if (typeof track==="function") track("filter_applied",{placement:null, props:{filter_type:"category", value:state.cat}}); }
   else if (t.dataset.quick){ const k=t.dataset.quick; if (k==="sat"||k==="sun") state.day = state.day===k ? "" : k; else state[k] = !state[k]; render(); if (typeof track==="function") track("filter_applied",{placement:null, props:{filter_type:"quick", value:k}}); }
   else if (t.hasAttribute("data-search")){ state.searchOpen=true; state.filtOpen=false; render(); setTimeout(()=>{ const i=document.getElementById("q"); if(i) i.focus(); },30); }
   else if (t.hasAttribute("data-searchclose")){ state.searchOpen=false; state.q=""; render(); }
