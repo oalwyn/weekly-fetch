@@ -12,6 +12,10 @@ const SB_REF = (SB_URL.split("//")[1] || "").split(".")[0];
 const SB_AUTH_KEY = "sb-" + SB_REF + "-auth-token";
 const IS_APP = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
 const LIVE_SITE = "https://theweekendfetch.com/";
+// Sign in with Apple on the website (Supabase web OAuth). Switched on by "appleWeb": true in src/sb.json, once Apple and Supabase are set up.
+// Apple logo drawn as SVG on the website (the  character only shows on Apple devices)
+const APPLE_SVG = `<svg class="alogo-svg" viewBox="0 0 170 170" aria-hidden="true"><path fill="currentColor" d="M150.4 130.3c-2.4 5.5-5.2 10.6-8.4 15.3-4.4 6.3-8 10.7-10.8 13.1-4.3 4-9 6-14 6.1-3.6 0-7.9-1-12.9-3.1-5-2-9.6-3.1-13.8-3.1-4.4 0-9.2 1-14.2 3.1-5.1 2.1-9.2 3.2-12.3 3.3-4.8.2-9.6-1.9-14.4-6.4-3-2.6-6.8-7.2-11.4-13.7-4.9-6.9-8.9-14.9-12.1-24-3.4-9.8-5.1-19.3-5.1-28.5 0-10.5 2.3-19.6 6.8-27.2 3.6-6.1 8.3-10.9 14.3-14.5 6-3.5 12.4-5.3 19.3-5.5 3.8 0 8.8 1.2 15 3.5 6.2 2.3 10.2 3.5 11.9 3.5 1.3 0 5.7-1.4 13.2-4.1 7.1-2.5 13-3.6 17.9-3.2 13.3 1.1 23.2 6.3 29.9 15.8-11.9 7.2-17.7 17.2-17.6 30.1.1 10 3.8 18.4 10.9 25 3.2 3.1 6.9 5.4 10.9 7.1-.9 2.5-1.8 4.9-2.8 7.2zM119.1 7.2c0 7.9-2.9 15.3-8.6 22.1-6.9 8.1-15.3 12.8-24.3 12-.1-.9-.2-1.9-.2-3 0-7.6 3.3-15.7 9.2-22.4 2.9-3.4 6.6-6.2 11.1-8.4 4.5-2.2 8.7-3.4 12.7-3.6.1 1.1.1 2.2.1 3.3z"/></svg>`;
+const WEB_APPLE = "__SB_APPLE__" === "1";
 const SB_LIB = "./vendor/supabase-2.118.0.js", QR_LIB = "./vendor/qrcode-1.4.4.js";
 const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
 const lsSet = (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} };
@@ -21,7 +25,7 @@ const inGroup = () => !!(ACCT.user && ACCT.group);
 ACCT.gid = lsGet("wf-main") || lsGet("wf-gid");
 const PENDING = { tokens: window.__wfTokens || null, join: window.__wfJoin || lsGet("wf-pending-join") };
 if (PENDING.join) { lsSet("wf-pending-join", PENDING.join); state.view = "our-list"; }
-if (window.__wfAuthError) { ACCT.err = "That sign-in link didn't work or has expired. Ask for a new code."; state.view = "our-list"; }
+if (window.__wfAuthError) { ACCT.err = "That sign-in didn't finish or the link has expired. Please try again."; state.view = "our-list"; }
 
 /* ---- engagement measurement (supabase/v1.3-analytics.sql) ----
    Plain fetch, so signed-out visitors never download the Supabase library. Never throws, never blocks the app.
@@ -375,7 +379,7 @@ function qrSVG(text){
 const ae = s => esc(s);
 function acctCard(inner, cls){ return `<div class="setup acct${cls ? " " + cls : ""}">${inner}</div>`; }
 function signInHTML(){
-  const appleBtn = IS_APP && window.WF_APPLE_SIGNIN ? `<button class="copybtn apple" data-acct="apple"><span class="alogo" aria-hidden="true">&#xF8FF;</span> Sign in with Apple</button>` : "";
+  const appleBtn = (IS_APP ? !!window.WF_APPLE_SIGNIN : WEB_APPLE) ? `<button class="copybtn apple" data-acct="apple">${IS_APP ? `<span class="alogo" aria-hidden="true">&#xF8FF;</span>` : APPLE_SVG} Sign in with Apple</button>` : "";
   if (ACCT.ui.step === "code") return acctCard(`<strong>Check your email</strong>
     <p class="ournote">We sent a 6-digit code to <b>${ae(ACCT.ui.email)}</b>. Enter it here${IS_APP ? "" : ", or tap the link in the email on this device"}.</p>
     <form class="acctform" data-acctform="verify"><input name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456" aria-label="6-digit code" required>
@@ -445,9 +449,17 @@ function settingsHTML(){
     <div class="fsec">Join code: <b>${ae(ACCT.group.code)}</b>${owner ? ` <button class="linkbtn" data-acct="newcode">Make a new code</button>` : ""}</div>
     ${owner ? `<p class="ournote small">A new code stops old invite links from working. Current members stay.</p>` : ""}
     <div class="btnrow"><button class="copybtn alt" data-acct="add">Start or join another group</button><button class="copybtn alt" data-acct="leave">Leave this group</button><button class="copybtn alt" data-acct="signout">Sign out</button></div>
-    <div class="fsec">Account</div>${del}${deviceCodeHTML()}${ACCT.isAdmin ? `<div class="fsec">Owner</div><button class="copybtn alt" data-acct="mark-device">${lsGet("wf-internal") ? "✓ This device is marked as yours" : "Mark this device as mine (leave it out of the stats)"}</button>` : ""}</div>`;
+    <div class="fsec">Account</div>${signedInAsHTML()}${del}${deviceCodeHTML()}${ACCT.isAdmin ? `<div class="fsec">Owner</div><button class="copybtn alt" data-acct="mark-device">${lsGet("wf-internal") ? "✓ This device is marked as yours" : "Mark this device as mine (leave it out of the stats)"}</button>` : ""}</div>`;
 }
 
+// which account this is, so two sign-in methods (Apple in the app, email on the web) can't quietly make two "you"s
+function signedInAsHTML(){
+  const u = ACCT.user || {}, em = u.email || "", apple = ((u.app_metadata || {}).providers || [(u.app_metadata || {}).provider]).includes("apple");
+  const hidden = /@privaterelay\.appleid\.com$/i.test(em);
+  const who = hidden ? "Signed in with Apple (email hidden)" : apple ? `Signed in with Apple as ${ae(em)}` : `Signed in as ${ae(em || "you")}`;
+  const tip = apple ? `<br>On another phone or computer, use <b>Sign in with Apple</b> to reach this same account and groups.` : "";
+  return `<p class="ournote small">${who}.${tip}</p>`;
+}
 // shown so people can ask us to delete what this device recorded while signed out
 const deviceCodeHTML = () => `<p class="ournote small devcode">Device code for privacy requests: <span>${ae(ANON)}</span></p>`;
 const _acctRenderOurList = renderOurList;
@@ -663,7 +675,16 @@ document.addEventListener("click", async ev => {
   const a = b.dataset.acct; ACCT.msg = ""; ACCT.err = "";
   try {
     if (a === "restart") ACCT.ui.step = "";
-    else if (a === "apple") { if (await window.WF_APPLE_SIGNIN() !== false) await afterSignIn(); }
+    else if (a === "apple") {
+      if (IS_APP) { if (await window.WF_APPLE_SIGNIN() !== false) await afterSignIn(); }
+      else {
+        // website: off to Apple, then back here with #access_token=… (caught by the early script); a pending invite waits in wf-pending-join
+        const c = await ensureClient(); ACCT.busy = true;
+        const { error } = await c.auth.signInWithOAuth({ provider: "apple", options: { redirectTo: location.origin + location.pathname } });
+        if (error) { ACCT.busy = false; throw error; }
+        return;
+      }
+    }
     else if (a === "invite") { await loadScript(QR_LIB).catch(() => {}); ACCT.ui.panel = ACCT.ui.panel === "invite" ? "" : "invite"; }
     else if (a === "share") return shareInvite(b);
     else if (a === "close") ACCT.ui.panel = "";

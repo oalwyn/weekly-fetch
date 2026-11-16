@@ -62,7 +62,7 @@ assert i>0
 html=html[:i]+'\n'+mod+html[i:]
 # v1.1 accounts and groups, right after the old shared-list code (it wraps some of its functions)
 i=html.rfind('\nrender();\n')
-html=html[:i]+'\n'+open('accounts.js').read()+html[i:]
+html=html[:i]+'\n'+open('accounts.js').read().replace('__SB_APPLE__','1' if cfg.get('appleWeb') else '0')+html[i:]
 # catch a sign-in link (#access_token=...) or a join link (#join-CODE) before any other code rewrites the address
 import datetime
 WEBVER='web-'+datetime.date.today().strftime('%Y%m%d')

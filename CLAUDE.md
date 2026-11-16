@@ -92,6 +92,12 @@ So always `git pull` before working, and don't hand-edit `data.js` in ways the r
 - Event fields `local: 1` and `biz` (business name) mark activities run by independent local businesses. The site shows a green "Local" badge, a "Local business" quick pick in Filter, saves up to 2 top-pick spots per weekend for the nearest ones, and when a weekend has 2+ of them puts them in a "Shop local this weekend" box (nearest first) above the market/movie boxes.
 - Both refresh prompts (Bay Area and Sydney) were updated Nov 16, 2026 to find 15–25 / 12–20 such weekend activities, home turf first, and to keep `local`/`biz`. The first refresh with this is Nov 23 (Sydney Nov 22 PT). Until then only a handful of Bay Area items are marked (hand-tagged Nov 16).
 
+## Sign in with Apple on the website (Nov 16, 2026)
+- Why: the app signs in with Apple, the website only had email codes. Anyone who chose "Hide My Email" in the app got a second, separate account on the website (the owner hit this: his group was on the Apple account).
+- Code: accounts.js `WEB_APPLE` shows the Apple button on the website and calls `signInWithOAuth({provider:"apple"})` (implicit flow; the early script in build_gh.py catches `#access_token`). Switched on by `"appleWeb": true` in `src/sb.json` (build_gh.py replaces `__SB_APPLE__`). **Off until the owner finishes the Apple Services ID + Supabase setup.**
+- Group & account panel now says "Signed in as …" / "Signed in with Apple (email hidden)" (`signedInAsHTML`).
+- Supabase Apple provider Client IDs must list both the bundle id (native app) and the web Services ID. The web client secret (a JWT made from the .p8 key) expires every 6 months: renew it in Supabase before then.
+
 ## Commit conventions
 `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit`, with the message ending in:
 `Co-Authored-By: Claude <noreply@anthropic.com>`
