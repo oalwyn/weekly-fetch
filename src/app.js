@@ -144,6 +144,24 @@ function filmRow(e){
   <div><span class="ct">${esc(e.title)}</span><span class="cw">${esc(e.when)}${e.meta?` · ${esc(e.meta.replace(/^In theaters( nationwide)?( · )?/i,""))}`:""}</span></div>
   <span class="flinks"><a href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>${e.url?`<a href="${esc(e.url)}" target="_blank" rel="noopener" data-k="outbound_more_info" data-ev="${esc(e.id)}">Trailer & info ↗</a>`:""}</span></div>`;
 }
+// weekly markets and new movies: one box with a dropdown instead of a card each, so a dozen markets don't fill the page
+const isWeeklyMkt = e => e.cat==="mkt" && (/(^|-)fm-/.test(e.id) || (e.sec==="week" && Array.isArray(e.dates) && e.dates.length>=4));
+const pickSel = {};   // box key -> chosen event id (kept while the page is open)
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const shortName = e => e.title.replace(/\s*\(.*\)\s*$/,"").replace(/\s+(farmers'?\s+)?markets?$/i,"").trim() || e.title;
+function pickBox(key, list, kind, a, b){
+  const fm = kind==="mkt";
+  const sorted = fm ? [...list].sort((x,y)=>(x.mi==null?1e9:x.mi)-(y.mi==null?1e9:y.mi)) : list;
+  let sel = pickSel[key] && sorted.find(e=>e.id===pickSel[key]);
+  if (!sel) sel = sorted.find(e=>lockKey(e.id)) || sorted.find(e=>starredByMe(e.id)) || sorted[0];
+  const days = e => { if (!a || !e.dates) return ""; return [...new Set(e.dates.map(parseD).filter(t=>t>=a&&t<=b).map(t=>cap(DAYN[t.getDay()])))].join(" & "); };
+  const opens = e => { const s = startOf(e); return s && a ? "opens " + cap(DAYN[s.getDay()]) : ""; };
+  const nm = e => sorted.filter(x=>shortName(x)===shortName(e)).length>1 ? e.title : shortName(e);   // two "Bondi"s: use the full names
+  const label = e => (starredByMe(e.id)?"★ ":"") + (fm ? [nm(e), days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : [e.title, opens(e)]).filter(Boolean).join(" · ");
+  const title = fm ? (list.every(e=>/farmers/i.test(e.title)) ? "Farmers markets" : "Weekly markets") : "New in theaters";
+  const n = `${list.length} ${fm?"market":"movie"}${list.length===1?"":"s"}`;
+  return `<div class="pickbox ${fm?"mktbox":"filmbox"}"><label class="pk-h"${list.length>1?` for="pk-${key}"`:""}><span>${fm?"🧺":"🎬"} ${title}</span><span class="pk-n">${n}</span></label>${list.length>1?`<select id="pk-${key}" data-pick="${key}">${sorted.map(e=>`<option value="${esc(e.id)}"${e===sel?" selected":""}>${esc(label(e))}</option>`).join("")}</select>`:""}${cardHTML(sel,false,"","inbox")}</div>`;
+}
 function likesBox(){
   if (state.view==="our-list") return "";
   if (!state.likesOpen) return `<button class="likesbar" data-likesopen><span>✓ ${likesOff.size ? `My interests · hiding ${likesOff.size}` : "Pick your interests"}</span><span class="lb-r">${likesOff.size?"Edit":"Optional"} ▾</span></button>`;
@@ -204,9 +222,11 @@ function renderByWeekend(){
     const ong = items.filter(e=>occurs(e,w.fri,w.sun)==="ongoing");
     main.forEach(e=>used.add(e.id)); ong.forEach(e=>used.add(e.id));
     const fl = films.filter(e=>{ const s=startOf(e); return s && s>=addD(w.fri,-2) && s<=w.sun; }).sort(byStart);
-    h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${main.length} event${main.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}${fl.length?` · 🎬 ${fl.length} new movie${fl.length===1?"":"s"}`:""}`, WKC[i]);
-    if (fl.length) h += `<div class="filmbox"><div class="section-h">🎬 New in theaters${i===0?" this weekend":""}</div>${fl.map(filmRow).join("")}</div>`;
-    h += main.length ? main.map(e=>cardHTML(e)).join("") : fl.length ? "" : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
+    const mk = main.filter(isWeeklyMkt), rest = mk.length>1 ? main.filter(e=>!isWeeklyMkt(e)) : main;
+    h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${rest.length} event${rest.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}${mk.length>1?` · 🧺 ${mk.length} markets`:""}${fl.length?` · 🎬 ${fl.length} new movie${fl.length===1?"":"s"}`:""}`, WKC[i]);
+    if (mk.length>1) h += pickBox("m"+i, mk, "mkt", w.fri, w.sun);
+    if (fl.length) h += pickBox("f"+i, fl, "film", w.fri, w.sun);
+    h += rest.length ? rest.map(e=>cardHTML(e)).join("") : (fl.length || mk.length>1) ? "" : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
     if (ong.length) h += `<div class="section-h">Also open this weekend</div>` + ong.map(compactHTML).join("");
   });
   const between = items.filter(e=>!used.has(e.id) && startOf(e) && startOf(e)<=lastSun && !e.days && occurs(e,TODAY,lastSun)==="main").sort(byStart);
@@ -236,7 +256,9 @@ function renderEventsByDate(){
   let h = "";
   for (const [k,label] of SECTIONS){
     const sec = items.filter(e=>e.sec===k);
-    if (sec.length) h += `<div class="section-h">${esc(label)}</div>` + sec.map(e=>cardHTML(e)).join("");
+    const mk = sec.filter(isWeeklyMkt), fl = sec.filter(isRelease);
+    const rest = sec.filter(e=>!(mk.length>1 && isWeeklyMkt(e)) && !(fl.length>1 && isRelease(e)));
+    if (sec.length) h += `<div class="section-h">${esc(label)}</div>` + (mk.length>1 ? pickBox("dm-"+k, mk, "mkt") : "") + (fl.length>1 ? pickBox("df-"+k, fl, "film") : "") + rest.map(e=>cardHTML(e)).join("");
     if (k==="walks" && sec.length && WALKS.nodogs.length) h += `<div class="nodogs"><strong>Leave the dog at home:</strong><ul>${WALKS.nodogs.map(t=>`<li>${esc(t)}</li>`).join("")}</ul><span>Leash rules change, so check the posted signs.</span></div>`;
   }
   return h;
@@ -640,7 +662,7 @@ document.addEventListener("click", ev=>{
     try { navigator.clipboard.writeText(txt).then(()=>{ t.textContent="Copied ✓"; setTimeout(()=>t.textContent="Copy list as text",2000); }, fallback); } catch(e) { fallback(); }
   }
 });
-document.addEventListener("change", ev=>{ if (ev.target.matches("select[data-dist]")){ state.dist = +ev.target.value; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); return; } const s = ev.target.closest("select[data-plan]"); if (s && s.value) setPlan(s.dataset.plan, s.value); const st = ev.target.closest("input[data-stime]"); if (st) setShowtime(st.dataset.stime, st.value); });
+document.addEventListener("change", ev=>{ if (ev.target.matches("select[data-pick]")){ pickSel[ev.target.dataset.pick] = ev.target.value; refreshStars(); const s = document.getElementById(ev.target.id); if (s) s.focus({preventScroll:true}); return; } if (ev.target.matches("select[data-dist]")){ state.dist = +ev.target.value; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); return; } const s = ev.target.closest("select[data-plan]"); if (s && s.value) setPlan(s.dataset.plan, s.value); const st = ev.target.closest("input[data-stime]"); if (st) setShowtime(st.dataset.stime, st.value); });
 window.addEventListener("hashchange", ()=>{ const h=location.hash.slice(1); if(VIEWS.includes(h)&&h!==state.view){ state.view=h; render(); } });
 window.addEventListener("resize", ()=>{ if(state.view==="map"){ vb=fitAspect(vb); drawMap(); } document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px"); });
 render();

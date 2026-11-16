@@ -74,8 +74,12 @@ main{flex:1;padding:0 12px 40px}
 .c-walk{background:#DDF1F1;color:#0B5E61}.c-food{background:#FFF1D6;color:#7A4E00}.c-art{background:#EEE8F6;color:#4E3A78}.c-evt{background:#EEF2F5;color:#1B2430}.c-show{background:#FBE6EE;color:#8A1F4C}.c-kids{background:#E8F4DC;color:#3B6B17}.c-teen{background:#E6E9F7;color:#3A47A0}.c-prog{background:#F1E9E5;color:#5D4037}.c-sport{background:#F7E4E4;color:#7A1F1F}.c-film{background:#E6E8F5;color:#283593}
 .ha{font-size:11px;font-weight:700;border-radius:6px;padding:3px 8px}
 .ha-home{background:#1B3F63;color:#fff}.ha-away{background:#fff;color:#1B3F63;border:1px solid #1B3F63}.ha-neutral{background:#EEF2F5;color:#1B2430}
-.filmbox{background:#fff;border-radius:14px;padding:4px 12px 8px;margin:10px 0;border-left:4px solid #283593}
-.filmbox .section-h{margin:8px 0 2px}
+.pickbox{background:#fff;border-radius:14px;padding:10px 12px 4px;margin:10px 0;box-shadow:inset 4px 0 0 #2F6FA8}
+.pickbox.filmbox{box-shadow:inset 4px 0 0 #283593}
+.pk-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-weight:600;font-size:15px;padding-left:4px}
+.pk-n{font-size:13px;font-weight:500;color:var(--mute)}
+.pickbox select{display:block;width:100%;margin:8px 0 0;font:inherit;font-size:16px;font-weight:600;color:var(--ink);background:#F4F7FA url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231B2430' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 12px center/12px 8px;border:1px solid var(--line);border-radius:10px;padding:10px 34px 10px 12px;min-height:44px;appearance:none;-webkit-appearance:none;text-overflow:ellipsis}
+.card.inbox{margin:0;padding:12px 4px 10px;border-radius:0;background:transparent}
 .crow.film .flinks{display:flex;flex-direction:column;gap:6px;align-items:flex-end;flex:none}
 .crow.film .flinks a{white-space:nowrap}
 .price{font-size:11px;font-weight:700;border-radius:6px;padding:3px 8px;text-decoration:none;border:1px solid}
@@ -296,6 +300,7 @@ main{padding:4px 32px 48px;display:grid;grid-template-columns:repeat(2,minmax(0,
 main>*{grid-column:1/-1}
 main>.card{grid-column:auto;margin-bottom:16px;align-content:start}
 main>.card .row2{align-self:end}
+main>.pickbox{grid-column:auto;margin:0 0 16px;align-self:start}
 /* map tab: big map with the selected event beside it */
 main:has(#mapwrap){grid-template-columns:minmax(0,1fr) 380px}
 main:has(#mapwrap)>*{grid-column:1}
@@ -360,7 +365,7 @@ function suggest(){
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', suggest); else suggest();
 })();
 </script><!--/citysw-->
-<script>window.WF_VERSION="web-20261115";(function(){var h=location.hash||"",u=location.pathname+location.search,go=function(){try{history.replaceState(null,"",u+"#our-list")}catch(e){}};if(/access_token=/.test(h)){var p=new URLSearchParams(h.slice(1));window.__wfTokens={access_token:p.get("access_token"),refresh_token:p.get("refresh_token")};go()}else if(/^#join-[A-Za-z0-9]{4,10}$/.test(h)){window.__wfJoin=h.slice(6).toUpperCase();go()}else if(/error_description=/.test(h)){window.__wfAuthError=1;go()}})();</script>
+<script>window.WF_VERSION="web-20261116";(function(){var h=location.hash||"",u=location.pathname+location.search,go=function(){try{history.replaceState(null,"",u+"#our-list")}catch(e){}};if(/access_token=/.test(h)){var p=new URLSearchParams(h.slice(1));window.__wfTokens={access_token:p.get("access_token"),refresh_token:p.get("refresh_token")};go()}else if(/^#join-[A-Za-z0-9]{4,10}$/.test(h)){window.__wfJoin=h.slice(6).toUpperCase();go()}else if(/error_description=/.test(h)){window.__wfAuthError=1;go()}})();</script>
 <script>/*wf-data*/(function(){var v=Math.floor(Date.now()/3e5);document.write('<script src="./data.js?v='+v+'"><\/script><script src="./walks.js?v='+v+'"><\/script>')})();</script>
 <script>
 const WF = window.WF_DATA || {updated:"", items:[]};
@@ -507,6 +512,24 @@ function filmRow(e){
   <div><span class="ct">${esc(e.title)}</span><span class="cw">${esc(e.when)}${e.meta?` · ${esc(e.meta.replace(/^In theaters( nationwide)?( · )?/i,""))}`:""}</span></div>
   <span class="flinks"><a href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>${e.url?`<a href="${esc(e.url)}" target="_blank" rel="noopener" data-k="outbound_more_info" data-ev="${esc(e.id)}">Trailer & info ↗</a>`:""}</span></div>`;
 }
+// weekly markets and new movies: one box with a dropdown instead of a card each, so a dozen markets don't fill the page
+const isWeeklyMkt = e => e.cat==="mkt" && (/(^|-)fm-/.test(e.id) || (e.sec==="week" && Array.isArray(e.dates) && e.dates.length>=4));
+const pickSel = {};   // box key -> chosen event id (kept while the page is open)
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const shortName = e => e.title.replace(/\s*\(.*\)\s*$/,"").replace(/\s+(farmers'?\s+)?markets?$/i,"").trim() || e.title;
+function pickBox(key, list, kind, a, b){
+  const fm = kind==="mkt";
+  const sorted = fm ? [...list].sort((x,y)=>(x.mi==null?1e9:x.mi)-(y.mi==null?1e9:y.mi)) : list;
+  let sel = pickSel[key] && sorted.find(e=>e.id===pickSel[key]);
+  if (!sel) sel = sorted.find(e=>lockKey(e.id)) || sorted.find(e=>starredByMe(e.id)) || sorted[0];
+  const days = e => { if (!a || !e.dates) return ""; return [...new Set(e.dates.map(parseD).filter(t=>t>=a&&t<=b).map(t=>cap(DAYN[t.getDay()])))].join(" & "); };
+  const opens = e => { const s = startOf(e); return s && a ? "opens " + cap(DAYN[s.getDay()]) : ""; };
+  const nm = e => sorted.filter(x=>shortName(x)===shortName(e)).length>1 ? e.title : shortName(e);   // two "Bondi"s: use the full names
+  const label = e => (starredByMe(e.id)?"★ ":"") + (fm ? [nm(e), days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : [e.title, opens(e)]).filter(Boolean).join(" · ");
+  const title = fm ? (list.every(e=>/farmers/i.test(e.title)) ? "Farmers markets" : "Weekly markets") : "New in theaters";
+  const n = `${list.length} ${fm?"market":"movie"}${list.length===1?"":"s"}`;
+  return `<div class="pickbox ${fm?"mktbox":"filmbox"}"><label class="pk-h"${list.length>1?` for="pk-${key}"`:""}><span>${fm?"🧺":"🎬"} ${title}</span><span class="pk-n">${n}</span></label>${list.length>1?`<select id="pk-${key}" data-pick="${key}">${sorted.map(e=>`<option value="${esc(e.id)}"${e===sel?" selected":""}>${esc(label(e))}</option>`).join("")}</select>`:""}${cardHTML(sel,false,"","inbox")}</div>`;
+}
 function likesBox(){
   if (state.view==="our-list") return "";
   if (!state.likesOpen) return `<button class="likesbar" data-likesopen><span>✓ ${likesOff.size ? `My interests · hiding ${likesOff.size}` : "Pick your interests"}</span><span class="lb-r">${likesOff.size?"Edit":"Optional"} ▾</span></button>`;
@@ -567,9 +590,11 @@ function renderByWeekend(){
     const ong = items.filter(e=>occurs(e,w.fri,w.sun)==="ongoing");
     main.forEach(e=>used.add(e.id)); ong.forEach(e=>used.add(e.id));
     const fl = films.filter(e=>{ const s=startOf(e); return s && s>=addD(w.fri,-2) && s<=w.sun; }).sort(byStart);
-    h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${main.length} event${main.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}${fl.length?` · 🎬 ${fl.length} new movie${fl.length===1?"":"s"}`:""}`, WKC[i]);
-    if (fl.length) h += `<div class="filmbox"><div class="section-h">🎬 New in theaters${i===0?" this weekend":""}</div>${fl.map(filmRow).join("")}</div>`;
-    h += main.length ? main.map(e=>cardHTML(e)).join("") : fl.length ? "" : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
+    const mk = main.filter(isWeeklyMkt), rest = mk.length>1 ? main.filter(e=>!isWeeklyMkt(e)) : main;
+    h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${rest.length} event${rest.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}${mk.length>1?` · 🧺 ${mk.length} markets`:""}${fl.length?` · 🎬 ${fl.length} new movie${fl.length===1?"":"s"}`:""}`, WKC[i]);
+    if (mk.length>1) h += pickBox("m"+i, mk, "mkt", w.fri, w.sun);
+    if (fl.length) h += pickBox("f"+i, fl, "film", w.fri, w.sun);
+    h += rest.length ? rest.map(e=>cardHTML(e)).join("") : (fl.length || mk.length>1) ? "" : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
     if (ong.length) h += `<div class="section-h">Also open this weekend</div>` + ong.map(compactHTML).join("");
   });
   const between = items.filter(e=>!used.has(e.id) && startOf(e) && startOf(e)<=lastSun && !e.days && occurs(e,TODAY,lastSun)==="main").sort(byStart);
@@ -599,7 +624,9 @@ function renderEventsByDate(){
   let h = "";
   for (const [k,label] of SECTIONS){
     const sec = items.filter(e=>e.sec===k);
-    if (sec.length) h += `<div class="section-h">${esc(label)}</div>` + sec.map(e=>cardHTML(e)).join("");
+    const mk = sec.filter(isWeeklyMkt), fl = sec.filter(isRelease);
+    const rest = sec.filter(e=>!(mk.length>1 && isWeeklyMkt(e)) && !(fl.length>1 && isRelease(e)));
+    if (sec.length) h += `<div class="section-h">${esc(label)}</div>` + (mk.length>1 ? pickBox("dm-"+k, mk, "mkt") : "") + (fl.length>1 ? pickBox("df-"+k, fl, "film") : "") + rest.map(e=>cardHTML(e)).join("");
     if (k==="walks" && sec.length && WALKS.nodogs.length) h += `<div class="nodogs"><strong>Leave the dog at home:</strong><ul>${WALKS.nodogs.map(t=>`<li>${esc(t)}</li>`).join("")}</ul><span>Leash rules change, so check the posted signs.</span></div>`;
   }
   return h;
@@ -1003,7 +1030,7 @@ document.addEventListener("click", ev=>{
     try { navigator.clipboard.writeText(txt).then(()=>{ t.textContent="Copied ✓"; setTimeout(()=>t.textContent="Copy list as text",2000); }, fallback); } catch(e) { fallback(); }
   }
 });
-document.addEventListener("change", ev=>{ if (ev.target.matches("select[data-dist]")){ state.dist = +ev.target.value; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); return; } const s = ev.target.closest("select[data-plan]"); if (s && s.value) setPlan(s.dataset.plan, s.value); const st = ev.target.closest("input[data-stime]"); if (st) setShowtime(st.dataset.stime, st.value); });
+document.addEventListener("change", ev=>{ if (ev.target.matches("select[data-pick]")){ pickSel[ev.target.dataset.pick] = ev.target.value; refreshStars(); const s = document.getElementById(ev.target.id); if (s) s.focus({preventScroll:true}); return; } if (ev.target.matches("select[data-dist]")){ state.dist = +ev.target.value; try{localStorage.setItem("wf-dist",state.dist);}catch(e){} render(); return; } const s = ev.target.closest("select[data-plan]"); if (s && s.value) setPlan(s.dataset.plan, s.value); const st = ev.target.closest("input[data-stime]"); if (st) setShowtime(st.dataset.stime, st.value); });
 window.addEventListener("hashchange", ()=>{ const h=location.hash.slice(1); if(VIEWS.includes(h)&&h!==state.view){ state.view=h; render(); } });
 window.addEventListener("resize", ()=>{ if(state.view==="map"){ vb=fitAspect(vb); drawMap(); } document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px"); });
 /* ---------- shared "Our list" via Supabase (GitHub site) ---------- */

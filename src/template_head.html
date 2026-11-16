@@ -45,8 +45,12 @@ main{flex:1;padding:0 12px 40px}
 .c-walk{background:#DDF1F1;color:#0B5E61}.c-food{background:#FFF1D6;color:#7A4E00}.c-art{background:#EEE8F6;color:#4E3A78}.c-evt{background:#EEF2F5;color:#1B2430}.c-show{background:#FBE6EE;color:#8A1F4C}.c-kids{background:#E8F4DC;color:#3B6B17}.c-teen{background:#E6E9F7;color:#3A47A0}.c-prog{background:#F1E9E5;color:#5D4037}.c-sport{background:#F7E4E4;color:#7A1F1F}.c-film{background:#E6E8F5;color:#283593}
 .ha{font-size:11px;font-weight:700;border-radius:6px;padding:3px 8px}
 .ha-home{background:#1B3F63;color:#fff}.ha-away{background:#fff;color:#1B3F63;border:1px solid #1B3F63}.ha-neutral{background:#EEF2F5;color:#1B2430}
-.filmbox{background:#fff;border-radius:14px;padding:4px 12px 8px;margin:10px 0;border-left:4px solid #283593}
-.filmbox .section-h{margin:8px 0 2px}
+.pickbox{background:#fff;border-radius:14px;padding:10px 12px 4px;margin:10px 0;box-shadow:inset 4px 0 0 #2F6FA8}
+.pickbox.filmbox{box-shadow:inset 4px 0 0 #283593}
+.pk-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-weight:600;font-size:15px;padding-left:4px}
+.pk-n{font-size:13px;font-weight:500;color:var(--mute)}
+.pickbox select{display:block;width:100%;margin:8px 0 0;font:inherit;font-size:16px;font-weight:600;color:var(--ink);background:#F4F7FA url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231B2430' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 12px center/12px 8px;border:1px solid var(--line);border-radius:10px;padding:10px 34px 10px 12px;min-height:44px;appearance:none;-webkit-appearance:none;text-overflow:ellipsis}
+.card.inbox{margin:0;padding:12px 4px 10px;border-radius:0;background:transparent}
 .crow.film .flinks{display:flex;flex-direction:column;gap:6px;align-items:flex-end;flex:none}
 .crow.film .flinks a{white-space:nowrap}
 .price{font-size:11px;font-weight:700;border-radius:6px;padding:3px 8px;text-decoration:none;border:1px solid}
@@ -264,6 +268,7 @@ main{padding:4px 32px 48px;display:grid;grid-template-columns:repeat(2,minmax(0,
 main>*{grid-column:1/-1}
 main>.card{grid-column:auto;margin-bottom:16px;align-content:start}
 main>.card .row2{align-self:end}
+main>.pickbox{grid-column:auto;margin:0 0 16px;align-self:start}
 /* map tab: big map with the selected event beside it */
 main:has(#mapwrap){grid-template-columns:minmax(0,1fr) 380px}
 main:has(#mapwrap)>*{grid-column:1}
