@@ -94,7 +94,7 @@ So always `git pull` before working, and don't hand-edit `data.js` in ways the r
 
 ## Sign in with Apple on the website (Nov 16, 2026)
 - Why: the app signs in with Apple, the website only had email codes. Anyone who chose "Hide My Email" in the app got a second, separate account on the website (the owner hit this: his group was on the Apple account).
-- Code: accounts.js `WEB_APPLE` shows the Apple button on the website and calls `signInWithOAuth({provider:"apple"})` (implicit flow; the early script in build_gh.py catches `#access_token`). Switched on by `"appleWeb": true` in `src/sb.json` (build_gh.py replaces `__SB_APPLE__`). **Off until the owner finishes the Apple Services ID + Supabase setup.**
+- Code: accounts.js `WEB_APPLE` shows the Apple button on the website and calls `signInWithOAuth({provider:"apple"})` (implicit flow; the early script in build_gh.py catches `#access_token`). Switched on by `"appleWeb": true` in `src/sb.json` (build_gh.py replaces `__SB_APPLE__`). On since Nov 16, 2026. Services ID `io.github.oalwyn.weekendfetch.web` (Team 6AUG5CZ27G), key "Weekend Fetch Sign in with Apple" (Key ID K8CGX45655; the .p8 is with the owner only). Client secret made Nov 16, 2026, **expires May 18, 2027**: regenerate it (signed JWT: iss team, sub Services ID, kid key id, aud appleid.apple.com) and paste it into Supabase › Authentication › Providers › Apple before then.
 - Group & account panel now says "Signed in as …" / "Signed in with Apple (email hidden)" (`signedInAsHTML`).
 - Supabase Apple provider Client IDs must list both the bundle id (native app) and the web Services ID. The web client secret (a JWT made from the .p8 key) expires every 6 months: renew it in Supabase before then.
 
