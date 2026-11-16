@@ -20,7 +20,7 @@ function suggest(){
   if (!other) return;
   var hdr = document.getElementById('hdr'); if (!hdr) return;
   var bar = document.createElement('div'); bar.className = 'citytip'; bar.setAttribute('role', 'status');
-  bar.innerHTML = '<span>Looks like you’re near ' + other.short + '. See <b>' + other.brand + '</b>?</span>'
+  bar.innerHTML = '<span>Looks like you’re near ' + (other.near || other.short) + '. See <b>' + other.brand + '</b>?</span>'
     + '<a class="go" href="' + other.url + '" data-city="' + other.key + '">Switch</a>'
     + '<button type="button" aria-label="No thanks">✕</button>';
   bar.querySelector('button').onclick = function(){ set('wf-city-asked', '1'); bar.remove(); };

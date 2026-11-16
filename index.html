@@ -44,7 +44,7 @@ html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,syste
 button{font:inherit;color:inherit;cursor:pointer}
 a{color:var(--blue)}
 .app{max-width:560px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
-header{background:linear-gradient(90deg,rgba(20,48,77,.6) 0%,rgba(20,48,77,.25) 55%,rgba(20,48,77,0) 80%),url(banner.svg?v=2) right bottom/cover no-repeat,var(--blue);color:#fff;padding:20px 18px 0}
+header{position:relative;background:linear-gradient(90deg,rgba(20,48,77,.6) 0%,rgba(20,48,77,.25) 55%,rgba(20,48,77,0) 80%),url(banner.svg?v=2) right bottom/cover no-repeat,var(--blue);color:#fff;padding:20px 18px 0}
 header h1,header .slogan{text-shadow:0 1px 3px rgba(10,25,40,.55)}
 .kicker{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#DCE7F2}
 h1{margin:4px 0 2px;font-family:'Bricolage Grotesque',Inter,sans-serif;font-weight:800;font-size:30px;line-height:1.05}
@@ -178,6 +178,7 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .card.inrow .when,.card.inrow .title{display:none}
 .plantools{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--mute);margin:10px 6px 0}
 .citysw{position:relative;display:inline-block;margin:0 0 6px;font-size:13px;z-index:30}.citysw summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;background:rgba(20,48,77,.55);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:5px 12px;font-weight:600;min-height:32px;box-sizing:border-box}.citysw summary::-webkit-details-marker{display:none}.citymenu{position:absolute;left:0;top:calc(100% + 6px);background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(10,25,40,.25);padding:6px;min-width:230px}.citymenu a{display:block;padding:10px 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:700;font-size:15px}.citymenu a:hover{background:var(--bg)}.citymenu a[aria-current]{background:var(--bg)}.citymenu a[aria-current]{position:relative;padding-right:34px}.citymenu a[aria-current]::after{content:"✓";color:var(--blue);position:absolute;right:12px;top:50%;transform:translateY(-50%)}.citymenu small{display:block;font-weight:400;color:var(--mute);font-size:12px;margin-top:1px}.citytip{display:flex;align-items:center;gap:10px;background:#FFF4DC;color:var(--ink);padding:10px 16px;font-size:14px;border-bottom:1px solid #F0D9A8}.citytip span{flex:1}.citytip .go{background:var(--blue);color:#fff;border-radius:999px;padding:7px 14px;font-weight:700;text-decoration:none;min-height:34px;box-sizing:border-box;display:inline-flex;align-items:center}.citytip button{border:0;background:transparent;font-size:16px;color:var(--mute);min-width:36px;min-height:36px;cursor:pointer}
+.upd{position:absolute;top:14px;right:16px;font-size:12px;font-weight:600;color:#E3ECF5;text-shadow:0 1px 3px rgba(10,25,40,.6);pointer-events:none}
 .slogan{font-size:15px;font-weight:500;color:#E3ECF5;margin:2px 0 14px;font-style:italic}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .distsel{position:relative;padding:0;display:flex;align-items:center}.distsel select{appearance:none;-webkit-appearance:none;border:0;background:transparent;font:inherit;font-weight:600;color:inherit;padding:8px 30px 8px 14px;min-height:38px;border-radius:999px}
@@ -265,7 +266,14 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .copyarea{width:100%;font:13px/1.5 Inter,sans-serif;border:1px solid #CBD4DD;border-radius:10px;padding:10px;margin-top:4px}
 .zbtn[aria-pressed="true"]{background:#FFD54A;border-color:#1B2430}
 @media (max-width:600px){
-header{padding:12px 16px 0}
+header{padding:10px 16px 0}
+header .slogan{display:none}
+header h1{font-size:22px;margin:0 0 10px}
+header h1 .nb{white-space:normal}
+.tab{height:44px;flex-direction:row;gap:6px}
+.tab[aria-selected="true"]{height:50px}
+.tab .ti{font-size:16px}
+.tab .tw{display:none}
 .kicker{font-size:11px}
 h1{font-size:26px;margin:2px 0 0}
 .sub{font-size:13px;margin:0 0 4px;line-height:1.35}
@@ -318,23 +326,24 @@ main{grid-template-columns:repeat(3,minmax(0,1fr))}
 </head>
 <body>
 <div class="app">
-<!--appbar--><div class="appbar" id="appbar"><span>📱 Get the free iPhone app</span><a href="https://apps.apple.com/app/id6833697642" target="_blank" rel="noopener" data-k="app_store">Download on the App Store ›</a><button aria-label="Hide" onclick="this.parentNode.remove();try{localStorage.setItem('wf-appbar-off','1')}catch(e){}">×</button></div><script>try{if(localStorage.getItem('wf-appbar-off'))document.getElementById('appbar').remove()}catch(e){}</script><!--/appbar-->
+<!--appbar--><div class="appbar" id="appbar"><span>📱 Get the free iPhone app</span><a href="https://apps.apple.com/app/id6833697642" target="_blank" rel="noopener" data-k="app_store">Download on the App Store ›</a><button aria-label="Hide" onclick="this.parentNode.remove();try{localStorage.setItem('wf-appbar-off','1')}catch(e){}">×</button></div><script>/* App Store bar: not on a first visit, and not in iPhone Safari, which already shows Apple's own app banner */(function(){var d=document.getElementById('appbar');try{var u=navigator.userAgent,saf=/iPhone|iPad|iPod/.test(u)&&/Safari/.test(u)&&!/CriOS|FxiOS|EdgiOS|OPiOS|GSA/.test(u),v=+localStorage.getItem('wf-visits')||0;localStorage.setItem('wf-visits',v+1);if(localStorage.getItem('wf-appbar-off')||saf||v<1)d.remove()}catch(e){d.remove()}})();</script><!--/appbar-->
 <header id="hdr">
   <!--citysw--><details class="citysw" id="citySw"><summary aria-label="Change city">📍 <span>Bay Area</span> <span aria-hidden="true">▾</span></summary><div class="citymenu"><a href="/" data-city="bayarea" aria-current="page">Bay Area<small>The Bay Area Weekend Fetch</small></a><a href="/sydney/" data-city="sydney">Sydney<small>Sydney Harbour Fetch</small></a></div></details><!--/citysw-->
+  <span class="upd" id="upd"></span>
   <h1>The Bay Area <span class="nb">Weekend Fetch</span></h1>
   <p class="slogan">Get up, get out, go fetch the weekend. 🐾</p>
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" data-view="events" aria-selected="true"><span class="ti">📅</span>Events</button>
     <button class="tab" role="tab" data-view="map" aria-selected="false"><span class="ti">🗺️</span>Map</button>
-    <button class="tab" role="tab" data-view="our-list" aria-selected="false"><span class="ti">⭐</span><span>Our Weekend Plans <span id="savedCount"></span></span></button>
+    <button class="tab" role="tab" data-view="our-list" aria-selected="false"><span class="ti">⭐</span><span>Our <span class="tw">Weekend </span>Plans <span id="savedCount"></span></span></button>
   </div>
 </header>
 <div class="filters" id="filters" aria-label="Filter events"></div>
 <main id="main"></main>
 <footer>Event details come from public listings. Check with the organizer before you go.<br>Things to do in San Francisco, the Peninsula, Silicon Valley, Santa Cruz, Monterey, Carmel, Marin, Napa and Sonoma. <a href="privacy.html" style="color:inherit">Privacy</a><br>Refreshed every Monday morning. Your stars are kept between refreshes.</footer>
 </div>
-<script>window.WF_CITY={"key": "bayarea", "path": "", "brand": "The Bay Area Weekend Fetch", "short": "Bay Area", "h1": "The Bay Area <span class=\"nb\">Weekend Fetch</span>", "coast": "coast.json", "banner": "banner.svg", "tz": "America/Los_Angeles", "units": "mi", "dists": [15, 30, 60], "country": "us", "home": {"name": "Mountain View", "lat": 37.3861, "lon": -122.0839}, "far": {"lat": 37.2, "lon": -122.0, "mi": 120}, "near_home_span": 11, "map_start": "Bay Area", "presets": [["Bay Area", 37.68, -122.25, 58], ["San Francisco", 37.783, -122.43, 8], ["Peninsula", 37.56, -122.27, 24], ["Near home", null, null, 11], ["San Jose", 37.33, -121.89, 6], ["Santa Cruz", 36.975, -122.0, 10], ["Monterey & Carmel", 36.59, -121.9, 10], ["Marin", 37.95, -122.55, 22], ["Napa & Sonoma", 38.38, -122.5, 42], ["Everything"]], "labels": [["San Francisco", 37.745, -122.47], ["Daly City", 37.675, -122.48], ["San Mateo", 37.535, -122.33], ["Redwood City", 37.47, -122.25], ["Palo Alto", 37.425, -122.17], ["San Jose", 37.36, -121.92], ["Half Moon Bay", 37.44, -122.43], ["Oakland", 37.83, -122.23], ["Pacific Ocean", 37.25, -122.55, 1], ["SF Bay", 37.6, -122.25, 1], ["Santa Cruz", 37.0, -122.02], ["Capitola", 36.99, -121.95], ["Watsonville", 36.92, -121.77], ["Monterey Bay", 36.8, -122.0, 1], ["Monterey", 36.6, -121.86], ["Pacific Grove", 36.635, -121.93], ["Carmel", 36.545, -121.9], ["Salinas", 36.68, -121.66], ["Sausalito", 37.86, -122.49], ["Tiburon", 37.885, -122.44], ["San Rafael", 37.975, -122.53], ["Mill Valley", 37.91, -122.56], ["Point Reyes", 38.07, -122.84], ["Petaluma", 38.235, -122.64], ["Sonoma", 38.29, -122.46], ["Napa", 38.3, -122.29], ["Santa Rosa", 38.44, -122.71], ["Healdsburg", 38.61, -122.87], ["Calistoga", 38.58, -122.58], ["St. Helena", 38.505, -122.47]], "regions": [["monterey", null, 36.85, null, null], ["santa_cruz", null, 37.12, null, -121.6], ["east_bay", 37.83, null, -122.33, null], ["north_bay", 37.83, null, null, null], ["sf", 37.7, null, null, -122.35], ["east_bay", 37.6, null, -122.33, null], ["peninsula", 37.43, null, null, null], ["peninsula", null, null, null, -122.25], ["south_bay"]]};</script>
-<!--citysw--><script>window.WF_CITIES=[{"key": "bayarea", "short": "Bay Area", "brand": "The Bay Area Weekend Fetch", "url": "/", "tz": "America/Los_Angeles"}, {"key": "sydney", "short": "Sydney", "brand": "Sydney Harbour Fetch", "url": "/sydney/", "tz": "Australia/Sydney"}];(function(){
+<script>window.WF_CITY={"key": "bayarea", "path": "", "brand": "The Bay Area Weekend Fetch", "short": "Bay Area", "near": "the Bay Area", "h1": "The Bay Area <span class=\"nb\">Weekend Fetch</span>", "coast": "coast.json", "banner": "banner.svg", "tz": "America/Los_Angeles", "units": "mi", "dists": [15, 30, 60], "country": "us", "home": {"name": "Mountain View", "lat": 37.3861, "lon": -122.0839}, "far": {"lat": 37.2, "lon": -122.0, "mi": 120}, "near_home_span": 11, "map_start": "Bay Area", "presets": [["Bay Area", 37.68, -122.25, 58], ["San Francisco", 37.783, -122.43, 8], ["Peninsula", 37.56, -122.27, 24], ["Near home", null, null, 11], ["San Jose", 37.33, -121.89, 6], ["Santa Cruz", 36.975, -122.0, 10], ["Monterey & Carmel", 36.59, -121.9, 10], ["Marin", 37.95, -122.55, 22], ["Napa & Sonoma", 38.38, -122.5, 42], ["Everything"]], "labels": [["San Francisco", 37.745, -122.47], ["Daly City", 37.675, -122.48], ["San Mateo", 37.535, -122.33], ["Redwood City", 37.47, -122.25], ["Palo Alto", 37.425, -122.17], ["San Jose", 37.36, -121.92], ["Half Moon Bay", 37.44, -122.43], ["Oakland", 37.83, -122.23], ["Pacific Ocean", 37.25, -122.55, 1], ["SF Bay", 37.6, -122.25, 1], ["Santa Cruz", 37.0, -122.02], ["Capitola", 36.99, -121.95], ["Watsonville", 36.92, -121.77], ["Monterey Bay", 36.8, -122.0, 1], ["Monterey", 36.6, -121.86], ["Pacific Grove", 36.635, -121.93], ["Carmel", 36.545, -121.9], ["Salinas", 36.68, -121.66], ["Sausalito", 37.86, -122.49], ["Tiburon", 37.885, -122.44], ["San Rafael", 37.975, -122.53], ["Mill Valley", 37.91, -122.56], ["Point Reyes", 38.07, -122.84], ["Petaluma", 38.235, -122.64], ["Sonoma", 38.29, -122.46], ["Napa", 38.3, -122.29], ["Santa Rosa", 38.44, -122.71], ["Healdsburg", 38.61, -122.87], ["Calistoga", 38.58, -122.58], ["St. Helena", 38.505, -122.47]], "regions": [["monterey", null, 36.85, null, null], ["santa_cruz", null, 37.12, null, -121.6], ["east_bay", 37.83, null, -122.33, null], ["north_bay", 37.83, null, null, null], ["sf", 37.7, null, null, -122.35], ["east_bay", 37.6, null, -122.33, null], ["peninsula", 37.43, null, null, null], ["peninsula", null, null, null, -122.25], ["south_bay"]]};</script>
+<!--citysw--><script>window.WF_CITIES=[{"key": "bayarea", "short": "Bay Area", "near": "the Bay Area", "brand": "The Bay Area Weekend Fetch", "url": "/", "tz": "America/Los_Angeles"}, {"key": "sydney", "short": "Sydney", "near": "Sydney", "brand": "Sydney Harbour Fetch", "url": "/sydney/", "tz": "Australia/Sydney"}];(function(){
 /* City switch (website only; build_app.py leaves it out of the Bay Area-only iPhone app).
    Picking a city remembers it in localStorage "wf-city" (one key for the whole site), so the site root opens that city next time.
    A first-time visitor whose time zone is in another city's part of the world gets a one-time suggestion to switch. */
@@ -356,7 +365,7 @@ function suggest(){
   if (!other) return;
   var hdr = document.getElementById('hdr'); if (!hdr) return;
   var bar = document.createElement('div'); bar.className = 'citytip'; bar.setAttribute('role', 'status');
-  bar.innerHTML = '<span>Looks like you’re near ' + other.short + '. See <b>' + other.brand + '</b>?</span>'
+  bar.innerHTML = '<span>Looks like you’re near ' + (other.near || other.short) + '. See <b>' + other.brand + '</b>?</span>'
     + '<a class="go" href="' + other.url + '" data-city="' + other.key + '">Switch</a>'
     + '<button type="button" aria-label="No thanks">✕</button>';
   bar.querySelector('button').onclick = function(){ set('wf-city-asked', '1'); bar.remove(); };
@@ -532,18 +541,20 @@ function pickBox(key, list, kind, a, b){
 }
 function likesBox(){
   if (state.view==="our-list") return "";
-  if (!state.likesOpen) return `<button class="likesbar" data-likesopen><span>✓ ${likesOff.size ? `My interests · hiding ${likesOff.size}` : "Pick your interests"}</span><span class="lb-r">${likesOff.size?"Edit":"Optional"} ▾</span></button>`;
+  if (!state.likesOpen) return "";   // opened from Filter events › My interests (kept off the main screen to keep it calm)
   return `<div class="likesbox"><div class="lb-h"><strong>${likesSet?"Your interests":"What are you into?"}</strong><button class="linkbtn" data-likesdone>Close ▴</button></div><p class="ournote">Say no to anything you'd rather not see, and it's hidden from Events and the Map. You can change this any time under Filter events.</p>
   <div class="likes">${LIKES.map(([k,t])=>{ const on=!likesOff.has(k); return `<div class="like"><i class="dot" style="background:${CATS[k].color}"></i><span>${t}</span><div class="yn" role="group" aria-label="${esc(t)}"><button data-like="${k}" data-v="1" aria-pressed="${on}">Yes</button><button data-like="${k}" data-v="0" aria-pressed="${!on}">No</button></div></div>`; }).join("")}</div>
   <div class="btnrow"><button class="copybtn" data-likesdone>Done · show ${DATA.filter(e=>!isPast(e)&&!likesOff.has(likeKey(e.cat))).length} events</button>${likesOff.size?`<button class="copybtn alt" data-likesall>Show everything</button>`:""}</div></div>`;
 }
+const FREE_SEG = /^(free|free entry|free admission|free drop-in|free walk-in)$/i;
+const metaText = e => e.price==="free" ? (e.meta||"").split(" · ").filter(s=>!FREE_SEG.test(s.trim())).join(" · ") : (e.meta||"");
 function cardHTML(e, gone, extra, cls){
   const c = CATS[e.cat] || CATS.evt;
   const mine = starredByMe(e.id);
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
-    <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(e.meta)}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
+    <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(metaText(e))}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 const DISTS = [[0,"Any distance"], ...CITY.dists.map(d=>[d, d+" "+UNIT])];
@@ -705,7 +716,7 @@ function planGroups(cur){
     }
     if (e.cat==="prog"){ dl.push(e); continue; }
     if (e.cat==="walk"){ any.push(e); continue; }
-    if (isLong(e) && W.some(w=>daysOf(e,w.fri,w.sun).some(x=>parseD(x)>=TODAY))){ flex.push(e); continue; }
+    if ((isLong(e) || isWeeklyMkt(e)) && W.some(w=>daysOf(e,w.fri,w.sun).some(x=>parseD(x)>=TODAY))){ flex.push(e); continue; }
     let placed = false;
     // only days from today on can be locked in (on a Saturday, this weekend's Friday is already over)
     groups.forEach(g=>{ const ds = daysOf(e,g.w.fri,g.w.sun).filter(x=>parseD(x)>=TODAY); if (ds.length && !isLong(e)){ g.maybe.push({e,opts:ds}); placed = true; } });
@@ -747,8 +758,8 @@ function weekendHTML(g, W){
   let h = ``+band(g.id,esc(g.title),`${esc(g.sub)} · ${n?`<strong class="lockc">${n} locked in</strong>`:"nothing locked in"}${m?` · ${m} maybe${m===1?"":"s"}`:""}`, g.wk?WKC[g.i]:null);
   h += `<div class="sched">` + keys.filter(k=>parseD(k)>=TODAY).map(k=>{
     const d = parseD(k), list = g.days[k];
-    const head = `<div class="sched-d${list.length?"":" free"}"><span>${DAYF[d.getDay()]} ${MON[d.getMonth()]} ${d.getDate()}</span>${list.length?"":`<em>Free</em>`}</div>`;
-    return head + list.map(({e})=>planRow(e,lockedCtl(e,k,isLong(e)?allWkOpts(e,W):daysOf(e,g.w.fri,g.w.sun).filter(x=>parseD(x)>=TODAY)),k)).join("");
+    const head = `<div class="sched-d${list.length?"":" free"}"><span>${DAYF[d.getDay()]} ${MON[d.getMonth()]} ${d.getDate()}</span>${list.length?"":`<em>Nothing planned</em>`}</div>`;
+    return head + list.map(({e})=>planRow(e,lockedCtl(e,k,isLong(e)||isWeeklyMkt(e)?allWkOpts(e,W):daysOf(e,g.w.fri,g.w.sun).filter(x=>parseD(x)>=TODAY)),k)).join("");
   }).join("") + `</div>`;
   if (m) h += `<div class="plan-h">Maybe this weekend</div>` + g.maybe.map(({e,opts})=>planRow(e,planCtl(e,opts))).join("");
   return h;
@@ -812,7 +823,7 @@ try { const s = JSON.parse(localStorage.getItem("wf-vb2")); if (s && s.length===
 let starOnly = false;
 function mapHTML(){
   return `<div class="zoombar">${Object.keys(PRESETS).map(k=>`<button class="zbtn" data-preset="${k}">${k}</button>`).join("")}<button class="zbtn" data-staronly aria-pressed="${starOnly}">★ Starred only</button></div>
-  <div class="mapwrap" id="mapwrap" style="aspect-ratio:${MAP_W}/${MAP_H}"><svg id="map" role="img" aria-label="Map of event locations from San Francisco to Carmel"></svg>
+  <div class="mapwrap" id="mapwrap" style="aspect-ratio:${MAP_W}/${MAP_H}"><svg id="map" role="img" aria-label="Map of event locations around ${esc(CITY.short)}"></svg>
   <div class="zctl"><button data-zoom="0.6" aria-label="Zoom in">+</button><button data-zoom="1.6" aria-label="Zoom out">−</button></div></div>
   <div class="legend">${Object.keys(CATS).map(k=>`<span><i style="background:${CATS[k].color}"></i>${CATS[k].label}</span>`).join("")}<span><i style="background:#fff;border:3px solid #B9531F;width:12px;height:12px"></i>Home</span><span><i style="background:#FFD54A;border:2px solid #1B2430"></i>Starred</span></div>
   <div class="note">Tap a pin to see the event. Drag to pan, pinch or use +/− to zoom. Pins are approximate.</div>
@@ -822,7 +833,7 @@ function drawMap(){
   const svg = document.getElementById("map"); if(!svg) return;
   const pxPer = svg.clientWidth ? vb[2]/svg.clientWidth : 1;
   const r = 11*pxPer, fs = 11*pxPer;
-  const items = filtered().filter(e=>e.lat!=null && (!starOnly || starredIds().includes(e.id)));
+  const items = filtered().filter(e=>e.lat!=null && !isPast(e) && (!starOnly || starredIds().includes(e.id)));
   const groups = {};
   items.forEach(e=>{ const k=e.lat.toFixed(3)+","+e.lon.toFixed(3); (groups[k]=groups[k]||[]).push(e); });
   let pins = "";
@@ -846,7 +857,7 @@ function drawMap(){
 function showSheet(){
   const s = document.getElementById("sheet"); if(!s) return;
   const e = DATA.find(d=>d.id===state.sel);
-  s.innerHTML = e ? cardHTML(e) : "";
+  s.innerHTML = e ? cardHTML(e,false,"","onmap") : "";
   // on a phone the card sits below the map: bring it into view
   if (e){ const r = s.getBoundingClientRect(); if (r.top > innerHeight - 120) s.scrollIntoView({block:"nearest", behavior:"smooth"}); }
 }
@@ -907,6 +918,7 @@ function gpsHome(){
     () => { state.homeMsg = "Location wasn't shared. You can type an address instead."; render(); }, {timeout:15000, maximumAge:600000});
 }
 /* ---------- render ---------- */
+(()=>{ const u = document.getElementById("upd"), m = String(WF.updated||"").match(/^Updated\s+(\w{3})\w*,?\s+(.+?)(,?\s*\d{4})?\s*(·|$)/); if (u && m) u.textContent = `Updated ${m[1]} ${m[2]}`; })();
 function updateCount(){ const n = starredIds().length; document.getElementById("savedCount").textContent = n ? `(${n})` : ""; }
 let lastEmptySig = "";
 function noteEmpty(){

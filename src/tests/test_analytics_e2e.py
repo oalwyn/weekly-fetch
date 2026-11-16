@@ -52,8 +52,8 @@ try:
         ok('secret123' not in json.dumps(r) and 'a@b' not in json.dumps(r), '[13] token and email from the address are not stored')
         anon1 = r[0]['anon_id']; ok(bool(anon1) and not r[0]['signed_in'], 'signed-out record has a device code, no account')
         # [4] local star
-        first = A.get_attribute('article.card [data-star]', 'data-star')
-        A.click(f'article.card [data-star="{first}"]'); A.wait_for_timeout(800)
+        first = A.get_attribute('article.card:not(.inbox) [data-star]', 'data-star')
+        A.click(f'article.card:not(.inbox) [data-star="{first}"]'); A.wait_for_timeout(800)
         st = [x for x in recs() if x['event_name'] == 'event_starred']
         ok(len(st) == 1 and st[0]['evidence'] == 'client_observed' and st[0]['item_id'] == first and st[0]['placement'] == 'event_card' and st[0]['category'],
            '[1][4] one tap → one event_starred, reported by the device, with placement and category')
@@ -90,8 +90,8 @@ try:
         # [1] group star: exactly one record, from the server
         A.click('[data-acct=close]') if A.is_visible('[data-acct=close]') else None
         A.click('button[data-view="events"]'); A.wait_for_timeout(500)
-        second = A.evaluate("[...document.querySelectorAll('article.card [data-star]')].map(b=>b.dataset.star).find(i=>i!==%s)" % json.dumps(first))
-        A.click(f'article.card [data-star="{second}"]'); A.wait_for_timeout(1500)
+        second = A.evaluate("[...document.querySelectorAll('article.card:not(.inbox) [data-star]')].map(b=>b.dataset.star).find(i=>i!==%s)" % json.dumps(first))
+        A.click(f'article.card:not(.inbox) [data-star="{second}"]'); A.wait_for_timeout(1500)
         gs = [x for x in recs() if x['event_name'] == 'event_starred' and x['item_id'] == second]
         ok(len(gs) == 1 and gs[0]['evidence'] == 'server_confirmed' and gs[0]['in_group'] and gs[0]['placement'] == 'event_card' and gs[0]['category'],
            '[1] one group star → exactly one server-confirmed record with placement and category')
@@ -120,9 +120,9 @@ try:
         # ---- [14] analytics down: the app still works ----
         e14 = []
         C = person(b, e14, fail_analytics=True); C.goto(SITE + '/#events'); C.wait_for_timeout(1000)
-        sid = C.get_attribute('article.card [data-star]', 'data-star')
-        C.click(f'article.card [data-star="{sid}"]'); C.wait_for_timeout(600)
-        ok(C.get_attribute(f'article.card [data-star="{sid}"]', 'aria-pressed') == 'true' and not e14, '[14] starring works and nothing breaks when analytics fails')
+        sid = C.get_attribute('article.card:not(.inbox) [data-star]', 'data-star')
+        C.click(f'article.card:not(.inbox) [data-star="{sid}"]'); C.wait_for_timeout(600)
+        ok(C.get_attribute(f'article.card:not(.inbox) [data-star="{sid}"]', 'aria-pressed') == 'true' and not e14, '[14] starring works and nothing breaks when analytics fails')
         q = C.evaluate("JSON.parse(localStorage.getItem('wf-aq')||'[]').length")
         ok(q >= 1, 'failed records wait in a small local queue for later (the server ignores repeats)')
         # ---- [15] dashboard: refused for a non-admin, shown for an admin ----

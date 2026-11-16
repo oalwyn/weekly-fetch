@@ -42,7 +42,7 @@ html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,syste
 button{font:inherit;color:inherit;cursor:pointer}
 a{color:var(--blue)}
 .app{max-width:560px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
-header{background:linear-gradient(90deg,rgba(20,48,77,.6) 0%,rgba(20,48,77,.25) 55%,rgba(20,48,77,0) 80%),url(/banner_sydney.svg?v=2) right bottom/cover no-repeat,var(--blue);color:#fff;padding:20px 18px 0}
+header{position:relative;background:linear-gradient(90deg,rgba(20,48,77,.6) 0%,rgba(20,48,77,.25) 55%,rgba(20,48,77,0) 80%),url(/banner_sydney.svg?v=2) right bottom/cover no-repeat,var(--blue);color:#fff;padding:20px 18px 0}
 header h1,header .slogan{text-shadow:0 1px 3px rgba(10,25,40,.55)}
 .kicker{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#DCE7F2}
 h1{margin:4px 0 2px;font-family:'Bricolage Grotesque',Inter,sans-serif;font-weight:800;font-size:30px;line-height:1.05}
@@ -176,6 +176,7 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .card.inrow .when,.card.inrow .title{display:none}
 .plantools{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--mute);margin:10px 6px 0}
 .citysw{position:relative;display:inline-block;margin:0 0 6px;font-size:13px;z-index:30}.citysw summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;background:rgba(20,48,77,.55);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:5px 12px;font-weight:600;min-height:32px;box-sizing:border-box}.citysw summary::-webkit-details-marker{display:none}.citymenu{position:absolute;left:0;top:calc(100% + 6px);background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(10,25,40,.25);padding:6px;min-width:230px}.citymenu a{display:block;padding:10px 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:700;font-size:15px}.citymenu a:hover{background:var(--bg)}.citymenu a[aria-current]{background:var(--bg)}.citymenu a[aria-current]{position:relative;padding-right:34px}.citymenu a[aria-current]::after{content:"✓";color:var(--blue);position:absolute;right:12px;top:50%;transform:translateY(-50%)}.citymenu small{display:block;font-weight:400;color:var(--mute);font-size:12px;margin-top:1px}.citytip{display:flex;align-items:center;gap:10px;background:#FFF4DC;color:var(--ink);padding:10px 16px;font-size:14px;border-bottom:1px solid #F0D9A8}.citytip span{flex:1}.citytip .go{background:var(--blue);color:#fff;border-radius:999px;padding:7px 14px;font-weight:700;text-decoration:none;min-height:34px;box-sizing:border-box;display:inline-flex;align-items:center}.citytip button{border:0;background:transparent;font-size:16px;color:var(--mute);min-width:36px;min-height:36px;cursor:pointer}
+.upd{position:absolute;top:14px;right:16px;font-size:12px;font-weight:600;color:#E3ECF5;text-shadow:0 1px 3px rgba(10,25,40,.6);pointer-events:none}
 .slogan{font-size:15px;font-weight:500;color:#E3ECF5;margin:2px 0 14px;font-style:italic}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .distsel{position:relative;padding:0;display:flex;align-items:center}.distsel select{appearance:none;-webkit-appearance:none;border:0;background:transparent;font:inherit;font-weight:600;color:inherit;padding:8px 30px 8px 14px;min-height:38px;border-radius:999px}
@@ -263,7 +264,14 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .copyarea{width:100%;font:13px/1.5 Inter,sans-serif;border:1px solid #CBD4DD;border-radius:10px;padding:10px;margin-top:4px}
 .zbtn[aria-pressed="true"]{background:#FFD54A;border-color:#1B2430}
 @media (max-width:600px){
-header{padding:12px 16px 0}
+header{padding:10px 16px 0}
+header .slogan{display:none}
+header h1{font-size:22px;margin:0 0 10px}
+header h1 .nb{white-space:normal}
+.tab{height:44px;flex-direction:row;gap:6px}
+.tab[aria-selected="true"]{height:50px}
+.tab .ti{font-size:16px}
+.tab .tw{display:none}
 .kicker{font-size:11px}
 h1{font-size:26px;margin:2px 0 0}
 .sub{font-size:13px;margin:0 0 4px;line-height:1.35}
@@ -318,12 +326,13 @@ main{grid-template-columns:repeat(3,minmax(0,1fr))}
 <div class="app">
 <header id="hdr">
   <!--citysw--><details class="citysw" id="citySw"><summary aria-label="Change city">📍 <span>Sydney</span> <span aria-hidden="true">▾</span></summary><div class="citymenu"><a href="/" data-city="bayarea">Bay Area<small>The Bay Area Weekend Fetch</small></a><a href="/sydney/" data-city="sydney" aria-current="page">Sydney<small>Sydney Harbour Fetch</small></a></div></details><!--/citysw-->
+  <span class="upd" id="upd"></span>
   <h1>Sydney Harbour <span class="nb">Fetch</span></h1>
   <p class="slogan">Get up, get out, go fetch the weekend. 🐾</p>
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" data-view="events" aria-selected="true"><span class="ti">📅</span>Events</button>
     <button class="tab" role="tab" data-view="map" aria-selected="false"><span class="ti">🗺️</span>Map</button>
-    <button class="tab" role="tab" data-view="our-list" aria-selected="false"><span class="ti">⭐</span><span>Our Weekend Plans <span id="savedCount"></span></span></button>
+    <button class="tab" role="tab" data-view="our-list" aria-selected="false"><span class="ti">⭐</span><span>Our <span class="tw">Weekend </span>Plans <span id="savedCount"></span></span></button>
   </div>
 </header>
 <div class="filters" id="filters" aria-label="Filter events"></div>
@@ -332,7 +341,7 @@ main{grid-template-columns:repeat(3,minmax(0,1fr))}
 </div>
 <script>/*city-storage*/(function(){var C="sydney",K={"wf-home":1,"wf-dist":1,"wf-vb2":1,"wf-saved-ids":1,"wf-locks":1,"wf-gid":1,"wf-main":1,"wf-gcache":1,"wf-view2":1,"wf-list":1,"wf-cache":1,"wf-lcache":1,"wf-queue":1,"wf-list-converted":1,"wf-group":1};var P=Storage.prototype,g=P.getItem,s=P.setItem,r=P.removeItem,f=function(k){return K[k]?k+"@"+C:k};P.getItem=function(k){return g.call(this,f(k))};P.setItem=function(k,v){return s.call(this,f(k),v)};P.removeItem=function(k){return r.call(this,f(k))};})();</script>
 <script>window.WF_CITY={"key": "sydney", "path": "sydney", "brand": "Sydney Harbour Fetch", "short": "Sydney", "h1": "Sydney Harbour <span class=\"nb\">Fetch</span>", "coast": "coast_sydney.json", "banner": "banner_sydney.svg", "tz": "Australia/Sydney", "units": "km", "dists": [10, 25, 50], "country": "au", "home": {"name": "Sydney CBD", "lat": -33.8731, "lon": 151.207}, "far": {"lat": -33.87, "lon": 151.05, "mi": 90}, "near_home_span": 7, "map_start": "Greater Sydney", "presets": [["Greater Sydney", -33.87, 151.1, 34], ["City & Harbour", -33.862, 151.215, 5], ["Eastern Beaches", -33.905, 151.255, 6], ["North Shore & Beaches", -33.74, 151.25, 20], ["Near home", null, null, 7], ["Inner West", -33.885, 151.155, 6], ["Parramatta & West", -33.8, 150.95, 22], ["Blue Mountains", -33.7, 150.4, 22], ["Wollongong", -34.4, 150.88, 16], ["Central Coast", -33.42, 151.35, 16], ["Everything"]], "labels": [["Sydney", -33.868, 151.209], ["Parramatta", -33.815, 151.003], ["Manly", -33.797, 151.287], ["Bondi", -33.891, 151.274], ["Coogee", -33.921, 151.257], ["Chatswood", -33.797, 151.181], ["Cronulla", -34.055, 151.152], ["Liverpool", -33.92, 150.923], ["Penrith", -33.751, 150.694], ["Katoomba", -33.714, 150.311], ["Palm Beach", -33.598, 151.324], ["Hornsby", -33.704, 151.099], ["Wollongong", -34.425, 150.893], ["Gosford", -33.425, 151.342], ["Newtown", -33.898, 151.179], ["Tasman Sea", -33.95, 151.42, 1], ["Sydney Harbour", -33.842, 151.245, 1], ["Botany Bay", -34.0, 151.19, 1], ["Broken Bay", -33.565, 151.32, 1]], "regions": [["central_coast", -33.57, null, null, null], ["wollongong", null, -34.2, null, null], ["blue_mountains", null, null, null, 150.64], ["west", null, null, null, 151.09], ["eastern_beaches", null, null, 151.235, null], ["north", -33.852, null, null, null], ["st_george_sutherland", null, -33.95, null, null], ["inner_west", null, null, null, 151.185], ["city"]]};</script>
-<!--citysw--><script>window.WF_CITIES=[{"key": "bayarea", "short": "Bay Area", "brand": "The Bay Area Weekend Fetch", "url": "/", "tz": "America/Los_Angeles"}, {"key": "sydney", "short": "Sydney", "brand": "Sydney Harbour Fetch", "url": "/sydney/", "tz": "Australia/Sydney"}];(function(){
+<!--citysw--><script>window.WF_CITIES=[{"key": "bayarea", "short": "Bay Area", "near": "the Bay Area", "brand": "The Bay Area Weekend Fetch", "url": "/", "tz": "America/Los_Angeles"}, {"key": "sydney", "short": "Sydney", "near": "Sydney", "brand": "Sydney Harbour Fetch", "url": "/sydney/", "tz": "Australia/Sydney"}];(function(){
 /* City switch (website only; build_app.py leaves it out of the Bay Area-only iPhone app).
    Picking a city remembers it in localStorage "wf-city" (one key for the whole site), so the site root opens that city next time.
    A first-time visitor whose time zone is in another city's part of the world gets a one-time suggestion to switch. */
@@ -354,7 +363,7 @@ function suggest(){
   if (!other) return;
   var hdr = document.getElementById('hdr'); if (!hdr) return;
   var bar = document.createElement('div'); bar.className = 'citytip'; bar.setAttribute('role', 'status');
-  bar.innerHTML = '<span>Looks like you’re near ' + other.short + '. See <b>' + other.brand + '</b>?</span>'
+  bar.innerHTML = '<span>Looks like you’re near ' + (other.near || other.short) + '. See <b>' + other.brand + '</b>?</span>'
     + '<a class="go" href="' + other.url + '" data-city="' + other.key + '">Switch</a>'
     + '<button type="button" aria-label="No thanks">✕</button>';
   bar.querySelector('button').onclick = function(){ set('wf-city-asked', '1'); bar.remove(); };
@@ -530,18 +539,20 @@ function pickBox(key, list, kind, a, b){
 }
 function likesBox(){
   if (state.view==="our-list") return "";
-  if (!state.likesOpen) return `<button class="likesbar" data-likesopen><span>✓ ${likesOff.size ? `My interests · hiding ${likesOff.size}` : "Pick your interests"}</span><span class="lb-r">${likesOff.size?"Edit":"Optional"} ▾</span></button>`;
+  if (!state.likesOpen) return "";   // opened from Filter events › My interests (kept off the main screen to keep it calm)
   return `<div class="likesbox"><div class="lb-h"><strong>${likesSet?"Your interests":"What are you into?"}</strong><button class="linkbtn" data-likesdone>Close ▴</button></div><p class="ournote">Say no to anything you'd rather not see, and it's hidden from Events and the Map. You can change this any time under Filter events.</p>
   <div class="likes">${LIKES.map(([k,t])=>{ const on=!likesOff.has(k); return `<div class="like"><i class="dot" style="background:${CATS[k].color}"></i><span>${t}</span><div class="yn" role="group" aria-label="${esc(t)}"><button data-like="${k}" data-v="1" aria-pressed="${on}">Yes</button><button data-like="${k}" data-v="0" aria-pressed="${!on}">No</button></div></div>`; }).join("")}</div>
   <div class="btnrow"><button class="copybtn" data-likesdone>Done · show ${DATA.filter(e=>!isPast(e)&&!likesOff.has(likeKey(e.cat))).length} events</button>${likesOff.size?`<button class="copybtn alt" data-likesall>Show everything</button>`:""}</div></div>`;
 }
+const FREE_SEG = /^(free|free entry|free admission|free drop-in|free walk-in)$/i;
+const metaText = e => e.price==="free" ? (e.meta||"").split(" · ").filter(s=>!FREE_SEG.test(s.trim())).join(" · ") : (e.meta||"");
 function cardHTML(e, gone, extra, cls){
   const c = CATS[e.cat] || CATS.evt;
   const mine = starredByMe(e.id);
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
-    <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(e.meta)}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
+    <div><div class="when">${esc(e.when)}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(metaText(e))}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 const DISTS = [[0,"Any distance"], ...CITY.dists.map(d=>[d, d+" "+UNIT])];
@@ -703,7 +714,7 @@ function planGroups(cur){
     }
     if (e.cat==="prog"){ dl.push(e); continue; }
     if (e.cat==="walk"){ any.push(e); continue; }
-    if (isLong(e) && W.some(w=>daysOf(e,w.fri,w.sun).some(x=>parseD(x)>=TODAY))){ flex.push(e); continue; }
+    if ((isLong(e) || isWeeklyMkt(e)) && W.some(w=>daysOf(e,w.fri,w.sun).some(x=>parseD(x)>=TODAY))){ flex.push(e); continue; }
     let placed = false;
     // only days from today on can be locked in (on a Saturday, this weekend's Friday is already over)
     groups.forEach(g=>{ const ds = daysOf(e,g.w.fri,g.w.sun).filter(x=>parseD(x)>=TODAY); if (ds.length && !isLong(e)){ g.maybe.push({e,opts:ds}); placed = true; } });
@@ -745,8 +756,8 @@ function weekendHTML(g, W){
   let h = ``+band(g.id,esc(g.title),`${esc(g.sub)} · ${n?`<strong class="lockc">${n} locked in</strong>`:"nothing locked in"}${m?` · ${m} maybe${m===1?"":"s"}`:""}`, g.wk?WKC[g.i]:null);
   h += `<div class="sched">` + keys.filter(k=>parseD(k)>=TODAY).map(k=>{
     const d = parseD(k), list = g.days[k];
-    const head = `<div class="sched-d${list.length?"":" free"}"><span>${DAYF[d.getDay()]} ${MON[d.getMonth()]} ${d.getDate()}</span>${list.length?"":`<em>Free</em>`}</div>`;
-    return head + list.map(({e})=>planRow(e,lockedCtl(e,k,isLong(e)?allWkOpts(e,W):daysOf(e,g.w.fri,g.w.sun).filter(x=>parseD(x)>=TODAY)),k)).join("");
+    const head = `<div class="sched-d${list.length?"":" free"}"><span>${DAYF[d.getDay()]} ${MON[d.getMonth()]} ${d.getDate()}</span>${list.length?"":`<em>Nothing planned</em>`}</div>`;
+    return head + list.map(({e})=>planRow(e,lockedCtl(e,k,isLong(e)||isWeeklyMkt(e)?allWkOpts(e,W):daysOf(e,g.w.fri,g.w.sun).filter(x=>parseD(x)>=TODAY)),k)).join("");
   }).join("") + `</div>`;
   if (m) h += `<div class="plan-h">Maybe this weekend</div>` + g.maybe.map(({e,opts})=>planRow(e,planCtl(e,opts))).join("");
   return h;
@@ -810,7 +821,7 @@ try { const s = JSON.parse(localStorage.getItem("wf-vb2")); if (s && s.length===
 let starOnly = false;
 function mapHTML(){
   return `<div class="zoombar">${Object.keys(PRESETS).map(k=>`<button class="zbtn" data-preset="${k}">${k}</button>`).join("")}<button class="zbtn" data-staronly aria-pressed="${starOnly}">★ Starred only</button></div>
-  <div class="mapwrap" id="mapwrap" style="aspect-ratio:${MAP_W}/${MAP_H}"><svg id="map" role="img" aria-label="Map of event locations from San Francisco to Carmel"></svg>
+  <div class="mapwrap" id="mapwrap" style="aspect-ratio:${MAP_W}/${MAP_H}"><svg id="map" role="img" aria-label="Map of event locations around ${esc(CITY.short)}"></svg>
   <div class="zctl"><button data-zoom="0.6" aria-label="Zoom in">+</button><button data-zoom="1.6" aria-label="Zoom out">−</button></div></div>
   <div class="legend">${Object.keys(CATS).map(k=>`<span><i style="background:${CATS[k].color}"></i>${CATS[k].label}</span>`).join("")}<span><i style="background:#fff;border:3px solid #B9531F;width:12px;height:12px"></i>Home</span><span><i style="background:#FFD54A;border:2px solid #1B2430"></i>Starred</span></div>
   <div class="note">Tap a pin to see the event. Drag to pan, pinch or use +/− to zoom. Pins are approximate.</div>
@@ -820,7 +831,7 @@ function drawMap(){
   const svg = document.getElementById("map"); if(!svg) return;
   const pxPer = svg.clientWidth ? vb[2]/svg.clientWidth : 1;
   const r = 11*pxPer, fs = 11*pxPer;
-  const items = filtered().filter(e=>e.lat!=null && (!starOnly || starredIds().includes(e.id)));
+  const items = filtered().filter(e=>e.lat!=null && !isPast(e) && (!starOnly || starredIds().includes(e.id)));
   const groups = {};
   items.forEach(e=>{ const k=e.lat.toFixed(3)+","+e.lon.toFixed(3); (groups[k]=groups[k]||[]).push(e); });
   let pins = "";
@@ -844,7 +855,7 @@ function drawMap(){
 function showSheet(){
   const s = document.getElementById("sheet"); if(!s) return;
   const e = DATA.find(d=>d.id===state.sel);
-  s.innerHTML = e ? cardHTML(e) : "";
+  s.innerHTML = e ? cardHTML(e,false,"","onmap") : "";
   // on a phone the card sits below the map: bring it into view
   if (e){ const r = s.getBoundingClientRect(); if (r.top > innerHeight - 120) s.scrollIntoView({block:"nearest", behavior:"smooth"}); }
 }
@@ -905,6 +916,7 @@ function gpsHome(){
     () => { state.homeMsg = "Location wasn't shared. You can type an address instead."; render(); }, {timeout:15000, maximumAge:600000});
 }
 /* ---------- render ---------- */
+(()=>{ const u = document.getElementById("upd"), m = String(WF.updated||"").match(/^Updated\s+(\w{3})\w*,?\s+(.+?)(,?\s*\d{4})?\s*(·|$)/); if (u && m) u.textContent = `Updated ${m[1]} ${m[2]}`; })();
 function updateCount(){ const n = starredIds().length; document.getElementById("savedCount").textContent = n ? `(${n})` : ""; }
 let lastEmptySig = "";
 function noteEmpty(){

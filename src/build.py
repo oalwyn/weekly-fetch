@@ -13,7 +13,7 @@ CITIES = []
 for k in CITY_KEYS:
     cc = json.load(open(os.path.join('cities', k + '.json')))
     if not cc['path'] or os.path.exists(os.path.join('..', cc['path'], 'data.js')):
-        CITIES.append({'key': k, 'short': cc['short'], 'brand': cc['brand'], 'url': '/' + (cc['path'] + '/' if cc['path'] else ''), 'tz': cc['tz']})
+        CITIES.append({'key': k, 'short': cc['short'], 'near': cc.get('near', cc['short']), 'brand': cc['brand'], 'url': '/' + (cc['path'] + '/' if cc['path'] else ''), 'tz': cc['tz']})
 def city_switch(cfg):
     """Header city switch, the city-suggestion script and (site root only) the remembered-city redirect.
     Wrapped in <!--citysw--> so build_app.py can leave it out of the Bay Area-only iPhone app."""

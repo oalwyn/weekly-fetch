@@ -76,7 +76,7 @@ So always `git pull` before working, and don't hand-edit `data.js` in ways the r
 
 ## Engagement and search (Nov 14, 2026)
 - Usage counts go to `usage_events` through the `log_event` RPC (accounts.js `logEvent`; links carry `data-k`/`data-ev`). Kinds added in `supabase/v1.2-usage.sql` (applied): outbound_tickets, outbound_showtimes, filter, interests, app_store. Report: `supabase/reports/engagement.sql` (run in Supabase SQL editor). Any new kind must be added to the check constraint first, and listed in privacy.html.
-- Website-only extras in build_gh.py: SEO meta/Open Graph/JSON-LD, the "Get the free iPhone app" bar (`<!--appbar-->`, stripped by build_app.py with the `apple-itunes-app` tag). `robots.txt`, `sitemap.xml`, IndexNow key file `ededfd8e14023c622cfe6135cd6389ca.txt` (Bing etc.).
+- Website-only extras in build_gh.py: SEO meta/Open Graph/JSON-LD, the "Get the free iPhone app" bar (`<!--appbar-->`, stripped by build_app.py with the `apple-itunes-app` tag); since Nov 16, 2026 it is hidden on a first visit (localStorage `wf-visits`) and in iPhone Safari, which shows Apple's own banner). `robots.txt`, `sitemap.xml`, IndexNow key file `ededfd8e14023c622cfe6135cd6389ca.txt` (Bing etc.).
 - Google Search Console and Bing Webmaster Tools verified Nov 14, 2026 by meta tags in build_gh.py (`google-site-verification`, `msvalidate.01`): never remove them. Sitemaps submitted to both.
 - Google Analytics 4 (property "The Bay Area Weekend Fetch" 564352091 in the owner's GA account "Cazavera", measurement ID G-HS0P25R6JR), website only: `<!--ga-->` block in build_gh.py (stripped from the app by build_app.py). Google signals and ad personalization off; not loaded under GPC/Do Not Track. `logEvent` also sends each event to GA. Linked to Search Console. Described in privacy.html; adding GA to the app would need new App Store privacy answers.
 - data.js/walks.js load with a 5-minute `?v=` tag (`/*wf-data*/` loader in build_gh.py; build_app.py swaps it for the app loader).
@@ -85,6 +85,11 @@ So always `git pull` before working, and don't hand-edit `data.js` in ways the r
 ## Commit conventions
 `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit`, with the message ending in:
 `Co-Authored-By: Claude <noreply@anthropic.com>`
+
+## Calm-UI decisions (Nov 16, 2026, from a UX review)
+- Weekly markets (`isWeeklyMkt`) and new movies show as one dropdown box per weekend (`pickBox` in app.js); in Plans, weekly markets are a single "Pick a day" row.
+- No "Pick your interests" bar on Events/Map (it opens from Filter › My interests). Card numbers (#25) show only on the map card. A "free" segment in `meta` is hidden when the Free pill shows. Header on phones: no slogan, one-line title, short tabs ("Our Plans"), "Updated <date>" top right.
+- Next ideas from that review (not done): top picks per weekend with "Show all", compact cards, search, quick filters (Free/Dog/Sat/Sun), map "This weekend" switch, Plans with stars first.
 
 ## Gotchas learned the hard way
 - When inserting CSS by string replacement, make sure the anchor isn't inside another selector list (this once broke `header h1,header .slogan`).
