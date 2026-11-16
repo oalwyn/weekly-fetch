@@ -1,9 +1,9 @@
 window.WF_DATA = {
- "updated": "Updated Saturday, Nov 14, 2026 · this week + the next two months",
+ "updated": "Updated Monday, Nov 16, 2026 · this week + the next two months",
  "sections": [
   [
    "week",
-   "This week · Nov 14–22"
+   "This week · Nov 16–22"
   ],
   [
    "late-nov",
@@ -45,53 +45,6 @@ window.WF_DATA = {
  "items": [
   {
    "n": 1,
-   "id": "palo-alto-players-addams-family-2026",
-   "sec": "week",
-   "when": "through Sun Nov 15 · Sat 7:30pm, Sun 2pm",
-   "title": "The Addams Family (Palo Alto Players)",
-   "meta": "Lucie Stern Theatre, Palo Alto · musical · from $24 · closing weekend",
-   "cat": "show",
-   "price": "tickets",
-   "lat": 37.4423,
-   "lon": -122.1468,
-   "q": "Lucie Stern Theatre, 1305 Middlefield Rd, Palo Alto",
-   "start": "2026-10-30",
-   "end": "2026-11-15"
-  },
-  {
-   "n": 2,
-   "id": "stanford-live-bob-marley-reggae-2026",
-   "sec": "week",
-   "when": "through Sun Nov 15",
-   "title": "Bob Marley: How Reggae Changed the World",
-   "meta": "The Studio at Bing Concert Hall, Stanford · Stanford Live · with Duane Forrest",
-   "cat": "show",
-   "url": "https://live.stanford.edu/events/26-27season/studio/bob-marley/",
-   "price": "tickets",
-   "lat": 37.4321,
-   "lon": -122.1655,
-   "q": "Bing Concert Hall, Stanford",
-   "start": "2026-11-11",
-   "end": "2026-11-15"
-  },
-  {
-   "n": 3,
-   "id": "asian-art-museum-holiday-artisan-market",
-   "sec": "week",
-   "when": "Nov 13–15 · 10am–5:30pm",
-   "title": "Asian Art Museum Holiday Artisan Market",
-   "meta": "Civic Center, SF · free",
-   "cat": "mkt",
-   "url": "https://calendar.asianart.org/event/holiday-artisan-market-2026/",
-   "price": "free",
-   "lat": 37.7802,
-   "lon": -122.4162,
-   "q": "Asian Art Museum San Francisco",
-   "start": "2026-11-13",
-   "end": "2026-11-15"
-  },
-  {
-   "n": 4,
    "id": "san-jose-holiday-lights",
    "sec": "week",
    "when": "Opens Fri Nov 13",
@@ -107,44 +60,7 @@ window.WF_DATA = {
    "end": "2027-01-01"
   },
   {
-   "n": 5,
-   "id": "film-ebenezer-2026",
-   "sec": "week",
-   "when": "Opens Fri Nov 13",
-   "title": "Ebenezer",
-   "meta": "In theaters · PG-13 · gothic Christmas Carol retelling (Johnny Depp, dir. Ti West) · 1h 56m",
-   "cat": "film",
-   "url": "https://www.paramountplus.com/sneak-peak/ebenezer-everything-you-need-to-know/",
-   "price": "tickets",
-   "start": "2026-11-13",
-   "end": "2026-11-15"
-  },
-  {
-   "n": 6,
-   "id": "film-how-to-rob-a-bank-2026",
-   "sec": "week",
-   "when": "Opens Fri Nov 13",
-   "title": "How to Rob a Bank",
-   "meta": "In theaters · R · heist thriller (Nicholas Hoult, Zoë Kravitz)",
-   "cat": "film",
-   "price": "tickets",
-   "start": "2026-11-13",
-   "end": "2026-11-15"
-  },
-  {
-   "n": 7,
-   "id": "film-victorian-psycho-2026",
-   "sec": "week",
-   "when": "Opens Fri Nov 13",
-   "title": "Victorian Psycho",
-   "meta": "In theaters · R · period horror thriller (Maika Monroe) · 1h 30m",
-   "cat": "film",
-   "price": "tickets",
-   "start": "2026-11-13",
-   "end": "2026-11-15"
-  },
-  {
-   "n": 8,
+   "n": 2,
    "id": "san-mateo-on-ice-tree-lighting-opening-night",
    "sec": "week",
    "when": "Daily through Sun Jan 10",
@@ -160,7 +76,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 9,
+   "n": 3,
    "id": "holidays-at-filoli",
    "sec": "week",
    "when": "Opens Sat Nov 14",
@@ -176,135 +92,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 10,
-   "id": "cubberley-artist-open-studios",
-   "sec": "week",
-   "when": "Sat Nov 14 · 1–5pm",
-   "title": "Cubberley Artist Open Studios",
-   "meta": "4000 Middlefield Rd, Palo Alto · Free",
-   "cat": "art",
-   "url": "https://www.paloalto.gov/Events-Directory/Community-Services/Cubberley-Artist-Studio-Program-Open-Studios",
-   "price": "free",
-   "lat": 37.4093,
-   "lon": -122.1096,
-   "q": "Cubberley Community Center Palo Alto",
-   "start": "2026-11-14",
-   "end": "2026-11-14"
-  },
-  {
-   "n": 11,
-   "id": "renegade-craft-holiday-fair",
-   "sec": "week",
-   "when": "Nov 14–15 · 11am–5pm",
-   "title": "Renegade Craft Holiday Fair",
-   "meta": "Fort Mason, SF · 250+ makers · $5 suggested",
-   "cat": "mkt",
-   "url": "https://www.renegadecraft.com/event/san-francisco-winter/",
-   "price": "free",
-   "lat": 37.8063,
-   "lon": -122.4321,
-   "q": "Fort Mason Center Festival Pavilion",
-   "start": "2026-11-14",
-   "end": "2026-11-15"
-  },
-  {
-   "n": 12,
-   "id": "sf-tea-festival",
-   "sec": "week",
-   "when": "Nov 14–15",
-   "title": "SF Tea Festival",
-   "meta": "Ferry Building · tastings from 30+ vendors · From $24",
-   "cat": "food",
-   "url": "https://sfitf.com/",
-   "price": "tickets",
-   "tix": "https://sfitf.com/tickets",
-   "lat": 37.7955,
-   "lon": -122.3937,
-   "q": "Ferry Building San Francisco",
-   "start": "2026-11-14",
-   "end": "2026-11-15"
-  },
-  {
-   "n": 13,
-   "id": "rocket-dog-rescue-adoption-foster-day",
-   "sec": "week",
-   "when": "Sat Nov 14",
-   "title": "Rocket Dog Rescue adoption & foster day",
-   "meta": "When Modern Was, SF · Free · second Saturday monthly",
-   "cat": "dog",
-   "url": "https://www.rocketdogrescue.org/events/",
-   "price": "free",
-   "lat": 37.762,
-   "lon": -122.468,
-   "q": "When Modern Was San Francisco",
-   "start": "2026-11-14",
-   "end": "2026-11-14"
-  },
-  {
-   "n": 14,
-   "id": "singing-in-the-park-community-party",
-   "sec": "week",
-   "when": "Sat Nov 14 · 10:30am",
-   "title": "\"Singing in the Park\" community party",
-   "meta": "Golden Gate Park · Free",
-   "cat": "evt",
-   "price": "free",
-   "lat": 37.7704,
-   "lon": -122.4687,
-   "q": "Golden Gate Park Music Concourse",
-   "start": "2026-11-14",
-   "end": "2026-11-14"
-  },
-  {
-   "n": 15,
-   "id": "museum-of-the-african-diaspora-free-day",
-   "sec": "week",
-   "when": "Sat Nov 14 · 11am–5pm",
-   "title": "Museum of the African Diaspora free day",
-   "meta": "685 Mission St, SF · Free",
-   "cat": "art",
-   "url": "https://www.moadsf.org/event/free-admission-day-kp-thrive-moad",
-   "price": "free",
-   "lat": 37.7865,
-   "lon": -122.4013,
-   "q": "Museum of the African Diaspora",
-   "start": "2026-11-14",
-   "end": "2026-11-14"
-  },
-  {
-   "n": 16,
-   "id": "stanley-clarke-ron-carter",
-   "sec": "week",
-   "when": "Sat Nov 14 · 7:30pm",
-   "title": "Stanley Clarke & Ron Carter",
-   "meta": "SFJAZZ Center, San Francisco · two jazz bass legends · from $80, almost sold out",
-   "cat": "show",
-   "url": "https://www.sfjazz.org/tickets/productions/26-27/stanley-clarke-and-ron-carter/",
-   "price": "tickets",
-   "lat": 37.7764,
-   "lon": -122.4216,
-   "q": "SFJAZZ Center",
-   "start": "2026-11-14",
-   "end": "2026-11-14"
-  },
-  {
-   "n": 17,
-   "id": "rodrigo-y-gabriela",
-   "sec": "week",
-   "when": "Sat Nov 14",
-   "title": "Rodrigo y Gabriela",
-   "meta": "San Jose Civic · acoustic guitar duo",
-   "cat": "show",
-   "url": "https://sanjosetheaters.org/event/rodrigo-y-gabriela-2026/",
-   "price": "tickets",
-   "lat": 37.3305,
-   "lon": -121.8885,
-   "q": "San Jose Civic",
-   "start": "2026-11-14",
-   "end": "2026-11-14"
-  },
-  {
-   "n": 18,
+   "n": 4,
    "id": "mv-teen-open-gym",
    "sec": "week",
    "when": "Saturdays · 6:30–9:30pm",
@@ -323,7 +111,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 19,
+   "n": 5,
    "id": "union-square-ice-rink-2026",
    "sec": "week",
    "when": "Daily through Jan 18 · 10am–11pm",
@@ -339,7 +127,7 @@ window.WF_DATA = {
    "end": "2027-01-18"
   },
   {
-   "n": 20,
+   "n": 6,
    "id": "chm-extended-reality-2026",
    "sec": "week",
    "when": "Through Sun Mar 28 · Wed–Sun 10am–5pm",
@@ -355,7 +143,7 @@ window.WF_DATA = {
    "end": "2027-03-28"
   },
   {
-   "n": 21,
+   "n": 7,
    "id": "cantor-in-focus-asian-american-art-2026",
    "sec": "week",
    "when": "Through Mon Feb 22",
@@ -371,7 +159,7 @@ window.WF_DATA = {
    "end": "2027-02-22"
   },
   {
-   "n": 22,
+   "n": 8,
    "id": "sjma-motherboards-2026",
    "sec": "week",
    "when": "Through Sun Jan 10",
@@ -387,7 +175,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 23,
+   "n": 9,
    "id": "sjma-small-ocean-swallowed-2026",
    "sec": "week",
    "when": "Through Sun Feb 14",
@@ -403,7 +191,7 @@ window.WF_DATA = {
    "end": "2027-02-14"
   },
   {
-   "n": 24,
+   "n": 10,
    "id": "rm-x-sfmoma-2026",
    "sec": "week",
    "when": "Through Sun Feb 7",
@@ -419,7 +207,7 @@ window.WF_DATA = {
    "end": "2027-02-07"
   },
   {
-   "n": 25,
+   "n": 11,
    "id": "de-young-treasures-of-the-pharaohs-2026",
    "sec": "week",
    "when": "Through Sun Jan 31",
@@ -435,7 +223,7 @@ window.WF_DATA = {
    "end": "2027-01-31"
   },
   {
-   "n": 26,
+   "n": 12,
    "id": "mma-rex-ray-retrospective-2026",
    "sec": "week",
    "when": "Through Sun Jan 17",
@@ -451,7 +239,7 @@ window.WF_DATA = {
    "end": "2027-01-17"
   },
   {
-   "n": 27,
+   "n": 13,
    "id": "pacific-grove-monarch-sanctuary-2026",
    "sec": "week",
    "when": "Nov – Jan peak · docents ~11am–3pm",
@@ -467,7 +255,7 @@ window.WF_DATA = {
    "end": "2027-01-31"
   },
   {
-   "n": 28,
+   "n": 14,
    "id": "natural-bridges-monarchs-2026",
    "sec": "week",
    "when": "Through Jan · weekend tours (weather permitting)",
@@ -483,23 +271,7 @@ window.WF_DATA = {
    "end": "2027-01-31"
   },
   {
-   "n": 29,
-   "id": "menlo-park-wine-walk-2026",
-   "sec": "week",
-   "when": "Sat Nov 14",
-   "title": "Menlo Park Wine Walk",
-   "meta": "Santa Cruz Ave, Menlo Park · Santa Cruz Mountains wineries pouring along downtown",
-   "cat": "food",
-   "url": "https://winesofthesantacruzmountains.com/events/menloww/",
-   "price": "tickets",
-   "lat": 37.453,
-   "lon": -122.182,
-   "q": "Santa Cruz Avenue, Menlo Park",
-   "start": "2026-11-14",
-   "end": "2026-11-14"
-  },
-  {
-   "n": 30,
+   "n": 15,
    "id": "the-wizard-of-oz-peninsula-youth-theatre",
    "sec": "week",
    "when": "Nov 15–22",
@@ -515,42 +287,39 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 31,
-   "id": "stanford-womens-basketball-vs-gonzaga-2026-11-15",
+   "n": 16,
+   "id": "palo-alto-art-center-live-the-moment-light-2026",
    "sec": "week",
-   "when": "Sun Nov 15 · 2pm",
-   "title": "Stanford Women's Basketball vs. Gonzaga",
-   "meta": "Maples Pavilion, Stanford · NCAA · women's · on ACCN · tickets",
-   "cat": "sport",
-   "ha": "home",
-   "url": "https://gostanford.com/sports/womens-basketball/schedule",
-   "price": "tickets",
-   "tix": "https://tickets.gostanford.com/",
-   "lat": 37.4302,
-   "lon": -122.1617,
-   "q": "Maples Pavilion, Stanford",
-   "start": "2026-11-15",
-   "end": "2026-11-15"
+   "when": "through Sun Dec 13",
+   "title": "Live the Moment Light (Palo Alto Art Center)",
+   "meta": "Palo Alto Art Center, 1313 Newell Rd, Palo Alto · Corita Kent, Terri Friedman, Soleé Darrell, Angelica Trimble-Yanu · free",
+   "cat": "art",
+   "url": "https://www.paloalto.gov/Departments/Community-Services/Arts-Sciences/Palo-Alto-Art-Center/See-Art/Exhibitions/Current-Exhibitions",
+   "price": "free",
+   "lat": 37.4446,
+   "lon": -122.1475,
+   "q": "Palo Alto Art Center, 1313 Newell Rd, Palo Alto",
+   "start": "2026-11-16",
+   "end": "2026-12-13"
   },
   {
-   "n": 32,
-   "id": "sharks-vs-predators-2026-11-15",
+   "n": 17,
+   "id": "triton-rose-sellery-fragile-strength-2026",
    "sec": "week",
-   "when": "Sun Nov 15 · 6pm",
-   "title": "Sharks vs. Predators",
-   "meta": "SAP Center, San Jose · NHL · men's · tickets",
-   "cat": "sport",
-   "ha": "home",
-   "url": "https://www.nhl.com/sharks/schedule",
-   "price": "tickets",
-   "lat": 37.3327,
-   "lon": -121.901,
-   "q": "SAP Center, San Jose",
-   "start": "2026-11-15",
-   "end": "2026-11-15"
+   "when": "through Sun Jan 3 · artist talk Sat Dec 5",
+   "title": "Rose Sellery: Fragile Strength",
+   "meta": "Triton Museum of Art, 1505 Warburton Ave, Santa Clara · paintings · free admission & parking",
+   "cat": "art",
+   "url": "https://www.tritonmuseum.org/post/rose-sellery-fragile-strength",
+   "price": "free",
+   "lat": 37.3536,
+   "lon": -121.9493,
+   "q": "Triton Museum of Art, Santa Clara",
+   "start": "2026-11-16",
+   "end": "2027-01-03"
   },
   {
-   "n": 33,
+   "n": 18,
    "id": "santa-clara-womens-basketball-vs-grand-canyon-2026-11-17",
    "sec": "week",
    "when": "Tue Nov 17",
@@ -568,7 +337,7 @@ window.WF_DATA = {
    "end": "2026-11-17"
   },
   {
-   "n": 34,
+   "n": 19,
    "id": "san-jose-stage-clue-2026",
    "sec": "week",
    "when": "Nov 18 – Dec 20",
@@ -584,7 +353,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 35,
+   "n": 20,
    "id": "stanford-live-rachel-willis-sorensen-2026",
    "sec": "week",
    "when": "Wed Nov 18 · 7:30pm",
@@ -596,10 +365,11 @@ window.WF_DATA = {
    "lat": 37.4321,
    "lon": -122.1655,
    "q": "Bing Concert Hall, Stanford",
-   "start": "2026-11-18"
+   "start": "2026-11-18",
+   "end": "2026-11-18"
   },
   {
-   "n": 36,
+   "n": 21,
    "id": "exploratorium-glow-2026",
    "sec": "week",
    "when": "Nov 19 – Jan 24",
@@ -615,7 +385,7 @@ window.WF_DATA = {
    "end": "2027-01-24"
   },
   {
-   "n": 37,
+   "n": 22,
    "id": "hillbarn-school-of-rock-2026",
    "sec": "week",
    "when": "Nov 19 – Dec 20",
@@ -631,7 +401,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 38,
+   "n": 23,
    "id": "city-lights-1940s-radio-hour-2026",
    "sec": "week",
    "when": "Nov 19 – Dec 20 · Thu 7:30, Fri–Sat 8, Sun 2",
@@ -647,7 +417,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 39,
+   "n": 24,
    "id": "niles-canyon-train-of-lights",
    "sec": "week",
    "when": "Select nights Nov 20 – Dec 29",
@@ -686,7 +456,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 40,
+   "n": 25,
    "id": "stanford-volleyball-vs-syracuse-2026-11-20",
    "sec": "week",
    "when": "Fri Nov 20 · 7pm",
@@ -704,7 +474,7 @@ window.WF_DATA = {
    "end": "2026-11-20"
   },
   {
-   "n": 41,
+   "n": 26,
    "id": "film-hunger-games-sunrise-on-the-reaping",
    "sec": "week",
    "when": "Opens Fri Nov 20",
@@ -717,7 +487,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 42,
+   "n": 27,
    "id": "film-paper-tiger-2026",
    "sec": "week",
    "when": "Opens wide Fri Nov 20",
@@ -729,7 +499,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 43,
+   "n": 28,
    "id": "film-i-play-rocky-2026",
    "sec": "week",
    "when": "Opens wide Fri Nov 20",
@@ -742,7 +512,29 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 44,
+   "n": 29,
+   "id": "fm-monterey-del-monte-friday",
+   "sec": "week",
+   "when": "Fridays · 8am–noon",
+   "title": "Monterey Farmers Market",
+   "meta": "Del Monte Shopping Center (rear lot), Monterey · year-round · closed Christmas and New Year’s Day · no dogs (state rule for certified markets)",
+   "cat": "mkt",
+   "url": "https://montereybayfarmers.org/our-markets",
+   "price": "free",
+   "lat": 36.5858,
+   "lon": -121.8762,
+   "q": "Del Monte Shopping Center Monterey",
+   "dates": [
+    "2026-11-20",
+    "2026-11-27",
+    "2026-12-04",
+    "2026-12-11",
+    "2026-12-18",
+    "2027-01-08"
+   ]
+  },
+  {
+   "n": 30,
    "id": "head-west-market-on-south-b-street",
    "sec": "week",
    "when": "Sat Nov 21 · 11am–4pm",
@@ -758,7 +550,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 45,
+   "n": 31,
    "id": "art-on-the-square-holiday-show",
    "sec": "week",
    "when": "Sat Nov 21 · 10am–4pm",
@@ -774,7 +566,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 46,
+   "n": 32,
    "id": "west-coast-craft",
    "sec": "week",
    "when": "Nov 21–22 · 10am–6pm",
@@ -790,7 +582,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 47,
+   "n": 33,
    "id": "great-dickens-christmas-fair",
    "sec": "week",
    "when": "Opens Sat Nov 21",
@@ -811,7 +603,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 48,
+   "n": 34,
    "id": "apr-s-village-winter-terrace",
    "sec": "week",
    "when": "Opens Sat Nov 21",
@@ -826,7 +618,7 @@ window.WF_DATA = {
    "end": "2027-01-04"
   },
   {
-   "n": 49,
+   "n": 35,
    "id": "surf-city-stroll-westside-wine-walk",
    "sec": "week",
    "when": "Sat Nov 21 · 1–4pm",
@@ -841,7 +633,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 50,
+   "n": 36,
    "id": "del-monte-center-christmas-tree-lighting",
    "sec": "week",
    "when": "Sat Nov 21 · 5–7pm",
@@ -856,7 +648,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 51,
+   "n": 37,
    "id": "winter-wonderfest-monterey",
    "sec": "week",
    "when": "Opens Sat Nov 21",
@@ -871,7 +663,7 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 52,
+   "n": 38,
    "id": "gilroy-gardens-north-pole-nights",
    "sec": "week",
    "when": "Select dates Nov 21 – Dec 31",
@@ -887,7 +679,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 53,
+   "n": 39,
    "id": "golden-gate-lab-rescue-santa-pet-fair-2026",
    "sec": "week",
    "when": "Sat Nov 21 · 11am–3pm",
@@ -903,7 +695,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 54,
+   "n": 40,
    "id": "sharks-vs-kraken-2026-11-21",
    "sec": "week",
    "when": "Sat Nov 21 · 7pm",
@@ -920,7 +712,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 55,
+   "n": 41,
    "id": "patchen-christmas-tree-farm-2026",
    "sec": "week",
    "when": "Nov 21 – Dec 24 · Sat–Sun 9am–5pm, Tue–Fri 1–5pm",
@@ -936,91 +728,7 @@ window.WF_DATA = {
    "end": "2026-12-24"
   },
   {
-   "n": 56,
-   "id": "yountville-holidays-2026",
-   "sec": "week",
-   "when": "Nov 22 – Jan 1",
-   "title": "Holidays in Yountville",
-   "meta": "Yountville · the 'Brightest Town in Napa Valley': lights all over town and 50+ holiday events through December",
-   "cat": "hol",
-   "url": "https://yountville.com/events/holidays-in-yountville/",
-   "price": "free",
-   "lat": 38.4016,
-   "lon": -122.3608,
-   "q": "Yountville CA",
-   "start": "2026-11-22",
-   "end": "2027-01-01"
-  },
-  {
-   "n": 57,
-   "id": "stanford-volleyball-vs-boston-college-2026-11-22",
-   "sec": "week",
-   "when": "Sun Nov 22 · 1pm",
-   "title": "Stanford Women's Volleyball vs. Boston College",
-   "meta": "Maples Pavilion, Stanford · NCAA · women's · regular-season finale · tickets",
-   "cat": "sport",
-   "ha": "home",
-   "url": "https://gostanford.com/sports/womens-volleyball/schedule",
-   "price": "tickets",
-   "tix": "https://tickets.gostanford.com/",
-   "lat": 37.4302,
-   "lon": -122.1617,
-   "q": "Maples Pavilion, Stanford",
-   "start": "2026-11-22",
-   "end": "2026-11-22"
-  },
-  {
-   "n": 58,
-   "id": "fm-mountain-view-sunday",
-   "sec": "week",
-   "when": "Sundays · 9am–1pm",
-   "title": "Mountain View Farmers Market",
-   "meta": "Mountain View Caltrain Station, 600 W Evelyn Ave, Mountain View · 80+ farms · moves to the Hope St lots on Nov 29 and Dec 13 · no dogs (state rule for certified markets)",
-   "cat": "mkt",
-   "url": "https://www.cafarmersmkts.com/mountain-view-farmers-market",
-   "price": "free",
-   "lat": 37.3947,
-   "lon": -122.0763,
-   "q": "Mountain View Caltrain Station",
-   "dates": [
-    "2026-11-15",
-    "2026-11-22",
-    "2026-11-29",
-    "2026-12-06",
-    "2026-12-13",
-    "2026-12-20",
-    "2026-12-27",
-    "2027-01-03",
-    "2027-01-10"
-   ]
-  },
-  {
-   "n": 59,
-   "id": "fm-palo-alto-california-ave-sunday",
-   "sec": "week",
-   "when": "Sundays · 9am–1pm",
-   "title": "California Ave Farmers Market",
-   "meta": "California Ave at El Camino, Palo Alto · open Thanksgiving, Christmas and New Year weekends · no dogs (state rule for certified markets)",
-   "cat": "mkt",
-   "url": "https://uvfm.org/palo-alto-sundays",
-   "price": "free",
-   "lat": 37.4267,
-   "lon": -122.1446,
-   "q": "California Avenue Palo Alto",
-   "dates": [
-    "2026-11-15",
-    "2026-11-22",
-    "2026-11-29",
-    "2026-12-06",
-    "2026-12-13",
-    "2026-12-20",
-    "2026-12-27",
-    "2027-01-03",
-    "2027-01-10"
-   ]
-  },
-  {
-   "n": 60,
+   "n": 42,
    "id": "fm-downtown-palo-alto-saturday",
    "sec": "week",
    "when": "Saturdays · 8am–noon",
@@ -1044,7 +752,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 61,
+   "n": 43,
    "id": "fm-sunnyvale-saturday",
    "sec": "week",
    "when": "Saturdays · 9am–1pm",
@@ -1068,57 +776,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 62,
-   "id": "fm-los-gatos-sunday",
-   "sec": "week",
-   "when": "Sundays · 9am–1pm",
-   "title": "Los Gatos Farmers Market",
-   "meta": "Town Park Plaza, Main St & N Santa Cruz Ave, Los Gatos · 40+ farms · no dogs (state rule for certified markets)",
-   "cat": "mkt",
-   "url": "https://www.cafarmersmkts.com/losgatos-farmers-market",
-   "price": "free",
-   "lat": 37.2227,
-   "lon": -121.9822,
-   "q": "Town Plaza Park Los Gatos",
-   "dates": [
-    "2026-11-15",
-    "2026-11-22",
-    "2026-11-29",
-    "2026-12-06",
-    "2026-12-13",
-    "2026-12-20",
-    "2026-12-27",
-    "2027-01-03",
-    "2027-01-10"
-   ]
-  },
-  {
-   "n": 63,
-   "id": "fm-campbell-sunday",
-   "sec": "week",
-   "when": "Sundays · 9am–1pm",
-   "title": "Campbell Farmers Market",
-   "meta": "E Campbell Ave between Central Ave and 3rd St, Campbell · open holiday weekends · no dogs (state rule for certified markets)",
-   "cat": "mkt",
-   "url": "https://uvfm.org/campbell-sundays",
-   "price": "free",
-   "lat": 37.2872,
-   "lon": -121.9446,
-   "q": "East Campbell Avenue Campbell",
-   "dates": [
-    "2026-11-15",
-    "2026-11-22",
-    "2026-11-29",
-    "2026-12-06",
-    "2026-12-13",
-    "2026-12-20",
-    "2026-12-27",
-    "2027-01-03",
-    "2027-01-10"
-   ]
-  },
-  {
-   "n": 64,
+   "n": 44,
    "id": "fm-saratoga-saturday",
    "sec": "week",
    "when": "Saturdays · 9am–1pm",
@@ -1142,7 +800,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 65,
+   "n": 45,
    "id": "fm-ferry-plaza-saturday",
    "sec": "week",
    "when": "Saturdays · 8am–2pm (smaller markets Tue & Thu 10am–2pm)",
@@ -1166,32 +824,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 66,
-   "id": "fm-marin-civic-center-sunday",
-   "sec": "week",
-   "when": "Sundays · 8am–1pm",
-   "title": "Sunday Marin Farmers Market",
-   "meta": "Marin County Civic Center, San Rafael · 150+ vendors · no dogs (state rule for certified markets)",
-   "cat": "mkt",
-   "url": "https://www.agriculturalinstitute.org/sunday-marin",
-   "price": "free",
-   "lat": 37.999,
-   "lon": -122.531,
-   "q": "Marin County Civic Center",
-   "dates": [
-    "2026-11-15",
-    "2026-11-22",
-    "2026-11-29",
-    "2026-12-06",
-    "2026-12-13",
-    "2026-12-20",
-    "2026-12-27",
-    "2027-01-03",
-    "2027-01-10"
-   ]
-  },
-  {
-   "n": 67,
+   "n": 46,
    "id": "fm-aptos-cabrillo-saturday",
    "sec": "week",
    "when": "Saturdays · 8am–noon",
@@ -1215,29 +848,177 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 68,
-   "id": "fm-monterey-del-monte-friday",
+   "n": 47,
+   "id": "legion-alaia-sculpting-fashion-2026",
    "sec": "week",
-   "when": "Fridays · 8am–noon",
-   "title": "Monterey Farmers Market",
-   "meta": "Del Monte Shopping Center (rear lot), Monterey · year-round · closed Christmas and New Year’s Day · no dogs (state rule for certified markets)",
-   "cat": "mkt",
-   "url": "https://montereybayfarmers.org/our-markets",
+   "when": "Opens Sat Nov 21 · Tue–Sun 9:30am–5:15pm",
+   "title": "Azzedine Alaïa: Sculpting Fashion",
+   "meta": "Legion of Honor, San Francisco · first major US retrospective of the couturier, 80 garments (incl. looks worn by Tina Turner, Grace Jones, Rihanna) · museum admission",
+   "cat": "art",
+   "url": "https://www.famsf.org/exhibitions/azzedine-alaia-sculpting-fashion",
+   "price": "tickets",
+   "lat": 37.7845,
+   "lon": -122.5008,
+   "q": "Legion of Honor, San Francisco",
+   "start": "2026-11-21",
+   "end": "2027-04-11"
+  },
+  {
+   "n": 48,
+   "id": "yountville-holidays-2026",
+   "sec": "week",
+   "when": "Nov 22 – Jan 1",
+   "title": "Holidays in Yountville",
+   "meta": "Yountville · the 'Brightest Town in Napa Valley': lights all over town and 50+ holiday events through December",
+   "cat": "hol",
+   "url": "https://yountville.com/events/holidays-in-yountville/",
    "price": "free",
-   "lat": 36.5858,
-   "lon": -121.8762,
-   "q": "Del Monte Shopping Center Monterey",
+   "lat": 38.4016,
+   "lon": -122.3608,
+   "q": "Yountville CA",
+   "start": "2026-11-22",
+   "end": "2027-01-01"
+  },
+  {
+   "n": 49,
+   "id": "stanford-volleyball-vs-boston-college-2026-11-22",
+   "sec": "week",
+   "when": "Sun Nov 22 · 1pm",
+   "title": "Stanford Women's Volleyball vs. Boston College",
+   "meta": "Maples Pavilion, Stanford · NCAA · women's · regular-season finale · tickets",
+   "cat": "sport",
+   "ha": "home",
+   "url": "https://gostanford.com/sports/womens-volleyball/schedule",
+   "price": "tickets",
+   "tix": "https://tickets.gostanford.com/",
+   "lat": 37.4302,
+   "lon": -122.1617,
+   "q": "Maples Pavilion, Stanford",
+   "start": "2026-11-22",
+   "end": "2026-11-22"
+  },
+  {
+   "n": 50,
+   "id": "fm-mountain-view-sunday",
+   "sec": "week",
+   "when": "Sundays · 9am–1pm",
+   "title": "Mountain View Farmers Market",
+   "meta": "Mountain View Caltrain Station, 600 W Evelyn Ave, Mountain View · 80+ farms · moves to the Hope St lots on Nov 29 and Dec 13 · no dogs (state rule for certified markets)",
+   "cat": "mkt",
+   "url": "https://www.cafarmersmkts.com/mountain-view-farmers-market",
+   "price": "free",
+   "lat": 37.3947,
+   "lon": -122.0763,
+   "q": "Mountain View Caltrain Station",
    "dates": [
-    "2026-11-20",
-    "2026-11-27",
-    "2026-12-04",
-    "2026-12-11",
-    "2026-12-18",
-    "2027-01-08"
+    "2026-11-22",
+    "2026-11-29",
+    "2026-12-06",
+    "2026-12-13",
+    "2026-12-20",
+    "2026-12-27",
+    "2027-01-03",
+    "2027-01-10"
    ]
   },
   {
-   "n": 69,
+   "n": 51,
+   "id": "fm-palo-alto-california-ave-sunday",
+   "sec": "week",
+   "when": "Sundays · 9am–1pm",
+   "title": "California Ave Farmers Market",
+   "meta": "California Ave at El Camino, Palo Alto · open Thanksgiving, Christmas and New Year weekends · no dogs (state rule for certified markets)",
+   "cat": "mkt",
+   "url": "https://uvfm.org/palo-alto-sundays",
+   "price": "free",
+   "lat": 37.4267,
+   "lon": -122.1446,
+   "q": "California Avenue Palo Alto",
+   "dates": [
+    "2026-11-22",
+    "2026-11-29",
+    "2026-12-06",
+    "2026-12-13",
+    "2026-12-20",
+    "2026-12-27",
+    "2027-01-03",
+    "2027-01-10"
+   ]
+  },
+  {
+   "n": 52,
+   "id": "fm-los-gatos-sunday",
+   "sec": "week",
+   "when": "Sundays · 9am–1pm",
+   "title": "Los Gatos Farmers Market",
+   "meta": "Town Park Plaza, Main St & N Santa Cruz Ave, Los Gatos · 40+ farms · no dogs (state rule for certified markets)",
+   "cat": "mkt",
+   "url": "https://www.cafarmersmkts.com/losgatos-farmers-market",
+   "price": "free",
+   "lat": 37.2227,
+   "lon": -121.9822,
+   "q": "Town Plaza Park Los Gatos",
+   "dates": [
+    "2026-11-22",
+    "2026-11-29",
+    "2026-12-06",
+    "2026-12-13",
+    "2026-12-20",
+    "2026-12-27",
+    "2027-01-03",
+    "2027-01-10"
+   ]
+  },
+  {
+   "n": 53,
+   "id": "fm-campbell-sunday",
+   "sec": "week",
+   "when": "Sundays · 9am–1pm",
+   "title": "Campbell Farmers Market",
+   "meta": "E Campbell Ave between Central Ave and 3rd St, Campbell · open holiday weekends · no dogs (state rule for certified markets)",
+   "cat": "mkt",
+   "url": "https://uvfm.org/campbell-sundays",
+   "price": "free",
+   "lat": 37.2872,
+   "lon": -121.9446,
+   "q": "East Campbell Avenue Campbell",
+   "dates": [
+    "2026-11-22",
+    "2026-11-29",
+    "2026-12-06",
+    "2026-12-13",
+    "2026-12-20",
+    "2026-12-27",
+    "2027-01-03",
+    "2027-01-10"
+   ]
+  },
+  {
+   "n": 54,
+   "id": "fm-marin-civic-center-sunday",
+   "sec": "week",
+   "when": "Sundays · 8am–1pm",
+   "title": "Sunday Marin Farmers Market",
+   "meta": "Marin County Civic Center, San Rafael · 150+ vendors · no dogs (state rule for certified markets)",
+   "cat": "mkt",
+   "url": "https://www.agriculturalinstitute.org/sunday-marin",
+   "price": "free",
+   "lat": 37.999,
+   "lon": -122.531,
+   "q": "Marin County Civic Center",
+   "dates": [
+    "2026-11-22",
+    "2026-11-29",
+    "2026-12-06",
+    "2026-12-13",
+    "2026-12-20",
+    "2026-12-27",
+    "2027-01-03",
+    "2027-01-10"
+   ]
+  },
+  {
+   "n": 55,
    "id": "fm-carmel-valley-sunday",
    "sec": "week",
    "when": "Sundays · 10am–2pm",
@@ -1250,7 +1031,6 @@ window.WF_DATA = {
    "lon": -121.8486,
    "q": "9550 Carmel Valley Road Carmel Valley",
    "dates": [
-    "2026-11-15",
     "2026-11-22",
     "2026-11-29",
     "2026-12-06",
@@ -1262,7 +1042,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 70,
+   "n": 56,
    "id": "king-tides-2026-2027",
    "sec": "late-nov",
    "when": "Nov 24–26 · Dec 23–25 · Jan 21–22",
@@ -1286,7 +1066,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 71,
+   "n": 57,
    "id": "warriors-vs-kings-2026-11-25",
    "sec": "late-nov",
    "when": "Wed Nov 25",
@@ -1303,7 +1083,7 @@ window.WF_DATA = {
    "end": "2026-11-25"
   },
   {
-   "n": 72,
+   "n": 58,
    "id": "film-hexed-2026",
    "sec": "late-nov",
    "when": "Opens Wed Nov 25",
@@ -1316,7 +1096,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 73,
+   "n": 59,
    "id": "film-focker-in-law-2026",
    "sec": "late-nov",
    "when": "Opens Wed Nov 25",
@@ -1328,7 +1108,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 74,
+   "n": 60,
    "id": "film-club-kid-2026",
    "sec": "late-nov",
    "when": "Opens wide Wed Nov 25",
@@ -1340,7 +1120,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 75,
+   "n": 61,
    "id": "film-bitter-christmas-2026",
    "sec": "late-nov",
    "when": "Opens nationwide Wed Nov 25",
@@ -1352,7 +1132,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 76,
+   "n": 62,
    "id": "santa-cruz-beach-boardwalk-winter-wonderland",
    "sec": "late-nov",
    "when": "Opens Thu Nov 26",
@@ -1368,7 +1148,38 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 77,
+   "n": 63,
+   "id": "silicon-valley-turkey-trot-2026",
+   "sec": "late-nov",
+   "when": "Thu Nov 26 (Thanksgiving) · 8:30am",
+   "title": "Applied Materials Silicon Valley Turkey Trot",
+   "meta": "Downtown San Jose (W Santa Clara St at 1st St) · 5K, 10K & kids' fun run · from $44 · benefits Second Harvest & local charities",
+   "cat": "hol",
+   "url": "https://runsignup.com/Race/CA/SanJose/SiliconValleyTurkeyTrot",
+   "price": "tickets",
+   "lat": 37.3361,
+   "lon": -121.8906,
+   "q": "W Santa Clara St & N 1st St, San Jose",
+   "start": "2026-11-26",
+   "end": "2026-11-26"
+  },
+  {
+   "n": 64,
+   "id": "spartan-turkey-trot-mountain-view-2026",
+   "sec": "late-nov",
+   "when": "Thu Nov 26 (Thanksgiving) · 8:30am",
+   "title": "Spartan Turkey Trot 5K",
+   "meta": "Mountain View High School track, 3535 Truman Ave, Mountain View · 17th annual 5K · registration",
+   "cat": "hol",
+   "price": "tickets",
+   "lat": 37.3601,
+   "lon": -122.067,
+   "q": "Mountain View High School, 3535 Truman Ave, Mountain View",
+   "start": "2026-11-26",
+   "end": "2026-11-26"
+  },
+  {
+   "n": 65,
    "id": "christmas-in-the-park",
    "sec": "late-nov",
    "when": "Opens Fri Nov 27",
@@ -1384,7 +1195,7 @@ window.WF_DATA = {
    "end": "2027-01-01"
   },
   {
-   "n": 78,
+   "n": 66,
    "id": "cannery-row-tree-lighting",
    "sec": "late-nov",
    "when": "Fri Nov 27 · 5–7pm",
@@ -1400,7 +1211,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 79,
+   "n": 67,
    "id": "santa-cruz-holiday-lights-train",
    "sec": "late-nov",
    "when": "Nov 27–28, Dec 5–6 & Dec 12–23 · evenings",
@@ -1432,7 +1243,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 80,
+   "n": 68,
    "id": "marin-holiday-light-spectacular-2026",
    "sec": "late-nov",
    "when": "Nightly Nov 27 – Jan 3 · 5–9pm",
@@ -1448,7 +1259,7 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 81,
+   "n": 69,
    "id": "sharks-vs-golden-knights-2026-11-27",
    "sec": "late-nov",
    "when": "Fri Nov 27 · 1pm",
@@ -1465,7 +1276,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 82,
+   "n": 70,
    "id": "saratoga-holiday-wine-stroll-2026",
    "sec": "late-nov",
    "when": "Fri Nov 27 · evening",
@@ -1481,7 +1292,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 83,
+   "n": 71,
    "id": "los-altos-stage-joseph-2026",
    "sec": "late-nov",
    "when": "Nov 27 – Dec 20",
@@ -1497,7 +1308,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 84,
+   "n": 72,
    "id": "saratoga-holiday-tree-lighting-2026",
    "sec": "late-nov",
    "when": "Fri Nov 27 · 5:30–6:30pm",
@@ -1513,7 +1324,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 85,
+   "n": 73,
    "id": "small-business-saturday",
    "sec": "late-nov",
    "when": "Sat Nov 28",
@@ -1529,7 +1340,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 86,
+   "n": 74,
    "id": "andy-grammer",
    "sec": "late-nov",
    "when": "Sat Nov 28 · 7pm",
@@ -1545,7 +1356,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 87,
+   "n": 75,
    "id": "petaluma-santa-tugboat-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28 · 11:30am",
@@ -1560,7 +1371,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 88,
+   "n": 76,
    "id": "santa-pet-photos-at-peninsula-humane-society",
    "sec": "late-nov",
    "when": "Sat Nov 28 · 11:30am–4:30pm",
@@ -1575,7 +1386,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 89,
+   "n": 77,
    "id": "stanford-football-vs-smu-2026-11-28",
    "sec": "late-nov",
    "when": "Sat Nov 28 · time TBA",
@@ -1593,7 +1404,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 90,
+   "n": 78,
    "id": "stanford-mens-basketball-vs-portland-2026-11-29",
    "sec": "late-nov",
    "when": "Sun Nov 29",
@@ -1611,7 +1422,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 91,
+   "n": 79,
    "id": "pacific-grove-christmas-tree-lighting",
    "sec": "late-nov",
    "when": "Mon Nov 30 · 4:30–7pm",
@@ -1626,7 +1437,7 @@ window.WF_DATA = {
    "end": "2026-11-30"
   },
   {
-   "n": 92,
+   "n": 80,
    "id": "ice-skating-by-the-bay",
    "sec": "early-dec",
    "when": "Opens Tue Dec 1",
@@ -1642,7 +1453,7 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 93,
+   "n": 81,
    "id": "palo-alto-adult-school-artisan-pizza-2026",
    "sec": "early-dec",
    "when": "Tue Dec 1 · 6:30–9pm",
@@ -1658,7 +1469,7 @@ window.WF_DATA = {
    "end": "2026-12-01"
   },
   {
-   "n": 94,
+   "n": 82,
    "id": "warriors-vs-jazz-2026-12-01",
    "sec": "early-dec",
    "when": "Tue Dec 1 · 8pm",
@@ -1675,7 +1486,7 @@ window.WF_DATA = {
    "end": "2026-12-01"
   },
   {
-   "n": 95,
+   "n": 83,
    "id": "monterey-bay-gray-whale-season-2026",
    "sec": "early-dec",
    "when": "Dec – Apr · peak in January",
@@ -1691,7 +1502,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 96,
+   "n": 84,
    "id": "theatreworks-alice-formerly-of-wonderland-2026",
    "sec": "early-dec",
    "when": "Dec 2 – 27",
@@ -1708,7 +1519,7 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 97,
+   "n": 85,
    "id": "hip-hop-nutcracker-san-jose-2026",
    "sec": "early-dec",
    "when": "Wed Dec 2 & Thu Dec 3 · 7pm",
@@ -1726,7 +1537,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 98,
+   "n": 86,
    "id": "downtown-first-thursdays-block-party",
    "sec": "early-dec",
    "when": "Thu Dec 3 · 5–10pm",
@@ -1742,7 +1553,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 99,
+   "n": 87,
    "id": "gamble-garden-holidays",
    "sec": "early-dec",
    "when": "Dec 3–5",
@@ -1758,7 +1569,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 100,
+   "n": 88,
    "id": "pacific-grove-holiday-parade-of-lights",
    "sec": "early-dec",
    "when": "Thu Dec 3 · 6–8pm",
@@ -1774,7 +1585,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 101,
+   "n": 89,
    "id": "hot-club-of-san-francisco-cool-yule",
    "sec": "early-dec",
    "when": "Thu Dec 3 · 7 & 9pm",
@@ -1791,7 +1602,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 102,
+   "n": 90,
    "id": "smuin-s-the-christmas-ballet",
    "sec": "early-dec",
    "when": "Thu Dec 3 · 7:30pm",
@@ -1808,7 +1619,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 103,
+   "n": 91,
    "id": "cal-womens-basketball-vs-texas-am-2026-12-03",
    "sec": "early-dec",
    "when": "Thu Dec 3",
@@ -1825,7 +1636,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 104,
+   "n": 92,
    "id": "kl-redwood-city-tasting-dec3-2026",
    "sec": "early-dec",
    "when": "Thu Dec 3 · 4–5pm",
@@ -1841,7 +1652,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 105,
+   "n": 93,
    "id": "montalvo-top-of-the-world-carpenters-2026",
    "sec": "early-dec",
    "when": "Thu Dec 3 · 7:30pm",
@@ -1857,7 +1668,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 106,
+   "n": 94,
    "id": "los-altos-holiday-tree-celebration",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 6–8pm",
@@ -1873,7 +1684,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 107,
+   "n": 95,
    "id": "sf-ballet-s-the-nutcracker",
    "sec": "early-dec",
    "when": "Dec 4–27",
@@ -1889,7 +1700,7 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 108,
+   "n": 96,
    "id": "christmas-on-the-wharf",
    "sec": "early-dec",
    "when": "Fri–Sun, Dec 4–20",
@@ -1910,7 +1721,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 109,
+   "n": 97,
    "id": "carmel-tree-lighting-carmel-plaza-holiday-party",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 3–7pm",
@@ -1926,7 +1737,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 110,
+   "n": 98,
    "id": "downtown-monterey-tree-lighting",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 5–6pm",
@@ -1942,7 +1753,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 111,
+   "n": 99,
    "id": "san-carlos-night-of-holiday-lights",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 5–8:30pm",
@@ -1958,7 +1769,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 112,
+   "n": 100,
    "id": "los-gatos-in-lights-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 5–7pm (tree 6pm)",
@@ -1974,7 +1785,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 113,
+   "n": 101,
    "id": "menlo-park-light-up-the-season-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 5:30–7pm",
@@ -1990,7 +1801,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 114,
+   "n": 102,
    "id": "palo-alto-lytton-plaza-tree-lighting-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 5:30–7pm",
@@ -2006,7 +1817,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 115,
+   "n": 103,
    "id": "cupertino-tree-lighting-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 6–8pm",
@@ -2022,7 +1833,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 116,
+   "n": 104,
    "id": "santa-clara-holiday-tree-lighting-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 5:30–8pm",
@@ -2038,7 +1849,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 117,
+   "n": 105,
    "id": "film-violent-night-2",
    "sec": "early-dec",
    "when": "Opens Fri Dec 4",
@@ -2050,7 +1861,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 118,
+   "n": 106,
    "id": "film-above-the-below-2026",
    "sec": "early-dec",
    "when": "Opens Fri Dec 4",
@@ -2062,7 +1873,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 119,
+   "n": 107,
    "id": "stanford-live-arcostrum-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 7pm & 9pm",
@@ -2074,10 +1885,50 @@ window.WF_DATA = {
    "lat": 37.4321,
    "lon": -122.1655,
    "q": "Bing Concert Hall, Stanford",
-   "start": "2026-12-04"
+   "start": "2026-12-04",
+   "end": "2026-12-04"
   },
   {
-   "n": 120,
+   "n": 108,
+   "id": "union-square-chanukah-festival-2026",
+   "sec": "early-dec",
+   "when": "Fri Dec 4–Fri Dec 11 · nightly lightings (first night Fri 2:30pm)",
+   "title": "Union Square Chanukah Festival",
+   "meta": "Union Square, San Francisco · 25-foot menorah lit each night of Hanukkah · free",
+   "cat": "hol",
+   "price": "free",
+   "lat": 37.788,
+   "lon": -122.4075,
+   "q": "Union Square, San Francisco",
+   "start": "2026-12-04",
+   "end": "2026-12-11"
+  },
+  {
+   "n": 109,
+   "id": "film-behemoth-2026",
+   "sec": "early-dec",
+   "when": "Opens Fri Dec 4",
+   "title": "Behemoth!",
+   "meta": "In theaters · R · drama (Pedro Pascal as a troubled cellist, dir. Tony Gilroy) · 2h 4m · Bay Area: limited",
+   "cat": "film",
+   "price": "tickets",
+   "start": "2026-12-04",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 110,
+   "id": "film-tender-loving-care-2026",
+   "sec": "early-dec",
+   "when": "Opens Fri Dec 4",
+   "title": "Tender Loving Care",
+   "meta": "In theaters · R · family drama (dir. Mike Leigh, Kate O'Flynn) · Bay Area: limited",
+   "cat": "film",
+   "price": "tickets",
+   "start": "2026-12-04",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 111,
    "id": "caltrain-holiday-train",
    "sec": "early-dec",
    "when": "Sat Dec 5",
@@ -2093,7 +1944,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 121,
+   "n": 112,
    "id": "mapp-art-poetry-music-crawl",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 6pm",
@@ -2108,7 +1959,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 122,
+   "n": 113,
    "id": "mercatino-di-natale-italian-christmas-market",
    "sec": "early-dec",
    "when": "Dec 5–6",
@@ -2122,7 +1973,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 123,
+   "n": 114,
    "id": "downtown-santa-cruz-holiday-parade",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 10am",
@@ -2137,7 +1988,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 124,
+   "n": 115,
    "id": "santa-cruz-lighted-boat-parade",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 5:30pm",
@@ -2153,7 +2004,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 125,
+   "n": 116,
    "id": "schulz-kids-night-dec-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 5:30–9pm",
@@ -2169,7 +2020,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 126,
+   "n": 117,
    "id": "capitola-village-tree-lighting",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 11am–8pm, palm tree lighting ~5:30pm",
@@ -2185,7 +2036,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 127,
+   "n": 118,
    "id": "hiller-santa-arrives-by-helicopter",
    "sec": "early-dec",
    "when": "Sat Dec 5 · from 9:30am (Santa lands ~10:30am)",
@@ -2201,7 +2052,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 128,
+   "n": 119,
    "id": "san-rafael-winter-wonderland-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 1–6pm",
@@ -2216,7 +2067,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 129,
+   "n": 120,
    "id": "petaluma-holiday-stroll-light-up-the-square-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · stroll 11am–5pm, tree lighting 6–8pm",
@@ -2231,7 +2082,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 130,
+   "n": 121,
    "id": "tgr-ski-film-rio-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 7pm",
@@ -2247,7 +2098,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 131,
+   "n": 122,
    "id": "fogarty-paper-poinsettia-wine-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 1–3pm",
@@ -2263,7 +2114,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 132,
+   "n": 123,
    "id": "lester-estate-holiday-makers-market-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 12–4pm",
@@ -2279,7 +2130,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 133,
+   "n": 124,
    "id": "montalvo-charo-cuchi-christmas-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 7:30pm",
@@ -2296,7 +2147,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 134,
+   "n": 125,
    "id": "act-yc-rudolph-and-scrooge-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 & Sun Dec 6",
@@ -2314,7 +2165,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 135,
+   "n": 126,
    "id": "campbell-carol-of-lights-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 4–7pm",
@@ -2330,7 +2181,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 136,
+   "n": 127,
    "id": "sfmoma-holiday-makers-market",
    "sec": "early-dec",
    "when": "Sun Dec 6",
@@ -2344,7 +2195,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 137,
+   "n": 128,
    "id": "brighten-the-harbor-lighted-boat-parade",
    "sec": "early-dec",
    "when": "Sun Dec 6 · 5–7pm",
@@ -2359,7 +2210,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 138,
+   "n": 129,
    "id": "pink-martini-all-stars-a-season-of-stars",
    "sec": "early-dec",
    "when": "Sun Dec 6 · 7pm",
@@ -2375,7 +2226,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 139,
+   "n": 130,
    "id": "mill-valley-winterfest-2026",
    "sec": "early-dec",
    "when": "Sun Dec 6 · afternoon, tree lighting ~5pm",
@@ -2391,7 +2242,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 140,
+   "n": 131,
    "id": "stanford-mens-basketball-vs-pacific-2026-12-06",
    "sec": "early-dec",
    "when": "Sun Dec 6",
@@ -2409,7 +2260,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 141,
+   "n": 132,
    "id": "city-lights-rens-winter-wonderland-2026",
    "sec": "early-dec",
    "when": "Sun Dec 6 · 7pm",
@@ -2425,7 +2276,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 142,
+   "n": 133,
    "id": "stanford-live-helene-grimaud-2026",
    "sec": "early-dec",
    "when": "Sun Dec 6 · 2:30pm",
@@ -2437,10 +2288,11 @@ window.WF_DATA = {
    "lat": 37.4321,
    "lon": -122.1655,
    "q": "Bing Concert Hall, Stanford",
-   "start": "2026-12-06"
+   "start": "2026-12-06",
+   "end": "2026-12-06"
   },
   {
-   "n": 143,
+   "n": 134,
    "id": "the-bad-plus-farewell-tour",
    "sec": "mid-dec",
    "when": "Mon Dec 7 · 7pm",
@@ -2456,7 +2308,7 @@ window.WF_DATA = {
    "end": "2026-12-07"
   },
   {
-   "n": 144,
+   "n": 135,
    "id": "mountain-view-tree-lighting-2026",
    "sec": "mid-dec",
    "when": "Mon Dec 7 · 5:30–8pm",
@@ -2472,7 +2324,7 @@ window.WF_DATA = {
    "end": "2026-12-07"
   },
   {
-   "n": 145,
+   "n": 136,
    "id": "winter-walk-patchwork-show-makers",
    "sec": "mid-dec",
    "when": "Dec 8–27",
@@ -2488,7 +2340,7 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 146,
+   "n": 137,
    "id": "holiday-at-the-inns",
    "sec": "mid-dec",
    "when": "Tue Dec 8 · 5–9pm",
@@ -2504,7 +2356,7 @@ window.WF_DATA = {
    "end": "2026-12-08"
   },
   {
-   "n": 147,
+   "n": 138,
    "id": "isaiah-j-thompson-guaraldi-holiday-2026",
    "sec": "mid-dec",
    "when": "Tue Dec 8 · 7pm",
@@ -2520,7 +2372,7 @@ window.WF_DATA = {
    "end": "2026-12-08"
   },
   {
-   "n": 148,
+   "n": 139,
    "id": "canadian-brass-making-spirits-bright",
    "sec": "mid-dec",
    "when": "Wed Dec 9 · 7:30pm",
@@ -2536,7 +2388,7 @@ window.WF_DATA = {
    "end": "2026-12-09"
   },
   {
-   "n": 149,
+   "n": 140,
    "id": "european-style-holiday-market",
    "sec": "mid-dec",
    "when": "Thu Dec 10 & 17 · 4–8pm",
@@ -2554,7 +2406,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 150,
+   "n": 141,
    "id": "a-chanticleer-christmas",
    "sec": "mid-dec",
    "when": "Thu Dec 10 · 7:30pm",
@@ -2570,7 +2422,7 @@ window.WF_DATA = {
    "end": "2026-12-10"
   },
   {
-   "n": 151,
+   "n": 142,
    "id": "montalvo-irish-christmas-in-america-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 10 · 7:30pm",
@@ -2586,7 +2438,7 @@ window.WF_DATA = {
    "end": "2026-12-10"
   },
   {
-   "n": 152,
+   "n": 143,
    "id": "christmas-in-the-adobes",
    "sec": "mid-dec",
    "when": "Fri–Sat, Dec 11–12 · 5–9pm",
@@ -2602,7 +2454,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 153,
+   "n": 144,
    "id": "monterey-peninsula-ballet-the-nutcracker",
    "sec": "mid-dec",
    "when": "Dec 11–13",
@@ -2618,7 +2470,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 154,
+   "n": 145,
    "id": "pyt-the-night-before-christmas",
    "sec": "mid-dec",
    "when": "Fri–Sat, Dec 11–12",
@@ -2634,7 +2486,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 155,
+   "n": 146,
    "id": "montalvo-david-benoit-charlie-brown-2026",
    "sec": "mid-dec",
    "when": "Fri Dec 11 · 7:30pm",
@@ -2650,7 +2502,32 @@ window.WF_DATA = {
    "end": "2026-12-11"
   },
   {
-   "n": 156,
+   "n": 147,
+   "id": "film-elsinore-2026",
+   "sec": "mid-dec",
+   "when": "Opens wide Fri Dec 11",
+   "title": "Elsinore",
+   "meta": "In theaters · R · drama (Andrew Scott as actor Ian Charleson, Olivia Colman) · 1h 51m",
+   "cat": "film",
+   "url": "https://www.focusfeatures.com/article/focus-features-acquires-and-sets-north-american-release-date-for-elsinore",
+   "price": "tickets",
+   "start": "2026-12-11",
+   "end": "2026-12-13"
+  },
+  {
+   "n": 148,
+   "id": "film-george-michael-faith-tour-2026",
+   "sec": "mid-dec",
+   "when": "Opens Fri Dec 11",
+   "title": "George Michael: The Faith Tour",
+   "meta": "In theaters · concert film (Bleecker Street)",
+   "cat": "film",
+   "price": "tickets",
+   "start": "2026-12-11",
+   "end": "2026-12-13"
+  },
+  {
+   "n": 149,
    "id": "hometown-holidays",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 10am–6pm",
@@ -2666,7 +2543,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 157,
+   "n": 150,
    "id": "german-holiday-market",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 11am–9pm",
@@ -2682,7 +2559,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 158,
+   "n": 151,
    "id": "black-holiday-market",
    "sec": "mid-dec",
    "when": "Sat Dec 12",
@@ -2697,7 +2574,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 159,
+   "n": 152,
    "id": "sjmade-winter-wonder-market",
    "sec": "mid-dec",
    "when": "Sat–Sun, Dec 12–13 · 11am–6pm",
@@ -2713,7 +2590,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 160,
+   "n": 153,
    "id": "the-wooten-brothers",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 7:30pm",
@@ -2729,7 +2606,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 161,
+   "n": 154,
    "id": "sausalito-lighted-boat-parade-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 6pm, fireworks ~7:15pm",
@@ -2745,7 +2622,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 162,
+   "n": 155,
    "id": "schulz-gingerbread-doghouse-2026",
    "sec": "mid-dec",
    "when": "Sat–Sun, Dec 12–13",
@@ -2761,7 +2638,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 163,
+   "n": 156,
    "id": "half-moon-bay-lighted-boat-festival-drone-show",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 4–8pm, drone show finale",
@@ -2777,7 +2654,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 164,
+   "n": 157,
    "id": "run-rudolph-run-pacific-grove-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 7:30–11:30am",
@@ -2793,7 +2670,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 165,
+   "n": 158,
    "id": "wilder-ranch-victorian-holiday-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 11am–3pm",
@@ -2808,7 +2685,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 166,
+   "n": 159,
    "id": "sfjazz-family-matinee-girls-chorus-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 11am",
@@ -2824,7 +2701,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 167,
+   "n": 160,
    "id": "symphony-san-jose-holiday-spectacular-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 2:30 & 7:30pm; Sun Dec 13 · 2:30pm",
@@ -2840,7 +2717,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 168,
+   "n": 161,
    "id": "sf-spca-shelter-toy-drive-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 11am–5pm",
@@ -2856,7 +2733,19 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 169,
+   "n": 162,
+   "id": "film-zero-ad-2026",
+   "sec": "mid-dec",
+   "when": "Opens Sat Dec 12",
+   "title": "Zero A.D.",
+   "meta": "In theaters · Nativity-era historical thriller (Angel; Sam Worthington, Ben Mendelsohn, Jim Caviezel)",
+   "cat": "film",
+   "price": "tickets",
+   "start": "2026-12-12",
+   "end": "2026-12-13"
+  },
+  {
+   "n": 163,
    "id": "garrison-keillor-rio-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 13 · 8pm",
@@ -2872,7 +2761,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 170,
+   "n": 164,
    "id": "49ers-vs-rams-2026-12-13",
    "sec": "mid-dec",
    "when": "Sun Dec 13 · 1:25pm",
@@ -2889,7 +2778,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 171,
+   "n": 165,
    "id": "stoneridge-pet-photos-santa-2026",
    "sec": "mid-dec",
    "when": "Dec 13–22",
@@ -2905,7 +2794,7 @@ window.WF_DATA = {
    "end": "2026-12-22"
   },
   {
-   "n": 172,
+   "n": 166,
    "id": "stanford-live-camila-fernandez-christmas-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 13 · 4pm",
@@ -2917,10 +2806,28 @@ window.WF_DATA = {
    "lat": 37.4321,
    "lon": -122.1655,
    "q": "Bing Concert Hall, Stanford",
-   "start": "2026-12-13"
+   "start": "2026-12-13",
+   "end": "2026-12-13"
   },
   {
-   "n": 173,
+   "n": 167,
+   "id": "stanford-womens-basketball-at-cal-2026-12-13",
+   "sec": "mid-dec",
+   "when": "Sun Dec 13 · 1pm",
+   "title": "Stanford Women's Basketball at Cal",
+   "meta": "Haas Pavilion, Berkeley · NCAA ACC · women's · tickets",
+   "cat": "sport",
+   "ha": "away",
+   "url": "https://gostanford.com/sports/womens-basketball/schedule",
+   "price": "tickets",
+   "lat": 37.8696,
+   "lon": -122.2621,
+   "q": "Haas Pavilion, Berkeley",
+   "start": "2026-12-13",
+   "end": "2026-12-13"
+  },
+  {
+   "n": 168,
    "id": "sf-symphony-home-for-the-holidays",
    "sec": "mid-dec",
    "when": "Mon Dec 14",
@@ -2936,7 +2843,7 @@ window.WF_DATA = {
    "end": "2026-12-14"
   },
   {
-   "n": 174,
+   "n": 169,
    "id": "christian-sands-trio-christmas-stories",
    "sec": "mid-dec",
    "when": "Mon Dec 14 · 7pm",
@@ -2952,7 +2859,7 @@ window.WF_DATA = {
    "end": "2026-12-14"
   },
   {
-   "n": 175,
+   "n": 170,
    "id": "ano-nuevo-elephant-seal-walks-2026",
    "sec": "mid-dec",
    "when": "Dec 15 – Mar 31 · daily guided walks",
@@ -2969,7 +2876,7 @@ window.WF_DATA = {
    "end": "2027-03-31"
   },
   {
-   "n": 176,
+   "n": 171,
    "id": "sf-symphony-holiday-gaiety",
    "sec": "mid-dec",
    "when": "Thu Dec 17 · 7:30pm",
@@ -2985,7 +2892,7 @@ window.WF_DATA = {
    "end": "2026-12-17"
   },
   {
-   "n": 177,
+   "n": 172,
    "id": "mah-toy-trains-2026",
    "sec": "mid-dec",
    "when": "Dec 17 – Jan 3",
@@ -3000,7 +2907,7 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 178,
+   "n": 173,
    "id": "stanford-womens-basketball-vs-arizona-state-2026-12-17",
    "sec": "mid-dec",
    "when": "Thu Dec 17 · 7pm",
@@ -3018,7 +2925,7 @@ window.WF_DATA = {
    "end": "2026-12-17"
   },
   {
-   "n": 179,
+   "n": 174,
    "id": "fort-mason-night-market",
    "sec": "mid-dec",
    "when": "Fri Dec 18 · 5–10pm",
@@ -3033,7 +2940,7 @@ window.WF_DATA = {
    "end": "2026-12-18"
   },
   {
-   "n": 180,
+   "n": 175,
    "id": "cyrus-chestnut-charlie-brown-sfjazz-2026",
    "sec": "mid-dec",
    "when": "Fri Dec 18 · 7:30pm",
@@ -3049,7 +2956,7 @@ window.WF_DATA = {
    "end": "2026-12-18"
   },
   {
-   "n": 181,
+   "n": 176,
    "id": "stanford-mens-basketball-vs-san-jose-state-2026-12-18",
    "sec": "mid-dec",
    "when": "Fri Dec 18",
@@ -3067,7 +2974,7 @@ window.WF_DATA = {
    "end": "2026-12-18"
   },
   {
-   "n": 182,
+   "n": 177,
    "id": "head-west-market-encore",
    "sec": "mid-dec",
    "when": "Sat Dec 19",
@@ -3082,7 +2989,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 183,
+   "n": 178,
    "id": "count-basie-christmas-sfjazz-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19 · 7:30pm & Sun Dec 20",
@@ -3098,7 +3005,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 184,
+   "n": 179,
    "id": "the-san-jose-nutcracker-2026",
    "sec": "mid-dec",
    "when": "Dec 19–27",
@@ -3114,7 +3021,7 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 185,
+   "n": 180,
    "id": "love-actually-in-concert-san-jose-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19 · 7pm",
@@ -3130,7 +3037,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 186,
+   "n": 181,
    "id": "my-very-first-nutcracker-san-jose",
    "sec": "mid-dec",
    "when": "Dec 20, 23 & 27 · 11am",
@@ -3149,7 +3056,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 187,
+   "n": 182,
    "id": "charlie-brown-christmas-tribute-jason-crosby-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 20 · 1pm (all ages) & 7pm",
@@ -3165,7 +3072,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 188,
+   "n": 183,
    "id": "bay-area-womens-classic-2026-12-20",
    "sec": "mid-dec",
    "when": "Sun Dec 20",
@@ -3182,7 +3089,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 189,
+   "n": 184,
    "id": "christmas-bird-count-scvba-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 20 (San José) · Mon Dec 21 (Palo Alto)",
@@ -3200,7 +3107,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 190,
+   "n": 185,
    "id": "stanford-theatre-its-a-wonderful-life-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 24 · 4pm & 9pm",
@@ -3216,7 +3123,7 @@ window.WF_DATA = {
    "end": "2026-12-24"
   },
   {
-   "n": 191,
+   "n": 186,
    "id": "warriors-vs-nuggets-2026-12-25",
    "sec": "mid-dec",
    "when": "Fri Dec 25 · 7:30pm",
@@ -3233,7 +3140,7 @@ window.WF_DATA = {
    "end": "2026-12-25"
   },
   {
-   "n": 192,
+   "n": 187,
    "id": "roaring-camp-new-years-train",
    "sec": "mid-dec",
    "when": "Dec 26–31 · evenings",
@@ -3249,7 +3156,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 193,
+   "n": 188,
    "id": "sharks-vs-golden-knights-2026-12-26",
    "sec": "mid-dec",
    "when": "Sat Dec 26 · 7pm",
@@ -3266,7 +3173,7 @@ window.WF_DATA = {
    "end": "2026-12-26"
   },
   {
-   "n": 194,
+   "n": 189,
    "id": "warriors-vs-timberwolves-2026-12-27",
    "sec": "mid-dec",
    "when": "Sun Dec 27 · 5:30pm",
@@ -3283,7 +3190,7 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 195,
+   "n": 190,
    "id": "stanford-womens-basketball-vs-cal-poly-2026-12-28",
    "sec": "mid-dec",
    "when": "Mon Dec 28 · 2pm",
@@ -3301,7 +3208,7 @@ window.WF_DATA = {
    "end": "2026-12-28"
   },
   {
-   "n": 196,
+   "n": 191,
    "id": "new-year-s-eve-on-the-sf-waterfront",
    "sec": "jan",
    "when": "Thu Dec 31",
@@ -3316,7 +3223,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 197,
+   "n": 192,
    "id": "first-night-monterey",
    "sec": "jan",
    "when": "Thu Dec 31 · 3pm–midnight",
@@ -3330,7 +3237,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 198,
+   "n": 193,
    "id": "badm-noon-years-eve-2026",
    "sec": "jan",
    "when": "Thu Dec 31 · 9am–noon",
@@ -3346,7 +3253,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 199,
+   "n": 194,
    "id": "gilroy-gardens-new-years-eve-2026",
    "sec": "jan",
    "when": "Thu Dec 31 · 4pm–midnight",
@@ -3362,7 +3269,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 200,
+   "n": 195,
    "id": "schulz-happy-new-year-charlie-brown-2026",
    "sec": "jan",
    "when": "Thu Dec 31 · 10am–4pm",
@@ -3378,7 +3285,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 201,
+   "n": 196,
    "id": "exploratorium-curious-countdown-2026",
    "sec": "jan",
    "when": "Thu Dec 31 · 11am–4pm",
@@ -3394,7 +3301,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 202,
+   "n": 197,
    "id": "sharks-vs-flyers-2027-01-01",
    "sec": "jan",
    "when": "Fri Jan 1",
@@ -3411,7 +3318,7 @@ window.WF_DATA = {
    "end": "2027-01-01"
   },
   {
-   "n": 203,
+   "n": 198,
    "id": "sharks-vs-maple-leafs-2027-01-02",
    "sec": "jan",
    "when": "Sat Jan 2",
@@ -3428,7 +3335,7 @@ window.WF_DATA = {
    "end": "2027-01-02"
   },
   {
-   "n": 204,
+   "n": 199,
    "id": "49ers-vs-eagles-2027-01-03",
    "sec": "jan",
    "when": "Sun Jan 3 · 5:20pm",
@@ -3445,7 +3352,7 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 205,
+   "n": 200,
    "id": "chris-botti-sfjazz-2027",
    "sec": "jan",
    "when": "Jan 7–12",
@@ -3461,7 +3368,25 @@ window.WF_DATA = {
    "end": "2027-01-12"
   },
   {
-   "n": 206,
+   "n": 201,
+   "id": "stanford-womens-basketball-vs-miami-2027-01-07",
+   "sec": "jan",
+   "when": "Thu Jan 7 · 7pm",
+   "title": "Stanford Women's Basketball vs. Miami",
+   "meta": "Maples Pavilion, Stanford · NCAA ACC · women's · tickets",
+   "cat": "sport",
+   "ha": "home",
+   "url": "https://gostanford.com/sports/womens-basketball/schedule",
+   "price": "tickets",
+   "tix": "https://tickets.gostanford.com/",
+   "lat": 37.4302,
+   "lon": -122.1617,
+   "q": "Maples Pavilion, Stanford",
+   "start": "2027-01-07",
+   "end": "2027-01-07"
+  },
+  {
+   "n": 202,
    "id": "last-day-for-filoli-6-and-san-mateo-on-ice-2",
    "sec": "jan",
    "when": "Sun Jan 10",
@@ -3474,7 +3399,25 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 207,
+   "n": 203,
+   "id": "stanford-womens-basketball-vs-nc-state-2027-01-10",
+   "sec": "jan",
+   "when": "Sun Jan 10 · 11am",
+   "title": "Stanford Women's Basketball vs. NC State",
+   "meta": "Maples Pavilion, Stanford · NCAA ACC · women's · tickets",
+   "cat": "sport",
+   "ha": "home",
+   "url": "https://gostanford.com/sports/womens-basketball/schedule",
+   "price": "tickets",
+   "tix": "https://tickets.gostanford.com/",
+   "lat": 37.4302,
+   "lon": -122.1617,
+   "q": "Maples Pavilion, Stanford",
+   "start": "2027-01-10",
+   "end": "2027-01-10"
+  },
+  {
+   "n": 204,
    "id": "stanford-live-poetry-live-2027",
    "sec": "jan",
    "when": "Thu Jan 14 · 7pm",
@@ -3486,10 +3429,11 @@ window.WF_DATA = {
    "lat": 37.4321,
    "lon": -122.1655,
    "q": "Bing Concert Hall, Stanford",
-   "start": "2027-01-14"
+   "start": "2027-01-14",
+   "end": "2027-01-14"
   },
   {
-   "n": 208,
+   "n": 205,
    "id": "stanford-live-nick-thune-2027",
    "sec": "jan",
    "when": "Fri Jan 15 · 7pm & 9pm",
@@ -3501,10 +3445,11 @@ window.WF_DATA = {
    "lat": 37.4321,
    "lon": -122.1655,
    "q": "Bing Concert Hall, Stanford",
-   "start": "2027-01-15"
+   "start": "2027-01-15",
+   "end": "2027-01-15"
   },
   {
-   "n": 209,
+   "n": 206,
    "id": "stanford-live-don-ross-julie-malia-2027",
    "sec": "jan",
    "when": "Sat Jan 16 · 7pm & 9pm",
@@ -3516,10 +3461,11 @@ window.WF_DATA = {
    "lat": 37.4321,
    "lon": -122.1655,
    "q": "Bing Concert Hall, Stanford",
-   "start": "2027-01-16"
+   "start": "2027-01-16",
+   "end": "2027-01-16"
   },
   {
-   "n": 210,
+   "n": 207,
    "id": "stanford-live-kodo-luminance-2027",
    "sec": "jan",
    "when": "Wed Jan 20 · 7:30pm",
@@ -3531,10 +3477,11 @@ window.WF_DATA = {
    "lat": 37.429,
    "lon": -122.1663,
    "q": "Memorial Auditorium, Stanford",
-   "start": "2027-01-20"
+   "start": "2027-01-20",
+   "end": "2027-01-20"
   },
   {
-   "n": 211,
+   "n": 208,
    "id": "stanford-live-balourdet-terra-quartets-2027",
    "sec": "jan",
    "when": "Sun Jan 24 · 2:30pm",
@@ -3546,10 +3493,11 @@ window.WF_DATA = {
    "lat": 37.4321,
    "lon": -122.1655,
    "q": "Bing Concert Hall, Stanford",
-   "start": "2027-01-24"
+   "start": "2027-01-24",
+   "end": "2027-01-24"
   },
   {
-   "n": 212,
+   "n": 209,
    "id": "burlingame-tree-lighting-winterfest",
    "sec": "tbc",
    "when": "Early December",
@@ -3564,7 +3512,7 @@ window.WF_DATA = {
    "tbc": true
   },
   {
-   "n": 213,
+   "n": 210,
    "id": "view-teen-center-afterhours",
    "sec": "tbc",
    "when": "Monthly Friday nights · check the calendar",
@@ -3579,7 +3527,7 @@ window.WF_DATA = {
    "tbc": true
   },
   {
-   "n": 214,
+   "n": 211,
    "id": "mv-library-amplify-teen-voices",
    "sec": "tbc",
    "when": "Series · check the library calendar",
@@ -3594,20 +3542,7 @@ window.WF_DATA = {
    "tbc": true
   },
   {
-   "n": 215,
-   "id": "crissy-field-east-beach",
-   "sec": "dog",
-   "when": "Any day",
-   "title": "Crissy Field East Beach",
-   "meta": "Free, open around the clock, Golden Gate views · pairs with #8 and #18",
-   "cat": "dog",
-   "price": "free",
-   "lat": 37.8045,
-   "lon": -122.452,
-   "q": "Crissy Field East Beach"
-  },
-  {
-   "n": 216,
+   "n": 212,
    "id": "muttville-senior-dog-adoption-events",
    "sec": "dog",
    "when": "Saturdays · 11am–4pm",
@@ -3625,7 +3560,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 217,
+   "n": 213,
    "id": "santas-tree-farm-hmb-dogs-2026",
    "sec": "dog",
    "when": "Nov 14 – Dec 23 · daily",
@@ -3641,7 +3576,7 @@ window.WF_DATA = {
    "end": "2026-12-23"
   },
   {
-   "n": 218,
+   "n": 214,
    "id": "sf-spca-holiday-windows-at-macy-s",
    "sec": "dog",
    "when": "Nov 20 – Dec 31 · Wed–Sun noon–5pm",
@@ -3657,35 +3592,20 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 219,
-   "id": "monterey-bay-aquarium-teen-conservation-leaders",
-   "sec": "programs",
-   "when": "Summer program · watch for winter applications",
-   "title": "Monterey Bay Aquarium Teen Conservation Leaders",
-   "meta": "Monterey Bay Aquarium · summer volunteer program with guest, science-communication and animal-care tracks",
-   "cat": "prog",
+   "n": 215,
+   "id": "crissy-field-east-beach",
+   "sec": "dog",
+   "when": "Any day",
+   "title": "Crissy Field East Beach",
+   "meta": "Free, open around the clock, Golden Gate views · pairs with #8 and #18",
+   "cat": "dog",
    "price": "free",
-   "lat": 36.6182,
-   "lon": -121.9019,
-   "q": "Monterey Bay Aquarium",
-   "tbc": true
+   "lat": 37.8045,
+   "lon": -122.452,
+   "q": "Crissy Field East Beach"
   },
   {
-   "n": 220,
-   "id": "second-harvest-teen-volunteering",
-   "sec": "programs",
-   "when": "Winter break & year-round · book a shift",
-   "title": "Volunteer at Second Harvest of Silicon Valley",
-   "meta": "Food distributions across Santa Clara & San Mateo counties · ages 14+ (parent permission under 18; an adult volunteers alongside teens 15 and under) · counts for school service hours",
-   "cat": "prog",
-   "url": "https://www.shfb.org/give-help/volunteer/",
-   "price": "free",
-   "lat": 37.2928,
-   "lon": -121.879,
-   "q": "Second Harvest of Silicon Valley Curtner"
-  },
-  {
-   "n": 221,
+   "n": 216,
    "id": "rsi-stanford-2027",
    "sec": "programs",
    "when": "Apply by Fri Dec 11, 2026 (11:59pm ET)",
@@ -3700,7 +3620,7 @@ window.WF_DATA = {
    "deadline": "2026-12-11"
   },
   {
-   "n": 222,
+   "n": 217,
    "id": "stanford-spcs-sumac-2027",
    "sec": "programs",
    "when": "SUMaC due Thu Jan 7, 2027 (11:59pm PT) · Summer Institutes usually early March",
@@ -3714,7 +3634,7 @@ window.WF_DATA = {
    "deadline": "2027-01-07"
   },
   {
-   "n": 223,
+   "n": 218,
    "id": "stanford-summer-session-hs-2027",
    "sec": "programs",
    "when": "Regular deadline Wed Jan 20, 2027 (9pm PT) · early decision Dec 15",
@@ -3728,7 +3648,7 @@ window.WF_DATA = {
    "deadline": "2027-01-20"
   },
   {
-   "n": 224,
+   "n": 219,
    "id": "cosmos-ucsc-2027",
    "sec": "programs",
    "when": "Apply Jan 6 – Feb 5, 2027",
@@ -3742,7 +3662,7 @@ window.WF_DATA = {
    "deadline": "2027-02-05"
   },
   {
-   "n": 225,
+   "n": 220,
    "id": "ucsf-cure-summer-internship-2027",
    "sec": "programs",
    "when": "Apply by Sun Feb 7, 2027 (11:59pm)",
@@ -3757,7 +3677,7 @@ window.WF_DATA = {
    "deadline": "2027-02-07"
   },
   {
-   "n": 226,
+   "n": 221,
    "id": "simr-stanford-2027",
    "sec": "programs",
    "when": "Opens Dec 18 · due late Feb 2027",
@@ -3772,7 +3692,7 @@ window.WF_DATA = {
    "deadline": "2027-02-26"
   },
   {
-   "n": 227,
+   "n": 222,
    "id": "ucsc-sip-2027",
    "sec": "programs",
    "when": "Apply Jan 15 – Feb 26, 2027 (noon)",
@@ -3786,7 +3706,7 @@ window.WF_DATA = {
    "deadline": "2027-02-26"
   },
   {
-   "n": 228,
+   "n": 223,
    "id": "nasa-ostem-summer-2027",
    "sec": "programs",
    "when": "Apply by Mon Mar 1, 2027",
@@ -3801,7 +3721,7 @@ window.WF_DATA = {
    "deadline": "2027-03-01"
   },
   {
-   "n": 229,
+   "n": 224,
    "id": "smysp-2027",
    "sec": "programs",
    "when": "Usually opens mid-Dec, due late March",
@@ -3815,6 +3735,34 @@ window.WF_DATA = {
    "q": "Stanford School of Medicine",
    "tbc": true,
    "deadline": "2027-03-22"
+  },
+  {
+   "n": 225,
+   "id": "monterey-bay-aquarium-teen-conservation-leaders",
+   "sec": "programs",
+   "when": "Summer program · watch for winter applications",
+   "title": "Monterey Bay Aquarium Teen Conservation Leaders",
+   "meta": "Monterey Bay Aquarium · summer volunteer program with guest, science-communication and animal-care tracks",
+   "cat": "prog",
+   "price": "free",
+   "lat": 36.6182,
+   "lon": -121.9019,
+   "q": "Monterey Bay Aquarium",
+   "tbc": true
+  },
+  {
+   "n": 226,
+   "id": "second-harvest-teen-volunteering",
+   "sec": "programs",
+   "when": "Winter break & year-round · book a shift",
+   "title": "Volunteer at Second Harvest of Silicon Valley",
+   "meta": "Food distributions across Santa Clara & San Mateo counties · ages 14+ (parent permission under 18; an adult volunteers alongside teens 15 and under) · counts for school service hours",
+   "cat": "prog",
+   "url": "https://www.shfb.org/give-help/volunteer/",
+   "price": "free",
+   "lat": 37.2928,
+   "lon": -121.879,
+   "q": "Second Harvest of Silicon Valley Curtner"
   }
  ]
 };
