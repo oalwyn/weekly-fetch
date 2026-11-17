@@ -36,7 +36,7 @@ rep('<title>%s</title>' % CITYCFG['brand'],'''<title>'''+SEO['title']+'''</title
   gtag("js", new Date());
   gtag("config", "G-HS0P25R6JR", { allow_google_signals: false, allow_ad_personalization_signals: false });
 })();</script><!--/ga-->
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"'''+CITYCFG['brand']+'''","url":"'''+PAGEURL+'''","description":"'''+SEO['web_description']+'''"},{"@type":"MobileApplication","name":"The Bay Area Weekend Fetch","operatingSystem":"iOS","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://apps.apple.com/app/id6833697642"}]}</script>''')
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"'''+CITYCFG['brand']+'''","url":"'''+PAGEURL+'''","description":"'''+SEO['web_description']+'''"},{"@type":"MobileApplication","name":"The Weekend Fetch","operatingSystem":"iOS","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://apps.apple.com/app/id6833697642"}]}</script>''')
 rep('<header id="hdr">','''<!--appbar--><div class="appbar" id="appbar"><span>📱 Get the free iPhone app</span><a href="https://apps.apple.com/app/id6833697642" target="_blank" rel="noopener" data-k="app_store">Download on the App Store ›</a><button aria-label="Hide" onclick="this.parentNode.remove();try{localStorage.setItem('wf-appbar-off','1')}catch(e){}">×</button></div><script>/* App Store bar: not on a first visit, and not in iPhone Safari, which already shows Apple's own app banner */(function(){var d=document.getElementById('appbar');try{var u=navigator.userAgent,saf=/iPhone|iPad|iPod/.test(u)&&/Safari/.test(u)&&!/CriOS|FxiOS|EdgiOS|OPiOS|GSA/.test(u),v=+localStorage.getItem('wf-visits')||0;localStorage.setItem('wf-visits',v+1);if(localStorage.getItem('wf-appbar-off')||saf||v<1)d.remove()}catch(e){d.remove()}})();</script><!--/appbar-->
 <header id="hdr">''')
 rep('.okmsg{','.appbar{display:flex;align-items:center;gap:10px;background:#0E2338;color:#fff;font-size:13px;padding:7px 8px 7px 14px}.appbar span{flex:1}.appbar a{color:#fff;font-weight:700;text-decoration:none;background:#2F5D8A;border-radius:8px;padding:6px 10px;white-space:nowrap}.appbar button{background:none;border:0;color:#B9C7D6;font-size:20px;line-height:1;padding:4px 6px}\n.okmsg{')
@@ -81,9 +81,7 @@ html=html.replace('.okmsg{','.setup{background:#fff;border-radius:14px;padding:1
 # pages for other cities live in a folder: shared files (icons, banner, vendor scripts, privacy page) come from the site root;
 # the city's own data.js/walks.js stay next to its page. City-specific saved settings get their own keys in this browser.
 if CITYCFG['path']:
-    # the iPhone app is Bay Area only for now: no App Store bar or banner on other cities' pages
-    html = re.sub(r'<!--appbar-->.*?<!--/appbar-->\n?', '', html, flags=re.S)
-    html = re.sub(r'<meta name="apple-itunes-app"[^>]*>\n?', '', html)
+    # since app 1.3 (approved Nov 17, 2026) the iPhone app has every city and is sold in Australia: the App Store bar and banner stay
     html = re.sub(r'''(href|src)="(?!https?:|/|#|\$|'|data:|\./data\.js|\./walks\.js)(\./)?''', r'\1="/', html)
     html = html.replace('url(banner.svg', 'url(/' + CITYCFG.get('banner', 'banner.svg'))   # each city has its own header art
     html = html.replace('"./vendor/', '"/vendor/')   # sign-in and QR libraries live at the site root
