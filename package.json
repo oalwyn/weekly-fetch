@@ -1,14 +1,17 @@
 {
   "name": "weekly-fetch",
   "private": true,
-  "description": "iPhone app shell (Capacitor) for The Bay Area Weekend Fetch. The website itself needs none of this.",
+  "description": "iPhone and Android app shells (Capacitor) for The Weekend Fetch. The website itself needs none of this.",
   "scripts": {
     "app:build": "python3 src/build_app.py && npx cap sync ios",
     "app:release": "WF_RELEASE=1 python3 src/build_app.py && npx cap sync ios",
     "app:open": "npx cap open ios",
+    "android:build": "python3 src/build_app.py && npx cap sync android",
+    "android:release": "WF_RELEASE=1 python3 src/build_app.py && npx cap sync android && cd android && ./gradlew bundleRelease",
     "test:db": "node supabase/tests/test_groups.mjs && node supabase/tests/test_analytics.mjs"
   },
   "dependencies": {
+    "@capacitor/android": "^8.6.0",
     "@capacitor/app": "8.1.2",
     "@capacitor/core": "8.6.0",
     "@capacitor/ios": "8.6.0",

@@ -98,6 +98,16 @@ So always `git pull` before working, and don't hand-edit `data.js` in ways the r
 - Group & account panel now says "Signed in as …" / "Signed in with Apple (email hidden)" (`signedInAsHTML`).
 - Supabase Apple provider Client IDs must list both the bundle id (native app) and the web Services ID. The web client secret (a JWT made from the .p8 key) expires every 6 months: renew it in Supabase before then.
 
+## Android app (started Nov 16, 2026; Google Play, organization account Alwyn Ventures LLC)
+- Same Capacitor project as the iPhone app: `android/` (package `io.github.oalwyn.weekendfetch`, versionName/versionCode in `android/app/build.gradle`, first release 1.0 (1)). `app/www` is shared: build_app.py tags records `android-<ver>+<code>` or `ios-…` at run time.
+- Build: `npm run android:build` (debug: `cd android && ./gradlew assembleDebug`), release bundle `npm run android:release` → `android/app/build/outputs/bundle/release/app-release.aab`. Needs `JAVA_HOME=~/Library/Android/jdk/jdk-21.0.13+9/Contents/Home` and `android/local.properties` (`sdk.dir=~/Library/Android/sdk`); Homebrew's openjdk builds from source on this Intel Mac, so Java/SDK were installed from Adoptium / dl.google.com instead.
+- Emulator: AVD `wfpixel` (Android 16, Pixel 4). On this Mac use `-gpu swiftshader_indirect -cores 6 -memory 4096` (`-gpu host` hangs) and `adb shell svc power stayon true`. Debug builds allow WebView inspection: `adb forward tcp:9333 localabstract:webview_devtools_remote_<pid>`.
+- Android-only code: `WFCalendarPlugin.java` (Add to Calendar via the calendar app's insert screen; resolves `{opened:true}`, no saved flag, so no calendar_added record), registered in `MainActivity.java`. Sign in with Apple isn't offered on Android (native_app.js checks `Capacitor.isPluginAvailable`); email codes only. `SCHEDULE_EXACT_ALARM` is removed in the manifest (reminders don't need exact alarms; avoids Play's declaration). Status strip: blue window background + `SystemBars.setStyle DARK`.
+- Invite links: manifest App Link for `https://theweekendfetch.com/join`; needs `/.well-known/assetlinks.json` with the Play App Signing SHA-256 (from Play Console › App integrity) to open the app.
+- Icons/splash/Play icon: `python3 src/tools/make_android_icons.py`. Listing, Data safety answers, content rating: `play-store/LISTING.md`; feature graphic `play-store/feature-graphic.png`.
+- Stats: `supabase/v1.5-android.sql` accepts platform `android` and adds `android_sessions` to admin_report (dashboard column). **Apply it before releasing an Android build.** Re-run after any re-run of v1.3/v1.4.
+- Release signing: upload key in `android/keystore/` + `android/keystore.properties` (gitignored, owner's Mac only; back them up).
+
 ## Commit conventions
 `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit`, with the message ending in:
 `Co-Authored-By: Claude <noreply@anthropic.com>`

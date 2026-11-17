@@ -23,7 +23,7 @@ await db.exec(`
   alter default privileges in schema public grant execute on functions to anon, authenticated;  -- like Supabase
 `);
 await db.exec(fs.readFileSync(repo + '/supabase-setup.sql', 'utf8'));
-for (const f of ['v1.1-groups.sql', 'v1.1-plans-extra.sql', 'v1.3-analytics.sql', 'v1.3-analytics.sql', 'v1.4-city.sql', 'v1.4-city.sql'])
+for (const f of ['v1.1-groups.sql', 'v1.1-plans-extra.sql', 'v1.3-analytics.sql', 'v1.3-analytics.sql', 'v1.4-city.sql', 'v1.4-city.sql', 'v1.5-android.sql', 'v1.5-android.sql'])
   await db.exec(fs.readFileSync(repo + '/supabase/' + f, 'utf8'));
 ok(true, 'scripts run (analytics and city twice)');
 ok((await q(`select 1 from pg_proc where proname in ('admin_report','admin_export')`)).length === 2, 'one version of each report function (no ambiguous overloads)');
@@ -255,6 +255,14 @@ ok(bc.sydney && bc.sydney.identities === 3 && bc.sydney.booking_clicks === 1 && 
 ok(allc.weekly.reduce((n, w) => n + w.visitors, 0) > syd.weekly.reduce((n, w) => n + w.visitors, 0), 'city: all-cities totals include more than Sydney');
 const sydExp = (await one(`select admin_export((now() - interval '60 days')::date, now()::date, false, 'sydney') r`)).r;
 ok(sydExp.length === 5 && sydExp.every(x => x.city === 'sydney'), 'city: export can be narrowed to one city and includes the city column');
+
+// ---- v1.5: the Android app ----
+await as(null);
+await q(`select log_client_event($1::jsonb)`, [ev({ event_name: 'app_open', anon_id: 'aAndroid01', session_id: 'sessAND001', platform: 'android', app_version: 'android-1.0+1', city: 'bayarea' })]);
+ok(await count(`anon_id = 'aAndroid01' and platform = 'android' and app_version = 'android-1.0+1'`) === 1, 'android: app records keep platform android');
+await as(OWNER);
+const andr = (await one(`select admin_report(8) r`)).r;
+ok(andr.weekly.reduce((n, w) => n + (w.android_sessions || 0), 0) === 1, 'android: the report counts Android sessions');
 
 // retention job folds old records into identifier-free weekly totals
 await db.exec(`insert into analytics_events(record_id, event_name, received_at, anon_id, platform, environment, evidence)

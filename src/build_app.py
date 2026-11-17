@@ -1,6 +1,6 @@
 """Build the iPhone app's copy of the site into ../app/www (used by Capacitor).
 
-Usage:  python3 src/build_app.py      (then: npx cap sync ios)
+Usage:  python3 src/build_app.py      (then: npx cap sync ios / npx cap sync android)
 
 The website (../index.html) is left untouched. This copies it and its files into
 app/www and makes a few app-only changes:
@@ -103,9 +103,13 @@ def appify(html, cfg):
   pbx = open(os.path.join(root, "ios", "App", "App.xcodeproj", "project.pbxproj")).read()
   mv = re.search(r"MARKETING_VERSION = ([0-9.]+);", pbx).group(1); bn = re.search(r"CURRENT_PROJECT_VERSION = ([0-9]+);", pbx).group(1)
   env = "production" if os.environ.get("WF_RELEASE") == "1" else "development"
-  html, nver = re.subn(r'window\.WF_VERSION="[^"]*";', 'window.WF_VERSION="ios-%s+%s";window.WF_ENV="%s";' % (mv, bn, env), html)
+  # the same app/www goes into both apps: pick the tag for the platform at run time (Android version from android/app/build.gradle)
+  gr = open(os.path.join(root, "android", "app", "build.gradle")).read()
+  av = re.search(r'versionName "([0-9.]+)"', gr).group(1); ac = re.search(r"versionCode ([0-9]+)", gr).group(1)
+  html, nver = re.subn(r'window\.WF_VERSION="[^"]*";',
+      'window.WF_VERSION=(window.Capacitor&&Capacitor.getPlatform&&Capacitor.getPlatform()==="android")?"android-%s+%s":"ios-%s+%s";window.WF_ENV="%s";' % (av, ac, mv, bn, env), html)
   assert nver == 1, "version tag not found"
-  print("app measurement tags: ios-%s+%s, %s" % (mv, bn, env))
+  print("app measurement tags: ios-%s+%s / android-%s+%s, %s" % (mv, bn, av, ac, env))
   # 4c. website-only bits: the "Get the iPhone app" bar and Safari's App Store banner
   html = re.sub(r'<!--appbar-->.*?<!--/appbar-->\n?', '', html, flags=re.S)
   html = re.sub(r'<meta name="apple-itunes-app"[^>]*>\n?', '', html)

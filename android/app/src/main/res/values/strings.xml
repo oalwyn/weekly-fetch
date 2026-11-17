@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Weekend Fetch</string>
+    <string name="title_activity_main">Weekend Fetch</string>
+    <string name="package_name">io.github.oalwyn.weekendfetch</string>
+    <string name="custom_url_scheme">io.github.oalwyn.weekendfetch</string>
+</resources>

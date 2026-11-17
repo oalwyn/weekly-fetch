@@ -1411,6 +1411,8 @@ const ACCT = { client: null, loading: null, user: null, me: null, gid: null, gro
 const SB_REF = (SB_URL.split("//")[1] || "").split(".")[0];
 const SB_AUTH_KEY = "sb-" + SB_REF + "-auth-token";
 const IS_APP = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+// "ios" or "android" inside the apps, "web" on the website
+const PLATFORM = !IS_APP ? "web" : (window.Capacitor.getPlatform && window.Capacitor.getPlatform() === "android" ? "android" : "ios");
 const LIVE_SITE = "https://theweekendfetch.com/";
 // Sign in with Apple on the website (Supabase web OAuth). Switched on by "appleWeb": true in src/sb.json, once Apple and Supabase are set up.
 // Apple logo drawn as SVG on the website (the  character only shows on Apple devices)
@@ -1501,7 +1503,7 @@ function session(forceNew){
 }
 function trackCtx(extra){
   const x = session();
-  return Object.assign({ session_id: x.id, platform: IS_APP ? "ios" : "web", app_version: WF_VERSION, environment: WF_ENV, city: CITY.key,
+  return Object.assign({ session_id: x.id, platform: PLATFORM, app_version: WF_VERSION, environment: WF_ENV, city: CITY.key,
     client_ts: new Date().toISOString(), placement: LAST_PLACEMENT }, extra || {});
 }
 // remembers taps for a second so a double tap is one record
@@ -1516,7 +1518,7 @@ function track(name, d){
     if (d.item_id && !d.category && !d.region) Object.assign(d, itemFields(d.item_id), { item_id: d.item_id });
     const x = session();
     const e = Object.assign({ record_id: rid(), event_name: name, client_ts: new Date().toISOString(), anon_id: ANON, session_id: x.id,
-      platform: IS_APP ? "ios" : "web", app_version: WF_VERSION, environment: WF_ENV, city: CITY.key, placement: d.placement !== undefined ? d.placement : LAST_PLACEMENT }, d);
+      platform: PLATFORM, app_version: WF_VERSION, environment: WF_ENV, city: CITY.key, placement: d.placement !== undefined ? d.placement : LAST_PLACEMENT }, d);
     if (!x.sent) { Object.assign(e, x.acq); x.sent = true; writeSess(x); }   // how this session arrived goes on its first record
     sendRecord(e);
   } catch (e) {}
@@ -1764,7 +1766,7 @@ async function shareInvite(btn){
   const gid = ACCT.group.id;
   track("invite_share_opened", { group_id: gid });
   const SH = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Share;
-  if (IS_APP && SH) { try { await SH.share({ title: "Plan weekends with me", text: `Join our group “${ACCT.group.name}” on Weekend Fetch (code ${ACCT.group.code}):`, url: link, dialogTitle: "Invite someone" }); track("invite_shared", { group_id: gid, props: { channel: "ios_share" } }); } catch (e) {} return; }
+  if (IS_APP && SH) { try { await SH.share({ title: "Plan weekends with me", text: `Join our group “${ACCT.group.name}” on Weekend Fetch (code ${ACCT.group.code}):`, url: link, dialogTitle: "Invite someone" }); track("invite_shared", { group_id: gid, props: { channel: PLATFORM + "_share" } }); } catch (e) {} return; }
   if (navigator.share) { try { await navigator.share({ title: "Plan weekends with me", text, url: link }); track("invite_shared", { group_id: gid, props: { channel: "web_share" } }); return; } catch (e) { if (e && e.name === "AbortError") return; } }
   try { await navigator.clipboard.writeText(text); track("invite_link_copied", { group_id: gid }); btn.textContent = "Invite copied ✓"; setTimeout(() => btn.textContent = "Share invite", 2500); }
   catch (e) { ACCT.ui.panel = "invite"; refreshStars(); }
@@ -2104,7 +2106,7 @@ document.addEventListener("click", async ev => {
       await call("set_rsvp", { p_group: ACCT.gid, p_item: id, p_status: s });
       await acctSync(); return;
     }
-    else if (a === "mark-device") { await call("admin_mark_internal", { p_anon: ANON, p_note: IS_APP ? "iPhone app" : "browser" }); lsSet("wf-internal", "1"); ACCT.msg = "This device is now left out of the stats, including its past activity."; }
+    else if (a === "mark-device") { await call("admin_mark_internal", { p_anon: ANON, p_note: PLATFORM === "ios" ? "iPhone app" : PLATFORM === "android" ? "Android app" : "browser" }); lsSet("wf-internal", "1"); ACCT.msg = "This device is now left out of the stats, including its past activity."; }
     else if (a === "make-main") { lsSet("wf-main", ACCT.gid); ACCT.msg = `“${ACCT.group.name}” is now your main plan. New stars go here.`; }
     else if (a === "plans-pick") { showPlansSheet(b.dataset.id, "edit"); return; }
     else if (a === "plan-toggle") { const id = b.dataset.id, g = b.dataset.gid; ACCT.sheet.touched = true; await setInPlan(id, g, !(ACCT.mine.get(id) || new Set()).has(g)); return; }

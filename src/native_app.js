@@ -1,12 +1,17 @@
-/* ---------- iPhone app only (added by build_app.py, not on the website) ----------
+/* ---------- iPhone and Android app only (added by build_app.py, not on the website) ----------
+   The same code runs in both apps. Plugins written for one platform only (WFAppleSignIn is iPhone-only)
+   are checked with isPluginAvailable, because registerPlugin returns a stand-in that fails when called.
    1. Reminders for locked-in plans: the evening before (7pm) and 2 hours before it starts
       (9am on the day when the listing has no start time).
    2. "Add to Calendar" on each locked-in plan (Apple's New Event screen, filled in).
    3. "Invite someone to plan" opens the iPhone share sheet instead of copying the link.
 */
 const CAP = window.Capacitor;
-const capPlugin = name => !CAP ? null : ((CAP.Plugins && CAP.Plugins[name]) || (CAP.registerPlugin ? CAP.registerPlugin(name) : null));
+const capPlugin = name => !CAP || (CAP.isPluginAvailable && !CAP.isPluginAvailable(name)) ? null : ((CAP.Plugins && CAP.Plugins[name]) || (CAP.registerPlugin ? CAP.registerPlugin(name) : null));
 const LN = capPlugin("LocalNotifications"), SHARE = capPlugin("Share"), CAL = capPlugin("WFCalendar");
+
+// Android: white clock and battery icons on the blue header (iPhone sets this itself)
+if (CAP && CAP.getPlatform && CAP.getPlatform() === "android") { const SB = capPlugin("SystemBars"); if (SB && SB.setStyle) SB.setStyle({ style: "DARK" }).catch(() => {}); }
 
 // wfTimes(when) (start/end hours from listing text) is defined in accounts.js
 const atHour = (day, h) => { const x = new Date(day); x.setHours(Math.floor(h), Math.round((h % 1) * 60), 0, 0); return x; };
@@ -45,7 +50,7 @@ async function doSchedule(){
     if (+soon > now) list.push({id: noteId(id + "|soon|" + k), title: (t ? "In 2 hours: " : "Today: ") + e.title, body, schedule: {at: soon, allowWhileIdle: true}, extra: {wf: 1, item: id}});
   }
   list.sort((a, b) => a.schedule.at - b.schedule.at);
-  if (list.length) await LN.schedule({notifications: list.slice(0, 60)});   // iPhone keeps up to 64
+  if (list.length) await LN.schedule({notifications: list.slice(0, 60)});   // iPhone keeps up to 64 (Android has no such limit)
 }
 // ask for permission the first time someone locks in a plan (not at launch)
 const _setPlan = setPlan;
@@ -90,6 +95,7 @@ document.addEventListener("click", ev => {
     start: +(t ? atHour(day, t.sh) : day),
     end: +(t ? atHour(day, t.eh) : day)
   }).then(r => {
+    if (r && r.opened && !r.saved) return;   // Android: the calendar app opened; it doesn't report whether it was saved
     if (r && r.saved){
       b.textContent = "✓ In your calendar"; setTimeout(() => b.textContent = "📅 Add to Calendar", 3000);
       if (typeof track === "function") track("calendar_added", { item_id: e.id, occurrence_id: e.id + "@" + b.dataset.k, placement: "plan_card" });   // iOS reported the event as saved

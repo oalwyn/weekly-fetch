@@ -90,7 +90,7 @@ function render(r){
   h += `<section><h2>Weekly</h2><p class="def">Distinct identities per reporting week. Groups: active = a confirmed plan change that week; collaborative = at least two different accounts contributed that week.</p>` +
     table([["Week of", x => esc(x.week)], ["Visitors", x => x.visitors], ["New visitors", x => x.new_visitors], ["Accounts", x => x.accounts], ["New accounts", x => x.new_accounts],
       ["Meaningful: visitors", x => x.wmu_anonymous], ["Meaningful: accounts", x => x.wmu_accounts], ["Active groups", x => x.active_groups], ["Collaborative groups", x => x.collaborative_groups],
-      ["Web sessions", x => x.web_sessions], ["iOS sessions", x => x.ios_sessions]], W) + `</section>`;
+      ["Web sessions", x => x.web_sessions], ["iOS sessions", x => x.ios_sessions], ["Android sessions", x => x.android_sessions || 0]], W) + `</section>`;
   h += `<section><h2>Key actions</h2><p class="def">Records (unique identities) per week. Stars and lock-ins include plans kept on a device (reported by the device) and group plans (confirmed by the server).</p>` +
     table([["Action", a => esc(a[1])], ...W.map(x => [x.week, a => { const v = x.actions && x.actions[a[0]]; return v ? `${v.records} (${v.identities})` : "0"; }])], ACTIONS) + `</section>`;
   h += `<div class="grid2"><section><h2>Activation</h2><p class="def">Cohort = identities first seen that week. Same session = first meaningful action in the session where they were first seen. 7 days = within 168 hours of first seen; only identities first seen at least 7 days ago are counted.</p>` +
