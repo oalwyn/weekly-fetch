@@ -134,17 +134,16 @@ Plan weekends with your people.
 
 ## Screenshots
 
-Upload the five files in `app-store/screenshots-6.3/` (1206 × 2622, no transparency) under **iPhone with Dynamic Island (medium display)**. App Store Connect only shows this section when the window is wide. The 1320 × 2868 originals in `app-store/screenshots/` were rejected there as "invalid dimensions". In this order:
+**From 1.4:** upload the six files in `app-store/screenshots-1.4/` (1206 × 2622, no transparency) under **iPhone with Dynamic Island (medium display)**, in this order:
 
-1. `1-events.png`: this weekend's events
-2. `2-map.png`: the map
-3. `3-plans.png`: Our Weekend Plans with locked-in days
-4. `4-plan-detail.png`: a plan with "Add to Calendar"
-5. `5-add-to-calendar.png`: the filled-in calendar event
+1. `1-whats-on.png`: this weekend, with the Shop local box
+2. `2-explore.png`: the map
+3. `3-our-plans.png`: a weekend of locked-in plans
+4. `4-plan-detail.png`: one plan opened
+5. `5-rainy-day.png`: the rain forecast and indoor ideas
+6. `6-sydney.png`: the Sydney page
 
-Apple scales these down for smaller iPhones automatically.
-
----
+1 and 6 are simulator captures; 2–5 are the app's own pages rendered at iPhone size with sample plans, with the simulator's status bar on top. App Store Connect only shows this section when the window is wide. The 1.0–1.3 sets are in `app-store/screenshots-6.3/` and `app-store/screenshots/`.
 
 ## App Privacy ("nutrition label")
 
