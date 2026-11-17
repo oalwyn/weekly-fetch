@@ -1,5 +1,5 @@
 window.WF_DATA = {
- "updated": "Updated Monday, Nov 16, 2026 · this week + the next two months",
+ "updated": "Updated Tuesday, Nov 17, 2026 · this week + the next two months",
  "sections": [
   [
    "week",
@@ -35,7 +35,7 @@ window.WF_DATA = {
   ],
   [
    "programs",
-   "Teen winter & summer programs · by deadline"
+   "Programs, camps & sign-ups · by deadline"
   ],
   [
    "radar",
@@ -45,6 +45,25 @@ window.WF_DATA = {
  "items": [
   {
    "n": 1,
+   "id": "oakland-zoo-glowfari-2026",
+   "sec": "week",
+   "when": "Nightly to Jan 31 · entry 4:30–6:30pm (closed Nov 26, Dec 24–25, some Mon/Tue in Jan)",
+   "title": "Glowfari lantern festival at Oakland Zoo",
+   "meta": "Oakland Zoo, 9777 Golf Links Rd · hundreds of new animal lanterns, lit gondola, Santa nightly Nov 20–Dec 23 (6–9pm) · family-friendly · timed tickets released 28 days ahead",
+   "cat": "hol",
+   "url": "https://www.oaklandzoo.org/programs-and-events/glowfari",
+   "price": "tickets",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.7509,
+   "lon": -122.1474,
+   "q": "Oakland Zoo, 9777 Golf Links Rd, Oakland, CA",
+   "start": "2026-11-06",
+   "end": "2027-01-31"
+  },
+  {
+   "n": 2,
    "id": "san-jose-holiday-lights",
    "sec": "week",
    "when": "Opens Fri Nov 13",
@@ -57,10 +76,13 @@ window.WF_DATA = {
    "lon": -121.896,
    "q": "330 W San Carlos St San Jose CA",
    "start": "2026-11-13",
-   "end": "2027-01-01"
+   "end": "2027-01-01",
+   "aud": [
+    "all"
+   ]
   },
   {
-   "n": 2,
+   "n": 3,
    "id": "san-mateo-on-ice-tree-lighting-opening-night",
    "sec": "week",
    "when": "Daily through Sun Jan 10",
@@ -76,7 +98,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 3,
+   "n": 4,
    "id": "holidays-at-filoli",
    "sec": "week",
    "when": "Opens Sat Nov 14",
@@ -89,10 +111,14 @@ window.WF_DATA = {
    "lon": -122.3109,
    "q": "Filoli Woodside CA",
    "start": "2026-11-14",
-   "end": "2027-01-10"
+   "end": "2027-01-10",
+   "aud": [
+    "all",
+    "access"
+   ]
   },
   {
-   "n": 4,
+   "n": 5,
    "id": "mv-teen-open-gym",
    "sec": "week",
    "when": "Saturdays · 6:30–9:30pm",
@@ -111,7 +137,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 5,
+   "n": 6,
    "id": "union-square-ice-rink-2026",
    "sec": "week",
    "when": "Daily through Jan 18 · 10am–11pm",
@@ -127,7 +153,7 @@ window.WF_DATA = {
    "end": "2027-01-18"
   },
   {
-   "n": 6,
+   "n": 7,
    "id": "chm-extended-reality-2026",
    "sec": "week",
    "when": "Through Sun Mar 28 · Wed–Sun 10am–5pm",
@@ -143,7 +169,7 @@ window.WF_DATA = {
    "end": "2027-03-28"
   },
   {
-   "n": 7,
+   "n": 8,
    "id": "cantor-in-focus-asian-american-art-2026",
    "sec": "week",
    "when": "Through Mon Feb 22",
@@ -159,7 +185,7 @@ window.WF_DATA = {
    "end": "2027-02-22"
   },
   {
-   "n": 8,
+   "n": 9,
    "id": "sjma-motherboards-2026",
    "sec": "week",
    "when": "Through Sun Jan 10",
@@ -173,22 +199,6 @@ window.WF_DATA = {
    "q": "San Jose Museum of Art",
    "start": "2026-11-14",
    "end": "2027-01-10"
-  },
-  {
-   "n": 9,
-   "id": "sjma-small-ocean-swallowed-2026",
-   "sec": "week",
-   "when": "Through Sun Feb 14",
-   "title": "a small ocean swallowed",
-   "meta": "San José Museum of Art, San Jose · six feminist artists on water, rivers and oceans · $20, free 17 & under",
-   "cat": "art",
-   "url": "https://sjmusart.org/exhibition/small-ocean-swallowed",
-   "price": "tickets",
-   "lat": 37.3335,
-   "lon": -121.8895,
-   "q": "San Jose Museum of Art",
-   "start": "2026-11-14",
-   "end": "2027-02-14"
   },
   {
    "n": 10,
@@ -370,6 +380,56 @@ window.WF_DATA = {
   },
   {
    "n": 21,
+   "id": "fmd-svma",
+   "sec": "week",
+   "cat": "fmd",
+   "price": "free",
+   "title": "Free day at the Sonoma Valley Museum of Art",
+   "when": "Wednesdays 11am–5pm",
+   "meta": "Sonoma Valley Museum of Art, Sonoma · free admission every Wednesday (check in at the desk; check holiday hours)",
+   "url": "https://svma.org/visit/",
+   "lat": 38.2928,
+   "lon": -122.4573,
+   "q": "Sonoma Valley Museum of Art, 551 Broadway, Sonoma, CA",
+   "dates": [
+    "2026-11-18",
+    "2026-11-25",
+    "2026-12-02",
+    "2026-12-09",
+    "2026-12-16",
+    "2026-12-23",
+    "2026-12-30",
+    "2027-01-06",
+    "2027-01-13"
+   ]
+  },
+  {
+   "n": 22,
+   "id": "fm-santa-cruz-downtown-wednesday",
+   "sec": "week",
+   "when": "Wednesdays · 12:30–5pm",
+   "title": "Downtown Santa Cruz Farmers Market",
+   "meta": "Cedar St & Church St, Santa Cruz · the county's biggest and oldest market, lots of cultural food stalls · certified farmers market · no dogs (state rule for certified markets)",
+   "cat": "mkt",
+   "url": "https://santacruzfarmersmarket.org/markets/downtown/",
+   "price": "free",
+   "lat": 36.9737,
+   "lon": -122.0275,
+   "q": "Cedar St & Church St, Santa Cruz, CA",
+   "dates": [
+    "2026-11-18",
+    "2026-11-25",
+    "2026-12-02",
+    "2026-12-09",
+    "2026-12-16",
+    "2026-12-23",
+    "2026-12-30",
+    "2027-01-06",
+    "2027-01-13"
+   ]
+  },
+  {
+   "n": 23,
    "id": "exploratorium-glow-2026",
    "sec": "week",
    "when": "Nov 19 – Jan 24",
@@ -385,7 +445,7 @@ window.WF_DATA = {
    "end": "2027-01-24"
   },
   {
-   "n": 22,
+   "n": 24,
    "id": "hillbarn-school-of-rock-2026",
    "sec": "week",
    "when": "Nov 19 – Dec 20",
@@ -401,7 +461,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 23,
+   "n": 25,
    "id": "city-lights-1940s-radio-hour-2026",
    "sec": "week",
    "when": "Nov 19 – Dec 20 · Thu 7:30, Fri–Sat 8, Sun 2",
@@ -417,7 +477,41 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 24,
+   "n": 26,
+   "id": "mvpl-native-histories-missions-talk-2026-11-19",
+   "sec": "week",
+   "when": "Thu Nov 19 · 6:30–7:30pm",
+   "title": "Talk: Native histories of the collapse of the California missions",
+   "meta": "Mountain View Public Library, Mountain View · co-authors Gustavo Flores and Lee Panich on how Ohlone ancestors in the South Bay navigated the end of the mission system · free, registration recommended, walk-ins welcome",
+   "cat": "learn",
+   "url": "https://mountainview.libcal.com/event/17621760",
+   "price": "free",
+   "lat": 37.3906,
+   "lon": -122.0832,
+   "q": "Mountain View Public Library, 585 Franklin St, Mountain View, CA",
+   "start": "2026-11-19",
+   "end": "2026-11-19"
+  },
+  {
+   "n": 27,
+   "id": "keplers-jen-murphy-parker-2026-11-19",
+   "sec": "week",
+   "when": "Thu Nov 19 · 6–7pm",
+   "title": "Author talk: Jen Murphy Parker, Fault Line Boy",
+   "meta": "Kepler's Books, Menlo Park · memoir of raising a child with severe epilepsy, in conversation with Irena Smith · tickets on Eventbrite",
+   "cat": "learn",
+   "url": "https://www.keplers.org/upcoming-events-internal/parker",
+   "price": "tickets",
+   "local": 1,
+   "biz": "Kepler's Books",
+   "lat": 37.4535,
+   "lon": -122.182,
+   "q": "Kepler's Books, 1010 El Camino Real, Menlo Park, CA",
+   "start": "2026-11-19",
+   "end": "2026-11-19"
+  },
+  {
+   "n": 28,
    "id": "niles-canyon-train-of-lights",
    "sec": "week",
    "when": "Select nights Nov 20 – Dec 29",
@@ -453,10 +547,13 @@ window.WF_DATA = {
     "2026-12-27",
     "2026-12-28",
     "2026-12-29"
+   ],
+   "aud": [
+    "access"
    ]
   },
   {
-   "n": 25,
+   "n": 29,
    "id": "stanford-volleyball-vs-syracuse-2026-11-20",
    "sec": "week",
    "when": "Fri Nov 20 · 7pm",
@@ -474,7 +571,7 @@ window.WF_DATA = {
    "end": "2026-11-20"
   },
   {
-   "n": 26,
+   "n": 30,
    "id": "film-hunger-games-sunrise-on-the-reaping",
    "sec": "week",
    "when": "Opens Fri Nov 20",
@@ -487,7 +584,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 27,
+   "n": 31,
    "id": "film-paper-tiger-2026",
    "sec": "week",
    "when": "Opens wide Fri Nov 20",
@@ -499,7 +596,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 28,
+   "n": 32,
    "id": "film-i-play-rocky-2026",
    "sec": "week",
    "when": "Opens wide Fri Nov 20",
@@ -512,7 +609,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 29,
+   "n": 33,
    "id": "fm-monterey-del-monte-friday",
    "sec": "week",
    "when": "Fridays · 8am–noon",
@@ -534,7 +631,50 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 30,
+   "n": 34,
+   "id": "foothill-observatory-friday-stargazing-2026",
+   "sec": "week",
+   "when": "Clear Fridays 9–11pm",
+   "title": "Friday night stargazing at Foothill Observatory",
+   "meta": "Foothill Observatory, Los Altos Hills · Peninsula Astronomical Society opens the telescope to the public on clear Friday nights; closed if cloudy · free (college parking fee may apply)",
+   "cat": "learn",
+   "url": "https://pastro.org/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.3577,
+   "lon": -122.129,
+   "q": "Foothill Observatory, Foothill College, 12345 El Monte Rd, Los Altos Hills, CA",
+   "dates": [
+    "2026-11-20",
+    "2026-12-04",
+    "2026-12-11",
+    "2026-12-18",
+    "2027-01-08",
+    "2027-01-15"
+   ]
+  },
+  {
+   "n": 35,
+   "id": "canopy-weekday-planting-mountain-view-2026-11",
+   "sec": "week",
+   "when": "Fridays Nov 20 & Dec 4 · 3–5pm",
+   "title": "Canopy weekday tree planting",
+   "meta": "Mountain View or Palo Alto (address emailed once set) · plant street trees with Canopy, no experience needed · free, sign up",
+   "cat": "vol",
+   "url": "https://canopy.org/event-calendar/",
+   "price": "free",
+   "lat": 37.3861,
+   "lon": -122.0839,
+   "q": "Mountain View, CA",
+   "dates": [
+    "2026-11-20",
+    "2026-12-04"
+   ]
+  },
+  {
+   "n": 36,
    "id": "head-west-market-on-south-b-street",
    "sec": "week",
    "when": "Sat Nov 21 · 11am–4pm",
@@ -550,23 +690,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 31,
-   "id": "art-on-the-square-holiday-show",
-   "sec": "week",
-   "when": "Sat Nov 21 · 10am–4pm",
-   "title": "ART on the Square Holiday Show",
-   "meta": "San Mateo County History Museum, Redwood City · juried art & fine craft · free",
-   "cat": "mkt",
-   "url": "https://artonthesquarerwc.com/",
-   "price": "free",
-   "lat": 37.4869,
-   "lon": -122.2283,
-   "q": "San Mateo County History Museum",
-   "start": "2026-11-21",
-   "end": "2026-11-21"
-  },
-  {
-   "n": 32,
+   "n": 37,
    "id": "west-coast-craft",
    "sec": "week",
    "when": "Nov 21–22 · 10am–6pm",
@@ -582,7 +706,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 33,
+   "n": 38,
    "id": "great-dickens-christmas-fair",
    "sec": "week",
    "when": "Opens Sat Nov 21",
@@ -603,22 +727,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 34,
-   "id": "apr-s-village-winter-terrace",
-   "sec": "week",
-   "when": "Opens Sat Nov 21",
-   "title": "Après Village winter terrace",
-   "meta": "Four Seasons Silicon Valley, East Palo Alto · through Jan 4",
-   "cat": "hol",
-   "url": "https://www.fourseasons.com/siliconvalley/apres-village",
-   "lat": 37.4597,
-   "lon": -122.1416,
-   "q": "Four Seasons Hotel Silicon Valley",
-   "start": "2026-11-21",
-   "end": "2027-01-04"
-  },
-  {
-   "n": 35,
+   "n": 39,
    "id": "surf-city-stroll-westside-wine-walk",
    "sec": "week",
    "when": "Sat Nov 21, 1–4pm",
@@ -636,7 +745,7 @@ window.WF_DATA = {
    "url": "https://winesofthesantacruzmountains.com/events/surfcitystroll/"
   },
   {
-   "n": 36,
+   "n": 40,
    "id": "del-monte-center-christmas-tree-lighting",
    "sec": "week",
    "when": "Sat Nov 21 · 5–7pm",
@@ -651,7 +760,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 37,
+   "n": 41,
    "id": "winter-wonderfest-monterey",
    "sec": "week",
    "when": "Opens Sat Nov 21",
@@ -666,7 +775,7 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 38,
+   "n": 42,
    "id": "gilroy-gardens-north-pole-nights",
    "sec": "week",
    "when": "Select dates Nov 21 – Dec 31",
@@ -679,10 +788,13 @@ window.WF_DATA = {
    "lon": -121.6326,
    "q": "Gilroy Gardens Family Theme Park",
    "start": "2026-11-21",
-   "end": "2026-12-31"
+   "end": "2026-12-31",
+   "aud": [
+    "all"
+   ]
   },
   {
-   "n": 39,
+   "n": 43,
    "id": "golden-gate-lab-rescue-santa-pet-fair-2026",
    "sec": "week",
    "when": "Sat Nov 21 · 11am–3pm",
@@ -698,7 +810,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 40,
+   "n": 44,
    "id": "sharks-vs-kraken-2026-11-21",
    "sec": "week",
    "when": "Sat Nov 21 · 7pm",
@@ -715,7 +827,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 41,
+   "n": 45,
    "id": "patchen-christmas-tree-farm-2026",
    "sec": "week",
    "when": "Nov 21 – Dec 24 · Sat–Sun 9am–5pm, Tue–Fri 1–5pm",
@@ -733,7 +845,7 @@ window.WF_DATA = {
    "biz": "Patchen Christmas Tree Farm"
   },
   {
-   "n": 42,
+   "n": 46,
    "id": "fm-downtown-palo-alto-saturday",
    "sec": "week",
    "when": "Saturdays · 8am–noon",
@@ -757,7 +869,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 43,
+   "n": 47,
    "id": "fm-sunnyvale-saturday",
    "sec": "week",
    "when": "Saturdays · 9am–1pm",
@@ -781,7 +893,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 44,
+   "n": 48,
    "id": "fm-saratoga-saturday",
    "sec": "week",
    "when": "Saturdays · 9am–1pm",
@@ -805,7 +917,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 45,
+   "n": 49,
    "id": "fm-ferry-plaza-saturday",
    "sec": "week",
    "when": "Saturdays · 8am–2pm (smaller markets Tue & Thu 10am–2pm)",
@@ -829,7 +941,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 46,
+   "n": 50,
    "id": "fm-aptos-cabrillo-saturday",
    "sec": "week",
    "when": "Saturdays · 8am–noon",
@@ -853,7 +965,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 47,
+   "n": 51,
    "id": "legion-alaia-sculpting-fashion-2026",
    "sec": "week",
    "when": "Opens Sat Nov 21 · Tue–Sun 9:30am–5:15pm",
@@ -869,25 +981,7 @@ window.WF_DATA = {
    "end": "2027-04-11"
   },
   {
-   "n": 48,
-   "id": "little-green-trade-show-2026",
-   "sec": "week",
-   "when": "Sat Nov 21, 11am–1pm",
-   "title": "Little Green Trade Show: barter with local makers",
-   "meta": "Little Green A Plant Bar, 1101 Main St, Redwood City · free · swap goods and services with local craftspeople, no money involved",
-   "cat": "evt",
-   "url": "https://www.littlegreenaplantbar.com/classes",
-   "price": "free",
-   "local": 1,
-   "biz": "Little Green A Plant Bar",
-   "lat": 37.485,
-   "lon": -122.23,
-   "q": "Little Green A Plant Bar, 1101 Main St, Redwood City, CA",
-   "start": "2026-11-21",
-   "end": "2026-11-21"
-  },
-  {
-   "n": 49,
+   "n": 52,
    "id": "hicklebees-sahar-shams-santa-2026",
    "sec": "week",
    "when": "Sat Nov 21, 11:30am–12:30pm",
@@ -906,7 +1000,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 50,
+   "n": 53,
    "id": "crest-ranch-tree-season-2026",
    "sec": "week",
    "when": "Opens Sat Nov 21, 8:30am–4:30pm daily to Nov 29 (Thanksgiving 10am–3pm); limited fields Dec 5–6",
@@ -935,7 +1029,342 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 51,
+   "n": 54,
+   "id": "fmd-de-young",
+   "sec": "week",
+   "cat": "fmd",
+   "price": "free",
+   "title": "Free day at the de Young",
+   "when": "Saturdays (Bay Area residents)",
+   "meta": "de Young Museum, San Francisco · free general admission every Saturday for residents of the 9 Bay Area counties (bring ID; special exhibitions extra)",
+   "url": "https://www.famsf.org/visit/free-reduced-admission",
+   "lat": 37.7715,
+   "lon": -122.4686,
+   "q": "de Young Museum, 50 Hagiwara Tea Garden Dr, San Francisco, CA",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2026-12-26",
+    "2027-01-02",
+    "2027-01-09",
+    "2027-01-16"
+   ],
+   "aud": [
+    "all"
+   ]
+  },
+  {
+   "n": 55,
+   "id": "fmd-legion-of-honor",
+   "sec": "week",
+   "cat": "fmd",
+   "price": "free",
+   "title": "Free day at the Legion of Honor",
+   "when": "Saturdays (Bay Area residents)",
+   "meta": "Legion of Honor, San Francisco · free general admission every Saturday for residents of the 9 Bay Area counties (bring ID; special exhibitions extra)",
+   "url": "https://www.famsf.org/visit/free-reduced-admission",
+   "lat": 37.7845,
+   "lon": -122.5008,
+   "q": "Legion of Honor, 100 34th Ave, San Francisco, CA",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2026-12-26",
+    "2027-01-02",
+    "2027-01-09",
+    "2027-01-16"
+   ],
+   "aud": [
+    "all"
+   ]
+  },
+  {
+   "n": 56,
+   "id": "fmd-triton",
+   "sec": "week",
+   "cat": "fmd",
+   "price": "free",
+   "title": "Free day at the Triton Museum of Art",
+   "when": "Always free · Tue–Sun 11am–4:30pm",
+   "meta": "Triton Museum of Art, Santa Clara · free admission and free parking every open day (closed Mondays, holidays, Thanksgiving and Nov 27)",
+   "url": "https://tritonmuseum.org/visit/",
+   "lat": 37.3529,
+   "lon": -121.958,
+   "q": "Triton Museum of Art, 1505 Warburton Ave, Santa Clara, CA",
+   "dates": [
+    "2026-11-21",
+    "2026-11-22",
+    "2026-11-28",
+    "2026-11-29",
+    "2026-12-05",
+    "2026-12-06",
+    "2026-12-12",
+    "2026-12-13",
+    "2026-12-19",
+    "2026-12-20",
+    "2026-12-26",
+    "2026-12-27",
+    "2027-01-02",
+    "2027-01-03",
+    "2027-01-09",
+    "2027-01-10",
+    "2027-01-16",
+    "2027-01-17"
+   ],
+   "aud": [
+    "all"
+   ]
+  },
+  {
+   "n": 57,
+   "id": "fmd-anderson-collection",
+   "sec": "week",
+   "cat": "fmd",
+   "price": "free",
+   "title": "Free day at the Anderson Collection",
+   "when": "Always free · Thu–Mon 11am–5pm",
+   "meta": "Anderson Collection at Stanford University, Stanford · free museum of modern and contemporary American art, open Thu–Mon (paid campus parking; check holiday hours)",
+   "url": "https://anderson.stanford.edu/visit",
+   "lat": 37.433,
+   "lon": -122.1714,
+   "q": "Anderson Collection, 314 Lomita Dr, Stanford, CA",
+   "dates": [
+    "2026-11-21",
+    "2026-11-22",
+    "2026-11-28",
+    "2026-11-29",
+    "2026-12-05",
+    "2026-12-06",
+    "2026-12-12",
+    "2026-12-13",
+    "2026-12-19",
+    "2026-12-20",
+    "2026-12-26",
+    "2026-12-27",
+    "2027-01-02",
+    "2027-01-03",
+    "2027-01-09",
+    "2027-01-10",
+    "2027-01-16",
+    "2027-01-17"
+   ]
+  },
+  {
+   "n": 58,
+   "id": "midpen-fall-winter-berries-windy-hill-2026-11-21",
+   "sec": "week",
+   "when": "Sat Nov 21 · 12–2pm",
+   "title": "Fall & winter berries: docent-led hike",
+   "meta": "Windy Hill Preserve (lower lot, Portola Rd), Portola Valley · leisurely 2-mile loop around Sausal Pond with Midpen docent naturalists · family-friendly · free",
+   "cat": "join",
+   "url": "https://www.openspace.org/events/guided-activities/fall-winter-berries",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.3763,
+   "lon": -122.2236,
+   "q": "Windy Hill Preserve lower parking, Portola Rd, Portola Valley, CA",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 59,
+   "id": "marin-parks-nature-journaling-ring-mountain-2026-11-21",
+   "sec": "week",
+   "when": "Sat Nov 21 · 9–11:30am",
+   "title": "Nature journaling walk on Ring Mountain",
+   "meta": "Ring Mountain Preserve (gate at end of Taylor Rd), Tiburon · ranger-led 2-mile walk, sketch and write what you see, no art experience needed · teens and adults (kids' version Sun Nov 22 at Roy's Redwoods) · free, registration required",
+   "cat": "join",
+   "url": "https://www.onetam.org/calendar/nature-journaling-walk-11-21-2026",
+   "price": "free",
+   "lat": 37.914,
+   "lon": -122.4931,
+   "q": "Ring Mountain Preserve, Taylor Rd, Tiburon, CA",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 60,
+   "id": "wilder-ranch-guided-coastal-walk-2026-11-21",
+   "sec": "week",
+   "when": "Sat Nov 21 · 11am",
+   "title": "Guided coastal walk at Wilder Ranch",
+   "meta": "Wilder Ranch State Park, Santa Cruz · docent-led walk along the coastal bluffs (plants, wildlife, geology) · free walk, $10 parking · rain cancels",
+   "cat": "join",
+   "url": "https://www.parks.ca.gov/?page_id=549",
+   "price": "free",
+   "lat": 36.9605,
+   "lon": -122.0856,
+   "q": "Wilder Ranch State Park, 1401 Coast Rd, Santa Cruz, CA",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 61,
+   "id": "book-passage-charles-finch-2026-11-21",
+   "sec": "week",
+   "when": "Sat Nov 21 · 4–5pm",
+   "title": "Author talk: Charles Finch, Midnight in the House of Commons",
+   "meta": "Book Passage, Corte Madera · the 16th Charles Lenox Victorian mystery, talk and signing · free, open seating",
+   "cat": "learn",
+   "url": "https://bookpassage.com/event/charles-finch-midnight-house-commons",
+   "price": "free",
+   "local": 1,
+   "biz": "Book Passage",
+   "lat": 37.9264,
+   "lon": -122.5149,
+   "q": "Book Passage, 51 Tamal Vista Blvd, Corte Madera, CA",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 62,
+   "id": "fm-berkeley-downtown-saturday",
+   "sec": "week",
+   "when": "Saturdays · 10am–2:30pm",
+   "title": "Downtown Berkeley Farmers Market",
+   "meta": "Center St & Martin Luther King Jr Way, Berkeley · Ecology Center's organic-leaning market · closed Sat Dec 26 · certified farmers market · no dogs (state rule for certified markets)",
+   "cat": "mkt",
+   "url": "https://ecologycenter.org/fm/",
+   "price": "free",
+   "lat": 37.8697,
+   "lon": -122.2727,
+   "q": "Center St & Martin Luther King Jr Way, Berkeley, CA",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2027-01-02",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 63,
+   "id": "fm-grand-lake-oakland-saturday",
+   "sec": "week",
+   "when": "Saturdays · 9am–2pm",
+   "title": "Grand Lake Farmers Market",
+   "meta": "Splash Pad Park, Grand Ave & Lake Park Ave, Oakland · 100+ vendors, 40+ farmers · closed Sat Dec 26 · certified farmers market · no dogs (state rule for certified markets)",
+   "cat": "mkt",
+   "url": "https://www.agriculturalinstitute.org/grand-lake",
+   "price": "free",
+   "lat": 37.8114,
+   "lon": -122.2477,
+   "q": "Splash Pad Park, Oakland, CA",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2027-01-02",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 64,
+   "id": "grassroots-ecology-mv-shoreline-marsh-2026-11-21",
+   "sec": "week",
+   "when": "Sat Nov 21 · 9am–12pm",
+   "title": "Plant the first natives of the season at Shoreline marsh",
+   "meta": "Shoreline at Mountain View (park at Shoreline Golf Links) · Grassroots Ecology baylands habitat restoration: digging, planting, bucket watering · ages 12 and under with an adult · free, register",
+   "cat": "vol",
+   "url": "https://www.grassrootsecology.org/event-calendar/2026/11/21/volunteer-outdoors-in-mountain-view-shoreline",
+   "price": "free",
+   "lat": 37.4295,
+   "lon": -122.0782,
+   "q": "Shoreline Golf Links, 2940 N Shoreline Blvd, Mountain View, CA",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 65,
+   "id": "ggnpc-presidio-habitat-stewards-2026",
+   "sec": "week",
+   "when": "Saturdays 9am–12pm",
+   "title": "Presidio Habitat Stewards Saturday workdays",
+   "meta": "Presidio of San Francisco (meeting spot in confirmation email) · planting, weeding and mulching in native habitat; no experience needed, rain or shine · under 18 needs a signed parent form · free, register",
+   "cat": "vol",
+   "url": "https://www.parksconservancy.org/programs/presidio-habitat-stewards",
+   "price": "free",
+   "lat": 37.7989,
+   "lon": -122.4662,
+   "q": "Presidio Visitor Center, 210 Lincoln Blvd, San Francisco, CA",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2026-12-26",
+    "2027-01-02"
+   ]
+  },
+  {
+   "n": 66,
+   "id": "save-our-shores-hidden-beach-cleanup-2026-11-21",
+   "sec": "week",
+   "when": "Sat Nov 21 · 9–11am",
+   "title": "Beach cleanup at Hidden Beach",
+   "meta": "Hidden Beach, 660 Cliff Dr, Aptos · Save Our Shores cleanup; buckets, grabbers and gloves provided · under 18 with an adult · free, register",
+   "cat": "vol",
+   "url": "https://saveourshores.org/event/beach-cleanup-hidden-beach/",
+   "price": "free",
+   "lat": 36.9721,
+   "lon": -121.9046,
+   "q": "Hidden Beach, 660 Cliff Dr, Aptos, CA",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 67,
+   "id": "garber-park-stewards-volunteer-day-2026-11-21",
+   "sec": "week",
+   "when": "Sat Nov 21 · 9am–12pm",
+   "title": "Garber Park Stewards volunteer day",
+   "meta": "Garber Park, Oakland/Berkeley hills (meet at Fireplace Plaza, Evergreen Lane entrance) · clear trails, cut back invasives and lower fire fuel · questions to gpstewards@gmail.com · free",
+   "cat": "vol",
+   "url": "https://www.claremontcanyon.org/eventsschedule/2024/3/2/volunteer-with-the-garber-park-stewards-march-2nd-from-9am-12pm-zk5n4-mze6j-pa4d3-jl3np",
+   "price": "free",
+   "lat": 37.8598,
+   "lon": -122.2346,
+   "q": "Garber Park, Evergreen Ln, Oakland, CA",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 68,
+   "id": "sacred-heart-holiday-toy-turkey-dropoff-2026",
+   "sec": "week",
+   "when": "Saturdays 9am–12pm (also Mon–Fri)",
+   "title": "Sacred Heart holiday drive: drop off toys and turkeys",
+   "meta": "Sacred Heart Community Service, 1381 S First St, San José · donation station takes new unwrapped toys, turkeys, hams and non-perishable food for 18,000 kids' gifts and 8,000 holiday food boxes; warehouse volunteer shifts too · free",
+   "cat": "vol",
+   "url": "https://sacredheartcs.org/holidays26",
+   "price": "free",
+   "lat": 37.3201,
+   "lon": -121.8737,
+   "q": "Sacred Heart Community Service, 1381 S First St, San Jose, CA",
+   "dates": [
+    "2026-11-21",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19"
+   ]
+  },
+  {
+   "n": 69,
    "id": "yountville-holidays-2026",
    "sec": "week",
    "when": "Nov 22 – Jan 1",
@@ -951,7 +1380,7 @@ window.WF_DATA = {
    "end": "2027-01-01"
   },
   {
-   "n": 52,
+   "n": 70,
    "id": "stanford-volleyball-vs-boston-college-2026-11-22",
    "sec": "week",
    "when": "Sun Nov 22 · 1pm",
@@ -969,7 +1398,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 53,
+   "n": 71,
    "id": "fm-mountain-view-sunday",
    "sec": "week",
    "when": "Sundays · 9am–1pm",
@@ -993,7 +1422,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 54,
+   "n": 72,
    "id": "fm-palo-alto-california-ave-sunday",
    "sec": "week",
    "when": "Sundays · 9am–1pm",
@@ -1017,7 +1446,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 55,
+   "n": 73,
    "id": "fm-los-gatos-sunday",
    "sec": "week",
    "when": "Sundays · 9am–1pm",
@@ -1041,7 +1470,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 56,
+   "n": 74,
    "id": "fm-campbell-sunday",
    "sec": "week",
    "when": "Sundays · 9am–1pm",
@@ -1065,7 +1494,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 57,
+   "n": 75,
    "id": "fm-marin-civic-center-sunday",
    "sec": "week",
    "when": "Sundays · 8am–1pm",
@@ -1089,7 +1518,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 58,
+   "n": 76,
    "id": "fm-carmel-valley-sunday",
    "sec": "week",
    "when": "Sundays · 10am–2pm",
@@ -1113,7 +1542,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 59,
+   "n": 77,
    "id": "linden-tree-storytime-no-legs-no-limits-2026",
    "sec": "week",
    "when": "Sun Nov 22, 10:30am",
@@ -1131,7 +1560,172 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 60,
+   "n": 78,
+   "id": "palo-alto-library-diwali-festival-of-lights-2026-11-22",
+   "sec": "week",
+   "when": "Sun Nov 22 · 2–4pm",
+   "title": "Festival of Lights: A Diwali Celebration",
+   "meta": "Mitchell Park Community Center, Palo Alto · henna, rangoli, crafts; Noorani Dance performance 2:30–3:30 · all ages · free",
+   "cat": "cult",
+   "url": "https://paloalto.bibliocommons.com/events/6a8f395260ccaf01c0213e7c",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.4214,
+   "lon": -122.1121,
+   "q": "Mitchell Park Community Center, 3700 Middlefield Rd, Palo Alto, CA",
+   "start": "2026-11-22",
+   "end": "2026-11-22"
+  },
+  {
+   "n": 79,
+   "id": "midpen-manzanita-morning-hike-st-josephs-2026-11-22",
+   "sec": "week",
+   "when": "Sun Nov 22 · 9am–12pm",
+   "title": "Manzanita morning hike to St. Joseph's Hill summit",
+   "meta": "St. Joseph's Hill Preserve (Jones Trailhead, Alma Bridge Rd), Los Gatos · about 3.5 miles with a climb to the 1,253-ft summit · Midpen docent-led · free",
+   "cat": "join",
+   "url": "https://www.openspace.org/events/guided-activities/manzanita-morning-hike-0",
+   "price": "free",
+   "lat": 37.202,
+   "lon": -121.986,
+   "q": "Jones Trailhead, Alma Bridge Rd, Los Gatos, CA",
+   "start": "2026-11-22",
+   "end": "2026-11-22"
+  },
+  {
+   "n": 80,
+   "id": "ebparks-geologic-walk-coyote-hills-2026-11-22",
+   "sec": "week",
+   "when": "Sun Nov 22 · 10am",
+   "title": "Geologic walk in the Coyote Hills",
+   "meta": "Coyote Hills Regional Park Visitor Center, Fremont · naturalist-led walk reading the rocks of the hills · all ages, kids with a parent · drop in, free (parking fee)",
+   "cat": "join",
+   "url": "https://apm.activecommunities.com/ebparks/Activity_Search/60476",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.5547,
+   "lon": -122.0862,
+   "q": "Coyote Hills Visitor Center, 8000 Patterson Ranch Rd, Fremont, CA",
+   "start": "2026-11-22",
+   "end": "2026-11-22"
+  },
+  {
+   "n": 81,
+   "id": "presidio-250-years-guided-walk-2026-11-22",
+   "sec": "week",
+   "when": "Sun Nov 22 · 11am–12pm",
+   "title": "250 Years on the Presidio: ranger-led walk",
+   "meta": "Presidio Visitor Center, San Francisco · flat half-mile walk through Tunnel Tops and the Main Post with NPS rangers, Ohlone to Army to national park · all ages · free",
+   "cat": "join",
+   "url": "https://presidio.gov/explore/events/presidio-guided-walk-250-years-on-the-presidio/2026-11-22/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.8015,
+   "lon": -122.456,
+   "q": "Presidio Visitor Center, 210 Lincoln Blvd, San Francisco, CA",
+   "start": "2026-11-22",
+   "end": "2026-11-22"
+  },
+  {
+   "n": 82,
+   "id": "lindy-in-the-park-golden-gate-park-sundays",
+   "sec": "week",
+   "when": "Sundays 11am–2pm (free lesson at noon)",
+   "title": "Lindy in the Park: free swing dancing",
+   "meta": "JFK Dr between 8th & 10th Ave, Golden Gate Park, San Francisco · outdoor social swing dancing with volunteer DJs, beginner lesson at noon, no partner needed · all ages and levels · free, weather permitting",
+   "cat": "join",
+   "url": "https://www.lindyinthepark.com/about/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.7712,
+   "lon": -122.4655,
+   "q": "JFK Dr & 9th Ave, Golden Gate Park, San Francisco, CA",
+   "dates": [
+    "2026-11-22",
+    "2026-11-29",
+    "2026-12-06",
+    "2026-12-13",
+    "2026-12-20",
+    "2026-12-27",
+    "2027-01-03",
+    "2027-01-10",
+    "2027-01-17"
+   ]
+  },
+  {
+   "n": 83,
+   "id": "sjpl-bascom-3d-printing-talk-2026-11-22",
+   "sec": "week",
+   "when": "Sun Nov 22 · 2–2:45pm",
+   "title": "Learn about 3D printing: demo and Q&A",
+   "meta": "Bascom Library, San Jose · watch a 3D printer at work and ask a volunteer expert; adults, teens and kids welcome · free, registration recommended",
+   "cat": "learn",
+   "url": "https://sjpl.bibliocommons.com/events/6ac6a0e7fee2d21deb21c21a",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.3132,
+   "lon": -121.9318,
+   "q": "Bascom Library, 1000 S Bascom Ave, San Jose, CA",
+   "start": "2026-11-22",
+   "end": "2026-11-22"
+  },
+  {
+   "n": 84,
+   "id": "fm-san-carlos-sunday",
+   "sec": "week",
+   "when": "Sundays · 9am–1pm",
+   "title": "San Carlos Farmers Market",
+   "meta": "600 Laurel St (Laurel & Cherry), San Carlos · open Thanksgiving, Christmas and New Year weekends · certified farmers market · no dogs (state rule for certified markets)",
+   "cat": "mkt",
+   "url": "https://uvfm.org/san-carlos-sundays",
+   "price": "free",
+   "lat": 37.505,
+   "lon": -122.2603,
+   "q": "600 Laurel St, San Carlos, CA",
+   "dates": [
+    "2026-11-22",
+    "2026-11-29",
+    "2026-12-06",
+    "2026-12-13",
+    "2026-12-20",
+    "2026-12-27",
+    "2027-01-03",
+    "2027-01-10",
+    "2027-01-17"
+   ]
+  },
+  {
+   "n": 85,
+   "id": "broadway-plaza-pet-night-santa-2026",
+   "sec": "late-nov",
+   "when": "Mondays Nov 23, Nov 30, Dec 7 & Dec 14 · 4–7pm",
+   "title": "Pet Night with Santa at Broadway Plaza",
+   "meta": "Broadway Plaza, Santa's Workshop near True Food Kitchen, Walnut Creek · dog photos with Santa · visit is free, regular Santa photo package prices · pre-book a slot, no exotic pets",
+   "cat": "dog",
+   "url": "https://www.broadwayplaza.com/Events/Details/574231",
+   "price": "free",
+   "lat": 37.8957,
+   "lon": -122.0605,
+   "q": "Broadway Plaza, 1275 Broadway Plaza, Walnut Creek, CA",
+   "dates": [
+    "2026-11-23",
+    "2026-11-30",
+    "2026-12-07",
+    "2026-12-14"
+   ]
+  },
+  {
+   "n": 86,
    "id": "king-tides-2026-2027",
    "sec": "late-nov",
    "when": "Nov 24–26 · Dec 23–25 · Jan 21–22",
@@ -1155,7 +1749,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 61,
+   "n": 87,
    "id": "warriors-vs-kings-2026-11-25",
    "sec": "late-nov",
    "when": "Wed Nov 25",
@@ -1172,7 +1766,7 @@ window.WF_DATA = {
    "end": "2026-11-25"
   },
   {
-   "n": 62,
+   "n": 88,
    "id": "film-hexed-2026",
    "sec": "late-nov",
    "when": "Opens Wed Nov 25",
@@ -1185,7 +1779,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 63,
+   "n": 89,
    "id": "film-focker-in-law-2026",
    "sec": "late-nov",
    "when": "Opens Wed Nov 25",
@@ -1197,7 +1791,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 64,
+   "n": 90,
    "id": "film-club-kid-2026",
    "sec": "late-nov",
    "when": "Opens wide Wed Nov 25",
@@ -1209,7 +1803,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 65,
+   "n": 91,
    "id": "film-bitter-christmas-2026",
    "sec": "late-nov",
    "when": "Opens nationwide Wed Nov 25",
@@ -1221,7 +1815,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 66,
+   "n": 92,
    "id": "santa-cruz-beach-boardwalk-winter-wonderland",
    "sec": "late-nov",
    "when": "Opens Thu Nov 26",
@@ -1237,7 +1831,7 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 67,
+   "n": 93,
    "id": "silicon-valley-turkey-trot-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26 (Thanksgiving) · 8:30am",
@@ -1253,7 +1847,7 @@ window.WF_DATA = {
    "end": "2026-11-26"
   },
   {
-   "n": 68,
+   "n": 94,
    "id": "spartan-turkey-trot-mountain-view-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26 (Thanksgiving) · 8:30am",
@@ -1268,7 +1862,27 @@ window.WF_DATA = {
    "end": "2026-11-26"
   },
   {
-   "n": 69,
+   "n": 95,
+   "id": "alcatraz-indigenous-thanksgiving-sunrise-gathering-2026-11-26",
+   "sec": "late-nov",
+   "when": "Thu Nov 26 · boats 4:15–6am, back by 9am",
+   "title": "Indigenous Peoples Thanksgiving Sunrise Gathering on Alcatraz",
+   "meta": "Pier 33, San Francisco · International Indian Treaty Council's annual sunrise ceremony on Alcatraz · boat $15.50, under 5 free · wheelchair accessible",
+   "cat": "cult",
+   "url": "https://www.iitc.org/event/indigenous-peoples-thanksgiving-sunrise-gathering-on-alcatraz-island-2026/",
+   "tix": "https://alcatrazcitycruises.com/tickets/sunrise-gathering",
+   "price": "tickets",
+   "aud": [
+    "access"
+   ],
+   "lat": 37.8076,
+   "lon": -122.4055,
+   "q": "Pier 33 Alcatraz Landing, San Francisco, CA",
+   "start": "2026-11-26",
+   "end": "2026-11-26"
+  },
+  {
+   "n": 96,
    "id": "christmas-in-the-park",
    "sec": "late-nov",
    "when": "Opens Fri Nov 27",
@@ -1281,10 +1895,13 @@ window.WF_DATA = {
    "lon": -121.89,
    "q": "Plaza de Cesar Chavez San Jose",
    "start": "2026-11-27",
-   "end": "2027-01-01"
+   "end": "2027-01-01",
+   "aud": [
+    "all"
+   ]
   },
   {
-   "n": 70,
+   "n": 97,
    "id": "cannery-row-tree-lighting",
    "sec": "late-nov",
    "when": "Fri Nov 27 · 5–7pm",
@@ -1300,7 +1917,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 71,
+   "n": 98,
    "id": "santa-cruz-holiday-lights-train",
    "sec": "late-nov",
    "when": "Nov 27–28, Dec 5–6 & Dec 12–23 · evenings",
@@ -1332,7 +1949,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 72,
+   "n": 99,
    "id": "marin-holiday-light-spectacular-2026",
    "sec": "late-nov",
    "when": "Nightly Nov 27 – Jan 3 · 5–9pm",
@@ -1348,7 +1965,7 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 73,
+   "n": 100,
    "id": "sharks-vs-golden-knights-2026-11-27",
    "sec": "late-nov",
    "when": "Fri Nov 27 · 1pm",
@@ -1365,7 +1982,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 74,
+   "n": 101,
    "id": "saratoga-holiday-wine-stroll-2026",
    "sec": "late-nov",
    "when": "Fri Nov 27 · evening",
@@ -1381,7 +1998,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 75,
+   "n": 102,
    "id": "los-altos-stage-joseph-2026",
    "sec": "late-nov",
    "when": "Nov 27 – Dec 20",
@@ -1397,7 +2014,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 76,
+   "n": 103,
    "id": "saratoga-holiday-tree-lighting-2026",
    "sec": "late-nov",
    "when": "Fri Nov 27 · 5:30–6:30pm",
@@ -1413,7 +2030,64 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 77,
+   "n": 104,
+   "id": "pacific-ballet-sensory-nutcracker-mv-2026-11-27",
+   "sec": "late-nov",
+   "when": "Fri Nov 27 · 2pm",
+   "title": "Sensory-friendly Nutcracker (Act II) by Pacific Ballet Academy",
+   "meta": "Mountain View Center for the Performing Arts, 500 Castro St · 45-minute autism/sensory-friendly show: scaled-down lights and sound, quiet zone, wheelchair spots · all ages · full Nutcracker Nov 27–29 ($35–40)",
+   "cat": "hol",
+   "url": "https://www.pacificballet.org/nutcracker",
+   "tix": "https://tickets.mvcpa.com/eventperformances.asp?evt=800",
+   "price": "tickets",
+   "aud": [
+    "sensory",
+    "all",
+    "access"
+   ],
+   "lat": 37.3894,
+   "lon": -122.0819,
+   "q": "Mountain View Center for the Performing Arts, 500 Castro St, Mountain View, CA",
+   "start": "2026-11-27",
+   "end": "2026-11-27"
+  },
+  {
+   "n": 105,
+   "id": "ebparks-green-friday-hike-redwood-2026-11-27",
+   "sec": "late-nov",
+   "when": "Fri Nov 27 · 9am",
+   "title": "Green Friday hike among the redwoods",
+   "meta": "Reinhardt Redwood Regional Park (Trudeau Center, Skyline Blvd), Oakland · naturalist-led 5¼-mile hilly loop the day after Thanksgiving: redwoods, creeks, prairie · all ages · drop in, free · heavy rain cancels",
+   "cat": "join",
+   "url": "https://apm.activecommunities.com/ebparks/Activity_Search/60899",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.804,
+   "lon": -122.17,
+   "q": "Trudeau Training Center, 11500 Skyline Blvd, Oakland, CA",
+   "start": "2026-11-27",
+   "end": "2026-11-27"
+  },
+  {
+   "n": 106,
+   "id": "ebparks-green-friday-volunteer-planting-2026-11-27",
+   "sec": "late-nov",
+   "when": "Fri Nov 27",
+   "title": "Green Friday tree planting in the East Bay parks",
+   "meta": "Quarry Lakes, Fremont and Contra Loma, Antioch · East Bay Regional Park District: plant trees and native plants the day after Thanksgiving (park fees waived that day) · free, sign up in the EBRPD volunteer portal",
+   "cat": "vol",
+   "url": "https://www.ebparks.org/get-involved/volunteer",
+   "price": "free",
+   "lat": 37.5715,
+   "lon": -121.988,
+   "q": "Quarry Lakes Regional Recreation Area, 2100 Isherwood Way, Fremont, CA",
+   "start": "2026-11-27",
+   "end": "2026-11-27"
+  },
+  {
+   "n": 107,
    "id": "small-business-saturday",
    "sec": "late-nov",
    "when": "Sat Nov 28",
@@ -1431,7 +2105,7 @@ window.WF_DATA = {
    "biz": "Los Altos Village Association"
   },
   {
-   "n": 78,
+   "n": 108,
    "id": "andy-grammer",
    "sec": "late-nov",
    "when": "Sat Nov 28 · 7pm",
@@ -1447,7 +2121,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 79,
+   "n": 109,
    "id": "petaluma-santa-tugboat-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28 · 11:30am",
@@ -1462,7 +2136,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 80,
+   "n": 110,
    "id": "santa-pet-photos-at-peninsula-humane-society",
    "sec": "late-nov",
    "when": "Sat Nov 28 · 11:30am–4:30pm",
@@ -1477,7 +2151,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 81,
+   "n": 111,
    "id": "stanford-football-vs-smu-2026-11-28",
    "sec": "late-nov",
    "when": "Sat Nov 28 · time TBA",
@@ -1495,7 +2169,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 82,
+   "n": 112,
    "id": "hicklebees-nutcracker-storytime-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28, 10:30–11:15am",
@@ -1514,7 +2188,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 83,
+   "n": 113,
    "id": "bookshop-santa-cruz-small-biz-sat-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28, 9am–9pm",
@@ -1532,7 +2206,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 84,
+   "n": 114,
    "id": "downtown-campbell-small-biz-sat-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28, from 10am",
@@ -1550,25 +2224,39 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 85,
-   "id": "momstera-plant-bar-2026",
+   "n": 115,
+   "id": "midpen-throw-off-turkey-torpor-picchetti-2026-11-28",
    "sec": "late-nov",
-   "when": "Sat Nov 28, 11:30am–5pm",
-   "title": "Free plant-potting bar at Momstera Lounge",
-   "meta": "Momstera Lounge, 428 E Campbell Ave, Campbell · free · pot a small plant to take home",
-   "cat": "evt",
-   "url": "https://www.momstera.com/event-details/small-business-saturday-at-momstera-complimentary-plant-bar",
+   "when": "Sat Nov 28 · 10am–1:30pm",
+   "title": "Throw Off That Turkey Torpor: docent-led hike",
+   "meta": "Picchetti Ranch Preserve (lot on Montebello Rd), Cupertino · moderate 4.5-mile hike with picnic stop by Stevens Creek, optional winery tasting after · goes ahead in light rain · free",
+   "cat": "join",
+   "url": "https://www.openspace.org/events/guided-activities/throw-turkey-torpor",
    "price": "free",
-   "local": 1,
-   "biz": "Momstera Lounge",
-   "lat": 37.2869,
-   "lon": -121.942,
-   "q": "Momstera Lounge, 428 E Campbell Ave, Campbell, CA 95008",
+   "lat": 37.3057,
+   "lon": -122.0974,
+   "q": "Picchetti Ranch Preserve, 13100 Montebello Rd, Cupertino, CA",
    "start": "2026-11-28",
    "end": "2026-11-28"
   },
   {
-   "n": 86,
+   "n": 116,
+   "id": "midpen-french-broom-windy-hill-2026-11-28",
+   "sec": "late-nov",
+   "when": "Sat Nov 28 · 9:30am–1:30pm",
+   "title": "Pull invasive French broom at Windy Hill",
+   "meta": "Windy Hill Preserve (Hawthorns area), Portola Valley · Midpen staff train you; good for first-timers, moderate · under 18 with a parent · free, register",
+   "cat": "vol",
+   "url": "https://volunteer.openspace.org/need/detail/?need_id=1323404",
+   "price": "free",
+   "lat": 37.3646,
+   "lon": -122.2453,
+   "q": "Windy Hill Open Space Preserve, Portola Valley, CA",
+   "start": "2026-11-28",
+   "end": "2026-11-28"
+  },
+  {
+   "n": 117,
    "id": "stanford-mens-basketball-vs-portland-2026-11-29",
    "sec": "late-nov",
    "when": "Sun Nov 29",
@@ -1586,7 +2274,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 87,
+   "n": 118,
    "id": "linden-tree-outdoor-storytime-2026",
    "sec": "late-nov",
    "when": "Sundays Nov 29 and Dec 20, 10:30am",
@@ -1606,7 +2294,55 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 88,
+   "n": 119,
+   "id": "icantori-community-messiah-sing-along-asilomar-2026-11-29",
+   "sec": "late-nov",
+   "when": "Sun Nov 29 · 3pm",
+   "title": "Community Messiah Sing-Along",
+   "meta": "Merrill Hall, Asilomar Conference Grounds, Pacific Grove · sing Handel's Messiah with I Cantori di Carmel and a chamber orchestra; bring a score or borrow one at the door; mulled wine, cocoa, cookies · everyone welcome · tickets",
+   "cat": "join",
+   "url": "https://icantori.org/events",
+   "price": "tickets",
+   "lat": 36.6197,
+   "lon": -121.9348,
+   "q": "Merrill Hall, Asilomar Conference Grounds, 800 Asilomar Ave, Pacific Grove, CA",
+   "start": "2026-11-29",
+   "end": "2026-11-29"
+  },
+  {
+   "n": 120,
+   "id": "marin-parks-indian-tree-hike-2026-11-29",
+   "sec": "late-nov",
+   "when": "Sun Nov 29 · 9am–2pm",
+   "title": "Indian Tree Preserve naturalist hike",
+   "meta": "Indian Tree Preserve (trailhead on Vineyard Rd), Novato · Marin County Parks naturalist hike up to 6.5 miles through grassland, madrones and redwood canyons, 1,300 ft gain; bring lunch · adults · free, registration required",
+   "cat": "join",
+   "url": "https://www.onetam.org/indian-tree",
+   "price": "free",
+   "lat": 38.095,
+   "lon": -122.6215,
+   "q": "Indian Tree Preserve, Vineyard Rd, Novato, CA",
+   "start": "2026-11-29",
+   "end": "2026-11-29"
+  },
+  {
+   "n": 121,
+   "id": "pacl-korean-calligraphy-workshop-2026-11-29",
+   "sec": "late-nov",
+   "when": "Sun Nov 29 · 2–3:30pm",
+   "title": "Korean calligraphy workshop: write your name in Hangul",
+   "meta": "Rinconada Library, Palo Alto · brushes, ink and hanji paper provided; adults · free, registration required",
+   "cat": "learn",
+   "url": "https://paloalto.bibliocommons.com/events/6a74edd24523092f003542d5",
+   "price": "free",
+   "lat": 37.4442,
+   "lon": -122.1408,
+   "q": "Rinconada Library, 1213 Newell Rd, Palo Alto, CA",
+   "start": "2026-11-29",
+   "end": "2026-11-29"
+  },
+  {
+   "n": 122,
    "id": "pacific-grove-christmas-tree-lighting",
    "sec": "late-nov",
    "when": "Mon Nov 30 · 4:30–7pm",
@@ -1621,7 +2357,7 @@ window.WF_DATA = {
    "end": "2026-11-30"
   },
   {
-   "n": 89,
+   "n": 123,
    "id": "ice-skating-by-the-bay",
    "sec": "early-dec",
    "when": "Opens Tue Dec 1",
@@ -1637,23 +2373,7 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 90,
-   "id": "palo-alto-adult-school-artisan-pizza-2026",
-   "sec": "early-dec",
-   "when": "Tue Dec 1 · 6:30–9pm",
-   "title": "Artisan pizza class (Palo Alto Adult School)",
-   "meta": "Palo Alto High School, Room 103, Palo Alto · make three pizzas from scratch to take home · $70",
-   "cat": "food",
-   "url": "https://paadultschool.org/class/cooking/",
-   "price": "tickets",
-   "lat": 37.4373,
-   "lon": -122.155,
-   "q": "Palo Alto High School",
-   "start": "2026-12-01",
-   "end": "2026-12-01"
-  },
-  {
-   "n": 91,
+   "n": 124,
    "id": "warriors-vs-jazz-2026-12-01",
    "sec": "early-dec",
    "when": "Tue Dec 1 · 8pm",
@@ -1670,7 +2390,7 @@ window.WF_DATA = {
    "end": "2026-12-01"
   },
   {
-   "n": 92,
+   "n": 125,
    "id": "monterey-bay-gray-whale-season-2026",
    "sec": "early-dec",
    "when": "Dec – Apr · peak in January",
@@ -1686,7 +2406,26 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 93,
+   "n": 126,
+   "id": "mvpl-wild-fungi-of-california-2026-12-01",
+   "sec": "early-dec",
+   "when": "Tue Dec 1 · 6:30–7:30pm",
+   "title": "Wild Fungi of California: hands-on mushroom talk",
+   "meta": "Mountain View Public Library, Mountain View · Carrie Staller of Fork in the Path on identifying chanterelles, morels, porcini and poisonous look-alikes, specimens to touch and smell; all ages · free",
+   "cat": "learn",
+   "url": "https://mountainview.libcal.com/event/17390122",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.3906,
+   "lon": -122.0832,
+   "q": "Mountain View Public Library, 585 Franklin St, Mountain View, CA",
+   "start": "2026-12-01",
+   "end": "2026-12-01"
+  },
+  {
+   "n": 127,
    "id": "theatreworks-alice-formerly-of-wonderland-2026",
    "sec": "early-dec",
    "when": "Dec 2 – 27",
@@ -1703,7 +2442,7 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 94,
+   "n": 128,
    "id": "hip-hop-nutcracker-san-jose-2026",
    "sec": "early-dec",
    "when": "Wed Dec 2 & Thu Dec 3 · 7pm",
@@ -1721,24 +2460,28 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 95,
-   "id": "four-seasons-sv-gingerbread-2026",
+   "n": 129,
+   "id": "cupertino-senior-holidays-in-hawaii-2026-12-02",
    "sec": "early-dec",
-   "when": "Wed Dec 2, 2pm",
-   "title": "The Perfect Gingerbread House workshop",
-   "meta": "Four Seasons Hotel Silicon Valley, East Palo Alto · $210 per person, supplies and snacks included · led by the pastry team",
-   "cat": "food",
-   "url": "https://press.fourseasons.com/siliconvalley/hotel-news/2026/festive-season",
-   "price": "tickets",
-   "tix": "https://www.eventbrite.com/e/the-perfect-house-gingerbread-creation-tickets-1999631368251",
-   "lat": 37.4596,
-   "lon": -122.1405,
-   "q": "Four Seasons Hotel Silicon Valley, East Palo Alto",
+   "when": "Wed Dec 2 · 1–2:30pm",
+   "title": "Holidays in Hawaii: hula and Hawaiian holiday songs",
+   "meta": "Cupertino Senior Center, 21251 Stevens Creek Blvd · Lei Nani Hula Dancers and Pila Ho'Okani Band, light refreshments · free, all ages, preregistration preferred (limited visitor passes)",
+   "cat": "hol",
+   "url": "https://www.cupertino.gov/Parks-Recreation/Events/Holidays-in-Hawaii",
+   "tix": "https://apm.activecommunities.com/cupertino/Activity_Search/holidays-in-hawaii/27217",
+   "price": "free",
+   "aud": [
+    "seniors",
+    "all"
+   ],
+   "lat": 37.3225,
+   "lon": -122.0439,
+   "q": "Cupertino Senior Center, 21251 Stevens Creek Blvd, Cupertino, CA",
    "start": "2026-12-02",
    "end": "2026-12-02"
   },
   {
-   "n": 96,
+   "n": 130,
    "id": "downtown-first-thursdays-block-party",
    "sec": "early-dec",
    "when": "Thu Dec 3 · 5–10pm",
@@ -1754,7 +2497,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 97,
+   "n": 131,
    "id": "gamble-garden-holidays",
    "sec": "early-dec",
    "when": "Dec 3–5",
@@ -1770,7 +2513,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 98,
+   "n": 132,
    "id": "pacific-grove-holiday-parade-of-lights",
    "sec": "early-dec",
    "when": "Thu Dec 3 · 6–8pm",
@@ -1786,7 +2529,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 99,
+   "n": 133,
    "id": "hot-club-of-san-francisco-cool-yule",
    "sec": "early-dec",
    "when": "Thu Dec 3 · 7 & 9pm",
@@ -1803,7 +2546,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 100,
+   "n": 134,
    "id": "smuin-s-the-christmas-ballet",
    "sec": "early-dec",
    "when": "Thu Dec 3 · 7:30pm",
@@ -1817,10 +2560,13 @@ window.WF_DATA = {
    "lon": -122.0817,
    "q": "Mountain View Center for the Performing Arts",
    "start": "2026-12-03",
-   "end": "2026-12-03"
+   "end": "2026-12-03",
+   "aud": [
+    "access"
+   ]
   },
   {
-   "n": 101,
+   "n": 135,
    "id": "cal-womens-basketball-vs-texas-am-2026-12-03",
    "sec": "early-dec",
    "when": "Thu Dec 3",
@@ -1837,39 +2583,57 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 102,
-   "id": "kl-redwood-city-tasting-dec3-2026",
+   "n": 136,
+   "id": "broadway-plaza-parade-of-lights-2026-12-03",
    "sec": "early-dec",
-   "when": "Thu Dec 3 · 4–5pm",
-   "title": "K&L Wine Merchants evening tasting",
-   "meta": "K&L Wine Merchants, Redwood City · in-store tasting · $5 walk-in, free for club members",
-   "cat": "food",
-   "url": "https://www.exploretock.com/k-and-l-wine-merchants-redwood/event/582531",
-   "price": "tickets",
-   "lat": 37.4777,
-   "lon": -122.2227,
-   "q": "K&L Wine Merchants, 3005 El Camino Real, Redwood City",
+   "when": "Thu Dec 3 · 6–8pm",
+   "title": "Broadway Plaza Holiday Parade of Lights & Tree Lighting",
+   "meta": "Broadway Plaza, 1275 Broadway Plaza, Walnut Creek · lighted parade, music and entertainment, tree lit by Santa · free",
+   "cat": "hol",
+   "url": "https://www.broadwayplaza.com/Events/Details/571471",
+   "price": "free",
+   "lat": 37.8957,
+   "lon": -122.0605,
+   "q": "Broadway Plaza, 1275 Broadway Plaza, Walnut Creek, CA",
    "start": "2026-12-03",
    "end": "2026-12-03"
   },
   {
-   "n": 103,
-   "id": "montalvo-top-of-the-world-carpenters-2026",
+   "n": 137,
+   "id": "fmd-bampfa",
    "sec": "early-dec",
-   "when": "Thu Dec 3 · 7:30pm",
-   "title": "Top of the World: A Carpenters Tribute",
-   "meta": "Montalvo Arts Center Carriage House, Saratoga · pop/holiday tribute concert",
-   "cat": "show",
-   "url": "https://montalvoarts.org/experience/carriage-house-concerts/top-of-the-world/",
+   "cat": "fmd",
+   "price": "free",
+   "title": "Free day at BAMPFA",
+   "when": "First Thursdays · Dec 3, Jan 7 · 11am–7pm",
+   "meta": "Berkeley Art Museum and Pacific Film Archive, Berkeley · galleries free for all on the first Thursday of the month (film tickets extra)",
+   "url": "https://bampfa.org/visit",
+   "lat": 37.8707,
+   "lon": -122.2667,
+   "q": "BAMPFA, 2155 Center St, Berkeley, CA",
+   "dates": [
+    "2026-12-03",
+    "2027-01-07"
+   ]
+  },
+  {
+   "n": 138,
+   "id": "commonwealth-club-mother-jones-50-2026-12-03",
+   "sec": "early-dec",
+   "when": "Thu Dec 3 · 6pm",
+   "title": "50 Years of Mother Jones, with Adam Hochschild and Monika Bauerlein",
+   "meta": "Commonwealth Club, San Francisco · the co-founder and CIR's CEO on the magazine's history and the future of nonprofit news · tickets (in person or livestream)",
+   "cat": "learn",
+   "url": "https://www.commonwealthclub.org/events/2026-12-03/50-years-mother-jones-adam-hochschild-and-monika-bauerlein",
    "price": "tickets",
-   "lat": 37.2453,
-   "lon": -122.0287,
-   "q": "Montalvo Arts Center, 15400 Montalvo Rd, Saratoga",
+   "lat": 37.7935,
+   "lon": -122.3934,
+   "q": "Commonwealth Club, 110 The Embarcadero, San Francisco, CA",
    "start": "2026-12-03",
    "end": "2026-12-03"
   },
   {
-   "n": 104,
+   "n": 139,
    "id": "los-altos-holiday-tree-celebration",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 6–8pm",
@@ -1882,10 +2646,13 @@ window.WF_DATA = {
    "lon": -122.1155,
    "q": "Veterans Community Plaza Los Altos",
    "start": "2026-12-04",
-   "end": "2026-12-04"
+   "end": "2026-12-04",
+   "aud": [
+    "all"
+   ]
   },
   {
-   "n": 105,
+   "n": 140,
    "id": "sf-ballet-s-the-nutcracker",
    "sec": "early-dec",
    "when": "Dec 4–27",
@@ -1898,10 +2665,13 @@ window.WF_DATA = {
    "lon": -122.421,
    "q": "War Memorial Opera House",
    "start": "2026-12-04",
-   "end": "2026-12-27"
+   "end": "2026-12-27",
+   "aud": [
+    "sensory"
+   ]
   },
   {
-   "n": 106,
+   "n": 141,
    "id": "christmas-on-the-wharf",
    "sec": "early-dec",
    "when": "Fri–Sun, Dec 4–20",
@@ -1922,7 +2692,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 107,
+   "n": 142,
    "id": "carmel-tree-lighting-carmel-plaza-holiday-party",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 3–7pm",
@@ -1938,7 +2708,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 108,
+   "n": 143,
    "id": "downtown-monterey-tree-lighting",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 5–6pm",
@@ -1954,23 +2724,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 109,
-   "id": "san-carlos-night-of-holiday-lights",
-   "sec": "early-dec",
-   "when": "Fri Dec 4 · 5–8:30pm",
-   "title": "San Carlos Night of Holiday Lights",
-   "meta": "Laurel St from San Carlos Ave to Cherry St, San Carlos · lights, \"snow\", music, main stage on Cherry · free",
-   "cat": "hol",
-   "url": "https://www.cityofsancarlos.org/business_detail_T10_R36.php",
-   "price": "free",
-   "lat": 37.504,
-   "lon": -122.26,
-   "q": "Laurel St San Carlos CA",
-   "start": "2026-12-04",
-   "end": "2026-12-04"
-  },
-  {
-   "n": 110,
+   "n": 144,
    "id": "los-gatos-in-lights-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 5–7pm (tree 6pm)",
@@ -1986,7 +2740,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 111,
+   "n": 145,
    "id": "menlo-park-light-up-the-season-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 5:30–7pm",
@@ -1999,10 +2753,13 @@ window.WF_DATA = {
    "lon": -122.183,
    "q": "Fremont Park, Menlo Park",
    "start": "2026-12-04",
-   "end": "2026-12-04"
+   "end": "2026-12-04",
+   "aud": [
+    "all"
+   ]
   },
   {
-   "n": 112,
+   "n": 146,
    "id": "palo-alto-lytton-plaza-tree-lighting-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 5:30–7pm",
@@ -2015,42 +2772,13 @@ window.WF_DATA = {
    "lon": -122.1617,
    "q": "Lytton Plaza, 200 University Ave, Palo Alto",
    "start": "2026-12-04",
-   "end": "2026-12-04"
+   "end": "2026-12-04",
+   "aud": [
+    "all"
+   ]
   },
   {
-   "n": 113,
-   "id": "cupertino-tree-lighting-2026",
-   "sec": "early-dec",
-   "when": "Fri Dec 4 · 6–8pm",
-   "title": "Cupertino Community Tree Lighting",
-   "meta": "Quinlan Community Center, Cupertino · free, no registration · Santa photos, kids' activities",
-   "cat": "hol",
-   "url": "https://www.cupertino.gov/Parks-Recreation/Events/Tree-Lighting",
-   "price": "free",
-   "lat": 37.3207,
-   "lon": -122.044,
-   "q": "Quinlan Community Center, 10185 N Stelling Rd, Cupertino",
-   "start": "2026-12-04",
-   "end": "2026-12-04"
-  },
-  {
-   "n": 114,
-   "id": "santa-clara-holiday-tree-lighting-2026",
-   "sec": "early-dec",
-   "when": "Fri Dec 4 · 5:30–8pm",
-   "title": "Santa Clara Holiday Tree Lighting",
-   "meta": "Santa Clara (Central Park, 909 Kiely Blvd in past years; check city page) · free",
-   "cat": "hol",
-   "url": "https://www.santaclaraca.gov/recreation-community/events/",
-   "price": "free",
-   "lat": 37.3466,
-   "lon": -121.9705,
-   "q": "Central Park, 909 Kiely Blvd, Santa Clara",
-   "start": "2026-12-04",
-   "end": "2026-12-04"
-  },
-  {
-   "n": 115,
+   "n": 147,
    "id": "film-violent-night-2",
    "sec": "early-dec",
    "when": "Opens Fri Dec 4",
@@ -2062,7 +2790,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 116,
+   "n": 148,
    "id": "film-above-the-below-2026",
    "sec": "early-dec",
    "when": "Opens Fri Dec 4",
@@ -2074,7 +2802,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 117,
+   "n": 149,
    "id": "stanford-live-arcostrum-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4 · 7pm & 9pm",
@@ -2090,7 +2818,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 118,
+   "n": 150,
    "id": "union-square-chanukah-festival-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4–Fri Dec 11 · nightly lightings (first night Fri 2:30pm)",
@@ -2105,7 +2833,7 @@ window.WF_DATA = {
    "end": "2026-12-11"
   },
   {
-   "n": 119,
+   "n": 151,
    "id": "film-behemoth-2026",
    "sec": "early-dec",
    "when": "Opens Fri Dec 4",
@@ -2117,7 +2845,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 120,
+   "n": 152,
    "id": "film-tender-loving-care-2026",
    "sec": "early-dec",
    "when": "Opens Fri Dec 4",
@@ -2129,25 +2857,26 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 121,
-   "id": "gamble-garden-holiday-tea-2026",
+   "n": 153,
+   "id": "fmd-sjma",
    "sec": "early-dec",
-   "when": "Fri Dec 4 & Sat Dec 5, 11am–noon or 1–2pm",
-   "title": "Holiday Tea at Gamble Garden",
-   "meta": "Gamble Garden, 1431 Waverley St, Palo Alto · reserve a seat · tea, sandwiches and scones, part of the Winter Festival",
-   "cat": "food",
-   "url": "https://www.gamblegarden.org/series/holiday-teas/",
-   "price": "tickets",
-   "lat": 37.4359,
-   "lon": -122.1502,
-   "q": "Gamble Garden, 1431 Waverley St, Palo Alto",
+   "cat": "fmd",
+   "price": "free",
+   "title": "Free day at the San José Museum of Art",
+   "when": "First Friday Dec 4 (free after 6pm) · Museums on Us Sundays Dec 6, Jan 3",
+   "meta": "San José Museum of Art, San Jose · free for all after 6pm at First Fridays (6–9pm, music, register for faster check-in); free general admission Sundays Dec 6 and Jan 3 for Bank of America cardholders",
+   "url": "https://sjmusart.org/event/first-fridays-december-2026",
+   "lat": 37.3332,
+   "lon": -121.8897,
+   "q": "San Jose Museum of Art, 110 S Market St, San Jose, CA",
    "dates": [
     "2026-12-04",
-    "2026-12-05"
+    "2026-12-06",
+    "2027-01-03"
    ]
   },
   {
-   "n": 122,
+   "n": 154,
    "id": "caltrain-holiday-train",
    "sec": "early-dec",
    "when": "Sat Dec 5",
@@ -2163,7 +2892,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 123,
+   "n": 155,
    "id": "mapp-art-poetry-music-crawl",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 6pm",
@@ -2178,7 +2907,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 124,
+   "n": 156,
    "id": "mercatino-di-natale-italian-christmas-market",
    "sec": "early-dec",
    "when": "Dec 5–6",
@@ -2192,7 +2921,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 125,
+   "n": 157,
    "id": "downtown-santa-cruz-holiday-parade",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 10am",
@@ -2207,7 +2936,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 126,
+   "n": 158,
    "id": "santa-cruz-lighted-boat-parade",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 5:30pm",
@@ -2223,7 +2952,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 127,
+   "n": 159,
    "id": "schulz-kids-night-dec-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 5:30–9pm",
@@ -2239,7 +2968,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 128,
+   "n": 160,
    "id": "capitola-village-tree-lighting",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 11am–8pm, palm tree lighting ~5:30pm",
@@ -2255,7 +2984,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 129,
+   "n": 161,
    "id": "hiller-santa-arrives-by-helicopter",
    "sec": "early-dec",
    "when": "Sat Dec 5 · from 9:30am (Santa lands ~10:30am)",
@@ -2271,7 +3000,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 130,
+   "n": 162,
    "id": "san-rafael-winter-wonderland-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 1–6pm",
@@ -2286,7 +3015,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 131,
+   "n": 163,
    "id": "petaluma-holiday-stroll-light-up-the-square-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · stroll 11am–5pm, tree lighting 6–8pm",
@@ -2301,7 +3030,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 132,
+   "n": 164,
    "id": "tgr-ski-film-rio-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 7pm",
@@ -2317,7 +3046,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 133,
+   "n": 165,
    "id": "fogarty-paper-poinsettia-wine-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 1–3pm",
@@ -2335,7 +3064,7 @@ window.WF_DATA = {
    "biz": "Thomas Fogarty Winery"
   },
   {
-   "n": 134,
+   "n": 166,
    "id": "lester-estate-holiday-makers-market-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 12–4pm",
@@ -2353,7 +3082,7 @@ window.WF_DATA = {
    "biz": "Lester Estate Wines"
   },
   {
-   "n": 135,
+   "n": 167,
    "id": "montalvo-charo-cuchi-christmas-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 7:30pm",
@@ -2370,7 +3099,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 136,
+   "n": 168,
    "id": "act-yc-rudolph-and-scrooge-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 & Sun Dec 6",
@@ -2388,7 +3117,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 137,
+   "n": 169,
    "id": "campbell-carol-of-lights-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 · 4–7pm",
@@ -2401,10 +3130,13 @@ window.WF_DATA = {
    "lon": -121.9442,
    "q": "Downtown Campbell, E Campbell Ave",
    "start": "2026-12-05",
-   "end": "2026-12-05"
+   "end": "2026-12-05",
+   "aud": [
+    "all"
+   ]
   },
   {
-   "n": 138,
+   "n": 170,
    "id": "little-green-holiday-markets-2026",
    "sec": "early-dec",
    "when": "Sats Dec 5, 12 and 19, 9am–1pm",
@@ -2425,7 +3157,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 139,
+   "n": 171,
    "id": "allied-arts-guild-christmas-market-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 – Sun Dec 6, 10am–4pm",
@@ -2443,12 +3175,12 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 140,
+   "n": 172,
    "id": "willow-glen-holiday-bubbly-walk-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5, 2–5pm (check-in from noon)",
    "title": "Willow Glen Holiday Bubbly Walk",
-   "meta": "Downtown Willow Glen, Lincoln Ave, San Jose · about $60–65 · sparkling-wine tastings at shops along Lincoln Ave; 21+",
+   "meta": "Downtown Willow Glen, Lincoln Ave, San Jose · about $60–65 · sparkling-wine tastings at shops along Lincoln Ave; tasters 21+ with ID",
    "cat": "food",
    "url": "https://www.willowglen.org/willowglenbubblywalk",
    "price": "tickets",
@@ -2462,7 +3194,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 141,
+   "n": 173,
    "id": "bargetto-art-in-the-cellars-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5 & Sun Dec 6, 11am–5pm",
@@ -2482,7 +3214,217 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 142,
+   "n": 174,
+   "id": "paramount-wizard-of-oz-2026-12-05",
+   "sec": "early-dec",
+   "when": "Sat Dec 5 · 3pm (doors 2pm)",
+   "title": "The Wizard of Oz on 35mm at the Paramount",
+   "meta": "Paramount Theatre, 2025 Broadway, Oakland · Movie Classics: Mighty Wurlitzer organ concert, classic cartoons and Dec-O-Win prize game before the film · rated G",
+   "cat": "kids",
+   "url": "https://www.paramountoakland.org/events/detail/the-wizard-of-oz",
+   "tix": "https://www.ticketmaster.com/event/1C00655EA736C91C",
+   "price": "tickets",
+   "lat": 37.8096,
+   "lon": -122.2683,
+   "q": "Paramount Theatre, 2025 Broadway, Oakland, CA",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 175,
+   "id": "omca-holiday-market-2026-12-05",
+   "sec": "early-dec",
+   "when": "Sat Dec 5 · 11:30am–4pm",
+   "title": "Holiday Market at the Oakland Museum of California",
+   "meta": "OMCA campus, 1000 Oak St, Oakland · local vendors: jewelry, art prints, textiles, gifts for pets · one day only · free market (listed Family / Free)",
+   "cat": "hol",
+   "url": "https://museumca.org/event/holiday-market-at-the-museum/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.7987,
+   "lon": -122.264,
+   "q": "Oakland Museum of California, 1000 Oak St, Oakland, CA",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 176,
+   "id": "livermore-holiday-sights-sounds-parade-2026",
+   "sec": "early-dec",
+   "when": "Sat Dec 5 · parade 6pm, tree lighting after",
+   "title": "Livermore Holiday Sights & Sounds Parade & Tree Lighting",
+   "meta": "First Street, Downtown Livermore · lighted floats, Santa, LVJUSD children's choir, countdown tree lighting; Holiday Open House at downtown shops all day · free, rain or shine",
+   "cat": "hol",
+   "url": "https://www.livermoredowntown.com/events/sights-and-sounds-parade",
+   "price": "free",
+   "lat": 37.6819,
+   "lon": -121.768,
+   "q": "First St & S Livermore Ave, Livermore, CA",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 177,
+   "id": "pleasanton-hometown-holiday-celebration-2026",
+   "sec": "early-dec",
+   "when": "Sat Dec 5 · parade 5pm, tree lighting after",
+   "title": "Pleasanton Hometown Holiday Parade & Tree Lighting",
+   "meta": "Main Street, Downtown Pleasanton · floats, marching bands, community groups; tree lighting in front of the Museum on Main with live music and Santa · free",
+   "cat": "hol",
+   "url": "https://www.cityofpleasantonca.gov/your-community/arts-theaters-events/hometown-holiday-celebration/",
+   "price": "free",
+   "lat": 37.66,
+   "lon": -121.8746,
+   "q": "Museum on Main, 603 Main St, Pleasanton, CA",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 178,
+   "id": "swea-sf-swedish-christmas-fair-lucia-2026-12-05",
+   "sec": "early-dec",
+   "when": "Sat Dec 5 · 9am–3pm (Lucia at 10am & 12pm)",
+   "title": "Swedish Christmas Fair with Lucia procession",
+   "meta": "St. Mary's Cathedral, San Francisco · SWEA San Francisco: Lucia procession, Swedish crafts, glögg, lussekatter, herring · $10, child/senior $5",
+   "cat": "cult",
+   "url": "https://sanfrancisco.swea.org/?p=6821",
+   "price": "tickets",
+   "lat": 37.7843,
+   "lon": -122.4255,
+   "q": "St. Mary's Cathedral, 1111 Gough St, San Francisco, CA",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 179,
+   "id": "fmd-computer-history-museum",
+   "sec": "early-dec",
+   "cat": "fmd",
+   "price": "free",
+   "title": "Museums on Us at the Computer History Museum",
+   "when": "First full weekends · Dec 5–6, Jan 2–3 · 10am–5pm",
+   "meta": "Computer History Museum, Mountain View · free general admission for Bank of America / Merrill cardholders (1 per card, with photo ID)",
+   "url": "https://about.bankofamerica.com/en/making-an-impact/museums-on-us",
+   "lat": 37.4143,
+   "lon": -122.0774,
+   "q": "Computer History Museum, 1401 N Shoreline Blvd, Mountain View, CA",
+   "dates": [
+    "2026-12-05",
+    "2026-12-06",
+    "2027-01-02",
+    "2027-01-03"
+   ]
+  },
+  {
+   "n": 180,
+   "id": "fmd-monterey-museum-of-art",
+   "sec": "early-dec",
+   "cat": "fmd",
+   "price": "free",
+   "title": "Free day at the Monterey Museum of Art",
+   "when": "Sat Dec 5 · 11am–3pm (Free Family Fun Day)",
+   "meta": "Monterey Museum of Art, Monterey · free gallery admission plus hands-on art for all ages at Free Family Fun Day (Iluminado exhibition)",
+   "url": "https://www.montereyart.org/event/free-family-fun-day-iluminado-3/",
+   "lat": 36.5986,
+   "lon": -121.8957,
+   "q": "Monterey Museum of Art, 559 Pacific St, Monterey, CA",
+   "dates": [
+    "2026-12-05"
+   ],
+   "aud": [
+    "all"
+   ]
+  },
+  {
+   "n": 181,
+   "id": "sf-city-chorus-sing-along-messiah-2026-12-05",
+   "sec": "early-dec",
+   "when": "Sat Dec 5 · 2–4pm",
+   "title": "Sing-Along Messiah with SF City Chorus",
+   "meta": "Old First Presbyterian Church, Van Ness & Sacramento, San Francisco · community sing-along of Handel's Messiah, a fundraiser for San Francisco City Chorus",
+   "cat": "join",
+   "url": "https://www.sfcitychorus.org/calendar/sing-along-messiah-2",
+   "price": "tickets",
+   "lat": 37.7909,
+   "lon": -122.4222,
+   "q": "Old First Presbyterian Church, 1751 Sacramento St, San Francisco, CA",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 182,
+   "id": "sjaa-starry-nights-rcdo-2026-12-05",
+   "sec": "early-dec",
+   "when": "Sat Dec 5 · 6:30pm",
+   "title": "Starry Nights public star party at Rancho Cañada del Oro",
+   "meta": "Rancho Cañada del Oro Open Space Preserve, Morgan Hill · SJAA astronomers share dark-sky views through their telescopes (no personal telescopes; binoculars OK) · free, registration required (limited parking)",
+   "cat": "learn",
+   "url": "https://www.sjaa.net/events/starry-nights-public-star-party/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.149,
+   "lon": -121.7738,
+   "q": "Rancho Canada del Oro Open Space Preserve, 4289 Casa Loma Rd, Morgan Hill, CA",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 183,
+   "id": "midpen-trail-maintenance-saratoga-gap-2026-12-05",
+   "sec": "early-dec",
+   "when": "Sat Dec 5 · 9:30am–2pm",
+   "title": "Trail workday on the Saratoga Gap Trail",
+   "meta": "Saratoga Gap Preserve, Skyline Blvd at Hwy 9 · trim brush and fix trail tread with Midpen staff; about 1.5 mi hiking with tools; good for first-timers · under 18 with a parent · free, register",
+   "cat": "vol",
+   "url": "https://volunteer.openspace.org/need/detail/?need_id=1338516",
+   "price": "free",
+   "lat": 37.2581,
+   "lon": -122.1199,
+   "q": "Saratoga Gap Open Space Preserve, Skyline Blvd & Hwy 9, Saratoga, CA",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 184,
+   "id": "ggnpc-ocean-beach-cleanup-2026-12-05",
+   "sec": "early-dec",
+   "when": "Sat Dec 5 · 10am–1pm",
+   "title": "Ocean Beach cleanup",
+   "meta": "Ocean Beach, San Francisco (meeting spot in confirmation email) · Golden Gate National Parks Conservancy monthly cleanup; bring a bucket and gloves if you have them · all ages welcome · free, register",
+   "cat": "vol",
+   "url": "https://www.parksconservancy.org/programs/ocean-beach-clean-ups",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.7594,
+   "lon": -122.5107,
+   "q": "Ocean Beach, Great Highway, San Francisco, CA",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 185,
+   "id": "pacific-beach-coalition-calera-creek-restoration-2026-12-05",
+   "sec": "early-dec",
+   "when": "Sat Dec 5 · 9–11am",
+   "title": "Calera Creek habitat restoration",
+   "meta": "Calera Creek Park, Pacifica (Reina Del Mar Ave near Hiawatha Ave) · Pacific Beach Coalition: pull invasive weeds, help native planting; bring gloves and hand tools; no restrooms · families sign up one form per person · free",
+   "cat": "vol",
+   "url": "https://www.pacificbeachcoalition.org/calera-creek-park-habitat-restoration-pacifica-quaterly",
+   "price": "free",
+   "lat": 37.6158,
+   "lon": -122.489,
+   "q": "Reina Del Mar Ave & Hiawatha Ave, Pacifica, CA",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 186,
    "id": "sfmoma-holiday-makers-market",
    "sec": "early-dec",
    "when": "Sun Dec 6",
@@ -2496,7 +3438,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 143,
+   "n": 187,
    "id": "brighten-the-harbor-lighted-boat-parade",
    "sec": "early-dec",
    "when": "Sun Dec 6 · 5–7pm",
@@ -2511,7 +3453,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 144,
+   "n": 188,
    "id": "pink-martini-all-stars-a-season-of-stars",
    "sec": "early-dec",
    "when": "Sun Dec 6 · 7pm",
@@ -2527,7 +3469,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 145,
+   "n": 189,
    "id": "mill-valley-winterfest-2026",
    "sec": "early-dec",
    "when": "Sun Dec 6 · afternoon, tree lighting ~5pm",
@@ -2543,7 +3485,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 146,
+   "n": 190,
    "id": "stanford-mens-basketball-vs-pacific-2026-12-06",
    "sec": "early-dec",
    "when": "Sun Dec 6",
@@ -2561,23 +3503,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 147,
-   "id": "city-lights-rens-winter-wonderland-2026",
-   "sec": "early-dec",
-   "when": "Sun Dec 6 · 7pm",
-   "title": "Ren's 12th Annual Winter Wonderland",
-   "meta": "City Lights Theater Company, San Jose · jazz singer Ren Geisick's family-friendly holiday concert",
-   "cat": "show",
-   "url": "https://cltc.org/event/rens-12th/",
-   "price": "tickets",
-   "lat": 37.3297,
-   "lon": -121.8833,
-   "q": "City Lights Theater Company, 529 S 2nd St, San Jose",
-   "start": "2026-12-06",
-   "end": "2026-12-06"
-  },
-  {
-   "n": 148,
+   "n": 191,
    "id": "stanford-live-helene-grimaud-2026",
    "sec": "early-dec",
    "when": "Sun Dec 6 · 2:30pm",
@@ -2593,7 +3519,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 149,
+   "n": 192,
    "id": "linden-tree-storytime-party-pony-2026",
    "sec": "early-dec",
    "when": "Sun Dec 6, 10:30am",
@@ -2611,25 +3537,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 150,
-   "id": "linden-tree-mg-book-club-dec-2026",
-   "sec": "early-dec",
-   "when": "Sun Dec 6, 4pm",
-   "title": "Middle-grade book club: The Wish Ring Cipher (ages 9+)",
-   "meta": "Linden Tree Books, 265 State St, Los Altos · free, RSVP by email · bookseller-led chat about Alexandra Ott's puzzle adventure",
-   "cat": "kids",
-   "url": "https://www.lindentreebooks.com/events-calendar",
-   "price": "free",
-   "local": 1,
-   "biz": "Linden Tree Books",
-   "lat": 37.3793,
-   "lon": -122.117,
-   "q": "Linden Tree Books, 265 State St, Los Altos, CA",
-   "start": "2026-12-06",
-   "end": "2026-12-06"
-  },
-  {
-   "n": 151,
+   "n": 193,
    "id": "willow-glen-holiday-trolley-2026",
    "sec": "early-dec",
    "when": "Nightly Dec 6–17, rides from 5:15pm (30 min)",
@@ -2647,7 +3555,7 @@ window.WF_DATA = {
    "end": "2026-12-17"
   },
   {
-   "n": 152,
+   "n": 194,
    "id": "pets-in-need-santa-photos-mv-2026",
    "sec": "early-dec",
    "when": "Sun Dec 6, 11am–2pm",
@@ -2663,7 +3571,164 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 153,
+   "n": 195,
+   "id": "chabad-palo-alto-chanukah-festival-city-hall-2026-12-06",
+   "sec": "early-dec",
+   "when": "Sun Dec 6 · 4:30–6pm",
+   "title": "Chanukah Festival at Palo Alto City Hall",
+   "meta": "Palo Alto City Hall, Palo Alto · Chabad Palo Alto's community menorah lighting on the third night of Chanukah · free, RSVP",
+   "cat": "cult",
+   "url": "https://www.chabadpaloalto.com/civicrm/event/info?id=2615",
+   "price": "free",
+   "lat": 37.4443,
+   "lon": -122.1607,
+   "q": "Palo Alto City Hall, 250 Hamilton Ave, Palo Alto, CA",
+   "start": "2026-12-06",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 196,
+   "id": "oakland-grand-chanukah-lake-merritt-2026-12-06",
+   "sec": "early-dec",
+   "when": "Sun Dec 6 · 4:30pm",
+   "title": "Grand Chanukah Celebration on Lake Merritt",
+   "meta": "Lake Merritt Amphitheater, Oakland · Chabad of Oakland lights the big lakeside menorah (up Dec 4–13) · free",
+   "cat": "cult",
+   "url": "https://www.jewishoakland.org/holidays/chanukah/lake/",
+   "price": "free",
+   "lat": 37.7978,
+   "lon": -122.2614,
+   "q": "Lake Merritt Amphitheater, Lake Merritt Blvd & 12th St, Oakland, CA",
+   "start": "2026-12-06",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 197,
+   "id": "fmd-asian-art-museum",
+   "sec": "early-dec",
+   "cat": "fmd",
+   "price": "free",
+   "title": "Free day at the Asian Art Museum",
+   "when": "First Sundays · Dec 6, Jan 3 · 10am–5pm",
+   "meta": "Asian Art Museum, San Francisco · free general admission on the first Sunday of the month (reserve ahead, limited walk-up; special exhibitions $15)",
+   "url": "https://about.asianart.org/ticketing/free-and-reduced-museum-admission/",
+   "lat": 37.7802,
+   "lon": -122.4161,
+   "q": "Asian Art Museum, 200 Larkin St, San Francisco, CA",
+   "dates": [
+    "2026-12-06",
+    "2027-01-03"
+   ]
+  },
+  {
+   "n": 198,
+   "id": "fmd-omca",
+   "sec": "early-dec",
+   "cat": "fmd",
+   "price": "free",
+   "title": "Free day at the Oakland Museum of California",
+   "when": "First Sundays · Dec 6, Jan 3",
+   "meta": "Oakland Museum of California, Oakland · free admission on the first Sunday of the month, special exhibitions included (reserving tickets online encouraged)",
+   "url": "https://museumca.org/first-sundays/",
+   "lat": 37.7986,
+   "lon": -122.264,
+   "q": "Oakland Museum of California, 1000 Oak St, Oakland, CA",
+   "dates": [
+    "2026-12-06",
+    "2027-01-03"
+   ],
+   "aud": [
+    "all"
+   ]
+  },
+  {
+   "n": 199,
+   "id": "midpen-san-andreas-fault-hike-los-trancos-2026-12-06",
+   "sec": "early-dec",
+   "when": "Sun Dec 6 · 1–3:30pm",
+   "title": "San Andreas Fault exploration hike",
+   "meta": "Los Trancos Preserve (lot on Page Mill Rd), Palo Alto foothills · leisurely 2.5-mile loop on the San Andreas Fault Trail with Midpen docent naturalists · free",
+   "cat": "join",
+   "url": "https://www.openspace.org/events/guided-activities/san-andreas-fault-exploration-hike",
+   "price": "free",
+   "lat": 37.333,
+   "lon": -122.1784,
+   "q": "Los Trancos Open Space Preserve parking, Page Mill Rd, Palo Alto, CA",
+   "start": "2026-12-06",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 200,
+   "id": "repair-cafe-sv-tzu-chi-san-jose-2026-12-06",
+   "sec": "early-dec",
+   "when": "Sun Dec 6 · 11am–3pm",
+   "title": "Repair Café Silicon Valley",
+   "meta": "Tzu Chi Buddhist Foundation, 2355 Oakland Rd, San Jose · bring broken electronics, lamps, clothes, bikes, toys; volunteer fixers repair them with you · free (donations welcome) · next ones: Sat Jan 9 Tully Library, Sat Jan 16 Milpitas Library",
+   "cat": "join",
+   "url": "https://repaircafesv.org/repair-cafe-at-tzu-chi-buddhist-foundation/",
+   "price": "free",
+   "lat": 37.389,
+   "lon": -121.9,
+   "q": "Tzu Chi Buddhist Foundation, 2355 Oakland Rd, San Jose, CA",
+   "start": "2026-12-06",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 201,
+   "id": "ebparks-cafecito-in-nature-hongos-tilden-2026-12-06",
+   "sec": "early-dec",
+   "when": "Sun Dec 6 · 1pm",
+   "title": "Cafecito in Nature: con los hongos",
+   "meta": "Tilden Nature Area, Environmental Education Center, Berkeley · bilingual mushroom walk on the forest floor with an EBRPD naturalist, 0.5–2 miles · all ages · drop in, free",
+   "cat": "join",
+   "url": "https://apm.activecommunities.com/ebparks/Activity_Search/60583",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.9068,
+   "lon": -122.2647,
+   "q": "Tilden Environmental Education Center, Berkeley, CA",
+   "start": "2026-12-06",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 202,
+   "id": "scmnh-winter-solstice-sea-star-search-2026-12-06",
+   "sec": "early-dec",
+   "when": "Sun Dec 6 (time on sign-up page)",
+   "title": "Sea star search (community science tide-pool walk)",
+   "meta": "Natural Bridges State Beach, Santa Cruz · count and photograph sea stars for the California Academy of Sciences' recovery survey, led by the Santa Cruz Museum of Natural History · ages 7+ with an adult · free, register; rain or shine",
+   "cat": "join",
+   "url": "https://santacruzmuseum.org/event/winter-solstice-sea-star-search-2/",
+   "price": "free",
+   "lat": 36.953,
+   "lon": -122.0573,
+   "q": "Natural Bridges State Beach, 2531 W Cliff Dr, Santa Cruz, CA",
+   "start": "2026-12-06",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 203,
+   "id": "sjaa-solar-sunday-houge-2026-12-06",
+   "sec": "early-dec",
+   "when": "Sun Dec 6 · 1:30pm",
+   "title": "Solar Sunday: look at the Sun through safe telescopes",
+   "meta": "Houge Park, San Jose · San Jose Astronomical Association's monthly public solar viewing, weather permitting · free",
+   "cat": "learn",
+   "url": "https://www.sjaa.net/events/solar-observing/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.2575,
+   "lon": -121.9426,
+   "q": "Houge Park, 3972 Twilight Dr, San Jose, CA",
+   "start": "2026-12-06",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 204,
    "id": "the-bad-plus-farewell-tour",
    "sec": "mid-dec",
    "when": "Mon Dec 7 · 7pm",
@@ -2676,10 +3741,13 @@ window.WF_DATA = {
    "lon": -122.0263,
    "q": "Kuumbwa Jazz Center",
    "start": "2026-12-07",
-   "end": "2026-12-07"
+   "end": "2026-12-07",
+   "aud": [
+    "all"
+   ]
   },
   {
-   "n": 154,
+   "n": 205,
    "id": "mountain-view-tree-lighting-2026",
    "sec": "mid-dec",
    "when": "Mon Dec 7 · 5:30–8pm",
@@ -2695,7 +3763,7 @@ window.WF_DATA = {
    "end": "2026-12-07"
   },
   {
-   "n": 155,
+   "n": 206,
    "id": "winter-walk-patchwork-show-makers",
    "sec": "mid-dec",
    "when": "Dec 8–27",
@@ -2713,7 +3781,7 @@ window.WF_DATA = {
    "biz": "Patchwork Show makers"
   },
   {
-   "n": 156,
+   "n": 207,
    "id": "holiday-at-the-inns",
    "sec": "mid-dec",
    "when": "Tue Dec 8 · 5–9pm",
@@ -2729,7 +3797,7 @@ window.WF_DATA = {
    "end": "2026-12-08"
   },
   {
-   "n": 157,
+   "n": 208,
    "id": "isaiah-j-thompson-guaraldi-holiday-2026",
    "sec": "mid-dec",
    "when": "Tue Dec 8 · 7pm",
@@ -2742,10 +3810,13 @@ window.WF_DATA = {
    "lon": -122.0247,
    "q": "Kuumbwa Jazz Center",
    "start": "2026-12-08",
-   "end": "2026-12-08"
+   "end": "2026-12-08",
+   "aud": [
+    "all"
+   ]
   },
   {
-   "n": 158,
+   "n": 209,
    "id": "canadian-brass-making-spirits-bright",
    "sec": "mid-dec",
    "when": "Wed Dec 9 · 7:30pm",
@@ -2761,7 +3832,64 @@ window.WF_DATA = {
    "end": "2026-12-09"
   },
   {
-   "n": 159,
+   "n": 210,
+   "id": "pact-frog-and-toad-sensory-asl-2026-12-09",
+   "sec": "mid-dec",
+   "when": "Wed Dec 9 · 6pm",
+   "title": "A Year with Frog and Toad: sensory-friendly & ASL performance",
+   "meta": "Palo Alto Children's Theatre, 1305 Middlefield Rd · smaller audience, gentler light and sound cues, ASL interpreter · musical runs Dec 3–20 · ticketed",
+   "cat": "kids",
+   "url": "https://www.paloalto.gov/Departments/Community-Services/Arts-Sciences/Palo-Alto-Childrens-Theatre/Productions/Main-Stage-Productions",
+   "tix": "https://pact.showare.com/",
+   "price": "tickets",
+   "aud": [
+    "sensory",
+    "access",
+    "all"
+   ],
+   "lat": 37.4437,
+   "lon": -122.153,
+   "q": "Palo Alto Children's Theatre, 1305 Middlefield Rd, Palo Alto, CA",
+   "start": "2026-12-09",
+   "end": "2026-12-09"
+  },
+  {
+   "n": 211,
+   "id": "avenidas-open-house-tea-party-2026-12-09",
+   "sec": "mid-dec",
+   "when": "Wed Dec 9 · 2–4pm",
+   "title": "Avenidas holiday Open House Tea Party",
+   "meta": "Avenidas, 450 Bryant St, Palo Alto · refreshments, live music and dancing, Club Aveneedles handmade-gift sale · drop in, no RSVP",
+   "cat": "hol",
+   "url": "https://www.avenidas.org/event/open-house-tea-party/",
+   "price": "free",
+   "aud": [
+    "seniors"
+   ],
+   "lat": 37.4432,
+   "lon": -122.1594,
+   "q": "Avenidas, 450 Bryant St, Palo Alto, CA",
+   "start": "2026-12-09",
+   "end": "2026-12-09"
+  },
+  {
+   "n": 212,
+   "id": "sccl-cupertino-cnps-hummingbird-talk-2026-12-09",
+   "sec": "mid-dec",
+   "when": "Wed Dec 9 · 7–8pm",
+   "title": "Talk: why are California's hummingbird flowers red?",
+   "meta": "Cupertino Library, Cupertino · Santa Clara University biologist Justen Whittall on hummingbirds, bees and hidden ultraviolet colors, with the California Native Plant Society · free",
+   "cat": "learn",
+   "url": "https://sccl.bibliocommons.com/events/6ad93f58e9f71840dd72b81f",
+   "price": "free",
+   "lat": 37.3189,
+   "lon": -122.0293,
+   "q": "Cupertino Library, 10800 Torre Ave, Cupertino, CA",
+   "start": "2026-12-09",
+   "end": "2026-12-09"
+  },
+  {
+   "n": 213,
    "id": "european-style-holiday-market",
    "sec": "mid-dec",
    "when": "Thu Dec 10 & 17 · 4–8pm",
@@ -2779,7 +3907,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 160,
+   "n": 214,
    "id": "a-chanticleer-christmas",
    "sec": "mid-dec",
    "when": "Thu Dec 10 · 7:30pm",
@@ -2795,7 +3923,7 @@ window.WF_DATA = {
    "end": "2026-12-10"
   },
   {
-   "n": 161,
+   "n": 215,
    "id": "montalvo-irish-christmas-in-america-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 10 · 7:30pm",
@@ -2811,7 +3939,42 @@ window.WF_DATA = {
    "end": "2026-12-10"
   },
   {
-   "n": 162,
+   "n": 216,
+   "id": "sfgmc-holiday-sing-along-2026-12-10",
+   "sec": "mid-dec",
+   "when": "Thu Dec 10 · 7pm",
+   "title": "SF Gay Men's Chorus Holiday Sing-Along",
+   "meta": "The Chan National Queer Arts Center, 170 Valencia St, San Francisco · sing holiday favorites led by artistic director Jacob Stensberg · all ages · pay what you choose from $10",
+   "cat": "join",
+   "url": "https://www.sfgmc.org/holiday-singalong-2026",
+   "price": "tickets",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.7712,
+   "lon": -122.4225,
+   "q": "170 Valencia St, San Francisco, CA",
+   "start": "2026-12-10",
+   "end": "2026-12-10"
+  },
+  {
+   "n": 217,
+   "id": "oakland-library-cindy-cohn-2026-12-10",
+   "sec": "mid-dec",
+   "when": "Thu Dec 10 · 6–7:30pm",
+   "title": "Meet the author: Cindy Cohn, Privacy's Defender",
+   "meta": "Oakland Main Library, Oakland · EFF's longtime leader on her thirty-year fight against digital surveillance · free, registration",
+   "cat": "learn",
+   "url": "https://oaklandlibrary.bibliocommons.com/events/6a3e85217e16a03d00e83414",
+   "price": "free",
+   "lat": 37.8013,
+   "lon": -122.2643,
+   "q": "Oakland Main Library, 125 14th St, Oakland, CA",
+   "start": "2026-12-10",
+   "end": "2026-12-10"
+  },
+  {
+   "n": 218,
    "id": "christmas-in-the-adobes",
    "sec": "mid-dec",
    "when": "Fri–Sat, Dec 11–12 · 5–9pm",
@@ -2827,7 +3990,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 163,
+   "n": 219,
    "id": "monterey-peninsula-ballet-the-nutcracker",
    "sec": "mid-dec",
    "when": "Dec 11–13",
@@ -2843,7 +4006,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 164,
+   "n": 220,
    "id": "pyt-the-night-before-christmas",
    "sec": "mid-dec",
    "when": "Fri–Sat, Dec 11–12",
@@ -2859,7 +4022,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 165,
+   "n": 221,
    "id": "montalvo-david-benoit-charlie-brown-2026",
    "sec": "mid-dec",
    "when": "Fri Dec 11 · 7:30pm",
@@ -2875,7 +4038,7 @@ window.WF_DATA = {
    "end": "2026-12-11"
   },
   {
-   "n": 166,
+   "n": 222,
    "id": "film-elsinore-2026",
    "sec": "mid-dec",
    "when": "Opens wide Fri Dec 11",
@@ -2888,7 +4051,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 167,
+   "n": 223,
    "id": "film-george-michael-faith-tour-2026",
    "sec": "mid-dec",
    "when": "Opens Fri Dec 11",
@@ -2900,39 +4063,62 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 168,
-   "id": "history-park-gingerbread-village-2026",
+   "n": 224,
+   "id": "fairyland-twas-the-night-21-2026-12-11",
    "sec": "mid-dec",
-   "when": "Fri Dec 11, 7–9pm",
-   "title": "Gingerbread Village Workshop at History Park",
-   "meta": "Empire Firehouse, History Park, San Jose · $35 ($30 members), book ahead · build and decorate a gingerbread house for History San José's holiday village",
-   "cat": "food",
-   "url": "https://historysanjose.org/programs-events/",
+   "when": "Fri Dec 11 · 6–10pm",
+   "title": "Twas the Night Before Fairy Winterland (21+ night market)",
+   "meta": "Children's Fairyland, 699 Bellevue Ave, Oakland · grown-ups-only holiday night market: local artisans, DJ, The Futurelics live, drinks · 21+ with ID · $28 ($25 members, $60 VIP)",
+   "cat": "hol",
+   "url": "https://fairyland.org/event-calendar/twasthenight/",
    "price": "tickets",
-   "lat": 37.3196,
-   "lon": -121.8578,
-   "q": "History Park, 635 Phelan Ave, San Jose",
+   "aud": [
+    "adults"
+   ],
+   "lat": 37.809,
+   "lon": -122.2604,
+   "q": "Children's Fairyland, 699 Bellevue Ave, Oakland, CA",
    "start": "2026-12-11",
    "end": "2026-12-11"
   },
   {
-   "n": 169,
-   "id": "ainsley-house-holiday-tea-2026",
+   "n": 225,
+   "id": "stanford-sing-play-along-messiah-2026-12-11",
    "sec": "mid-dec",
-   "when": "Fri Dec 11, noon–2pm",
-   "title": "Ainsley House Holiday Tea & Tour",
-   "meta": "Ainsley House, Campbell · $70, reservations required · tea, desserts and a tour of the decorated house (other dates sold out)",
-   "cat": "food",
-   "url": "https://www.campbellmuseums.com/event-details/ainsley-house-holiday-tea-tour-friday-december-11",
+   "when": "Fri Dec 11 · 7:30–9pm",
+   "title": "Annual Sing/Play-Along Messiah",
+   "meta": "Memorial Church, Stanford · sing or bring your instrument (orchestral parts provided), conducted by Stephen M. Sano · $32, seniors $27; usually a full house",
+   "cat": "join",
+   "url": "https://events.stanford.edu/event/messiah-fall26",
+   "tix": "https://live.stanford.edu/s/event?EventID=49403",
    "price": "tickets",
-   "lat": 37.2858,
-   "lon": -121.9455,
-   "q": "Ainsley House, 300 Grant St, Campbell",
+   "lat": 37.4268,
+   "lon": -122.1703,
+   "q": "Memorial Church, 450 Jane Stanford Way, Stanford, CA",
    "start": "2026-12-11",
    "end": "2026-12-11"
   },
   {
-   "n": 170,
+   "n": 226,
+   "id": "sjaa-in-town-star-party-houge-2026-12-11",
+   "sec": "mid-dec",
+   "when": "Fri Dec 11 · 6pm talk, star party from 7:15pm",
+   "title": "Public star party at Houge Park (with Astro 101 talk)",
+   "meta": "Houge Park, San Jose · beginner astronomy talk, then SJAA members' telescopes on the planets, Moon and stars; no reservations needed · free",
+   "cat": "learn",
+   "url": "https://www.sjaa.net/events/monthly-star-parties/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.2575,
+   "lon": -121.9426,
+   "q": "Houge Park, 3972 Twilight Dr, San Jose, CA",
+   "start": "2026-12-11",
+   "end": "2026-12-11"
+  },
+  {
+   "n": 227,
    "id": "hometown-holidays",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 10am–6pm",
@@ -2948,7 +4134,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 171,
+   "n": 228,
    "id": "german-holiday-market",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 11am–9pm",
@@ -2964,7 +4150,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 172,
+   "n": 229,
    "id": "black-holiday-market",
    "sec": "mid-dec",
    "when": "Sat Dec 12",
@@ -2979,7 +4165,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 173,
+   "n": 230,
    "id": "sjmade-winter-wonder-market",
    "sec": "mid-dec",
    "when": "Sat–Sun, Dec 12–13 · 11am–6pm",
@@ -2995,7 +4181,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 174,
+   "n": 231,
    "id": "the-wooten-brothers",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 7:30pm",
@@ -3011,7 +4197,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 175,
+   "n": 232,
    "id": "sausalito-lighted-boat-parade-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 6pm, fireworks ~7:15pm",
@@ -3027,7 +4213,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 176,
+   "n": 233,
    "id": "schulz-gingerbread-doghouse-2026",
    "sec": "mid-dec",
    "when": "Sat–Sun, Dec 12–13",
@@ -3043,7 +4229,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 177,
+   "n": 234,
    "id": "half-moon-bay-lighted-boat-festival-drone-show",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 4–8pm, drone show finale",
@@ -3059,7 +4245,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 178,
+   "n": 235,
    "id": "run-rudolph-run-pacific-grove-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 7:30–11:30am",
@@ -3075,7 +4261,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 179,
+   "n": 236,
    "id": "wilder-ranch-victorian-holiday-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 11am–3pm",
@@ -3090,7 +4276,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 180,
+   "n": 237,
    "id": "sfjazz-family-matinee-girls-chorus-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 11am",
@@ -3106,7 +4292,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 181,
+   "n": 238,
    "id": "symphony-san-jose-holiday-spectacular-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 2:30 & 7:30pm; Sun Dec 13 · 2:30pm",
@@ -3122,7 +4308,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 182,
+   "n": 239,
    "id": "sf-spca-shelter-toy-drive-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12 · 11am–5pm",
@@ -3138,7 +4324,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 183,
+   "n": 240,
    "id": "film-zero-ad-2026",
    "sec": "mid-dec",
    "when": "Opens Sat Dec 12",
@@ -3150,12 +4336,12 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 184,
+   "n": 241,
    "id": "testarossa-wine-chocolate-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 12, 2pm",
    "title": "Wine and chocolate pairing at Testarossa Winery",
-   "meta": "Testarossa Winery, 300 College Ave, Los Gatos · about $85 · guided chocolate and wine pairing at the 1888 winery; 21+",
+   "meta": "Testarossa Winery, 300 College Ave, Los Gatos · about $85 · guided chocolate and wine pairing at the 1888 winery; tasting 21+",
    "cat": "food",
    "url": "https://www.testarossa.com/reservations/",
    "price": "tickets",
@@ -3169,7 +4355,153 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 185,
+   "n": 242,
+   "id": "cupertino-signing-santa-2026-12-12",
+   "sec": "mid-dec",
+   "when": "Sat Dec 12 · 10am–12pm",
+   "title": "Signing Santa (ASL) for deaf and hard-of-hearing kids",
+   "meta": "Quinlan Community Center, Cupertino · Santa who signs, interpreter for family, cookies and crafts · register each child and adult · $10.45 residents, $13.59 non-residents",
+   "cat": "hol",
+   "url": "https://apm.activecommunities.com/cupertino/Activity_Search/signing-santa---child/28755",
+   "price": "tickets",
+   "aud": [
+    "access"
+   ],
+   "lat": 37.3226,
+   "lon": -122.0446,
+   "q": "Quinlan Community Center, 10185 N Stelling Rd, Cupertino, CA",
+   "start": "2026-12-12",
+   "end": "2026-12-12"
+  },
+  {
+   "n": 243,
+   "id": "fairyland-fairy-winterland-2026",
+   "sec": "mid-dec",
+   "when": "Sat–Sun Dec 12–13, 19–20 & 26–27 · 12–7pm",
+   "title": "Fairy Winterland at Children's Fairyland",
+   "meta": "Children's Fairyland, 699 Bellevue Ave, Lake Merritt, Oakland · park lit up for the season, Black Santa (also after Christmas) · $23 adults, $21 kids, $20 seniors",
+   "cat": "hol",
+   "url": "https://fairyland.org/event-calendar/fairy-winterland/2026-12-12/",
+   "price": "tickets",
+   "lat": 37.809,
+   "lon": -122.2604,
+   "q": "Children's Fairyland, 699 Bellevue Ave, Oakland, CA",
+   "dates": [
+    "2026-12-12",
+    "2026-12-13",
+    "2026-12-19",
+    "2026-12-20",
+    "2026-12-26",
+    "2026-12-27"
+   ]
+  },
+  {
+   "n": 244,
+   "id": "fiesta-navidena-mexican-heritage-plaza-2026-12-12",
+   "sec": "mid-dec",
+   "when": "Sat Dec 12 · 5:30–9:30pm",
+   "title": "Fiesta Navideña with a community posada",
+   "meta": "Mexican Heritage Plaza, San Jose · free concert, folklórico, community posada, crafts, tamales and atole · mostly indoors · free",
+   "cat": "cult",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.3615,
+   "lon": -121.8569,
+   "q": "Mexican Heritage Plaza, 1700 Alum Rock Ave, San Jose, CA",
+   "start": "2026-12-12",
+   "end": "2026-12-12",
+   "url": "https://www.schoolofartsandculture.org/allevents/avenida26-8yrsy"
+  },
+  {
+   "n": 245,
+   "id": "parol-lantern-festival-soma-pilipinas-2026-12-12",
+   "sec": "mid-dec",
+   "when": "Sat Dec 12 · 3–8pm",
+   "title": "Parol Lantern Festival & Parade",
+   "meta": "Yerba Buena Center for the Arts, San Francisco · SOMA Pilipinas' Filipino holiday celebration with star lanterns, parade and performances · free",
+   "cat": "cult",
+   "url": "https://www.somapilipinas.org/events-main/2026/12/12/parol-lantern-festival",
+   "price": "free",
+   "lat": 37.7856,
+   "lon": -122.4019,
+   "q": "Yerba Buena Center for the Arts, 701 Mission St, San Francisco, CA",
+   "start": "2026-12-12",
+   "end": "2026-12-12"
+  },
+  {
+   "n": 246,
+   "id": "ebparks-winter-birdwalk-crown-beach-2026-12-12",
+   "sec": "mid-dec",
+   "when": "Sat Dec 12 · 7:30am",
+   "title": "Winter bird walk along the Bay",
+   "meta": "Elsie Roemer Bird Sanctuary, Crown Memorial State Beach, Alameda · naturalist-led shorebird walk, beginners welcome, loaner binoculars · all ages · drop in, free · heavy rain cancels",
+   "cat": "join",
+   "url": "https://apm.activecommunities.com/ebparks/Activity_Search/60871",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.7577,
+   "lon": -122.2487,
+   "q": "Elsie Roemer Bird Sanctuary, Shore Line Dr & Broadway, Alameda, CA",
+   "start": "2026-12-12",
+   "end": "2026-12-12"
+  },
+  {
+   "n": 247,
+   "id": "ebparks-community-campfire-big-break-2026-12-12",
+   "sec": "mid-dec",
+   "when": "Sat Dec 12 · 4pm",
+   "title": "Community campfire with s'mores",
+   "meta": "Big Break Visitor Center at the Delta, Oakley · bring a picnic dinner, then nature activities and a campfire (theme: winter adaptations) · families, adults must join kids · drop in, free",
+   "cat": "join",
+   "url": "https://apm.activecommunities.com/ebparks/Activity_Search/60917",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 38.011,
+   "lon": -121.727,
+   "q": "Big Break Visitor Center, 69 Big Break Rd, Oakley, CA",
+   "start": "2026-12-12",
+   "end": "2026-12-12"
+  },
+  {
+   "n": 248,
+   "id": "scmnh-snowy-plover-saunter-2026-12-12",
+   "sec": "mid-dec",
+   "when": "Sat Dec 12 · 1–2:30pm",
+   "title": "Snowy plover saunter: guided beach walk",
+   "meta": "Santa Cruz Museum of Natural History, 1305 East Cliff Dr, Santa Cruz · ¾-mile walk toward the harbor jetty to watch wintering snowy plovers with State Parks staff and volunteers · registration required",
+   "cat": "join",
+   "url": "https://santacruzmuseum.org/event/snowy-plover-saunter-guided-walk-to-seabright-coastal-dune-habitat/",
+   "price": "free",
+   "lat": 36.9644,
+   "lon": -122.016,
+   "q": "Santa Cruz Museum of Natural History, 1305 East Cliff Dr, Santa Cruz, CA",
+   "start": "2026-12-12",
+   "end": "2026-12-12"
+  },
+  {
+   "n": 249,
+   "id": "save-our-shores-corcoran-lagoon-cleanup-2026-12-12",
+   "sec": "mid-dec",
+   "when": "Sat Dec 12 · 9–11am",
+   "title": "Beach cleanup at Corcoran Lagoon",
+   "meta": "Corcoran Lagoon Beach, 20th Ave, Santa Cruz · Save Our Shores cleanup; buckets, grabbers and gloves provided · under 18 with an adult · free, register",
+   "cat": "vol",
+   "url": "https://saveourshores.org/event/beach-cleanup-corcoran-lagoon-beach/",
+   "price": "free",
+   "lat": 36.9604,
+   "lon": -121.9878,
+   "q": "Corcoran Lagoon Beach, 20th Ave, Santa Cruz, CA",
+   "start": "2026-12-12",
+   "end": "2026-12-12"
+  },
+  {
+   "n": 250,
    "id": "garrison-keillor-rio-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 13 · 8pm",
@@ -3185,7 +4517,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 186,
+   "n": 251,
    "id": "49ers-vs-rams-2026-12-13",
    "sec": "mid-dec",
    "when": "Sun Dec 13 · 1:25pm",
@@ -3202,23 +4534,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 187,
-   "id": "stoneridge-pet-photos-santa-2026",
-   "sec": "mid-dec",
-   "when": "Dec 13–22",
-   "title": "Pet photos with Santa (Stoneridge)",
-   "meta": "Stoneridge Shopping Center, Pleasanton · Santa Photo Experience pet sessions, lower-level Grand Court · reserve ahead",
-   "cat": "dog",
-   "url": "https://www.simon.com/mall/stoneridge-shopping-center/stores/santa-photo-experience/stream/pet-photo-with-santa-6248229",
-   "price": "tickets",
-   "lat": 37.695,
-   "lon": -121.929,
-   "q": "Stoneridge Shopping Center, Pleasanton",
-   "start": "2026-12-13",
-   "end": "2026-12-22"
-  },
-  {
-   "n": 188,
+   "n": 252,
    "id": "stanford-live-camila-fernandez-christmas-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 13 · 4pm",
@@ -3234,7 +4550,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 189,
+   "n": 253,
    "id": "stanford-womens-basketball-at-cal-2026-12-13",
    "sec": "mid-dec",
    "when": "Sun Dec 13 · 1pm",
@@ -3251,7 +4567,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 190,
+   "n": 254,
    "id": "linden-tree-storytime-santa-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 13, 10:30am",
@@ -3269,7 +4585,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 191,
+   "n": 255,
    "id": "keplers-holiday-party-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 13, 2–5pm",
@@ -3287,7 +4603,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 192,
+   "n": 256,
    "id": "pomdr-cypress-inn-yappy-hour-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 13, 3–6pm",
@@ -3303,7 +4619,97 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 193,
+   "n": 257,
+   "id": "curiodyssey-sensory-sunday-2026-12",
+   "sec": "mid-dec",
+   "when": "Sun Dec 13 · 1:30–4:30pm; Sun Jan 17 · 2–5pm",
+   "title": "Sensory Sunday at CuriOdyssey",
+   "meta": "CuriOdyssey, Coyote Point, San Mateo · museum and animals open just for visitors with sensory sensitivities · free with pre-registration ($6 park vehicle fee)",
+   "cat": "kids",
+   "url": "https://curiodyssey.org/event/sensory-sunday-10/2026-12-13/",
+   "price": "free",
+   "aud": [
+    "sensory",
+    "all"
+   ],
+   "lat": 37.5874,
+   "lon": -122.3208,
+   "q": "CuriOdyssey, 1651 Coyote Point Dr, San Mateo, CA",
+   "dates": [
+    "2026-12-13",
+    "2027-01-17"
+   ]
+  },
+  {
+   "n": 258,
+   "id": "midpen-tails-twilight-trails-fremont-older-2026-12-13",
+   "sec": "mid-dec",
+   "when": "Sun Dec 13 · 4–6pm",
+   "title": "Tails & Twilight Trails: sunset hike (dogs welcome)",
+   "meta": "Fremont Older Preserve (Prospect Rd lot), Cupertino · 3-mile docent-led sunset hike to Hunters Point, 550 ft gain; dogs welcome on leash; bring a flashlight · free, reservations open Nov 29 at noon",
+   "cat": "join",
+   "url": "https://www.openspace.org/events/guided-activities/tails-twilight-trails-4",
+   "price": "free",
+   "lat": 37.2925,
+   "lon": -122.0405,
+   "q": "Fremont Older Open Space Preserve, Prospect Rd, Cupertino, CA",
+   "start": "2026-12-13",
+   "end": "2026-12-13"
+  },
+  {
+   "n": 259,
+   "id": "santa-run-silicon-valley-2026-12-13",
+   "sec": "mid-dec",
+   "when": "Sun Dec 13 · 3pm",
+   "title": "Santa Run Silicon Valley 5K run/walk",
+   "meta": "W Santa Clara St & Almaden Ave, San Jose · 14th annual costumed 5K ending at Christmas in the Park, plus Kids Reindeer Dash (ages 2–7) · 5K $55, kids $33; price rises after Dec 4",
+   "cat": "join",
+   "url": "https://www.svlg.org/events/santa-run-silicon-valley/",
+   "tix": "https://runsignup.com/Race/Info/CA/SanJose/SantaRunSiliconValley",
+   "price": "tickets",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.3337,
+   "lon": -121.8935,
+   "q": "W Santa Clara St & Almaden Ave, San Jose, CA",
+   "start": "2026-12-13",
+   "end": "2026-12-13"
+  },
+  {
+   "n": 260,
+   "id": "marin-parks-hamilton-wetlands-birds-2026-12-13",
+   "sec": "mid-dec",
+   "when": "Sun Dec 13 · 10am–2pm",
+   "title": "Hamilton Wetlands bird walk",
+   "meta": "South Hamilton Park (Hangar Ave), Novato · easy 2.5-mile naturalist stroll looking for waterfowl and shorebirds on the restored wetlands; bring lunch and binoculars · adults · free, registration required",
+   "cat": "join",
+   "url": "https://www.onetam.org/hamilton-wetlands-birds-0",
+   "price": "free",
+   "lat": 38.0545,
+   "lon": -122.507,
+   "q": "South Hamilton Park, Hangar Ave, Novato, CA",
+   "start": "2026-12-13",
+   "end": "2026-12-13"
+  },
+  {
+   "n": 261,
+   "id": "ggnpc-habitat-restoration-team-marin-2026-12-13",
+   "sec": "mid-dec",
+   "when": "Sun Dec 13 · 9:30am–2:30pm",
+   "title": "Habitat Restoration Team in the Marin Headlands",
+   "meta": "Marin Headlands, Sausalito · Golden Gate National Parks Conservancy Sunday workday; tools and training provided, bring lunch · ages 10+ (under 18 needs a signed form) · free, register",
+   "cat": "vol",
+   "url": "https://www.parksconservancy.org/programs/habitat-restoration-team",
+   "price": "free",
+   "lat": 37.8325,
+   "lon": -122.525,
+   "q": "Marin Headlands Visitor Center, Sausalito, CA",
+   "start": "2026-12-13",
+   "end": "2026-12-13"
+  },
+  {
+   "n": 262,
    "id": "sf-symphony-home-for-the-holidays",
    "sec": "mid-dec",
    "when": "Mon Dec 14",
@@ -3319,7 +4725,7 @@ window.WF_DATA = {
    "end": "2026-12-14"
   },
   {
-   "n": 194,
+   "n": 263,
    "id": "christian-sands-trio-christmas-stories",
    "sec": "mid-dec",
    "when": "Mon Dec 14 · 7pm",
@@ -3335,7 +4741,27 @@ window.WF_DATA = {
    "end": "2026-12-14"
   },
   {
-   "n": 195,
+   "n": 264,
+   "id": "cupertino-senior-holiday-sing-along-2026-12-14",
+   "sec": "mid-dec",
+   "when": "Mon Dec 14 · 1–2:30pm",
+   "title": "Holiday Sing-along with the Harmonikatz Band",
+   "meta": "Cupertino Senior Center, 21251 Stevens Creek Blvd · ages 50+ · holiday songs with the center's band, light refreshments · free for members and non-members, preregistration preferred",
+   "cat": "hol",
+   "url": "https://www.cupertino.gov/Parks-Recreation/Events/Holiday-Sing-along",
+   "tix": "https://apm.activecommunities.com/cupertino/Activity_Search/27216",
+   "price": "free",
+   "aud": [
+    "seniors"
+   ],
+   "lat": 37.3225,
+   "lon": -122.0439,
+   "q": "Cupertino Senior Center, 21251 Stevens Creek Blvd, Cupertino, CA",
+   "start": "2026-12-14",
+   "end": "2026-12-14"
+  },
+  {
+   "n": 265,
    "id": "ano-nuevo-elephant-seal-walks-2026",
    "sec": "mid-dec",
    "when": "Dec 15 – Mar 31 · daily guided walks",
@@ -3349,26 +4775,13 @@ window.WF_DATA = {
    "lon": -122.3372,
    "q": "Año Nuevo State Park",
    "start": "2026-12-15",
-   "end": "2027-03-31"
+   "end": "2027-03-31",
+   "aud": [
+    "access"
+   ]
   },
   {
-   "n": 196,
-   "id": "sf-symphony-holiday-gaiety",
-   "sec": "mid-dec",
-   "when": "Thu Dec 17 · 7:30pm",
-   "title": "SF Symphony: Holiday Gaiety",
-   "meta": "Davies Symphony Hall, San Francisco · from ~$74 · Orville Peck headlines · adult-themed",
-   "cat": "show",
-   "url": "https://www.sfsymphony.org/Buy-Tickets/2026-27/Holiday-Gaiety",
-   "price": "tickets",
-   "lat": 37.7777,
-   "lon": -122.4205,
-   "q": "Davies Symphony Hall",
-   "start": "2026-12-17",
-   "end": "2026-12-17"
-  },
-  {
-   "n": 197,
+   "n": 266,
    "id": "mah-toy-trains-2026",
    "sec": "mid-dec",
    "when": "Dec 17 – Jan 3",
@@ -3383,7 +4796,7 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 198,
+   "n": 267,
    "id": "stanford-womens-basketball-vs-arizona-state-2026-12-17",
    "sec": "mid-dec",
    "when": "Thu Dec 17 · 7pm",
@@ -3401,7 +4814,7 @@ window.WF_DATA = {
    "end": "2026-12-17"
   },
   {
-   "n": 199,
+   "n": 268,
    "id": "fort-mason-night-market",
    "sec": "mid-dec",
    "when": "Fri Dec 18 · 5–10pm",
@@ -3416,7 +4829,7 @@ window.WF_DATA = {
    "end": "2026-12-18"
   },
   {
-   "n": 200,
+   "n": 269,
    "id": "cyrus-chestnut-charlie-brown-sfjazz-2026",
    "sec": "mid-dec",
    "when": "Fri Dec 18 · 7:30pm",
@@ -3432,7 +4845,7 @@ window.WF_DATA = {
    "end": "2026-12-18"
   },
   {
-   "n": 201,
+   "n": 270,
    "id": "stanford-mens-basketball-vs-san-jose-state-2026-12-18",
    "sec": "mid-dec",
    "when": "Fri Dec 18",
@@ -3450,22 +4863,7 @@ window.WF_DATA = {
    "end": "2026-12-18"
   },
   {
-   "n": 202,
-   "id": "head-west-market-encore",
-   "sec": "mid-dec",
-   "when": "Sat Dec 19",
-   "title": "Head West market (encore)",
-   "meta": "South B St, San Mateo",
-   "cat": "mkt",
-   "price": "free",
-   "lat": 37.565,
-   "lon": -122.3235,
-   "q": "S B St & 2nd Ave San Mateo CA",
-   "start": "2026-12-19",
-   "end": "2026-12-19"
-  },
-  {
-   "n": 203,
+   "n": 271,
    "id": "count-basie-christmas-sfjazz-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19 · 7:30pm & Sun Dec 20",
@@ -3481,7 +4879,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 204,
+   "n": 272,
    "id": "the-san-jose-nutcracker-2026",
    "sec": "mid-dec",
    "when": "Dec 19–27",
@@ -3497,30 +4895,66 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 205,
-   "id": "love-actually-in-concert-san-jose-2026",
+   "n": 273,
+   "id": "oakland-ballet-nutcracker-paramount-2026",
    "sec": "mid-dec",
-   "when": "Sat Dec 19 · 7pm",
-   "title": "Love Actually in Concert",
-   "meta": "San Jose Center for the Performing Arts · Broadway San Jose · film on the big screen with live orchestra",
-   "cat": "show",
-   "url": "https://broadwaysanjose.com/shows/love-actually-in-concert/",
+   "when": "Sat Dec 19 & Sun Dec 20 · 1pm",
+   "title": "Oakland Ballet: Graham Lustig's The Nutcracker",
+   "meta": "Paramount Theatre, 2025 Broadway, Oakland · live Oakland Symphony and children's choir · perfect for all ages · ages 2+ need a ticket · Sweet Dreams cast party after",
+   "cat": "hol",
+   "url": "https://oaklandballet.org/performances-events/graham-lustigs-the-nutcracker/",
+   "tix": "https://www.paramountoakland.org/events/detail/the-nutcracker",
    "price": "tickets",
-   "lat": 37.3302,
-   "lon": -121.8925,
-   "q": "San Jose Center for the Performing Arts, 255 Almaden Blvd, San Jose",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.8096,
+   "lon": -122.2683,
+   "q": "Paramount Theatre, 2025 Broadway, Oakland, CA",
+   "start": "2026-12-19",
+   "end": "2026-12-20"
+  },
+  {
+   "n": 274,
+   "id": "diaspora-arts-yalda-richmond-2026-12-19",
+   "sec": "mid-dec",
+   "when": "Sat Dec 19 · 7–10pm (doors 6pm)",
+   "title": "Yalda: A Winter Solstice Celebration",
+   "meta": "De Anza High School, Richmond · Persian, Kurdish, Azeri and Afghan singers plus Nava Dance Collective; tea and Persian pastries · City of Richmond & Diaspora Arts Connection · free, register",
+   "cat": "cult",
+   "url": "https://events.humanitix.com/yalda2026",
+   "price": "free",
+   "lat": 37.9707,
+   "lon": -122.293,
+   "q": "De Anza High School, 5000 Valley View Rd, Richmond, CA",
    "start": "2026-12-19",
    "end": "2026-12-19"
   },
   {
-   "n": 206,
+   "n": 275,
+   "id": "palo-alto-library-yalda-night-2026-12-19",
+   "sec": "mid-dec",
+   "when": "Sat Dec 19 · 3:30–5:30pm",
+   "title": "Celebrating Yalda Night (story, music & craft)",
+   "meta": "Palo Alto Children's Library, Palo Alto · author Anahita Tamaddon reads her book Yalda Night, with music and a paper craft · ages 3+ with an adult · free, registration opens Nov 28",
+   "cat": "cult",
+   "url": "https://paloalto.bibliocommons.com/events/6abc44f5295b3b0033ca0dd7",
+   "price": "free",
+   "lat": 37.4371,
+   "lon": -122.1527,
+   "q": "Palo Alto Children's Library, 1276 Harriet St, Palo Alto, CA",
+   "start": "2026-12-19",
+   "end": "2026-12-19"
+  },
+  {
+   "n": 276,
    "id": "my-very-first-nutcracker-san-jose",
    "sec": "mid-dec",
    "when": "Dec 20, 23 & 27 · 11am",
    "title": "My Very First Nutcracker",
    "meta": "California Theatre, San Jose · one-act, about 55 minutes, for toddlers and young kids · live Symphony San Jose",
    "cat": "kids",
-   "url": "https://sanjosetheaters.org/event/first-nutcracker-2026/",
+   "url": "https://www.symphonysanjose.org/concerts/my-very-first-nutcracker/",
    "price": "tickets",
    "lat": 37.3307,
    "lon": -121.8862,
@@ -3532,7 +4966,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 207,
+   "n": 277,
    "id": "charlie-brown-christmas-tribute-jason-crosby-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 20 · 1pm (all ages) & 7pm",
@@ -3548,7 +4982,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 208,
+   "n": 278,
    "id": "bay-area-womens-classic-2026-12-20",
    "sec": "mid-dec",
    "when": "Sun Dec 20",
@@ -3565,7 +4999,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 209,
+   "n": 279,
    "id": "christmas-bird-count-scvba-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 20 (San José) · Mon Dec 21 (Palo Alto)",
@@ -3583,7 +5017,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 210,
+   "n": 280,
    "id": "stanford-theatre-its-a-wonderful-life-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 24 · 4pm & 9pm",
@@ -3599,7 +5033,7 @@ window.WF_DATA = {
    "end": "2026-12-24"
   },
   {
-   "n": 211,
+   "n": 281,
    "id": "warriors-vs-nuggets-2026-12-25",
    "sec": "mid-dec",
    "when": "Fri Dec 25 · 7:30pm",
@@ -3616,7 +5050,7 @@ window.WF_DATA = {
    "end": "2026-12-25"
   },
   {
-   "n": 212,
+   "n": 282,
    "id": "roaring-camp-new-years-train",
    "sec": "mid-dec",
    "when": "Dec 26–31 · evenings",
@@ -3632,7 +5066,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 213,
+   "n": 283,
    "id": "sharks-vs-golden-knights-2026-12-26",
    "sec": "mid-dec",
    "when": "Sat Dec 26 · 7pm",
@@ -3649,7 +5083,7 @@ window.WF_DATA = {
    "end": "2026-12-26"
   },
   {
-   "n": 214,
+   "n": 284,
    "id": "warriors-vs-timberwolves-2026-12-27",
    "sec": "mid-dec",
    "when": "Sun Dec 27 · 5:30pm",
@@ -3666,7 +5100,27 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 215,
+   "n": 285,
+   "id": "sf-ballet-sensory-friendly-nutcracker-2026-12-27",
+   "sec": "mid-dec",
+   "when": "Sun Dec 27 · 11am (doors 10am)",
+   "title": "SF Ballet's Sensory Friendly Nutcracker",
+   "meta": "War Memorial Opera House, San Francisco · relaxed performance made with the Autism Society SF Bay Area · about 2 hours with one intermission · ticketed",
+   "cat": "hol",
+   "url": "https://www.sfballet.org/community/sensory-friendly-adaptive-programs/sensory-friendly-nutcracker/",
+   "price": "tickets",
+   "aud": [
+    "sensory",
+    "all"
+   ],
+   "lat": 37.7781,
+   "lon": -122.421,
+   "q": "War Memorial Opera House, 301 Van Ness Ave, San Francisco, CA",
+   "start": "2026-12-27",
+   "end": "2026-12-27"
+  },
+  {
+   "n": 286,
    "id": "stanford-womens-basketball-vs-cal-poly-2026-12-28",
    "sec": "mid-dec",
    "when": "Mon Dec 28 · 2pm",
@@ -3684,7 +5138,45 @@ window.WF_DATA = {
    "end": "2026-12-28"
   },
   {
-   "n": 216,
+   "n": 287,
+   "id": "sfpl-kwanzaa-ujima-main-library-2026-12-28",
+   "sec": "mid-dec",
+   "when": "Mon Dec 28 · 1–4pm",
+   "title": "Kwanzaa 2026: Ujima celebration",
+   "meta": "Main Library (Koret Auditorium), San Francisco · The Village Project: libation, Kwanzaa message, saxophonist Ashley Jemison, feast by Nia Soul Food · free, drop-in",
+   "cat": "cult",
+   "url": "https://sfpl.org/events/2026/12/28/celebration-kwanzaa-2026-ujima",
+   "price": "free",
+   "aud": [
+    "access"
+   ],
+   "lat": 37.779,
+   "lon": -122.4158,
+   "q": "San Francisco Main Library, 100 Larkin St, San Francisco, CA",
+   "start": "2026-12-28",
+   "end": "2026-12-28"
+  },
+  {
+   "n": 288,
+   "id": "sfpl-bayview-kwanzaa-celebration-2026-12-29",
+   "sec": "mid-dec",
+   "when": "Tue Dec 29 · 3:30–5pm",
+   "title": "Kwanzaa community celebration",
+   "meta": "Bayview/Linda Brooks-Burton Library, San Francisco · libations, the seven principles, table setup demo, craft and refreshments with Toni Hines · families · free, register (415) 355-5757",
+   "cat": "cult",
+   "url": "https://sfpl.org/events/2026/12/29/celebration-kwanzaa",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.733,
+   "lon": -122.3907,
+   "q": "Bayview Linda Brooks-Burton Branch Library, 5075 3rd St, San Francisco, CA",
+   "start": "2026-12-29",
+   "end": "2026-12-29"
+  },
+  {
+   "n": 289,
    "id": "new-year-s-eve-on-the-sf-waterfront",
    "sec": "jan",
    "when": "Thu Dec 31",
@@ -3699,7 +5191,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 217,
+   "n": 290,
    "id": "first-night-monterey",
    "sec": "jan",
    "when": "Thu Dec 31 · 3pm–midnight",
@@ -3713,7 +5205,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 218,
+   "n": 291,
    "id": "badm-noon-years-eve-2026",
    "sec": "jan",
    "when": "Thu Dec 31 · 9am–noon",
@@ -3729,7 +5221,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 219,
+   "n": 292,
    "id": "gilroy-gardens-new-years-eve-2026",
    "sec": "jan",
    "when": "Thu Dec 31 · 4pm–midnight",
@@ -3742,10 +5234,13 @@ window.WF_DATA = {
    "lon": -121.6326,
    "q": "Gilroy Gardens Family Theme Park",
    "start": "2026-12-31",
-   "end": "2026-12-31"
+   "end": "2026-12-31",
+   "aud": [
+    "all"
+   ]
   },
   {
-   "n": 220,
+   "n": 293,
    "id": "schulz-happy-new-year-charlie-brown-2026",
    "sec": "jan",
    "when": "Thu Dec 31 · 10am–4pm",
@@ -3758,10 +5253,13 @@ window.WF_DATA = {
    "lon": -122.7357,
    "q": "Charles M. Schulz Museum",
    "start": "2026-12-31",
-   "end": "2026-12-31"
+   "end": "2026-12-31",
+   "aud": [
+    "all"
+   ]
   },
   {
-   "n": 221,
+   "n": 294,
    "id": "exploratorium-curious-countdown-2026",
    "sec": "jan",
    "when": "Thu Dec 31 · 11am–4pm",
@@ -3777,7 +5275,23 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 222,
+   "n": 295,
+   "id": "sokoji-joya-no-kane-new-years-eve-2026-12-31",
+   "sec": "jan",
+   "when": "Thu Dec 31 · from 10pm",
+   "title": "Joya-no-kane: New Year's Eve bell ringing",
+   "meta": "Sokoji Soto Zen temple, Japantown, San Francisco · everyone can strike the bell (108 rings), New Year blessing after midnight, zenzai with mochi for sale · free, no reservation",
+   "cat": "cult",
+   "url": "https://www.sokoji.org/news/joya2026",
+   "price": "free",
+   "lat": 37.7863,
+   "lon": -122.4285,
+   "q": "Sokoji, 1691 Laguna St, San Francisco, CA",
+   "start": "2026-12-31",
+   "end": "2026-12-31"
+  },
+  {
+   "n": 296,
    "id": "sharks-vs-flyers-2027-01-01",
    "sec": "jan",
    "when": "Fri Jan 1",
@@ -3794,24 +5308,7 @@ window.WF_DATA = {
    "end": "2027-01-01"
   },
   {
-   "n": 223,
-   "id": "sharks-vs-maple-leafs-2027-01-02",
-   "sec": "jan",
-   "when": "Sat Jan 2",
-   "title": "Sharks vs. Maple Leafs",
-   "meta": "SAP Center, San Jose · NHL · men's · tickets",
-   "cat": "sport",
-   "ha": "home",
-   "url": "https://www.nhl.com/sharks/schedule",
-   "price": "tickets",
-   "lat": 37.3327,
-   "lon": -121.901,
-   "q": "SAP Center, San Jose",
-   "start": "2027-01-02",
-   "end": "2027-01-02"
-  },
-  {
-   "n": 224,
+   "n": 297,
    "id": "49ers-vs-eagles-2027-01-03",
    "sec": "jan",
    "when": "Sun Jan 3 · 5:20pm",
@@ -3828,7 +5325,7 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 225,
+   "n": 298,
    "id": "chris-botti-sfjazz-2027",
    "sec": "jan",
    "when": "Jan 7–12",
@@ -3844,7 +5341,7 @@ window.WF_DATA = {
    "end": "2027-01-12"
   },
   {
-   "n": 226,
+   "n": 299,
    "id": "stanford-womens-basketball-vs-miami-2027-01-07",
    "sec": "jan",
    "when": "Thu Jan 7 · 7pm",
@@ -3862,20 +5359,42 @@ window.WF_DATA = {
    "end": "2027-01-07"
   },
   {
-   "n": 227,
-   "id": "last-day-for-filoli-6-and-san-mateo-on-ice-2",
+   "n": 300,
+   "id": "sfpl-ingleside-lion-dance-jing-mo-2027-01-09",
    "sec": "jan",
-   "when": "Sun Jan 10",
-   "title": "Last day for Holidays at Filoli and San Mateo on Ice",
-   "meta": "Last chance if you haven't been",
-   "cat": "hol",
-   "url": "https://filoli.org/holidays",
-   "price": "tickets",
-   "start": "2027-01-10",
-   "end": "2027-01-10"
+   "when": "Sat Jan 9 · 11:15–11:45am",
+   "title": "Lion dancing with Jing Mo Athletic Association",
+   "meta": "Ingleside Branch Library, San Francisco · Year of the Fire Goat lion dance, martial arts demo, Lunar New Year traditions · all ages · free, drop-in",
+   "cat": "cult",
+   "url": "https://sfpl.org/events/2027/01/09/lion-dancing-jing-mo-athletic-association",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": 37.7238,
+   "lon": -122.4553,
+   "q": "Ingleside Branch Library, 1298 Ocean Ave, San Francisco, CA",
+   "start": "2027-01-09",
+   "end": "2027-01-09"
   },
   {
-   "n": 228,
+   "n": 301,
+   "id": "oakland-temescal-herbal-tea-workshop-2027-01-09",
+   "sec": "jan",
+   "when": "Sat Jan 9 · 2–3:30pm",
+   "title": "Herbal tea blending workshop",
+   "meta": "Temescal Branch Library, Oakland · herbalist E Aviles shows how to mix your own herbal blends, hands-on; adults · free, registration",
+   "cat": "learn",
+   "url": "https://oaklandlibrary.bibliocommons.com/events/6ae7b296377296003a5035de",
+   "price": "free",
+   "lat": 37.8366,
+   "lon": -122.2622,
+   "q": "Temescal Branch Library, 5205 Telegraph Ave, Oakland, CA",
+   "start": "2027-01-09",
+   "end": "2027-01-09"
+  },
+  {
+   "n": 302,
    "id": "stanford-womens-basketball-vs-nc-state-2027-01-10",
    "sec": "jan",
    "when": "Sun Jan 10 · 11am",
@@ -3893,7 +5412,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 229,
+   "n": 303,
    "id": "stanford-live-poetry-live-2027",
    "sec": "jan",
    "when": "Thu Jan 14 · 7pm",
@@ -3909,7 +5428,7 @@ window.WF_DATA = {
    "end": "2027-01-14"
   },
   {
-   "n": 230,
+   "n": 304,
    "id": "stanford-live-nick-thune-2027",
    "sec": "jan",
    "when": "Fri Jan 15 · 7pm & 9pm",
@@ -3925,7 +5444,7 @@ window.WF_DATA = {
    "end": "2027-01-15"
   },
   {
-   "n": 231,
+   "n": 305,
    "id": "stanford-live-don-ross-julie-malia-2027",
    "sec": "jan",
    "when": "Sat Jan 16 · 7pm & 9pm",
@@ -3941,7 +5460,55 @@ window.WF_DATA = {
    "end": "2027-01-16"
   },
   {
-   "n": 232,
+   "n": 306,
+   "id": "sjpl-willow-glen-dahlias-talk-2027-01-16",
+   "sec": "jan",
+   "when": "Sat Jan 16 · 10:30–11:45am",
+   "title": "Master Gardeners talk: Dazzling Dahlias",
+   "meta": "Willow Glen Library, San Jose · UC Master Gardener Kira Wetzel on growing, propagating and enjoying dahlias · free",
+   "cat": "learn",
+   "url": "https://sjpl.bibliocommons.com/events/6adbe703198b996a80a8c0b3",
+   "price": "free",
+   "lat": 37.3069,
+   "lon": -121.8996,
+   "q": "Willow Glen Library, 1157 Minnesota Ave, San Jose, CA",
+   "start": "2027-01-16",
+   "end": "2027-01-16"
+  },
+  {
+   "n": 307,
+   "id": "oakland-mlk-day-of-service-2027-01-18",
+   "sec": "jan",
+   "when": "Mon Jan 18, 2027",
+   "title": "Oakland MLK Day of Service",
+   "meta": "Sites across Oakland · litter cleanups, planting, beautification and graffiti removal with neighborhood teams; no experience needed · volunteer sign-up opens after Dec 18 (get notified now) · free",
+   "cat": "vol",
+   "url": "https://www.oaklandca.gov/Community/Events-Culture/Events/MLK-Day-of-Service",
+   "price": "free",
+   "lat": 37.8053,
+   "lon": -122.2725,
+   "q": "Oakland City Hall, 1 Frank H. Ogawa Plaza, Oakland, CA",
+   "start": "2027-01-18",
+   "end": "2027-01-18"
+  },
+  {
+   "n": 308,
+   "id": "canopy-mlk-day-tree-planting-2027-01-18",
+   "sec": "jan",
+   "when": "Mon Jan 18, 2027 · 9am–1pm",
+   "title": "Canopy MLK Day of Service tree planting",
+   "meta": "Palo Alto area, location to be announced · Canopy's annual Martin Luther King Jr. Day tree planting · free, registration opens soon",
+   "cat": "vol",
+   "url": "https://canopy.org/event-calendar/",
+   "price": "free",
+   "lat": 37.4419,
+   "lon": -122.143,
+   "q": "Palo Alto, CA",
+   "start": "2027-01-18",
+   "end": "2027-01-18"
+  },
+  {
+   "n": 309,
    "id": "stanford-live-kodo-luminance-2027",
    "sec": "jan",
    "when": "Wed Jan 20 · 7:30pm",
@@ -3957,7 +5524,7 @@ window.WF_DATA = {
    "end": "2027-01-20"
   },
   {
-   "n": 233,
+   "n": 310,
    "id": "stanford-live-balourdet-terra-quartets-2027",
    "sec": "jan",
    "when": "Sun Jan 24 · 2:30pm",
@@ -3973,22 +5540,7 @@ window.WF_DATA = {
    "end": "2027-01-24"
   },
   {
-   "n": 234,
-   "id": "burlingame-tree-lighting-winterfest",
-   "sec": "tbc",
-   "when": "Early December",
-   "title": "Burlingame tree lighting & Winterfest",
-   "meta": "City Hall, 501 Primrose Rd, Burlingame",
-   "cat": "hol",
-   "url": "https://business.burlingamechamber.org/news/details/holiday-tree-lighting",
-   "price": "free",
-   "lat": 37.579,
-   "lon": -122.348,
-   "q": "Burlingame City Hall",
-   "tbc": true
-  },
-  {
-   "n": 235,
+   "n": 311,
    "id": "view-teen-center-afterhours",
    "sec": "tbc",
    "when": "Monthly Friday nights · check the calendar",
@@ -4003,7 +5555,7 @@ window.WF_DATA = {
    "tbc": true
   },
   {
-   "n": 236,
+   "n": 312,
    "id": "mv-library-amplify-teen-voices",
    "sec": "tbc",
    "when": "Series · check the library calendar",
@@ -4018,25 +5570,7 @@ window.WF_DATA = {
    "tbc": true
   },
   {
-   "n": 237,
-   "id": "muttville-senior-dog-adoption-events",
-   "sec": "dog",
-   "when": "Saturdays · 11am–4pm",
-   "title": "Muttville senior-dog adoption events",
-   "meta": "Muttville HQ, 750 Florida St, SF · usually most Saturdays",
-   "cat": "dog",
-   "url": "https://muttville.org/events",
-   "price": "free",
-   "lat": 37.7606,
-   "lon": -122.411,
-   "q": "Muttville 750 Florida St San Francisco",
-   "start": "2026-11-14",
-   "days": [
-    "sat"
-   ]
-  },
-  {
-   "n": 238,
+   "n": 313,
    "id": "santas-tree-farm-hmb-dogs-2026",
    "sec": "dog",
    "when": "Nov 14 – Dec 23 · daily",
@@ -4054,7 +5588,7 @@ window.WF_DATA = {
    "biz": "Santa's Tree Farm"
   },
   {
-   "n": 239,
+   "n": 314,
    "id": "sf-spca-holiday-windows-at-macy-s",
    "sec": "dog",
    "when": "Nov 20 – Dec 31 · Wed–Sun noon–5pm",
@@ -4070,7 +5604,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 240,
+   "n": 315,
    "id": "crissy-field-east-beach",
    "sec": "dog",
    "when": "Any day",
@@ -4083,7 +5617,37 @@ window.WF_DATA = {
    "q": "Crissy Field East Beach"
   },
   {
-   "n": 241,
+   "n": 316,
+   "id": "sunnyvale-ll-spring-2027-registration",
+   "sec": "programs",
+   "when": "Early sign-up ($25 off) by Mon Nov 30 · ages 9+ before Sat Jan 9, 2027",
+   "title": "Sunnyvale Little League: spring 2027 baseball sign-ups",
+   "meta": "Sunnyvale Little League, Sunnyvale · ages 4–14 (T-ball $50 to Juniors $350; Challenger free) · evaluations Jan 9–10 · late fee after Feb 1",
+   "cat": "prog",
+   "url": "https://www.sunnyvalelittleleague.com/gen/registration.htm",
+   "price": "tickets",
+   "lat": 37.3688,
+   "lon": -122.0363,
+   "q": "Sunnyvale, CA",
+   "deadline": "2026-11-30"
+  },
+  {
+   "n": 317,
+   "id": "sunnyvale-rec-winter-spring-2027-registration",
+   "sec": "programs",
+   "when": "Registration opens Mon Dec 7, 9am · browse classes from Nov 20",
+   "title": "Sunnyvale Recreation winter–spring 2027 classes",
+   "meta": "City of Sunnyvale Recreation, Sunnyvale · kids' classes and camps, Jan–spring 2027 · fees vary",
+   "cat": "prog",
+   "url": "https://www.sunnyvale.ca.gov/recreation-and-community/classes-and-activities",
+   "price": "tickets",
+   "lat": 37.3527,
+   "lon": -122.0311,
+   "q": "Sunnyvale Community Center, 550 E Remington Dr, Sunnyvale, CA",
+   "deadline": "2026-12-07"
+  },
+  {
+   "n": 318,
    "id": "rsi-stanford-2027",
    "sec": "programs",
    "when": "Apply by Fri Dec 11, 2026 (11:59pm ET)",
@@ -4098,7 +5662,37 @@ window.WF_DATA = {
    "deadline": "2026-12-11"
   },
   {
-   "n": 242,
+   "n": 319,
+   "id": "mvll-spring-2027-registration",
+   "sec": "programs",
+   "when": "Registration open now · walk-in info session Sat Dec 12, 10–11am",
+   "title": "Mountain View Little League: spring 2027 baseball sign-ups",
+   "meta": "Mountain View Little League, Mountain View · ages 4–14, T-ball to Juniors · registration opened Nov 15; info session at McKelvey Park meeting room · fee",
+   "cat": "prog",
+   "url": "https://www.mvll.org/organizations/16521/announcements/2392774-Spring-Baseball-Registration-is-OPEN",
+   "price": "tickets",
+   "lat": 37.3858,
+   "lon": -122.0884,
+   "q": "McKelvey Park, Mountain View, CA",
+   "deadline": "2026-12-12"
+  },
+  {
+   "n": 320,
+   "id": "hiller-aviation-camp-2027-registration",
+   "sec": "programs",
+   "when": "Registration opens Fri Jan 1, 2027",
+   "title": "Hiller Aviation Camp: spring break & summer 2027",
+   "meta": "Hiller Aviation Museum, San Carlos · grades K–5 · flight simulators, aircraft demos; spring break weeks Mar 29 – Apr 30 and summer camps · sessions fill early",
+   "cat": "prog",
+   "url": "https://www.hiller.org/aviation-camp/",
+   "price": "tickets",
+   "lat": 37.5147,
+   "lon": -122.2496,
+   "q": "Hiller Aviation Museum, 601 Skyway Rd, San Carlos, CA",
+   "deadline": "2027-01-01"
+  },
+  {
+   "n": 321,
    "id": "stanford-spcs-sumac-2027",
    "sec": "programs",
    "when": "SUMaC due Thu Jan 7, 2027 (11:59pm PT) · Summer Institutes usually early March",
@@ -4112,7 +5706,37 @@ window.WF_DATA = {
    "deadline": "2027-01-07"
   },
   {
-   "n": 243,
+   "n": 322,
+   "id": "los-altos-ll-spring-2027-registration",
+   "sec": "programs",
+   "when": "Minors AA/AAA & Majors close Fri Jan 8, 2027 · T-ball & Minors A Feb 12",
+   "title": "Los Altos Little League: spring 2027 baseball sign-ups",
+   "meta": "Los Altos American Little League, Los Altos & Los Altos Hills · ages 4–12+ (T-ball $165, Majors $395) · evaluations Sat Jan 9; season Feb 27 – May 28",
+   "cat": "prog",
+   "url": "https://www.losaltoslittleleague.com/Default.aspx?tabid=1455837",
+   "price": "tickets",
+   "lat": 37.3852,
+   "lon": -122.1141,
+   "q": "Los Altos, CA",
+   "deadline": "2027-01-08"
+  },
+  {
+   "n": 323,
+   "id": "hidden-villa-day-camp-2027-registration",
+   "sec": "programs",
+   "when": "Opens to everyone Sat Jan 16, 2027, 10am · returning families Sat Dec 12",
+   "title": "Hidden Villa summer day camp 2027",
+   "meta": "Hidden Villa, Los Altos Hills · ages 5+, entering K–4th (one 5th–6th week) · farm and wilderness day camp, 9am–4pm · $125 deposit, financial aid",
+   "cat": "prog",
+   "url": "https://www.hiddenvilla.org/programs/catalog/197-day-camp/region-HV/",
+   "price": "tickets",
+   "lat": 37.3533,
+   "lon": -122.1606,
+   "q": "Hidden Villa, 26870 Moody Rd, Los Altos Hills, CA",
+   "deadline": "2027-01-16"
+  },
+  {
+   "n": 324,
    "id": "stanford-summer-session-hs-2027",
    "sec": "programs",
    "when": "Regular deadline Wed Jan 20, 2027 (9pm PT) · early decision Dec 15",
@@ -4126,7 +5750,23 @@ window.WF_DATA = {
    "deadline": "2027-01-20"
   },
   {
-   "n": 244,
+   "n": 325,
+   "id": "palo-alto-summer-camps-2027-registration",
+   "sec": "programs",
+   "when": "Registration usually opens early February (2026: residents Feb 5, non-residents Feb 12)",
+   "title": "Palo Alto summer camps 2027 (City & Junior Museum & Zoo)",
+   "meta": "City of Palo Alto Enjoy!, Palo Alto · kids and teens · city camps incl. Junior Museum & Zoo camps · 2027 dates not yet posted",
+   "cat": "prog",
+   "url": "https://www.paloalto.gov/summercamps",
+   "price": "tickets",
+   "lat": 37.4419,
+   "lon": -122.143,
+   "q": "Palo Alto, CA",
+   "deadline": "2027-02-04",
+   "tbc": true
+  },
+  {
+   "n": 326,
    "id": "cosmos-ucsc-2027",
    "sec": "programs",
    "when": "Apply Jan 6 – Feb 5, 2027",
@@ -4140,7 +5780,7 @@ window.WF_DATA = {
    "deadline": "2027-02-05"
   },
   {
-   "n": 245,
+   "n": 327,
    "id": "ucsf-cure-summer-internship-2027",
    "sec": "programs",
    "when": "Apply by Sun Feb 7, 2027 (11:59pm)",
@@ -4155,7 +5795,22 @@ window.WF_DATA = {
    "deadline": "2027-02-07"
   },
   {
-   "n": 246,
+   "n": 328,
+   "id": "ayso45-spring-u8-2027",
+   "sec": "programs",
+   "when": "Registration opens January 2027 · deadline Fri Feb 19, 2027",
+   "title": "AYSO Region 45 spring U8 rec soccer",
+   "meta": "AYSO Region 45, Mountain View · Los Altos · Los Altos Hills · born Aug 1, 2018 – Jul 31, 2020 (about ages 6–8) · 8-week season from Mar 27, Saturday games",
+   "cat": "prog",
+   "url": "https://www.ayso45.org/Default.aspx?tabid=968773",
+   "price": "tickets",
+   "lat": 37.3861,
+   "lon": -122.0839,
+   "q": "Mountain View, CA",
+   "deadline": "2027-02-19"
+  },
+  {
+   "n": 329,
    "id": "simr-stanford-2027",
    "sec": "programs",
    "when": "Opens Dec 18 · due late Feb 2027",
@@ -4170,7 +5825,7 @@ window.WF_DATA = {
    "deadline": "2027-02-26"
   },
   {
-   "n": 247,
+   "n": 330,
    "id": "ucsc-sip-2027",
    "sec": "programs",
    "when": "Apply Jan 15 – Feb 26, 2027 (noon)",
@@ -4184,7 +5839,7 @@ window.WF_DATA = {
    "deadline": "2027-02-26"
   },
   {
-   "n": 248,
+   "n": 331,
    "id": "nasa-ostem-summer-2027",
    "sec": "programs",
    "when": "Apply by Mon Mar 1, 2027",
@@ -4199,7 +5854,23 @@ window.WF_DATA = {
    "deadline": "2027-03-01"
   },
   {
-   "n": 249,
+   "n": 332,
+   "id": "mountain-view-spring-summer-camps-2027-registration",
+   "sec": "programs",
+   "when": "Registration usually opens early March (2026: residents Sat Mar 7, non-residents Mar 16)",
+   "title": "Mountain View spring break & summer camps 2027",
+   "meta": "City of Mountain View Recreation, Mountain View · kids and teens · spring break camps, summer camps, swim lessons · fee assistance via CSA · 2027 dates not yet posted",
+   "cat": "prog",
+   "url": "https://www.mountainview.gov/Register",
+   "price": "tickets",
+   "lat": 37.4002,
+   "lon": -122.0963,
+   "q": "Mountain View Community Center, 201 S Rengstorff Ave, Mountain View, CA",
+   "deadline": "2027-03-06",
+   "tbc": true
+  },
+  {
+   "n": 333,
    "id": "smysp-2027",
    "sec": "programs",
    "when": "Usually opens mid-Dec, due late March",
@@ -4215,7 +5886,7 @@ window.WF_DATA = {
    "deadline": "2027-03-22"
   },
   {
-   "n": 250,
+   "n": 334,
    "id": "monterey-bay-aquarium-teen-conservation-leaders",
    "sec": "programs",
    "when": "Summer program · watch for winter applications",
@@ -4229,7 +5900,7 @@ window.WF_DATA = {
    "tbc": true
   },
   {
-   "n": 251,
+   "n": 335,
    "id": "second-harvest-teen-volunteering",
    "sec": "programs",
    "when": "Winter break & year-round · book a shift",
