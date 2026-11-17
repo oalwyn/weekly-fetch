@@ -17,6 +17,7 @@ const LIVE_SITE = "https://theweekendfetch.com/";
 // Sign in with Apple on the website (Supabase web OAuth). Switched on by "appleWeb": true in src/sb.json, once Apple and Supabase are set up.
 // Apple logo drawn as SVG on the website (the  character only shows on Apple devices)
 const APPLE_SVG = `<svg class="alogo-svg" viewBox="0 0 170 170" aria-hidden="true"><path fill="currentColor" d="M150.4 130.3c-2.4 5.5-5.2 10.6-8.4 15.3-4.4 6.3-8 10.7-10.8 13.1-4.3 4-9 6-14 6.1-3.6 0-7.9-1-12.9-3.1-5-2-9.6-3.1-13.8-3.1-4.4 0-9.2 1-14.2 3.1-5.1 2.1-9.2 3.2-12.3 3.3-4.8.2-9.6-1.9-14.4-6.4-3-2.6-6.8-7.2-11.4-13.7-4.9-6.9-8.9-14.9-12.1-24-3.4-9.8-5.1-19.3-5.1-28.5 0-10.5 2.3-19.6 6.8-27.2 3.6-6.1 8.3-10.9 14.3-14.5 6-3.5 12.4-5.3 19.3-5.5 3.8 0 8.8 1.2 15 3.5 6.2 2.3 10.2 3.5 11.9 3.5 1.3 0 5.7-1.4 13.2-4.1 7.1-2.5 13-3.6 17.9-3.2 13.3 1.1 23.2 6.3 29.9 15.8-11.9 7.2-17.7 17.2-17.6 30.1.1 10 3.8 18.4 10.9 25 3.2 3.1 6.9 5.4 10.9 7.1-.9 2.5-1.8 4.9-2.8 7.2zM119.1 7.2c0 7.9-2.9 15.3-8.6 22.1-6.9 8.1-15.3 12.8-24.3 12-.1-.9-.2-1.9-.2-3 0-7.6 3.3-15.7 9.2-22.4 2.9-3.4 6.6-6.2 11.1-8.4 4.5-2.2 8.7-3.4 12.7-3.6.1 1.1.1 2.2.1 3.3z"/></svg>`;
+const REVIEW_EMAIL = "review@theweekendfetch.com";   // Google Play / App Store review account (password sign-in)
 const WEB_APPLE = "__SB_APPLE__" === "1";
 const SB_LIB = "./vendor/supabase-2.118.0.js", QR_LIB = "./vendor/qrcode-1.4.4.js";
 const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
@@ -382,6 +383,11 @@ const ae = s => esc(s);
 function acctCard(inner, cls){ return `<div class="setup acct${cls ? " " + cls : ""}">${inner}</div>`; }
 function signInHTML(){
   const appleBtn = (IS_APP ? !!window.WF_APPLE_SIGNIN : WEB_APPLE) ? `<button class="copybtn apple" data-acct="apple">${IS_APP ? `<span class="alogo" aria-hidden="true">&#xF8FF;</span>` : APPLE_SVG} Sign in with Apple</button>` : "";
+  if (ACCT.ui.step === "password") return acctCard(`<strong>App review sign-in</strong>
+    <p class="ournote">Enter the password for <b>${ae(ACCT.ui.email)}</b>.</p>
+    <form class="acctform" data-acctform="password"><input name="pw" type="password" autocomplete="current-password" aria-label="Password" required>
+    <button class="copybtn" ${ACCT.busy ? "disabled" : ""}>Sign in</button></form>
+    <button class="linkbtn" data-acct="restart">Use a different email</button>`);
   if (ACCT.ui.step === "code") return acctCard(`<strong>Check your email</strong>
     <p class="ournote">We sent a 6-digit code to <b>${ae(ACCT.ui.email)}</b>. Enter it here${IS_APP ? "" : ", or tap the link in the email on this device"}.</p>
     <form class="acctform" data-acctform="verify"><input name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456" aria-label="6-digit code" required>
@@ -743,9 +749,17 @@ document.addEventListener("submit", async ev => {
     const c = await ensureClient();
     if (kind === "email") {
       ACCT.ui.email = v("email");
-      const { error } = await c.auth.signInWithOtp({ email: ACCT.ui.email, options: { shouldCreateUser: true, emailRedirectTo: IS_APP ? LIVE_SITE : location.origin + location.pathname } });
+      // app-store reviewers can't receive email codes: this one account signs in with a password instead
+      if (ACCT.ui.email.toLowerCase() === REVIEW_EMAIL) ACCT.ui.step = "password";
+      else {
+        const { error } = await c.auth.signInWithOtp({ email: ACCT.ui.email, options: { shouldCreateUser: true, emailRedirectTo: IS_APP ? LIVE_SITE : location.origin + location.pathname } });
+        if (error) throw error;
+        ACCT.ui.step = "code";
+      }
+    } else if (kind === "password") {
+      const { error } = await c.auth.signInWithPassword({ email: ACCT.ui.email, password: f.elements.pw.value });
       if (error) throw error;
-      ACCT.ui.step = "code";
+      await afterSignIn();
     } else if (kind === "verify") {
       const { error } = await c.auth.verifyOtp({ email: ACCT.ui.email, token: v("code").replace(/\D/g, ""), type: "email" });
       if (error) throw error;
@@ -790,6 +804,7 @@ async function afterSignIn(){
 function friendly(e){
   const m = String((e && e.message) || e);
   if (/AuthorizationError|AuthenticationServices|Apple didn't return/i.test(m)) return "Sign in with Apple didn't finish. Check that you're signed in to your Apple Account in Settings, or use your email instead.";
+  if (/invalid login credentials/i.test(m)) return "That password didn't work.";
   if (/rate limit|too many/i.test(m)) return "Too many tries. Please wait a few minutes and try again.";
   if (/expired|invalid/i.test(m) && /otp|token|code/i.test(m)) return "That code didn't work or has expired. Check the email or ask for a new code.";
   if (/sign in required|JWT/i.test(m)) return "Please sign in again.";
