@@ -18,7 +18,7 @@ Copy each block into the matching field in App Store Connect.
 | **Support URL** | https://github.com/oalwyn/weekly-fetch/issues |
 | **Marketing URL** (optional) | https://theweekendfetch.com/ |
 | **Price** | Free |
-| **Availability** | United States; add Australia once 1.3 (with Sydney) is approved |
+| **Availability** | United States and Australia (Australia added Nov 17, 2026, after 1.3 was approved) |
 | **Version** | 1.0 |
 | **Copyright** | 2026 *your name* |
 
@@ -80,7 +80,7 @@ events,weekend,things to do,san francisco,sydney,bay area,marin,napa,dog friendl
 
 ## What's New
 
-**1.4** (Rainy Day, local businesses, calmer screens; build 9 uploaded Nov 17, 2026, automatic release):
+**1.4** (Rainy Day, local businesses, calmer screens; build 9 submitted Nov 17, 2026, automatic release):
 
 ```
 A calmer look, and a plan B for wet weekends.
