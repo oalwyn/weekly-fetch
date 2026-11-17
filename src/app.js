@@ -12,12 +12,14 @@ const BBOX = /*BBOX*/[0,0,0,0];
 const MAP_W = /*W*/0, MAP_H = /*H*/0;
 const COAST = "/*COAST*/";
 const COAST_RULE = "/*RULE*/";
-const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog-friendly",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},sport:{label:"Sports",color:"#9C2B2B"},film:{label:"Movies",color:"#283593"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Teen programs",color:"#8D6E63"},evt:{label:"Other",color:"#4A5562"}};
+const CATS = {hol:{label:"Holiday",color:"#C4562A"},mkt:{label:"Markets",color:"#2F6FA8"},dog:{label:"Dog-friendly",color:"#2E8B5E"},food:{label:"Pizza & coffee",color:"#C98A00"},art:{label:"Art",color:"#6E55A8"},walk:{label:"Dog walks",color:"#0F7C80"},show:{label:"Concerts & shows",color:"#B8336A"},sport:{label:"Sports",color:"#9C2B2B"},film:{label:"Movies",color:"#283593"},kids:{label:"Young kids",color:"#5E9E2F"},teen:{label:"Teens",color:"#5C6BC0"},prog:{label:"Programs & sign-ups",color:"#8D6E63"},join:{label:"Join in",color:"#00897B"},vol:{label:"Volunteer",color:"#D81B60"},cult:{label:"Cultural celebrations",color:"#EF6C00"},learn:{label:"Talks & learning",color:"#0277BD"},fmd:{label:"Free museum days",color:"#6E55A8"},evt:{label:"Other",color:"#4A5562"}};
+// community kinds: each gets one box per weekend with a dropdown (like markets and movies), placed after the weekend's events
+const CMK = {join:["Join in this weekend","group hikes, runs and rides, sing-alongs, open mics, meetups"],vol:["Volunteer this weekend","food banks, toy drives, cleanups, tree planting"],cult:["Cultural celebrations","festivals and traditions from every community"],learn:["Talks & learning","lectures, author talks, workshops, stargazing"],fmd:["Free museum days","museums that are free this weekend"]};
 const SECTIONS = (WF.sections || [["week","This week"]]).slice();
 { const i = SECTIONS.findIndex(s=>s[0]==="dog"); SECTIONS.splice(i>=0?i+1:1, 0, ["walks","Dog walks · closest to home first"]); }
 const VIEWS = ["events","map","our-list","rainy"];
 /* ---- interests: categories this person said "no" to are hidden from Events and the Map (saved on this device) ---- */
-const LIKES = [["hol","lights, Santa, holiday fairs"],["mkt","farmers, craft and holiday markets"],["dog","events and dog walks"],["food","and other food spots"],["art","museums and galleries"],["show","concerts, theater, comedy"],["sport","games to go and watch"],["film","new in theaters"],["kids","things for little ones"],["teen","things for teens"],["prog","programs to apply for"],["evt","special events that fit nowhere else"]];   // [category, hint]; the name is CATS[k].label
+const LIKES = [["hol","lights, Santa, holiday fairs"],["mkt","farmers, craft and holiday markets"],["dog","events and dog walks"],["food","and other food spots"],["art","museums and galleries"],["show","concerts, theater, comedy"],["sport","games to go and watch"],["film","new in theaters"],["kids","things for little ones"],["teen","things for teens"],["prog","programs, camps and sign-ups with deadlines"],["join","group hikes, runs, sing-alongs, meetups"],["vol","ways to help out"],["cult","festivals and traditions"],["learn","talks, workshops, stargazing"],["fmd","free days at museums"],["evt","special events that fit nowhere else"]];   // [category, hint]; the name is CATS[k].label
 let likesOff = new Set(), likesSet = false;
 try { const v = localStorage.getItem("wf-likes-off"); if (v!==null){ likesSet = true; likesOff = new Set(JSON.parse(v)); } } catch(e) {}
 const likeKey = c => c==="walk" ? "dog" : (c in CATS ? c : "evt");
@@ -123,7 +125,7 @@ const isDogOk = e => e.cat==="dog" || e.cat==="walk" || (/\b(dog[- ]friendly|dog
 const DOW = {sat:6, sun:0};
 const onDow = (e, d) => e.cat==="walk" || daysOf(e, TODAY, addD(TODAY,120)).some(x=>parseD(x).getDay()===d);
 const norm = t => String(t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-const matchQ = e => { const hay = norm([e.title,e.meta,e.when,(CATS[e.cat]||CATS.evt).label].join(" ")); return norm(state.q).split(/\s+/).filter(Boolean).every(w=>hay.includes(w)); };
+const matchQ = e => { const hay = norm([e.title,e.meta,e.when,(CATS[e.cat]||CATS.evt).label,...(Array.isArray(e.aud)?e.aud.map(k=>AUD[k]||""):[])].join(" ")); return norm(state.q).split(/\s+/).filter(Boolean).every(w=>hay.includes(w)); };
 function filtered(){
   return DATA.filter(e => (state.cat==="all" ? !likesOff.has(likeKey(e.cat)) : (e.cat===state.cat || (state.cat==="dog" && e.cat==="walk"))) && (!state.dist || (e.mi!=null && e.mi<=state.dist) || (e.cat==="film" && e.lat==null))
     && (!state.local || e.local) && (!state.free || e.price==="free" || e.cat==="walk") && (!state.dogok || isDogOk(e)) && (!state.day || onDow(e, DOW[state.day])) && (!state.q || matchQ(e)));
@@ -137,6 +139,9 @@ function haHTML(e){
   const L = {home:"Home game", away:"Away game", neutral:"Neutral site"}[t];
   return L ? `<span class="ha ha-${t}">${L}</span>` : "";
 }
+// who it suits (optional "aud" list on an event): small grey labels after the price
+const AUD = {all:"All ages", seniors:"Older adults", adults:"21+", sensory:"Sensory-friendly", access:"Wheelchair access", es:"En español", zh:"中文", vi:"Tiếng Việt", ar:"العربية", ko:"한국어"};
+const audHTML = e => Array.isArray(e.aud) ? e.aud.filter(k=>AUD[k]).map(k=>`<span class="aud">${AUD[k]}</span>`).join("") : "";
 function priceHTML(e){
   if (e.price==="free") return `<span class="price free">Free</span>`;
   if (e.price==="tickets"){ const u = okUrl(e.tix) ? e.tix : okUrl(e.url) ? e.url : ""; return u ? `<a class="price tix" href="${esc(u)}" target="_blank" rel="noopener" data-k="outbound_tickets" data-ev="${esc(e.id)}">Tickets ↗</a>` : `<span class="price tix">Tickets required</span>`; }
@@ -157,25 +162,25 @@ const pickSel = {};   // box key -> chosen event id (kept while the page is open
 const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 const shortName = e => e.title.replace(/\s*\(.*\)\s*$/,"").replace(/\s+(farmers'?\s+)?markets?$/i,"").trim() || e.title;
 function pickBox(key, list, kind, a, b){
-  const fm = kind==="mkt", lc = kind==="local";
-  const sorted = (fm || lc) ? [...list].sort((x,y)=>(x.mi==null?1e9:x.mi)-(y.mi==null?1e9:y.mi)) : list;
+  const fm = kind==="mkt", lc = kind==="local", cm = kind in CMK;
+  const sorted = (fm || lc || cm) ? [...list].sort((x,y)=>(x.mi==null?1e9:x.mi)-(y.mi==null?1e9:y.mi)) : list;
   let sel = pickSel[key] && sorted.find(e=>e.id===pickSel[key]);
   if (!sel) sel = sorted.find(e=>lockKey(e.id)) || sorted.find(e=>starredByMe(e.id)) || sorted[0];
   const days = e => { if (!a || !e.dates) return ""; return [...new Set(e.dates.map(parseD).filter(t=>t>=a&&t<=b).map(t=>cap(DAYN[t.getDay()])))].join(" & "); };
   const opens = e => { const s = startOf(e); return s && a ? "opens " + cap(DAYN[s.getDay()]) : ""; };
   const bizName = e => e.biz || (e.meta||"").split(" · ")[0].split(",")[0];
   const nm = e => sorted.filter(x=>shortName(x)===shortName(e)).length>1 ? e.title : shortName(e);   // two "Bondi"s: use the full names
-  const label = e => (starredByMe(e.id)?"★ ":"") + (lc ? [bizName(e) + (sorted.filter(x=>bizName(x)===bizName(e)).length>1 ? ": " + e.title.replace(/\s*\(.*?\)/g,"").slice(0,32) : ""), days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : fm ? [nm(e), days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : [e.title, opens(e)]).filter(Boolean).join(" · ");
-  const title = lc ? "Shop local this weekend" : fm ? (list.every(e=>/farmers/i.test(e.title)) ? "Farmers markets" : "Weekly markets") : "New in theaters";
-  const n = lc ? `${list.length} nearby` : `${list.length} ${fm?"market":"movie"}${list.length===1?"":"s"}`;
-  return `<div class="pickbox ${lc?"localbox":fm?"mktbox":"filmbox"}"><label class="pk-h"${list.length>1?` for="pk-${key}"`:""}><span><span class="cico" style="color:${lc?"#1D7A55":CATS[fm?"mkt":"film"].color}">${wfIco(lc?"local":fm?"mkt":"film")}</span>${title}</span><span class="pk-n">${n}</span></label>${list.length>1?`<select id="pk-${key}" data-pick="${key}">${sorted.map(e=>`<option value="${esc(e.id)}"${e===sel?" selected":""}>${esc(label(e))}</option>`).join("")}</select>`:""}${cardHTML(sel,false,"","inbox")}${lc?`<p class="pk-foot">Run a local business with something on this weekend? <a href="mailto:support@cazavera.com?subject=Local%20business%20for%20Weekend%20Fetch">Tell us</a></p>`:""}</div>`;
+  const label = e => (starredByMe(e.id)?"★ ":"") + (lc ? [bizName(e) + (sorted.filter(x=>bizName(x)===bizName(e)).length>1 ? ": " + e.title.replace(/\s*\(.*?\)/g,"").slice(0,32) : ""), days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : fm ? [nm(e), days(e), e.mi!=null?`${e.mi} ${UNIT}`:""] : cm ? [e.title.length>44?e.title.slice(0,42)+"…":e.title, days(e) || (startOf(e)&&a&&startOf(e)>=a ? cap(DAYN[startOf(e).getDay()]) : ""), e.mi!=null?`${e.mi} ${UNIT}`:""] : [e.title, opens(e)]).filter(Boolean).join(" · ");
+  const title = cm ? CMK[kind][0] : lc ? "Shop local this weekend" : fm ? (list.every(e=>/farmers/i.test(e.title)) ? "Farmers markets" : "Weekly markets") : "New in theaters";
+  const n = cm ? `${list.length} ${list.length===1?"idea":"ideas"}` : lc ? `${list.length} nearby` : `${list.length} ${fm?"market":"movie"}${list.length===1?"":"s"}`;
+  return `<div class="pickbox ${cm?"cmbox":lc?"localbox":fm?"mktbox":"filmbox"}"${cm?` style="--cmc:${CATS[kind].color}"`:""}><label class="pk-h"${list.length>1?` for="pk-${key}"`:""}><span><span class="cico" style="color:${cm?CATS[kind].color:lc?"#1D7A55":CATS[fm?"mkt":"film"].color}">${wfIco(cm?kind:lc?"local":fm?"mkt":"film")}</span>${title}</span><span class="pk-n">${n}</span></label>${list.length>1?`<select id="pk-${key}" data-pick="${key}">${sorted.map(e=>`<option value="${esc(e.id)}"${e===sel?" selected":""}>${esc(label(e))}</option>`).join("")}</select>`:""}${cardHTML(sel,false,"","inbox")}${lc?`<p class="pk-foot">Run a local business with something on this weekend? <a href="mailto:support@cazavera.com?subject=Local%20business%20for%20Weekend%20Fetch">Tell us</a></p>`:""}</div>`;
 }
 /* ---- Rainy Day: indoor places (rainy.js, hand-picked per city) + this weekend's events under a roof + forecast ---- */
 const RAINY = (window.WF_RAINY && WF_RAINY.items) || [];
 const RGRP = [["museum","Museums & aquariums","rain-museum-7649208","#6E55A8"],["play","Play, bounce & climb","rain-playground-7649240","#5E9E2F"],["cozy","Cozy & slow","rain-library-7649242","#2F6FA8"],["dog","Dog-friendly indoors","dog-paw-1686619","#2E8B5E"]];
 const RF = [["all","All"],["kids","Little kids","kids"],["teens","Teens","teen"],["dog","Dog OK","dog"],["free","Free"]];
 const INDOOR_RX = /\b(museum|gallery|theat(er|re)|cinema|hall|library|auditorium|indoor|conservatory|pavilion|arena|chapel|church|cathedral|aquarium|playhouse|opera house)\b/i, OUTDOOR_RX = /\b(outdoor|open-air|trail|beach|hike|parade|plaza|square|lawn|garden walk|on the green)\b/i;
-const isIndoor = e => e.cat==="film" || ((["show","art","kids","teen","evt","hol","food"].includes(e.cat)) && INDOOR_RX.test(e.meta||"") && !OUTDOOR_RX.test(e.meta||""));
+const isIndoor = e => e.cat==="film" || ((e.cat==="fmd" || ["show","art","kids","teen","evt","hol","food","learn","cult","join"].includes(e.cat)) && INDOOR_RX.test(e.meta||"") && !OUTDOOR_RX.test(e.meta||""));
 function renderRainy(){
   const W = weekends()[0], rf = state.rf || "all";
   const okTag = v => rf==="all" || (v.tags||[]).includes(rf);
@@ -234,15 +239,15 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(whenText(e))}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(metaText(e))}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}${e.local?`<span class="localb" title="${esc(e.biz||"")}">${wfIco("local")}Local</span>`:""}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${wfIco(e.cat in CATS?e.cat:"evt")}${c.label}</span>${haHTML(e)}${priceHTML(e)}${e.mi!=null?`<span class="dist">${wfIco("pin")}${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}${e.local?`<span class="localb" title="${esc(e.biz||"")}">${wfIco("local")}Local</span>`:""}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${wfIco(e.cat in CATS?e.cat:"evt")}${c.label}</span>${haHTML(e)}${priceHTML(e)}${audHTML(e)}${e.mi!=null?`<span class="dist">${wfIco("pin")}${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
   </article>`;
 }
 // icons by Gregor Cresnar (Noun Project, royalty-free on the owner's Noun Pro plan); sources in src/icons
 const ICO_SEARCH = '<svg class="ico" viewBox="180 180 840 840" aria-hidden="true"><path fill="currentColor" d="m540 840c64.688 0 126.24-20.391 178.22-58.922l16.688-12.375 184.22 184.22c8.8594 8.8594 25.078 8.8594 33.938 0 9.375-9.375 9.375-24.609 0-33.938l-184.22-184.22 12.375-16.688c38.531-51.938 58.922-113.62 58.922-178.22 0-165.47-134.53-300-300-300s-300 134.53-300 300 134.53 300 300 300zm0-552c138.94 0 252 113.06 252 252s-113.06 252-252 252-252-113.06-252-252 113.06-252 252-252z"/></svg>', ICO_HOME = '<svg class="ico" viewBox="180 180 840 840" aria-hidden="true"><path fill="currentColor" d="m616.92 496.92c9.375-9.375 9.375-24.609 0-33.938-4.5469-4.5469-10.547-6.9375-16.922-6.9375s-12.469 2.5312-16.922 6.9375c-9.375 9.375-9.375 24.609 0 33.938 8.8594 8.8594 25.078 8.8594 33.938 0zM336 948h528c52.922 0 96-43.078 96-96v-301.31c0-37.078-16.688-71.531-45.844-94.312l-215.76-169.45c-12.938-10.219-25.219-17.625-37.688-22.688-19.312-8.0625-39.703-12-60.609-12-35.062 0-69.375 11.766-96.609 33.234l-217.69 171c-29.156 22.922-45.844 57.234-45.844 94.312v301.31c0 52.922 43.078 96 96 96zm336-48h-144v-144c0-39.703 32.297-72 72-72s72 32.297 72 72zm-384-349.31c0-22.219 10.078-42.844 27.469-56.625l218.16-171.37c39.141-30.703 93.609-30.703 132.71 0l218.16 171.24c17.531 13.781 27.469 34.453 27.469 56.625v301.31c0 26.531-21.469 48-48 48h-144v-144c0-66.141-53.859-120-120-120s-120 53.859-120 120v144h-144c-26.531 0-48-21.469-48-48v-301.31z"/></svg>';
 // line icons for each category (Gregor Cresnar, Noun Project; src/icons). build.py fills WF_ICONS from src/icons/paths.json
 const WF_ICONS = /*ICONS*/{};
-const ICO_KEY = {hol:"holiday-gift-7647994", mkt:"markets-basket-7647949", dog:"dog-paw-1686619", walk:"dog-paw-1686619", food:"food-coffee-7648022", art:"art-paintbrush-7649979", show:"shows-microphone-7648374", sport:"sports-arena-7649252", film:"movies-video-7274354", kids:"kids-teddy-7649884", teen:"teens-headphones-7648703", prog:"programs-book-7649981", evt:"other-ticket-7274265", pin:"location-pin-7648253", star:"plans-star-7648091", local:"local-shop-7647950"};
-function wfIco(k, cls){ const v = WF_ICONS[ICO_KEY[k] || k]; if (!v) return ""; return `<svg class="${cls||"ico"}" viewBox="${v.vb}" aria-hidden="true">${v.d.map(d=>`<path fill="currentColor" d="${d}"/>`).join("")}</svg>`; }
+const ICO_KEY = {hol:"holiday-gift-7647994", mkt:"markets-basket-7647949", dog:"dog-paw-1686619", walk:"dog-paw-1686619", food:"food-coffee-7648022", art:"art-paintbrush-7649979", show:"shows-microphone-7648374", sport:"sports-arena-7649252", film:"movies-video-7274354", kids:"kids-teddy-7649884", teen:"teens-headphones-7648703", prog:"programs-book-7649981", evt:"other-ticket-7274265", pin:"location-pin-7648253", star:"plans-star-7648091", local:"local-shop-7647950", join:"cm-join", vol:"cm-vol", cult:"cm-cult", learn:"rain-library-7649242", fmd:"rain-museum-7649208"};
+function wfIco(k, cls){ const v = WF_ICONS[ICO_KEY[k] || k]; if (!v) return ""; return `<svg class="${cls||"ico"}" viewBox="${v.vb}" aria-hidden="true">${v.d.map(d=>v.s?`<path fill="none" stroke="currentColor" stroke-width="${v.s}" stroke-linecap="round" stroke-linejoin="round" d="${d}"/>`:`<path fill="currentColor" d="${d}"/>`).join("")}</svg>`; }
 const EMPTY_STAR = () => `<span class="emptyico">${wfIco("star","ico big")}</span>`;
 const DISTS = [[0,"Any distance"], ...CITY.dists.map(d=>[d, d+" "+UNIT])];
 function renderFilters(){
@@ -300,7 +305,7 @@ function renderByWeekend(){
   const progs = all.filter(e=>e.cat==="prog");
   const films = all.filter(isRelease);
   const items = all.filter(e=>e.cat!=="prog" && !isRelease(e));
-  if (state.cat==="prog") return progs.length ? band("wk-progs","Teen winter & summer programs","Sorted by application deadline · apply ahead","#6D4C41") + progs.map(e=>cardHTML(e)).join("") : `<div class="empty">No programs right now.</div>`;
+  if (state.cat==="prog") return progs.length ? band("wk-progs","Programs, camps & sign-ups","Sorted by deadline · apply or sign up ahead","#6D4C41") + progs.map(e=>cardHTML(e)).join("") : `<div class="empty">No programs right now.</div>`;
   const W = weekends(), lastSun = W[3].sun;
   const used = new Set();
   const byStart = (a,b)=> (startOf(a)||0)-(startOf(b)||0);
@@ -315,11 +320,16 @@ function renderByWeekend(){
     // small local businesses: one "Shop local" box (nearest first) when there are two or more this weekend
     const lc = trimming() ? [...main, ...ong].filter(e=>e.local && !isWeeklyMkt(e)) : [], useLc = lc.length > 1;
     if (useLc){ rest = rest.filter(e=>!lc.includes(e)); ong = ong.filter(e=>!lc.includes(e)); }
-    h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${rest.length} event${rest.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}${useLc?` · ${lc.length} local`:""}${mk.length>1?` · ${mk.length} markets`:""}${fl.length?` · ${fl.length} new movie${fl.length===1?"":"s"}`:""}`, WKC[i]);
+    // community kinds (join in, volunteer, culture, talks, free museum days): one box each, after the events
+    const cmb = trimming() ? Object.keys(CMK).map(k=>[k, [...main, ...ong].filter(e=>e.cat===k && !(useLc && lc.includes(e)))]).filter(([k,l])=>l.length) : [];
+    const inCm = new Set(cmb.flatMap(([k,l])=>l));
+    if (inCm.size){ rest = rest.filter(e=>!inCm.has(e)); ong = ong.filter(e=>!inCm.has(e)); }
+    h += band("wk-"+i, wkTitle(w), `${wkWhen(w,i)} · ${rest.length} event${rest.length===1?"":"s"}${ong.length?` + ${ong.length} ongoing`:""}${useLc?` · ${lc.length} local`:""}${inCm.size?` · ${inCm.size} community`:""}${mk.length>1?` · ${mk.length} markets`:""}${fl.length?` · ${fl.length} new movie${fl.length===1?"":"s"}`:""}`, WKC[i]);
     if (useLc) h += pickBox("l"+i, lc, "local", w.fri, w.sun);
     if (mk.length>1) h += pickBox("m"+i, mk, "mkt", w.fri, w.sun);
     if (fl.length) h += pickBox("f"+i, fl, "film", w.fri, w.sun);
-    h += rest.length ? cardsTrimmed("w"+i, rest, "events") : (fl.length || mk.length>1 || useLc) ? "" : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
+    h += rest.length ? cardsTrimmed("w"+i, rest, "events") : (fl.length || mk.length>1 || useLc || inCm.size) ? "" : `<div class="empty small">Nothing dated for this weekend yet. Check back after the next refresh.</div>`;
+    if (cmb.length) h += `<div class="section-h">Community this weekend</div>` + cmb.map(([k,l])=>pickBox("c"+k+i, l, k, w.fri, w.sun)).join("") + `<p class="pk-foot cmfoot">Organizing something for the community? <a href="mailto:support@cazavera.com?subject=Community%20event%20for%20Weekend%20Fetch">Tell us</a></p>`;
     if (ong.length){ const k="o"+i, open = showAll.has(k) || !trimming() || ong.length<=3; h += open ? `<div class="section-h">Also open this weekend</div>` + ong.map(compactHTML).join("") + (ong.length>3 && trimming() ? moreBtn(k, ong.length, "") : "") : `<button class="moreb alsob" data-more="${k}" aria-expanded="false">Also open this weekend (${ong.length}) ▾</button>`; }
   });
   const between = items.filter(e=>!used.has(e.id) && startOf(e) && startOf(e)<=lastSun && !e.days && occurs(e,TODAY,lastSun)==="main").sort(byStart);
@@ -330,7 +340,7 @@ function renderByWeekend(){
   if (tbc.length){ h += ``+band("",`Dates not posted yet`,`Usually happen in December`)+`` + tbc.map(compactHTML).join(""); tbc.forEach(e=>used.add(e.id)); }
   const any = items.filter(e=>!used.has(e.id) && e.cat!=="walk");
   if (any.length) h += ``+band("",`Any weekend`,`Classes and recurring things you can book or do most weekends`)+`` + any.map(compactHTML).join("");
-  if (progs.length) h += band("wk-progs","Teen winter & summer programs","Sorted by application deadline · apply ahead","#6D4C41") + progs.map(e=>cardHTML(e)).join("");
+  if (progs.length) h += band("wk-progs","Programs, camps & sign-ups","Sorted by deadline · apply or sign up ahead","#6D4C41") + progs.map(e=>cardHTML(e)).join("");
   const walks = items.filter(e=>!used.has(e.id) && e.cat==="walk");
   if (walks.length) h += ``+band("wk-walks",`Dog walks`,`Always on · closest to home first`)+`` + walks.map(compactHTML).join("");
   return h || `<div class="empty">No events match these filters.</div>`;
@@ -505,7 +515,7 @@ function planHTML(cur, gone){
   }
   P.groups.forEach(g=>{ h += weekendHTML(g, P.W); });
   h += listGroupHTML(P.wn) + listGroupHTML(P.later);
-  if (P.dl.length) h += band("wk-dl","Deadlines to remember","Teen programs you starred, soonest first","#6D4C41") + P.dl.map(e=>planRow(e,"")).join("");
+  if (P.dl.length) h += band("wk-dl","Deadlines to remember","Programs and sign-ups you starred, soonest first","#6D4C41") + P.dl.map(e=>planRow(e,"")).join("");
   if (P.any.length) h += ``+band("",`Anytime`,`Walks, classes and things without a date yet`)+`` + P.any.map(compactHTML).join("");
   if (gone.length) h += `<div class="section-h">Earlier picks</div>` + gone.map(e=>cardHTML(e,true)).join("");
   return h;
