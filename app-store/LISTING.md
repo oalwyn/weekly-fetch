@@ -80,6 +80,16 @@ events,weekend,things to do,san francisco,sydney,bay area,marin,napa,dog friendl
 
 ## What's New
 
+**1.4.1** (community boxes; to submit after 1.4 is approved):
+
+```
+More ways to get out and meet your neighbors.
+• Community this weekend: things to join in, ways to volunteer, cultural celebrations, talks and free museum days, each in one tidy dropdown.
+• Labels for who an event suits: all ages, older adults, sensory-friendly, wheelchair access, and events in other languages.
+• Programs & sign-ups now include kids' camps and youth sports registration deadlines.
+• The East Bay is on the map.
+```
+
 **1.4** (Rainy Day, local businesses, calmer screens; build 9 submitted Nov 17, 2026, automatic release):
 
 ```
