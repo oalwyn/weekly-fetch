@@ -105,7 +105,8 @@ So always `git pull` before working, and don't hand-edit `data.js` in ways the r
 - Android-only code: `WFCalendarPlugin.java` (Add to Calendar via the calendar app's insert screen; resolves `{opened:true}`, no saved flag, so no calendar_added record), registered in `MainActivity.java`. Sign in with Apple isn't offered on Android (native_app.js checks `Capacitor.isPluginAvailable`); email codes only. `SCHEDULE_EXACT_ALARM` is removed in the manifest (reminders don't need exact alarms; avoids Play's declaration). Status strip: blue window background + `SystemBars.setStyle DARK`.
 - Invite links: manifest App Link for `https://theweekendfetch.com/join`; needs `/.well-known/assetlinks.json` with the Play App Signing SHA-256 (from Play Console › App integrity) to open the app.
 - Icons/splash/Play icon: `python3 src/tools/make_android_icons.py`. Listing, Data safety answers, content rating: `play-store/LISTING.md`; feature graphic `play-store/feature-graphic.png`.
-- Stats: `supabase/v1.5-android.sql` accepts platform `android` and adds `android_sessions` to admin_report (dashboard column). **Apply it before releasing an Android build.** Re-run after any re-run of v1.3/v1.4.
+- Stats: `supabase/v1.5-android.sql` accepts platform `android` and adds `android_sessions` to admin_report (dashboard column). Applied to the live project Nov 16, 2026 (by patching the live function definitions, same result). Re-run v1.5 after any re-run of v1.3/v1.4.
+- Play Console: developer account "Alwyn Ventures LLC" (organization, account ID 7798996710165529057, owner oalwyn@cazavera.com, D-U-N-S 142939837) created Nov 16, 2026; website verified, trader status declared (trader). Waiting on Google's identity/organization check before an app can be created; then phone verification.
 - Release signing: upload key in `android/keystore/` + `android/keystore.properties` (gitignored, owner's Mac only; back them up).
 
 ## Commit conventions
