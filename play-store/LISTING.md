@@ -73,7 +73,7 @@ No ads. Browsing needs no account.
 |---|---|
 | App icon 512×512 | `icon-512.png` |
 | Feature graphic 1024×500 | `feature-graphic.png` |
-| Phone screenshots (2–8, 1080×2400) | `screenshots/` |
+| Phone screenshots (2–8, must be 9:16) | `screenshots-9x16/` (1080×1920, cropped from `screenshots/`) |
 
 **Category**: Travel & Local (or Lifestyle). **Tags**: Events, Local guides, Family.
 **Contact details**: email support@cazavera.com, website https://theweekendfetch.com/
@@ -87,10 +87,7 @@ No ads. Browsing needs no account.
 
 **Ads**: No, the app doesn't contain ads.
 
-**App access**: **All functionality is available without special access** (browsing needs no account; a reviewer can sign in for groups with their own email), with this note:
-```
-Browsing needs no account. Group plans need a sign-in: enter any email address and type the 6-digit code we email you.
-```
+**Sign in details** (was "App access"): **Yes, part of the app is restricted** (group plans). Reviewers can't receive email codes, so the review account `review@theweekendfetch.com` signs in with a password instead (accounts.js `REVIEW_EMAIL`). The account is in Supabase Auth; its password is only in `android/keystore/review-account.txt` (gitignored) and in Play Console.
 
 **Content rating** (IARC questionnaire): category **All other app types**. Answer No to violence, sexuality, language, controlled substances, gambling. "Can users interact or exchange content?" **Yes**, limited: members of a group they joined by invite see each other's first names and starred events (no chat, no photos, no public profiles). "Shares user's current location with other users?" No. "Allows users to purchase digital goods?" No.
 

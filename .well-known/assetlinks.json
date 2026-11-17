@@ -1,0 +1,11 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "io.github.oalwyn.weekendfetch",
+    "sha256_cert_fingerprints": [
+      "8D:84:5B:00:1E:79:FC:14:2D:08:F2:20:96:22:E2:50:7C:E6:0D:32:B0:54:C1:F7:38:14:29:87:1D:55:25:85",
+      "55:ED:13:93:E2:1E:40:86:4C:18:4F:43:00:EB:C9:40:D4:66:CE:D0:83:37:1F:5C:18:5E:CD:AB:81:14:96:8F"
+    ]
+  }
+}]
