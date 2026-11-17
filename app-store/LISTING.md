@@ -29,7 +29,7 @@ The home-screen name under the icon is **Weekend Fetch** (Bay Fetch until 1.3). 
 ## Promotional Text (170 characters max)
 
 ```
-Holiday markets, tree lightings, dog-friendly outings and more, from Napa to Carmel. Star what looks good, lock in your weekend, and get a reminder before you go.
+What's on this weekend in the Bay Area and Sydney, rainy-day ideas when the forecast turns, and shared plans with reminders before you go.
 ```
 
 ## Description
@@ -42,18 +42,23 @@ The Weekend Fetch is a hand-picked guide to what's on this weekend and the next 
 • Sydney: from the Northern Beaches and the Harbour to Parramatta, the Blue Mountains, Wollongong and the Central Coast.
 Switch city any time from the top of the screen.
 
-FIND SOMETHING TO DO
+WHAT'S ON
 • Holiday events, markets, concerts and shows, art, food and coffee
 • Sports games (pro, college and high school, men's and women's) and new movies in theaters
 • Free or ticketed at a glance, with a direct link to buy tickets
 • Picks for young kids, teens and teen programs (with application deadlines)
 • Dog-friendly events and dog walks, with notes on where dogs aren't allowed
-• Browse by weekend or by date, filter by category and distance from home, or hide what you're not into
-• See everything on a map of the Bay Area coast
+• Local small businesses with something on this weekend
+• Browse by weekend or by date, filter by category and distance from home, or search
 
-PLAN YOUR WEEKEND TOGETHER
-• Star anything that looks fun. It lands in Our Weekend Plans.
-• "Lock it in" for the day you'll actually go, and your weekend schedule builds itself.
+EXPLORE
+• See everything on a map of the coast, this weekend or further ahead
+
+RAINY DAY
+• The weekend rain forecast for your area, this weekend's indoor events, and museums, play spaces and cozy spots nearby
+
+OUR PLANS, TOGETHER
+• Star anything that looks fun, then "Lock it in" for the day you'll actually go.
 • Start a group for your household or friends and invite them with a link. Stars, locked-in days, who's going and meet-up times sync across everyone's phones.
 
 NEVER MISS IT
@@ -62,7 +67,7 @@ NEVER MISS IT
 • Directions and the organizer's page are always a tap away
 
 FRESH EVERY WEEK
-The event list is refreshed every Monday and Thursday morning, and the app picks up new events automatically.
+The event list is refreshed every week, and the app picks up new events automatically.
 
 No ads. No tracking. Browsing needs no account.
 ```
@@ -74,6 +79,18 @@ events,weekend,things to do,san francisco,sydney,bay area,marin,napa,dog friendl
 ```
 
 ## What's New
+
+**1.4** (Rainy Day, local businesses, calmer screens; build 9 uploaded Nov 17, 2026, automatic release):
+
+```
+A calmer look, and a plan B for wet weekends.
+• New Rainy Day tab: the weekend rain forecast, this weekend's indoor events, and museums, play spaces and cozy spots nearby.
+• Shop local: activities run by independent local businesses get a Local badge and their own box each weekend.
+• Each weekend opens with about eight top picks, with the rest a tap away.
+• Weekly markets and new movies sit in one box per weekend.
+• Search, plus one-tap Holiday, Markets and Dog-friendly filters.
+• Tabs are now What's On, Explore, Our Plans and Rainy Day, with new icons.
+```
 
 **1.3** (cities; build 8 submitted Nov 15, 2026, automatic release):
 
