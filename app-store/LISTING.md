@@ -80,7 +80,7 @@ events,weekend,things to do,san francisco,sydney,bay area,marin,napa,dog friendl
 
 ## What's New
 
-**1.4.1** (community boxes; to submit after 1.4 is approved):
+**1.4.1** (community boxes; build 11; 1.4 approved Nov 17, 2026, 1.4.1 waiting for upload):
 
 ```
 More ways to get out and meet your neighbors.
@@ -90,7 +90,7 @@ More ways to get out and meet your neighbors.
 • The East Bay is on the map.
 ```
 
-**1.4** (Rainy Day, local businesses, calmer screens; build 9 submitted Nov 17, 2026, automatic release):
+**1.4** (Rainy Day, local businesses, calmer screens; build 9, approved Nov 17, 2026):
 
 ```
 A calmer look, and a plan B for wet weekends.
