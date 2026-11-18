@@ -82,7 +82,7 @@ html=html.replace('.okmsg{','.setup{background:#fff;border-radius:14px;padding:1
 # the city's own data.js/walks.js stay next to its page. City-specific saved settings get their own keys in this browser.
 if CITYCFG['path']:
     # since app 1.3 (approved Nov 17, 2026) the iPhone app has every city and is sold in Australia: the App Store bar and banner stay
-    html = re.sub(r'''(href|src)="(?!https?:|/|#|\$|'|data:|\./data\.js|\./walks\.js)(\./)?''', r'\1="/', html)
+    html = re.sub(r'''(href|src)="(?!https?:|mailto:|tel:|sms:|/|#|\$|'|data:|\./data\.js|\./walks\.js)(\./)?''', r'\1="/', html)
     html = html.replace('url(banner.svg', 'url(/' + CITYCFG.get('banner', 'banner.svg'))   # each city has its own header art
     html = html.replace('"./vendor/', '"/vendor/')   # sign-in and QR libraries live at the site root
     html = html.replace('<link rel="manifest" href="/manifest.webmanifest">', '<link rel="manifest" href="/%s/manifest.webmanifest">' % CITYCFG['path'])
