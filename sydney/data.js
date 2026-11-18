@@ -1,9 +1,9 @@
 window.WF_DATA = {
- "updated": "Updated Monday, 16 Nov 2026 · this week + the next two months",
+ "updated": "Updated Wednesday, 18 Nov 2026 · this week + the next two months",
  "sections": [
   [
    "week",
-   "This week · Nov 16–22"
+   "This week · Nov 18–22"
   ],
   [
    "late-nov",
@@ -35,7 +35,7 @@ window.WF_DATA = {
   ],
   [
    "programs",
-   "Teen programs"
+   "Programs, holiday care & sign-ups"
   ],
   [
    "radar",
@@ -45,6 +45,38 @@ window.WF_DATA = {
  "items": [
   {
    "n": 1,
+   "id": "syd-slnsw-definitive-dupain-2026",
+   "sec": "week",
+   "when": "Now–Sun Jul 18",
+   "title": "Definitive Dupain (Max Dupain retrospective)",
+   "meta": "State Library of NSW, Sydney CBD · free",
+   "cat": "art",
+   "url": "https://www.sl.nsw.gov.au/exhibitions/definitive-dupain",
+   "price": "free",
+   "lat": -33.8662,
+   "lon": 151.2128,
+   "q": "State Library of New South Wales",
+   "start": "2026-08-24",
+   "end": "2027-07-18"
+  },
+  {
+   "n": 2,
+   "id": "syd-agnsw-nolan-origins-2026",
+   "sec": "week",
+   "when": "Now–Sun Feb 7",
+   "title": "Nolan Origins",
+   "meta": "Art Gallery of NSW (Naala Nura), The Domain · adults $35, youth $10, under-12s free",
+   "cat": "art",
+   "url": "https://www.artgallery.nsw.gov.au/whats-on/exhibitions/nolan-origins/",
+   "price": "tickets",
+   "lat": -33.8688,
+   "lon": 151.2173,
+   "q": "Art Gallery of New South Wales",
+   "start": "2026-10-03",
+   "end": "2027-02-07"
+  },
+  {
+   "n": 3,
    "id": "syd-hockney-carriageworks-2026",
    "sec": "week",
    "when": "Now–Sun Jan 24",
@@ -61,55 +93,7 @@ window.WF_DATA = {
    "end": "2027-01-24"
   },
   {
-   "n": 2,
-   "id": "syd-slnsw-definitive-dupain-2026",
-   "sec": "week",
-   "when": "Now–Sun Jul 18",
-   "title": "Definitive Dupain (Max Dupain retrospective)",
-   "meta": "State Library of NSW, Sydney CBD · free",
-   "cat": "art",
-   "url": "https://www.sl.nsw.gov.au/exhibitions/definitive-dupain",
-   "price": "free",
-   "lat": -33.8662,
-   "lon": 151.2128,
-   "q": "State Library of New South Wales",
-   "start": "2026-08-24",
-   "end": "2027-07-18"
-  },
-  {
-   "n": 3,
-   "id": "syd-hurstville-anatomy-lessons-2026",
-   "sec": "week",
-   "when": "Now–Sun Dec 6",
-   "title": "Michele Beevors: Anatomy Lessons",
-   "meta": "Hurstville Museum & Gallery, 14 MacMahon St, Hurstville · free · life-sized knitted animal skeletons",
-   "cat": "art",
-   "url": "https://www.georgesriver.nsw.gov.au/Community/Events/What’s-On-Event-Information/Exhibition-Michele-Beevors-Anatomy-Lessons",
-   "price": "free",
-   "lat": -33.9672,
-   "lon": 151.1015,
-   "q": "Hurstville Museum & Gallery",
-   "start": "2026-11-16",
-   "end": "2026-12-06"
-  },
-  {
    "n": 4,
-   "id": "syd-agnsw-nolan-origins-2026",
-   "sec": "week",
-   "when": "Now–Sun Feb 7",
-   "title": "Nolan Origins",
-   "meta": "Art Gallery of NSW (Naala Nura), The Domain · adults $35, youth $10, under-12s free",
-   "cat": "art",
-   "url": "https://www.artgallery.nsw.gov.au/whats-on/exhibitions/nolan-origins/",
-   "price": "tickets",
-   "lat": -33.8688,
-   "lon": 151.2173,
-   "q": "Art Gallery of New South Wales",
-   "start": "2026-10-03",
-   "end": "2027-02-07"
-  },
-  {
-   "n": 5,
    "id": "syd-powerhouse-parramatta-opening-festival-2026",
    "sec": "week",
    "when": "Now–Sun Nov 29",
@@ -117,6 +101,7 @@ window.WF_DATA = {
    "meta": "Powerhouse Parramatta, Parramatta · 170+ talks, food, music, workshops; free exhibitions, some events ticketed",
    "cat": "evt",
    "url": "https://www.powerhouse.com.au/program/opening-festival",
+   "price": "free",
    "lat": -33.8165,
    "lon": 151.0088,
    "q": "Powerhouse Parramatta",
@@ -124,7 +109,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 6,
+   "n": 5,
    "id": "syd-six-the-musical-theatre-royal-2026",
    "sec": "week",
    "when": "Now–Sun Dec 20 · sing-along Sun Dec 13, 5pm",
@@ -141,7 +126,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 7,
+   "n": 6,
    "id": "syd-stc-strong-is-the-new-pretty-2026",
    "sec": "week",
    "when": "Now–Sat Dec 12 · mostly 7:30pm",
@@ -157,7 +142,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 8,
+   "n": 7,
    "id": "syd-agnsw-super-nature-2026",
    "sec": "week",
    "when": "Now–Sun Feb 14",
@@ -173,25 +158,7 @@ window.WF_DATA = {
    "end": "2027-02-14"
   },
   {
-   "n": 9,
-   "id": "syd-thunder-w-v-stars-w-2026-11-16",
-   "sec": "week",
-   "when": "Mon Nov 16, 7.10pm",
-   "title": "Sydney Thunder vs. Melbourne Stars (women's)",
-   "meta": "Drummoyne Oval, Drummoyne · WBBL|12 · women's",
-   "cat": "sport",
-   "url": "https://www.sydneythunder.com.au/matches",
-   "price": "tickets",
-   "tix": "https://premier.ticketek.com.au/shows/show.aspx?sh=THUNW0327",
-   "ha": "home",
-   "lat": -33.8517,
-   "lon": 151.1553,
-   "q": "Drummoyne Oval",
-   "start": "2026-11-16",
-   "end": "2026-11-16"
-  },
-  {
-   "n": 10,
+   "n": 8,
    "id": "syd-stc-whispering-jack-2026",
    "sec": "week",
    "when": "Sun Nov 15–Sun Jan 3",
@@ -207,7 +174,23 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 11,
+   "n": 9,
+   "id": "syd-hurstville-anatomy-lessons-2026",
+   "sec": "week",
+   "when": "Now–Sun Dec 6",
+   "title": "Michele Beevors: Anatomy Lessons",
+   "meta": "Hurstville Museum & Gallery, 14 MacMahon St, Hurstville · free · life-sized knitted animal skeletons",
+   "cat": "art",
+   "url": "https://www.georgesriver.nsw.gov.au/Community/Events/What’s-On-Event-Information/Exhibition-Michele-Beevors-Anatomy-Lessons",
+   "price": "free",
+   "lat": -33.9672,
+   "lon": 151.1015,
+   "q": "Hurstville Museum & Gallery",
+   "start": "2026-11-16",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 10,
    "id": "syd-bell-shakespeare-macbeth-2026",
    "sec": "week",
    "when": "Wed Nov 18–Sun Dec 6 · mostly 7pm, Sat 1pm, Sun 4pm",
@@ -223,7 +206,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 12,
+   "n": 11,
    "id": "syd-fm-eq",
    "sec": "week",
    "when": "Wednesdays & Saturdays 8am–2pm (until Dec 19)",
@@ -249,7 +232,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 13,
+   "n": 12,
    "id": "syd-fm-parramatta",
    "sec": "week",
    "when": "Wednesdays 7:30am–2:30pm (until Dec 16)",
@@ -270,7 +253,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 14,
+   "n": 13,
    "id": "syd-film-bad-apples",
    "sec": "week",
    "when": "Opens Thu Nov 19",
@@ -283,7 +266,72 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
+   "n": 14,
+   "id": "syd-dee-why-library-60th-talk",
+   "sec": "week",
+   "when": "Thu Nov 19, 1–2pm",
+   "title": "Dee Why Library 60th: local history exhibition talk",
+   "meta": "Dee Why Library, Dee Why · stories and historic photos of Dee Why's growth · free, bookings essential",
+   "cat": "learn",
+   "url": "https://www.northernbeaches.nsw.gov.au/library/whats-on/all-library-events/dee-why-library-60th-exhibition-talk",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.752,
+   "lon": 151.287,
+   "q": "Dee Why Library",
+   "start": "2026-11-19",
+   "end": "2026-11-19"
+  },
+  {
    "n": 15,
+   "id": "syd-fmd-powerhouse",
+   "sec": "week",
+   "when": "Thu–Sun 10am–9pm (opening festival to Nov 29)",
+   "title": "Free night at Powerhouse Parramatta",
+   "meta": "Powerhouse Parramatta, Parramatta · free entry · new museum's 5 opening exhibitions, late opening festival nights",
+   "cat": "fmd",
+   "url": "https://www.powerhouse.com.au/visit/parramatta",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.817,
+   "lon": 151.009,
+   "q": "Powerhouse Parramatta",
+   "dates": [
+    "2026-11-19",
+    "2026-11-20",
+    "2026-11-21",
+    "2026-11-22",
+    "2026-11-26",
+    "2026-11-27",
+    "2026-11-28",
+    "2026-11-29"
+   ]
+  },
+  {
+   "n": 16,
+   "id": "syd-pickleball-pop-up-parramatta-square",
+   "sec": "week",
+   "when": "Thu Nov 19 3–6pm, Sat Nov 21 11am–2pm, Tue Nov 24 12–1:30pm",
+   "title": "Pickleball pop-up",
+   "meta": "Parramatta Square, Parramatta · drop in and play, paddles provided · free, no registration",
+   "cat": "join",
+   "url": "https://atparramatta.com/whats-on/pickleball-pop-parramatta-square",
+   "price": "free",
+   "lat": -33.816,
+   "lon": 151.0035,
+   "q": "Parramatta Square",
+   "dates": [
+    "2026-11-19",
+    "2026-11-21",
+    "2026-11-24"
+   ]
+  },
+  {
+   "n": 17,
    "id": "syd-film-hunger-games-sunrise-on-the-reaping",
    "sec": "week",
    "when": "Opens Thu Nov 19",
@@ -296,7 +344,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 16,
+   "n": 18,
    "id": "syd-film-zombucha",
    "sec": "week",
    "when": "Opens Thu Nov 19",
@@ -309,7 +357,25 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 17,
+   "n": 19,
+   "id": "syd-bad-crime-writers-festival",
+   "sec": "week",
+   "when": "Fri Nov 20, 9am–4:30pm & Sat Nov 21, 9am–8pm",
+   "title": "BAD Crime Writers Festival (10th anniversary)",
+   "meta": "State Library of NSW, Sydney · author talks on crime fiction and true crime, Danger Awards Sat night · from $15, book ahead",
+   "cat": "learn",
+   "url": "https://www.sl.nsw.gov.au/events/bad-crime-writers-festival-2026",
+   "price": "tickets",
+   "lat": -33.8661,
+   "lon": 151.2131,
+   "q": "State Library of NSW",
+   "dates": [
+    "2026-11-20",
+    "2026-11-21"
+   ]
+  },
+  {
+   "n": 20,
    "id": "syd-chatswood-christmas-tree-light-up-2026",
    "sec": "week",
    "when": "Fri Nov 20, 6pm–9pm · also Artarmon Nov 21, Northbridge Nov 28, Naremburn Nov 29",
@@ -325,7 +391,7 @@ window.WF_DATA = {
    "end": "2026-11-20"
   },
   {
-   "n": 18,
+   "n": 21,
    "id": "syd-fm-wollongong",
    "sec": "week",
    "when": "Fridays 8am–3pm",
@@ -348,7 +414,29 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 19,
+   "n": 22,
+   "id": "syd-concord-tech-savvy-seniors",
+   "sec": "week",
+   "when": "Fri Nov 20 & Fri Nov 27, 2–4pm",
+   "title": "Tech Savvy Seniors: handy apps and staying safe online",
+   "meta": "Concord Library, Concord · free tech classes for seniors: useful apps (Nov 20), avoiding scams (Nov 27) · free, book, bring a device",
+   "cat": "learn",
+   "url": "https://events.humanitix.com/tech-savvy-seniors-apps-that-make-life-easier",
+   "price": "free",
+   "tix": "https://events.humanitix.com/tech-savvy-seniors-stay-safe-online-and-avoid-scams",
+   "aud": [
+    "seniors"
+   ],
+   "lat": -33.8606,
+   "lon": 151.1043,
+   "q": "Concord Library",
+   "dates": [
+    "2026-11-20",
+    "2026-11-27"
+   ]
+  },
+  {
+   "n": 23,
    "id": "syd-fm-narrabeen",
    "sec": "week",
    "when": "Fridays 8am–1pm",
@@ -371,7 +459,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 20,
+   "n": 24,
    "id": "syd-wanderers-v-adelaide-2026-11-20",
    "sec": "week",
    "when": "Fri Nov 20, 7.40pm",
@@ -389,7 +477,7 @@ window.WF_DATA = {
    "end": "2026-11-20"
   },
   {
-   "n": 21,
+   "n": 25,
    "id": "syd-wanderers-w-v-phoenix-w-2026-11-20",
    "sec": "week",
    "when": "Fri Nov 20, 4.50pm",
@@ -407,7 +495,39 @@ window.WF_DATA = {
    "end": "2026-11-20"
   },
   {
-   "n": 22,
+   "n": 26,
+   "id": "syd-mount-annan-plantbank-tour",
+   "sec": "week",
+   "when": "Sat & Sun 11am and 1pm",
+   "title": "Australian PlantBank tour (seed bank and cryostorage)",
+   "meta": "Australian Botanic Garden Mount Annan · see how NSW seeds and threatened plants are stored · by donation, book ahead",
+   "cat": "learn",
+   "url": "https://www.botanicgardens.org.au/whats-on/australian-plantbank-tour",
+   "price": "free",
+   "lat": -34.0705,
+   "lon": 150.769,
+   "q": "Australian PlantBank, Mount Annan",
+   "dates": [
+    "2026-11-21",
+    "2026-11-22",
+    "2026-11-28",
+    "2026-11-29",
+    "2026-12-05",
+    "2026-12-06",
+    "2026-12-12",
+    "2026-12-13",
+    "2026-12-19",
+    "2026-12-20",
+    "2027-01-02",
+    "2027-01-03",
+    "2027-01-09",
+    "2027-01-10",
+    "2027-01-16",
+    "2027-01-17"
+   ]
+  },
+  {
+   "n": 27,
    "id": "syd-fm-bondi",
    "sec": "week",
    "when": "Saturdays 9am–1pm",
@@ -432,7 +552,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 23,
+   "n": 28,
    "id": "syd-boy-soda-powerhouse-rooftop-2026",
    "sec": "week",
    "when": "Sat Nov 21, 5pm–9pm",
@@ -448,7 +568,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 24,
+   "n": 29,
    "id": "syd-carriageworks-farmers-market-saturdays",
    "sec": "week",
    "when": "Saturdays · 8am–1pm",
@@ -472,7 +592,72 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 25,
+   "n": 30,
+   "id": "syd-parkrun-centennial",
+   "sec": "week",
+   "when": "Saturdays 7am + New Year's Day",
+   "title": "Centennial parkrun (free 5k)",
+   "meta": "McKay Sports Ground, Centennial Park, Sydney · free weekly 5k walk, jog or run · register once, bring barcode · free",
+   "cat": "join",
+   "url": "https://www.parkrun.com.au/centennial/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.8985,
+   "lon": 151.234,
+   "q": "McKay Sports Ground Centennial Park",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2026-12-26",
+    "2027-01-01",
+    "2027-01-02",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 31,
+   "id": "syd-eastern-essence-chinese-flea-market",
+   "sec": "week",
+   "when": "Sat Nov 21, 11am–7pm",
+   "title": "Chinese-inspired flea market & cultural workshops",
+   "meta": "Eastern Essence 东方匠心, Chatswood · Chinese crafts, tea, porcelain, accessories, pop-up workshops · free entry, RSVP",
+   "cat": "mkt",
+   "url": "https://www.eventbrite.com/e/chinese-inspired-flea-market-cultural-workshops-tickets-2004180366427",
+   "price": "free",
+   "local": 1,
+   "biz": "Eastern Essence",
+   "lat": -33.796,
+   "lon": 151.1796,
+   "q": "Eastern Essence, 8 Help St, Chatswood",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 32,
+   "id": "syd-vol-crestwood-bushcare",
+   "sec": "week",
+   "when": "Sat Nov 21, 9am–12pm",
+   "title": "Crestwood Bushcare at Toongabbie Creek",
+   "meta": "Crestwood Reserve (Warumbui Ave), Baulkham Hills · Hills Shire Council Bushcare, no experience needed · free, register on Eventbrite",
+   "cat": "vol",
+   "url": "https://www.thehills.nsw.gov.au/Upcoming-Events-Activities/Crestwood-Bushcare",
+   "price": "free",
+   "tix": "https://www.eventbrite.com.au/e/765834911837",
+   "lat": -33.766,
+   "lon": 150.978,
+   "q": "Crestwood Reserve, Warumbui Avenue, Baulkham Hills NSW",
+   "dates": [
+    "2026-11-21"
+   ]
+  },
+  {
+   "n": 33,
    "id": "syd-cronulla-christmas-market-2026",
    "sec": "week",
    "when": "Sat Nov 21–Sun Nov 22 · 10am–4pm",
@@ -487,7 +672,216 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 26,
+   "n": 34,
+   "id": "syd-parkrun-cronulla",
+   "sec": "week",
+   "when": "Saturdays 7am",
+   "title": "Cronulla parkrun (free 5k)",
+   "meta": "Don Lucas Reserve, Cronulla · free weekly 5k walk, jog or run · register once, bring barcode · free",
+   "cat": "join",
+   "url": "https://www.parkrun.com.au/cronulla/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -34.0372,
+   "lon": 151.1497,
+   "q": "Don Lucas Reserve Cronulla",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2026-12-26",
+    "2027-01-02",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 35,
+   "id": "syd-parkrun-curlcurl",
+   "sec": "week",
+   "when": "Saturdays 7am + Christmas Day & New Year's Day",
+   "title": "Curl Curl parkrun (free 5k)",
+   "meta": "John Fisher Park, Curl Curl · free weekly 5k walk, jog or run · register once, bring barcode · free",
+   "cat": "join",
+   "url": "https://www.parkrun.com.au/curlcurl/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.771,
+   "lon": 151.286,
+   "q": "John Fisher Park Curl Curl",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2026-12-25",
+    "2026-12-26",
+    "2027-01-01",
+    "2027-01-02",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 36,
+   "id": "syd-diy-crafts-penrith-weekend-workshops",
+   "sec": "week",
+   "when": "Sat Nov 21, 7pm; Sun Dec 6, 6pm; Sun Dec 13, 10am",
+   "title": "DIY Crafts Penrith weekend workshops (hat burning, cupcake decorating)",
+   "meta": "DIY Crafts, South Penrith · craft studio workshops: hat burning (Nov 21), cupcake decorating (Dec 6, 13) · from $106, book ahead",
+   "cat": "art",
+   "url": "https://www.eventbrite.com.au/e/hat-burning-workshop-tickets-1996797755840",
+   "price": "tickets",
+   "local": 1,
+   "biz": "DIY Crafts",
+   "lat": -33.7794,
+   "lon": 150.69,
+   "q": "DIY Crafts, 51 York Rd, South Penrith",
+   "dates": [
+    "2026-11-21",
+    "2026-12-06",
+    "2026-12-13"
+   ]
+  },
+  {
+   "n": 37,
+   "id": "syd-fmd-australian-museum",
+   "sec": "week",
+   "when": "Sat & Sun 10am–5pm",
+   "title": "Free day at Australian Museum",
+   "meta": "Australian Museum, Darlinghurst · free general entry · dinosaurs, wildlife, First Nations and Pasifika galleries; big shows ticketed",
+   "cat": "fmd",
+   "url": "https://australian.museum/visit/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.8743,
+   "lon": 151.2131,
+   "q": "Australian Museum, Sydney",
+   "dates": [
+    "2026-11-21",
+    "2026-11-22",
+    "2026-11-28",
+    "2026-11-29",
+    "2026-12-05",
+    "2026-12-06",
+    "2026-12-12",
+    "2026-12-13",
+    "2026-12-19",
+    "2026-12-20",
+    "2026-12-26",
+    "2026-12-27",
+    "2027-01-02",
+    "2027-01-03",
+    "2027-01-09",
+    "2027-01-10",
+    "2027-01-16",
+    "2027-01-17"
+   ]
+  },
+  {
+   "n": 38,
+   "id": "syd-fmd-chau-chak-wing",
+   "sec": "week",
+   "when": "Sat & Sun 12–4pm",
+   "title": "Free day at Chau Chak Wing Museum",
+   "meta": "Chau Chak Wing Museum, Camperdown · free entry · antiquities, Harry Seidler show; closed Dec 21–Jan 3",
+   "cat": "fmd",
+   "url": "https://www.sydney.edu.au/museum/whats-on/visit.html",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.8862,
+   "lon": 151.1886,
+   "q": "Chau Chak Wing Museum, Camperdown",
+   "dates": [
+    "2026-11-21",
+    "2026-11-22",
+    "2026-11-28",
+    "2026-11-29",
+    "2026-12-05",
+    "2026-12-06",
+    "2026-12-12",
+    "2026-12-13",
+    "2026-12-19",
+    "2026-12-20",
+    "2027-01-09",
+    "2027-01-10",
+    "2027-01-16",
+    "2027-01-17"
+   ]
+  },
+  {
+   "n": 39,
+   "id": "syd-fmd-hurstville-museum",
+   "sec": "week",
+   "when": "Sat Nov 21, 10am–3pm open day; Fri Jan 15, 4–6pm opening",
+   "title": "Free day at Hurstville Museum & Gallery",
+   "meta": "Hurstville Museum & Gallery, Hurstville · free entry · open day with live animals, drop-in art (book); exhibition launch Jan 15",
+   "cat": "fmd",
+   "url": "https://www.georgesriver.nsw.gov.au/Community/Events/What’s-On-Event-Information/Hurstville-Museum-Gallery-Open-Day",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.966,
+   "lon": 151.102,
+   "q": "Hurstville Museum & Gallery, 14 MacMahon Street",
+   "dates": [
+    "2026-11-21",
+    "2027-01-15"
+   ]
+  },
+  {
+   "n": 40,
+   "id": "syd-vol-ropes-creek-bushcare",
+   "sec": "week",
+   "when": "Sat Nov 21 & Sat Dec 19, 9am–1pm",
+   "title": "Friends of Ropes Creek Bushcare",
+   "meta": "Cnr Debrincat Ave & Boronia Rd, North St Marys · Cumberland Plain Woodland care, tools & tea provided · free, register first · under-16s with an adult",
+   "cat": "vol",
+   "url": "https://www.penrithcity.nsw.gov.au/waste-environment/environment/bushland/bushcare-groups",
+   "price": "free",
+   "lat": -33.753,
+   "lon": 150.7935,
+   "q": "Debrincat Avenue & Boronia Road, North St Marys NSW",
+   "dates": [
+    "2026-11-21",
+    "2026-12-19"
+   ]
+  },
+  {
+   "n": 41,
+   "id": "syd-vol-georges-river-bushcare-saturdays",
+   "sec": "week",
+   "when": "Saturdays Nov 21–Dec 19, 8–10:30am & 12–2:30pm",
+   "title": "Georges River Bushcare Saturday sessions",
+   "meta": "Oatley Park & other reserves, Oatley/Beverly Hills/Kogarah Bay · site rotates weekly; Dec 5 is a Bee Hotel event · free, register with council",
+   "cat": "vol",
+   "url": "https://www.georgesriver.nsw.gov.au/Bushcare",
+   "price": "free",
+   "lat": -33.9855,
+   "lon": 151.0745,
+   "q": "Oatley Park, Oatley NSW",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19"
+   ]
+  },
+  {
+   "n": 42,
    "id": "syd-glebe-markets-saturdays",
    "sec": "week",
    "when": "Saturdays · 10am–4pm",
@@ -511,7 +905,26 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 27,
+   "n": 43,
+   "id": "syd-long-reef-rock-platform-walk",
+   "sec": "week",
+   "when": "Sat Nov 21, 12–2pm",
+   "title": "Guided rock platform exploration, Long Reef",
+   "meta": "Fishermans Beach, Collaroy · rock-pool walk with a local guide · adult $15, up to 2 kids free · book ahead",
+   "cat": "join",
+   "url": "https://www.northernbeaches.nsw.gov.au/things-to-do/whats-on/guided-rock-platform-exploration-long-reef",
+   "price": "tickets",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.7366,
+   "lon": 151.3036,
+   "q": "Fishermans Beach Collaroy",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 44,
    "id": "syd-hurstville-museum-open-day-2026",
    "sec": "week",
    "when": "Sat Nov 21",
@@ -520,6 +933,9 @@ window.WF_DATA = {
    "cat": "kids",
    "url": "https://www.georgesriver.nsw.gov.au/Community/Events/What’s-On-Event-Information/Hurstville-Museum-Gallery-Open-Day",
    "price": "free",
+   "aud": [
+    "all"
+   ],
    "lat": -33.9672,
    "lon": 151.1015,
    "q": "Hurstville Museum & Gallery",
@@ -527,7 +943,25 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 28,
+   "n": 45,
+   "id": "syd-inner-child-joy-christmas-craft",
+   "sec": "week",
+   "when": "Sat Nov 21, 2–4pm",
+   "title": "Inner Child Joy craft workshop: Christmas edition",
+   "meta": "The Place, Lewisham · make handmade Christmas gifts in a relaxed adults' craft session · $111, book ahead",
+   "cat": "art",
+   "url": "https://www.eventbrite.com.au/e/inner-child-joy-craft-workshop-christmas-edition-tickets-2003694230381",
+   "price": "tickets",
+   "local": 1,
+   "biz": "Inner Child Joy",
+   "lat": -33.8964,
+   "lon": 151.1439,
+   "q": "12 Victoria St, Lewisham NSW",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 46,
    "id": "syd-fm-kings-cross",
    "sec": "week",
    "when": "Saturdays 8am–2pm",
@@ -550,7 +984,36 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 29,
+   "n": 47,
+   "id": "syd-parkrun-nepeanriver",
+   "sec": "week",
+   "when": "Saturdays 8am + Christmas Day",
+   "title": "Nepean River parkrun (free 5k)",
+   "meta": "Tench Reserve, Penrith · free weekly 5k walk, jog or run · register once, bring barcode · free",
+   "cat": "join",
+   "url": "https://www.parkrun.com.au/nepeanriver/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.7631,
+   "lon": 150.6765,
+   "q": "Tench Reserve Penrith",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2026-12-25",
+    "2026-12-26",
+    "2027-01-02",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 48,
    "id": "syd-fm-northside",
    "sec": "week",
    "when": "1st & 3rd Saturdays 8am–12pm",
@@ -570,7 +1033,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 30,
+   "n": 49,
    "id": "syd-fm-orange-grove",
    "sec": "week",
    "when": "Saturdays 8am–1pm",
@@ -593,7 +1056,28 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 31,
+   "n": 50,
+   "id": "syd-fm-oxford-street",
+   "sec": "week",
+   "when": "Saturdays 8am–2pm (to Dec 19)",
+   "title": "Oxford Street Farmers Market",
+   "meta": "Taylor Square north, Darlinghurst · farmers market · dogs welcome · produce, coffee, flowers · season ends Dec 19",
+   "cat": "mkt",
+   "url": "https://www.organicfoodmarkets.com.au/Markets",
+   "price": "free",
+   "lat": -33.8805,
+   "lon": 151.217,
+   "q": "Taylor Square, Darlinghurst NSW",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19"
+   ]
+  },
+  {
+   "n": 51,
    "id": "syd-paddington-markets-saturdays",
    "sec": "week",
    "when": "Saturdays · 10am–4pm (growers from 9am)",
@@ -617,7 +1101,37 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 32,
+   "n": 52,
+   "id": "syd-parkrun-parramatta",
+   "sec": "week",
+   "when": "Saturdays 8am + Christmas Day & New Year's Day",
+   "title": "Parramatta parkrun (free 5k)",
+   "meta": "George Kendall Riverside Park, Ermington · free weekly 5k walk, jog or run · register once, bring barcode · free",
+   "cat": "join",
+   "url": "https://www.parkrun.com.au/parramatta/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.8197,
+   "lon": 151.0544,
+   "q": "George Kendall Riverside Park Ermington",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2026-12-25",
+    "2026-12-26",
+    "2027-01-01",
+    "2027-01-02",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 53,
    "id": "syd-mca-philippe-parreno-5-moons-2026",
    "sec": "week",
    "when": "Opens Sat Nov 21 (runs to Apr 26)",
@@ -633,7 +1147,7 @@ window.WF_DATA = {
    "end": "2027-04-26"
   },
   {
-   "n": 33,
+   "n": 54,
    "id": "syd-philippine-christmas-festival-2026",
    "sec": "week",
    "when": "Sat Nov 21–Sun Nov 22, 9am–8pm",
@@ -649,7 +1163,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 34,
+   "n": 55,
    "id": "syd-penrith-piece-by-piece-2026",
    "sec": "week",
    "when": "Opens Sat Nov 21, 6pm (runs to Feb 28)",
@@ -665,7 +1179,23 @@ window.WF_DATA = {
    "end": "2027-02-28"
   },
   {
-   "n": 35,
+   "n": 56,
+   "id": "syd-rbg-propagation-workshop",
+   "sec": "week",
+   "when": "Sat Nov 21, 9:30am–12:30pm",
+   "title": "Propagation Workshop with the Growing Friends",
+   "meta": "Maiden Theatre, Royal Botanic Garden Sydney · hands-on propagating, potting mixes and plant care · $90, book ahead",
+   "cat": "learn",
+   "url": "https://www.botanicgardens.org.au/whats-on/propagation-workshop",
+   "price": "tickets",
+   "lat": -33.8655,
+   "lon": 151.2146,
+   "q": "Maiden Theatre, Royal Botanic Garden Sydney",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 57,
    "id": "syd-fm-ramsgate",
    "sec": "week",
    "when": "Saturdays 8am–1pm",
@@ -688,7 +1218,28 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 36,
+   "n": 58,
+   "id": "syd-grand-cliff-top-walk-ranger-tour",
+   "sec": "week",
+   "when": "Sats Nov 21, Dec 5, Dec 19, Jan 9 & Jan 16, 9:30am–12:30pm",
+   "title": "Ranger-guided Grand Cliff Top Walk",
+   "meta": "Wentworth Falls picnic area, Blue Mountains · 2–3km guided loop with NPWS ranger · book ahead, adult $55, child $39 · ages 5+",
+   "cat": "join",
+   "url": "https://www.nationalparks.nsw.gov.au/things-to-do/guided-tours/grand-cliff-top-walk-guided-tour",
+   "price": "tickets",
+   "lat": -33.7273,
+   "lon": 150.3743,
+   "q": "Wentworth Falls picnic area",
+   "dates": [
+    "2026-11-21",
+    "2026-12-05",
+    "2026-12-19",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 59,
    "id": "syd-robyn-afterpay-arena-2026-11-21",
    "sec": "week",
    "when": "Sat Nov 21, 8pm",
@@ -704,7 +1255,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 37,
+   "n": 60,
    "id": "syd-rozelle-collectors-market-saturdays",
    "sec": "week",
    "when": "Saturdays · 9am–3pm (closed Dec 26)",
@@ -728,7 +1279,29 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 38,
+   "n": 61,
+   "id": "syd-arncliffe-saturday-badminton",
+   "sec": "week",
+   "when": "Saturdays 5–6:30pm",
+   "title": "Saturday social badminton",
+   "meta": "Arncliffe Youth Centre, Arncliffe · beginners to advanced, equipment provided · $13, book ahead",
+   "cat": "join",
+   "url": "https://www.bayside.nsw.gov.au/whats-on/saturday-social-badminton-sessions-1",
+   "price": "tickets",
+   "lat": -33.9365,
+   "lon": 151.1475,
+   "q": "Arncliffe Youth Centre",
+   "dates": [
+    "2026-11-21",
+    "2026-11-28",
+    "2026-12-05",
+    "2026-12-12",
+    "2026-12-19",
+    "2026-12-26"
+   ]
+  },
+  {
+   "n": 62,
    "id": "syd-sixers-w-v-scorchers-w-2026-11-21",
    "sec": "week",
    "when": "Sat Nov 21, 3.30pm",
@@ -746,7 +1319,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 39,
+   "n": 63,
    "id": "syd-78-storey-treehouse-2026",
    "sec": "week",
    "when": "Sat Nov 21, 10:30am, 12:30pm & 3:30pm",
@@ -762,7 +1335,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 40,
+   "n": 64,
    "id": "syd-belvoir-coconut-children-2026",
    "sec": "week",
    "when": "Sat Nov 21–Sun Dec 20",
@@ -779,7 +1352,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 41,
+   "n": 65,
    "id": "syd-the-rocks-markets-weekends",
    "sec": "week",
    "when": "Saturdays & Sundays · 10am–5pm (Fridays 10am–3pm)",
@@ -811,7 +1384,43 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 42,
+   "n": 66,
+   "id": "syd-vol-vineyard-creek-bushcare",
+   "sec": "week",
+   "when": "Sat Nov 21 & Sat Dec 19, 9am–12pm",
+   "title": "Vineyard Creek Bushcare, Oatlands",
+   "meta": "Robert Green Forest (opp. 1 Tulong Ave), Oatlands · City of Parramatta Bushcare group · free, register via council",
+   "cat": "vol",
+   "url": "https://www.cityofparramatta.nsw.gov.au/environment/natural-areas/bushland/bushcare-volunteer",
+   "price": "free",
+   "lat": -33.7935,
+   "lon": 151.0275,
+   "q": "Robert Green Forest, Tulong Avenue, Oatlands NSW",
+   "dates": [
+    "2026-11-21",
+    "2026-12-19"
+   ]
+  },
+  {
+   "n": 67,
+   "id": "syd-wembleys-chocolates-factory-tour",
+   "sec": "week",
+   "when": "Sat Nov 21, 11am–12pm",
+   "title": "Wembley's Chocolates bean-to-bar factory tour & tasting",
+   "meta": "Wembley's Chocolates, Brookvale · see how bean-to-bar chocolate is made, then taste · $20, book ahead",
+   "cat": "food",
+   "url": "https://www.eventbrite.com/e/wembleys-chocolates-factory-tour-tasting-tickets-1992329164162",
+   "price": "tickets",
+   "local": 1,
+   "biz": "Wembley's Chocolates",
+   "lat": -33.7642,
+   "lon": 151.2717,
+   "q": "Wembley's Chocolates, 650 Pittwater Rd, Brookvale",
+   "start": "2026-11-21",
+   "end": "2026-11-21"
+  },
+  {
+   "n": 68,
    "id": "syd-abc-day-kids-powerhouse-2026",
    "sec": "week",
    "when": "Sun Nov 22, 10am–3pm",
@@ -827,7 +1436,23 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 43,
+   "n": 69,
+   "id": "syd-powerhouse-abc-day-talks",
+   "sec": "week",
+   "when": "Sun Nov 22, 10am–4pm",
+   "title": "ABC Day: Talks at Powerhouse Parramatta",
+   "meta": "Powerhouse Parramatta, Parramatta · live talks on science, psychology, food and books with ABC presenters and authors · free, book each session",
+   "cat": "learn",
+   "url": "https://powerhouse.com.au/program/opening-fest-abc-day-talks",
+   "price": "free",
+   "lat": -33.813,
+   "lon": 151.008,
+   "q": "Powerhouse Parramatta",
+   "start": "2026-11-22",
+   "end": "2026-11-22"
+  },
+  {
+   "n": 70,
    "id": "syd-bondi-markets-sundays",
    "sec": "week",
    "when": "Sundays · 10am–4pm",
@@ -851,7 +1476,62 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 44,
+   "n": 71,
+   "id": "syd-tokyo-lamington-craft-meetup-market",
+   "sec": "week",
+   "when": "Sun Nov 22, 1:30–3:30pm",
+   "title": "Craft meetup & mini market at Tokyo Lamington",
+   "meta": "Tokyo Lamington & the Bakery, Marrickville · bring your knitting/crochet, browse Japanese yarns & handmade bags · free, RSVP",
+   "cat": "art",
+   "url": "https://www.eventbrite.com.au/e/craft-meetup-market-at-tokyo-lamington-tickets-2003586266458",
+   "price": "free",
+   "local": 1,
+   "biz": "Umi To Yoru",
+   "lat": -33.9134,
+   "lon": 151.1616,
+   "q": "Tokyo Lamington, 140 Marrickville Rd, Marrickville",
+   "start": "2026-11-22",
+   "end": "2026-11-22"
+  },
+  {
+   "n": 72,
+   "id": "syd-great-north-walk-stage-10",
+   "sec": "week",
+   "when": "Sun Nov 22 & Wed Nov 25, 8am–4pm",
+   "title": "Great North Walk stage 10: Brisbane Water dreaming (guided)",
+   "meta": "Brisbane Water National Park, Kariong · NPWS-guided 18km day walk to Somersby · book ahead, fees apply (incl. park entry)",
+   "cat": "join",
+   "url": "https://www.nationalparks.nsw.gov.au/things-to-do/great-north-walk-challenge",
+   "price": "tickets",
+   "lat": -33.439,
+   "lon": 151.293,
+   "q": "Brisbane Water National Park Kariong",
+   "dates": [
+    "2026-11-22",
+    "2026-11-25"
+   ]
+  },
+  {
+   "n": 73,
+   "id": "syd-lebanese-festival-parramatta",
+   "sec": "week",
+   "when": "Sun Nov 22, 11am–4pm",
+   "title": "Lebanese Festival Parramatta",
+   "meta": "Barton Park, North Parramatta · dabke, zaffe, Lebanese food stalls, cooking demos, Faydee on the main stage · free",
+   "cat": "cult",
+   "url": "https://atparramatta.com/whats-on/lebanese-festival",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.8027,
+   "lon": 151.004,
+   "q": "Barton Park, Barton Street, North Parramatta",
+   "start": "2026-11-22",
+   "end": "2026-11-22"
+  },
+  {
+   "n": 74,
    "id": "syd-fm-marrickville",
    "sec": "week",
    "when": "Sundays 9am–3pm",
@@ -874,7 +1554,74 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 45,
+   "n": 75,
+   "id": "syd-cumberland-seniors-christmas-concerts",
+   "sec": "late-nov",
+   "when": "Nov 24, Nov 27, Dec 1, Dec 3 & Dec 8, 11:30am–2pm",
+   "title": "Cumberland Seniors Christmas Concerts (two-course lunch + live show)",
+   "meta": "Auburn, Wentworthville, Merrylands, Berala & Pemulwuy (one per ward) · free, register; closes a week before · Cumberland residents 65+ (Aboriginal 50+)",
+   "cat": "hol",
+   "url": "https://www.cumberland.nsw.gov.au/event/seniors-christmas-concert-merrylands",
+   "price": "free",
+   "aud": [
+    "seniors"
+   ],
+   "lat": -33.8355,
+   "lon": 150.989,
+   "q": "Holroyd Centre, 17 Miller St Merrylands",
+   "dates": [
+    "2026-11-24",
+    "2026-11-27",
+    "2026-12-01",
+    "2026-12-03",
+    "2026-12-08"
+   ]
+  },
+  {
+   "n": 76,
+   "id": "syd-redfern-chinese-dancing-group",
+   "sec": "late-nov",
+   "when": "Tuesdays 1–3pm",
+   "title": "Dancing group for Chinese speakers",
+   "meta": "Ron Williams Community Centre, Redfern · volunteer-led community dance group · free",
+   "cat": "join",
+   "url": "https://whatson.cityofsydney.nsw.gov.au/events/dancing-group-for-chinese-speakers",
+   "price": "free",
+   "aud": [
+    "zh"
+   ],
+   "lat": -33.896,
+   "lon": 151.2025,
+   "q": "Ron Williams Community Centre Redfern",
+   "dates": [
+    "2026-11-24",
+    "2026-12-01",
+    "2026-12-08",
+    "2026-12-15"
+   ]
+  },
+  {
+   "n": 77,
+   "id": "syd-inner-west-disability-forum-festival",
+   "sec": "late-nov",
+   "when": "Tue Nov 24, 12–2pm",
+   "title": "Inner West Disability Forum community festival & showcase",
+   "meta": "Jimmy Little Community Centre, Lilyfield · performances, art, stalls, sensory room · for people with disability, carers & community · free",
+   "cat": "join",
+   "url": "https://whatson.cityofsydney.nsw.gov.au/events/inner-west-disability-forum-community-festival-showcase",
+   "price": "free",
+   "aud": [
+    "access",
+    "sensory"
+   ],
+   "lat": -33.8745,
+   "lon": 151.1655,
+   "q": "Jimmy Little Community Centre, Cecily St Lilyfield",
+   "start": "2026-11-24",
+   "end": "2026-11-24"
+  },
+  {
+   "n": 78,
    "id": "syd-peter-pan-q-theatre-2026",
    "sec": "late-nov",
    "when": "Tue Nov 24–Fri Nov 27",
@@ -890,7 +1637,53 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 46,
+   "n": 79,
+   "id": "syd-stanmore-library-canasta",
+   "sec": "late-nov",
+   "when": "Wednesdays 1:30–3:30pm",
+   "title": "Canasta at Stanmore Library",
+   "meta": "Stanmore Library, Stanmore · learn and play classic canasta, all levels · free, no booking",
+   "cat": "join",
+   "url": "https://www.innerwest.nsw.gov.au/whats-on/canasta-stanmore-library",
+   "price": "free",
+   "lat": -33.896,
+   "lon": 151.164,
+   "q": "Stanmore Library Douglas Street",
+   "dates": [
+    "2026-11-25",
+    "2026-12-02",
+    "2026-12-09",
+    "2026-12-16"
+   ]
+  },
+  {
+   "n": 80,
+   "id": "syd-fmd-agnsw",
+   "sec": "late-nov",
+   "when": "Wednesdays 5–10pm",
+   "title": "Free night at Art Gallery of NSW",
+   "meta": "Art Gallery of NSW, The Domain · free entry · Art After Hours: talks, films, music, drop-in drawing; no session Dec 23",
+   "cat": "fmd",
+   "url": "https://www.artgallery.nsw.gov.au/whats-on/art-after-hours/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.8688,
+   "lon": 151.2173,
+   "q": "Art Gallery of New South Wales",
+   "dates": [
+    "2026-11-25",
+    "2026-12-02",
+    "2026-12-09",
+    "2026-12-16",
+    "2026-12-30",
+    "2027-01-06",
+    "2027-01-13"
+   ]
+  },
+  {
+   "n": 81,
    "id": "syd-moonlight-cinema-2026",
    "sec": "late-nov",
    "when": "Wed Nov 25–Sun Mar 28, evenings",
@@ -905,7 +1698,25 @@ window.WF_DATA = {
    "end": "2027-03-28"
   },
   {
-   "n": 47,
+   "n": 82,
+   "id": "syd-sydney-observatory-night-photography",
+   "sec": "late-nov",
+   "when": "Wed Nov 25 & Wed Dec 16, 7:30pm",
+   "title": "Night Photography Workshop at Sydney Observatory",
+   "meta": "Sydney Observatory, Millers Point · 2-hour night-sky photography class with Sony gear provided · $100 · 12+",
+   "cat": "learn",
+   "url": "https://powerhouse.com.au/program/night-photography-workshops",
+   "price": "tickets",
+   "lat": -33.8597,
+   "lon": 151.2045,
+   "q": "Sydney Observatory",
+   "dates": [
+    "2026-11-25",
+    "2026-12-16"
+   ]
+  },
+  {
+   "n": 83,
    "id": "syd-australian-pga-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26–Sun Nov 29",
@@ -922,7 +1733,44 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 48,
+   "n": 84,
+   "id": "syd-pyrmont-board-games-night",
+   "sec": "late-nov",
+   "when": "Thu Nov 26 & Thu Dec 10, 6–8pm",
+   "title": "Board games night",
+   "meta": "Pyrmont Community Centre, Pyrmont · games, conversation, light refreshments · free, no booking",
+   "cat": "join",
+   "url": "https://whatson.cityofsydney.nsw.gov.au/events/board-games-night",
+   "price": "free",
+   "lat": -33.8705,
+   "lon": 151.194,
+   "q": "Pyrmont Community Centre",
+   "dates": [
+    "2026-11-26",
+    "2026-12-10"
+   ]
+  },
+  {
+   "n": 85,
+   "id": "syd-empower-golf-come-and-try-moore-park",
+   "sec": "late-nov",
+   "when": "Thu Nov 26, 1:30–2:30pm",
+   "title": "Come & Try golf clinic for people with disability",
+   "meta": "Moore Park Golf driving range, Moore Park · Empower Golf Australia, accredited specialist coach · all ages, no experience · free, booking essential",
+   "cat": "join",
+   "url": "https://whatson.cityofsydney.nsw.gov.au/events/free-event-for-the-disabled-community-moore-park",
+   "price": "free",
+   "aud": [
+    "access"
+   ],
+   "lat": -33.896,
+   "lon": 151.2205,
+   "q": "Moore Park Golf driving range",
+   "start": "2026-11-26",
+   "end": "2026-11-26"
+  },
+  {
+   "n": 86,
    "id": "syd-film-hexed",
    "sec": "late-nov",
    "when": "Opens Thu Nov 26",
@@ -935,7 +1783,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 49,
+   "n": 87,
    "id": "syd-film-focker-in-law",
    "sec": "late-nov",
    "when": "Opens Thu Nov 26",
@@ -948,7 +1796,26 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 50,
+   "n": 88,
+   "id": "syd-rhodes-gambling-awareness-talk-mandarin",
+   "sec": "late-nov",
+   "when": "Thu Nov 26, 2–3:30pm",
+   "title": "Gambling awareness talk in Mandarin",
+   "meta": "The Connection, Rhodes · free community talk in Mandarin with GambleAware and WSLHD · free, bookings required",
+   "cat": "learn",
+   "url": "https://events.humanitix.com/community-conversations-gambling-awareness-talk-in-mandarin",
+   "price": "free",
+   "aud": [
+    "zh"
+   ],
+   "lat": -33.83,
+   "lon": 151.087,
+   "q": "The Connection, Rhodes",
+   "start": "2026-11-26",
+   "end": "2026-11-26"
+  },
+  {
+   "n": 89,
    "id": "syd-parramatta-christmas-markets-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26 (tree lighting 8pm) & Thu Dec 17–Tue Dec 22 · 11am–9pm",
@@ -971,7 +1838,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 51,
+   "n": 90,
    "id": "syd-parramatta-christmas-tree-lighting-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26, 11am–9pm · tree lit 8pm",
@@ -987,7 +1854,7 @@ window.WF_DATA = {
    "end": "2026-11-26"
   },
   {
-   "n": 52,
+   "n": 91,
    "id": "syd-pitt-street-mall-canopy-of-light-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26–Sat Jan 9, nightly 6pm–11:55pm",
@@ -1003,7 +1870,7 @@ window.WF_DATA = {
    "end": "2027-01-09"
   },
   {
-   "n": 53,
+   "n": 92,
    "id": "syd-martin-place-christmas-tree-lighting-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26, 6:30pm–8:30pm · sleigh leaves Customs House 8:05pm, lighting ~8:30pm",
@@ -1019,7 +1886,7 @@ window.WF_DATA = {
    "end": "2026-11-26"
   },
   {
-   "n": 54,
+   "n": 93,
    "id": "syd-superposition-festival-2026",
    "sec": "late-nov",
    "when": "Thu Nov 26–Sun Nov 29",
@@ -1036,7 +1903,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 55,
+   "n": 94,
    "id": "syd-sixers-w-v-stars-w-2026-11-26",
    "sec": "late-nov",
    "when": "Thu Nov 26, 7.10pm",
@@ -1054,7 +1921,7 @@ window.WF_DATA = {
    "end": "2026-11-26"
   },
   {
-   "n": 56,
+   "n": 95,
    "id": "syd-thunder-w-v-strikers-w-2026-11-26",
    "sec": "late-nov",
    "when": "Thu Nov 26, 3.40pm",
@@ -1072,7 +1939,7 @@ window.WF_DATA = {
    "end": "2026-11-26"
   },
   {
-   "n": 57,
+   "n": 96,
    "id": "syd-film-the-fox",
    "sec": "late-nov",
    "when": "Opens Thu Nov 26",
@@ -1085,7 +1952,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 58,
+   "n": 97,
    "id": "syd-film-cliff-booth",
    "sec": "late-nov",
    "when": "Opens Thu Nov 26",
@@ -1098,7 +1965,25 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 59,
+   "n": 98,
+   "id": "syd-woollahra-christmas-late-night-shopping",
+   "sec": "late-nov",
+   "when": "Thu Nov 26, 4:30–8pm",
+   "title": "Woollahra Christmas Late Night Shopping",
+   "meta": "Queen St, Woollahra · 50+ local shops with bubbles, nibbles, specials, window displays & street music · free",
+   "cat": "hol",
+   "url": "https://www.woollahravillage.com.au/Christmas-Events",
+   "price": "free",
+   "local": 1,
+   "biz": "Queen Street & West Woollahra Association",
+   "lat": -33.8887,
+   "lon": 151.2358,
+   "q": "Queen Street, Woollahra NSW",
+   "start": "2026-11-26",
+   "end": "2026-11-26"
+  },
+  {
+   "n": 99,
    "id": "syd-campbelltown-light-the-tree-2026",
    "sec": "late-nov",
    "when": "Fri Nov 27, 6pm–9pm · tree lit ~8pm",
@@ -1114,7 +1999,43 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 60,
+   "n": 100,
+   "id": "syd-grooveable-christmas-disco-teens",
+   "sec": "late-nov",
+   "when": "Fri Nov 27, 6–8:30pm",
+   "title": "GrooveABLE Christmas disco for teens with disability (12–17)",
+   "meta": "Dee Why PCYC, Dee Why · DJ, pizza, drinks & goodie bag · carers free · $18 early bird to Nov 20, then $22",
+   "cat": "teen",
+   "url": "https://www.northernbeaches.nsw.gov.au/things-to-do/whats-on/christmas-disability-disco-teens-0",
+   "price": "tickets",
+   "tix": "https://www.trybooking.com/DQSZD",
+   "aud": [
+    "access"
+   ],
+   "lat": -33.752,
+   "lon": 151.287,
+   "q": "Dee Why PCYC, 40 Kingsway Dee Why",
+   "start": "2026-11-27",
+   "end": "2026-11-27"
+  },
+  {
+   "n": 101,
+   "id": "syd-parra-moves-dance",
+   "sec": "late-nov",
+   "when": "Fri Nov 27, 6–8pm",
+   "title": "Parra Nights: Parra Moves (dance in the square)",
+   "meta": "Parramatta Square, Parramatta · come and dance, music and movement for everyone · free",
+   "cat": "join",
+   "url": "https://atparramatta.com/whats-on/parra-nights-parra-moves",
+   "price": "free",
+   "lat": -33.816,
+   "lon": 151.0035,
+   "q": "Parramatta Square",
+   "start": "2026-11-27",
+   "end": "2026-11-27"
+  },
+  {
+   "n": 102,
    "id": "syd-schools-spectacular-2026",
    "sec": "late-nov",
    "when": "Fri Nov 27 11am & 7pm · Sat Nov 28 1pm & 7pm",
@@ -1130,7 +2051,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 61,
+   "n": 103,
    "id": "syd-blacktown-christmas-carols-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28, 5pm–9pm",
@@ -1146,7 +2067,25 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 62,
+   "n": 104,
+   "id": "syd-amatos-champagne-panettone-tasting",
+   "sec": "late-nov",
+   "when": "Sat Nov 28, 4–6pm",
+   "title": "Champagne & panettone free tasting at Amato's",
+   "meta": "Amato's Liquor Mart, Leichhardt · drop-in in-store tasting of Champagne and panettone · free, RSVP",
+   "cat": "food",
+   "url": "https://www.eventbrite.com/e/champagne-and-panettone-free-tasting-tickets-2004753925959",
+   "price": "free",
+   "local": 1,
+   "biz": "Amato's Liquor Mart",
+   "lat": -33.8799,
+   "lon": 151.1566,
+   "q": "Amato's Liquor Mart, 267 Norton St, Leichhardt",
+   "start": "2026-11-28",
+   "end": "2026-11-28"
+  },
+  {
+   "n": 105,
    "id": "syd-am-dinosaurs-of-patagonia-2026",
    "sec": "late-nov",
    "when": "Opens Sat Nov 28 (runs to May 2)",
@@ -1162,7 +2101,7 @@ window.WF_DATA = {
    "end": "2027-05-02"
   },
   {
-   "n": 63,
+   "n": 106,
    "id": "syd-double-bay-christmas-festival-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28 · market 12–6pm, food to 9pm, then concert and fireworks",
@@ -1177,7 +2116,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 64,
+   "n": 107,
    "id": "syd-bmcc-fantastic-forms-2026",
    "sec": "late-nov",
    "when": "Opens Sat Nov 28 (runs to Feb 7)",
@@ -1192,7 +2131,47 @@ window.WF_DATA = {
    "end": "2027-02-07"
   },
   {
-   "n": 65,
+   "n": 108,
+   "id": "syd-five-way-cellars-saturday-tastings",
+   "sec": "late-nov",
+   "when": "Sat Nov 28 & Sat Dec 5, 1–3pm",
+   "title": "Five Way Cellars Saturday wine tastings (Franciacorta; Van Volxem Riesling)",
+   "meta": "Five Way Cellars, Paddington · Nov 28 Franciacorta ($35), Dec 5 German Riesling ($20), 5 wines each · book ahead",
+   "cat": "food",
+   "url": "https://www.eventbrite.com.au/e/franciacorta-tasting-italys-answer-to-champagne-tickets-2004336816373",
+   "price": "tickets",
+   "tix": "https://www.eventbrite.com.au/e/van-volxem-riesling-tasting-tickets-2004569478271",
+   "local": 1,
+   "biz": "Five Way Cellars",
+   "lat": -33.8826,
+   "lon": 151.2283,
+   "q": "Five Way Cellars, 4 Heeley St, Paddington",
+   "dates": [
+    "2026-11-28",
+    "2026-12-05"
+   ]
+  },
+  {
+   "n": 109,
+   "id": "syd-hurstville-library-game-on",
+   "sec": "late-nov",
+   "when": "Sat Nov 28, 10am–2pm",
+   "title": "Game On! Games day at Hurstville Library",
+   "meta": "Hurstville Library, Hurstville · board games, giant chess, learn-to-play D&D, VR · free drop-in, some sessions bookable",
+   "cat": "join",
+   "url": "https://www.georgesriver.nsw.gov.au/Community/Events/What%E2%80%99s-On-Event-Information/International-Games-Month-Game-On-at-Georges-River",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.9667,
+   "lon": 151.102,
+   "q": "Hurstville Library",
+   "start": "2026-11-28",
+   "end": "2026-11-28"
+  },
+  {
+   "n": 110,
    "id": "syd-glebe-christmas-fair-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28, 12pm–8pm · Santa's sleigh ride 2pm",
@@ -1208,7 +2187,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 66,
+   "n": 111,
    "id": "syd-kim-wilde-enmore-2026-11-28",
    "sec": "late-nov",
    "when": "Sat Nov 28, doors 6:30pm (Kim Wilde 9:30pm)",
@@ -1225,7 +2204,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 67,
+   "n": 112,
    "id": "syd-kirribilli-markets-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28 (50th anniversary), Sun Dec 6 & 13, Sat Dec 19, Sun Jan 10 · 8:30am–3pm",
@@ -1246,7 +2225,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 68,
+   "n": 113,
    "id": "syd-martin-place-christmas-markets-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28–Thu Dec 24 (selected days) · 11am–9:15pm",
@@ -1281,7 +2260,77 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 69,
+   "n": 114,
+   "id": "syd-berkelouw-balgowlah-catherine-devrye",
+   "sec": "late-nov",
+   "when": "Sat Nov 28, 11am–1pm",
+   "title": "Meet the author: Catherine DeVrye, Beyond Timbuktu",
+   "meta": "Berkelouw Books Balgowlah · chat with the travel author and get a signed copy · free",
+   "cat": "learn",
+   "url": "https://www.berkelouw.com.au/events/meet-the-author-catherine-devrye-beyond-timbuktu",
+   "price": "free",
+   "local": 1,
+   "biz": "Berkelouw Books",
+   "lat": -33.7934,
+   "lon": 151.2648,
+   "q": "Berkelouw Books, 215 Condamine St, Balgowlah",
+   "start": "2026-11-28",
+   "end": "2026-11-28"
+  },
+  {
+   "n": 115,
+   "id": "syd-vol-mountain-view-reserve-bushcare",
+   "sec": "late-nov",
+   "when": "Sat Nov 28, 8am–12pm",
+   "title": "Mountain View Reserve Bushcare, Cranebrook",
+   "meta": "Mountain View Reserve (Nepean St), Cranebrook · bush regeneration with a council Bushcare officer · free, register first · under-16s with an adult",
+   "cat": "vol",
+   "url": "https://www.penrithcity.nsw.gov.au/waste-environment/environment/bushland/bushcare-groups",
+   "price": "free",
+   "lat": -33.706,
+   "lon": 150.693,
+   "q": "Mountain View Reserve, Nepean Street, Cranebrook NSW",
+   "dates": [
+    "2026-11-28"
+   ]
+  },
+  {
+   "n": 116,
+   "id": "syd-powerhouse-nik-sharma-flavour-science",
+   "sec": "late-nov",
+   "when": "Sat Nov 28, 11am–12pm",
+   "title": "Nik Sharma: Flavour Science public talk and tasting",
+   "meta": "Powerhouse Parramatta, Parramatta · food-science lecture, tasting and Q&A in the Vitocco Family Kitchen · $30, book ahead",
+   "cat": "learn",
+   "url": "https://powerhouse.com.au/program/opening-fest-flavour-science-public-talk",
+   "price": "tickets",
+   "lat": -33.813,
+   "lon": 151.008,
+   "q": "Powerhouse Parramatta",
+   "start": "2026-11-28",
+   "end": "2026-11-28"
+  },
+  {
+   "n": 117,
+   "id": "syd-canada-bay-open-maker-workshops",
+   "sec": "late-nov",
+   "when": "Sat Nov 28 & Sat Dec 12, 2–4pm",
+   "title": "Open Maker Workshops: festive 3D ornaments and Cricut holiday cards",
+   "meta": "The Learning Space, Rhodes · library makerspace: laser-cut ornaments (Nov 28), holiday cards (Dec 12) · free, book · 16+",
+   "cat": "learn",
+   "url": "https://events.humanitix.com/open-maker-workshop-3d-modelling-festive-ornaments",
+   "price": "free",
+   "tix": "https://events.humanitix.com/open-maker-workshop-digital-cutting-holiday-cards",
+   "lat": -33.83,
+   "lon": 151.087,
+   "q": "The Learning Space, The Connection, Rhodes",
+   "dates": [
+    "2026-11-28",
+    "2026-12-12"
+   ]
+  },
+  {
+   "n": 118,
    "id": "syd-flames-v-fire-2026-11-28",
    "sec": "late-nov",
    "when": "Sat Nov 28, 3pm",
@@ -1298,7 +2347,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 70,
+   "n": 119,
    "id": "syd-thunder-w-v-sixers-w-2026-11-28",
    "sec": "late-nov",
    "when": "Sat Nov 28, 7.10pm",
@@ -1316,7 +2365,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 71,
+   "n": 120,
    "id": "syd-australian-ballet-nutcracker-sydney-2026",
    "sec": "late-nov",
    "when": "Sat Nov 28–Wed Dec 16 · mostly 7:30pm, some 1:30pm matinees",
@@ -1332,7 +2381,7 @@ window.WF_DATA = {
    "end": "2026-12-16"
   },
   {
-   "n": 72,
+   "n": 121,
    "id": "syd-scg-t20i-england-2026-11-29",
    "sec": "late-nov",
    "when": "Sun Nov 29, 7.15pm",
@@ -1349,7 +2398,25 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 73,
+   "n": 122,
+   "id": "syd-sundown-lampshades-thirroul-workshop",
+   "sec": "late-nov",
+   "when": "Sun Nov 29, 11am–2pm",
+   "title": "Beginners lampshade-making workshop",
+   "meta": "Sundown Lampshades, Thirroul · make your own bespoke lampshade, no experience needed · $85, book ahead",
+   "cat": "art",
+   "url": "https://www.eventbrite.com.au/e/beginners-lampshade-workshop-thirroul-tickets-2004945399662",
+   "price": "tickets",
+   "local": 1,
+   "biz": "Sundown Lampshades",
+   "lat": -34.3156,
+   "lon": 150.9214,
+   "q": "1/282 Lawrence Hargrave Dr, Thirroul",
+   "start": "2026-11-29",
+   "end": "2026-11-29"
+  },
+  {
+   "n": 123,
    "id": "syd-coogee-island-challenge-2026",
    "sec": "late-nov",
    "when": "Sun Nov 29, from 8:30am",
@@ -1366,7 +2433,25 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 74,
+   "n": 124,
+   "id": "syd-dumps-world-dumpling-making",
+   "sec": "late-nov",
+   "when": "Sun Nov 29, 5–8pm",
+   "title": "Dumps It Yourself: dumpling-making experience",
+   "meta": "Dumps World, Glebe · fold your own dumplings, share a meal, take some home · from $242, book ahead",
+   "cat": "learn",
+   "url": "https://www.eventbrite.com.au/e/dumps-it-yourself-dumpling-making-experience-tickets-2004359480161",
+   "price": "tickets",
+   "local": 1,
+   "biz": "Dumps World",
+   "lat": -33.8804,
+   "lon": 151.1876,
+   "q": "Dumps World, 193A Glebe Point Rd, Glebe",
+   "start": "2026-11-29",
+   "end": "2026-11-29"
+  },
+  {
+   "n": 125,
    "id": "syd-powerhouse-exoskeleton-design-2026",
    "sec": "late-nov",
    "when": "Sun Nov 29, 10am–2pm",
@@ -1383,7 +2468,149 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 75,
+   "n": 126,
+   "id": "syd-vol-ray-park-bushcare",
+   "sec": "late-nov",
+   "when": "Sun Nov 29, 9am–12pm",
+   "title": "Ray Park Bushcare, Carlingford",
+   "meta": "Ray Park carpark (Plympton Rd), Carlingford · last-Sunday City of Parramatta Bushcare group · free, register via council",
+   "cat": "vol",
+   "url": "https://www.cityofparramatta.nsw.gov.au/environment/natural-areas/bushland/bushcare-volunteer",
+   "price": "free",
+   "lat": -33.777,
+   "lon": 151.057,
+   "q": "Ray Park, Plympton Road, Carlingford NSW",
+   "dates": [
+    "2026-11-29"
+   ]
+  },
+  {
+   "n": 127,
+   "id": "syd-event-cinemas-sensory-screenings",
+   "sec": "late-nov",
+   "when": "Sun Nov 29 & Tue Dec 1, first session of the day",
+   "title": "Sensory-friendly family movie screenings, Event Cinemas",
+   "meta": "Event Cinemas Parramatta (also Bondi, Burwood, Campbelltown, Castle Hill, Hornsby, Hurstville, Liverpool, Macquarie, Miranda) · lights up, sound down · $8",
+   "cat": "film",
+   "url": "https://www.eventcinemas.com.au/EventsFestivals/SensoryFriendlyScreenings",
+   "price": "tickets",
+   "aud": [
+    "sensory"
+   ],
+   "lat": -33.817,
+   "lon": 151.003,
+   "q": "Event Cinemas Parramatta",
+   "dates": [
+    "2026-11-29",
+    "2026-12-01"
+   ]
+  },
+  {
+   "n": 128,
+   "id": "syd-art-syndicate-sip-happens",
+   "sec": "late-nov",
+   "when": "Sun Nov 29, 3–5pm",
+   "title": "Sip Happens: NSW vs the World wine tasting",
+   "meta": "The Art Syndicate, Surry Hills · two sommeliers, six wines, blind face-off · from $74, book ahead",
+   "cat": "food",
+   "url": "https://www.eventbrite.com.au/e/sip-happens-nsw-vs-the-world-wine-tasting-tickets-1995615301086",
+   "price": "tickets",
+   "local": 1,
+   "biz": "The Art Syndicate",
+   "lat": -33.8884,
+   "lon": 151.2154,
+   "q": "The Art Syndicate, 344 Bourke St, Surry Hills",
+   "start": "2026-11-29",
+   "end": "2026-11-29"
+  },
+  {
+   "n": 129,
+   "id": "syd-south-head-tunnels-tour",
+   "sec": "late-nov",
+   "when": "Sun Nov 29, 10:30am, 11:30am or 12:30pm",
+   "title": "South Head tunnels guided walk",
+   "meta": "Hornby Lighthouse, South Head (Watsons Bay) · 1.8km NPWS tour of historic tunnels · book ahead, adult $25 · ages 16+",
+   "cat": "join",
+   "url": "https://www.nationalparks.nsw.gov.au/things-to-do/guided-tours/south-head-tunnels-tour",
+   "price": "tickets",
+   "lat": -33.8335,
+   "lon": 151.281,
+   "q": "Hornby Lighthouse South Head",
+   "start": "2026-11-29",
+   "end": "2026-11-29"
+  },
+  {
+   "n": 130,
+   "id": "syd-sugarfest-chau-chak-wing",
+   "sec": "late-nov",
+   "when": "Sun Nov 29, 12–4pm",
+   "title": "SugarFest: Oceanic culture, history and music",
+   "meta": "Chau Chak Wing Museum, Camperdown · Pacific & South Sea Islander music, dance, weaving, food stalls, film · free",
+   "cat": "cult",
+   "url": "https://www.sydney.edu.au/museum/whats-on/talks-and-events/sugarfest.html",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.8862,
+   "lon": 151.1886,
+   "q": "Chau Chak Wing Museum, Camperdown",
+   "start": "2026-11-29",
+   "end": "2026-11-29"
+  },
+  {
+   "n": 131,
+   "id": "syd-unsw-house-future-of-history",
+   "sec": "late-nov",
+   "when": "Sun Nov 29, 11am, 1pm & 4pm",
+   "title": "The Future of History: talks at UNSW House",
+   "meta": "UNSW House, Powerhouse Parramatta · three short talks on objects, memory and digital archives · free, drop in",
+   "cat": "learn",
+   "url": "https://powerhouse.com.au/program/opening-fest-the-future-of-history",
+   "price": "free",
+   "lat": -33.813,
+   "lon": 151.008,
+   "q": "Powerhouse Parramatta",
+   "start": "2026-11-29",
+   "end": "2026-11-29"
+  },
+  {
+   "n": 132,
+   "id": "syd-waverley-seniors-morning-tea-nursery-rhymes",
+   "sec": "late-nov",
+   "when": "Mon Nov 30, 10am–12pm",
+   "title": "Seniors morning tea: the hidden history of nursery rhymes",
+   "meta": "Waverley Library theatrette, Bondi Junction · talk by historian Susan Ackroyd with morning tea · free, book ahead",
+   "cat": "learn",
+   "url": "https://whatson.cityofsydney.nsw.gov.au/events/seniors-morning-tea-rhyme-and-reason-with-susan-ackroyd",
+   "price": "free",
+   "aud": [
+    "seniors"
+   ],
+   "lat": -33.8925,
+   "lon": 151.2486,
+   "q": "Waverley Library, 32-48 Denison St Bondi Junction",
+   "start": "2026-11-30",
+   "end": "2026-11-30"
+  },
+  {
+   "n": 133,
+   "id": "syd-slnsw-fresh-takes-summer",
+   "sec": "early-dec",
+   "when": "Tue Dec 1, 6–7:30pm",
+   "title": "Fresh Takes: Summer '26 author readings",
+   "meta": "State Library of NSW, Sydney · six authors read new works (Richard Cooke, Eleanor Limprecht and more) · free, register",
+   "cat": "learn",
+   "url": "https://www.sl.nsw.gov.au/events/fresh-takes-summer-26",
+   "price": "free",
+   "lat": -33.8661,
+   "lon": 151.2131,
+   "q": "State Library of NSW",
+   "start": "2026-12-01",
+   "end": "2026-12-01"
+  },
+  {
+   "n": 134,
    "id": "syd-j-cole-sydney-2026-12-02",
    "sec": "early-dec",
    "when": "Tue Dec 1 & Wed Dec 2, 7pm",
@@ -1399,7 +2626,7 @@ window.WF_DATA = {
    "end": "2026-12-02"
   },
   {
-   "n": 76,
+   "n": 135,
    "id": "syd-sso-harry-potter-philosophers-stone-2026",
    "sec": "early-dec",
    "when": "Wed Dec 2–Sat Dec 5 · 7pm, plus Sat 2pm · film with live orchestra",
@@ -1415,7 +2642,39 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 77,
+   "n": 136,
+   "id": "syd-rbg-talking-plants-tim-entwisle",
+   "sec": "early-dec",
+   "when": "Wed Dec 2, 10–11:30am",
+   "title": "Talking Plants with Tim Entwisle (live)",
+   "meta": "Royal Botanic Garden Sydney · plant-science talk series with botanist Tim Entwisle · $45, book ahead",
+   "cat": "learn",
+   "url": "https://www.botanicgardens.org.au/whats-on/talking-plants-tim-entwisle-live",
+   "price": "tickets",
+   "lat": -33.8642,
+   "lon": 151.2166,
+   "q": "Royal Botanic Garden Sydney",
+   "start": "2026-12-02",
+   "end": "2026-12-02"
+  },
+  {
+   "n": 137,
+   "id": "syd-sasi-green-point-speaker-night",
+   "sec": "early-dec",
+   "when": "Thu Dec 3, 7:30pm",
+   "title": "Astronomy guest speaker night: Katherine Stewardson (UNSW Canberra)",
+   "meta": "Green Point Observatory, Oyster Bay · Sutherland Astronomical Society monthly talk, 7:30pm, visitors welcome",
+   "cat": "learn",
+   "url": "https://www.sasi.net.au/",
+   "price": "free",
+   "lat": -34.0008,
+   "lon": 151.0845,
+   "q": "Green Point Observatory, Oyster Bay",
+   "start": "2026-12-03",
+   "end": "2026-12-03"
+  },
+  {
+   "n": 138,
    "id": "syd-film-behemoth",
    "sec": "early-dec",
    "when": "Opens Thu Dec 3",
@@ -1428,7 +2687,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 78,
+   "n": 139,
    "id": "syd-film-boss-cat",
    "sec": "early-dec",
    "when": "Opens Thu Dec 3",
@@ -1441,7 +2700,28 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 79,
+   "n": 140,
+   "id": "syd-marrickville-disability-pride-idpwd",
+   "sec": "early-dec",
+   "when": "Thu Dec 3, 4:30–8pm",
+   "title": "Disability Pride flag-raising, music and short films (IDPwD)",
+   "meta": "Marrickville Library & Pavilion · live music, badge-making, films by local artists with disability · Auslan, captions, quiet spaces · free, RSVP",
+   "cat": "evt",
+   "url": "https://whatson.cityofsydney.nsw.gov.au/events/disability-pride-flag-raising-ceremony",
+   "price": "free",
+   "aud": [
+    "all",
+    "access",
+    "sensory"
+   ],
+   "lat": -33.911,
+   "lon": 151.155,
+   "q": "Marrickville Library and Pavilion, 313 Marrickville Rd",
+   "start": "2026-12-03",
+   "end": "2026-12-03"
+  },
+  {
+   "n": 141,
    "id": "syd-forma-veronicas-peach-prc-2026",
    "sec": "early-dec",
    "when": "Thu Dec 3, 5pm–11pm",
@@ -1458,7 +2738,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 80,
+   "n": 142,
    "id": "syd-northern-beaches-christmas-choral-concert-2026",
    "sec": "early-dec",
    "when": "Thu Dec 3 · gates 5pm, concert 6pm",
@@ -1474,7 +2754,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 81,
+   "n": 143,
    "id": "syd-film-the-uprising",
    "sec": "early-dec",
    "when": "Opens Thu Dec 3",
@@ -1487,7 +2767,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 82,
+   "n": 144,
    "id": "syd-film-violent-night-2",
    "sec": "early-dec",
    "when": "Opens Thu Dec 3",
@@ -1500,7 +2780,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 83,
+   "n": 145,
    "id": "syd-magm-chromatic-luminosity-2026",
    "sec": "early-dec",
    "when": "Opens Fri Dec 4 (runs to Feb 21)",
@@ -1516,7 +2796,44 @@ window.WF_DATA = {
    "end": "2027-02-21"
   },
   {
-   "n": 84,
+   "n": 146,
+   "id": "syd-bayside-walk-against-gbv",
+   "sec": "early-dec",
+   "when": "Fri Dec 4, 7:30–9am",
+   "title": "Community Walk Against Gender-Based Violence",
+   "meta": "Ramsgate Life Saving Club, Ramsgate Beach · walk to Dolls Point, wear orange, BBQ after · free, no registration",
+   "cat": "join",
+   "url": "https://www.bayside.nsw.gov.au/whats-on/community-walk-against-gender-based-violence",
+   "price": "free",
+   "lat": -33.984,
+   "lon": 151.1495,
+   "q": "Ramsgate Life Saving Club",
+   "start": "2026-12-04",
+   "end": "2026-12-04"
+  },
+  {
+   "n": 147,
+   "id": "syd-grooveable-christmas-disco-adults",
+   "sec": "early-dec",
+   "when": "Fri Dec 4, 6–9pm",
+   "title": "GrooveABLE Christmas disco for adults with disability (18+)",
+   "meta": "Dee Why PCYC, Dee Why · DJ, pizza, drinks & goodie bag · carers free · $20 early bird to Nov 27, then $25",
+   "cat": "join",
+   "url": "https://www.northernbeaches.nsw.gov.au/things-to-do/whats-on/christmas-disability-disco-adults",
+   "price": "tickets",
+   "tix": "https://www.trybooking.com/DQSZW",
+   "aud": [
+    "adults",
+    "access"
+   ],
+   "lat": -33.752,
+   "lon": 151.287,
+   "q": "Dee Why PCYC, 40 Kingsway Dee Why",
+   "start": "2026-12-04",
+   "end": "2026-12-04"
+  },
+  {
+   "n": 148,
    "id": "syd-hawks-v-kings-2026-12-04",
    "sec": "early-dec",
    "when": "Fri Dec 4, 7.30pm",
@@ -1533,7 +2850,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 85,
+   "n": 149,
    "id": "syd-big-live-nutcracker-capitol-2026",
    "sec": "early-dec",
    "when": "Fri Dec 4–Wed Dec 23 · matinees & evenings",
@@ -1550,7 +2867,24 @@ window.WF_DATA = {
    "end": "2026-12-23"
   },
   {
-   "n": 86,
+   "n": 150,
+   "id": "syd-vol-baludarri-wetlands-bushcare",
+   "sec": "early-dec",
+   "when": "Sat Dec 5, 8:30–11am",
+   "title": "Baludarri Wetlands Bushcare, Parramatta",
+   "meta": "Baludarri Wetlands (cnr Broughton & Pemberton St), Parramatta · monthly City of Parramatta Bushcare group · free, register via council",
+   "cat": "vol",
+   "url": "https://www.cityofparramatta.nsw.gov.au/environment/natural-areas/bushland/bushcare-volunteer",
+   "price": "free",
+   "lat": -33.811,
+   "lon": 150.9905,
+   "q": "Baludarri Wetlands, Parramatta NSW",
+   "dates": [
+    "2026-12-05"
+   ]
+  },
+  {
+   "n": 151,
    "id": "syd-campbelltown-christmas-carols-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5, 5pm–9pm · Santa ~8:30pm, fireworks 9pm",
@@ -1566,7 +2900,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 87,
+   "n": 152,
    "id": "syd-carols-in-willoughby-park-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5, 4pm–9pm · carols ~6:30pm",
@@ -1582,7 +2916,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 88,
+   "n": 153,
    "id": "syd-christmas-live-taronga-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5, 6–8:30pm (zoo entry from 2pm included)",
@@ -1598,7 +2932,25 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 89,
+   "n": 154,
+   "id": "syd-clae-works-ceramic-market",
+   "sec": "early-dec",
+   "when": "Sat Dec 5, 10am–3pm",
+   "title": "Clae Works Ceramic Market",
+   "meta": "Clae Works clay studio, Balgowlah · meet the makers, handmade ceramics & gifts, free ornament making · free",
+   "cat": "mkt",
+   "url": "https://www.eventbrite.com/e/clae-works-ceramic-market-2026-tickets-2004454181415",
+   "price": "free",
+   "local": 1,
+   "biz": "Clae Works",
+   "lat": -33.7886,
+   "lon": 151.2676,
+   "q": "Clae Works, 28-34 Roseberry St, Balgowlah",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 155,
    "id": "syd-darling-harbour-christmas-fireworks-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5, 12 & 19, 9pm · floating tree Nov 20–Dec 26",
@@ -1617,7 +2969,25 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 90,
+   "n": 156,
+   "id": "syd-kebab-joint-penrith-elf-legs-kids",
+   "sec": "early-dec",
+   "when": "Sat Dec 5, 11am–12pm",
+   "title": "Kids' Christmas craft: paint & decorate elf legs",
+   "meta": "Turkish Kebab Joint, Penrith · festive kids' painting workshop at a local eatery · from $3, book ahead",
+   "cat": "kids",
+   "url": "https://www.eventbrite.com/e/kids-arts-crafts-workshop-paint-decorate-elf-legs-tickets-2004924491124",
+   "price": "tickets",
+   "local": 1,
+   "biz": "Turkish Kebab Joint",
+   "lat": -33.7469,
+   "lon": 150.7035,
+   "q": "Turkish Kebab Joint, 121 Coreen Ave, Penrith",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 157,
    "id": "syd-magic-of-christmas-carss-park-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5, 4:30pm–9pm",
@@ -1633,7 +3003,23 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 91,
+   "n": 158,
+   "id": "syd-darling-square-makertime-festive",
+   "sec": "early-dec",
+   "when": "Sat Dec 5, 11am–2pm",
+   "title": "Makertime for families: Festive edition",
+   "meta": "Darling Square Library makerspace, Haymarket · cards, microscopes, Ozobot robots, Makey Makey · free, no booking · ages 8+",
+   "cat": "learn",
+   "url": "https://whatson.cityofsydney.nsw.gov.au/events/makertime-for-families-festive-edition-8yrs",
+   "price": "free",
+   "lat": -33.8775,
+   "lon": 151.2025,
+   "q": "Darling Square Library, Haymarket",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 159,
    "id": "syd-gosford-scale-donna-marcus-2026",
    "sec": "early-dec",
    "when": "Sat Dec 5–Sun Jan 31 (opening Fri Dec 4, 6pm)",
@@ -1649,7 +3035,7 @@ window.WF_DATA = {
    "end": "2027-01-31"
   },
   {
-   "n": 92,
+   "n": 160,
    "id": "syd-agnsw-takashi-murakami-2026",
    "sec": "early-dec",
    "when": "Opens Sat Dec 5 (runs to Jul 18)",
@@ -1666,7 +3052,40 @@ window.WF_DATA = {
    "end": "2027-07-18"
   },
   {
-   "n": 93,
+   "n": 161,
+   "id": "syd-vol-tempe-wetlands-bushcare",
+   "sec": "early-dec",
+   "when": "Sat Dec 5, 9am–12pm",
+   "title": "Tempe Wetlands Bushcare working bee",
+   "meta": "Tempe Wetlands, Tempe · weeding & planting with a bush regenerator, tools & morning tea provided · free, RSVP essential · ages 16+",
+   "cat": "vol",
+   "url": "https://www.innerwest.nsw.gov.au/bushland-parks-and-verges/bushcare-programs",
+   "price": "free",
+   "lat": -33.9245,
+   "lon": 151.1655,
+   "q": "Tempe Wetlands, Tempe NSW",
+   "dates": [
+    "2026-12-05"
+   ]
+  },
+  {
+   "n": 162,
+   "id": "syd-fixery-cromer",
+   "sec": "early-dec",
+   "when": "Sat Dec 5, 10:30am–1pm",
+   "title": "The Fixery repair café",
+   "meta": "Cromer Community Centre, North Cromer · volunteers fix small items for free · Northern Beaches residents, book a slot (opens Nov 20)",
+   "cat": "join",
+   "url": "https://www.northernbeaches.nsw.gov.au/things-to-do/whats-on/fixery",
+   "price": "free",
+   "lat": -33.738,
+   "lon": 151.278,
+   "q": "Cromer Community Centre 150 Fisher Road North",
+   "start": "2026-12-05",
+   "end": "2026-12-05"
+  },
+  {
+   "n": 163,
    "id": "syd-wanderers-v-perth-2026-12-05",
    "sec": "early-dec",
    "when": "Sat Dec 5, 7.40pm",
@@ -1683,7 +3102,25 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 94,
+   "n": 164,
+   "id": "syd-fab-organic-christmas-wine-tasting",
+   "sec": "early-dec",
+   "when": "Sun Dec 6, 2–6pm",
+   "title": "Christmas wine tasting: 20 organic wines around the world",
+   "meta": "FAB Organic Wine & Spirits, Surry Hills · 20 organic wines incl. Champagne; ticket back when you buy 3 bottles · from $33",
+   "cat": "food",
+   "url": "https://www.eventbrite.com.au/e/christmas-wine-tasting-20-wines-around-the-world-tickets-2004633612097",
+   "price": "tickets",
+   "local": 1,
+   "biz": "FAB Organic Wine & Spirits",
+   "lat": -33.88,
+   "lon": 151.209,
+   "q": "FAB Organic Wine & Spirits, 202 Elizabeth St, Surry Hills",
+   "start": "2026-12-06",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 165,
    "id": "syd-clovelly-carols-2026",
    "sec": "early-dec",
    "when": "Sun Dec 6, 4pm–7pm",
@@ -1699,7 +3136,24 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 95,
+   "n": 166,
+   "id": "syd-vol-manly-beach-clean",
+   "sec": "early-dec",
+   "when": "Sun Dec 6, 3–4pm",
+   "title": "Manly Beach community clean-up",
+   "meta": "Manly Beach (South Steyne, opp. Manly Grill), Manly · monthly beach clean run by Curl Curl Community · free, just turn up",
+   "cat": "vol",
+   "url": "https://www.northernbeaches.nsw.gov.au/things-to-do/whats-on/beach-clean-manly-beach",
+   "price": "free",
+   "lat": -33.799,
+   "lon": 151.2875,
+   "q": "11 South Steyne, Manly NSW",
+   "dates": [
+    "2026-12-06"
+   ]
+  },
+  {
+   "n": 167,
    "id": "syd-penrith-symphony-messiah-2026",
    "sec": "early-dec",
    "when": "Sun Dec 6",
@@ -1715,7 +3169,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 96,
+   "n": 168,
    "id": "syd-pyrmont-christmas-concert-2026",
    "sec": "early-dec",
    "when": "Sun Dec 6, 5:30–8:30pm",
@@ -1731,7 +3185,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 97,
+   "n": 169,
    "id": "syd-sydney-fc-v-victory-2026-12-06",
    "sec": "early-dec",
    "when": "Sun Dec 6, 5pm",
@@ -1749,7 +3203,24 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 98,
+   "n": 170,
+   "id": "syd-we-are-one-bondi-chanukah",
+   "sec": "early-dec",
+   "when": "Sun Dec 6, 5:30–9pm",
+   "title": "We Are One: Bondi commemoration & Chanukah celebration",
+   "meta": "Bondi (exact site sent to registered guests) · menorah lighting, live Jewish music, remembrance · free, register ahead",
+   "cat": "cult",
+   "url": "https://events.humanitix.com/we-are-one-2026",
+   "price": "free",
+   "tix": "https://events.humanitix.com/we-are-one-2026",
+   "lat": -33.8915,
+   "lon": 151.2767,
+   "q": "Bondi Beach",
+   "start": "2026-12-06",
+   "end": "2026-12-06"
+  },
+  {
+   "n": 171,
    "id": "syd-back-to-the-tivoli-christmas-glen-street-2026",
    "sec": "early-dec",
    "when": "Mon Dec 7, 11am",
@@ -1766,7 +3237,7 @@ window.WF_DATA = {
    "end": "2026-12-07"
   },
   {
-   "n": 99,
+   "n": 172,
    "id": "syd-nida-open-teen-summer-2026",
    "sec": "early-dec",
    "when": "Mon Dec 7–Fri Jan 22 (1–5 day courses)",
@@ -1782,7 +3253,23 @@ window.WF_DATA = {
    "end": "2027-01-22"
   },
   {
-   "n": 100,
+   "n": 173,
+   "id": "syd-kogarah-library-board-game-night",
+   "sec": "early-dec",
+   "when": "Wed Dec 9, 5:30–7:30pm",
+   "title": "Board game night at Kogarah Library",
+   "meta": "Clive James Kogarah Library, Kogarah · tabletop games provided or bring your own · free, book a spot · ages 16+",
+   "cat": "join",
+   "url": "https://www.georgesriver.nsw.gov.au/Community/Events/What%E2%80%99s-On-Event-Information/Board-Game-Night-December",
+   "price": "free",
+   "lat": -33.9645,
+   "lon": 151.133,
+   "q": "Clive James Kogarah Library",
+   "start": "2026-12-09",
+   "end": "2026-12-09"
+  },
+  {
+   "n": 174,
    "id": "syd-carols-by-the-sea-bondi-2026",
    "sec": "early-dec",
    "when": "Wed Dec 9, from 5pm",
@@ -1798,7 +3285,7 @@ window.WF_DATA = {
    "end": "2026-12-09"
   },
   {
-   "n": 101,
+   "n": 175,
    "id": "syd-christmas-actually-soh-2026",
    "sec": "early-dec",
    "when": "Wed Dec 9–Sun Dec 13",
@@ -1814,7 +3301,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 102,
+   "n": 176,
    "id": "syd-film-big-girls-dont-cry",
    "sec": "early-dec",
    "when": "Opens Thu Dec 10",
@@ -1827,7 +3314,25 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 103,
+   "n": 177,
+   "id": "syd-newtown-open-mic-852",
+   "sec": "early-dec",
+   "when": "Thu Dec 10, 6–9pm",
+   "title": "Newtown open mic night (music, comedy, poetry)",
+   "meta": "8:52 Hong Kong Restaurant, Newtown · 15 slots, sign up from 5:30pm, free drink for performers · free",
+   "cat": "join",
+   "url": "https://events.humanitix.com/free-event-newtown-open-mic-night-music-poetry-comedy",
+   "price": "free",
+   "local": 1,
+   "biz": "8:52 Hong Kong Restaurant",
+   "lat": -33.8975,
+   "lon": 151.1781,
+   "q": "503 King St Newtown",
+   "start": "2026-12-10",
+   "end": "2026-12-10"
+  },
+  {
+   "n": 178,
    "id": "syd-brandenburg-noel-noel-2026",
    "sec": "early-dec",
    "when": "Thu Dec 10–Sat Dec 12",
@@ -1843,7 +3348,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 104,
+   "n": 179,
    "id": "syd-nutcracker-on-ice-rooty-hill-2026",
    "sec": "early-dec",
    "when": "Thu Dec 10–Sun Dec 20 (no show Dec 14)",
@@ -1859,7 +3364,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 105,
+   "n": 180,
    "id": "syd-film-zero-ad",
    "sec": "early-dec",
    "when": "Opens Thu Dec 10",
@@ -1872,7 +3377,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 106,
+   "n": 181,
    "id": "syd-believe-christmas-musical-2026",
    "sec": "early-dec",
    "when": "Fri Dec 11–Mon Dec 21 (Fri–Sun + Mon 21), 11am–2pm & evening sessions",
@@ -1895,7 +3400,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 107,
+   "n": 182,
    "id": "syd-christmas-by-the-beach-dee-why-2026",
    "sec": "early-dec",
    "when": "Fri Dec 11, 4pm–7:30pm · carols 6pm",
@@ -1911,7 +3416,50 @@ window.WF_DATA = {
    "end": "2026-12-11"
   },
   {
-   "n": 108,
+   "n": 183,
+   "id": "syd-cos-seniors-christmas-reception",
+   "sec": "early-dec",
+   "when": "Fri Dec 11, 11am–2pm",
+   "title": "City of Sydney Seniors Christmas reception",
+   "meta": "Centennial Hall, Sydney Town Hall · canapes & dancing to Salsa Kingz · free, ballot closes Mon Nov 23 10am · 65+ City of Sydney residents (Aboriginal 50+)",
+   "cat": "hol",
+   "url": "https://whatson.cityofsydney.nsw.gov.au/events/seniors-christmas-reception",
+   "price": "free",
+   "aud": [
+    "seniors"
+   ],
+   "lat": -33.8732,
+   "lon": 151.2067,
+   "q": "Sydney Town Hall Centennial Hall",
+   "start": "2026-12-11",
+   "end": "2026-12-11"
+  },
+  {
+   "n": 184,
+   "id": "syd-fmd-white-rabbit",
+   "sec": "early-dec",
+   "when": "Reopens Fri Dec 11; Wed–Sun, tours 11am & 3pm",
+   "title": "Free day at White Rabbit Gallery",
+   "meta": "White Rabbit Gallery, Chippendale · free entry · new show Gen Xi of Chinese contemporary art; teahouse reopens too",
+   "cat": "fmd",
+   "url": "https://www.whiterabbitgallery.org/visit",
+   "price": "free",
+   "lat": -33.886,
+   "lon": 151.1985,
+   "q": "White Rabbit Gallery, 30 Balfour Street, Chippendale",
+   "dates": [
+    "2026-12-11",
+    "2026-12-12",
+    "2026-12-13",
+    "2026-12-16",
+    "2026-12-17",
+    "2026-12-18",
+    "2026-12-19",
+    "2026-12-20"
+   ]
+  },
+  {
+   "n": 185,
    "id": "syd-handels-messiah-sydney-opera-house-2026",
    "sec": "early-dec",
    "when": "Fri Dec 11 8pm · Sat Dec 12 & Sun Dec 13 1pm",
@@ -1930,7 +3478,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 109,
+   "n": 186,
    "id": "syd-bayside-carols-by-the-sea-2026",
    "sec": "early-dec",
    "when": "Sat Dec 12, 6pm–9pm",
@@ -1946,7 +3494,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 110,
+   "n": 187,
    "id": "syd-carols-in-parramatta-park-2026",
    "sec": "early-dec",
    "when": "Sat Dec 12, from 3pm · main show 5pm, fireworks 9pm",
@@ -1962,7 +3510,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 111,
+   "n": 188,
    "id": "syd-balmain-carols-in-the-park-2026",
    "sec": "early-dec",
    "when": "Sat Dec 12, from 7pm · raffle 8pm",
@@ -1970,6 +3518,9 @@ window.WF_DATA = {
    "meta": "Gladstone Park, Balmain · family picnic carols with The Lancer Band",
    "cat": "hol",
    "url": "https://www.goodinthehood.com.au/carols-in-the-park",
+   "aud": [
+    "all"
+   ],
    "lat": -33.859,
    "lon": 151.179,
    "q": "Gladstone Park Balmain",
@@ -1977,7 +3528,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 112,
+   "n": 189,
    "id": "syd-christmas-in-the-gardens-auburn-2026",
    "sec": "early-dec",
    "when": "Sat Dec 12, 5pm–9pm",
@@ -1993,7 +3544,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 113,
+   "n": 190,
    "id": "syd-courtney-marie-andrews-factory-2026-12-12",
    "sec": "early-dec",
    "when": "Sat Dec 12, 8pm",
@@ -2010,7 +3561,23 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 114,
+   "n": 191,
+   "id": "syd-french-christmas-market-lcs",
+   "sec": "early-dec",
+   "when": "Sat Dec 12, 10am–3pm",
+   "title": "French Christmas Market",
+   "meta": "Maroubra Junction High School, Maroubra · Christmas the French way: food, makers, music, by Lycée Condorcet · free entry",
+   "cat": "cult",
+   "url": "https://www.condorcet.com.au/french-christmas-market-by-lcs-2026/",
+   "price": "free",
+   "lat": -33.9445,
+   "lon": 151.2385,
+   "q": "Maroubra Junction High School, 758 Anzac Parade",
+   "start": "2026-12-12",
+   "end": "2026-12-12"
+  },
+  {
+   "n": 192,
    "id": "syd-harry-styles-sydney-2026-12-12",
    "sec": "early-dec",
    "when": "Sat Dec 12 & Sun Dec 13, 5pm",
@@ -2027,7 +3594,24 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 115,
+   "n": 193,
+   "id": "syd-vol-marri-badoo-bushcare",
+   "sec": "early-dec",
+   "when": "Sat Dec 12, 9am–12pm",
+   "title": "Marri Badoo Bushcare, Rydalmere",
+   "meta": "Marri Badoo Reserve (between 3 & 4 Ellimatta St), Rydalmere · City of Parramatta Bushcare group · free, register via council",
+   "cat": "vol",
+   "url": "https://www.cityofparramatta.nsw.gov.au/environment/natural-areas/bushland/bushcare-volunteer",
+   "price": "free",
+   "lat": -33.807,
+   "lon": 151.0315,
+   "q": "Marri Badoo Reserve, Ellimatta Street, Rydalmere NSW",
+   "dates": [
+    "2026-12-12"
+   ]
+  },
+  {
+   "n": 194,
    "id": "syd-michelle-buteau-enmore-2026-12-12",
    "sec": "early-dec",
    "when": "Sat Dec 12, 6:30pm",
@@ -2044,7 +3628,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 116,
+   "n": 195,
    "id": "syd-surry-hills-christmas-fair-2026",
    "sec": "early-dec",
    "when": "Sat Dec 12, 12–10pm",
@@ -2060,7 +3644,25 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 117,
+   "n": 196,
+   "id": "syd-timbermill-studios-summer-open-day",
+   "sec": "early-dec",
+   "when": "Sat Dec 12, 9am–3pm",
+   "title": "Timbermill Studios Summer Open Day",
+   "meta": "Timbermill Studios, Bulli · resident artists open the old mill: workshops, demos, art & gift shopping · free",
+   "cat": "art",
+   "url": "https://www.eventbrite.com/e/timbermill-studios-summer-open-day-tickets-2004938646463",
+   "price": "free",
+   "local": 1,
+   "biz": "Timbermill Studios",
+   "lat": -34.337,
+   "lon": 150.9124,
+   "q": "Timbermill Studios, 6 Molloy St, Bulli",
+   "start": "2026-12-12",
+   "end": "2026-12-12"
+  },
+  {
+   "n": 197,
    "id": "syd-vladswim-balmoral-2026",
    "sec": "early-dec",
    "when": "Sat Dec 12",
@@ -2076,7 +3678,58 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 118,
+   "n": 198,
+   "id": "syd-vol-werrington-creek-bushcare",
+   "sec": "early-dec",
+   "when": "Sat Dec 12, 8am–12pm",
+   "title": "Werrington Creek Bushcare",
+   "meta": "Werrington Lake carpark (by playground, off Burton St), Werrington · weeding, planting, litter pick-up · free, register first · under-16s with an adult",
+   "cat": "vol",
+   "url": "https://www.penrithcity.nsw.gov.au/waste-environment/environment/bushland/bushcare-groups",
+   "price": "free",
+   "lat": -33.754,
+   "lon": 150.747,
+   "q": "Werrington Lake, Burton Street, Werrington NSW",
+   "dates": [
+    "2026-12-12"
+   ]
+  },
+  {
+   "n": 199,
+   "id": "syd-blak-markets-la-perouse",
+   "sec": "early-dec",
+   "when": "Sun Dec 13, 9am–2pm",
+   "title": "Blak Markets at La Perouse",
+   "meta": "La Perouse Museum, La Perouse · First Nations art, crafts, bush-food stalls, 100% of profits to Aboriginal communities · free entry",
+   "cat": "cult",
+   "url": "https://www.blakmarkets.com.au/event",
+   "price": "free",
+   "lat": -33.9875,
+   "lon": 151.2318,
+   "q": "La Perouse Museum",
+   "start": "2026-12-13",
+   "end": "2026-12-13"
+  },
+  {
+   "n": 200,
+   "id": "syd-create-and-make-venetian-mask",
+   "sec": "early-dec",
+   "when": "Sun Dec 13, 10am–1pm",
+   "title": "Make a Venetian mask workshop",
+   "meta": "Create and Make Workshop, Surry Hills · decorate your own classic Venetian mask, materials included · $122, book ahead",
+   "cat": "art",
+   "url": "https://www.eventbrite.com.au/e/create-your-very-own-beautiful-venetian-mask-workshop-tickets-2004539603916",
+   "price": "tickets",
+   "local": 1,
+   "biz": "Wonder Mama's Create and Make Workshops",
+   "lat": -33.8881,
+   "lon": 151.208,
+   "q": "Create and Make Workshop, 507 Elizabeth St, Surry Hills",
+   "start": "2026-12-13",
+   "end": "2026-12-13"
+  },
+  {
+   "n": 201,
    "id": "syd-carols-on-the-common-2026",
    "sec": "early-dec",
    "when": "Sun Dec 13, 5pm–9:30pm · fireworks finale",
@@ -2092,7 +3745,7 @@ window.WF_DATA = {
    "end": "2026-12-13"
   },
   {
-   "n": 119,
+   "n": 202,
    "id": "syd-guns-n-roses-sydney-2026-12-14",
    "sec": "mid-dec",
    "when": "Mon Dec 14, 6:15pm (gates 5:30pm)",
@@ -2109,7 +3762,23 @@ window.WF_DATA = {
    "end": "2026-12-14"
   },
   {
-   "n": 120,
+   "n": 203,
+   "id": "syd-macarthur-astronomy-forum",
+   "sec": "mid-dec",
+   "when": "Mon Dec 14, 7:30–9:30pm",
+   "title": "Macarthur Astronomy Forum: Prof Geraint Lewis",
+   "meta": "Western Sydney University, Campbelltown · cosmologist's public talk, Building 21 Lecture Theatre 6 · free, public welcome",
+   "cat": "learn",
+   "url": "https://www.macastro.org.au/guest-speakers/",
+   "price": "free",
+   "lat": -34.067,
+   "lon": 150.784,
+   "q": "Western Sydney University Campbelltown campus",
+   "start": "2026-12-14",
+   "end": "2026-12-14"
+  },
+  {
+   "n": 204,
    "id": "syd-very-cranky-bear-2026",
    "sec": "mid-dec",
    "when": "Tue Dec 15–Wed Dec 23, 10:30am, 12:30pm & 3pm sessions",
@@ -2125,7 +3794,26 @@ window.WF_DATA = {
    "end": "2026-12-23"
   },
   {
-   "n": 121,
+   "n": 205,
+   "id": "syd-ryde-cultural-encounters",
+   "sec": "mid-dec",
+   "when": "Wed Dec 16, 6:30–8:30pm",
+   "title": "Cultural Encounters: multicultural music, dance & poetry",
+   "meta": "Lachlan's Line Auditorium, North Ryde · launch of City of Ryde's quarterly series, kids' craft corner · free, register",
+   "cat": "cult",
+   "url": "https://www.ryde.nsw.gov.au/Events/Listing/Eventbrite/Cultural-Encounters-–-Celebrating-Multicultural-Performative-Arts-1987286791289",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.7955,
+   "lon": 151.1385,
+   "q": "Lachlan's Line, Jarvis Circuit, North Ryde",
+   "start": "2026-12-16",
+   "end": "2026-12-16"
+  },
+  {
+   "n": 206,
    "id": "syd-film-dune-part-three",
    "sec": "mid-dec",
    "when": "Opens Wed Dec 16",
@@ -2138,7 +3826,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 122,
+   "n": 207,
    "id": "syd-film-avengers-doomsday",
    "sec": "mid-dec",
    "when": "Opens Thu Dec 17",
@@ -2151,7 +3839,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 123,
+   "n": 208,
    "id": "syd-christmas-carol-goes-wrong-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 17–Tue Dec 29 (not Dec 21 or 25), 1:30pm & 7pm",
@@ -2178,7 +3866,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 124,
+   "n": 209,
    "id": "syd-wiggles-wollongong-2026-12-17",
    "sec": "mid-dec",
    "when": "Thu Dec 17, 10am & 1:30pm",
@@ -2195,7 +3883,7 @@ window.WF_DATA = {
    "end": "2026-12-17"
   },
   {
-   "n": 125,
+   "n": 210,
    "id": "syd-troy-kinne-monty-franklin-penrith-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 17",
@@ -2211,7 +3899,23 @@ window.WF_DATA = {
    "end": "2026-12-17"
   },
   {
-   "n": 126,
+   "n": 211,
+   "id": "syd-river-city-christmas",
+   "sec": "mid-dec",
+   "when": "Fri Dec 18, 7:30–9pm",
+   "title": "A River City Christmas: songs of light from around the world",
+   "meta": "St Patrick's Cathedral, Parramatta · River City Voices sing in Ukrainian, Hindi, Tagalog, Arabic and more · $15",
+   "cat": "cult",
+   "url": "https://atparramatta.com/whats-on/river-city-christmas",
+   "price": "tickets",
+   "lat": -33.8095,
+   "lon": 151.003,
+   "q": "St Patrick's Cathedral Parramatta",
+   "start": "2026-12-18",
+   "end": "2026-12-18"
+  },
+  {
+   "n": 212,
    "id": "syd-carols-in-the-stadium-gosford-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19 · gates 4:30pm, carols 6pm–9pm, fireworks finale",
@@ -2227,7 +3931,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 127,
+   "n": 213,
    "id": "syd-hillsong-carols-norwest-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19 & Sun Dec 20 · shows 1pm, 4pm, 7pm",
@@ -2243,7 +3947,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 128,
+   "n": 214,
    "id": "syd-thunder-v-sixers-2026-12-19",
    "sec": "mid-dec",
    "when": "Sat Dec 19, 7.15pm",
@@ -2261,7 +3965,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 129,
+   "n": 215,
    "id": "syd-christmas-spectacular-state-theatre-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19 & Sun Dec 20, 2pm & 6:30pm",
@@ -2270,6 +3974,9 @@ window.WF_DATA = {
    "cat": "show",
    "url": "https://www.statetheatre.com.au/show-calendar/christmas-spectacular/",
    "price": "tickets",
+   "aud": [
+    "all"
+   ],
    "lat": -33.8711,
    "lon": 151.207,
    "q": "State Theatre Sydney",
@@ -2277,7 +3984,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 130,
+   "n": 216,
    "id": "syd-carols-in-the-domain-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19, 1pm–11pm · TV broadcast from 8pm",
@@ -2294,7 +4001,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 131,
+   "n": 217,
    "id": "syd-wiggles-sydney-2026-12-19",
    "sec": "mid-dec",
    "when": "Sat Dec 19, 10am, 1:30pm & 4:30pm",
@@ -2311,7 +4018,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 132,
+   "n": 218,
    "id": "syd-wentworth-point-christmas-twilight-market-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 19 · 5pm–9pm",
@@ -2327,7 +4034,7 @@ window.WF_DATA = {
    "end": "2026-12-19"
   },
   {
-   "n": 133,
+   "n": 219,
    "id": "syd-coogee-carols-2026",
    "sec": "mid-dec",
    "when": "Sun Dec 20, 6:30pm–8:30pm",
@@ -2343,7 +4050,60 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 134,
+   "n": 220,
+   "id": "syd-culture-fest-redfern",
+   "sec": "mid-dec",
+   "when": "Sun Dec 20, 1–4pm",
+   "title": "Culture Fest: stories, flavours and friendship",
+   "meta": "Redfern Community Centre, Redfern · living library: international students and locals share festivals, games and food · free, book",
+   "cat": "cult",
+   "url": "https://whatson.cityofsydney.nsw.gov.au/events/culture-fest-stories-flavours-friendship",
+   "price": "free",
+   "lat": -33.8935,
+   "lon": 151.2025,
+   "q": "Redfern Community Centre, 29-53 Hugo Street",
+   "start": "2026-12-20",
+   "end": "2026-12-20"
+  },
+  {
+   "n": 221,
+   "id": "syd-vol-davis-st-bushcare",
+   "sec": "mid-dec",
+   "when": "Sun Dec 20, 9:30am–12:30pm",
+   "title": "Davis St Bushcare, Dulwich Hill",
+   "meta": "Davis St Bushcare, Dulwich Hill (by Waratah Mills light rail) · hand weeding & slope restoration · free, RSVP to council · ages 16+",
+   "cat": "vol",
+   "url": "https://www.innerwest.nsw.gov.au/bushland-parks-and-verges/bushcare-programs",
+   "price": "free",
+   "lat": -33.9085,
+   "lon": 151.1375,
+   "q": "Davis Street, Dulwich Hill NSW",
+   "dates": [
+    "2026-12-20"
+   ]
+  },
+  {
+   "n": 222,
+   "id": "syd-artkookoo-castle-hill-christmas-workshop",
+   "sec": "mid-dec",
+   "when": "Mon Dec 21 & Tue Dec 22, 9am–12pm",
+   "title": "Christmas holiday art workshop for kids & teens",
+   "meta": "Artkookoo Art Studio, Castle Hill · mixed-media painting & light-clay Christmas art for kids and teens · from $63, book ahead",
+   "cat": "kids",
+   "url": "https://www.eventbrite.com.au/e/10-off-christmas-workshop-2112-2212-at-artkookoo-castle-hill-tickets-2004104115358",
+   "price": "tickets",
+   "local": 1,
+   "biz": "Artkookoo Art Studio",
+   "lat": -33.728,
+   "lon": 151.009,
+   "q": "Artkookoo Art Studio, 12 Old Castle Hill Rd, Castle Hill",
+   "dates": [
+    "2026-12-21",
+    "2026-12-22"
+   ]
+  },
+  {
+   "n": 223,
    "id": "syd-christmas-stories-ra-spratt-2026",
    "sec": "mid-dec",
    "when": "Mon Dec 21, 2pm",
@@ -2352,6 +4112,9 @@ window.WF_DATA = {
    "cat": "kids",
    "url": "https://www.glenstreet.com.au/whats-on/christmas-stories-ra-spratt-1",
    "price": "tickets",
+   "aud": [
+    "all"
+   ],
    "lat": -33.7396,
    "lon": 151.2118,
    "q": "Glen Street Theatre Belrose",
@@ -2359,7 +4122,28 @@ window.WF_DATA = {
    "end": "2026-12-21"
   },
   {
-   "n": 135,
+   "n": 224,
+   "id": "syd-storytime-ballet-cinderella-access",
+   "sec": "mid-dec",
+   "when": "Tue Dec 22, 2pm (audio described) & Sun Dec 27, 2pm & 4pm (Auslan)",
+   "title": "Storytime Ballet: Cinderella – audio-described & Auslan shows",
+   "meta": "Drama Theatre, Sydney Opera House · The Australian Ballet, 55 min for little ones · wheelchair seating · from $59",
+   "cat": "show",
+   "url": "https://www.sydneyoperahouse.com/the-australian-ballet/2026-season/storytime-ballet-cinderella",
+   "price": "tickets",
+   "aud": [
+    "access"
+   ],
+   "lat": -33.8572,
+   "lon": 151.2151,
+   "q": "Sydney Opera House Drama Theatre",
+   "dates": [
+    "2026-12-22",
+    "2026-12-27"
+   ]
+  },
+  {
+   "n": 225,
    "id": "syd-sixers-v-renegades-2026-12-22",
    "sec": "mid-dec",
    "when": "Tue Dec 22, 7.15pm",
@@ -2377,7 +4161,7 @@ window.WF_DATA = {
    "end": "2026-12-22"
   },
   {
-   "n": 136,
+   "n": 226,
    "id": "syd-the-entrance-carols-in-the-park-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 24, 6pm–9pm · fireworks finale",
@@ -2392,7 +4176,7 @@ window.WF_DATA = {
    "end": "2026-12-24"
   },
   {
-   "n": 137,
+   "n": 227,
    "id": "syd-kings-v-hawks-2026-12-25",
    "sec": "mid-dec",
    "when": "Fri Dec 25, 7.30pm",
@@ -2410,7 +4194,7 @@ window.WF_DATA = {
    "end": "2026-12-25"
   },
   {
-   "n": 138,
+   "n": 228,
    "id": "syd-film-jumanji-boxing-day",
    "sec": "mid-dec",
    "when": "Opens Sat Dec 26 (Boxing Day)",
@@ -2422,7 +4206,7 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 139,
+   "n": 229,
    "id": "syd-sydney-to-hobart-start-2026",
    "sec": "mid-dec",
    "when": "Sat Dec 26, 1pm",
@@ -2439,7 +4223,7 @@ window.WF_DATA = {
    "end": "2026-12-26"
   },
   {
-   "n": 140,
+   "n": 230,
    "id": "syd-sixers-v-heat-2026-12-26",
    "sec": "mid-dec",
    "when": "Sat Dec 26, 6.05pm",
@@ -2457,7 +4241,7 @@ window.WF_DATA = {
    "end": "2026-12-26"
   },
   {
-   "n": 141,
+   "n": 231,
    "id": "syd-film-angry-birds-movie-3",
    "sec": "mid-dec",
    "when": "Opens Sat Dec 26 (Boxing Day)",
@@ -2470,7 +4254,7 @@ window.WF_DATA = {
    "end": "2026-12-27"
   },
   {
-   "n": 142,
+   "n": 232,
    "id": "syd-wanderers-v-jets-2026-12-26",
    "sec": "mid-dec",
    "when": "Sat Dec 26, 7.40pm",
@@ -2487,7 +4271,7 @@ window.WF_DATA = {
    "end": "2026-12-26"
   },
   {
-   "n": 143,
+   "n": 233,
    "id": "syd-flames-v-jewels-2026-12-29",
    "sec": "mid-dec",
    "when": "Tue Dec 29, 5pm",
@@ -2504,7 +4288,7 @@ window.WF_DATA = {
    "end": "2026-12-29"
   },
   {
-   "n": 144,
+   "n": 234,
    "id": "syd-kings-v-melbourne-united-2026-12-29",
    "sec": "mid-dec",
    "when": "Tue Dec 29, 7.30pm",
@@ -2522,7 +4306,7 @@ window.WF_DATA = {
    "end": "2026-12-29"
   },
   {
-   "n": 145,
+   "n": 235,
    "id": "syd-mariners-w-v-city-w-2026-12-31",
    "sec": "mid-dec",
    "when": "Thu Dec 31, 4.50pm",
@@ -2539,7 +4323,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 146,
+   "n": 236,
    "id": "syd-coogee-sparkles-nye-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31 · 9pm fireworks (15 min, no midnight show) · roving entertainment 2pm–8pm",
@@ -2555,7 +4339,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 147,
+   "n": 237,
    "id": "syd-frenchs-forest-nye-fireworks-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31, 9pm",
@@ -2564,6 +4348,9 @@ window.WF_DATA = {
    "cat": "hol",
    "url": "https://www.northernbeaches.nsw.gov.au/things-to-do/whats-on/new-years-eve-frenchs-forest",
    "price": "free",
+   "aud": [
+    "all"
+   ],
    "lat": -33.749,
    "lon": 151.222,
    "q": "Lionel Watts Reserve Frenchs Forest",
@@ -2571,7 +4358,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 148,
+   "n": 238,
    "id": "syd-liverpool-nye-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31 · evening, rides, live shows and fireworks",
@@ -2579,6 +4366,9 @@ window.WF_DATA = {
    "meta": "Woodward Park, Liverpool · family event",
    "cat": "hol",
    "url": "https://www.liverpool.nsw.gov.au/community/major-events/nye",
+   "aud": [
+    "all"
+   ],
    "lat": -33.923,
    "lon": 150.914,
    "q": "Woodward Park Liverpool",
@@ -2586,7 +4376,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 149,
+   "n": 239,
    "id": "syd-manly-nye-fireworks-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31, 9pm",
@@ -2602,7 +4392,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 150,
+   "n": 240,
    "id": "syd-dee-why-nye-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31, 5pm–9pm (no fireworks here)",
@@ -2618,7 +4408,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 151,
+   "n": 241,
    "id": "syd-parramatta-nye-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31, 5pm–9:30pm · fireworks 9pm",
@@ -2634,7 +4424,7 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 152,
+   "n": 242,
    "id": "syd-sydney-nye-fireworks-2026",
    "sec": "mid-dec",
    "when": "Thu Dec 31 · 9pm family fireworks, midnight fireworks",
@@ -2650,7 +4440,29 @@ window.WF_DATA = {
    "end": "2026-12-31"
   },
   {
-   "n": 153,
+   "n": 243,
+   "id": "syd-bonnie-vale-guided-nature-walk",
+   "sec": "mid-dec",
+   "when": "Sats Jan 2, 9 & 16, 10–11:30am",
+   "title": "Guided nature walk: Bonnie Vale",
+   "meta": "Bonnie Vale campground, Royal National Park (Bundeena) · easy 1km walk with NPWS guide, mangroves & shore · adult $15, child $11 + park entry",
+   "cat": "join",
+   "url": "https://www.nationalparks.nsw.gov.au/things-to-do/guided-tours/guided-nature-walk-bonnie-vale",
+   "price": "tickets",
+   "aud": [
+    "all"
+   ],
+   "lat": -34.0723,
+   "lon": 151.1257,
+   "q": "Bonnie Vale campground Royal National Park",
+   "dates": [
+    "2027-01-02",
+    "2027-01-09",
+    "2027-01-16"
+   ]
+  },
+  {
+   "n": 244,
    "id": "syd-opera-australia-la-boheme-2027",
    "sec": "mid-dec",
    "when": "Sat Jan 2–Mar 17 · mostly 7:30pm, Sat Jan 2 12:30pm",
@@ -2666,7 +4478,7 @@ window.WF_DATA = {
    "end": "2027-03-17"
   },
   {
-   "n": 154,
+   "n": 245,
    "id": "syd-sydney-fc-w-v-roar-w-2027-01-02",
    "sec": "mid-dec",
    "when": "Sat Jan 2, 4.50pm",
@@ -2684,7 +4496,7 @@ window.WF_DATA = {
    "end": "2027-01-02"
   },
   {
-   "n": 155,
+   "n": 246,
    "id": "syd-thunder-v-scorchers-2027-01-02",
    "sec": "mid-dec",
    "when": "Sat Jan 2, 7.15pm",
@@ -2702,7 +4514,7 @@ window.WF_DATA = {
    "end": "2027-01-02"
   },
   {
-   "n": 156,
+   "n": 247,
    "id": "syd-united-cup-2027",
    "sec": "mid-dec",
    "when": "Sat Jan 2–Sun Jan 10, day 10.30am / night 5.30pm",
@@ -2720,7 +4532,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 157,
+   "n": 248,
    "id": "syd-newport-pool-to-peak-2027",
    "sec": "mid-dec",
    "when": "Sun Jan 3, from 8:30am",
@@ -2737,7 +4549,7 @@ window.WF_DATA = {
    "end": "2027-01-03"
   },
   {
-   "n": 158,
+   "n": 249,
    "id": "syd-scg-new-year-test-nz-2027",
    "sec": "jan",
    "when": "Mon Jan 4–Fri Jan 8, 10.30am",
@@ -2754,7 +4566,7 @@ window.WF_DATA = {
    "end": "2027-01-08"
   },
   {
-   "n": 159,
+   "n": 250,
    "id": "syd-into-space-2027",
    "sec": "jan",
    "when": "Wed Jan 6–Thu Jan 14 (not Sun Jan 10), 10:30am & 1:30pm",
@@ -2778,7 +4590,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 160,
+   "n": 251,
    "id": "syd-westpac-openair-2027",
    "sec": "jan",
    "when": "Wed Jan 6–Fri Feb 19 (program out Dec 1, tickets Dec 14)",
@@ -2794,7 +4606,7 @@ window.WF_DATA = {
    "end": "2027-02-19"
   },
   {
-   "n": 161,
+   "n": 252,
    "id": "syd-sydney-festival-2027",
    "sec": "jan",
    "when": "Thu Jan 7–Mon Jan 25 · 94 events, 21 free",
@@ -2809,7 +4621,7 @@ window.WF_DATA = {
    "end": "2027-01-25"
   },
   {
-   "n": 162,
+   "n": 253,
    "id": "syd-sydney-festival-hannah-gadsby-2027",
    "sec": "jan",
    "when": "Thu Jan 7–Sun Jan 10",
@@ -2825,7 +4637,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 163,
+   "n": 254,
    "id": "syd-waverider-2027",
    "sec": "jan",
    "when": "Thu Jan 7–Sun Jan 17 (first show Thu 5:15pm)",
@@ -2841,7 +4653,26 @@ window.WF_DATA = {
    "end": "2027-01-17"
   },
   {
-   "n": 164,
+   "n": 255,
+   "id": "syd-parramatta-park-spotlight-prowl",
+   "sec": "jan",
+   "when": "Fri Jan 8, 7:45–9:15pm",
+   "title": "Family spotlight prowl, Parramatta Park",
+   "meta": "Parramatta Park, Parramatta · night walk with educators: frogmouths, possums, flying foxes · $24, book ahead",
+   "cat": "join",
+   "url": "https://atparramatta.com/whats-on/spotlight-prowl-families-parramatta-park",
+   "price": "tickets",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.8135,
+   "lon": 150.996,
+   "q": "Parramatta Park",
+   "start": "2027-01-08",
+   "end": "2027-01-08"
+  },
+  {
+   "n": 256,
    "id": "syd-sydney-festival-haribo-kimchi-2027",
    "sec": "jan",
    "when": "Fri Jan 8–Mon Jan 11",
@@ -2857,7 +4688,7 @@ window.WF_DATA = {
    "end": "2027-01-11"
   },
   {
-   "n": 165,
+   "n": 257,
    "id": "syd-sydney-festival-the-yard-2027",
    "sec": "jan",
    "when": "Fri Jan 8–Sun Jan 24, from 5pm",
@@ -2873,7 +4704,7 @@ window.WF_DATA = {
    "end": "2027-01-24"
   },
   {
-   "n": 166,
+   "n": 258,
    "id": "syd-future-fiestas-2027",
    "sec": "jan",
    "when": "Sat Jan 9–Sat Jan 23; workshops 10am–4pm, parades Sat Jan 9 & 23, 5pm",
@@ -2882,6 +4713,9 @@ window.WF_DATA = {
    "cat": "kids",
    "url": "https://www.sydneyfestival.org.au/events/future-fiestas",
    "price": "free",
+   "aud": [
+    "all"
+   ],
    "lat": -33.8762,
    "lon": 151.2013,
    "q": "Palm Grove Darling Harbour",
@@ -2889,7 +4723,7 @@ window.WF_DATA = {
    "end": "2027-01-23"
   },
   {
-   "n": 167,
+   "n": 259,
    "id": "syd-hooks-neverland-2027",
    "sec": "jan",
    "when": "Sat Jan 9–Sun Jan 17 (no Mon), 2pm/3pm & evening shows",
@@ -2898,6 +4732,9 @@ window.WF_DATA = {
    "cat": "kids",
    "url": "https://www.sydneyoperahouse.com/comedy-circus-magic/hooks-neverland",
    "price": "tickets",
+   "aud": [
+    "all"
+   ],
    "lat": -33.8568,
    "lon": 151.2153,
    "q": "Sydney Opera House",
@@ -2913,7 +4750,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 168,
+   "n": 260,
    "id": "syd-bilgola-billy-swim-2027",
    "sec": "jan",
    "when": "Sun Jan 10, 9am",
@@ -2930,7 +4767,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 169,
+   "n": 261,
    "id": "syd-sixers-v-scorchers-2027-01-10",
    "sec": "jan",
    "when": "Sun Jan 10, 2.10pm",
@@ -2948,7 +4785,7 @@ window.WF_DATA = {
    "end": "2027-01-10"
   },
   {
-   "n": 170,
+   "n": 262,
    "id": "syd-atyp-summer-workshops-2027",
    "sec": "jan",
    "when": "Mon Jan 11–Fri Jan 22 (2–5 day courses)",
@@ -2964,7 +4801,7 @@ window.WF_DATA = {
    "end": "2027-01-22"
   },
   {
-   "n": 171,
+   "n": 263,
    "id": "syd-boy-who-found-his-way-home-2027",
    "sec": "jan",
    "when": "Mon Jan 11–Sun Jan 17 (Mon 7pm at PHIVE)",
@@ -2980,7 +4817,7 @@ window.WF_DATA = {
    "end": "2027-01-17"
   },
   {
-   "n": 172,
+   "n": 264,
    "id": "syd-dinosaur-world-live-wollongong-2027",
    "sec": "jan",
    "when": "Tue Jan 12, 3pm & 6pm; Wed Jan 13, 10am, 12:30pm & 3pm",
@@ -2997,7 +4834,7 @@ window.WF_DATA = {
    "end": "2027-01-13"
   },
   {
-   "n": 173,
+   "n": 265,
    "id": "syd-sydney-festival-waynapuni-pools-2027",
    "sec": "jan",
    "when": "Tue Jan 12–Sun Jan 24",
@@ -3013,7 +4850,7 @@ window.WF_DATA = {
    "end": "2027-01-24"
   },
   {
-   "n": 174,
+   "n": 266,
    "id": "syd-opera-australia-magic-flute-2027",
    "sec": "jan",
    "when": "Wed Jan 13–Mar 23 · mostly 7:30pm, Sat 12:30pm",
@@ -3022,6 +4859,9 @@ window.WF_DATA = {
    "cat": "show",
    "url": "https://www.sydneyoperahouse.com/opera-australia/2027-season/magic-flute",
    "price": "tickets",
+   "aud": [
+    "all"
+   ],
    "lat": -33.8568,
    "lon": 151.2153,
    "q": "Sydney Opera House",
@@ -3029,7 +4869,7 @@ window.WF_DATA = {
    "end": "2027-03-23"
   },
   {
-   "n": 175,
+   "n": 267,
    "id": "syd-rodrigo-y-gabriela-enmore-2027-01-14",
    "sec": "jan",
    "when": "Thu Jan 14, 8pm (doors 7pm)",
@@ -3046,7 +4886,7 @@ window.WF_DATA = {
    "end": "2027-01-14"
   },
   {
-   "n": 176,
+   "n": 268,
    "id": "syd-illawarra-folk-festival-2027",
    "sec": "jan",
    "when": "Fri Jan 15–Sun Jan 17",
@@ -3055,6 +4895,9 @@ window.WF_DATA = {
    "cat": "evt",
    "url": "https://www.illawarrafolkfestival.com.au/",
    "price": "tickets",
+   "aud": [
+    "all"
+   ],
    "lat": -34.3339,
    "lon": 150.9136,
    "q": "Bulli Showground",
@@ -3062,7 +4905,7 @@ window.WF_DATA = {
    "end": "2027-01-17"
   },
   {
-   "n": 177,
+   "n": 269,
    "id": "syd-sixers-v-thunder-2027-01-15",
    "sec": "jan",
    "when": "Fri Jan 15, 7.15pm",
@@ -3080,7 +4923,7 @@ window.WF_DATA = {
    "end": "2027-01-15"
   },
   {
-   "n": 178,
+   "n": 270,
    "id": "syd-sydney-festival-wasia-project-2027",
    "sec": "jan",
    "when": "Fri Jan 15",
@@ -3096,7 +4939,7 @@ window.WF_DATA = {
    "end": "2027-01-15"
   },
   {
-   "n": 179,
+   "n": 271,
    "id": "syd-warriewood-mona-vale-swim-2027",
    "sec": "jan",
    "when": "Sun Jan 17, 8:30am",
@@ -3113,23 +4956,7 @@ window.WF_DATA = {
    "end": "2027-01-17"
   },
   {
-   "n": 180,
-   "id": "syd-sydney-festival-onefour-penrith-chamber-orchestra-2027",
-   "sec": "jan",
-   "when": "Fri Jan 22–Sat Jan 23",
-   "title": "ONEFOUR & the Penrith Chamber Orchestra (Sydney Festival)",
-   "meta": "The Joan Sutherland Performing Arts Centre, Penrith · Western Sydney drill group meets strings, world premiere · recommended 15+ · tickets",
-   "cat": "teen",
-   "url": "https://www.sydneyfestival.org.au/events/one-four-the-penrith-chamber-orchestra",
-   "price": "tickets",
-   "lat": -33.751,
-   "lon": 150.693,
-   "q": "The Joan Sutherland Performing Arts Centre, Penrith",
-   "start": "2027-01-22",
-   "end": "2027-01-23"
-  },
-  {
-   "n": 181,
+   "n": 272,
    "id": "syd-powerhouse-es-devlin-the-turning-2026",
    "sec": "tbc",
    "when": "Now on",
@@ -3146,7 +4973,7 @@ window.WF_DATA = {
    "end": "2027-01-17"
   },
   {
-   "n": 182,
+   "n": 273,
    "id": "syd-double-bay-pet-friendly-santa-photos-2026",
    "sec": "dog",
    "when": "Weekends Nov 21–Dec 20 + Mon Dec 21 · 10-min slots",
@@ -3171,7 +4998,27 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 183,
+   "n": 274,
+   "id": "syd-dog-gap-londonderry-summer-adoption-day",
+   "sec": "dog",
+   "when": "Sun Nov 22, 9am–12pm",
+   "title": "Greyhounds As Pets Welcome to Summer Adoption Day",
+   "meta": "GAP NSW Western Sydney Adoption Centre, Londonderry · meet greyhounds, jumping castle, face painting, ice cream truck · free",
+   "cat": "dog",
+   "url": "https://www.gapnsw.com.au/events/adoption-day-greyhounds-as-pets-western-sydney-13?date=2026-11-22",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.655,
+   "lon": 150.738,
+   "q": "382 The Driftway, Londonderry NSW",
+   "dates": [
+    "2026-11-22"
+   ]
+  },
+  {
+   "n": 275,
    "id": "syd-cronulla-rsl-pet-friendly-santa-photos-2026",
    "sec": "dog",
    "when": "Sun Nov 22 & Sat Dec 5 · 10-min slots",
@@ -3189,7 +5036,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 184,
+   "n": 276,
    "id": "syd-kellyville-pets-santa-paws-claws-2026",
    "sec": "dog",
    "when": "From about Thu Nov 26 to Christmas Eve · book a 5-min slot",
@@ -3207,7 +5054,24 @@ window.WF_DATA = {
    "end": "2026-12-24"
   },
   {
-   "n": 185,
+   "n": 277,
+   "id": "syd-dog-gap-kembla-grange-adoption-day",
+   "sec": "dog",
+   "when": "Sun Nov 29, 10am–1pm",
+   "title": "Greyhound Adoption Day at Petstock Kembla Grange",
+   "meta": "Petstock Kembla Grange (Wollongong) · meet greyhounds looking for homes, chat to Greyhounds As Pets NSW · free",
+   "cat": "dog",
+   "url": "https://www.gapnsw.com.au/events/adoption-day-petstock-kembla-grange-2?date=2026-11-29",
+   "price": "free",
+   "lat": -34.472,
+   "lon": 150.815,
+   "q": "Petstock Kembla Grange, Kingston Town Drive, Kembla Grange NSW",
+   "dates": [
+    "2026-11-29"
+   ]
+  },
+  {
+   "n": 278,
    "id": "syd-santa-paws-dan-mahoney-reserve-2026",
    "sec": "dog",
    "when": "Sat Dec 5 · 5pm–7pm",
@@ -3223,7 +5087,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 186,
+   "n": 279,
    "id": "syd-jolly-christmas-night-markets-2026",
    "sec": "dog",
    "when": "Thu Dec 10–Sun Dec 20 · 4pm–10:30pm daily",
@@ -3239,7 +5103,7 @@ window.WF_DATA = {
    "end": "2026-12-20"
   },
   {
-   "n": 187,
+   "n": 280,
    "id": "syd-surry-hills-santa-paws-dog-parade-2026",
    "sec": "dog",
    "when": "Sat Dec 12 · 12pm–1pm (register 11–11:45am)",
@@ -3255,7 +5119,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 188,
+   "n": 281,
    "id": "syd-good-food-wine-show-christmas-2026",
    "sec": "food",
    "when": "Fri Nov 20 (4–9pm)–Sun Nov 22 (10am–5pm)",
@@ -3272,7 +5136,7 @@ window.WF_DATA = {
    "end": "2026-11-22"
   },
   {
-   "n": 189,
+   "n": 282,
    "id": "syd-eat-drink-nights-wentworth-point-nov-2026",
    "sec": "food",
    "when": "Sat Nov 21 · 5pm–9pm",
@@ -3288,7 +5152,7 @@ window.WF_DATA = {
    "end": "2026-11-21"
   },
   {
-   "n": 190,
+   "n": 283,
    "id": "syd-canterbury-night-market-nov-2026",
    "sec": "food",
    "when": "Fri Nov 27 · 5pm–9:30pm",
@@ -3303,7 +5167,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 191,
+   "n": 284,
    "id": "syd-nsw-wine-cellar-door-the-rocks-2026",
    "sec": "food",
    "when": "Sat Nov 28–Sun Nov 29 · 10am–7pm",
@@ -3318,7 +5182,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 192,
+   "n": 285,
    "id": "syd-eat-drink-nights-cronulla-dec-2026",
    "sec": "food",
    "when": "Fri Dec 4–Sat Dec 5 · 5pm–9pm",
@@ -3333,7 +5197,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 193,
+   "n": 286,
    "id": "syd-north-sydney-twilight-food-fair-2026",
    "sec": "food",
    "when": "Fridays Dec 4, 11, 18, Jan 8, 15 · 4pm–7pm",
@@ -3354,7 +5218,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 194,
+   "n": 287,
    "id": "syd-le-marche-french-markets-dec-2026",
    "sec": "food",
    "when": "Sun Dec 6 · 9:30am–2pm",
@@ -3370,7 +5234,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 195,
+   "n": 288,
    "id": "syd-eat-drink-nights-bankstown-dec-2026",
    "sec": "food",
    "when": "Sat Dec 12 · 5pm–9pm",
@@ -3386,7 +5250,7 @@ window.WF_DATA = {
    "end": "2026-12-12"
   },
   {
-   "n": 196,
+   "n": 289,
    "id": "syd-syo-summer-symphony-2027",
    "sec": "programs",
    "when": "Video auditions due Thu Nov 19",
@@ -3401,7 +5265,7 @@ window.WF_DATA = {
    "deadline": "2026-11-19"
   },
   {
-   "n": 197,
+   "n": 290,
    "id": "syd-unsw-scix-2027",
    "sec": "programs",
    "when": "Registrations open now, first-come (projects allocated in November)",
@@ -3417,7 +5281,7 @@ window.WF_DATA = {
    "deadline": "2026-11-30"
   },
   {
-   "n": 198,
+   "n": 291,
    "id": "syd-syo-scholarships-2027",
    "sec": "programs",
    "when": "Applications close Sun Dec 6",
@@ -3432,7 +5296,7 @@ window.WF_DATA = {
    "deadline": "2026-12-06"
   },
   {
-   "n": 199,
+   "n": 292,
    "id": "syd-ynsw-youth-parliament-2027",
    "sec": "programs",
    "when": "Applications close Sun Dec 6",
@@ -3447,7 +5311,7 @@ window.WF_DATA = {
    "deadline": "2026-12-06"
   },
   {
-   "n": 200,
+   "n": 293,
    "id": "syd-syo-summer-school-2027",
    "sec": "programs",
    "when": "Enrolments close Thu Dec 10",
@@ -3462,7 +5326,7 @@ window.WF_DATA = {
    "deadline": "2026-12-10"
   },
   {
-   "n": 201,
+   "n": 294,
    "id": "syd-combined-schools-musical-metro-2027",
    "sec": "programs",
    "when": "Applications close Fri Dec 11",
@@ -3477,7 +5341,7 @@ window.WF_DATA = {
    "deadline": "2026-12-11"
   },
   {
-   "n": 202,
+   "n": 295,
    "id": "syd-gondwana-scc-scholarships-2027",
    "sec": "programs",
    "when": "December audition round Tue Dec 15 (January round Wed Jan 27)",
@@ -3493,7 +5357,118 @@ window.WF_DATA = {
    "deadline": "2026-12-15"
   },
   {
-   "n": 203,
+   "n": 296,
+   "id": "syd-sopa-young-archers",
+   "sec": "programs",
+   "when": "Book before it fills (sessions Dec 29–30, then weekdays Jan 4–22)",
+   "title": "Young Archers holiday sessions (ages 7–9)",
+   "meta": "Sydney Olympic Park Archery Centre · ages 7–9 (Sharp Shooters for 10+) · no experience needed · $24/session · enclosed shoes",
+   "cat": "prog",
+   "url": "https://www.sydneyolympicpark.nsw.gov.au/things-to-see-and-do/young-archers",
+   "price": "tickets",
+   "lat": -33.8448,
+   "lon": 151.079,
+   "q": "Sydney Olympic Park Archery Centre",
+   "tbc": true,
+   "deadline": "2026-12-29"
+  },
+  {
+   "n": 297,
+   "id": "syd-sopac-all-day-holiday-program",
+   "sec": "programs",
+   "when": "Book before it fills (weeks of Jan 4, 11 & 18)",
+   "title": "All Day Holiday Recreational Program, Sydney Olympic Park (ages 5–12)",
+   "meta": "Sydney Olympic Park Aquatic Centre · ages 5–12 · 9am–4pm (drop-off from 8am, pick-up to 5pm) · swim, games, activities · $77.50/day · Active Kids voucher OK",
+   "cat": "prog",
+   "url": "https://www.sydneyolympicpark.nsw.gov.au/things-to-see-and-do/all-day-holiday-recreational-program",
+   "price": "tickets",
+   "lat": -33.8486,
+   "lon": 151.0655,
+   "q": "Sydney Olympic Park Aquatic Centre",
+   "tbc": true,
+   "deadline": "2027-01-04"
+  },
+  {
+   "n": 298,
+   "id": "syd-sopac-swim-intensive-jan",
+   "sec": "programs",
+   "when": "Enrol before it fills (week-long courses from Mon Jan 4, 11 & 18)",
+   "title": "Summer learn-to-swim intensive, Sydney Olympic Park (preschool & school age)",
+   "meta": "Sydney Olympic Park Aquatic Centre · daily half-hour lessons 8am–12pm, one week · $115/week (privates, disability 1-on-1 $155) · Active Kids voucher OK",
+   "cat": "prog",
+   "url": "https://www.sydneyolympicpark.nsw.gov.au/things-to-see-and-do/swimming-intensive-program",
+   "price": "tickets",
+   "lat": -33.8486,
+   "lon": 151.0655,
+   "q": "Sydney Olympic Park Aquatic Centre",
+   "tbc": true,
+   "deadline": "2027-01-04"
+  },
+  {
+   "n": 299,
+   "id": "syd-sydney-dance-summer-workshops",
+   "sec": "programs",
+   "when": "Book before it fills (weekdays Mon Jan 4–Thu Jan 21)",
+   "title": "Sydney Dance Company summer holiday workshops (ages 5–18)",
+   "meta": "Sydney Dance Company, Walsh Bay (also Bondi Pavilion) · ages 5–18 · 1–5 day workshops, 10am–4pm · from $50",
+   "cat": "prog",
+   "url": "https://whatson.cityofsydney.nsw.gov.au/events/summer-school-holiday-workshops",
+   "price": "tickets",
+   "lat": -33.8562,
+   "lon": 151.2048,
+   "q": "Sydney Dance Company, Wharf 4/5 Hickson Road Walsh Bay",
+   "tbc": true,
+   "deadline": "2027-01-04"
+  },
+  {
+   "n": 300,
+   "id": "syd-sydney-film-school-kids-holiday-film",
+   "sec": "programs",
+   "when": "Enrol before it fills (course Mon Jan 18–Wed Jan 20)",
+   "title": "Act in and direct a short film: 3-day holiday course (ages 8–13)",
+   "meta": "Sydney Film School, Waterloo · ages 8–13 · 10am–3pm, 3 days · kids write and star in a 2-min film · $300 + booking fee",
+   "cat": "prog",
+   "url": "https://sydneyfilmschool.edu.au/project/school-holiday-courses/",
+   "price": "tickets",
+   "lat": -33.8983,
+   "lon": 151.2063,
+   "q": "Sydney Film School, 242 Young St Waterloo",
+   "tbc": true,
+   "deadline": "2027-01-18"
+  },
+  {
+   "n": 301,
+   "id": "syd-sydney-film-school-teen-short-film",
+   "sec": "programs",
+   "when": "Enrol before it fills (course Mon Jan 18–Fri Jan 22)",
+   "title": "Make a short film: 1-week holiday course (Years 10–12, ages 14–18)",
+   "meta": "Sydney Film School, Waterloo · ages 14–18 · 10am–5pm, 5 days · script, shoot and edit your own film · beginners welcome · $800 + booking fee",
+   "cat": "prog",
+   "url": "https://sydneyfilmschool.edu.au/project/school-holiday-courses/",
+   "price": "tickets",
+   "lat": -33.8983,
+   "lon": 151.2063,
+   "q": "Sydney Film School, 242 Young St Waterloo",
+   "tbc": true,
+   "deadline": "2027-01-18"
+  },
+  {
+   "n": 302,
+   "id": "syd-milson-island-adventure-camp-jan",
+   "sec": "programs",
+   "when": "Book by Mon Jan 18 (camp Wed Jan 20–Thu Jan 21)",
+   "title": "Milson Island Adventure Camp (2-day holiday day camp)",
+   "meta": "Milson Island Sport & Rec Centre, Brooklyn (Hawkesbury River) · 8:30am–4pm daily · outdoor sport & adventure · $100/day, $170 both days",
+   "cat": "prog",
+   "url": "https://www.nsw.gov.au/departments-and-agencies/office-of-sport/events/school-holiday-program-adventure-camp-day-only",
+   "price": "tickets",
+   "lat": -33.5175,
+   "lon": 151.166,
+   "q": "Milson Island Sport and Recreation Centre",
+   "deadline": "2027-01-18"
+  },
+  {
+   "n": 303,
    "id": "syd-nsw-youth-development-scholarships-2027",
    "sec": "programs",
    "when": "Applications close Fri Feb 12, 2027, 5pm",
@@ -3508,7 +5483,7 @@ window.WF_DATA = {
    "deadline": "2027-02-12"
   },
   {
-   "n": 204,
+   "n": 304,
    "id": "syd-sso-playerlink-wollongong-2027",
    "sec": "programs",
    "when": "Applications (audition video) close Fri Mar 5, 2027",
@@ -3523,7 +5498,7 @@ window.WF_DATA = {
    "deadline": "2027-03-05"
   },
   {
-   "n": 205,
+   "n": 305,
    "id": "syd-flickerfest-2027",
    "sec": "radar",
    "when": "Fri Jan 22–Sun Jan 31",
@@ -3539,7 +5514,42 @@ window.WF_DATA = {
    "end": "2027-01-31"
   },
   {
-   "n": 206,
+   "n": 306,
+   "id": "syd-sydney-festival-onefour-penrith-chamber-orchestra-2027",
+   "sec": "radar",
+   "when": "Fri Jan 22–Sat Jan 23",
+   "title": "ONEFOUR & the Penrith Chamber Orchestra (Sydney Festival)",
+   "meta": "The Joan Sutherland Performing Arts Centre, Penrith · Western Sydney drill group meets strings, world premiere · recommended 15+ · tickets",
+   "cat": "teen",
+   "url": "https://www.sydneyfestival.org.au/events/one-four-the-penrith-chamber-orchestra",
+   "price": "tickets",
+   "lat": -33.751,
+   "lon": 150.693,
+   "q": "The Joan Sutherland Performing Arts Centre, Penrith",
+   "start": "2027-01-22",
+   "end": "2027-01-23"
+  },
+  {
+   "n": 307,
+   "id": "syd-vigil-redfern-park",
+   "sec": "radar",
+   "when": "Mon Jan 25, from 6pm",
+   "title": "Vigil: truth-telling by firelight (Sydney Festival)",
+   "meta": "Redfern Park, Redfern · Elders' stories, smoking ceremony, song and dance, cuppa and yarn around the fires · free",
+   "cat": "cult",
+   "url": "https://www.sydneyfestival.org.au/events/vigil",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.8925,
+   "lon": 151.2055,
+   "q": "Redfern Park",
+   "start": "2027-01-25",
+   "end": "2027-01-25"
+  },
+  {
+   "n": 308,
    "id": "syd-australia-day-2027",
    "sec": "radar",
    "when": "Tue Jan 26, 2027 · dawn to fireworks",
@@ -3555,7 +5565,42 @@ window.WF_DATA = {
    "end": "2027-01-26"
   },
   {
-   "n": 207,
+   "n": 309,
+   "id": "syd-wugulora-morning-ceremony",
+   "sec": "radar",
+   "when": "Tue Jan 26, 7:30–8:30am",
+   "title": "WugulOra Morning Ceremony",
+   "meta": "Walumil Lawns, Barangaroo Reserve · smoking ceremony and reconciliation gathering on the harbour, 26 January · free",
+   "cat": "cult",
+   "url": "https://www.barangaroo.com/whats-on/events/wugulora-morning-ceremony-(1)",
+   "price": "free",
+   "lat": -33.856,
+   "lon": 151.202,
+   "q": "Walumil Lawns, Barangaroo Reserve",
+   "start": "2027-01-26",
+   "end": "2027-01-26"
+  },
+  {
+   "n": 310,
+   "id": "syd-yabun-festival",
+   "sec": "radar",
+   "when": "Tue Jan 26, 10am–7pm",
+   "title": "Yabun Festival",
+   "meta": "Victoria Park, Camperdown · Australia's largest one-day First Nations festival: music, dance, Speak Out, markets · free",
+   "cat": "cult",
+   "url": "https://www.yabun.org.au/",
+   "price": "free",
+   "aud": [
+    "all"
+   ],
+   "lat": -33.884,
+   "lon": 151.1915,
+   "q": "Victoria Park, Camperdown",
+   "start": "2027-01-26",
+   "end": "2027-01-26"
+  },
+  {
+   "n": 311,
    "id": "syd-laneway-festival-2027",
    "sec": "radar",
    "when": "Fri Feb 12, 2027",
@@ -3571,7 +5616,7 @@ window.WF_DATA = {
    "end": "2027-02-12"
   },
   {
-   "n": 208,
+   "n": 312,
    "id": "syd-mardi-gras-festival-2027",
    "sec": "radar",
    "when": "Fri Feb 12–Sun Mar 7, 2027 (parade expected Sat Mar 6)",
@@ -3587,7 +5632,7 @@ window.WF_DATA = {
    "end": "2027-03-07"
   },
   {
-   "n": 209,
+   "n": 313,
    "id": "syd-eastwood-lunar-new-year-2027",
    "sec": "radar",
    "when": "Sat Feb 13, 2027 · 12pm–9pm",
@@ -3603,7 +5648,7 @@ window.WF_DATA = {
    "end": "2027-02-13"
   },
   {
-   "n": 210,
+   "n": 314,
    "id": "syd-royal-easter-show-2027",
    "sec": "radar",
    "when": "Fri Mar 19–Tue Mar 30, 2027",
