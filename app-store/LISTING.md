@@ -80,7 +80,7 @@ events,weekend,things to do,san francisco,sydney,bay area,marin,napa,dog friendl
 
 ## What's New
 
-**1.4.1** (community boxes; build 11; 1.4 approved Nov 17, 2026, 1.4.1 waiting for upload):
+**1.4.1** (community boxes; build 11, submitted Nov 17, 2026, automatic release):
 
 ```
 More ways to get out and meet your neighbors.
