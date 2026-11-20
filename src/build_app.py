@@ -151,5 +151,5 @@ for name in ["banner.svg", "icon.svg", "icon-192.png", "icon-512.png",
              "apple-touch-icon.png", "manifest.webmanifest"]:
     shutil.copy(os.path.join(root, name), out)
 # v1.1: the Supabase and QR libraries are loaded on demand from ./vendor/ (bundled, works offline)
-shutil.copytree(os.path.join(root, "vendor"), os.path.join(out, "vendor"))
+shutil.copytree(os.path.join(root, "vendor"), os.path.join(out, "vendor"), ignore=shutil.ignore_patterns("pptxgen-*"))   # the PowerPoint library is for the owner dashboard only
 print("app ok", os.path.relpath(out, root))

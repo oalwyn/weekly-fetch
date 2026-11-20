@@ -41,6 +41,7 @@ ul{margin:4px 0 4px 18px;padding:0}
   <label>Weeks <select id="weeks"><option>4</option><option selected>8</option><option>12</option><option>26</option></select></label>
   <button class="primary" id="refresh">Refresh</button>
   <button id="csvWeekly">Weekly CSV</button>
+  <button id="deck" title="A PowerPoint file with charts, built from the latest numbers for the city and weeks picked here. Opens in PowerPoint, Keynote and Google Slides.">Presentation (PowerPoint)</button>
   <span style="flex:1"></span>
   <label>Raw records from <input type="date" id="from"></label>
   <label>to <input type="date" id="to"></label>
@@ -124,6 +125,169 @@ function render(r){
     <li>Deleted accounts and device codes deleted on request are removed or unlinked, so past weeks can change slightly.</li></ul></section>`;
   $("out").innerHTML = h;
 }
+/* ---- Presentation: a PowerPoint deck with charts, built in the browser from the latest report (PptxGenJS, vendor/) ---- */
+let PPTX_LIB = null;
+const loadPptx = () => PPTX_LIB || (PPTX_LIB = new Promise((res, rej) => { const s = document.createElement("script"); s.src = "../vendor/pptxgen-3.12.0.bundle.js"; s.onload = res; s.onerror = () => { PPTX_LIB = null; rej(new Error("Couldn't load the presentation library. Check the connection and try again.")); }; document.head.appendChild(s); }));
+async function eventTitles(){
+  const m = {};
+  for (const p of ["../data.js", "../sydney/data.js"]) {
+    try { const t = await (await fetch(p + "?v=" + Date.now())).text(); const w = {}; new Function("window", t)(w); ((w.WF_DATA && w.WF_DATA.items) || []).forEach(e => { m[e.id] = e.title; }); } catch (e) {}
+  }
+  return m;
+}
+const MON3 = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const wkLabel = s => { const d = new Date(s + "T12:00:00"); return isNaN(d) ? String(s) : `${MON3[d.getMonth()]} ${d.getDate()}`; };
+async function buildDeck(r, cityLabel, weeks){
+  await loadPptx();
+  const titles = await eventTitles();
+  const P = new PptxGenJS(); P.layout = "LAYOUT_WIDE"; P.author = "The Weekend Fetch"; P.company = "Alwyn Ventures LLC"; P.title = "The Weekend Fetch: engagement";
+  const C = { navy: "1B3F63", blue: "2F5D8A", orange: "C4562A", green: "2E8B5E", teal: "00897B", pink: "D81B60", amber: "C98A00", purple: "6E55A8", grey: "5A6472", ink: "1B2430", light: "EEF2F5", line: "E3E8ED" };
+  const PAL = [C.blue, C.orange, C.green, C.purple, C.amber, C.teal, C.pink, C.grey];
+  const FONT = "Helvetica";
+  const gen = new Date(r.generated_at || Date.now());
+  const footer = `${cityLabel} · last ${weeks} weeks · generated ${gen.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })} · production records only (owner, test and development activity left out)`;
+  const W = (r.weekly || []).slice().sort((a, b) => a.week < b.week ? -1 : 1);
+  const labels = W.map(w => wkLabel(w.week));
+  const num = v => +v || 0;
+  const CN = c => (CITY_NAMES[c] || c || "Unknown");
+  let pageNo = 0;
+  const slide = (title, sub) => {
+    const s = P.addSlide(); pageNo++;
+    s.background = { color: "FFFFFF" };
+    s.addShape(P.ShapeType.rect, { x: 0, y: 0, w: 13.333, h: 0.12, fill: { color: C.blue }, line: { color: C.blue } });
+    s.addText(title, { x: 0.5, y: 0.3, w: 12.3, h: 0.6, fontFace: FONT, fontSize: 26, bold: true, color: C.ink });
+    if (sub) s.addText(sub, { x: 0.5, y: 0.88, w: 12.3, h: 0.45, fontFace: FONT, fontSize: 13, color: C.grey });
+    s.addText(footer, { x: 0.5, y: 7.05, w: 11.6, h: 0.3, fontFace: FONT, fontSize: 9, color: "98A2AD" });
+    s.addText(String(pageNo), { x: 12.3, y: 7.05, w: 0.6, h: 0.3, fontFace: FONT, fontSize: 9, color: "98A2AD", align: "right" });
+    return s;
+  };
+  const empty = (s, msg) => s.addText(msg || "No records in this period yet.", { x: 0.5, y: 3.2, w: 12.3, h: 0.8, fontFace: FONT, fontSize: 18, color: C.grey, align: "center" });
+  const chartBase = { x: 0.5, y: 1.45, w: 12.3, h: 5.4, catAxisLabelFontFace: FONT, valAxisLabelFontFace: FONT, catAxisLabelFontSize: 11, valAxisLabelFontSize: 11, catAxisLabelColor: C.grey, valAxisLabelColor: C.grey,
+    showLegend: true, legendPos: "b", legendFontFace: FONT, legendFontSize: 12, valGridLine: { color: C.line, size: 1 }, catGridLine: { style: "none" }, dataLabelFontFace: FONT, dataLabelFontSize: 10 };
+  const tableOpts = (colW) => ({ x: 0.5, y: 1.45, w: 12.3, colW, fontFace: FONT, fontSize: 11, color: C.ink, border: { type: "solid", pt: 0.5, color: C.line }, valign: "middle", rowH: 0.32, autoPage: false });
+  const hdr = cells => cells.map(t => ({ text: t, options: { bold: true, color: "FFFFFF", fill: { color: C.navy } } }));
+
+  // 1. Cover with headline numbers for the last complete week (and the change from the week before)
+  const now = Date.now(), done = W.filter(w => new Date(w.week + "T00:00:00").getTime() + 7 * 864e5 <= now);
+  const cur = done[done.length - 1], prev = done[done.length - 2];
+  const s1 = P.addSlide(); pageNo++;
+  s1.background = { color: C.navy };
+  s1.addText("The Weekend Fetch", { x: 0.6, y: 0.6, w: 12, h: 0.9, fontFace: FONT, fontSize: 40, bold: true, color: "FFFFFF" });
+  s1.addText(`Engagement report · ${cityLabel} · last ${weeks} weeks`, { x: 0.6, y: 1.45, w: 12, h: 0.6, fontFace: FONT, fontSize: 20, color: "C9D6E3" });
+  s1.addText(`Generated ${gen.toLocaleString()}`, { x: 0.6, y: 2.0, w: 12, h: 0.4, fontFace: FONT, fontSize: 13, color: "9FB2C6" });
+  if (cur) {
+    s1.addText(`Week of ${wkLabel(cur.week)}${prev ? ` (change from week of ${wkLabel(prev.week)})` : ""}`, { x: 0.6, y: 2.9, w: 12, h: 0.4, fontFace: FONT, fontSize: 14, color: "C9D6E3" });
+    const tiles = [["Visitors", cur.visitors, prev && prev.visitors], ["Signed-in accounts", cur.accounts, prev && prev.accounts],
+      ["Took a meaningful action", num(cur.wmu_anonymous) + num(cur.wmu_accounts), prev && num(prev.wmu_anonymous) + num(prev.wmu_accounts)], ["Active groups", cur.active_groups, prev && prev.active_groups]];
+    tiles.forEach(([k, v, p], i) => {
+      const x = 0.6 + i * 3.08;
+      s1.addShape(P.ShapeType.roundRect, { x, y: 3.45, w: 2.85, h: 2.3, fill: { color: "FFFFFF" }, line: { color: "FFFFFF" }, rectRadius: 0.12 });
+      s1.addText(String(num(v)), { x, y: 3.6, w: 2.85, h: 1.0, fontFace: FONT, fontSize: 44, bold: true, color: C.navy, align: "center" });
+      s1.addText(k, { x, y: 4.6, w: 2.85, h: 0.45, fontFace: FONT, fontSize: 14, color: C.grey, align: "center" });
+      if (p != null) { const d = num(v) - num(p), pc = num(p) ? Math.round(100 * d / num(p)) : null;
+        s1.addText(d === 0 ? "no change" : `${d > 0 ? "▲" : "▼"} ${Math.abs(d)}${pc != null ? ` (${Math.abs(pc)}%)` : ""}`, { x, y: 5.1, w: 2.85, h: 0.4, fontFace: FONT, fontSize: 13, bold: true, color: d > 0 ? C.green : d < 0 ? C.orange : C.grey, align: "center" }); }
+    });
+  } else s1.addText("No complete week in this period yet.", { x: 0.6, y: 3.4, w: 12, h: 0.6, fontFace: FONT, fontSize: 18, color: "C9D6E3" });
+  s1.addText(footer, { x: 0.6, y: 6.9, w: 12, h: 0.4, fontFace: FONT, fontSize: 10, color: "9FB2C6" });
+
+  // 2. People per week
+  let s = slide("People using The Weekend Fetch", "Distinct visitors (browsers or app installs) and signed-in accounts each week. The latest week may still be in progress.");
+  if (W.length) s.addChart(P.ChartType.line, [{ name: "Visitors", labels, values: W.map(w => num(w.visitors)) }, { name: "New visitors", labels, values: W.map(w => num(w.new_visitors)) },
+    { name: "Accounts", labels, values: W.map(w => num(w.accounts)) }, { name: "New accounts", labels, values: W.map(w => num(w.new_accounts)) }],
+    Object.assign({}, chartBase, { chartColors: [C.blue, "8FB3D6", C.orange, "E8A98C"], lineSize: 3, lineDataSymbolSize: 8 })); else empty(s);
+
+  // 3. Meaningful actions and groups
+  s = slide("Who took a meaningful action", "Star, lock-in, a confirmed group plan change, a calendar add or a Tickets click. Bars: people; line: groups that changed a plan that week.");
+  if (W.length) s.addChart([{ type: P.ChartType.bar, data: [{ name: "Visitors (signed out)", labels, values: W.map(w => num(w.wmu_anonymous)) }, { name: "Accounts", labels, values: W.map(w => num(w.wmu_accounts)) }], options: { barGrouping: "stacked", chartColors: [C.blue, C.orange] } },
+    { type: P.ChartType.line, data: [{ name: "Active groups", labels, values: W.map(w => num(w.active_groups)) }, { name: "Collaborative groups", labels, values: W.map(w => num(w.collaborative_groups)) }], options: { chartColors: [C.green, C.teal], lineSize: 3, lineDataSymbolSize: 8 } }],
+    Object.assign({}, chartBase)); else empty(s);
+
+  // 4. Platforms
+  s = slide("Where people use it", "Sessions per week on the website, the iPhone app and the Android app.");
+  if (W.length) s.addChart(P.ChartType.bar, [{ name: "Website", labels, values: W.map(w => num(w.web_sessions)) }, { name: "iPhone app", labels, values: W.map(w => num(w.ios_sessions)) }, { name: "Android app", labels, values: W.map(w => num(w.android_sessions)) }],
+    Object.assign({}, chartBase, { barGrouping: "stacked", chartColors: [C.blue, C.ink, C.green] })); else empty(s);
+
+  // 5. Key actions per week
+  const KEY = [["event_starred", "Stars", C.amber], ["event_locked_in", "Locked in", C.green], ["outbound_booking_clicked", "Tickets clicks", C.orange], ["invite_shared", "Invites shared", C.purple], ["directions_clicked", "Directions", C.teal]];
+  s = slide("Key actions each week", "Records per week. Stars and lock-ins include plans kept on a device and group plans.");
+  if (W.length) s.addChart(P.ChartType.line, KEY.map(([k, n]) => ({ name: n, labels, values: W.map(w => num(w.actions && w.actions[k] && w.actions[k].records)) })),
+    Object.assign({}, chartBase, { chartColors: KEY.map(k => k[2]), lineSize: 3, lineDataSymbolSize: 7 })); else empty(s);
+
+  // 6. Cities (only when the report covers more than one)
+  const cities = r.by_city || [];
+  if (cities.length > 1 || !r.city) {
+    s = slide("Cities side by side", "People and actions in each city for the whole period. Someone who uses two cities counts in each.");
+    if (cities.length) { const cl = cities.map(c => CN(c.city));
+      s.addChart(P.ChartType.bar, [{ name: "Visitors and accounts", labels: cl, values: cities.map(c => num(c.identities)) }, { name: "Took a meaningful action", labels: cl, values: cities.map(c => num(c.meaningful_identities)) },
+        { name: "Stars", labels: cl, values: cities.map(c => num(c.stars)) }, { name: "Locked in", labels: cl, values: cities.map(c => num(c.locks)) }],
+        Object.assign({}, chartBase, { barDir: "col", barGrouping: "clustered", chartColors: [C.blue, C.orange, C.amber, C.green], showValue: true })); } else empty(s);
+  }
+
+  // 7. Categories
+  const cats = (r.by_category || []).slice().sort((a, b) => num(b.views) + num(b.stars) * 3 - num(a.views) - num(a.stars) * 3).slice(0, 14).reverse();
+  s = slide("What people look at, by kind of event", "Event views and stars per category for the whole period (top 14).");
+  if (cats.length) { const cl = cats.map(c => (CATS_LABEL[c.category] || c.category || "Other"));
+    s.addChart(P.ChartType.bar, [{ name: "Views", labels: cl, values: cats.map(c => num(c.views)) }, { name: "Stars", labels: cl, values: cats.map(c => num(c.stars)) }, { name: "Locked in", labels: cl, values: cats.map(c => num(c.locks)) }],
+      Object.assign({}, chartBase, { barDir: "bar", barGrouping: "clustered", chartColors: [C.blue, C.amber, C.green] })); } else empty(s);
+
+  // 8. Regions
+  const regs = (r.by_region || []).slice().sort((a, b) => num(b.views) - num(a.views)).slice(0, 12).reverse();
+  s = slide("Where the events are, by region", "Event views and stars per region for the whole period.");
+  if (regs.length) { const rl = regs.map(x => String(x.region || "unknown").replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase()));
+    s.addChart(P.ChartType.bar, [{ name: "Views", labels: rl, values: regs.map(x => num(x.views)) }, { name: "Stars", labels: rl, values: regs.map(x => num(x.stars)) }],
+      Object.assign({}, chartBase, { barDir: "bar", barGrouping: "clustered", chartColors: [C.blue, C.amber] })); } else empty(s);
+
+  // 9. Top events
+  const top = (r.top_items || []).slice().sort((a, b) => (num(b.stars) * 3 + num(b.locks) * 4 + num(b.booking_clicks) * 2 + num(b.detail_views)) - (num(a.stars) * 3 + num(a.locks) * 4 + num(a.booking_clicks) * 2 + num(a.detail_views))).slice(0, 14);
+  s = slide("Top events", "Ranked by stars, lock-ins, Tickets clicks and views in the period.");
+  if (top.length) s.addTable([hdr(["Event", "Kind", "Views", "Map", "Stars", "Locked", "Tickets", "People"]),
+    ...top.map(t => [String(titles[t.item_id] || t.item_id).slice(0, 70), CATS_LABEL[t.category] || t.category || "", num(t.detail_views), num(t.map_opens), num(t.stars), num(t.locks), num(t.booking_clicks), num(t.identities)].map((v, i) => ({ text: String(v), options: { align: i < 2 ? "left" : "right" } })))],
+    tableOpts([5.6, 1.9, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8])); else empty(s);
+
+  // 10. Discovery to action
+  const fun = r.funnel || [];
+  s = slide("From first visit to action (within 7 days)", "Share of people first seen in the period (and at least 7 days ago) who did each step within a week.");
+  if (fun.length && fun.some(f => num(f.eligible))) { const steps = ["Looked at an event", "Meaningful action", "Tickets click"];
+    s.addChart(P.ChartType.bar, fun.filter(f => num(f.eligible)).map(f => ({ name: `${f.identity_type === "account" ? "Accounts" : "Visitors"} (${num(f.eligible)})`, labels: steps, values: [f.looked_at_event, f.meaningful_action, f.booking_click].map(v => Math.round(100 * num(v) / num(f.eligible))) })),
+      Object.assign({}, chartBase, { barDir: "col", barGrouping: "clustered", chartColors: [C.blue, C.orange], showValue: true, dataLabelFormatCode: '0"%"', valAxisMaxVal: 100, valAxisLabelFormatCode: '0"%"' })); } else empty(s, "Not enough people first seen at least 7 days ago yet.");
+
+  // 11. How people found it + platforms
+  s = slide("How people found it and what they use", "Left: how each new visitor's first session arrived. Right: people by platform in the period.");
+  const acq = {}; (r.acquisition || []).forEach(a => { const k = String(a.source || "direct / unknown"); acq[k] = (acq[k] || 0) + num(a.identities); });
+  const ak = Object.keys(acq).sort((a, b) => acq[b] - acq[a]);
+  if (ak.length) s.addChart(P.ChartType.doughnut, [{ name: "Source", labels: ak, values: ak.map(k => acq[k]) }], { x: 0.5, y: 1.45, w: 6.0, h: 5.4, chartColors: PAL, showLegend: true, legendPos: "b", legendFontFace: FONT, legendFontSize: 12, showPercent: true, dataLabelColor: "FFFFFF", dataLabelFontSize: 11, holeSize: 55 });
+  else s.addText("No new visitors in this period.", { x: 0.5, y: 3.2, w: 6, h: 0.6, fontFace: FONT, fontSize: 16, color: C.grey, align: "center" });
+  const pl = (r.platforms || []).filter(p => num(p.identities));
+  const PLN = { web: "Website", ios: "iPhone app", android: "Android app" };
+  if (pl.length) s.addChart(P.ChartType.pie, [{ name: "Platform", labels: pl.map(p => PLN[p.platform] || p.platform), values: pl.map(p => num(p.identities)) }], { x: 6.85, y: 1.45, w: 6.0, h: 5.4, chartColors: [C.blue, C.ink, C.green, C.grey], showLegend: true, legendPos: "b", legendFontFace: FONT, legendFontSize: 12, showPercent: true, dataLabelColor: "FFFFFF", dataLabelFontSize: 11 });
+
+  // 12. Activation and retention
+  s = slide("Do new people come back?", "Left: new people and how many acted in their first session or week. Right: people active again 1, 2 and 4 weeks after their first action.");
+  const pc = (n, d) => d ? `${Math.round(100 * num(n) / num(d))}%` : "–";
+  const act = (r.activation || []).slice().sort((a, b) => a.week < b.week ? 1 : -1).slice(0, 10);
+  const ret = (r.retention || []).slice().sort((a, b) => a.cohort_week < b.cohort_week ? 1 : -1).slice(0, 10);
+  const who = t => t === "account" ? "Accounts" : "Visitors";
+  if (act.length) s.addTable([hdr(["First seen", "Who", "New", "Same visit", "In 7 days"]), ...act.map(a => [wkLabel(a.week), who(a.identity_type), num(a.new_identities), pc(a.same_session_activated, a.new_identities), a.eligible_7d ? pc(a.activated_7d, a.eligible_7d) : "not yet"].map((v, i) => ({ text: String(v), options: { align: i < 2 ? "left" : "right" } })))],
+    Object.assign(tableOpts([1.3, 1.2, 0.9, 1.2, 1.2]), { w: 5.8 }));
+  if (ret.length) s.addTable([hdr(["First action", "Who", "People", "Week 1", "Week 2", "Week 4"]), ...ret.map(x => [wkLabel(x.cohort_week), who(x.identity_type), num(x.cohort_size), x.week1 == null ? "not yet" : pc(x.week1, x.cohort_size), x.week2 == null ? "not yet" : pc(x.week2, x.cohort_size), x.week4 == null ? "not yet" : pc(x.week4, x.cohort_size)].map((v, i) => ({ text: String(v), options: { align: i < 2 ? "left" : "right" } })))],
+    Object.assign(tableOpts([1.3, 1.1, 0.9, 0.9, 0.9, 0.9]), { x: 6.85, w: 6.0 }));
+  if (!act.length && !ret.length) empty(s);
+
+  // 13. How to read these numbers
+  s = slide("How to read these numbers");
+  s.addText([
+    `Weeks run Monday to Sunday, ${r.timezone || "Los Angeles time"}. Measurement started ${r.instrumentation_start || "Nov 14, 2026"}.`,
+    "A visitor is one browser or app install while signed out, not a person. An account is one signed-in account. The two are never added together.",
+    "A meaningful action is a star, a lock-in, a confirmed group plan change, a calendar add (iPhone) or a click on a Tickets link. A Tickets click is not a purchase, and a locked-in plan is not attendance.",
+    "Owner, test and development activity is left out. Each download of this file pulls the latest numbers for the city and number of weeks picked on the dashboard.",
+    "Stars, lock-ins on device, clicks and views are reported by the device and can be lost offline; group plan changes are confirmed by the server."
+  ].map(t => ({ text: t, options: { bullet: true, breakLine: true } })), { x: 0.6, y: 1.3, w: 12.1, h: 5.4, fontFace: FONT, fontSize: 16, color: C.ink, paraSpaceAfter: 12, valign: "top" });
+
+  const stamp = gen.toISOString().slice(0, 10);
+  await P.writeFile({ fileName: `weekend-fetch-engagement-${(r.city || "all-cities")}-${weeks}w-${stamp}.pptx` });
+  return pageNo;
+}
+const CATS_LABEL = { hol: "Holiday", mkt: "Markets", dog: "Dog-friendly", food: "Pizza & coffee", art: "Art", walk: "Dog walks", show: "Concerts & shows", sport: "Sports", film: "Movies", kids: "Young kids", teen: "Teens", prog: "Programs & sign-ups", join: "Join in", vol: "Volunteer", cult: "Cultural celebrations", learn: "Talks & learning", fmd: "Free museum days", evt: "Other" };
 async function load(){
   $("msg").innerHTML = ""; $("out").innerHTML = "<p class='sub'>Loading…</p>";
   const { data, error } = await client.rpc("admin_report", { p_weeks: +$("weeks").value, p_city: $("city").value || null });
@@ -141,6 +305,16 @@ async function load(){
   $("refresh").onclick = load; $("weeks").onchange = load; $("city").onchange = load;
   $("csvWeekly").onclick = () => REPORT && download(`fetch-weekly${$("city").value ? "-" + $("city").value : ""}.csv`, csv(REPORT.weekly.map(w => { const o = Object.assign({}, w); delete o.actions;
     ACTIONS.forEach(a => { const v = w.actions && w.actions[a[0]]; o[a[0] + "_records"] = v ? v.records : 0; o[a[0] + "_identities"] = v ? v.identities : 0; }); return o; })));
+  $("deck").onclick = async () => {
+    const b = $("deck"), was = b.textContent; b.disabled = true; b.textContent = "Building…"; $("msg").innerHTML = "";
+    try {
+      const { data, error } = await client.rpc("admin_report", { p_weeks: +$("weeks").value, p_city: $("city").value || null });
+      if (error) throw error;
+      REPORT = data; render(data);
+      await buildDeck(data, $("city").value ? CITY_NAMES[$("city").value] || $("city").value : "All cities", +$("weeks").value);
+    } catch (e) { $("msg").innerHTML = `<div class="err">${esc(e.message || e)}</div>`; }
+    b.disabled = false; b.textContent = was;
+  };
   $("csvRaw").onclick = async () => {
     const { data, error } = await client.rpc("admin_export", { p_from: $("from").value, p_to: $("to").value, p_include_excluded: $("incl").checked, p_city: $("city").value || null });
     if (error) { $("msg").innerHTML = `<div class="err">${esc(error.message)}</div>`; return; }
