@@ -1045,7 +1045,7 @@ function bindMap(){
 function homeBox(){
   if (!state.editHome || state.view==="our-list") return "";
   return `<div class="homebox"><strong>Where's home?</strong><p class="ournote">Distances, the distance filter and the map's “Near home” view use this. It's saved on this phone only.</p>
-  <form id="homeform" class="homeform" onsubmit="event.preventDefault();findHome()"><input id="homeq" type="text" inputmode="search" autocomplete="street-address" placeholder="Address, city or ZIP" aria-label="Address, city or ZIP"><button class="copybtn" data-homefind type="submit">Set</button></form>
+  <form id="homeform" class="homeform" onsubmit="event.preventDefault();findHome()"><input id="homeq" type="text" inputmode="search" autocomplete="street-address" placeholder="Address, city or ${CITY.country==="us"?"ZIP":"postcode"}" aria-label="Address, city or ZIP"><button class="copybtn" data-homefind type="submit">Set</button></form>
   <div class="btnrow"><button class="copybtn alt" data-homegps>Use my current location</button>${HOME.name!==HOME_DEFAULT.name||HOME.lat!==HOME_DEFAULT.lat?`<button class="copybtn alt" data-homereset>Back to Mountain View</button>`:""}<button class="copybtn alt" data-homeclose>Done</button></div>
   ${state.homeMsg?`<p class="ournote homemsg">${esc(state.homeMsg)}</p>`:""}<p class="ournote small">Addresses are looked up with OpenStreetMap.</p></div>`;
 }
@@ -1061,7 +1061,7 @@ async function findHome(){
   try {
     const r = await fetch("https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=" + CITY.country + "&q=" + encodeURIComponent(q), {headers:{"Accept":"application/json"}});
     const res = await r.json();
-    if (!res || !res.length){ state.homeMsg = "Couldn't find that. Try adding the city, or just a ZIP code."; render(); return; }
+    if (!res || !res.length){ state.homeMsg = `Couldn't find that. Try adding the city, or just a ${CITY.country==="us"?"ZIP code":"postcode"}.`; render(); return; }
     const lat = +res[0].lat, lon = +res[0].lon, a = res[0].address || {};
     const name = (q.length <= 22 ? q : (res[0].name || q.split(",")[0])).slice(0, 28);
     const far = miles(lat, lon, CITY.far.lat, CITY.far.lon) > CITY.far.mi;

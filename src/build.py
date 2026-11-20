@@ -7,7 +7,7 @@ this script only rebuilds the page itself.
 import json, os, sys
 here = os.path.dirname(os.path.abspath(__file__)); os.chdir(here)
 # one page per city: src/cities/<key>.json. The first city lives at the site root; others under /<path>/.
-CITY_KEYS = [k for k in ['bayarea', 'sydney'] if os.path.exists(os.path.join('cities', k + '.json'))]
+CITY_KEYS = [k for k in ['bayarea', 'sydney', 'london'] if os.path.exists(os.path.join('cities', k + '.json'))]
 # every city that has a page, for the city switch in the header
 CITIES = []
 for k in CITY_KEYS:

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="xMaxYMax slice">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F5D8A"/><stop offset=".42" stop-color="#3E6690"/><stop offset=".62" stop-color="#C8806A"/><stop offset=".7" stop-color="#E9895B"/><stop offset="1" stop-color="#F6C46B"/></linearGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B3F63"/><stop offset="1" stop-color="#14304D"/></linearGradient></defs>
+<rect width="1200" height="336" fill="url(#sky)"/>
+<circle cx="930" cy="318" r="74" fill="#FFE3A3"/>
+<!-- distant skyline: the Shard and city towers -->
+<g fill="#7A4A6B" opacity=".5">
+<path d="M0 318 C120 300 260 304 380 310 L380 340 L0 340Z"/>
+<path d="M452 336 L476 150 L500 336Z"/>
+<rect x="392" y="262" width="26" height="76"/><rect x="420" y="282" width="22" height="56"/><rect x="508" y="270" width="30" height="68"/><rect x="540" y="292" width="18" height="46"/>
+<path d="M352 336 C352 296 376 278 388 270 C392 290 392 314 392 336Z"/>
+</g>
+<rect y="336" width="1200" height="264" fill="url(#sea)"/>
+<!-- Elizabeth Tower (Big Ben) -->
+<g fill="#5C4A5E">
+<rect x="618" y="196" width="34" height="142"/>
+<rect x="612" y="188" width="46" height="12"/>
+<rect x="616" y="168" width="38" height="22"/>
+<path d="M614 170 L635 120 L656 170Z"/>
+<rect x="633" y="104" width="4" height="18"/>
+<rect x="660" y="282" width="80" height="56"/>
+</g>
+<circle cx="635" cy="179" r="8" fill="#F6C46B" opacity=".85"/>
+<!-- Tower Bridge: two Gothic towers, high walkways, chains and the bascule road -->
+<g fill="#33445A">
+<rect x="770" y="316" width="440" height="10"/>
+<rect x="836" y="182" width="300" height="9"/><rect x="836" y="198" width="300" height="7"/>
+<rect x="812" y="176" width="52" height="162"/><rect x="1108" y="176" width="52" height="162"/>
+<path d="M808 178 L838 128 L868 178Z"/><path d="M1104 178 L1134 128 L1164 178Z"/>
+<rect x="804" y="160" width="10" height="20"/><rect x="862" y="160" width="10" height="20"/><path d="M802 162 L809 144 L816 162Z"/><path d="M860 162 L867 144 L874 162Z"/>
+<rect x="1100" y="160" width="10" height="20"/><rect x="1158" y="160" width="10" height="20"/><path d="M1098 162 L1105 144 L1112 162Z"/><path d="M1156 162 L1163 144 L1170 162Z"/>
+</g>
+<g fill="#26364A"><path d="M826 338 V266 Q838 246 850 266 V338Z"/><path d="M1122 338 V266 Q1134 246 1146 266 V338Z"/></g>
+<g stroke="#33445A" stroke-width="5" fill="none" stroke-linecap="round">
+<path d="M812 214 Q790 280 760 318"/><path d="M1160 214 Q1182 280 1200 300"/>
+</g>
+<g stroke="#33445A" stroke-width="2.5" opacity=".9"><path d="M800 246 V318 M786 274 V318 M1172 246 V318 M1186 270 V310"/></g>
+<g stroke="#FFE3A3" stroke-width="4" stroke-linecap="round" opacity=".5"><path d="M880 352 H980 M900 368 H960"/></g>
+</svg>

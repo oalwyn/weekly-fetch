@@ -80,6 +80,9 @@ html=html.replace(PAIR, '<script>/*wf-data*/(function(){var v=Math.floor(Date.no
 html=html.replace('.okmsg{','.setup{background:#fff;border-radius:14px;padding:14px 16px;margin:0 0 12px}.setup strong{font-size:16px}\n.okmsg{',1)
 # pages for other cities live in a folder: shared files (icons, banner, vendor scripts, privacy page) come from the site root;
 # the city's own data.js/walks.js stay next to its page. City-specific saved settings get their own keys in this browser.
+# UK/EU visitors: the London edition loads no Google Analytics (no consent banner needed); first-party usage records only
+if CITYCFG['key'] == 'london':
+    html = re.sub(r'<!--ga-->.*?<!--/ga-->\n?', '', html, flags=re.S)
 if CITYCFG['path']:
     # since app 1.3 (approved Nov 17, 2026) the iPhone app has every city and is sold in Australia: the App Store bar and banner stay
     html = re.sub(r'''(href|src)="(?!https?:|mailto:|tel:|sms:|/|#|\$|'|data:|\./data\.js|\./walks\.js)(\./)?''', r'\1="/', html)
