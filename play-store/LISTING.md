@@ -128,3 +128,12 @@ No ads. Browsing needs no account.
 ```
 First Android release: what's on this weekend in the Bay Area and Sydney, a map, rainy-day ideas, and shared weekend plans with reminders.
 ```
+
+## Release notes (1.4.1, versionCode 2; sent Nov 20, 2026)
+
+```
+More ways to get out and meet your neighbors.
+• Community this weekend: things to join in, ways to volunteer, cultural celebrations, talks and free museum days.
+• New Rainy Day tab, Shop local picks, search, and tidier weekends.
+• Labels for who an event suits, kids' camp and youth sports sign-ups, and the East Bay on the map.
+```
