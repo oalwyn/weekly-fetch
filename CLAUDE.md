@@ -11,6 +11,10 @@ It covers the North Bay (Marin, Napa, Sonoma, Santa Rosa), SF, the Peninsula, th
 - Tab, search and home icons: Gregor Cresnar line icons from Noun Project (owner's Noun Pro plan, royalty-free, no credit needed), saved in `src/icons/` and inlined as SVG with `fill="currentColor"` so CSS colours them. Keep any new icons in the same style (his "softline" sets, 48-unit stroke). Since Nov 16 there are also category icons (card labels, Filter chips, Holiday/Markets/Dog-friendly buttons, market and movie boxes), a location pin (distances, city button, meet-ups) and a big star on empty Plans. They all live in `src/icons/paths.json`, which build.py injects as `WF_ICONS`; draw them with `wfIco(key)` (keys in `ICO_KEY` in app.js). Dog-friendly uses his older paw (no softline dog exists).
 - Categories: `hol` holiday, `mkt` markets, `dog`, `food` pizza & coffee, `art`, `show` concerts & shows, `kids` young kids, `teen`, `prog` programs & sign-ups (deadlines: teen programs, kids' camps, youth sports), `join` join in, `vol` volunteer, `cult` cultural celebrations, `learn` talks & learning, `fmd` free museum days, `evt`, plus `walk` dog walks.
 
+## For the weekly refresh routines (Bay Area, Sydney, London)
+Besides the routine's own prompt, every refresh run must also follow `src/refresh/first-date.md`: add an `fd` object to the
+items that pass its hard filters (20–35 per city). `fd` lives inside data.js items, so "write only data.js" still holds.
+
 ## Files
 | Path | Role |
 |---|---|
@@ -137,6 +141,10 @@ So always `git pull` before working, and don't hand-edit `data.js` in ways the r
 - London Weekend Fetch at /london/ (settings src/cities/london.json, map src/coast_london.json, banner banner_london.svg, `london/walks.js`, `london/rainy.js`, `london/manifest.webmanifest`). Event ids start with `ldn-`. No Google Analytics on London pages. privacy.html has a UK section (controller Alwyn Ventures LLC). In the city picker, sitemap and the dashboard's City filter.
 - Refresh routine "London Weekend Fetch refresh (Mondays London time, cloud)", id `trig_01LpYgHxnwHWvoigcRkR4Pjg`, Opus, Mondays 6:17am London time, writes only `london/data.js`. It saves progress in 11 groups to the branch `london-wip` (with london/PROGRESS.md) so a run cut off by usage limits can be restarted and continues; only the finished data.js goes to main, then the branch is deleted. First run Nov 23, 2026: 345 items.
 - App 1.5 (London, Set-home change): iPhone build 12 submitted to App Review Nov 23, 2026 (automatic release), United Kingdom added to availability. Android 1.5 (versionCode 3) sent to Google Nov 23, 2026 with the UK added to countries (Play release notes max 500 characters). The ExportOptions.plist for uploads is kept at ~/.appstoreconnect/ExportOptions.plist.
+
+## First-date ideas (Nov 23, 2026)
+- Criteria and the `fd` item field: `src/refresh/first-date.md` (followed by every refresh run, see the top of this file). The site shows a "First date ideas" quick pick in Filter (`state.fd`, `isFd`, `fdScore` ranks by preferences met), a pink "First date idea" label on those cards, and, with the filter on, a box with length, indoors/outdoors, a follow-up, what it's good for, what to keep in mind and where it was checked (`fdHTML`, `FD_PREF`, `FD_MISS`). Never labelled "best".
+- Inventory gap found Nov 23: plenty of dated date-friendly events (markets, museums, walks, classes: ~105–125 per city), but few standing places (no mini golf, few bookshops, rinks or game cafés; Rainy Day venues are mostly kids' play spaces).
 
 ## Home location for new people (Nov 22, 2026)
 - Nobody starts in Mountain View any more. Until someone picks a home (`wf-home`), distances come from the city's neutral centre (`home` in src/cities/*.json: Bay Area "San Francisco", Sydney "Sydney CBD", London "Central London"), the filter-bar chip says "Set home", and What's On / Explore show a one-line "Distances are from … for now. Set your home" prompt (`homeNudge` in app.js; × hides it for good via `wf-home-asked`, namespaced per city). "Forget my home" in the home box clears it. The apps pick this up in their next release (1.5).

@@ -167,6 +167,8 @@ footer{font-size:12px;color:var(--mute);text-align:center;padding:10px 20px 30px
 .rfbar{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 4px}.rfbar::-webkit-scrollbar{display:none}.rfbar .chip{flex:none;display:inline-flex;align-items:center;gap:5px}.rfbar .chip .ico{width:16px;height:16px}
 .rcount{float:right;font-weight:600;letter-spacing:0;text-transform:none}
 .rrow{display:flex;gap:10px;align-items:center;background:#fff;border-radius:12px;padding:10px 12px;margin-bottom:6px}.rico .ico{width:28px;height:28px}.rb{flex:1;min-width:0}.rb b{display:block;font-size:15px;line-height:1.3}.rb>span{display:block;font-size:13px;color:var(--mute);line-height:1.4}.rnote{margin-top:1px}.rtags{display:flex!important;gap:4px;flex-wrap:wrap;margin-top:4px}.rt{font-style:normal;font-size:11.5px;font-weight:700;border-radius:6px;padding:2px 6px;background:#EEF2F5;color:var(--ink)}.rt-kids{background:#E8F4DC;color:#3B6B17}.rt-teens{background:#E6E9F7;color:#3A47A0}.rt-dog{background:#E3F2EA;color:#1F6B4A}.rt-free{background:#EAF6EF;color:#1F6B4A}.rgo{font-weight:700;color:var(--blue);font-size:14px;white-space:nowrap;text-decoration:none;padding:10px 2px}
+.fdb{display:inline-flex;align-items:center;font-size:11px;font-weight:700;border-radius:999px;padding:3px 9px;background:#FCE8EC;color:#8A2442;border:1px solid #F2B8C6}
+.fdbox{grid-column:1/-1;margin-top:8px;padding:8px 10px;border-radius:10px;background:#FDF3F5;font-size:13px;line-height:1.45;color:var(--ink)}.fdbox b{font-weight:700}.fdbox .fdsrc{color:var(--mute);font-size:12px;margin-top:2px}
 .localb{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;border-radius:999px;padding:3px 9px;background:#E1F3EA;color:#14593D;border:1px solid #A7D8BF}.localb .ico{width:1.25em;height:1.25em}
 .pickbox.localbox{box-shadow:inset 4px 0 0 #1D7A55}
 .moreb{display:block;width:100%;border:1px dashed #B8C4CF;background:#F7F9FB;color:var(--blue-d);border-radius:12px;padding:12px;margin:2px 0 12px;font:inherit;font-weight:700;font-size:15px;min-height:46px;cursor:pointer}
@@ -442,7 +444,7 @@ try { const v = localStorage.getItem("wf-likes-off"); if (v!==null){ likesSet = 
 const likeKey = c => c==="walk" ? "dog" : (c in CATS ? c : "evt");
 function saveLikes(){ likesSet = true; try { localStorage.setItem("wf-likes-off", JSON.stringify([...likesOff])); } catch(e) {} }
 
-let state = {q:"", searchOpen:false, free:false, dogok:false, day:"", mapWhen:"wk0", view:"events", cat:"all", dist:0, sel:null, group:"weekend", editHome:false, homeMsg:"", likesOpen:false};
+let state = {q:"", searchOpen:false, free:false, dogok:false, fd:false, day:"", mapWhen:"wk0", view:"events", cat:"all", dist:0, sel:null, group:"weekend", editHome:false, homeMsg:"", likesOpen:false};
 try { const d = +localStorage.getItem("wf-dist"); if (CITY.dists.includes(d)) state.dist = d; } catch(e) {}
 try { const g = localStorage.getItem("wf-group"); if (g==="weekend"||g==="date") state.group = g; } catch(e) {}
 /* ---- dates & weekends ---- */
@@ -538,12 +540,26 @@ function whoLine(id){
 // quick filters: free, dog-friendly, Saturday/Sunday; and the search box
 const isDogOk = e => e.cat==="dog" || e.cat==="walk" || (/\b(dog[- ]friendly|dogs? (are |on leash )?welcome|leashed dogs|dogs on leash|pets welcome|bring (your|the) (dog|pup))/i.test(e.meta||"") && !/\bno (dogs|pets)\b/i.test(e.meta||""));
 const DOW = {sat:6, sun:0};
+/* First-date ideas: the weekly refresh adds `fd` to events that pass the hard filters (public and populated, not isolated,
+   meet at the venue, daytime or early evening, not built around drinking, details checked with the organiser). Its fields:
+   dur (rough length), io (indoor/outdoor/both), next (a nearby follow-up), m (preferences met), x (preferences or facts missing),
+   src (where the facts were checked). Ranked by how many preferences it meets; never called the "best" date. */
+const FD_PREF = {short:"easy to leave or extend", talk:"easy to talk", focus:"something to do together", novel:"a bit new or playful", cheap:"low cost, no big booking", access:"accessible (seating, restrooms, parking or transit)", wx:"works in any weather"};
+const FD_MISS = {short:"hard to leave early", talk:"hard to hear each other", focus:"little to do together", novel:"nothing new to try", cheap:"costs more or needs booking ahead", access:"limited seating, restrooms or parking", wx:"no bad-weather backup"};
+const isFd = e => !!(e.fd && typeof e.fd==="object");
+const fdScore = e => isFd(e) && Array.isArray(e.fd.m) ? e.fd.m.filter(k=>k in FD_PREF).length : 0;
+const fdList = (a, L) => (Array.isArray(a)?a:[]).map(k=>(L||FD_PREF)[k]||String(k)).join(", ");
+function fdHTML(e){
+  if (!isFd(e) || !state.fd) return "";
+  const f = e.fd, io = {indoor:"Indoors", outdoor:"Outdoors", both:"Indoors and out"}[f.io] || "";
+  return `<div class="fdbox"><div>${[f.dur&&("About "+esc(f.dur)), io].filter(Boolean).join(" · ")}${f.next?`<br>Then: ${esc(f.next)}`:""}</div>${f.m&&f.m.length?`<div><b>Good for:</b> ${esc(fdList(f.m))}</div>`:""}${f.x&&f.x.length?`<div><b>Keep in mind:</b> ${esc(fdList(f.x, FD_MISS))}</div>`:""}${f.src?`<div class="fdsrc">Checked: ${esc(f.src)}</div>`:""}</div>`;
+}
 const onDow = (e, d) => e.cat==="walk" || daysOf(e, TODAY, addD(TODAY,120)).some(x=>parseD(x).getDay()===d);
 const norm = t => String(t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 const matchQ = e => { const hay = norm([e.title,e.meta,e.when,(CATS[e.cat]||CATS.evt).label,...(Array.isArray(e.aud)?e.aud.map(k=>AUD[k]||""):[])].join(" ")); return norm(state.q).split(/\s+/).filter(Boolean).every(w=>hay.includes(w)); };
 function filtered(){
   return DATA.filter(e => (state.cat==="all" ? !likesOff.has(likeKey(e.cat)) : (e.cat===state.cat || (state.cat==="dog" && e.cat==="walk"))) && (!state.dist || (e.mi!=null && e.mi<=state.dist) || (e.cat==="film" && e.lat==null))
-    && (!state.local || e.local) && (!state.free || e.price==="free" || e.cat==="walk") && (!state.dogok || isDogOk(e)) && (!state.day || onDow(e, DOW[state.day])) && (!state.q || matchQ(e)));
+    && (!state.local || e.local) && (!state.free || e.price==="free" || e.cat==="walk") && (!state.dogok || isDogOk(e)) && (!state.fd || isFd(e)) && (!state.day || onDow(e, DOW[state.day])) && (!state.q || matchQ(e)));
 }
 // "Free" or "Tickets" pill; a ticketed event with a ticket page links straight to it
 const okUrl = u => typeof u==="string" && /^https?:\/\//.test(u);
@@ -654,7 +670,7 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(whenText(e))}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(metaText(e))}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}${e.local?`<span class="localb" title="${esc(e.biz||"")}">${wfIco("local")}Local</span>`:""}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${wfIco(e.cat in CATS?e.cat:"evt")}${c.label}</span>${haHTML(e)}${priceHTML(e)}${audHTML(e)}${e.mi!=null?`<span class="dist">${wfIco("pin")}${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${extra||""}
+    <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}${e.local?`<span class="localb" title="${esc(e.biz||"")}">${wfIco("local")}Local</span>`:""}${isFd(e)?`<span class="fdb">First date idea</span>`:""}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${wfIco(e.cat in CATS?e.cat:"evt")}${c.label}</span>${haHTML(e)}${priceHTML(e)}${audHTML(e)}${e.mi!=null?`<span class="dist">${wfIco("pin")}${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${fdHTML(e)}${extra||""}
   </article>`;
 }
 // icons by Gregor Cresnar (Noun Project, royalty-free on the owner's Noun Pro plan); sources in src/icons
@@ -671,7 +687,7 @@ function renderFilters(){
   f.style.display="";
   const catLabel = state.cat==="all" ? (likesOff.size ? "My interests" : "All") : CATS[state.cat].label;
   const distLabel = state.dist ? `Within ${state.dist} ${UNIT}` : "Any distance";
-  const quick = [state.local&&"Local business", state.free&&"Free", state.dogok&&"Dog-friendly", state.day&&(state.day==="sat"?"Saturday":"Sunday")].filter(Boolean);
+  const quick = [state.fd&&"First date ideas", state.local&&"Local business", state.free&&"Free", state.dogok&&"Dog-friendly", state.day&&(state.day==="sat"?"Saturday":"Sunday")].filter(Boolean);
   const active = (state.cat!=="all") + (!!state.dist) + quick.length;
   let h = `<div class="fbar"><button class="filterbtn${active?" on":""}" data-filtopen aria-expanded="${!!state.filtOpen}" aria-controls="fpanel">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4-2v-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
@@ -680,7 +696,7 @@ function renderFilters(){
     <button class="chip homechip" data-sethome aria-label="${HOME_SET?`Change home location, now ${esc(HOME.name)}`:"Set your home location"}">${ICO_HOME} ${HOME_SET?esc(HOME.name):"Set home"}</button></div>`;
   if (state.searchOpen) h = `<div class="fbar sbar"><input type="search" id="q" value="${esc(state.q)}" placeholder="Search events, places, towns" aria-label="Search events" autocomplete="off" enterkeyhint="search"><button class="chip" data-searchclose>Cancel</button></div>`;
   if (state.filtOpen){
-    h += `<div class="fpanel" id="fpanel"><div class="fsec">Quick picks</div><div class="fwrap">${[["local",wfIco("local")+"Local business"],["free","Free"],["dogok",wfIco("dog")+"Dog-friendly"],["sat","Saturday"],["sun","Sunday"]].map(([k,t])=>`<button class="chip" data-quick="${k}" aria-pressed="${k==="sat"||k==="sun" ? state.day===k : !!state[k]}">${t}</button>`).join("")}</div><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">${likesOff.size?"All my interests":"All events"}</button>`;
+    h += `<div class="fpanel" id="fpanel"><div class="fsec">Quick picks</div><div class="fwrap">${[["fd","First date ideas"],["local",wfIco("local")+"Local business"],["free","Free"],["dogok",wfIco("dog")+"Dog-friendly"],["sat","Saturday"],["sun","Sunday"]].map(([k,t])=>`<button class="chip" data-quick="${k}" aria-pressed="${k==="sat"||k==="sun" ? state.day===k : !!state[k]}">${t}</button>`).join("")}</div><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">${likesOff.size?"All my interests":"All events"}</button>`;
     for (const k in CATS) if (k!=="walk") h += `<button class="chip" data-cat="${k}" aria-pressed="${state.cat===k}"><span class="cico" style="color:${CATS[k].color}">${wfIco(k)}</span>${CATS[k].label}</button>`;
     h += `</div><div class="fsec">My interests <button class="linkbtn" data-likesopen>edit</button></div><p class="fnote">${likesOff.size ? "Hiding: " + esc([...likesOff].map(k=>CATS[k]?CATS[k].label:k).join(", ")) : "Showing every kind of event."}</p><div class="fsec">Distance from ${esc(HOME.name)} <button class="linkbtn" data-sethome>change</button></div><div class="dseg" role="group" aria-label="Distance">${DISTS.map(([v,t])=>`<button data-distv="${v}" aria-pressed="${state.dist===v}">${t}</button>`).join("")}</div>
     <div class="fdone">${active?`<button class="copybtn alt" data-freset>Clear filters</button>`:""}<button class="copybtn" data-filtopen>Done · show ${filtered().filter(e=>!isPast(e)).length}</button></div></div>`;
@@ -698,7 +714,7 @@ function segHTML(){
 }
 // a calm first look: about 8 events a weekend (yours first, then nearest, a mix of kinds), the rest one tap away
 const TOP = 8, showAll = new Set();
-const trimming = () => state.cat==="all" && !state.q;
+const trimming = () => state.cat==="all" && !state.q && !state.fd;
 function topPicks(list){
   if (!trimming() || list.length <= TOP + 2) return list;
   const mine = list.filter(e=>starredByMe(e.id) || lockKey(e.id));
@@ -727,7 +743,7 @@ function renderByWeekend(){
   let h = "";
   W.forEach((w,i)=>{
     const onDay = e => !state.day || daysOf(e, state.day==="sat"?w.sat:w.sun, state.day==="sat"?w.sat:w.sun).length > 0;
-    const main = items.filter(e=>occurs(e,w.fri,w.sun)==="main" && onDay(e)).sort(byStart);
+    const main = items.filter(e=>occurs(e,w.fri,w.sun)==="main" && onDay(e)).sort(state.fd ? (a,b)=>fdScore(b)-fdScore(a) || (a.mi==null?999:a.mi)-(b.mi==null?999:b.mi) : byStart);
     let ong = items.filter(e=>occurs(e,w.fri,w.sun)==="ongoing" && onDay(e));
     main.forEach(e=>used.add(e.id)); ong.forEach(e=>used.add(e.id));
     const fl = films.filter(e=>{ const s=startOf(e); return s && s>=addD(w.fri,-2) && s<=w.sun; }).sort(byStart);
@@ -1190,7 +1206,7 @@ document.addEventListener("click", ev=>{
   else if (t.dataset.more){ const k=t.dataset.more; showAll.has(k) ? showAll.delete(k) : showAll.add(k); refreshStars(); }
   else if (t.dataset.mapwhen){ state.mapWhen=t.dataset.mapwhen; document.querySelectorAll("[data-mapwhen]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.mapwhen===state.mapWhen)); drawMap(); mapCount(); }
   else if (t.dataset.rf){ state.rf = t.dataset.rf; refreshStars(); }
-  else if (t.hasAttribute("data-freset")){ state.cat="all"; state.dist=0; state.local=false; state.free=false; state.dogok=false; state.day=""; try{localStorage.setItem("wf-dist",0);}catch(e){} render(); }
+  else if (t.hasAttribute("data-freset")){ state.cat="all"; state.dist=0; state.local=false; state.free=false; state.dogok=false; state.fd=false; state.day=""; try{localStorage.setItem("wf-dist",0);}catch(e){} render(); }
   else if (t.hasAttribute("data-sethome")){ state.filtOpen = false; state.editHome = !state.editHome; state.homeMsg=""; render(); if (state.editHome) setTimeout(()=>{ const i=document.getElementById("homeq"); if(i) i.focus(); },50); }
   else if (t.hasAttribute("data-homefind")){ findHome(); }
   else if (t.hasAttribute("data-homegps")){ gpsHome(); }
