@@ -171,6 +171,209 @@ window.WF_DATES = {
     ],
     "src": "english-heritage.org.uk Kenwood page, 23 Nov 2026"
    }
+  },
+  {
+   "id": "ldn-dp-daunt-marylebone",
+   "name": "Daunt Books Marylebone",
+   "kind": "books",
+   "town": "Marylebone",
+   "lat": 51.5205,
+   "lon": -0.1518,
+   "url": "https://www.dauntbooks.co.uk/shops/marylebone",
+   "hours": "Sat 9am–7.30pm, Sun 11am–6pm",
+   "price": "free",
+   "note": "Edwardian bookshop with a long oak gallery and skylight, shelved by country: pick a place you'd both like to go",
+   "fd": {
+    "dur": "30–60 min",
+    "io": "indoor",
+    "next": "The Wallace Collection's free galleries and courtyard café, about 10 minutes' walk",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "talk (keep voices low; chat on the high street after)",
+     "access (no seating or café inside)"
+    ],
+    "src": "dauntbooks.co.uk Marylebone page, 23 Nov 2026"
+   }
+  },
+  {
+   "id": "ldn-dp-draughts-waterloo",
+   "name": "Draughts board game café, Waterloo",
+   "kind": "games",
+   "town": "Waterloo",
+   "lat": 51.5016,
+   "lon": -0.1146,
+   "url": "https://www.draughtslondon.com/waterloo",
+   "hours": "Open daily; food served until 10pm (daytime opening times aren't shown on its site)",
+   "price": "£",
+   "note": "Over 1,000 games and staff who'll teach you one: an easy way to see how someone plays",
+   "fd": {
+    "dur": "60–120 min",
+    "io": "indoor",
+    "next": "The South Bank riverside, a few minutes' walk from Leake Street",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "cheap (£9.95 a head at weekends for up to 3 hours, plus food; book a table)",
+     "daytime opening times not published on its site",
+     "skip the bottomless-drinks bundle"
+    ],
+    "src": "draughtslondon.com Waterloo page and FAQs, 23 Nov 2026"
+   }
+  },
+  {
+   "id": "ldn-dp-putt-battersea",
+   "name": "Putt in the Park, Battersea Park",
+   "kind": "minigolf",
+   "town": "Battersea",
+   "lat": 51.4822,
+   "lon": -0.164,
+   "url": "https://www.puttinthepark.com/battersea-park",
+   "hours": "Daily 9am–5pm, last tee-off 4pm (weather permitting; not floodlit)",
+   "price": "£",
+   "note": "An 18-hole crazy golf course with a clubhouse café in the park: light competition and plenty of chances to laugh",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "outdoor",
+    "next": "Battersea Park itself: the lake and the riverside path by the Peace Pagoda",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx (outdoors, weather permitting)"
+    ],
+    "src": "puttinthepark.com Battersea page, 23 Nov 2026 (£14 adult, plus 10% booking fee)"
+   }
+  },
+  {
+   "id": "ldn-dp-bonbon-battersea",
+   "name": "Bonbon Pottery, Battersea Power Station",
+   "kind": "craft",
+   "town": "Nine Elms",
+   "lat": 51.4815,
+   "lon": -0.1445,
+   "url": "https://bonbonpottery.co.uk/locations/battersea",
+   "hours": "Sat 10am–9.30pm, Sun 10am–8.30pm",
+   "price": "££",
+   "note": "Pick a mug or plate and paint it in a calm café studio; 1.5-hour sessions, and you go home with a reason to meet again when it's fired",
+   "fd": {
+    "dur": "90 min",
+    "io": "indoor",
+    "next": "The Thames riverside walk in front of Battersea Power Station",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "cheap (about £24 a head on average; walk-ins welcome but weekends get busy, so booking is safer)"
+    ],
+    "src": "bonbonpottery.co.uk Battersea and Pottery Painting pages, 23 Nov 2026"
+   }
+  },
+  {
+   "id": "ldn-dp-horniman",
+   "name": "Horniman Museum and Gardens",
+   "kind": "museum",
+   "town": "Forest Hill",
+   "lat": 51.4413,
+   "lon": -0.0606,
+   "url": "https://www.horniman.ac.uk/plan-your-visit/",
+   "hours": "Museum daily 10am–5.30pm; gardens daily from 7.15am (8am Sun) to dusk",
+   "price": "free",
+   "note": "Musical instruments, a walrus and an aquarium, then gardens with one of south London's best views over the city",
+   "fd": {
+    "dur": "60–120 min",
+    "io": "both",
+    "next": "The Horniman Café (daily 9am–5pm) and the gardens' viewpoint",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "aquarium and butterfly house cost extra and are best booked"
+    ],
+    "src": "horniman.ac.uk plan-your-visit page, 23 Nov 2026"
+   }
+  },
+  {
+   "id": "ldn-dp-william-morris",
+   "name": "William Morris Gallery",
+   "kind": "museum",
+   "town": "Walthamstow",
+   "lat": 51.5915,
+   "lon": -0.0215,
+   "url": "https://www.wmgallery.org.uk/visit/",
+   "hours": "Sat–Sun 10am–5pm (closed Mondays and Boxing Day)",
+   "price": "free",
+   "note": "The designer's family home, full of his wallpapers and textiles, in a park: easy to talk about what you'd put on your walls",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "next": "Deeney's Café in the gallery, overlooking Lloyd Park",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [],
+    "src": "wmgallery.org.uk visit page, 23 Nov 2026"
+   }
+  },
+  {
+   "id": "ldn-dp-museum-of-home",
+   "name": "Museum of the Home",
+   "kind": "museum",
+   "town": "Hoxton",
+   "lat": 51.5316,
+   "lon": -0.0763,
+   "url": "https://museumofthehome.org.uk/plan-your-visit/",
+   "hours": "Tue–Sun 10am–5pm; gardens 10am–4.30pm (closed 24–28 Dec and 1 Jan)",
+   "price": "free",
+   "note": "Living rooms through 400 years, then period gardens: a gentle prompt for 'what was your home like growing up?'",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "follow-up not checked (no café listed on its site; Kingsland Road cafés are nearby)",
+     "access (lunch room rather than a café)"
+    ],
+    "src": "museumofthehome.org.uk plan-your-visit page, 23 Nov 2026"
+   }
   }
  ]
 }
