@@ -80,6 +80,15 @@ events,weekend,things to do,san francisco,sydney,bay area,marin,napa,dog friendl
 
 ## What's New
 
+**1.5** (London; build 12, Nov 2026, automatic release):
+
+```
+Now in London too.
+• London Weekend Fetch: what's on this weekend across London, plus day trips to Brighton, Oxford, Windsor, Cambridge and the Kent coast. Tap the city at the top to switch between the Bay Area, Sydney and London.
+• London's map, Rainy Day ideas (free museums and cosy spots) and dog walks from Hampstead Heath to Richmond Park.
+• Community this weekend, free museum days and all the other boxes work in every city.
+```
+
 **1.4.1** (community boxes; build 11, submitted Nov 17, 2026, automatic release):
 
 ```
@@ -241,7 +250,7 @@ NATIVE FEATURES TO TRY
 1. Reminders: On the Events tab, star an event this weekend. Open "Our Weekend Plans", tap the event, then "Lock it in". The app asks for notification permission and schedules reminders for the evening before (7pm) and 2 hours before the start time.
 2. Add to Calendar: On a locked-in plan, tap "Add to Calendar". iOS's own New Event screen opens, filled in.
 3. Share sheet: In a group, tap "Invite someone", then "Share invite".
-4. Location (optional): Tap the "Mountain View" home button and choose "Use my current location" to sort events by distance. The location is used only on the device.
+4. Location (optional): Tap the "Set home" button and choose "Use my current location" to sort events by distance. The location is used only on the device.
 
 DATA
 Accounts, groups, stars and simple usage counts are stored in our Supabase database; sign-in emails are sent by Resend. No ads, no tracking. Privacy policy: https://theweekendfetch.com/privacy.html

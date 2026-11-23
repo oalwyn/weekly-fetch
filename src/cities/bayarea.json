@@ -11,7 +11,7 @@
   "units": "mi",
   "dists": [15, 30, 60],
   "country": "us",
-  "home": {"name": "Mountain View", "lat": 37.3861, "lon": -122.0839},
+  "home": {"name": "San Francisco", "lat": 37.7793, "lon": -122.4193},
   "far": {"lat": 37.2, "lon": -122.0, "mi": 120},
   "near_home_span": 11,
   "map_start": "Bay Area",

@@ -7,7 +7,8 @@ const HOME_DEFAULT = {...CITY.home};
 const KM = CITY.units === "km";
 const UNIT = KM ? "km" : "mi";
 let HOME = {...HOME_DEFAULT};
-try { const h = JSON.parse(localStorage.getItem("wf-home") || "null"); if (h && isFinite(h.lat) && isFinite(h.lon)) HOME = h; } catch(e) {}
+let HOME_SET = false; // false until the person picks a home: then distances are from the city centre and we ask
+try { const h = JSON.parse(localStorage.getItem("wf-home") || "null"); if (h && isFinite(h.lat) && isFinite(h.lon)){ HOME = h; HOME_SET = true; } } catch(e) {}
 const BBOX = /*BBOX*/[0,0,0,0];
 const MAP_W = /*W*/0, MAP_H = /*H*/0;
 const COAST = "/*COAST*/";
@@ -262,7 +263,7 @@ function renderFilters(){
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4-2v-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
     <span class="ftxt"><span class="flabel">Filter<span class="xw"> events</span></span><span class="fsum">${esc([catLabel, distLabel, ...quick].join(" · "))}</span></span>${active?`<span class="fcount">${active}</span>`:""}<span class="fcaret">${state.filtOpen?"▴":"▾"}</span></button>
     <button class="chip searchbtn" data-search aria-label="Search events">${ICO_SEARCH}</button>
-    <button class="chip homechip" data-sethome aria-label="Change home location, now ${esc(HOME.name)}">${ICO_HOME} ${esc(HOME.name)}</button></div>`;
+    <button class="chip homechip" data-sethome aria-label="${HOME_SET?`Change home location, now ${esc(HOME.name)}`:"Set your home location"}">${ICO_HOME} ${HOME_SET?esc(HOME.name):"Set home"}</button></div>`;
   if (state.searchOpen) h = `<div class="fbar sbar"><input type="search" id="q" value="${esc(state.q)}" placeholder="Search events, places, towns" aria-label="Search events" autocomplete="off" enterkeyhint="search"><button class="chip" data-searchclose>Cancel</button></div>`;
   if (state.filtOpen){
     h += `<div class="fpanel" id="fpanel"><div class="fsec">Quick picks</div><div class="fwrap">${[["local",wfIco("local")+"Local business"],["free","Free"],["dogok",wfIco("dog")+"Dog-friendly"],["sat","Saturday"],["sun","Sunday"]].map(([k,t])=>`<button class="chip" data-quick="${k}" aria-pressed="${k==="sat"||k==="sun" ? state.day===k : !!state[k]}">${t}</button>`).join("")}</div><div class="fsec">Show</div><div class="fwrap"><button class="chip" data-cat="all" aria-pressed="${state.cat==='all'}">${likesOff.size?"All my interests":"All events"}</button>`;
@@ -628,15 +629,20 @@ function bindMap(){
   svg.addEventListener("keydown", ev=>{ const g=ev.target.closest&&ev.target.closest("[data-pin]"); if(g&&(ev.key==="Enter"||ev.key===" ")){ ev.preventDefault(); state.sel=g.dataset.pin; drawMap(); showSheet(); if (typeof track==="function") track("map_event_opened",{item_id:state.sel, placement:"map"}); } });
 }
 /* ---------- home location ---------- */
+function homeNudge(){
+  let off = false; try { off = !!localStorage.getItem("wf-home-asked"); } catch(e) {}
+  if (HOME_SET || off || state.editHome) return "";
+  return `<div class="homenudge">${wfIco("pin")}<span>Distances are from ${esc(HOME_DEFAULT.name)} for now.</span><button class="linkbtn" data-sethome>Set your home</button><button class="nudgex" data-homenudgex aria-label="Hide this">×</button></div>`;
+}
 function homeBox(){
-  if (!state.editHome || state.view==="our-list") return "";
+  if (!state.editHome || state.view==="our-list") return homeNudge();
   return `<div class="homebox"><strong>Where's home?</strong><p class="ournote">Distances, the distance filter and the map's “Near home” view use this. It's saved on this phone only.</p>
   <form id="homeform" class="homeform" onsubmit="event.preventDefault();findHome()"><input id="homeq" type="text" inputmode="search" autocomplete="street-address" placeholder="Address, city or ${CITY.country==="us"?"ZIP":"postcode"}" aria-label="Address, city or ZIP"><button class="copybtn" data-homefind type="submit">Set</button></form>
-  <div class="btnrow"><button class="copybtn alt" data-homegps>Use my current location</button>${HOME.name!==HOME_DEFAULT.name||HOME.lat!==HOME_DEFAULT.lat?`<button class="copybtn alt" data-homereset>Back to Mountain View</button>`:""}<button class="copybtn alt" data-homeclose>Done</button></div>
+  <div class="btnrow"><button class="copybtn alt" data-homegps>Use my current location</button>${HOME_SET?`<button class="copybtn alt" data-homereset>Forget my home</button>`:""}<button class="copybtn alt" data-homeclose>Done</button></div>
   ${state.homeMsg?`<p class="ournote homemsg">${esc(state.homeMsg)}</p>`:""}<p class="ournote small">Addresses are looked up with OpenStreetMap.</p></div>`;
 }
 function setHome(h, msg){
-  HOME = h; try { localStorage.setItem("wf-home", JSON.stringify(h)); } catch(e) {}
+  HOME = h; HOME_SET = true; try { localStorage.setItem("wf-home", JSON.stringify(h)); } catch(e) {}
   PRESETS["Near home"] = boxAround(h.lat, h.lon, CITY.near_home_span);
   measure(); state.homeMsg = msg || `Home set to ${h.name}. Distances updated.`; render();
 }
@@ -774,7 +780,8 @@ document.addEventListener("click", ev=>{
   else if (t.hasAttribute("data-sethome")){ state.filtOpen = false; state.editHome = !state.editHome; state.homeMsg=""; render(); if (state.editHome) setTimeout(()=>{ const i=document.getElementById("homeq"); if(i) i.focus(); },50); }
   else if (t.hasAttribute("data-homefind")){ findHome(); }
   else if (t.hasAttribute("data-homegps")){ gpsHome(); }
-  else if (t.hasAttribute("data-homereset")){ setHome({...HOME_DEFAULT}); try{localStorage.removeItem("wf-home");}catch(e){} }
+  else if (t.hasAttribute("data-homereset")){ setHome({...HOME_DEFAULT}, `Home forgotten. Distances are from ${HOME_DEFAULT.name} again.`); HOME_SET = false; try{localStorage.removeItem("wf-home");}catch(e){} render(); }
+  else if (t.hasAttribute("data-homenudgex")){ try{localStorage.setItem("wf-home-asked","1");}catch(e){} render(); }
   else if (t.hasAttribute("data-homeclose")){ state.editHome=false; render(); }
   else if (t.dataset.star){ toggleStar(t.dataset.star); }
   else if (t.dataset.expand){ const id=t.dataset.expand; const opening=!openRows.has(id); opening?openRows.add(id):openRows.delete(id); refreshStars(); if (opening && typeof track==="function") track("event_detail_viewed",{item_id:id, placement:"plan_row"}); }

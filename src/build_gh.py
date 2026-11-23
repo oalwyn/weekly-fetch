@@ -89,7 +89,7 @@ if CITYCFG['path']:
     html = html.replace('url(banner.svg', 'url(/' + CITYCFG.get('banner', 'banner.svg'))   # each city has its own header art
     html = html.replace('"./vendor/', '"/vendor/')   # sign-in and QR libraries live at the site root
     html = html.replace('<link rel="manifest" href="/manifest.webmanifest">', '<link rel="manifest" href="/%s/manifest.webmanifest">' % CITYCFG['path'])
-    ns = '<script>/*city-storage*/(function(){var C=%s,K={"wf-home":1,"wf-dist":1,"wf-vb2":1,"wf-saved-ids":1,"wf-locks":1,"wf-gid":1,"wf-main":1,"wf-gcache":1,"wf-view2":1,"wf-list":1,"wf-cache":1,"wf-lcache":1,"wf-queue":1,"wf-list-converted":1,"wf-group":1};var P=Storage.prototype,g=P.getItem,s=P.setItem,r=P.removeItem,f=function(k){return K[k]?k+"@"+C:k};P.getItem=function(k){return g.call(this,f(k))};P.setItem=function(k,v){return s.call(this,f(k),v)};P.removeItem=function(k){return r.call(this,f(k))};})();</script>\n' % json.dumps(CITYCFG['key'])
+    ns = '<script>/*city-storage*/(function(){var C=%s,K={"wf-home":1,"wf-home-asked":1,"wf-dist":1,"wf-vb2":1,"wf-saved-ids":1,"wf-locks":1,"wf-gid":1,"wf-main":1,"wf-gcache":1,"wf-view2":1,"wf-list":1,"wf-cache":1,"wf-lcache":1,"wf-queue":1,"wf-list-converted":1,"wf-group":1};var P=Storage.prototype,g=P.getItem,s=P.setItem,r=P.removeItem,f=function(k){return K[k]?k+"@"+C:k};P.getItem=function(k){return g.call(this,f(k))};P.setItem=function(k,v){return s.call(this,f(k),v)};P.removeItem=function(k){return r.call(this,f(k))};})();</script>\n' % json.dumps(CITYCFG['key'])
     html = html.replace('<script>window.WF_CITY=', ns + '<script>window.WF_CITY=', 1)
 os.makedirs(os.path.dirname(os.path.abspath(OUTFILE)), exist_ok=True)
 open(OUTFILE,'w').write(html)
