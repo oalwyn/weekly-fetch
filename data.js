@@ -246,7 +246,23 @@ window.WF_DATA = {
    "lon": -121.896,
    "q": "Monterey Museum of Art, Pacific Street, Monterey",
    "start": "2026-11-14",
-   "end": "2027-01-17"
+   "end": "2027-01-17",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "indoor",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "$15 adult admission",
+     "follow-up not checked"
+    ],
+    "src": "Monterey Museum of Art exhibitions and visit pages (through Jan 17; Thu–Sun 11am–5pm; adults $15), 23 Nov 2026"
+   }
   },
   {
    "n": 13,
@@ -744,7 +760,25 @@ window.WF_DATA = {
    "lon": -121.89,
    "q": "Plaza de Cesar Chavez San Jose",
    "start": "2026-11-27",
-   "end": "2027-01-01"
+   "end": "2027-01-01",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "outdoor",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "crowds on weekend evenings",
+     "follow-up not checked"
+    ],
+    "src": "Christmas in the Park FAQ (Nov 27–Jan 3, Fri–Sun noon–10pm, Mon–Thu noon–9pm, free), 23 Nov 2026"
+   }
   },
   {
    "n": 40,
@@ -1009,7 +1043,24 @@ window.WF_DATA = {
     "2027-01-02",
     "2027-01-09",
     "2027-01-16"
-   ]
+   ],
+   "fd": {
+    "dur": "45–90 min",
+    "io": "outdoor",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "busy on Saturdays",
+     "wx",
+     "follow-up not checked"
+    ],
+    "src": "Foodwise market page (Saturdays 8am–2pm, year round), 23 Nov 2026"
+   }
   },
   {
    "n": 53,
@@ -1122,7 +1173,24 @@ window.WF_DATA = {
     "2027-01-10",
     "2027-01-16",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "closed Fri Nov 27",
+     "follow-up not checked"
+    ],
+    "src": "Triton Museum visit page (free admission and parking; Tue–Sun 11am–4:30pm), 23 Nov 2026"
+   }
   },
   {
    "n": 57,
@@ -1154,7 +1222,24 @@ window.WF_DATA = {
     "2027-01-10",
     "2027-01-16",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "45–75 min",
+    "io": "indoor",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "paid campus parking (ParkMobile)",
+     "follow-up not checked"
+    ],
+    "src": "Anderson Collection visit page (free; Thu–Mon 11am–5pm; closed Nov 26, Dec 24–25, Dec 31–Jan 1), 23 Nov 2026"
+   }
   },
   {
    "n": 58,
@@ -1200,7 +1285,23 @@ window.WF_DATA = {
     "2027-01-02",
     "2027-01-09",
     "2027-01-16"
-   ]
+   ],
+   "fd": {
+    "dur": "45–90 min",
+    "io": "outdoor",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "follow-up not checked"
+    ],
+    "src": "Agricultural Institute of Marin page (Saturdays 9am–2pm, rain or shine; closed Dec 26), 23 Nov 2026"
+   }
   },
   {
    "n": 60,
@@ -1459,7 +1560,23 @@ window.WF_DATA = {
     "2027-01-03",
     "2027-01-10",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "45–60 min",
+    "io": "outdoor",
+    "m": [
+     "short",
+     "focus",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "check which lot (Caltrain or Hope St)",
+     "follow-up not checked"
+    ],
+    "src": "Mountain View Farmers' Market page (Sundays 9am–1pm, rain or shine), 23 Nov 2026"
+   }
   },
   {
    "n": 72,
@@ -1555,7 +1672,23 @@ window.WF_DATA = {
     "2027-01-03",
     "2027-01-10",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "45–90 min",
+    "io": "outdoor",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "follow-up not checked"
+    ],
+    "src": "Agricultural Institute of Marin page (Sundays 8am–1pm, rain or shine), 23 Nov 2026"
+   }
   },
   {
    "n": 76,
@@ -1606,7 +1739,23 @@ window.WF_DATA = {
     "2027-01-03",
     "2027-01-10",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "Conservatory of Flowers, a short walk east on JFK Dr",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx (weather permitting)",
+     "talk"
+    ],
+    "src": "Lindy in the Park site (Sundays 11am–2pm, free beginner lesson at noon) and Gardens of Golden Gate Park site, 23 Nov 2026"
+   }
   },
   {
    "n": 78,
@@ -3297,7 +3446,24 @@ window.WF_DATA = {
    "lon": -122.4075,
    "q": "Union Square San Francisco",
    "start": "2026-12-08",
-   "end": "2026-12-27"
+   "end": "2026-12-27",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "outdoor",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "crowds on weekends",
+     "follow-up not checked"
+    ],
+    "src": "Patchwork Show Winter Walk page (Dec 8–27, Thu–Sun 11am–9pm, closed Dec 25), 23 Nov 2026"
+   }
   },
   {
    "n": 168,
@@ -3692,7 +3858,23 @@ window.WF_DATA = {
    "lon": -121.888,
    "q": "South Hall San Jose",
    "start": "2026-12-12",
-   "end": "2026-12-13"
+   "end": "2026-12-13",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "indoor",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "follow-up not checked"
+    ],
+    "src": "San José Made event page (Dec 12–13, 11am–6pm, free, South Hall, 435 S Market St), 23 Nov 2026"
+   }
   },
   {
    "n": 191,
