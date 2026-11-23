@@ -1032,23 +1032,7 @@ window.WF_DATA = {
    "n": 52
   },
   {
-   "id": "syd-santa-sleigh-ride-martin-place-tree-lighting-2026",
-   "sec": "week",
-   "when": "Thu Nov 26, 6:30–8:30pm",
-   "title": "Santa's Sydney sleigh ride and Martin Place tree lighting",
-   "meta": "Customs House Square to Martin Place, Sydney · Santa's sleigh parade with a 90-piece marching band and elves on reindeer trikes, then the 24m tree lights up at 8:30pm with fireworks · free",
-   "cat": "hol",
-   "url": "https://whatson.cityofsydney.nsw.gov.au/events/santas-sydney-sleigh-ride",
-   "price": "free",
-   "lat": -33.8677,
-   "lon": 151.2098,
-   "q": "Martin Place, Sydney",
-   "start": "2026-11-26",
-   "end": "2026-11-26",
-   "n": 53
-  },
-  {
-   "n": 54,
+   "n": 53,
    "id": "syd-rbg-aboriginal-harbour-heritage-tour",
    "sec": "week",
    "when": "Thu–Sat, 1–2pm (not public holidays)",
@@ -1095,7 +1079,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 55,
+   "n": 54,
    "id": "syd-campbelltown-light-the-tree-2026",
    "sec": "week",
    "when": "Fri Nov 27, 6pm–9pm · tree lit ~8pm",
@@ -1111,7 +1095,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 56,
+   "n": 55,
    "id": "syd-fm-wollongong",
    "sec": "week",
    "when": "Fridays 8am–3pm",
@@ -1133,7 +1117,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 57,
+   "n": 56,
    "id": "syd-forma-nivea-sun-sessions-2026",
    "sec": "week",
    "when": "Selected days, 12pm–3pm",
@@ -1155,7 +1139,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 58,
+   "n": 57,
    "id": "syd-grooveable-christmas-disco-teens",
    "sec": "week",
    "when": "Fri Nov 27, 6–8:30pm",
@@ -1175,7 +1159,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 59,
+   "n": 58,
    "id": "syd-kogarah-christmas-carol-2026",
    "sec": "week",
    "when": "Fri Nov 27, 4pm–9pm",
@@ -1194,7 +1178,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 60,
+   "n": 59,
    "id": "syd-parra-moves-dance",
    "sec": "week",
    "when": "Fri Nov 27, 6–8pm",
@@ -1210,7 +1194,7 @@ window.WF_DATA = {
    "end": "2026-11-27"
   },
   {
-   "n": 61,
+   "n": 60,
    "id": "syd-schools-spectacular-2026",
    "sec": "week",
    "when": "Fri Nov 27 11am & 7pm · Sat Nov 28 1pm & 7pm",
@@ -1226,7 +1210,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 62,
+   "n": 61,
    "id": "syd-concord-tech-savvy-seniors",
    "sec": "week",
    "when": "Fri Nov 20 & Fri Nov 27, 2–4pm",
@@ -1247,7 +1231,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 63,
+   "n": 62,
    "id": "syd-fm-narrabeen",
    "sec": "week",
    "when": "Fridays 8am–1pm",
@@ -1282,7 +1266,7 @@ window.WF_DATA = {
    "q": "Enmore Theatre Newtown",
    "start": "2026-11-27",
    "end": "2026-11-27",
-   "n": 64
+   "n": 63
   },
   {
    "id": "syd-darling-harbour-latin-nights-2026",
@@ -1314,7 +1298,7 @@ window.WF_DATA = {
     ],
     "src": "darlingharbour.com Latin Nights page, 23 Nov"
    },
-   "n": 65
+   "n": 64
   },
   {
    "id": "syd-factory-takashi-wakasugi-2026",
@@ -1330,7 +1314,7 @@ window.WF_DATA = {
    "q": "Factory Theatre, Marrickville",
    "start": "2026-11-27",
    "end": "2026-11-27",
-   "n": 66
+   "n": 65
   },
   {
    "id": "syd-sounds-like-teen-spirit-double-j-talk-2026",
@@ -1363,7 +1347,7 @@ window.WF_DATA = {
     ],
     "src": "whatson.cityofsydney.nsw.gov.au event page, 23 Nov"
    },
-   "n": 67
+   "n": 66
   },
   {
    "id": "syd-ensemble-midnight-murder-christmas-cruise-2026",
@@ -1382,10 +1366,10 @@ window.WF_DATA = {
    "q": "Ensemble Theatre, Kirribilli",
    "start": "2026-11-27",
    "end": "2027-01-10",
-   "n": 68
+   "n": 67
   },
   {
-   "n": 69,
+   "n": 68,
    "id": "syd-mount-annan-plantbank-tour",
    "sec": "week",
    "when": "Sat & Sun 11am and 1pm",
@@ -1433,7 +1417,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 70,
+   "n": 69,
    "id": "syd-wembleys-chocolates-factory-tour",
    "sec": "week",
    "when": "Saturdays, 11am–12pm",
@@ -1454,7 +1438,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 71,
+   "n": 70,
    "id": "syd-blacktown-christmas-carols-2026",
    "sec": "week",
    "when": "Sat Nov 28, 5pm–9pm",
@@ -1470,7 +1454,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 72,
+   "n": 71,
    "id": "syd-fm-bondi",
    "sec": "week",
    "when": "Saturdays 9am–1pm",
@@ -1510,7 +1494,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 73,
+   "n": 72,
    "id": "syd-carriageworks-farmers-market-saturdays",
    "sec": "week",
    "when": "Saturdays · 8am–1pm",
@@ -1533,7 +1517,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 74,
+   "n": 73,
    "id": "syd-parkrun-centennial",
    "sec": "week",
    "when": "Saturdays 7am + New Year's Day",
@@ -1561,7 +1545,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 75,
+   "n": 74,
    "id": "syd-amatos-champagne-panettone-tasting",
    "sec": "week",
    "when": "Sat Nov 28, 4–6pm",
@@ -1579,7 +1563,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 76,
+   "n": 75,
    "id": "syd-powerhouse-castle-hill-highlights-tour",
    "sec": "week",
    "when": "Sat & Sun, 11am, 12pm, 1pm, 2pm",
@@ -1607,7 +1591,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 77,
+   "n": 76,
    "id": "syd-parkrun-cronulla",
    "sec": "week",
    "when": "Saturdays 7am",
@@ -1634,7 +1618,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 78,
+   "n": 77,
    "id": "syd-parkrun-curlcurl",
    "sec": "week",
    "when": "Saturdays 7am + Christmas Day & New Year's Day",
@@ -1663,7 +1647,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 79,
+   "n": 78,
    "id": "syd-am-dinosaurs-of-patagonia-2026",
    "sec": "week",
    "when": "Opens Sat Nov 28 (runs to May 2)",
@@ -1679,7 +1663,7 @@ window.WF_DATA = {
    "end": "2027-05-02"
   },
   {
-   "n": 80,
+   "n": 79,
    "id": "syd-double-bay-christmas-festival-2026",
    "sec": "week",
    "when": "Sat Nov 28 · market 12–6pm, food to 9pm, then concert and fireworks",
@@ -1694,7 +1678,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 81,
+   "n": 80,
    "id": "syd-bmcc-fantastic-forms-2026",
    "sec": "week",
    "when": "Opens Sat Nov 28 (runs to Feb 7)",
@@ -1727,7 +1711,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 82,
+   "n": 81,
    "id": "syd-five-way-cellars-saturday-tastings",
    "sec": "week",
    "when": "Sat Nov 28 & Sat Dec 5, 1–3pm",
@@ -1748,7 +1732,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 83,
+   "n": 82,
    "id": "syd-fmd-australian-museum",
    "sec": "week",
    "when": "Sat & Sun 10am–5pm",
@@ -1801,7 +1785,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 84,
+   "n": 83,
    "id": "syd-fmd-chau-chak-wing",
    "sec": "week",
    "when": "Sat & Sun 12–4pm",
@@ -1849,7 +1833,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 85,
+   "n": 84,
    "id": "syd-hurstville-library-game-on",
    "sec": "week",
    "when": "Sat Nov 28, 10am–2pm",
@@ -1885,7 +1869,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 86,
+   "n": 85,
    "id": "syd-vol-georges-river-bushcare-saturdays",
    "sec": "week",
    "when": "Saturdays Nov 21–Dec 19, 8–10:30am & 12–2:30pm",
@@ -1905,7 +1889,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 87,
+   "n": 86,
    "id": "syd-glebe-christmas-fair-2026",
    "sec": "week",
    "when": "Sat Nov 28, 12pm–8pm · Santa's sleigh ride 2pm",
@@ -1921,7 +1905,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 88,
+   "n": 87,
    "id": "syd-glebe-markets-saturdays",
    "sec": "week",
    "when": "Saturdays · 10am–4pm",
@@ -1944,7 +1928,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 89,
+   "n": 88,
    "id": "syd-kim-wilde-enmore-2026-11-28",
    "sec": "week",
    "when": "Sat Nov 28, doors 6:30pm (Kim Wilde 9:30pm)",
@@ -1961,7 +1945,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 90,
+   "n": 89,
    "id": "syd-fm-kings-cross",
    "sec": "week",
    "when": "Saturdays 8am–2pm",
@@ -1983,7 +1967,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 91,
+   "n": 90,
    "id": "syd-kirribilli-markets-2026",
    "sec": "week",
    "when": "Sat Nov 28 (50th anniversary), Sun Dec 6 & 13, Sat Dec 19, Sun Jan 10 · 8:30am–3pm",
@@ -2021,7 +2005,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 92,
+   "n": 91,
    "id": "syd-martin-place-christmas-markets-2026",
    "sec": "week",
    "when": "Sat Nov 28–Thu Dec 24 (selected days) · 11am–9:15pm",
@@ -2056,7 +2040,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 93,
+   "n": 92,
    "id": "syd-berkelouw-balgowlah-catherine-devrye",
    "sec": "week",
    "when": "Sat Nov 28, 11am–1pm",
@@ -2091,7 +2075,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 94,
+   "n": 93,
    "id": "syd-vol-mountain-view-reserve-bushcare",
    "sec": "week",
    "when": "Sat Nov 28, 8am–12pm",
@@ -2108,7 +2092,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 95,
+   "n": 94,
    "id": "syd-parkrun-nepeanriver",
    "sec": "week",
    "when": "Saturdays 8am + Christmas Day",
@@ -2136,7 +2120,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 96,
+   "n": 95,
    "id": "syd-powerhouse-nik-sharma-flavour-science",
    "sec": "week",
    "when": "Sat Nov 28, 11am–12pm",
@@ -2170,7 +2154,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 97,
+   "n": 96,
    "id": "syd-canada-bay-open-maker-workshops",
    "sec": "week",
    "when": "Sat Nov 28 & Sat Dec 12, 2–4pm",
@@ -2207,7 +2191,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 98,
+   "n": 97,
    "id": "syd-fm-orange-grove",
    "sec": "week",
    "when": "Saturdays 8am–1pm",
@@ -2229,7 +2213,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 99,
+   "n": 98,
    "id": "syd-fm-oxford-street",
    "sec": "week",
    "when": "Saturdays 8am–2pm (to Dec 19)",
@@ -2249,7 +2233,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 100,
+   "n": 99,
    "id": "syd-paddington-markets-saturdays",
    "sec": "week",
    "when": "Saturdays · 10am–4pm (growers from 9am)",
@@ -2289,7 +2273,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 101,
+   "n": 100,
    "id": "syd-art-masterclass-ceramic-plate-painting",
    "sec": "week",
    "when": "Sat & Sun, 10am–12:30pm",
@@ -2318,7 +2302,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 102,
+   "n": 101,
    "id": "syd-parkrun-parramatta",
    "sec": "week",
    "when": "Saturdays 8am + Christmas Day & New Year's Day",
@@ -2347,7 +2331,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 103,
+   "n": 102,
    "id": "syd-fm-ramsgate",
    "sec": "week",
    "when": "Saturdays 8am–1pm",
@@ -2369,7 +2353,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 104,
+   "n": 103,
    "id": "syd-rozelle-collectors-market-saturdays",
    "sec": "week",
    "when": "Saturdays · 9am–3pm (closed Dec 26)",
@@ -2408,7 +2392,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 105,
+   "n": 104,
    "id": "syd-arncliffe-saturday-badminton",
    "sec": "week",
    "when": "Saturdays 5–6:30pm",
@@ -2429,7 +2413,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 106,
+   "n": 105,
    "id": "syd-flames-v-fire-2026-11-28",
    "sec": "week",
    "when": "Sat Nov 28, 3pm",
@@ -2446,7 +2430,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 107,
+   "n": 106,
    "id": "syd-thunder-w-v-sixers-w-2026-11-28",
    "sec": "week",
    "when": "Sat Nov 28, 7.10pm",
@@ -2464,7 +2448,7 @@ window.WF_DATA = {
    "end": "2026-11-28"
   },
   {
-   "n": 108,
+   "n": 107,
    "id": "syd-australian-ballet-nutcracker-sydney-2026",
    "sec": "week",
    "when": "Sat Nov 28–Wed Dec 16 · mostly 7:30pm, some 1:30pm matinees",
@@ -2480,7 +2464,7 @@ window.WF_DATA = {
    "end": "2026-12-16"
   },
   {
-   "n": 109,
+   "n": 108,
    "id": "syd-the-rocks-markets-weekends",
    "sec": "week",
    "when": "Saturdays & Sundays · 10am–5pm (Fridays 10am–3pm)",
@@ -2541,7 +2525,7 @@ window.WF_DATA = {
    "q": "Sydney Opera House",
    "start": "2026-11-28",
    "end": "2026-11-28",
-   "n": 110
+   "n": 109
   },
   {
    "id": "syd-icc-dirty-dancing-in-concert-2026",
@@ -2560,7 +2544,7 @@ window.WF_DATA = {
     "2026-11-28",
     "2026-11-29"
    ],
-   "n": 111
+   "n": 110
   },
   {
    "id": "syd-rbg-mindfulness-in-the-garden-2026",
@@ -2593,7 +2577,7 @@ window.WF_DATA = {
     ],
     "src": "botanicgardens.org.au Mindfulness in the Garden page, 23 Nov"
    },
-   "n": 112
+   "n": 111
   },
   {
    "id": "syd-seymour-ballet-of-lights-cinderella-2026",
@@ -2611,7 +2595,7 @@ window.WF_DATA = {
     "2026-11-28",
     "2026-12-19"
    ],
-   "n": 113
+   "n": 112
   },
   {
    "id": "syd-comedy-store-kunal-kamra-2026",
@@ -2627,7 +2611,7 @@ window.WF_DATA = {
    "q": "The Comedy Store, Moore Park",
    "start": "2026-11-28",
    "end": "2026-11-28",
-   "n": 114
+   "n": 113
   },
   {
    "id": "syd-comedy-store-ivan-aristeguieta-2026",
@@ -2643,7 +2627,7 @@ window.WF_DATA = {
    "q": "The Comedy Store, Moore Park",
    "start": "2026-11-28",
    "end": "2026-11-28",
-   "n": 115
+   "n": 114
   },
   {
    "id": "syd-hornsby-bioblitz-moths-night-2026",
@@ -2660,10 +2644,10 @@ window.WF_DATA = {
    "dates": [
     "2026-11-28"
    ],
-   "n": 116
+   "n": 115
   },
   {
-   "n": 117,
+   "n": 116,
    "id": "syd-scg-t20i-england-2026-11-29",
    "sec": "week",
    "when": "Sun Nov 29, 7.15pm",
@@ -2680,7 +2664,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 118,
+   "n": 117,
    "id": "syd-sundown-lampshades-thirroul-workshop",
    "sec": "week",
    "when": "Sun Nov 29, 11am–2pm",
@@ -2698,7 +2682,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 119,
+   "n": 118,
    "id": "syd-bondi-markets-sundays",
    "sec": "week",
    "when": "Sundays · 10am–4pm",
@@ -2721,7 +2705,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 120,
+   "n": 119,
    "id": "syd-coogee-island-challenge-2026",
    "sec": "week",
    "when": "Sun Nov 29, from 8:30am",
@@ -2738,7 +2722,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 121,
+   "n": 120,
    "id": "syd-fragrant-soul-dried-flower-wreath",
    "sec": "week",
    "when": "Sun Nov 29, 2–4:30pm",
@@ -2756,7 +2740,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 122,
+   "n": 121,
    "id": "syd-dumps-world-dumpling-making",
    "sec": "week",
    "when": "Sun Nov 29, 5–8pm",
@@ -2774,7 +2758,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 123,
+   "n": 122,
    "id": "syd-powerhouse-exoskeleton-design-2026",
    "sec": "week",
    "when": "Sun Nov 29, 10am–2pm",
@@ -2791,7 +2775,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 124,
+   "n": 123,
    "id": "syd-catriona-pollard-foraged-wreath-cremorne",
    "sec": "week",
    "when": "Sun Nov 29, 1–3pm",
@@ -2826,7 +2810,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 125,
+   "n": 124,
    "id": "syd-forma-lime-cordiale-2026",
    "sec": "week",
    "when": "Sun Nov 29, 4pm–10pm",
@@ -2842,7 +2826,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 126,
+   "n": 125,
    "id": "syd-lamrock-cafe-live-music-sundays",
    "sec": "week",
    "when": "Sundays, 3:30–5:30pm",
@@ -2866,7 +2850,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 127,
+   "n": 126,
    "id": "syd-fm-marrickville",
    "sec": "week",
    "when": "Sundays 9am–3pm",
@@ -2904,7 +2888,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 128,
+   "n": 127,
    "id": "syd-vol-pyrmont-ultimo-landcare",
    "sec": "week",
    "when": "Sundays, 8:30–10:30am",
@@ -2926,7 +2910,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 129,
+   "n": 128,
    "id": "syd-vol-ray-park-bushcare",
    "sec": "week",
    "when": "Sun Nov 29, 9am–12pm",
@@ -2943,7 +2927,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 130,
+   "n": 129,
    "id": "syd-event-cinemas-sensory-screenings",
    "sec": "week",
    "when": "Sun Nov 29 & Tue Dec 1, first session of the day",
@@ -2964,7 +2948,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 131,
+   "n": 130,
    "id": "syd-art-syndicate-sip-happens",
    "sec": "week",
    "when": "Sun Nov 29, 3–5pm",
@@ -2982,7 +2966,7 @@ window.WF_DATA = {
    "end": "2026-11-29"
   },
   {
-   "n": 132,
+   "n": 131,
    "id": "syd-south-head-tunnels-tour",
    "sec": "week",
    "when": "Sun Nov 29, 10:30am, 11:30am or 12:30pm",
@@ -3016,7 +3000,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 133,
+   "n": 132,
    "id": "syd-sugarfest-chau-chak-wing",
    "sec": "week",
    "when": "Sun Nov 29, 12–4pm",
@@ -3052,7 +3036,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 134,
+   "n": 133,
    "id": "syd-unsw-house-future-of-history",
    "sec": "week",
    "when": "Sun Nov 29, 11am, 1pm & 4pm",
@@ -3081,7 +3065,7 @@ window.WF_DATA = {
    "q": "Sydney Opera House",
    "start": "2026-11-29",
    "end": "2026-11-29",
-   "n": 135
+   "n": 134
   },
   {
    "id": "syd-rosebery-christmas-concert-2026",
@@ -3097,10 +3081,10 @@ window.WF_DATA = {
    "q": "Turruwul Park, 115 Rothschild Ave, Rosebery",
    "start": "2026-11-29",
    "end": "2026-11-29",
-   "n": 136
+   "n": 135
   },
   {
-   "n": 137,
+   "n": 136,
    "id": "syd-waverley-seniors-morning-tea-nursery-rhymes",
    "sec": "late-nov",
    "when": "Mon Nov 30, 10am–12pm",
@@ -3136,10 +3120,10 @@ window.WF_DATA = {
    "q": "Eastgardens Library, 152 Bunnerong Rd, Eastgardens",
    "start": "2026-11-30",
    "end": "2026-11-30",
-   "n": 138
+   "n": 137
   },
   {
-   "n": 139,
+   "n": 138,
    "id": "syd-slnsw-fresh-takes-summer",
    "sec": "late-nov",
    "when": "Tue Dec 1, 6–7:30pm",
@@ -3155,7 +3139,7 @@ window.WF_DATA = {
    "end": "2026-12-01"
   },
   {
-   "n": 140,
+   "n": 139,
    "id": "syd-j-cole-sydney-2026-12-02",
    "sec": "late-nov",
    "when": "Tue Dec 1 & Wed Dec 2, 7pm",
@@ -3184,7 +3168,7 @@ window.WF_DATA = {
    "q": "Sydney Opera House",
    "start": "2026-12-01",
    "end": "2026-12-01",
-   "n": 141
+   "n": 140
   },
   {
    "id": "syd-seymour-a-chinese-christmas-2026",
@@ -3200,7 +3184,7 @@ window.WF_DATA = {
    "q": "Seymour Centre, Chippendale",
    "start": "2026-12-01",
    "end": "2026-12-12",
-   "n": 142
+   "n": 141
   },
   {
    "id": "syd-choirs-in-the-city-martin-place-2026",
@@ -3216,7 +3200,7 @@ window.WF_DATA = {
    "q": "Martin Place, Sydney",
    "start": "2026-12-01",
    "end": "2026-12-21",
-   "n": 143
+   "n": 142
   },
   {
    "id": "syd-maroubra-christmas-tree-lighting-2026",
@@ -3232,7 +3216,7 @@ window.WF_DATA = {
    "q": "Maroubra Beach promenade, Maroubra",
    "start": "2026-12-01",
    "end": "2026-12-01",
-   "n": 144
+   "n": 143
   },
   {
    "id": "syd-qswwa-community-carols-chiswick-park-2026",
@@ -3248,10 +3232,10 @@ window.WF_DATA = {
    "q": "Chiswick Park, 65 Ocean St, Woollahra",
    "start": "2026-12-01",
    "end": "2026-12-01",
-   "n": 145
+   "n": 144
   },
   {
-   "n": 146,
+   "n": 145,
    "id": "syd-sso-harry-potter-philosophers-stone-2026",
    "sec": "late-nov",
    "when": "Wed Dec 2–Sat Dec 5 · 7pm, plus Sat 2pm · film with live orchestra",
@@ -3267,7 +3251,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 147,
+   "n": 146,
    "id": "syd-rbg-talking-plants-tim-entwisle",
    "sec": "late-nov",
    "when": "Wed Dec 2, 10–11:30am",
@@ -3300,7 +3284,7 @@ window.WF_DATA = {
    "q": "Carriageworks, Eveleigh",
    "start": "2026-12-02",
    "end": "2026-12-19",
-   "n": 148
+   "n": 147
   },
   {
    "id": "syd-writers-stanton-richard-glover-2026",
@@ -3321,10 +3305,10 @@ window.WF_DATA = {
    "dates": [
     "2026-12-02"
    ],
-   "n": 149
+   "n": 148
   },
   {
-   "n": 150,
+   "n": 149,
    "id": "syd-sasi-green-point-speaker-night",
    "sec": "late-nov",
    "when": "Thu Dec 3, 7:30pm",
@@ -3340,7 +3324,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 151,
+   "n": 150,
    "id": "syd-film-behemoth",
    "sec": "late-nov",
    "when": "Opens Thu Dec 3",
@@ -3353,7 +3337,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 152,
+   "n": 151,
    "id": "syd-film-boss-cat",
    "sec": "late-nov",
    "when": "Opens Thu Dec 3",
@@ -3366,7 +3350,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 153,
+   "n": 152,
    "id": "syd-marrickville-disability-pride-idpwd",
    "sec": "late-nov",
    "when": "Thu Dec 3, 4:30–8pm",
@@ -3387,7 +3371,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 154,
+   "n": 153,
    "id": "syd-festive-makers-market-hpb-2026",
    "sec": "late-nov",
    "when": "Thu Dec 3, 4pm–9pm",
@@ -3403,7 +3387,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 155,
+   "n": 154,
    "id": "syd-forma-veronicas-peach-prc-2026",
    "sec": "late-nov",
    "when": "Thu Dec 3, 5pm–11pm",
@@ -3420,7 +3404,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 156,
+   "n": 155,
    "id": "syd-northern-beaches-christmas-choral-concert-2026",
    "sec": "late-nov",
    "when": "Thu Dec 3 · gates 5pm, concert 6pm",
@@ -3436,7 +3420,7 @@ window.WF_DATA = {
    "end": "2026-12-03"
   },
   {
-   "n": 157,
+   "n": 156,
    "id": "syd-shield-nsw-v-wa-2026-12-03",
    "sec": "late-nov",
    "when": "Thu Dec 3–Sun Dec 6, 10.30am",
@@ -3453,7 +3437,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 158,
+   "n": 157,
    "id": "syd-slnsw-critics-report-2026",
    "sec": "late-nov",
    "when": "Thu Dec 3",
@@ -3470,7 +3454,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 159,
+   "n": 158,
    "id": "syd-film-the-uprising",
    "sec": "late-nov",
    "when": "Opens Thu Dec 3",
@@ -3483,7 +3467,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 160,
+   "n": 159,
    "id": "syd-film-violent-night-2",
    "sec": "late-nov",
    "when": "Opens Thu Dec 3",
@@ -3510,10 +3494,10 @@ window.WF_DATA = {
    "q": "Camelot Lounge, Marrickville",
    "start": "2026-12-03",
    "end": "2026-12-03",
-   "n": 161
+   "n": 160
   },
   {
-   "n": 162,
+   "n": 161,
    "id": "syd-magm-chromatic-luminosity-2026",
    "sec": "late-nov",
    "when": "Opens Fri Dec 4 (runs to Feb 21)",
@@ -3544,7 +3528,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 163,
+   "n": 162,
    "id": "syd-bayside-walk-against-gbv",
    "sec": "late-nov",
    "when": "Fri Dec 4, 7:30–9am",
@@ -3560,7 +3544,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 164,
+   "n": 163,
    "id": "syd-grooveable-christmas-disco-adults",
    "sec": "late-nov",
    "when": "Fri Dec 4, 6–9pm",
@@ -3581,7 +3565,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 165,
+   "n": 164,
    "id": "syd-hawks-v-kings-2026-12-04",
    "sec": "late-nov",
    "when": "Fri Dec 4, 7.30pm",
@@ -3598,7 +3582,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 166,
+   "n": 165,
    "id": "syd-soh-kids-music-playtime-dec-2026",
    "sec": "late-nov",
    "when": "Fri Dec 4, 11:55am & 1:30pm",
@@ -3614,7 +3598,7 @@ window.WF_DATA = {
    "end": "2026-12-04"
   },
   {
-   "n": 167,
+   "n": 166,
    "id": "syd-big-live-nutcracker-capitol-2026",
    "sec": "late-nov",
    "when": "Fri Dec 4–Wed Dec 23 · matinees & evenings",
@@ -3645,7 +3629,7 @@ window.WF_DATA = {
    "q": "Old Fitz Theatre, Woolloomooloo",
    "start": "2026-12-04",
    "end": "2026-12-20",
-   "n": 168
+   "n": 167
   },
   {
    "id": "syd-lane-cove-christmas-tree-bluey-2026",
@@ -3662,10 +3646,10 @@ window.WF_DATA = {
    "dates": [
     "2026-12-04"
    ],
-   "n": 169
+   "n": 168
   },
   {
-   "n": 170,
+   "n": 169,
    "id": "syd-vol-baludarri-wetlands-bushcare",
    "sec": "late-nov",
    "when": "Sat Dec 5, 8:30–11am",
@@ -3682,7 +3666,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 171,
+   "n": 170,
    "id": "syd-campbelltown-christmas-carols-2026",
    "sec": "late-nov",
    "when": "Sat Dec 5, 5pm–9pm · Santa ~8:30pm, fireworks 9pm",
@@ -3698,7 +3682,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 172,
+   "n": 171,
    "id": "syd-carols-in-willoughby-park-2026",
    "sec": "late-nov",
    "when": "Sat Dec 5, 4pm–9pm · carols ~6:30pm",
@@ -3714,7 +3698,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 173,
+   "n": 172,
    "id": "syd-cec-christmas-workshop-family-2026",
    "sec": "late-nov",
    "when": "Sat Dec 5, 9:30am–11:30am",
@@ -3730,7 +3714,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 174,
+   "n": 173,
    "id": "syd-christmas-live-taronga-2026",
    "sec": "late-nov",
    "when": "Sat Dec 5, 6–8:30pm (zoo entry from 2pm included)",
@@ -3746,7 +3730,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 175,
+   "n": 174,
    "id": "syd-clae-works-ceramic-market",
    "sec": "late-nov",
    "when": "Sat Dec 5, 10am–3pm",
@@ -3781,7 +3765,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 176,
+   "n": 175,
    "id": "syd-darling-harbour-christmas-fireworks-2026",
    "sec": "late-nov",
    "when": "Sat Dec 5, 12 & 19, 9pm · floating tree Nov 20–Dec 26",
@@ -3800,7 +3784,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 177,
+   "n": 176,
    "id": "syd-am-early-birds-sensory-dec-2026",
    "sec": "late-nov",
    "when": "Sat Dec 5, 8am–10am",
@@ -3820,7 +3804,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 178,
+   "n": 177,
    "id": "syd-forma-hoodoo-gurus-2026",
    "sec": "late-nov",
    "when": "Sat Dec 5, 6pm–11pm",
@@ -3836,7 +3820,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 179,
+   "n": 178,
    "id": "syd-kebab-joint-penrith-elf-legs-kids",
    "sec": "late-nov",
    "when": "Sat Dec 5, 11am–12pm",
@@ -3854,7 +3838,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 180,
+   "n": 179,
    "id": "syd-magic-of-christmas-carss-park-2026",
    "sec": "late-nov",
    "when": "Sat Dec 5, 4:30pm–9pm",
@@ -3870,7 +3854,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 181,
+   "n": 180,
    "id": "syd-darling-square-makertime-festive",
    "sec": "late-nov",
    "when": "Sat Dec 5, 11am–2pm",
@@ -3886,7 +3870,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 182,
+   "n": 181,
    "id": "syd-cafe-botanica-milkshakes-markers-xmas",
    "sec": "late-nov",
    "when": "Sat Dec 5, 10–11:30am",
@@ -3904,7 +3888,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 183,
+   "n": 182,
    "id": "syd-fm-northside",
    "sec": "late-nov",
    "when": "1st & 3rd Saturdays 8am–12pm",
@@ -3923,7 +3907,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 184,
+   "n": 183,
    "id": "syd-grand-cliff-top-walk-ranger-tour",
    "sec": "late-nov",
    "when": "Sats Nov 21, Dec 5, Dec 19, Jan 9 & Jan 16, 9:30am–12:30pm",
@@ -3943,7 +3927,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 185,
+   "n": 184,
    "id": "syd-gosford-scale-donna-marcus-2026",
    "sec": "late-nov",
    "when": "Sat Dec 5–Sun Jan 31 (opening Fri Dec 4, 6pm)",
@@ -3959,7 +3943,7 @@ window.WF_DATA = {
    "end": "2027-01-31"
   },
   {
-   "n": 186,
+   "n": 185,
    "id": "syd-sydney-street-fair-marrickville-2026",
    "sec": "late-nov",
    "when": "Sat Dec 5, 10am–6pm",
@@ -3994,7 +3978,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 187,
+   "n": 186,
    "id": "syd-agnsw-takashi-murakami-2026",
    "sec": "late-nov",
    "when": "Opens Sat Dec 5 (runs to Jul 18)",
@@ -4011,7 +3995,7 @@ window.WF_DATA = {
    "end": "2027-07-18"
   },
   {
-   "n": 188,
+   "n": 187,
    "id": "syd-vol-tempe-wetlands-bushcare",
    "sec": "late-nov",
    "when": "Sat Dec 5, 9am–12pm",
@@ -4028,7 +4012,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 189,
+   "n": 188,
    "id": "syd-art-department-studio-ikebana-2026",
    "sec": "late-nov",
    "when": "Sat Dec 5, 10am–12pm or 1–3pm",
@@ -4063,7 +4047,7 @@ window.WF_DATA = {
    }
   },
   {
-   "n": 190,
+   "n": 189,
    "id": "syd-fixery-cromer",
    "sec": "late-nov",
    "when": "Sat Dec 5, 10:30am–1pm",
@@ -4079,7 +4063,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 191,
+   "n": 190,
    "id": "syd-wanderers-v-perth-2026-12-05",
    "sec": "late-nov",
    "when": "Sat Dec 5, 7.40pm",
@@ -4096,7 +4080,7 @@ window.WF_DATA = {
    "end": "2026-12-05"
   },
   {
-   "n": 192,
+   "n": 191,
    "id": "syd-australian-museum-winhangadurinya-dec",
    "sec": "late-nov",
    "when": "Sat Dec 5 & Sun Dec 6, 10:30am & 2pm",
@@ -4127,7 +4111,7 @@ window.WF_DATA = {
    "q": "Afterpay Arena Sydney Olympic Park",
    "start": "2026-12-05",
    "end": "2026-12-05",
-   "n": 193
+   "n": 192
   },
   {
    "id": "syd-camelot-johnny-g-e-types-soul-revue-2026",
@@ -4144,7 +4128,7 @@ window.WF_DATA = {
    "q": "Camelot Lounge, Marrickville",
    "start": "2026-12-05",
    "end": "2026-12-05",
-   "n": 194
+   "n": 193
   },
   {
    "id": "syd-potts-point-christmas-fair-2026",
@@ -4177,7 +4161,7 @@ window.WF_DATA = {
     ],
     "src": "whatson.cityofsydney.nsw.gov.au event page, 23 Nov"
    },
-   "n": 195
+   "n": 194
   },
   {
    "id": "syd-all-wrapped-up-studio-a-workshop-2026",
@@ -4196,7 +4180,7 @@ window.WF_DATA = {
    "q": "Darling Square Library, The Exchange, Haymarket",
    "start": "2026-12-05",
    "end": "2026-12-05",
-   "n": 196
+   "n": 195
   },
   {
    "id": "syd-south-maroubra-christmas-party-2026",
@@ -4212,7 +4196,7 @@ window.WF_DATA = {
    "q": "South Maroubra Village Green, cnr Malabar Rd & Meagher Ave, Maroubra",
    "start": "2026-12-05",
    "end": "2026-12-05",
-   "n": 197
+   "n": 196
   },
   {
    "id": "syd-carols-at-the-barracks-paddington-2026",
@@ -4229,7 +4213,7 @@ window.WF_DATA = {
    "q": "Victoria Barracks, Oxford St, Paddington",
    "start": "2026-12-05",
    "end": "2026-12-05",
-   "n": 198
+   "n": 197
   },
   {
    "id": "syd-kwg-christmas-trail-2026",
@@ -4245,7 +4229,7 @@ window.WF_DATA = {
    "q": "Ku-ring-gai Wildflower Garden, 420 Mona Vale Road, St Ives",
    "start": "2026-12-05",
    "end": "2026-12-23",
-   "n": 199
+   "n": 198
   },
   {
    "id": "syd-ryde-cinema-in-the-park-grinch-2026",
@@ -4265,10 +4249,10 @@ window.WF_DATA = {
    "dates": [
     "2026-12-05"
    ],
-   "n": 200
+   "n": 199
   },
   {
-   "n": 201,
+   "n": 200,
    "id": "syd-al-koh-classic-2026",
    "sec": "late-nov",
    "when": "Sun Dec 6",
@@ -4284,7 +4268,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 202,
+   "n": 201,
    "id": "syd-fab-organic-christmas-wine-tasting",
    "sec": "late-nov",
    "when": "Sun Dec 6, 2–6pm",
@@ -4302,7 +4286,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 203,
+   "n": 202,
    "id": "syd-clovelly-carols-2026",
    "sec": "late-nov",
    "when": "Sun Dec 6, 4pm–7pm",
@@ -4318,7 +4302,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 204,
+   "n": 203,
    "id": "syd-collaroy-beach-ocean-swims-2026",
    "sec": "late-nov",
    "when": "Sun Dec 6",
@@ -4334,7 +4318,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 205,
+   "n": 204,
    "id": "syd-diy-crafts-penrith-weekend-workshops",
    "sec": "late-nov",
    "when": "Sat Nov 21, 7pm; Sun Dec 6, 6pm; Sun Dec 13, 10am",
@@ -4354,7 +4338,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 206,
+   "n": 205,
    "id": "syd-glenwood-christmas-market-2026",
    "sec": "late-nov",
    "when": "Sun Dec 6, 3pm–7pm",
@@ -4370,7 +4354,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 207,
+   "n": 206,
    "id": "syd-hunters-hill-carols-in-the-park-2026",
    "sec": "late-nov",
    "when": "Sun Dec 6, 2pm–9pm",
@@ -4386,7 +4370,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 208,
+   "n": 207,
    "id": "syd-vol-kanangra-reserve-bushcare",
    "sec": "late-nov",
    "when": "1st Sundays, 8am–12pm",
@@ -4404,7 +4388,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 209,
+   "n": 208,
    "id": "syd-vol-manly-beach-clean",
    "sec": "late-nov",
    "when": "Sun Dec 6, 3–4pm",
@@ -4421,7 +4405,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 210,
+   "n": 209,
    "id": "syd-penrith-symphony-messiah-2026",
    "sec": "late-nov",
    "when": "Sun Dec 6",
@@ -4437,7 +4421,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 211,
+   "n": 210,
    "id": "syd-pyrmont-christmas-concert-2026",
    "sec": "late-nov",
    "when": "Sun Dec 6, 5:30–8:30pm",
@@ -4453,7 +4437,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 212,
+   "n": 211,
    "id": "syd-repair-cafe-sydney-north",
    "sec": "late-nov",
    "when": "Sun, 2–4pm",
@@ -4472,7 +4456,7 @@ window.WF_DATA = {
    ]
   },
   {
-   "n": 213,
+   "n": 212,
    "id": "syd-sydney-fc-v-victory-2026-12-06",
    "sec": "late-nov",
    "when": "Sun Dec 6, 5pm",
@@ -4490,7 +4474,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 214,
+   "n": 213,
    "id": "syd-kings-v-wildcats-2026-12-06",
    "sec": "late-nov",
    "when": "Sun Dec 6, 5pm",
@@ -4508,7 +4492,7 @@ window.WF_DATA = {
    "end": "2026-12-06"
   },
   {
-   "n": 215,
+   "n": 214,
    "id": "syd-we-are-one-bondi-chanukah",
    "sec": "late-nov",
    "when": "Sun Dec 6, 5:30–9pm",
@@ -4538,7 +4522,7 @@ window.WF_DATA = {
    "q": "State Theatre, Market St, Sydney",
    "start": "2026-12-06",
    "end": "2026-12-06",
-   "n": 216
+   "n": 215
   },
   {
    "id": "syd-vanguard-jordie-lane-2026",
@@ -4558,7 +4542,7 @@ window.WF_DATA = {
    "q": "The Vanguard, Newtown",
    "start": "2026-12-06",
    "end": "2026-12-06",
-   "n": 217
+   "n": 216
   },
   {
    "id": "syd-greenway-first-birthday-dulwich-hill-2026",
@@ -4574,7 +4558,7 @@ window.WF_DATA = {
    "q": "Johnson Park, Dulwich Hill",
    "start": "2026-12-06",
    "end": "2026-12-06",
-   "n": 218
+   "n": 217
   },
   {
    "id": "syd-coal-loader-christmas-artisans-market-2026",
@@ -4606,10 +4590,10 @@ window.WF_DATA = {
     ],
     "src": "North Sydney Council event page, 23 Nov"
    },
-   "n": 219
+   "n": 218
   },
   {
-   "n": 220,
+   "n": 219,
    "id": "syd-back-to-the-tivoli-christmas-glen-street-2026",
    "sec": "early-dec",
    "when": "Mon Dec 7, 11am",
@@ -4626,7 +4610,7 @@ window.WF_DATA = {
    "end": "2026-12-07"
   },
   {
-   "n": 221,
+   "n": 220,
    "id": "syd-nida-open-teen-summer-2026",
    "sec": "early-dec",
    "when": "Mon Dec 7–Fri Jan 22 (1–5 day courses)",
@@ -4642,7 +4626,7 @@ window.WF_DATA = {
    "end": "2027-01-22"
   },
   {
-   "n": 222,
+   "n": 221,
    "id": "syd-riverside-greatest-christmas-show-2026",
    "sec": "early-dec",
    "when": "Tue Dec 8",
@@ -4672,10 +4656,10 @@ window.WF_DATA = {
    "q": "Old Fitz Theatre, Woolloomooloo",
    "start": "2026-12-08",
    "end": "2026-12-13",
-   "n": 223
+   "n": 222
   },
   {
-   "n": 224,
+   "n": 223,
    "id": "syd-kogarah-library-board-game-night",
    "sec": "early-dec",
    "when": "Wed Dec 9, 5:30–7:30pm",
@@ -4691,7 +4675,7 @@ window.WF_DATA = {
    "end": "2026-12-09"
   },
   {
-   "n": 225,
+   "n": 224,
    "id": "syd-carols-by-the-sea-bondi-2026",
    "sec": "early-dec",
    "when": "Wed Dec 9, from 5pm",
@@ -4707,7 +4691,7 @@ window.WF_DATA = {
    "end": "2026-12-09"
   },
   {
-   "n": 226,
+   "n": 225,
    "id": "syd-christmas-actually-soh-2026",
    "sec": "early-dec",
    "when": "Wed Dec 9–Sun Dec 13",
@@ -4740,6 +4724,39 @@ window.WF_DATA = {
    "q": "The Vanguard, Newtown",
    "start": "2026-12-09",
    "end": "2026-12-09",
+   "n": 226
+  },
+  {
+   "id": "syd-sunset-sessions-summer-reading-watsons-bay-2026",
+   "sec": "early-dec",
+   "when": "Wed Dec 9, 5:30–7:30pm",
+   "title": "Sunset Sessions: summer reading recommendations",
+   "meta": "Watsons Bay Library (outdoor grounds), Watsons Bay · local book lovers share their favourite summer reads and gift ideas, with a drink and canapés · $10, bookings essential",
+   "cat": "learn",
+   "url": "https://www.woollahra.nsw.gov.au/Events/Eventbrite/Sunset-Sessions-Summer-Reading-Recommendations-2004583346752",
+   "price": "tickets",
+   "lat": -33.8445,
+   "lon": 151.283,
+   "q": "Watsons Bay Library, 8 Marine Parade, Watsons Bay",
+   "start": "2026-12-09",
+   "end": "2026-12-09",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "Robertson Park, Watsons Bay (next door)",
+    "m": [
+     "talk",
+     "cheap",
+     "novel"
+    ],
+    "x": [
+     "short",
+     "focus",
+     "access",
+     "wx"
+    ],
+    "src": "woollahra.nsw.gov.au event page, 23 Nov"
+   },
    "n": 227
   },
   {
