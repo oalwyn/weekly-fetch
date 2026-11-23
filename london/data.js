@@ -339,7 +339,24 @@ window.WF_DATA = {
    "lon": -0.0994,
    "q": "Tate Modern London",
    "start": "2026-11-23",
-   "end": "2027-05-03"
+   "end": "2027-05-03",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "indoor",
+    "next": "Borough Market, about a 10-minute riverside walk",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "cheap",
+     "talk"
+    ],
+    "src": "Tate Modern exhibition page (to 3 May, £15), 23 Nov"
+   }
   },
   {
    "n": 19,
@@ -355,7 +372,23 @@ window.WF_DATA = {
    "lon": -0.1749,
    "q": "Serpentine South Gallery",
    "start": "2026-11-23",
-   "end": "2027-01-10"
+   "end": "2027-01-10",
+   "fd": {
+    "dur": "30–45 min",
+    "io": "both",
+    "next": "a walk through Kensington Gardens around the gallery",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap"
+    ],
+    "x": [
+     "wx",
+     "1 Dec opens 12–6pm"
+    ],
+    "src": "Serpentine exhibition page (free, Tue–Sun 10am–6pm), 23 Nov"
+   }
   },
   {
    "n": 20,
@@ -371,7 +404,23 @@ window.WF_DATA = {
    "lon": -0.1174,
    "q": "Sir John Soane's Museum",
    "start": "2026-11-23",
-   "end": "2027-01-17"
+   "end": "2027-01-17",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "indoor",
+    "next": "Lincoln's Inn Fields, the square right outside the museum",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "talk"
+    ],
+    "src": "Sir John Soane's Museum exhibition and visit pages, 23 Nov"
+   }
   },
   {
    "n": 21,
@@ -387,7 +436,24 @@ window.WF_DATA = {
    "lon": -0.0039,
    "q": "Queen's House Greenwich",
    "start": "2026-11-23",
-   "end": "2027-01-03"
+   "end": "2027-01-03",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "National Maritime Museum (free) next door, or Greenwich Park",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "access"
+    ],
+    "x": [
+     "cheap",
+     "talk",
+     "price not listed on the page; book ahead"
+    ],
+    "src": "Royal Museums Greenwich rink page (18 Nov–3 Jan, 10am–9pm), 23 Nov"
+   }
   },
   {
    "n": 22,
@@ -454,7 +520,24 @@ window.WF_DATA = {
    "lon": -0.1172,
    "q": "Somerset House London",
    "start": "2026-11-23",
-   "end": "2027-01-10"
+   "end": "2027-01-10",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "the courtyard cafés at Somerset House",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "access"
+    ],
+    "x": [
+     "cheap",
+     "talk",
+     "book a daytime session ahead"
+    ],
+    "src": "Somerset House Skate page (dates, prices), 23 Nov"
+   }
   },
   {
    "n": 26,
@@ -492,7 +575,25 @@ window.WF_DATA = {
    "lon": -0.118,
    "q": "Southbank Centre Winter Market",
    "start": "2026-11-23",
-   "end": "2027-01-04"
+   "end": "2027-01-04",
+   "fd": {
+    "dur": "45–90 min",
+    "io": "outdoor",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "busy at weekends",
+     "mulled wine on sale",
+     "follow-up not checked"
+    ],
+    "src": "Southbank Centre Winter Market page (daily 11am–10pm), 23 Nov"
+   }
   },
   {
    "n": 28,
@@ -588,7 +689,23 @@ window.WF_DATA = {
    "lon": -0.0762,
    "q": "Museum of the Home Hoxton",
    "start": "2026-11-23",
-   "end": "2027-01-10"
+   "end": "2027-01-10",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "next": "the museum's own gardens",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [],
+    "src": "Museum of the Home winter programme page (free, Tue–Sun 10am–5pm), 23 Nov"
+   }
   },
   {
    "n": 34,
@@ -604,7 +721,23 @@ window.WF_DATA = {
    "lon": -0.1283,
    "q": "National Gallery London",
    "start": "2026-11-23",
-   "end": "2027-02-07"
+   "end": "2027-02-07",
+   "fd": {
+    "dur": "30–60 min",
+    "io": "indoor",
+    "m": [
+     "short",
+     "focus",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "large crowds at weekends",
+     "follow-up not checked"
+    ],
+    "src": "National Gallery exhibition page, 23 Nov"
+   }
   },
   {
    "n": 35,
@@ -620,7 +753,24 @@ window.WF_DATA = {
    "lon": -0.0938,
    "q": "Barbican Centre London",
    "start": "2026-11-23",
-   "end": "2027-01-24"
+   "end": "2027-01-24",
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "next": "Barbican Kitchen, inside the centre",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "talk"
+    ],
+    "src": "Barbican event page (dates, free, Tue–Sun 11am–7pm), 23 Nov"
+   }
   },
   {
    "n": 36,
@@ -636,7 +786,25 @@ window.WF_DATA = {
    "lon": -0.056,
    "q": "Walthamstow Wetlands Engine House",
    "start": "2026-11-23",
-   "end": "2027-02-28"
+   "end": "2027-02-28",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "next": "the café in the Engine House, then the reservoir trails",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "last entry 3pm"
+    ],
+    "src": "London Wildlife Trust event page (daily 9.30am–3.30pm, no booking), 23 Nov"
+   }
   },
   {
    "n": 37,
@@ -776,7 +944,22 @@ window.WF_DATA = {
    "lon": -0.3198,
    "q": "Orleans House Gallery Twickenham",
    "start": "2026-11-23",
-   "end": "2027-02-28"
+   "end": "2027-02-28",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "next": "The Stables Café and the woodland gardens at Orleans House",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [],
+    "src": "Orleans House Gallery exhibition page (free, Tue–Sun 10am–5pm), 23 Nov"
+   }
   },
   {
    "n": 45,
@@ -1198,7 +1381,24 @@ window.WF_DATA = {
     "2026-12-04",
     "2026-12-05",
     "2026-12-06"
-   ]
+   ],
+   "fd": {
+    "dur": "45–75 min",
+    "io": "indoor",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "can be busy",
+     "glögi on sale",
+     "follow-up not checked"
+    ],
+    "src": "Finnish Church in London event page (two weekends, Sat–Sun 12–6pm), 23 Nov"
+   }
   },
   {
    "n": 67,
@@ -1331,7 +1531,24 @@ window.WF_DATA = {
    "lon": -0.1186,
    "q": "Honey & Co Studio 47 Lambs Conduit Street London",
    "start": "2026-11-27",
-   "end": "2026-11-29"
+   "end": "2026-11-29",
+   "fd": {
+    "dur": "30–45 min",
+    "io": "indoor",
+    "next": "the Honey & Co. deli in the same studio",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "small space, can be busy",
+     "mulled wine on sale"
+    ],
+    "src": "Honey & Co. Studio page (27–29 Nov hours), 23 Nov"
+   }
   },
   {
    "n": 74,
@@ -1608,7 +1825,24 @@ window.WF_DATA = {
     "2027-01-10",
     "2027-01-16",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "45–90 min",
+    "io": "both",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "large crowds at weekends",
+     "talk",
+     "follow-up not checked"
+    ],
+    "src": "Borough Market opening-times page (Dec hours), 23 Nov"
+   }
   },
   {
    "n": 87,
@@ -1923,7 +2157,24 @@ window.WF_DATA = {
    "lon": -0.102,
    "q": "London Museum Smithfield",
    "start": "2026-11-28",
-   "end": "2026-12-31"
+   "end": "2026-12-31",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "indoor",
+    "m": [
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "large crowds in the opening weeks",
+     "book free timed tickets",
+     "follow-up not checked"
+    ],
+    "src": "London Museum general admission page (from 28 Nov, free), 23 Nov"
+   }
   },
   {
    "n": 101,
@@ -1971,7 +2222,24 @@ window.WF_DATA = {
     "2027-01-02",
     "2027-01-09",
     "2027-01-16"
-   ]
+   ],
+   "fd": {
+    "dur": "45–60 min",
+    "io": "outdoor",
+    "next": "a walk up Parliament Hill on Hampstead Heath, right by the entrance",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx",
+     "access"
+    ],
+    "src": "London Farmers' Markets page (Saturdays 10am–2pm), 23 Nov"
+   }
   },
   {
    "n": 103,
@@ -2125,7 +2393,23 @@ window.WF_DATA = {
    "lon": -0.143,
    "q": "Highgate Wood Cafe London",
    "start": "2026-11-28",
-   "end": "2026-11-28"
+   "end": "2026-11-28",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "the café next to the meeting point in Highgate Wood",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx"
+    ],
+    "src": "Heath Hands event page (Sat 28 Nov 11.30am–1pm, free, no booking), 23 Nov"
+   }
   },
   {
    "n": 111,
@@ -2648,7 +2932,24 @@ window.WF_DATA = {
     "2027-01-03",
     "2027-01-10",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "45–60 min",
+    "io": "outdoor",
+    "next": "a walk across the heath from the station",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx",
+     "access"
+    ],
+    "src": "London Farmers' Markets page (Sundays 10am–2pm, closed between Christmas and New Year), 23 Nov"
+   }
   },
   {
    "n": 134,
@@ -2769,7 +3070,24 @@ window.WF_DATA = {
     "2027-01-03",
     "2027-01-10",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "45–60 min",
+    "io": "outdoor",
+    "next": "Daunt Books, 83–84 Marylebone High Street",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx",
+     "access"
+    ],
+    "src": "London Farmers' Markets page (Sundays 10am–2pm), 23 Nov"
+   }
   },
   {
    "n": 140,
@@ -3423,7 +3741,23 @@ window.WF_DATA = {
    "lon": 0.0484,
    "q": "Eltham Palace",
    "start": "2026-12-05",
-   "end": "2026-12-06"
+   "end": "2026-12-06",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "next": "Eltham Palace gardens (included with admission)",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "cheap"
+    ],
+    "src": "English Heritage event page (5–6 Dec 10am–4pm), 23 Nov"
+   }
   },
   {
    "n": 175,
@@ -3458,7 +3792,24 @@ window.WF_DATA = {
    "lon": -0.1677,
    "q": "Kenwood House",
    "start": "2026-12-05",
-   "end": "2027-01-03"
+   "end": "2027-01-03",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "outdoor",
+    "next": "a walk on Hampstead Heath around Kenwood",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx",
+     "check Christmas opening times"
+    ],
+    "src": "English Heritage event page (5 Dec–3 Jan, 10am–4pm, no booking), 23 Nov"
+   }
   },
   {
    "n": 177,
@@ -3474,7 +3825,23 @@ window.WF_DATA = {
    "lon": -0.1229,
    "q": "RSA House 8 John Adam Street London",
    "start": "2026-12-05",
-   "end": "2026-12-05"
+   "end": "2026-12-05",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "indoor",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "book free ticket via Eventbrite",
+     "follow-up not checked"
+    ],
+    "src": "Crafty Fox event page (Sat 5 Dec 11am–5pm), 23 Nov"
+   }
   },
   {
    "n": 178,
@@ -3752,7 +4119,24 @@ window.WF_DATA = {
    "lon": -0.0567,
    "q": "Regent Studios 8 Andrews Road London E8",
    "start": "2026-12-05",
-   "end": "2026-12-06"
+   "end": "2026-12-06",
+   "fd": {
+    "dur": "30–60 min",
+    "io": "indoor",
+    "next": "a walk along the Regent's Canal towpath by the studio",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "mulled wine on sale"
+    ],
+    "src": "TOKOBO open studio page (5–6 Dec 11am–5pm, free, no booking), 23 Nov"
+   }
   },
   {
    "n": 193,
@@ -3771,7 +4155,25 @@ window.WF_DATA = {
    "lon": -0.134,
    "q": "Wellcome Collection London",
    "start": "2026-12-05",
-   "end": "2026-12-05"
+   "end": "2026-12-05",
+   "fd": {
+    "dur": "3 hours",
+    "io": "indoor",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "short",
+     "book free ticket via Eventbrite",
+     "follow-up not checked"
+    ],
+    "src": "Wellcome Collection event page (Sat 5 Dec 2–5pm, free), 23 Nov"
+   }
   },
   {
    "n": 194,
@@ -3927,7 +4329,24 @@ window.WF_DATA = {
    "dates": [
     "2026-12-05",
     "2026-12-26"
-   ]
+   ],
+   "fd": {
+    "dur": "about 2 hours",
+    "io": "outdoor",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "short",
+     "wx",
+     "access",
+     "follow-up not checked"
+    ],
+    "src": "Friends of Richmond Park guided walks page (5 Dec 10am, Pen Ponds Car Park, free), 23 Nov"
+   }
   },
   {
    "n": 202,
@@ -3946,7 +4365,23 @@ window.WF_DATA = {
    "lon": -0.1446,
    "q": "Battersea Power Station",
    "start": "2026-12-05",
-   "end": "2026-12-22"
+   "end": "2026-12-22",
+   "fd": {
+    "dur": "30–60 min",
+    "io": "indoor",
+    "next": "a walk along the riverside at Battersea Power Station",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [],
+    "src": "Battersea Power Station event page (5–22 Dec, free, dog friendly), 23 Nov"
+   }
   },
   {
    "n": 203,
@@ -4107,7 +4542,23 @@ window.WF_DATA = {
    "lon": -0.1683,
    "q": "Chelsea Old Town Hall King's Road London",
    "start": "2026-12-06",
-   "end": "2026-12-06"
+   "end": "2026-12-06",
+   "fd": {
+    "dur": "45–90 min",
+    "io": "indoor",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "can be crowded",
+     "follow-up not checked"
+    ],
+    "src": "Frock Me! event and visit pages (Sun 6 Dec 11am–5.30pm, £8), 23 Nov"
+   }
   },
   {
    "n": 211,
@@ -4219,7 +4670,24 @@ window.WF_DATA = {
    "q": "The Chocolate Factory Farleigh Place London N16 7SX",
    "dates": [
     "2026-12-06"
-   ]
+   ],
+   "fd": {
+    "dur": "45–90 min",
+    "io": "indoor",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "access",
+     "follow-up not checked"
+    ],
+    "src": "Chocolate Factory N16 open studios page (Sun 6 Dec 11am–6pm), 23 Nov"
+   }
   },
   {
    "n": 217,
@@ -4722,7 +5190,23 @@ window.WF_DATA = {
    "dates": [
     "2026-12-12",
     "2026-12-13"
-   ]
+   ],
+   "fd": {
+    "dur": "45–90 min",
+    "io": "both",
+    "next": "Mudchute Kitchen café on the farm",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "mulled wine on sale"
+    ],
+    "src": "Mudchute Park & Farm pages (12–13 Dec 10am–3.30pm, free farm entry), 23 Nov"
+   }
   },
   {
    "n": 245,
@@ -4760,7 +5244,23 @@ window.WF_DATA = {
    "q": "Spitalfields City Farm",
    "dates": [
     "2026-12-12"
-   ]
+   ],
+   "fd": {
+    "dur": "45–75 min",
+    "io": "outdoor",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx",
+     "can be busy",
+     "follow-up not checked"
+    ],
+    "src": "Spitalfields City Farm event page (Sat 12 Dec 11am–6pm, free), 23 Nov"
+   }
   },
   {
    "n": 247,
@@ -5354,7 +5854,26 @@ window.WF_DATA = {
    "lon": -0.1527,
    "q": "Grosvenor Square London",
    "start": "2026-12-20",
-   "end": "2026-12-20"
+   "end": "2026-12-20",
+   "fd": {
+    "dur": "60 min",
+    "io": "outdoor",
+    "next": "the café kiosk at the meeting point in Grosvenor Square",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "no price listed on the page",
+     "gets dark during the walk"
+    ],
+    "src": "London Wildlife Trust event page (Sun 20 Dec 4–5pm), 23 Nov"
+   }
   },
   {
    "n": 282,
