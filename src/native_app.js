@@ -172,3 +172,18 @@ window.WF_SHARE_FILE = async function(blob, name){
   const w = await FSYS.writeFile({ path: name, data, directory: "CACHE" });
   try { await SHARE.share({ files: [w.uri], dialogTitle: "Share our weekend" }); } catch (e) {}   // closing the sheet is fine
 };
+
+/* 7. "Share our weekend" → Instagram Stories (Meta's Sharing to Stories). Shown only when Instagram can take a Story and
+   a Facebook App ID is set ("metaAppId" in src/sb.json, filled in by build_app.py). Instagram opens on its Story editor
+   with the card as the background; the person adds a Link sticker (the event link is on the clipboard) and posts there. */
+const IGP = capPlugin("WFInstagram"), META_APP_ID = "__META_APP_ID__";
+window.WF_IG_OK = false;
+if (IGP && /^\d{6,}$/.test(META_APP_ID)) { try { IGP.available().then(r => { window.WF_IG_OK = !!(r && r.available); }).catch(() => {}); } catch (e) {} }
+window.WF_IG_SHARE = async function(blob, name, link){
+  const b64 = await new Promise((ok, bad) => { const r = new FileReader(); r.onload = () => ok(String(r.result).split(",")[1]); r.onerror = bad; r.readAsDataURL(blob); });
+  if (CAP.getPlatform && CAP.getPlatform() === "android") {
+    const w = await FSYS.writeFile({ path: name, data: b64, directory: "CACHE" });
+    return IGP.shareToStory({ appId: META_APP_ID, path: w.uri, link: link || "" });
+  }
+  return IGP.shareToStory({ appId: META_APP_ID, image: b64, link: link || "" });
+};

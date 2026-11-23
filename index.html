@@ -1398,8 +1398,8 @@ function memoryHTML(){
   <div class="dseg shtpl" role="group" aria-label="Style"><button data-shtpl="a" aria-pressed="${SHR.tpl === "a"}">Photo</button><button data-shtpl="b" aria-pressed="${SHR.tpl === "b"}">With a headline</button></div>
   ${SHR.tpl === "b" ? `<div class="fwrap shopen">${MEMO_HEADS.map(h => `<button class="chip" data-shhead="${esc(h)}" aria-pressed="${SHR.head === h}">${esc(h)}</button>`).join("")}</div>` : ""}
   <div class="shtogs">${SHR.tpl === "b" ? tog("head", "Headline") : ""}${tog("name", "Event name")}${tog("when", "Date and place")}${tog("credit", "Weekend Fetch credit")}</div>
-  <div class="btnrow">${canFiles ? `<button class="copybtn" data-shimg>${IN_APP() ? "Share or save" : "Share image"}</button>` : ""}${IN_APP() ? "" : `<button class="copybtn${canFiles ? " alt" : ""}" data-shsave>Save image</button>`}<button class="copybtn alt" data-shcopy>Copy event link</button></div>
-  <p class="ournote small">Your photo stays on this phone; we never upload or keep it. Posting to Instagram? Save the image, then add Instagram's link sticker and paste the event link.</p>
+  <div class="btnrow">${IN_APP() && window.WF_IG_OK ? `<button class="copybtn" data-shig>Instagram Story</button>` : ""}${canFiles ? `<button class="copybtn${IN_APP() && window.WF_IG_OK ? " alt" : ""}" data-shimg>${IN_APP() ? "Share or save" : "Share image"}</button>` : ""}${IN_APP() ? "" : `<button class="copybtn${canFiles ? " alt" : ""}" data-shsave>Save image</button>`}<button class="copybtn alt" data-shcopy>Copy event link</button></div>
+  <p class="ournote small">Your photo stays on this phone; we never upload or keep it. ${IN_APP() && window.WF_IG_OK ? "Instagram Story opens Instagram with your card; nothing is posted until you post it. Add a Link sticker there and paste: the event link is copied for you." : "Posting to Instagram? Save the image, then add Instagram's link sticker and paste the event link."}</p>
   <p class="ournote shmsg" id="shmsg"></p>`;
 }
 function wrapLines(ctx, text, maxW){
@@ -1454,6 +1454,14 @@ async function memoryShare(save){
   const m = document.getElementById("shmsg"); if (m) m.textContent = "Saving the image. On a phone, check your downloads or photos.";
 }
 
+async function memoryToInstagram(){
+  const blob = await cardBlob(); if (!blob || typeof window.WF_IG_SHARE !== "function") return;
+  shareTrack("share_card_made", { item_id: SHR.e.id, props: { kind: "memory", template: SHR.tpl } });
+  shareTrack("share_destination_opened", { item_id: SHR.e.id, props: { kind: "memory", channel: "instagram_story" } });
+  try { await window.WF_IG_SHARE(blob, cardName(), eventLink(SHR.e, SHR.code)); }
+  catch (x) { const m = document.getElementById("shmsg"); if (m) m.textContent = "Couldn't open Instagram. Try Share or save instead."; }
+}
+
 /* --- the panel itself --- */
 function drawShare(){
   let box = document.getElementById("shpanel");
@@ -1465,7 +1473,7 @@ function drawShare(){
 }
 function closeShare(){ if (SHR && SHR.url) URL.revokeObjectURL(SHR.url); SHR = null; drawShare(); }
 document.addEventListener("click", ev => {
-  const t = ev.target.closest("[data-evinvite],[data-memory],[data-unpin],[data-shclose],[data-shopener],[data-shgo],[data-shcopy],[data-shtpl],[data-shhead],[data-shimg],[data-shsave]");
+  const t = ev.target.closest("[data-evinvite],[data-memory],[data-unpin],[data-shclose],[data-shopener],[data-shgo],[data-shcopy],[data-shtpl],[data-shhead],[data-shimg],[data-shsave],[data-shig]");
   if (!t) { if (ev.target.id === "shpanel") closeShare(); return; }
   if (t.dataset.evinvite) openInvite(t.dataset.evinvite);
   else if (t.dataset.memory) openMemory(t.dataset.memory);
@@ -1476,6 +1484,7 @@ document.addEventListener("click", ev => {
   else if (t.hasAttribute("data-shcopy")) { copyText(eventLink(SHR.e, SHR.code), "Link copied."); shareTrack("share_destination_opened", { item_id: SHR.e.id, props: { kind: SHR.kind, channel: "copy_link" } }); }
   else if (t.dataset.shtpl) { SHR.tpl = t.dataset.shtpl; drawShare(); paintCard(); }
   else if (t.dataset.shhead) { SHR.head = t.dataset.shhead; drawShare(); paintCard(); }
+  else if (t.hasAttribute("data-shig")) memoryToInstagram();
   else if (t.hasAttribute("data-shimg")) memoryShare(false);
   else if (t.hasAttribute("data-shsave")) memoryShare(true);
 });

@@ -7,6 +7,7 @@ public class MainActivity extends BridgeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(WFCalendarPlugin.class);   // "Add to Calendar" (src/native_app.js)
+        registerPlugin(WFInstagramPlugin.class);  // "Share our weekend" → Instagram Stories
         super.onCreate(savedInstanceState);
     }
 }

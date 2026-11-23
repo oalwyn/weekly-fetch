@@ -117,10 +117,51 @@ public class WFAppleSignInPlugin: CAPPlugin, CAPBridgedPlugin, ASAuthorizationCo
     }
 }
 
+
+/// "Share our weekend" → Instagram Stories (Meta's Sharing to Stories): the card goes on the pasteboard as the Story
+/// background (with the event link as text, for Instagram's Link sticker), then Instagram opens on its Story editor.
+/// The person edits and posts there; nothing is posted for them. Needs the Facebook App ID and
+/// LSApplicationQueriesSchemes "instagram-stories" in Info.plist.
+@objc(WFInstagramPlugin)
+public class WFInstagramPlugin: CAPPlugin, CAPBridgedPlugin {
+    public let identifier = "WFInstagramPlugin"
+    public let jsName = "WFInstagram"
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "available", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "shareToStory", returnType: CAPPluginReturnPromise)
+    ]
+
+    private func storyURL(_ appId: String) -> URL? {
+        return URL(string: "instagram-stories://share?source_application=" + appId)
+    }
+
+    @objc func available(_ call: CAPPluginCall) {
+        DispatchQueue.main.async {
+            let ok = self.storyURL("0").map { UIApplication.shared.canOpenURL($0) } ?? false
+            call.resolve(["available": ok])
+        }
+    }
+
+    @objc func shareToStory(_ call: CAPPluginCall) {
+        guard let appId = call.getString("appId"), !appId.isEmpty,
+              let b64 = call.getString("image"), let data = Data(base64Encoded: b64),
+              let url = storyURL(appId) else { call.reject("missing image or app id", "BAD_INPUT"); return }
+        let link = call.getString("link") ?? ""
+        DispatchQueue.main.async {
+            guard UIApplication.shared.canOpenURL(url) else { call.reject("Instagram isn't installed", "NOT_INSTALLED"); return }
+            var item: [String: Any] = ["com.instagram.sharedSticker.backgroundImage": data]
+            if !link.isEmpty { item["public.utf8-plain-text"] = link }
+            UIPasteboard.general.setItems([item], options: [.expirationDate: Date().addingTimeInterval(60 * 5)])
+            UIApplication.shared.open(url, options: [:]) { ok in ok ? call.resolve(["opened": true]) : call.reject("couldn't open Instagram", "FAILED") }
+        }
+    }
+}
+
 /// The app's main screen: Capacitor's web view, plus the calendar and Sign in with Apple plugins above.
 class MainViewController: CAPBridgeViewController {
     override open func capacitorDidLoad() {
         bridge?.registerPluginInstance(WFCalendarPlugin())
         bridge?.registerPluginInstance(WFAppleSignInPlugin())
+        bridge?.registerPluginInstance(WFInstagramPlugin())
     }
 }

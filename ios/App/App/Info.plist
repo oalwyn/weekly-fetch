@@ -30,6 +30,10 @@
 	<string>Weekend Fetch adds your locked-in plans to your calendar when you tap Add to Calendar.</string>
 	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
 	<string>Weekend Fetch adds your locked-in plans to your calendar when you tap Add to Calendar.</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>instagram-stories</string>
+	</array>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Save your weekend card to your photos when you choose Save Image.</string>
 	<key>NSCameraUsageDescription</key>

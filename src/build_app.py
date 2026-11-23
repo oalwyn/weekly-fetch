@@ -130,7 +130,8 @@ def appify(html, cfg):
   # 6. native features (reminders, Add to Calendar, share sheet): see src/native_app.js
   i = html.rfind('\nrender();\n')
   assert i > 0
-  html = html[:i] + '\n' + open(os.path.join(here, "native_app.js")).read() + html[i:]
+  _meta = str(json.load(open(os.path.join(here, "sb.json"))).get("metaAppId", "") or "")   # Facebook App ID for Instagram Stories
+  html = html[:i] + '\n' + open(os.path.join(here, "native_app.js")).read().replace("__META_APP_ID__", _meta if _meta.isdigit() else "") + html[i:]
   i = html.index('</style>')
   html = html[:i] + '.calbtn{border:1px solid #C9D2DC;background:#fff;color:var(--ink);border-radius:10px;padding:9px 14px;font-size:14px;font-weight:600;min-height:44px}\n' + html[i:]
 
