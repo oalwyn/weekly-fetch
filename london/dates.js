@@ -374,6 +374,206 @@ window.WF_DATES = {
     ],
     "src": "museumofthehome.org.uk plan-your-visit page, 23 Nov 2026"
    }
+  },
+  {
+   "id": "ldn-dp-queens-house-rink",
+   "name": "Queen's House Ice Rink, Greenwich",
+   "kind": "skate",
+   "town": "Greenwich",
+   "lat": 51.481,
+   "lon": -0.0036,
+   "url": "https://www.rmg.co.uk/whats-on/queens-house/queens-house-ice-rink",
+   "hours": "18 Nov 2026 – 3 Jan 2027, daily 10am–9pm",
+   "price": "£",
+   "note": "Skate in front of a 17th-century royal villa at the foot of Greenwich Park, then climb the hill for the view",
+   "fd": {
+    "dur": "45–90 min",
+    "io": "outdoor",
+    "next": "Parkside Café at the National Maritime Museum next door, or Greenwich Park behind the rink",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "access"
+    ],
+    "x": [
+     "cheap (ticketed; prices not shown on the page, book ahead)",
+     "wx (open-air rink)"
+    ],
+    "src": "rmg.co.uk Queen's House Ice Rink page, 23 Nov 2026"
+   }
+  },
+  {
+   "id": "ldn-dp-pembroke-lodge",
+   "name": "Richmond Park walk to Pembroke Lodge",
+   "kind": "walk",
+   "town": "Richmond",
+   "lat": 51.446,
+   "lon": -0.293,
+   "url": "https://www.royalparks.org.uk/visit/parks/richmond-park/pembroke-lodge",
+   "hours": "Park open daily in daylight; Pembroke Lodge tea rooms daily from 9am to 15 minutes before dusk",
+   "price": "free",
+   "note": "A walk among deer to a Georgian house café on the park's highest point, with views over the Thames Valley",
+   "fd": {
+    "dur": "60–120 min",
+    "io": "both",
+    "next": "Pembroke Lodge tea rooms, at the end of the walk",
+    "m": [
+     "talk",
+     "focus",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "short (allow time for the walk)",
+     "wx (mostly outdoors; tea rooms are the backup)"
+    ],
+    "src": "royalparks.org.uk Pembroke Lodge page, 23 Nov 2026 (free car park for 200 cars by the Lodge)"
+   }
+  },
+  {
+   "id": "ldn-dp-kyoto-garden",
+   "name": "Kyoto Garden, Holland Park",
+   "kind": "garden",
+   "town": "Holland Park",
+   "lat": 51.5036,
+   "lon": -0.204,
+   "url": "https://www.rbkc.gov.uk/leisure-and-culture/parks/holland-park",
+   "hours": "Daily 7.30am to dusk",
+   "price": "free",
+   "note": "A Japanese garden with a waterfall, koi and roaming peacocks, tucked inside a wooded park",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "outdoor",
+    "next": "Holland Park's café, in the park (hours not listed on the council page)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx (outdoors)",
+     "busy on sunny weekends"
+    ],
+    "src": "rbkc.gov.uk Holland Park page, 23 Nov 2026"
+   }
+  },
+  {
+   "id": "ldn-dp-bonbon-notting-hill",
+   "name": "Bonbon Pottery, Notting Hill",
+   "kind": "craft",
+   "town": "Notting Hill",
+   "lat": 51.5149,
+   "lon": -0.1975,
+   "url": "https://bonbonpottery.co.uk/locations/notting-hill",
+   "hours": "Sat 10am–9.30pm, Sun 10am–8.30pm",
+   "price": "££",
+   "note": "Paint-your-own pottery café on Westbourne Grove; 1.5-hour sessions with coffee or matcha",
+   "fd": {
+    "dur": "90 min",
+    "io": "indoor",
+    "next": "Daunt Books Notting Hill, 21 Kensington Park Road (Sat 9am–6pm, Sun 11am–6pm)",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "cheap (about £24 a head on average; walk-ins welcome but book at weekends)"
+    ],
+    "src": "bonbonpottery.co.uk Notting Hill and Pottery Painting pages; dauntbooks.co.uk, 23 Nov 2026"
+   }
+  },
+  {
+   "id": "ldn-dp-cambridge-botanic",
+   "name": "Cambridge University Botanic Garden",
+   "kind": "garden",
+   "town": "Cambridge",
+   "lat": 52.1935,
+   "lon": 0.127,
+   "url": "https://www.botanic.cam.ac.uk/visit-us/",
+   "hours": "Winter daily 10am–4pm, last entry 3.30pm (closed 24 Dec – 1 Jan)",
+   "price": "£",
+   "note": "A day trip: 40 acres of trees, a winter garden and tropical glasshouses, a short walk from Cambridge station",
+   "fd": {
+    "dur": "60–120 min",
+    "io": "both",
+    "next": "The Garden Café, open all year with indoor seating",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "short (it's a day trip from London)"
+    ],
+    "src": "botanic.cam.ac.uk visit page, 23 Nov 2026 (adult £8.60, 10% off online)"
+   }
+  },
+  {
+   "id": "ldn-dp-thirsty-meeples-oxford",
+   "name": "Thirsty Meeples board game café, Oxford",
+   "kind": "games",
+   "town": "Oxford",
+   "lat": 51.7539,
+   "lon": -1.2622,
+   "url": "https://thirstymeeples.co.uk/pages/thirsty-meeples-board-game-caf",
+   "hours": "Sat–Sun 10am–late (closed Christmas Day, Boxing Day and New Year's Day)",
+   "price": "£",
+   "note": "A day trip: a big game library with staff who'll pick a game for you, by Gloucester Green coach station",
+   "fd": {
+    "dur": "60–180 min",
+    "io": "indoor",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "follow-up not checked",
+     "book a table: it fills up (£8 cover with a food or drink order, £10 games only; 3-hour sessions)",
+     "short (it's a day trip from London)"
+    ],
+    "src": "thirstymeeples.co.uk Oxford café and booking pages, 23 Nov 2026"
+   }
+  },
+  {
+   "id": "ldn-dp-turner-contemporary",
+   "name": "Turner Contemporary, Margate",
+   "kind": "museum",
+   "town": "Margate",
+   "lat": 51.3916,
+   "lon": 1.3778,
+   "url": "https://turnercontemporary.org/",
+   "hours": "Wed–Sun 11am–5pm",
+   "price": "free",
+   "note": "A day trip by the sea: a free gallery on the seafront where Turner painted the skies, then the Old Town and the harbour arm",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "next": "Louie On Sea, the gallery's café",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "it's a day trip (about 1.5 hours by train from London)"
+    ],
+    "src": "turnercontemporary.org, 23 Nov 2026"
+   }
   }
  ]
 }
