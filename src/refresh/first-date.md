@@ -44,3 +44,21 @@ that needs a lot of planning or a reservation far ahead.
 - Also look for date-friendly places that run on fixed weekend hours (mini golf, ice rinks, bookshops with readings,
   pottery or painting drop-in sessions, board-game cafés) and list them as events with `dates[]` when the venue
   publishes specific sessions.
+
+## Date spots list (`dates.js`, `sydney/dates.js`, `london/dates.js`)
+A standing list of places open most weekends that pass the same hard filters, shown at the top of the First date view
+(nearest first). Format: `window.WF_DATES = {"updated": "YYYY-MM-DD", "items": [ ... ]}`, each item:
+```
+{"id": "dp-<slug>" (Sydney "syd-dp-", London "ldn-dp-"; never change an id once published),
+ "name": "...", "kind": "minigolf" | "skate" | "books" | "museum" | "garden" | "walk" | "games" | "craft" | "market" | "food" | "view" | "other",
+ "town": "...", "lat": 0.0, "lon": 0.0, "url": "<the place's own website>",
+ "hours": "<weekend hours as published, e.g. 'Sat–Sun 10am–6pm'>", "price": "free" | "$" | "$$" (Sydney "A$" style is fine, London "£"),
+ "note": "<one short line on why it works>", "fd": {same fields as above}}
+```
+- 18–25 places per city, every one checked on its own website (open now, weekend hours, price, address). Spread across the
+  city's regions (home turf first) and kinds: at least 2 each of mini golf or games, bookshops (with a café, readings or a
+  good browse), small museums or galleries, gardens or conservatories, scenic walks with a café at one end, and make-something
+  drop-ins (pottery, painting, print). Seasonal ice rinks are fine while they're open; say the end date in `hours`.
+- Leave out: bars and pubs as the activity, anything late-night only, large theme parks, places needing booking weeks ahead,
+  remote trailheads, and kids-only venues.
+- The weekly refresh doesn't rebuild this list; a refresh may fix a place that has closed or changed hours.

@@ -42,9 +42,10 @@ def appify(html, cfg):
   LOADER = r'''<script src="./data.js"></script>
   <script src="./walks.js"></script>
   <script src="./rainy.js"></script>
+  <script src="./dates.js"></script>
   <script>
   (function(){
-    var LIVE = "%s", FILES = [["data.js","wf-app-data%s","WF_DATA"],["walks.js","wf-app-walks%s","WF_WALKS"],["rainy.js","wf-app-rainy%s","WF_RAINY"]];
+    var LIVE = "%s", FILES = [["data.js","wf-app-data%s","WF_DATA"],["walks.js","wf-app-walks%s","WF_WALKS"],["rainy.js","wf-app-rainy%s","WF_RAINY"],["dates.js","wf-app-dates%s","WF_DATES"]];
     function apply(text, global){
       if (typeof text !== "string" || text.indexOf("window." + global) !== 0) return false;
       var before = window[global];
@@ -78,7 +79,7 @@ def appify(html, cfg):
     }
     addEventListener("load", function(){ setTimeout(refresh, 300); });
   })();
-  </script>''' % (LIVE + P, KEY, KEY, KEY)
+  </script>''' % (LIVE + P, KEY, KEY, KEY, KEY)
   m = re.search(r'<script>/\*wf-data\*/.*?</script>', html); assert m, "website data loader not found"
   html = html[:m.start()] + LOADER + html[m.end():]
 
@@ -143,7 +144,7 @@ for cfg in CITIES:
     os.makedirs(d, exist_ok=True)
     src = os.path.join(root, cfg["path"], "index.html") if cfg["path"] else os.path.join(root, "index.html")
     open(os.path.join(d, "index.html"), "w").write(appify(open(src).read(), cfg))
-    for name in ["data.js", "walks.js", "rainy.js"]:
+    for name in ["data.js", "walks.js", "rainy.js", "dates.js"]:
         shutil.copy(os.path.join(root, cfg["path"], name), d)
     shutil.copy(os.path.join(root, cfg.get("banner", "banner.svg")), out)
     print("app page:", cfg["key"])

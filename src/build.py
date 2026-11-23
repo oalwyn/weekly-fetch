@@ -47,7 +47,7 @@ for CITY_KEY in CITY_KEYS:
     open('out_index.html', 'w').write(head
         + '<script>window.WF_CITY=' + json.dumps(city_js, ensure_ascii=False) + ';</script>\n'
         + SW_JS
-        + '<script src="./data.js"></script>\n<script src="./walks.js"></script>\n<script src="./rainy.js"></script>\n<script>\n' + js + '\n</script>'
+        + '<script src="./data.js"></script>\n<script src="./walks.js"></script>\n<script src="./rainy.js"></script>\n<script src="./dates.js"></script>\n<script>\n' + js + '\n</script>'
         + open('template_tail.html').read())
     OUTFILE = os.path.join('..', CITYCFG['path'], 'index.html') if CITYCFG['path'] else os.path.join('..', 'index.html')
     sys.argv = [sys.argv[0]]

@@ -133,6 +133,18 @@ const FD_MISS = {short:"hard to leave early", talk:"hard to hear each other", fo
 const isFd = e => !!(e.fd && typeof e.fd==="object");
 const fdScore = e => isFd(e) && Array.isArray(e.fd.m) ? e.fd.m.filter(k=>k in FD_PREF).length : 0;
 const fdList = (a, L) => (Array.isArray(a)?a:[]).map(k=>(L||FD_PREF)[k]||String(k)).join(", ");
+/* Date spots (dates.js per city, checked by a research run): places open most weekends that pass the first-date
+   filters, shown at the top of the First date view, nearest first. Fields: id, name, kind, town, lat, lon, url, hours, price, note, fd. */
+const DSPOTS = ((window.WF_DATES && WF_DATES.items) || []).filter(v=>v && v.name && v.url);
+const DKIND = {minigolf:"Mini golf", skate:"Ice skating", books:"Bookshop", museum:"Small museum", garden:"Garden", walk:"Scenic walk", games:"Games", craft:"Make something", market:"Market", food:"Food", view:"Viewpoint", other:"Place"};
+function dateSpotsHTML(){
+  if (!state.fd || state.view!=="events" || !DSPOTS.length) return "";
+  const d = v => v.lat!=null ? Math.round(miles(HOME.lat,HOME.lon,v.lat,v.lon) * (KM ? 1.609344 : 1)) : null;
+  const list = DSPOTS.map(v=>({...v, d:d(v)})).filter(v=>!state.dist || (v.d!=null && v.d<=state.dist)).sort((a,b)=>(a.d==null?1e9:a.d)-(b.d==null?1e9:b.d));
+  if (!list.length) return "";
+  const shown = showAll.has("dspots") ? list : list.slice(0,5);
+  return `<section class="dspots"><div class="section-h">Date spots open most weekends</div><p class="ournote">Places that pass the same first-date checks most weekends. Check opening hours before you go.</p>${shown.map(v=>`<article class="card dspot"><div><div class="when">${esc(DKIND[v.kind]||DKIND.other)}${v.hours?" · "+esc(v.hours):""}</div><div class="title">${esc(v.name)}</div><div class="meta">${esc([v.town, v.price, v.note].filter(Boolean).join(" · "))}</div></div><span></span><div class="row2"><span class="fdb">First date idea</span>${v.d!=null?`<span class="dist">${wfIco("pin")}${v.d} ${UNIT}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(v.url)}" target="_blank" rel="noopener">Website ↗</a>${v.lat!=null?`<a class="lbtn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v.name+", "+(v.town||""))}" target="_blank" rel="noopener">Directions ↗</a>`:""}</div>${fdHTML(v)}</article>`).join("")}${list.length>5?moreBtn("dspots", list.length, "date spots"):""}</section>`;
+}
 function fdHTML(e){
   if (!isFd(e) || !state.fd) return "";
   const f = e.fd, io = {indoor:"Indoors", outdoor:"Outdoors", both:"Indoors and out"}[f.io] || "";
@@ -699,7 +711,7 @@ function render(){
   if (state.view==="map"){ m.innerHTML = mapHTML(); requestAnimationFrame(bindMap); requestAnimationFrame(mapCount); }
   else m.innerHTML = state.view==="our-list" ? renderOurList() : state.view==="rainy" ? renderRainy() : renderEvents();
   if (state.view==="rainy") loadForecast();
-  if (state.view!=="our-list" && state.view!=="rainy") m.insertAdjacentHTML("afterbegin", homeBox() + likesBox());
+  if (state.view!=="our-list" && state.view!=="rainy") m.insertAdjacentHTML("afterbegin", homeBox() + likesBox() + dateSpotsHTML());
   document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px");
   document.documentElement.style.setProperty("--fh", document.getElementById("filters").offsetHeight+"px");
   noteEmpty();
@@ -709,7 +721,7 @@ function refreshStars(){
   if (state.view==="our-list"){ const y=scrollY; document.getElementById("main").innerHTML = renderOurList(); scrollTo(0,y); }
   else if (state.view==="map"){ drawMap(); showSheet(); }
   else if (state.view==="rainy"){ const y=scrollY; document.getElementById("main").innerHTML = renderRainy(); paintForecast(); scrollTo(0,y); }
-  else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + likesBox() + renderEvents(); scrollTo(0,y); }
+  else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + likesBox() + dateSpotsHTML() + renderEvents(); scrollTo(0,y); }
   updateCount();
 }
 async function toggleStar(id){
@@ -815,7 +827,7 @@ document.addEventListener("click", ev=>{
     try { navigator.clipboard.writeText(txt).then(()=>{ t.textContent="Copied ✓"; setTimeout(()=>t.textContent="Copy list as text",2000); }, fallback); } catch(e) { fallback(); }
   }
 });
-document.addEventListener("input", ev=>{ if (ev.target.id==="q"){ state.q = ev.target.value; if (state.view==="map"){ drawMap(); mapCount(); } else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + likesBox() + renderEvents(); if (!state.q) scrollTo(0,y); } } });
+document.addEventListener("input", ev=>{ if (ev.target.id==="q"){ state.q = ev.target.value; if (state.view==="map"){ drawMap(); mapCount(); } else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + likesBox() + dateSpotsHTML() + renderEvents(); if (!state.q) scrollTo(0,y); } } });
 document.addEventListener("keydown", ev=>{ if (ev.target.id==="q" && ev.key==="Enter") ev.target.blur(); if (ev.target.id==="q" && ev.key==="Escape"){ state.searchOpen=false; state.q=""; render(); } });
 // a card's description shows two lines; tap it for the rest
 document.addEventListener("click", ev=>{ const m = ev.target.closest(".card .meta"); if (m && !ev.target.closest("a,button")) m.classList.toggle("full"); });

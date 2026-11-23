@@ -144,6 +144,7 @@ So always `git pull` before working, and don't hand-edit `data.js` in ways the r
 
 ## First-date ideas (Nov 23, 2026)
 - Criteria and the `fd` item field: `src/refresh/first-date.md` (followed by every refresh run, see the top of this file). The site shows a "First date ideas" quick pick in Filter (`state.fd`, `isFd`, `fdScore` ranks by preferences met), a pink "First date idea" label on those cards, and, with the filter on, a box with length, indoors/outdoors, a follow-up, what it's good for, what to keep in mind and where it was checked (`fdHTML`, `FD_PREF`, `FD_MISS`). Never labelled "best".
+- Date spots (Nov 23, 2026): `dates.js` / `sydney/dates.js` / `london/dates.js` (`window.WF_DATES = {updated, items}`), standing places open most weekends that pass the first-date filters (format and rules in src/refresh/first-date.md). Shown at the top of the First date view, nearest 5 then "Show all" (`dateSpotsHTML`, `DKIND`). Loaded with data.js/walks.js/rainy.js on the website (`/*wf-data*/`) and in the apps (`wf-app-dates`, `wf-app-dates-<city>`). Researched by one-off cloud runs; the weekly refresh doesn't rebuild them.
 - Inventory gap found Nov 23: plenty of dated date-friendly events (markets, museums, walks, classes: ~105–125 per city), but few standing places (no mini golf, few bookshops, rinks or game cafés; Rainy Day venues are mostly kids' play spaces).
 
 ## Home location for new people (Nov 22, 2026)

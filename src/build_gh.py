@@ -74,9 +74,9 @@ EARLY=('<script>window.WF_VERSION="'+WEBVER+'";(function(){var h=location.hash||
 assert html.count('<script src="./data.js"></script>')==1
 html=html.replace('<script src="./data.js"></script>', EARLY+'<script src="./data.js"></script>')
 # load the latest events: a version tag that changes every 5 minutes stops phones reusing an old saved data.js
-PAIR='<script src="./data.js"></script>\n<script src="./walks.js"></script>\n<script src="./rainy.js"></script>'
+PAIR='<script src="./data.js"></script>\n<script src="./walks.js"></script>\n<script src="./rainy.js"></script>\n<script src="./dates.js"></script>'
 assert html.count(PAIR)==1
-html=html.replace(PAIR, '<script>/*wf-data*/(function(){var v=Math.floor(Date.now()/3e5);document.write(\'<script src="./data.js?v=\'+v+\'"><\\/script><script src="./walks.js?v=\'+v+\'"><\\/script><script src="./rainy.js?v=\'+v+\'"><\\/script>\')})();</script>')
+html=html.replace(PAIR, '<script>/*wf-data*/(function(){var v=Math.floor(Date.now()/3e5);document.write(\'<script src="./data.js?v=\'+v+\'"><\\/script><script src="./walks.js?v=\'+v+\'"><\\/script><script src="./rainy.js?v=\'+v+\'"><\\/script><script src="./dates.js?v=\'+v+\'"><\\/script>\')})();</script>')
 html=html.replace('.okmsg{','.setup{background:#fff;border-radius:14px;padding:14px 16px;margin:0 0 12px}.setup strong{font-size:16px}\n.okmsg{',1)
 # pages for other cities live in a folder: shared files (icons, banner, vendor scripts, privacy page) come from the site root;
 # the city's own data.js/walks.js stay next to its page. City-specific saved settings get their own keys in this browser.
