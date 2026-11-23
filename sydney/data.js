@@ -90,7 +90,21 @@ window.WF_DATA = {
    "lon": 151.2128,
    "q": "State Library of New South Wales",
    "start": "2026-08-24",
-   "end": "2027-07-18"
+   "end": "2027-07-18",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "indoor",
+    "next": "Royal Botanic Garden, across Macquarie St",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "src": "State Library of NSW exhibition page, 23 Nov"
+   }
   },
   {
    "n": 4,
@@ -106,7 +120,24 @@ window.WF_DATA = {
    "lon": 151.1015,
    "q": "Hurstville Museum & Gallery",
    "start": "2026-11-16",
-   "end": "2026-12-06"
+   "end": "2026-12-06",
+   "fd": {
+    "dur": "30–45 min",
+    "io": "indoor",
+    "next": "Hardmans Park, a short walk",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "Sunday opens 2pm only"
+    ],
+    "src": "Georges River Council exhibition page, 23 Nov"
+   }
   },
   {
    "n": 5,
@@ -236,7 +267,22 @@ window.WF_DATA = {
    "lon": 151.2173,
    "q": "Art Gallery of New South Wales",
    "start": "2026-11-15",
-   "end": "2027-02-14"
+   "end": "2027-02-14",
+   "fd": {
+    "dur": "45–90 min",
+    "io": "indoor",
+    "next": "Royal Botanic Garden, next door",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "src": "Art Gallery of NSW exhibition page, 23 Nov"
+   }
   },
   {
    "n": 13,
@@ -851,7 +897,25 @@ window.WF_DATA = {
     "2027-01-09",
     "2027-01-15",
     "2027-01-16"
-   ]
+   ],
+   "fd": {
+    "dur": "60 min",
+    "io": "outdoor",
+    "next": "Walk on to Mrs Macquarie's Chair",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "cheap",
+     "Saturdays only on weekends"
+    ],
+    "src": "Botanic Gardens of Sydney tour page, 23 Nov"
+   }
   },
   {
    "n": 46,
@@ -1055,7 +1119,25 @@ window.WF_DATA = {
     "2027-01-10",
     "2027-01-16",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "next": "The Garden's Cafe, Australian Botanic Garden",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "long trip from the city",
+     "book ahead"
+    ],
+    "src": "Botanic Gardens of Sydney tour page, 23 Nov"
+   }
   },
   {
    "n": 56,
@@ -1116,7 +1198,23 @@ window.WF_DATA = {
     "2027-01-02",
     "2027-01-09",
     "2027-01-16"
-   ]
+   ],
+   "fd": {
+    "dur": "45–60 min",
+    "io": "outdoor",
+    "next": "Bondi Pavilion and the beachfront, across the road",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx"
+    ],
+    "src": "Bondi Markets page, 23 Nov"
+   }
   },
   {
    "n": 59,
@@ -1315,7 +1413,25 @@ window.WF_DATA = {
    "lon": 150.311,
    "q": "Blue Mountains Cultural Centre Katoomba",
    "start": "2026-11-28",
-   "end": "2027-02-07"
+   "end": "2027-02-07",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "indoor",
+    "next": "Mr Pickwick's Bookshop, Katoomba St",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "long trip from the city"
+    ],
+    "src": "Blue Mountains Cultural Centre exhibition page, 23 Nov"
+   }
   },
   {
    "n": 68,
@@ -1371,7 +1487,25 @@ window.WF_DATA = {
     "2027-01-10",
     "2027-01-16",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "60–90 min",
+    "io": "indoor",
+    "next": "Hyde Park, across College St",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "talk",
+     "crowds on weekends"
+    ],
+    "src": "Australian Museum visit page, 23 Nov"
+   }
   },
   {
    "n": 70,
@@ -1402,7 +1536,24 @@ window.WF_DATA = {
     "2027-01-10",
     "2027-01-16",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "45–75 min",
+    "io": "indoor",
+    "next": "The museum's terrace café, then Victoria Park next door",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "closed Dec 21–Jan 3"
+    ],
+    "src": "Chau Chak Wing Museum visit page, 23 Nov"
+   }
   },
   {
    "n": 71,
@@ -1421,7 +1572,24 @@ window.WF_DATA = {
    "lon": 151.102,
    "q": "Hurstville Library",
    "start": "2026-11-28",
-   "end": "2026-11-28"
+   "end": "2026-11-28",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "indoor",
+    "next": "Hardmans Park, a short walk",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "talk"
+    ],
+    "src": "Georges River Council event page, 23 Nov"
+   }
   },
   {
    "n": 72,
@@ -1540,7 +1708,24 @@ window.WF_DATA = {
     "2026-12-13",
     "2026-12-19",
     "2027-01-10"
-   ]
+   ],
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "Bradfield Park, under the Harbour Bridge",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx"
+    ],
+    "src": "Kirribilli Markets dates page, 23 Nov"
+   }
   },
   {
    "n": 78,
@@ -1593,7 +1778,24 @@ window.WF_DATA = {
    "lon": 151.2648,
    "q": "Berkelouw Books, 215 Condamine St, Balgowlah",
    "start": "2026-11-28",
-   "end": "2026-11-28"
+   "end": "2026-11-28",
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "next": "Roseberry St Cafe, Roseberry St, Balgowlah",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "novel"
+    ],
+    "src": "Berkelouw Books event page, 23 Nov"
+   }
   },
   {
    "n": 80,
@@ -1654,7 +1856,25 @@ window.WF_DATA = {
    "lon": 151.008,
    "q": "Powerhouse Parramatta",
    "start": "2026-11-28",
-   "end": "2026-11-28"
+   "end": "2026-11-28",
+   "fd": {
+    "dur": "60 min",
+    "io": "indoor",
+    "next": "Parramatta River foreshore walk, right outside the museum",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "cheap",
+     "talk",
+     "book ahead"
+    ],
+    "src": "Powerhouse program page, 23 Nov"
+   }
   },
   {
    "n": 83,
@@ -1673,7 +1893,25 @@ window.WF_DATA = {
    "dates": [
     "2026-11-28",
     "2026-12-12"
-   ]
+   ],
+   "fd": {
+    "dur": "2 hours",
+    "io": "indoor",
+    "next": "Peg Paterson Park on the Rhodes foreshore",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "short",
+     "book ahead"
+    ],
+    "src": "City of Canada Bay Libraries booking page (Humanitix), 23 Nov"
+   }
   },
   {
    "n": 84,
@@ -1738,7 +1976,24 @@ window.WF_DATA = {
     "2027-01-02",
     "2027-01-09",
     "2027-01-16"
-   ]
+   ],
+   "fd": {
+    "dur": "45–75 min",
+    "io": "both",
+    "next": "Paddington Reservoir Gardens, across Oxford St",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx"
+    ],
+    "src": "Paddington Markets website, 23 Nov"
+   }
   },
   {
    "n": 87,
@@ -1841,7 +2096,23 @@ window.WF_DATA = {
     "2027-01-02",
     "2027-01-09",
     "2027-01-16"
-   ]
+   ],
+   "fd": {
+    "dur": "45–75 min",
+    "io": "outdoor",
+    "next": "O'Connor Reserve, Rozelle",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx"
+    ],
+    "src": "Rozelle Collectors Market website, 23 Nov"
+   }
   },
   {
    "n": 91,
@@ -1943,7 +2214,25 @@ window.WF_DATA = {
     "2027-01-10",
     "2027-01-16",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "45–75 min",
+    "io": "outdoor",
+    "next": "Dawes Point Park, under the Harbour Bridge",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "crowds"
+    ],
+    "src": "The Rocks market page, 23 Nov"
+   }
   },
   {
    "n": 96,
@@ -2089,7 +2378,24 @@ window.WF_DATA = {
    "lon": 151.228,
    "q": "Primrose Park Art & Craft Centre, Young Street, Cremorne",
    "start": "2026-11-29",
-   "end": "2026-11-29"
+   "end": "2026-11-29",
+   "fd": {
+    "dur": "2 hours",
+    "io": "indoor",
+    "next": "Primrose Park, around the craft centre",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "wx"
+    ],
+    "x": [
+     "cheap",
+     "short",
+     "book ahead"
+    ],
+    "src": "Eventbrite listing by the organiser, 23 Nov"
+   }
   },
   {
    "n": 104,
@@ -2151,7 +2457,23 @@ window.WF_DATA = {
     "2026-12-20",
     "2027-01-10",
     "2027-01-17"
-   ]
+   ],
+   "fd": {
+    "dur": "45–75 min",
+    "io": "outdoor",
+    "next": "Enmore Park, Marrickville",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx"
+    ],
+    "src": "Organic Food Markets page, 23 Nov"
+   }
   },
   {
    "n": 107,
@@ -2245,7 +2567,25 @@ window.WF_DATA = {
    "lon": 151.281,
    "q": "Hornby Lighthouse South Head",
    "start": "2026-11-29",
-   "end": "2026-11-29"
+   "end": "2026-11-29",
+   "fd": {
+    "dur": "45 min tour + 800m walk",
+    "io": "outdoor",
+    "next": "Camp Cove beach, Watsons Bay",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "talk"
+    ],
+    "x": [
+     "wx",
+     "access",
+     "book ahead",
+     "ages 16+"
+    ],
+    "src": "NSW National Parks tour page, 23 Nov"
+   }
   },
   {
    "n": 112,
@@ -2264,7 +2604,24 @@ window.WF_DATA = {
    "lon": 151.1886,
    "q": "Chau Chak Wing Museum, Camperdown",
    "start": "2026-11-29",
-   "end": "2026-11-29"
+   "end": "2026-11-29",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "next": "The museum's terrace café, then Victoria Park next door",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "talk"
+    ],
+    "src": "Chau Chak Wing Museum event page, 23 Nov"
+   }
   },
   {
    "n": 113,
@@ -2551,7 +2908,22 @@ window.WF_DATA = {
    "lon": 151.2838,
    "q": "Manly Art Gallery & Museum",
    "start": "2026-12-04",
-   "end": "2027-02-21"
+   "end": "2027-02-21",
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "next": "Manly Cove foreshore, out the front",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "src": "Northern Beaches Council exhibition page, 23 Nov"
+   }
   },
   {
    "n": 131,
@@ -2737,7 +3109,24 @@ window.WF_DATA = {
    "lon": 151.2676,
    "q": "Clae Works, 28-34 Roseberry St, Balgowlah",
    "start": "2026-12-05",
-   "end": "2026-12-05"
+   "end": "2026-12-05",
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "next": "Roseberry St Cafe, same street",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "access"
+    ],
+    "src": "Eventbrite listing by Clae Works, 23 Nov"
+   }
   },
   {
    "n": 142,
@@ -2933,7 +3322,24 @@ window.WF_DATA = {
    "lon": 151.155,
    "q": "Marrickville NSW",
    "start": "2026-12-05",
-   "end": "2026-12-05"
+   "end": "2026-12-05",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "Jarvie Park, Marrickville",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx",
+     "talk",
+     "large crowds"
+    ],
+    "src": "Inner West Council event page, 23 Nov"
+   }
   },
   {
    "n": 153,
@@ -2985,7 +3391,24 @@ window.WF_DATA = {
    "lon": 151.219,
    "q": "13 Forbes Street, Woolloomooloo",
    "start": "2026-12-05",
-   "end": "2026-12-05"
+   "end": "2026-12-05",
+   "fd": {
+    "dur": "2 hours",
+    "io": "indoor",
+    "next": "Cook + Phillip Park, then a walk up to the Domain",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "wx"
+    ],
+    "x": [
+     "cheap",
+     "short",
+     "book ahead"
+    ],
+    "src": "Eventbrite listing by Art Department Studio, 23 Nov"
+   }
   },
   {
    "n": 156,
@@ -3744,7 +4167,23 @@ window.WF_DATA = {
    "lon": 151.2385,
    "q": "Maroubra Junction High School, 758 Anzac Parade",
    "start": "2026-12-12",
-   "end": "2026-12-12"
+   "end": "2026-12-12",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "next": "Heffron Park, Maroubra",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "talk"
+    ],
+    "src": "Lycée Condorcet market page, 23 Nov"
+   }
   },
   {
    "n": 201,
@@ -3872,7 +4311,24 @@ window.WF_DATA = {
    "lon": 150.9124,
    "q": "Timbermill Studios, 6 Molloy St, Bulli",
    "start": "2026-12-12",
-   "end": "2026-12-12"
+   "end": "2026-12-12",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "next": "Timbermill Cafe, Molloy St (same site)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "long trip from the city"
+    ],
+    "src": "Eventbrite listing by Timbermill Studios, 23 Nov"
+   }
   },
   {
    "n": 208,
@@ -3921,7 +4377,23 @@ window.WF_DATA = {
    "lon": 151.2318,
    "q": "La Perouse Museum",
    "start": "2026-12-13",
-   "end": "2026-12-13"
+   "end": "2026-12-13",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "Congwong Bay beach, a short walk",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx"
+    ],
+    "src": "Blak Markets events page, 23 Nov"
+   }
   },
   {
    "n": 211,
@@ -4028,7 +4500,24 @@ window.WF_DATA = {
    "lon": 151.208,
    "q": "Create and Make Workshop, 507 Elizabeth St, Surry Hills",
    "start": "2026-12-13",
-   "end": "2026-12-13"
+   "end": "2026-12-13",
+   "fd": {
+    "dur": "3 hours",
+    "io": "indoor",
+    "next": "Prince Alfred Park, Surry Hills",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "wx"
+    ],
+    "x": [
+     "cheap",
+     "short",
+     "book ahead"
+    ],
+    "src": "Eventbrite listing by Create and Make, 23 Nov"
+   }
   },
   {
    "n": 217,
@@ -4607,7 +5096,25 @@ window.WF_DATA = {
    "lon": 151.2025,
    "q": "Redfern Community Centre, 29-53 Hugo Street",
    "start": "2026-12-20",
-   "end": "2026-12-20"
+   "end": "2026-12-20",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "indoor",
+    "next": "Redfern Park, a short walk",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "book ahead"
+    ],
+    "src": "City of Sydney What's On page, 23 Nov"
+   }
   },
   {
    "n": 251,
@@ -4659,7 +5166,24 @@ window.WF_DATA = {
    "lon": 151.179,
    "q": "Welight Art Space, 308 Victoria Avenue, Chatswood",
    "start": "2026-12-20",
-   "end": "2026-12-20"
+   "end": "2026-12-20",
+   "fd": {
+    "dur": "2 hours",
+    "io": "indoor",
+    "next": "Chatswood Park",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "wx"
+    ],
+    "x": [
+     "cheap",
+     "short",
+     "book ahead"
+    ],
+    "src": "Eventbrite listing by NOA Matcha, 23 Nov"
+   }
   },
   {
    "n": 254,
@@ -6482,7 +7006,24 @@ window.WF_DATA = {
    "q": "Powerhouse Parramatta",
    "tbc": true,
    "start": "2026-11-15",
-   "end": "2027-01-17"
+   "end": "2027-01-17",
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "next": "Parramatta River foreshore walk, right outside the museum",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "talk"
+    ],
+    "src": "Powerhouse exhibition page, 23 Nov"
+   }
   },
   {
    "n": 362,
@@ -6688,7 +7229,24 @@ window.WF_DATA = {
    "lon": 151.2245,
    "q": "Entertainment Quarter Moore Park",
    "start": "2026-12-06",
-   "end": "2026-12-06"
+   "end": "2026-12-06",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "Centennial Park, next to the Entertainment Quarter",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx"
+    ],
+    "src": "Entertainment Quarter event page, 23 Nov"
+   }
   },
   {
    "n": 374,
