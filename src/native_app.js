@@ -134,6 +134,24 @@ if (APPLE && typeof ensureClient === "function") window.WF_APPLE_SIGNIN = async 
   return true;
 };
 
+// v1.7: deleting an Apple account asks Apple once more for a one-time code; supabase/functions/apple-revoke swaps it for
+// Apple's token and revokes it (Apple's account-deletion rule). Returns false if the person cancels, true otherwise
+// (a failed revoke never blocks deleting the account).
+if (APPLE && typeof ensureClient === "function") window.WF_APPLE_REVOKE = async function(){
+  let r;
+  try { r = await APPLE.authorize({}); }
+  catch (e) { if (/cancel/i.test(String((e && (e.code || e.message)) || e))) return false; return true; }
+  if (!r || !r.authorizationCode) return true;
+  try {
+    const c = await ensureClient(), { data } = await c.auth.getSession(), tok = data.session && data.session.access_token;
+    const res = await fetch(SB_URL + "/functions/v1/apple-revoke", { method: "POST",
+      headers: { "content-type": "application/json", apikey: SB_KEY, authorization: "Bearer " + tok },
+      body: JSON.stringify({ code: r.authorizationCode, client_id: "io.github.oalwyn.weekendfetch" }) });
+    window.WF_APPLE_REVOKED = res.ok;
+  } catch (e) {}
+  return true;
+};
+
 /* 5. v1.1: invite links (https://theweekendfetch.com/join/?c=CODE) open the app; v1.7: so do shared event links (/e/<id>/) */
 const APPP = capPlugin("App");
 function openFromLink(u){

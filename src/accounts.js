@@ -447,7 +447,7 @@ function settingsHTML(){
   const owner = ACCT.group && (ACCT.me.groups.find(g => g.id === ACCT.gid) || {}).role === "owner";
   const members = ACCT.members.map(m => `<li>${ae(m.name)}${m.id === ACCT.user.id ? " (you)" : ""}${m.role === "owner" ? ' <span class="tag">owner</span>' : ""}</li>`).join("");
   const del = ACCT.ui.confirmDelete
-    ? `<p class="ournote warn">This permanently deletes your account, your saved settings, and your name and stars in every group. Groups you're in stay for the other members. This can't be undone.</p>
+    ? `<p class="ournote warn">This permanently deletes your account, your saved settings, and your name and stars in every group. Groups you're in stay for the other members. This can't be undone.${appleDeleteNote()}</p>
        <div class="btnrow"><button class="copybtn danger" data-acct="delete-yes">Delete my account permanently</button><button class="copybtn alt" data-acct="delete-no">Cancel</button></div>`
     : `<button class="linkbtn danger" data-acct="delete">Delete my account…</button>`;
   return `<div class="apanel"><div class="fsec">Your name</div>
@@ -465,6 +465,10 @@ function settingsHTML(){
 }
 
 // which account this is, so two sign-in methods (Apple in the app, email on the web) can't quietly make two "you"s
+const isAppleUser = () => { const m = (ACCT.user || {}).app_metadata || {}; return (m.providers || [m.provider]).includes("apple"); };
+// what the delete warning adds for Apple accounts: the app confirms with Apple; on the website, how to remove us from the Apple ID
+const appleDeleteNote = () => !isAppleUser() ? "" : window.WF_APPLE_REVOKE ? " You'll confirm with Apple, which also removes The Weekend Fetch from your Apple ID."
+  : " You signed in with Apple: afterwards you can also remove The Weekend Fetch from your Apple ID (iPhone Settings › your name › Sign in with Apple, or account.apple.com).";
 function signedInAsHTML(){
   const u = ACCT.user || {}, em = u.email || "", apple = ((u.app_metadata || {}).providers || [(u.app_metadata || {}).provider]).includes("apple");
   const hidden = /@privaterelay\.appleid\.com$/i.test(em);
@@ -492,7 +496,7 @@ renderOurList = function(){
   if (!ACCT.user) card = (PENDING.join || lsGet("wf-pending-join") ? `<p class="okmsg">You've been invited to a group. Sign in to join it.</p>` : "") + signInHTML();
   else if (ACCT.me && !ACCT.me.name) card = nameHTML();
   else if (ACCT.me) card = startGroupHTML() + acctCard(`${acctPrefsHTML()}<div class="fsec">Account</div>${signedInAsHTML()}<p class="ournote small"><button class="linkbtn" data-acct="signout">Sign out</button></p>${ACCT.ui.confirmDelete
-      ? `<p class="ournote warn">This permanently deletes your account and your saved settings. This can't be undone.</p><div class="btnrow"><button class="copybtn danger" data-acct="delete-yes">Delete my account permanently</button><button class="copybtn alt" data-acct="delete-no">Cancel</button></div>`
+      ? `<p class="ournote warn">This permanently deletes your account and your saved settings. This can't be undone.${appleDeleteNote()}</p><div class="btnrow"><button class="copybtn danger" data-acct="delete-yes">Delete my account permanently</button><button class="copybtn alt" data-acct="delete-no">Cancel</button></div>`
       : `<button class="linkbtn danger" data-acct="delete">Delete my account…</button>`}`, "aprefs");
   else card = acctCard(`<p class="ournote">Signing you in…</p>`);
   let old = _acctRenderOurList();
@@ -836,9 +840,13 @@ document.addEventListener("click", async ev => {
     else if (a === "delete") ACCT.ui.confirmDelete = true;
     else if (a === "delete-no") ACCT.ui.confirmDelete = false;
     else if (a === "delete-yes") {
+      // Apple accounts in the iPhone app: confirm with Apple first, which also removes us from their Apple ID (Apple's rule)
+      if (isAppleUser() && window.WF_APPLE_REVOKE && await window.WF_APPLE_REVOKE() === false) {
+        ACCT.err = "Account not deleted: Sign in with Apple was canceled. Tap Delete again and confirm with Apple to finish."; refreshStars(); return;
+      }
       await call("delete_my_account");
       const c = await ensureClient(); await c.auth.signOut().catch(() => {});
-      lsSet(SB_AUTH_KEY, null); signedOutLocally(); ACCT.msg = "Your account has been deleted.";
+      lsSet(SB_AUTH_KEY, null); signedOutLocally(); ACCT.msg = "Your account has been deleted." + (window.WF_APPLE_REVOKED === false ? " To finish, remove The Weekend Fetch under iPhone Settings › your name › Sign in with Apple." : "");
     }
   } catch (e) { ACCT.err = friendly(e); }
   refreshStars();

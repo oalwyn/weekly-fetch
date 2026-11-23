@@ -105,7 +105,9 @@ public class WFAppleSignInPlugin: CAPPlugin, CAPBridgedPlugin, ASAuthorizationCo
         pendingCall?.resolve([
             "identityToken": token,
             "givenName": credential.fullName?.givenName ?? "",   // only sent the very first time
-            "email": credential.email ?? ""
+            "email": credential.email ?? "",
+            // one-time code the server swaps for Apple's token, so deleting the account can revoke the sign-in (Apple's rule)
+            "authorizationCode": credential.authorizationCode.flatMap { String(data: $0, encoding: .utf8) } ?? ""
         ])
         pendingCall = nil
     }

@@ -8,7 +8,7 @@
     "app:open": "npx cap open ios",
     "android:build": "python3 src/build_app.py && npx cap sync android",
     "android:release": "WF_RELEASE=1 python3 src/build_app.py && npx cap sync android && cd android && ./gradlew bundleRelease",
-    "test:db": "node supabase/tests/test_groups.mjs && node supabase/tests/test_analytics.mjs"
+    "test:db": "node supabase/tests/test_groups.mjs && node supabase/tests/test_analytics.mjs && node supabase/tests/test_apple_revoke.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^8.6.0",
