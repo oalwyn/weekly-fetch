@@ -24,7 +24,7 @@ The name under the icon on the phone is **Weekend Fetch** (set inside the app).
 **Short description** (80 max)
 
 ```
-Weekend events in the Bay Area and Sydney, with shared plans for your household.
+Weekend events in the Bay Area, Sydney and London, with shared group plans.
 ```
 
 **Full description** (4000 max)
@@ -32,9 +32,10 @@ Weekend events in the Bay Area and Sydney, with shared plans for your household.
 ```
 Get up, get out, go fetch the weekend.
 
-The Weekend Fetch is a hand-picked guide to what's on this weekend and the next two months, in two cities:
+The Weekend Fetch is a hand-picked guide to what's on this weekend and the next two months, in three cities:
 • The Bay Area: from Napa, Sonoma and Marin through San Francisco, the Peninsula and the South Bay, down to Santa Cruz, Monterey and Carmel.
 • Sydney: from the Northern Beaches and the Harbour to Parramatta, the Blue Mountains, Wollongong and the Central Coast.
+• London: from Central London out to Hackney, Greenwich, Richmond and Wimbledon, with day trips to Brighton, Oxford, Windsor, Cambridge and the Kent coast.
 Switch city any time from the top of the screen.
 
 WHAT'S ON
@@ -44,10 +45,11 @@ WHAT'S ON
 • Picks for young kids, teens and teen programs (with application deadlines)
 • Dog-friendly events and dog walks
 • Local small businesses with something on this weekend
+• Community this weekend: group walks and runs, volunteering, cultural celebrations, talks and free museum days
 • Browse by weekend or by date, filter by category and distance from home, or search
 
 EXPLORE
-• See everything on a map of the coast, this weekend or further ahead
+• See everything on a map, this weekend or further ahead
 
 RAINY DAY
 • The weekend rain forecast for your area, indoor events, and museums, play spaces and cozy spots nearby

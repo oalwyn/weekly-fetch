@@ -29,7 +29,7 @@ The home-screen name under the icon is **Weekend Fetch** (Bay Fetch until 1.3). 
 ## Promotional Text (170 characters max)
 
 ```
-What's on this weekend in the Bay Area and Sydney, rainy-day ideas when the forecast turns, and shared plans with reminders before you go.
+What's on this weekend in the Bay Area, Sydney and London, rainy-day ideas when the forecast turns, and shared plans with reminders before you go.
 ```
 
 ## Description
@@ -37,9 +37,10 @@ What's on this weekend in the Bay Area and Sydney, rainy-day ideas when the fore
 ```
 Get up, get out, go fetch the weekend.
 
-The Weekend Fetch is a hand-picked guide to what's on this weekend and the next two months, in two cities:
+The Weekend Fetch is a hand-picked guide to what's on this weekend and the next two months, in three cities:
 • The Bay Area: from Napa, Sonoma and Marin through San Francisco, the Peninsula and the South Bay, down to Santa Cruz, Monterey and Carmel.
 • Sydney: from the Northern Beaches and the Harbour to Parramatta, the Blue Mountains, Wollongong and the Central Coast.
+• London: from Central London out to Hackney, Greenwich, Richmond and Wimbledon, with day trips to Brighton, Oxford, Windsor, Cambridge and the Kent coast.
 Switch city any time from the top of the screen.
 
 WHAT'S ON
@@ -49,10 +50,11 @@ WHAT'S ON
 • Picks for young kids, teens and teen programs (with application deadlines)
 • Dog-friendly events and dog walks, with notes on where dogs aren't allowed
 • Local small businesses with something on this weekend
+• Community this weekend: group walks and runs, volunteering, cultural celebrations, talks and free museum days
 • Browse by weekend or by date, filter by category and distance from home, or search
 
 EXPLORE
-• See everything on a map of the coast, this weekend or further ahead
+• See everything on a map, this weekend or further ahead
 
 RAINY DAY
 • The weekend rain forecast for your area, this weekend's indoor events, and museums, play spaces and cozy spots nearby
