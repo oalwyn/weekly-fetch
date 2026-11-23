@@ -781,7 +781,8 @@ function renderByWeekend(){
   return h || `<div class="empty">No events match these filters.</div>`;
 }
 // the three kinds most people look for: one tap to show only those (tap again for everything)
-const QCATS = ["hol","mkt","dog"];
+const QCATS = ["hol","mkt"];   // one-tap category filters after the weekend dates; then the First date ideas toggle
+const ICO_HEART = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
 function renderSearch(){
   const res = filtered().filter(e=>!isPast(e)).sort((a,b)=>(startOf(a)||new Date(2100,0,1))-(startOf(b)||new Date(2100,0,1)));
   return `<p class="wk-sub sres">${res.length} match${res.length===1?"":"es"} for “${esc(state.q.trim())}”</p>` + (res.length ? res.map(e=>e.cat==="walk"?compactHTML(e):cardHTML(e)).join("") : `<div class="empty">Nothing matches. Try a town, a venue or one word.</div>`);
@@ -790,7 +791,7 @@ function renderEvents(){
   if (state.q.trim()) return renderSearch();
   if (state.group==="weekend"){
     const W = weekends(), f = filtered();
-    const jump = `<div class="jump">${W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}<button data-jump="wk-later">Later</button><span class="jsep" aria-hidden="true"></span>${QCATS.filter(k=>state.cat===k || !likesOff.has(k)).map(k=>`<button class="qcat" data-qcat="${k}" aria-pressed="${state.cat===k}"><span class="cico" style="color:${CATS[k].color}">${wfIco(k)}</span>${CATS[k].label}</button>`).join("")}</div>`;
+    const jump = `<div class="jump">${W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}<button data-jump="wk-later">Later</button><span class="jsep" aria-hidden="true"></span>${QCATS.filter(k=>state.cat===k || !likesOff.has(k)).map(k=>`<button class="qcat" data-qcat="${k}" aria-pressed="${state.cat===k}"><span class="cico" style="color:${CATS[k].color}">${wfIco(k)}</span>${CATS[k].label}</button>`).join("")}<button class="qcat" data-quick="fd" aria-pressed="${!!state.fd}"><span class="cico" style="color:#C2416B">${ICO_HEART}</span>First dates</button></div>`;
     return segHTML() + jump + renderByWeekend();
   }
   return segHTML() + renderEventsByDate();
