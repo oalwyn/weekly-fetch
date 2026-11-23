@@ -292,9 +292,34 @@ async function load(){
   $("msg").innerHTML = ""; $("out").innerHTML = "<p class='sub'>Loading…</p>";
   const { data, error } = await client.rpc("admin_report", { p_weeks: +$("weeks").value, p_city: $("city").value || null });
   if (error) { $("msg").innerHTML = `<div class="err">${esc(error.message)}</div>`; $("out").innerHTML = ""; return; }
-  REPORT = data; render(data); loadSharing();
+  REPORT = data; render(data); loadSharing().then(loadAccounts);
 }
 // Sharing (v1.6): does "Invite someone" / "Share our weekend" bring new people who then do something?
+// v1.7: every account (owner only; includes the owner's own). Filtered by the City picker; weeks don't apply.
+async function loadAccounts(){
+  const { data, error } = await client.rpc("admin_accounts");
+  const box = document.createElement("section");
+  if (error) { box.innerHTML = `<h2>Accounts</h2><p class="def">Not available yet (apply supabase/v1.7-accounts.sql). ${esc(error.message)}</p>`; $("out").appendChild(box); return; }
+  const CN = c => c ? (CITY_NAMES[c] || c) : "";
+  const city = $("city").value, all = data.filter(x => !city || x.city === city), real = all.filter(x => !x.is_admin);
+  const wk = d => { const t = new Date(d); t.setHours(0, 0, 0, 0); t.setDate(t.getDate() - ((t.getDay() + 6) % 7)); return t.toISOString().slice(0, 10); };
+  const byWeek = {}; real.forEach(x => { const w = wk(x.created_at); byWeek[w] = (byWeek[w] || 0) + 1; });
+  const count = f => real.filter(f).length, by = k => { const o = {}; real.forEach(x => { const v = x[k] || "unknown"; o[v] = (o[v] || 0) + 1; }); return Object.entries(o).map(([k, n]) => `${esc(CN(k) || k)} ${n}`).join(" · "); };
+  const d = s => s ? esc(String(s).slice(0, 10)) : "";
+  box.innerHTML = `<h2>Accounts</h2><p class="def">Everyone who has signed in${city ? " (first city: " + esc(CN(city)) + ")" : ""}. Owner accounts are listed but left out of the counts. ` +
+    `City = where they first saved settings, else their first recorded city. Email opt-in = ticked "Email me the weekend's best picks"; only email people who opted in.</p>` +
+    `<p class="def"><b>${real.length}</b> accounts · <b>${count(x => x.saved_settings)}</b> saved settings · <b>${count(x => x.email_opt_in)}</b> opted in to email · <b>${count(x => x.groups > 0)}</b> in a group<br>` +
+    `Sign-in: ${by("method")}<br>City: ${by("city")}<br>New per week: ${Object.entries(byWeek).sort().reverse().slice(0, 8).map(([w, n]) => `${esc(w)} ${n}`).join(" · ") || "none"}</p>` +
+    `<p><button id="csvAccts">Download accounts (CSV)</button> <button id="copyOptin">Copy opted-in emails</button></p>` +
+    table([["Name", x => esc(x.name || "")], ["Email", x => esc(/@privaterelay\.appleid\.com$/i.test(x.email || "") ? "(Apple, hidden)" : x.email || "")], ["Sign-in", x => esc(x.method)],
+           ["City", x => esc(CN(x.city) || x.city || "")], ["Joined", x => d(x.created_at)], ["Last sign-in", x => d(x.last_sign_in_at)],
+           ["Settings saved", x => x.saved_settings ? "yes" : ""], ["Email opt-in", x => x.email_opt_in ? "yes" : ""], ["Groups", x => x.groups], ["", x => x.is_admin ? "owner" : ""]], all);
+  $("out").appendChild(box);
+  $("csvAccts").onclick = () => download(`fetch-accounts${city ? "-" + city : ""}.csv`, csv(all.map(x => ({ name: x.name, email: x.email, sign_in: x.method, city: x.city, joined: x.created_at,
+    last_sign_in: x.last_sign_in_at, settings_saved: x.saved_settings, email_opt_in: x.email_opt_in, email_opt_in_at: x.email_opt_in_at, groups: x.groups, owner: x.is_admin }))));
+  $("copyOptin").onclick = async () => { const l = real.filter(x => x.email_opt_in && x.email).map(x => x.email).join(", ");
+    try { await navigator.clipboard.writeText(l); $("copyOptin").textContent = `Copied ${real.filter(x => x.email_opt_in).length}`; } catch (e) { prompt("Opted-in emails", l); } };
+}
 async function loadSharing(){
   const { data, error } = await client.rpc("admin_sharing_report", { p_weeks: +$("weeks").value, p_city: $("city").value || null });
   const box = document.createElement("section");

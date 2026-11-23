@@ -6,7 +6,7 @@ const repo = process.argv[2] || new URL('../..', import.meta.url).pathname.repla
 const db = new PGlite();
 await db.exec(`
   create role anon nologin; create role authenticated nologin;
-  create schema auth; create table auth.users (id uuid primary key default gen_random_uuid(), email text unique);
+  create schema auth; create table auth.users (id uuid primary key default gen_random_uuid(), email text unique, created_at timestamptz default now(), last_sign_in_at timestamptz, raw_app_meta_data jsonb default '{}'::jsonb);
   create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('test.uid', true), '')::uuid $$;
   grant usage on schema auth to anon, authenticated; grant execute on function auth.uid() to anon, authenticated;
   grant usage on schema public to anon, authenticated;
@@ -17,6 +17,7 @@ await db.exec(fs.readFileSync(repo + '/supabase/v1.1-groups.sql', 'utf8'));
 await db.exec(fs.readFileSync(repo + '/supabase/v1.1-plans-extra.sql', 'utf8'));
 await db.exec(fs.readFileSync(repo + '/supabase/v1.3-analytics.sql', 'utf8'));
 await db.exec(fs.readFileSync(repo + '/supabase/v1.4-city.sql', 'utf8'));
+for (const f of ['v1.5-android.sql', 'v1.6-sharing.sql', 'v1.7-accounts.sql']) await db.exec(fs.readFileSync(repo + '/supabase/' + f, 'utf8'));
 const b64 = o => Buffer.from(JSON.stringify(o)).toString('base64url');
 const jwt = (sub, email) => `${b64({ alg: 'HS256', typ: 'JWT' })}.${b64({ sub, email, role: 'authenticated', aud: 'authenticated', exp: Math.floor(Date.now() / 1000) + 86400 })}.sig`;
 const uidOf = auth => { try { const p = JSON.parse(Buffer.from((auth || '').split(' ')[1].split('.')[1], 'base64url')); return p.sub || null; } catch (e) { return null; } };

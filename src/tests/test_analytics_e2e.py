@@ -30,6 +30,7 @@ def forward(route):
     route.fulfill(status=code, body=body, headers={'content-type': 'application/json', 'access-control-allow-origin': '*'})
 def person(browser, errors, fail_analytics=False):
     ctx = browser.new_context(viewport={'width': 390, 'height': 844})
+    ctx.add_init_script("try{localStorage.setItem('wf-tour','done')}catch(e){}")   # the first-visit tour would cover the page
     ctx.grant_permissions(['clipboard-read', 'clipboard-write'])
     ctx.route(lambda u: not u.startswith('http://localhost') and not u.startswith(SB) and 'fonts.g' not in u, lambda r: r.abort())   # no real outside sites
     ctx.route(SB + '/**', forward)

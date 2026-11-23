@@ -34,6 +34,7 @@ def forward(route):
 def sql(q): return json.loads(urllib.request.urlopen(urllib.request.Request(FAKE + '/test/sql', data=json.dumps({'sql': q}).encode(), method='POST')).read())
 def person(browser, errors, storage=None):
     ctx = browser.new_context(viewport={'width': 390, 'height': 844})
+    ctx.add_init_script("try{localStorage.setItem('wf-tour','done')}catch(e){}")   # the first-visit tour would cover the page
     if storage: ctx.add_init_script('(()=>{' + ''.join(f'localStorage.setItem({json.dumps(k)},{json.dumps(v)});' for k, v in storage.items()) + '})()')
     ctx.route(SB + '/**', forward)
     pg = ctx.new_page(); pg.on('pageerror', lambda e: errors.append(str(e)))

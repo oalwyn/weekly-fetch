@@ -16,14 +16,14 @@ const ev = (o) => JSON.stringify(Object.assign({ record_id: uuid(), anon_id: 'de
 
 await db.exec(`
   create role anon nologin; create role authenticated nologin;
-  create schema auth; create table auth.users (id uuid primary key);
+  create schema auth; create table auth.users (id uuid primary key, email text, created_at timestamptz default now(), last_sign_in_at timestamptz, raw_app_meta_data jsonb default '{}'::jsonb);
   create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('test.uid', true), '')::uuid $$;
   grant usage on schema auth to anon, authenticated; grant execute on function auth.uid() to anon, authenticated;
   grant usage on schema public to anon, authenticated;
   alter default privileges in schema public grant execute on functions to anon, authenticated;  -- like Supabase
 `);
 await db.exec(fs.readFileSync(repo + '/supabase-setup.sql', 'utf8'));
-for (const f of ['v1.1-groups.sql', 'v1.1-plans-extra.sql', 'v1.3-analytics.sql', 'v1.3-analytics.sql', 'v1.4-city.sql', 'v1.4-city.sql', 'v1.5-android.sql', 'v1.5-android.sql', 'v1.6-sharing.sql', 'v1.6-sharing.sql'])
+for (const f of ['v1.1-groups.sql', 'v1.1-plans-extra.sql', 'v1.3-analytics.sql', 'v1.3-analytics.sql', 'v1.4-city.sql', 'v1.4-city.sql', 'v1.5-android.sql', 'v1.5-android.sql', 'v1.6-sharing.sql', 'v1.6-sharing.sql', 'v1.7-accounts.sql', 'v1.7-accounts.sql'])
   await db.exec(fs.readFileSync(repo + '/supabase/' + f, 'utf8'));
 ok(true, 'scripts run (analytics and city twice)');
 ok((await q(`select 1 from pg_proc where proname in ('admin_report','admin_export')`)).length === 2, 'one version of each report function (no ambiguous overloads)');
@@ -279,6 +279,45 @@ ok(shr.channels.web_share === 1, 'sharing: destinations are counted by channel')
 await as(null);
 let denied = false; try { await q(`select admin_sharing_report(8)`); } catch (e) { denied = true; }
 ok(denied, 'sharing: the report is for owners only');
+
+// ---- v1.7: settings saved to the account ----
+await as(null);
+let anonDenied = false; try { await q(`select set_my_prefs('{}'::jsonb)`); } catch (e) { anonDenied = true; }
+ok(anonDenied, 'prefs: signed-out callers are refused');
+await as(A);
+ok((await one(`select get_my_prefs() r`)).r.prefs === null, 'prefs: nothing saved yet reads as null');
+const pin = { likes_off: ['sport', 'film', 'BAD!'], tour: 'done', tips: ['star', 'map'], junk: 1,
+  cities: { bayarea: { home: { name: '123 Main St, Mountain View', lat: 37.386052, lon: -122.083851 }, dist: 25, home_asked: true },
+            sydney: { home: null, dist: 10 }, 'Bad Key': { dist: 5 } } };
+const t1 = (await one(`select set_my_prefs($1::jsonb, 'bayarea') t`, [JSON.stringify(pin)])).t;
+const got = (await one(`select get_my_prefs() r`)).r;
+ok(JSON.stringify(got.prefs.likes_off) === '["sport","film"]' && got.prefs.tour === 'done' && !('junk' in got.prefs), 'prefs: only known settings are kept');
+ok(got.prefs.cities.bayarea.home.lat === 37.39 && got.prefs.cities.bayarea.home.lon === -122.08, 'prefs: home rounded to about 1 km');
+ok(got.prefs.cities.bayarea.home.name === 'Home area', 'prefs: a street address is never stored as the home name');
+ok(got.prefs.cities.sydney.home === null && got.prefs.cities.sydney.dist === 10 && !got.prefs.cities['Bad Key'], 'prefs: per-city values kept, bad keys dropped');
+ok(!!t1 && got.prefs_at !== null, 'prefs: the save time comes back');
+await q(`select set_my_prefs($1::jsonb, 'sydney')`, [JSON.stringify({ cities: { bayarea: { home: { name: 'Palo Alto', lat: 37.44, lon: -122.14 } } } })]);
+const got2 = (await one(`select get_my_prefs() r`)).r;
+ok(got2.prefs.cities.bayarea.home.name === 'Palo Alto' && !got2.prefs.likes_off, 'prefs: a save replaces the earlier one; a town name is kept');
+ok((await one(`select city from user_prefs where user_id = '${A}'`)).city === 'bayarea', 'prefs: the first city is kept');
+let big = false; try { await q(`select set_my_prefs($1::jsonb)`, [JSON.stringify({ tips: Array(5000).fill('x') })]); big = true; } catch (e) {}
+ok(big, 'prefs: oversized lists are trimmed, not stored whole');
+ok((await one(`select set_email_opt_in(true) r`)).r === true && (await one(`select get_my_prefs() r`)).r.email_opt_in === true, 'opt-in: can be switched on');
+const at1 = (await one(`select email_opt_in_at t from user_prefs where user_id = '${A}'`)).t;
+await q(`select set_email_opt_in(true)`);
+ok(String((await one(`select email_opt_in_at t from user_prefs where user_id = '${A}'`)).t) === String(at1), 'opt-in: the first opt-in time is kept');
+await q(`select set_email_opt_in(false)`);
+ok((await one(`select email_opt_in, email_opt_in_at from user_prefs where user_id = '${A}'`)).email_opt_in === false, 'opt-in: can be switched off');
+let notOwner = false; try { await q(`select admin_accounts()`); } catch (e) { notOwner = true; }
+ok(notOwner, 'accounts list: owners only');
+await db.exec(`update auth.users set email = 'ann@example.com', raw_app_meta_data = '{"provider":"apple"}' where id = '${A}'`);
+await as(OWNER);
+const accts = (await one(`select admin_accounts() r`)).r;
+const ann = accts.find(x => x.id === A);
+ok(accts.length >= 3 && ann && ann.email === 'ann@example.com' && ann.method === 'apple' && ann.saved_settings === true && ann.city === 'bayarea' && ann.name === 'Ann', 'accounts list: email, method, city, saved settings, name');
+await as(A); await q(`select set_email_opt_in(true)`);
+await q(`select delete_my_account()`);
+ok(+(await one(`select count(*) n from user_prefs where user_id = '${A}'`)).n === 0, 'prefs: deleted with the account');
 
 // retention job folds old records into identifier-free weekly totals
 await db.exec(`insert into analytics_events(record_id, event_name, received_at, anon_id, platform, environment, evidence)

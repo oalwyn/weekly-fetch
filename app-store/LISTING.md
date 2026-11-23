@@ -288,3 +288,9 @@ Review usually takes 1–3 days. If Apple asks questions, they appear in App Sto
 
 ### Each later update
 Bump the version (e.g. 1.1) in Xcode under the App target → **General**, run `npm run app:build`, then repeat step 5. Event-list refreshes **don't** need an update: the app downloads the latest events itself.
+
+
+## Privacy answers to change with the next release (settings saved to the account, v1.7)
+- Location → **Coarse Location**: App Functionality, linked to the user, no tracking (a home area rounded to about 1 km is saved to the account when signed in).
+- Contact Info → **Email Address**: add the purpose **Developer's Advertising or Marketing** (only people who tick “Email me the weekend's best picks”).
+- User Content → **Other User Content**: now also saved settings (interests, distance filter).

@@ -279,6 +279,7 @@ async function startAccounts(){
     ACCT.user = data.session ? data.session.user : null;
     if (!ACCT.user) { if (inGroup() || ACCT.group) leaveGroupMode(); safeRefresh(); return; }
     await loadMe();
+    prefsPull().then(safeRefresh);
     if (PENDING.join) await joinWithCode(PENDING.join, true);
     else { ACCT.gid = mainGid() || ACCT.gid; lsSet("wf-gid", ACCT.gid); if (ACCT.gid) await acctSync(); }
     safeRefresh();
@@ -395,12 +396,13 @@ function signInHTML(){
     <form class="acctform" data-acctform="verify"><input name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456" aria-label="6-digit code" required>
     <button class="copybtn" ${ACCT.busy ? "disabled" : ""}>Sign in</button></form>
     <button class="linkbtn" data-acct="restart">Use a different email</button>`);
-  return acctCard(`<strong>Plan weekends together</strong>
-    <p class="ournote">Sign in to start a group for your household or friends, or to join one you were invited to. Stars and “Lock it in” sync across everyone's phones. Browsing never needs an account.</p>
+  const optin = `<label class="optin"><input type="checkbox" data-optin${lsGet("wf-optin-pending") === "1" ? " checked" : ""}> Email me the weekend's best picks <span>(optional)</span></label>`;
+  return acctCard(`<strong>${ACCT.ui.why === "settings" ? "Keep your settings on every device" : "Sign in to save and plan together"}</strong>
+    <p class="ournote">Sign in to keep your interests and home area on all your phones and computers, and to plan weekends with your household or friends: stars and “Lock it in” sync across everyone's phones. Browsing never needs an account.</p>
     ${appleBtn}
     <form class="acctform" data-acctform="email"><input name="email" type="email" autocomplete="email" placeholder="you@example.com" aria-label="Email address" value="${ae(ACCT.ui.email)}" required>
     <button class="copybtn ${appleBtn ? "alt" : ""}" ${ACCT.busy ? "disabled" : ""}>Email me a sign-in code</button></form>
-    <p class="ournote small">No password. We'll email you a 6-digit code.</p>`);
+    <p class="ournote small">No password. We'll email you a 6-digit code.</p>${optin}`);
 }
 function nameHTML(){
   return acctCard(`<strong>What should we call you?</strong>
@@ -445,7 +447,7 @@ function settingsHTML(){
   const owner = ACCT.group && (ACCT.me.groups.find(g => g.id === ACCT.gid) || {}).role === "owner";
   const members = ACCT.members.map(m => `<li>${ae(m.name)}${m.id === ACCT.user.id ? " (you)" : ""}${m.role === "owner" ? ' <span class="tag">owner</span>' : ""}</li>`).join("");
   const del = ACCT.ui.confirmDelete
-    ? `<p class="ournote warn">This permanently deletes your account and your name and stars in every group. Groups you're in stay for the other members. This can't be undone.</p>
+    ? `<p class="ournote warn">This permanently deletes your account, your saved settings, and your name and stars in every group. Groups you're in stay for the other members. This can't be undone.</p>
        <div class="btnrow"><button class="copybtn danger" data-acct="delete-yes">Delete my account permanently</button><button class="copybtn alt" data-acct="delete-no">Cancel</button></div>`
     : `<button class="linkbtn danger" data-acct="delete">Delete my account…</button>`;
   return `<div class="apanel"><div class="fsec">Your name</div>
@@ -459,7 +461,7 @@ function settingsHTML(){
     <div class="fsec">Join code: <b>${ae(ACCT.group.code)}</b>${owner ? ` <button class="linkbtn" data-acct="newcode">Make a new code</button>` : ""}</div>
     ${owner ? `<p class="ournote small">A new code stops old invite links from working. Current members stay.</p>` : ""}
     <div class="btnrow"><button class="copybtn alt" data-acct="add">Start or join another group</button><button class="copybtn alt" data-acct="leave">Leave this group</button><button class="copybtn alt" data-acct="signout">Sign out</button></div>
-    <div class="fsec">Account</div>${signedInAsHTML()}${del}${deviceCodeHTML()}${ACCT.isAdmin ? `<div class="fsec">Owner</div><button class="copybtn alt" data-acct="mark-device">${lsGet("wf-internal") ? "✓ This device is marked as yours" : "Mark this device as mine (leave it out of the stats)"}</button>` : ""}</div>`;
+    ${acctPrefsHTML()}<div class="fsec">Account</div>${signedInAsHTML()}${del}${deviceCodeHTML()}${ACCT.isAdmin ? `<div class="fsec">Owner</div><button class="copybtn alt" data-acct="mark-device">${lsGet("wf-internal") ? "✓ This device is marked as yours" : "Mark this device as mine (leave it out of the stats)"}</button>` : ""}</div>`;
 }
 
 // which account this is, so two sign-in methods (Apple in the app, email on the web) can't quietly make two "you"s
@@ -489,7 +491,9 @@ renderOurList = function(){
   let card = "";
   if (!ACCT.user) card = (PENDING.join || lsGet("wf-pending-join") ? `<p class="okmsg">You've been invited to a group. Sign in to join it.</p>` : "") + signInHTML();
   else if (ACCT.me && !ACCT.me.name) card = nameHTML();
-  else if (ACCT.me) card = startGroupHTML() + `<p class="ournote small">Signed in as ${ae(ACCT.user.email || "you")} · <button class="linkbtn" data-acct="signout">Sign out</button></p>`;
+  else if (ACCT.me) card = startGroupHTML() + acctCard(`${acctPrefsHTML()}<div class="fsec">Account</div>${signedInAsHTML()}<p class="ournote small"><button class="linkbtn" data-acct="signout">Sign out</button></p>${ACCT.ui.confirmDelete
+      ? `<p class="ournote warn">This permanently deletes your account and your saved settings. This can't be undone.</p><div class="btnrow"><button class="copybtn danger" data-acct="delete-yes">Delete my account permanently</button><button class="copybtn alt" data-acct="delete-no">Cancel</button></div>`
+      : `<button class="linkbtn danger" data-acct="delete">Delete my account…</button>`}`, "aprefs");
   else card = acctCard(`<p class="ournote">Signing you in…</p>`);
   let old = _acctRenderOurList();
   // retire the old "start an anonymous shared plan" card; existing old shared plans keep working
@@ -679,6 +683,109 @@ function renderSheet(){
   el.innerHTML = h + `<button class="sh-x" data-acct="sheet-close" aria-label="Close">Done</button>`;
 }
 
+/* ---- v1.7: settings saved to the account (supabase/v1.7-accounts.sql) ----
+   Signed in, these follow the person to every device: interests switched off, tour/tips seen, and per city the home
+   (sent as a rough area: the server keeps 2 decimals, about 1 km) and the distance filter.
+   Rules: first sign-in on a device → the account's saved settings take over, or this device's are saved if the account has
+   none; after that, a change here is saved (and wins), otherwise a newer save from another device is applied here.
+   wf-prefs-at = the save time this device last matched; wf-prefs-uid = whose; wf-prefs-dirty = a change not yet saved. */
+const PREF_KEYS = new Set(["wf-likes-off", "wf-home", "wf-home-asked", "wf-dist", "wf-tour", "wf-tips"]);
+const PREF_CITY_KEYS = ["wf-home", "wf-home-asked", "wf-dist"];
+let prefsApplying = false, prefsTimer = null, prefsLastPull = 0;
+const prefCities = () => { const k = (window.WF_CITIES || []).map(c => c.key).filter(Boolean); return k.length ? k : ["bayarea", "sydney", "london"]; };
+// the raw browser key for a city's setting (the Bay Area page uses plain keys; other city pages add @city, see build_gh.py)
+const rawKey = (k, city) => city === "bayarea" ? k : k + "@" + city;
+const rawGet = k => { try { const v = localStorage[k]; return v === undefined ? null : v; } catch (e) { return null; } };
+const rawSet = (k, v) => { try { if (v === null || v === undefined) delete localStorage[k]; else localStorage[k] = String(v); } catch (e) {} };
+const jparse = (v, d) => { try { return v == null ? d : JSON.parse(v); } catch (e) { return d; } };
+function collectPrefs(){
+  const lo = rawGet("wf-likes-off"), p = { likes_off: lo == null ? null : jparse(lo, []), tips: jparse(rawGet("wf-tips"), []), cities: {} };
+  if (rawGet("wf-tour")) p.tour = rawGet("wf-tour");
+  prefCities().forEach(c => {
+    const h = jparse(rawGet(rawKey("wf-home", c)), null);
+    p.cities[c] = { home: h && isFinite(h.lat) && isFinite(h.lon) ? { name: String(h.name || "").slice(0, 28), lat: +h.lat, lon: +h.lon } : null,
+                    dist: +rawGet(rawKey("wf-dist", c)) || 0, home_asked: !!rawGet(rawKey("wf-home-asked", c)) };
+  });
+  return p;
+}
+function applyPrefs(p){
+  if (!p) return;
+  prefsApplying = true;
+  try {
+    rawSet("wf-likes-off", p.likes_off ? JSON.stringify(p.likes_off) : null);
+    if (p.tour) rawSet("wf-tour", p.tour);
+    const tips = new Set([...jparse(rawGet("wf-tips"), []), ...(p.tips || [])]); if (tips.size) rawSet("wf-tips", JSON.stringify([...tips]));
+    Object.entries(p.cities || {}).forEach(([c, v]) => {
+      if (!v) return;
+      if ("home" in v) rawSet(rawKey("wf-home", c), v.home ? JSON.stringify(v.home) : null);
+      if ("dist" in v) rawSet(rawKey("wf-dist", c), v.dist || 0);
+      if ("home_asked" in v) rawSet(rawKey("wf-home-asked", c), v.home_asked ? "1" : null);
+    });
+    // and the page's own copies of them
+    likesOff = new Set(p.likes_off || []); likesSet = !!p.likes_off;
+    const mine = (p.cities || {})[CITY.key] || {};
+    if (mine.home) { HOME = mine.home; HOME_SET = true; } else if ("home" in mine) { HOME = { ...HOME_DEFAULT }; HOME_SET = false; }
+    if (typeof PRESETS === "object" && typeof boxAround === "function") PRESETS["Near home"] = boxAround(HOME.lat, HOME.lon, CITY.near_home_span);
+    if (CITY.dists.includes(+mine.dist)) state.dist = +mine.dist;
+    if (typeof measure === "function") measure();
+  } finally { prefsApplying = false; }
+  if (typeof tourI !== "undefined" && tourI >= 0 && p.tour) tourEnd("done");
+  render();
+}
+async function prefsPush(){
+  clearTimeout(prefsTimer); prefsTimer = null;
+  if (!ACCT.user) return;
+  try {
+    const t = await call("set_my_prefs", { p_prefs: collectPrefs(), p_city: CITY.key });
+    lsSet("wf-prefs-at", t); lsSet("wf-prefs-uid", ACCT.user.id); lsSet("wf-prefs-dirty", null); ACCT.prefsOk = true;
+  } catch (e) { ACCT.prefsOk = /set_my_prefs|function/i.test(e.message) ? false : ACCT.prefsOk; }
+}
+const sameTime = (a, b) => !!a && !!b && Math.abs(Date.parse(a) - Date.parse(b)) < 2;
+async function prefsPull(){
+  if (!ACCT.user) return;
+  prefsLastPull = Date.now();
+  let r; try { r = await call("get_my_prefs"); } catch (e) { ACCT.prefsOk = false; return; }   // not set up on the server yet: quietly skip
+  ACCT.prefsOk = true; ACCT.optIn = !!r.email_opt_in;
+  if (lsGet("wf-optin-pending") === "1") { lsSet("wf-optin-pending", null); await call("set_email_opt_in", { p_on: true, p_city: CITY.key }).then(v => ACCT.optIn = !!v).catch(() => {}); }
+  const same = lsGet("wf-prefs-uid") === ACCT.user.id;
+  if (!r.prefs) return prefsPush();                              // nothing saved yet: this device's settings become the account's
+  if (!same) { applyPrefs(r.prefs); lsSet("wf-prefs-at", r.prefs_at); lsSet("wf-prefs-uid", ACCT.user.id); lsSet("wf-prefs-dirty", null);
+    ACCT.msg = ACCT.msg || "Your saved settings are on this device now."; return; }
+  if (lsGet("wf-prefs-dirty")) return prefsPush();               // changed here since the last save: this device wins
+  if (!sameTime(r.prefs_at, lsGet("wf-prefs-at"))) { applyPrefs(r.prefs); lsSet("wf-prefs-at", r.prefs_at); }
+}
+// notice settings changes made anywhere on the page (interests, home, distance, tour)
+(function watchPrefs(){
+  const P = Storage.prototype, set = P.setItem, rem = P.removeItem;
+  const touched = k => { if (prefsApplying || !PREF_KEYS.has(k)) return; lsSet("wf-prefs-dirty", "1"); if (ACCT.user) { clearTimeout(prefsTimer); prefsTimer = setTimeout(prefsPush, 1500); } };
+  P.setItem = function (k, v) { const r = set.call(this, k, v); if (this === window.localStorage) touched(k); return r; };
+  P.removeItem = function (k) { const r = rem.call(this, k); if (this === window.localStorage) touched(k); return r; };
+})();
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && ACCT.user && Date.now() - prefsLastPull > 60e3) prefsPull(); });
+Object.defineProperty(window, "WF_SIGNED_IN", { get: () => !!(SB_ON && ACCT.user), configurable: true });
+// the line under My interests: sign in to keep them everywhere, or a quiet "saved" once signed in
+window.WF_PREFS_NUDGE = () => !SB_ON ? "" : ACCT.user ? (ACCT.prefsOk === false ? "" : `<p class="inudge ok">✓ Saved to your account</p>`)
+  : `<p class="inudge"><button class="linkbtn" data-acctgo>Save these to all your devices · Sign in</button></p>`;
+function acctPrefsHTML(){
+  return `<div class="fsec">Saved to your account</div>
+    <p class="ournote small">${ACCT.prefsOk === false ? "Saving settings to your account isn't available yet." : "Your interests, home area (rounded to about 1 km) and distance filter are saved to your account, so your other phones and computers use them too."}</p>
+    <label class="optin"><input type="checkbox" data-optinset${ACCT.optIn ? " checked" : ""}> Email me the weekend's best picks <span>(optional, turn off any time)</span></label>`;
+}
+document.addEventListener("change", async ev => {
+  if (ev.target.matches("input[data-optin]")) { lsSet("wf-optin-pending", ev.target.checked ? "1" : null); return; }
+  if (!ev.target.matches("input[data-optinset]")) return;
+  try { ACCT.optIn = !!(await call("set_email_opt_in", { p_on: ev.target.checked, p_city: CITY.key }));
+    ACCT.msg = ACCT.optIn ? "Thanks! We'll email you the weekend's best picks." : "Done. No emails from us."; }
+  catch (e) { ACCT.err = friendly(e); }
+  refreshStars();
+});
+document.addEventListener("click", ev => {
+  if (!ev.target.closest("[data-acctgo]")) return;
+  ACCT.ui.why = "settings"; state.view = "our-list"; try { localStorage.setItem("wf-view2", state.view); } catch (e) {}
+  render(); if (typeof syncHash === "function") syncHash();
+  requestAnimationFrame(() => { const a = document.querySelector("#main .acct"); if (a) a.scrollIntoView({ block: "start" }); else scrollTo(0, 0); });
+});
+
 /* ---- buttons and forms ---- */
 document.addEventListener("click", async ev => {
   const b = ev.target.closest("[data-acct]"); if (!b) return;
@@ -797,6 +904,7 @@ async function afterSignIn(){
   ACCT.user = data.session && data.session.user; if (!ACCT.user) throw new Error("sign-in didn't finish");
   ACCT.ui.step = ""; session(true); track("sign_in", { placement: null });
   await loadMe();
+  await prefsPull();
   if (!ACCT.me.name && ME) { await call("set_my_name", { p_name: ME }).catch(() => {}); await loadMe(); }
   const pj = PENDING.join || lsGet("wf-pending-join");
   if (pj && ACCT.me.name) await joinWithCode(pj, true);

@@ -251,9 +251,9 @@ function interestsStrip(){
   if (state.likesOpen) return "";
   const n = LIKES.length - LIKES.filter(([k])=>likesOff.has(k)).length, all = n===LIKES.length;
   const ico = `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="7" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="17" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/></svg>`;
-  if (!state.istripOpen) return `<section class="istrip mini" aria-label="My interests"><button class="ibar" data-istrip aria-expanded="false">${ico}<span class="itxt"><strong>My interests</strong><span class="icount">${all?"Tap to personalize your results":`Showing ${n} of ${LIKES.length} kinds`}</span></span><span class="igo">${all?"Personalize":"Edit"} ›</span></button>${all?"":`<button class="linkbtn iall" data-likesall>Show all</button>`}</section>`;
+  if (!state.istripOpen) return `<section class="istrip mini" aria-label="My interests"><button class="ibar" data-istrip aria-expanded="false">${ico}<span class="itxt"><strong>My interests</strong><span class="icount">${all?"Tap to personalize your results":`Showing ${n} of ${LIKES.length} kinds`}</span></span><span class="igo">${all?"Personalize":"Edit"} ›</span></button>${all?"":`<button class="linkbtn iall" data-likesall>Show all</button>`}${!all && window.WF_PREFS_NUDGE ? window.WF_PREFS_NUDGE() : ""}</section>`;
   return `<section class="istrip" aria-label="My interests"><div class="ihead"><strong>My interests</strong><span class="icount">${all?"Showing everything":`${n} of ${LIKES.length} kinds`}</span>${likesOff.size?`<button class="linkbtn" data-likesall>Show all</button>`:""}<button class="linkbtn" data-likesopen>More</button></div><p class="ihint">Tap to switch off anything you're not into. We'll remember on this device.</p>
-  <div class="ichips">${LIKES.map(([k])=>{ const on=!likesOff.has(k); return `<button class="ichip${on?" on":""}" data-like="${k}" data-v="${on?0:1}" aria-pressed="${on}"><i style="background:${CATS[k].color}"></i>${esc(CATS[k].label)}</button>`; }).join("")}</div><button class="copybtn idone" data-istrip aria-expanded="true">Done</button></section>`;
+  <div class="ichips">${LIKES.map(([k])=>{ const on=!likesOff.has(k); return `<button class="ichip${on?" on":""}" data-like="${k}" data-v="${on?0:1}" aria-pressed="${on}"><i style="background:${CATS[k].color}"></i>${esc(CATS[k].label)}</button>`; }).join("")}</div>${window.WF_PREFS_NUDGE ? window.WF_PREFS_NUDGE() : ""}<button class="copybtn idone" data-istrip aria-expanded="true">Done</button></section>`;
 }
 function likesBox(){
   if (state.view==="our-list") return "";
@@ -674,7 +674,7 @@ function homeNudge(){
 }
 function homeBox(){
   if (!state.editHome || state.view==="our-list") return homeNudge();
-  return `<div class="homebox"><strong>Where's home?</strong><p class="ournote">Distances, the distance filter and the map's “Near home” view use this. It's saved on this phone only.</p>
+  return `<div class="homebox"><strong>Where's home?</strong><p class="ournote">Distances, the distance filter and the map's “Near home” view use this. ${window.WF_SIGNED_IN ? "It's saved to your account as a rough area (about 1 km), so your other devices use it too." : "It's saved on this device only."}</p>
   <form id="homeform" class="homeform" onsubmit="event.preventDefault();findHome()"><input id="homeq" type="text" inputmode="search" autocomplete="street-address" placeholder="Address, city or ${CITY.country==="us"?"ZIP":"postcode"}" aria-label="Address, city or ZIP"><button class="copybtn" data-homefind type="submit">Set</button></form>
   <div class="btnrow"><button class="copybtn alt" data-homegps>Use my current location</button>${HOME_SET?`<button class="copybtn alt" data-homereset>Forget my home</button>`:""}<button class="copybtn alt" data-homeclose>Done</button></div>
   ${state.homeMsg?`<p class="ournote homemsg">${esc(state.homeMsg)}</p>`:""}<p class="ournote small">Addresses are looked up with OpenStreetMap.</p></div>`;

@@ -158,3 +158,9 @@ Bring someone along.
 • Share our weekend: pick one photo after a plan and get a Story-size card. Your photo stays on your phone.
 • First date ideas: date-friendly events and places, checked on the organiser's page.
 ```
+
+
+## Data safety changes for the next release (settings saved to the account, v1.7)
+- Location → **Approximate location**: collected, not shared, optional, purpose App functionality (home area rounded to about 1 km, only when signed in).
+- Personal info → **Email address**: add purpose **Developer communications / Marketing** (optional opt-in).
+- App activity → **Other user-generated content**: saved settings.

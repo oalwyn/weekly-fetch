@@ -38,6 +38,7 @@ async def main():
         b = await p.chromium.launch(**({"executable_path": exe} if exe else {}))
         async def phone(name):
             c = await b.new_context(viewport={"width": 390, "height": 844})
+            await c.add_init_script("try{localStorage.setItem('wf-tour','done')}catch(e){}")   # the first-visit tour would cover the page
             await c.add_init_script("(()=>{const R=Date;const f=new R(%s,10,0,0).getTime();class D extends R{constructor(...a){if(a.length===0)super(f);else super(...a);}static now(){return f}};window.Date=D;})()" % TODAY)
             await c.route(SB, fake_supabase)
             pg = await c.new_page(); pg.on("pageerror", lambda e: errs.append(str(e)))
