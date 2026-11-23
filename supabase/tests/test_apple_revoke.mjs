@@ -44,4 +44,6 @@ userResp = { id: 'u2', identities: [{ provider: 'email', identity_data: {} }] };
 userResp = null;
 [st] = await run({ code: 'C1', client_id: 'io.github.oalwyn.weekendfetch' }); ok(st === 401, 'signed-out callers refused');
 [st] = await run({ code: 'C1', client_id: 'io.github.oalwyn.weekendfetch' }, { ...env, APPLE_PRIVATE_KEY: '' }); ok(st === 503, 'says so when the key secret is missing');
+const pre = await F.handle(new Request('https://sb/f', { method: 'OPTIONS', headers: { origin: 'capacitor://localhost' } }), env);
+ok(pre.status === 204 && pre.headers.get('access-control-allow-origin') === 'capacitor://localhost', 'the app\'s pre-request (CORS) is answered');
 console.log(`${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0);

@@ -35,7 +35,7 @@ export async function clientSecret(key, clientId, teamId = TEAM_ID, keyId = KEY_
 
 function reply(req, status, body) {
   const o = req.headers.get("origin") || "";
-  return new Response(JSON.stringify(body), { status, headers: {
+  return new Response(status === 204 ? null : JSON.stringify(body), { status, headers: {
     "content-type": "application/json",
     "access-control-allow-origin": ORIGINS.includes(o) ? o : ORIGINS[3],
     "access-control-allow-headers": "authorization, apikey, content-type, x-client-info",
