@@ -97,6 +97,15 @@ main{flex:1;padding:0 12px 40px}
 a.price.tix{padding:6px 10px;margin:-3px 0}
 .likesbox{background:#fff;border:1px solid var(--line,#E2E7EC);border-radius:14px;padding:14px;margin:10px 0}
 .likesbox strong{font-size:17px}
+.hiwp{margin:0 0 10px}.hiw{border:1px solid #C9D3DD;background:#fff;color:var(--blue);font:inherit;font-weight:600;font-size:14px;border-radius:999px;padding:8px 16px;cursor:pointer}
+.touro{position:fixed;inset:0;z-index:9000}.tdim{position:fixed;inset:0;background:rgba(15,25,38,.6)}.tspot{position:fixed;border-radius:14px;box-shadow:0 0 0 3px #FFD166,0 0 0 9999px rgba(15,25,38,.6);transition:all .25s ease;pointer-events:none}
+.tbub{position:fixed;left:12px;right:12px;max-width:420px;margin:0 auto;background:#fff;border-radius:16px;padding:16px 16px 12px;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:top .25s ease}.tbub.tmid{top:50%!important;transform:translateY(-50%)}
+.tbub h3{font-family:'Bricolage Grotesque',Inter,sans-serif;font-size:19px;margin:6px 0 4px;color:#1F2A37}.tbub p{margin:0 0 12px;font-size:15px;line-height:1.45;color:#3A4756}
+.tdots{display:flex;gap:5px}.tdots i{width:7px;height:7px;border-radius:50%;background:#D5DCE3}.tdots i.on{background:var(--blue);width:18px;border-radius:4px}
+.tbtns{display:flex;gap:8px;align-items:center}.tbtns .tskip{margin-right:auto;border:0;background:none;color:var(--mute);font:inherit;font-size:14px;padding:8px 4px;cursor:pointer}.tback{border:1px solid #C9D3DD;background:#fff;color:#1F2A37;font:inherit;font-size:14px;font-weight:600;border-radius:10px;padding:9px 14px;cursor:pointer}
+.tnext{border:0;background:var(--blue);color:#fff;font:inherit;font-size:14px;font-weight:700;border-radius:10px;padding:10px 18px;cursor:pointer}.tbtns .tnext:only-child{margin-left:auto}
+.tip{position:fixed;left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));max-width:440px;margin:0 auto;z-index:8000;background:#1F2A37;color:#fff;border-radius:14px;padding:12px 12px 12px 16px;display:flex;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.3);animation:tipin .3s ease}.tip p{margin:0;font-size:14px;line-height:1.4;flex:1}.tip .tnext{background:#FFD166;color:#1F2A37;flex:none}
+@keyframes tipin{from{transform:translateY(20px);opacity:0}}.tipring{box-shadow:0 0 0 3px #FFD166!important;border-radius:10px}
 .istrip{background:#fff;border-radius:14px;padding:10px 12px 12px;margin:10px 0}.ihead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}.ihead strong{font-size:15px}.icount{color:var(--mute);font-size:13px;flex:1}.ihead .linkbtn{font-size:13px}.ihint{margin:4px 0 0;font-size:13px;color:var(--mute)}
 .ichips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.ichip{display:inline-flex;align-items:center;gap:6px;border:1px solid #CBD4DD;background:#fff;border-radius:999px;padding:6px 11px;min-height:34px;font:inherit;font-size:13px;font-weight:600;color:var(--mute);cursor:pointer;text-decoration:line-through;text-decoration-color:rgba(90,100,114,.45)}.ichip i{width:9px;height:9px;border-radius:50%;opacity:.35}.ichip.on{color:var(--ink);text-decoration:none;border-color:#9FB0C2;background:#F4F7FA}.ichip.on i{opacity:1}
 .likes{display:flex;flex-direction:column;margin:8px 0 4px}
@@ -387,7 +396,7 @@ main{grid-template-columns:repeat(3,minmax(0,1fr))}
 </header>
 <div class="filters" id="filters" aria-label="Filter events"></div>
 <main id="main"></main>
-<footer><p class="fbnote">Ideas to make this easier to use, an event we missed, or a local business to feature? We'd love to hear: <a href="mailto:support@cazavera.com?subject=Weekend%20Fetch%20feedback">support@cazavera.com</a></p>Event details come from public listings. Check with the organizer before you go.<br><!--appbar--><span class="applinks">Get the free app: <a href="https://apps.apple.com/app/id6833697642" target="_blank" rel="noopener" data-k="app_store">App Store</a> · <a href="https://play.google.com/store/apps/details?id=io.github.oalwyn.weekendfetch" target="_blank" rel="noopener" data-k="app_store">Google Play</a></span><br><!--/appbar-->Things to do in the City, the Eastern Beaches, the Inner West, the North Shore and Northern Beaches, Parramatta, the Blue Mountains, Wollongong and the Central Coast. <a href="/privacy.html" style="color:inherit">Privacy</a><br>Refreshed every Monday morning. Your stars are kept between refreshes.</footer>
+<footer><p class="hiwp"><button class="hiw" data-tour>How it works</button></p><p class="fbnote">Ideas to make this easier to use, an event we missed, or a local business to feature? We'd love to hear: <a href="mailto:support@cazavera.com?subject=Weekend%20Fetch%20feedback">support@cazavera.com</a></p>Event details come from public listings. Check with the organizer before you go.<br><!--appbar--><span class="applinks">Get the free app: <a href="https://apps.apple.com/app/id6833697642" target="_blank" rel="noopener" data-k="app_store">App Store</a> · <a href="https://play.google.com/store/apps/details?id=io.github.oalwyn.weekendfetch" target="_blank" rel="noopener" data-k="app_store">Google Play</a></span><br><!--/appbar-->Things to do in the City, the Eastern Beaches, the Inner West, the North Shore and Northern Beaches, Parramatta, the Blue Mountains, Wollongong and the Central Coast. <a href="/privacy.html" style="color:inherit">Privacy</a><br>Refreshed every Monday morning. Your stars are kept between refreshes.</footer>
 </div>
 <script>/*city-storage*/(function(){var C="sydney",K={"wf-home":1,"wf-home-asked":1,"wf-dist":1,"wf-vb2":1,"wf-saved-ids":1,"wf-locks":1,"wf-gid":1,"wf-main":1,"wf-gcache":1,"wf-view2":1,"wf-list":1,"wf-cache":1,"wf-lcache":1,"wf-queue":1,"wf-list-converted":1,"wf-group":1};var P=Storage.prototype,g=P.getItem,s=P.setItem,r=P.removeItem,f=function(k){return K[k]?k+"@"+C:k};P.getItem=function(k){return g.call(this,f(k))};P.setItem=function(k,v){return s.call(this,f(k),v)};P.removeItem=function(k){return r.call(this,f(k))};})();</script>
 <script>window.WF_CITY={"key": "sydney", "path": "sydney", "brand": "Sydney Harbour Fetch", "short": "Sydney", "h1": "Sydney Harbour <span class=\"nb\">Fetch</span>", "coast": "coast_sydney.json", "banner": "banner_sydney.svg", "tz": "Australia/Sydney", "units": "km", "dists": [10, 25, 50], "country": "au", "home": {"name": "Sydney CBD", "lat": -33.8731, "lon": 151.207}, "far": {"lat": -33.87, "lon": 151.05, "mi": 90}, "near_home_span": 7, "map_start": "Greater Sydney", "presets": [["Greater Sydney", -33.87, 151.1, 34], ["City & Harbour", -33.862, 151.215, 5], ["Eastern Beaches", -33.905, 151.255, 6], ["North Shore & Beaches", -33.74, 151.25, 20], ["Near home", null, null, 7], ["Inner West", -33.885, 151.155, 6], ["Parramatta & West", -33.8, 150.95, 22], ["Blue Mountains", -33.7, 150.4, 22], ["Wollongong", -34.4, 150.88, 16], ["Central Coast", -33.42, 151.35, 16], ["Everything"]], "labels": [["Sydney", -33.868, 151.209], ["Parramatta", -33.815, 151.003], ["Manly", -33.797, 151.287], ["Bondi", -33.891, 151.274], ["Coogee", -33.921, 151.257], ["Chatswood", -33.797, 151.181], ["Cronulla", -34.055, 151.152], ["Liverpool", -33.92, 150.923], ["Penrith", -33.751, 150.694], ["Katoomba", -33.714, 150.311], ["Palm Beach", -33.598, 151.324], ["Hornsby", -33.704, 151.099], ["Wollongong", -34.425, 150.893], ["Gosford", -33.425, 151.342], ["Newtown", -33.898, 151.179], ["Tasman Sea", -33.95, 151.42, 1], ["Sydney Harbour", -33.842, 151.245, 1], ["Botany Bay", -34.0, 151.19, 1], ["Broken Bay", -33.565, 151.32, 1]], "regions": [["central_coast", -33.57, null, null, null], ["wollongong", null, -34.2, null, null], ["blue_mountains", null, null, null, 150.64], ["west", null, null, null, 151.09], ["eastern_beaches", null, null, 151.235, null], ["north", -33.852, null, null, null], ["st_george_sutherland", null, -33.95, null, null], ["inner_west", null, null, null, 151.185], ["city"]]};</script>
@@ -1502,6 +1511,144 @@ document.addEventListener("click", ev => {
 });
 document.addEventListener("change", ev => { const k = ev.target.dataset && ev.target.dataset.shshow; if (k && SHR) { SHR.show[k] = ev.target.checked; paintCard(); } });
 document.addEventListener("keydown", ev => { if (ev.key === "Escape" && SHR) closeShare(); });
+
+/* ---------- How it works: a short first-visit tour + one-time tips (Nov 23, 2026) ----------
+   Inserted into app.js just before the first render() by build.py (like share.js).
+   The tour spotlights real parts of the page, so it stays right when the layout changes; a step whose part isn't on
+   the page is skipped. It starts by itself once, for people who look new on this device (localStorage wf-tour), and
+   can be replayed from "How it works" in the footer ([data-tour]). Tips (wf-tips) show once each, at the moment
+   they're useful: after the first star, on first opening Our Plans, Explore, Rainy Day. */
+const TOUR_STEPS = [
+  { sel:null, t:"Welcome to " + (CITY.brand || "The Weekend Fetch"), b:"Every weekend's events in one place, from markets and shows to dog walks and free museum days. Want a 30-second tour?" },
+  { sel:"#main .jump", t:"Pick a weekend", b:"Jump to any weekend. The circles after the dates take you straight to holiday events, markets or first-date ideas." },
+  { sel:"#main .istrip", t:"Your interests", b:"Too much? Tap any kind you're not into and it disappears from the list. We remember it on this device." },
+  { sel:"#filters", t:"Filter and search", b:"Free things only, Saturday or Sunday, dog-friendly, or search for anything. Set home to sort by distance." },
+  { sel:"#main .card .star, #main .star", t:"Star what looks fun", b:"Tap the star on anything you like. It goes to Our Plans." },
+  { sel:'.tab[data-view="our-list"]', t:"Our Plans", b:"Lock your stars into a day, get reminders, and invite your household or friends so you all see the same plans." },
+  { sel:'.tab[data-view="map"]', t:"Explore", b:"See it all on a map and find what's near you this weekend." },
+  { sel:"#citySw", t:"Three cities", b:"We're in the Bay Area, Sydney and London. Tap a circle to switch." },
+  { sel:null, t:"You're all set", b:"Replay this any time from How it works at the bottom of the page." }
+];
+let tourI = -1, tourList = [];
+const tourGet = k => { try { return localStorage.getItem(k); } catch(e) { return null; } };
+const tourSet = (k,v) => { try { localStorage.setItem(k,v); } catch(e) {} };
+function tourGa(name, p){ if (typeof window.gtag==="function") try { window.gtag("event", name, p||{}); } catch(e) {} }
+
+function tourLooksNew(){
+  if (tourGet("wf-tour")) return false;
+  if ((+tourGet("wf-visits")||0) > 1) return false;
+  return !["wf-likes-off","wf-name","wf-gid","wf-home","wf-home-asked","wf-saved-ids","wf-view2","wf-list","wf-tips"].some(k=>tourGet(k)!==null);
+}
+function tourEl(sel){
+  if (!sel) return null;
+  for (const s of sel.split(",")) { const el = document.querySelector(s.trim()); if (el && el.offsetParent !== null) return el; }
+  return null;
+}
+function startTour(auto){
+  tipClose();
+  if (state.view!=="events"){ state.view="events"; try{localStorage.setItem("wf-view2",state.view);}catch(e){} render(); if (typeof syncHash==="function") syncHash(); }
+  if (state.likesOpen){ state.likesOpen=false; render(); }
+  tourList = TOUR_STEPS;
+  tourI = 0; tourSet("wf-tour", "seen");
+  tourGa("tour_start", {auto: auto?1:0});
+  tourShow();
+}
+function tourEnd(how){
+  tourGa(how==="done" ? "tour_done" : "tour_skip", {step: tourI});
+  tourSet("wf-tour", how==="done" ? "done" : "skipped");
+  tourI = -1;
+  const o = document.getElementById("tourO"); if (o) o.remove();
+  document.body.classList.remove("touring");
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function tourShow(){
+  // skip steps whose part of the page isn't there (e.g. no city circles in an app build)
+  while (tourI < tourList.length && tourList[tourI].sel && !tourEl(tourList[tourI].sel)) tourI++;
+  if (tourI >= tourList.length) return tourEnd("done");
+  const st = tourList[tourI], el = tourEl(st.sel);
+  let o = document.getElementById("tourO");
+  if (!o){ o = document.createElement("div"); o.id = "tourO"; o.className = "touro"; document.body.appendChild(o); }
+  document.body.classList.add("touring");
+  const n = tourList.length, first = tourI===0, last = tourI===n-1;
+  const dots = tourList.map((_,i)=>`<i class="${i===tourI?"on":""}"></i>`).join("");
+  o.innerHTML = `${el?`<div class="tspot" id="tspot"></div>`:`<div class="tdim"></div>`}
+    <div class="tbub${el?"":" tmid"}" id="tbub" role="dialog" aria-modal="true" aria-labelledby="tbt">
+      <div class="tdots" aria-hidden="true">${dots}</div>
+      <h3 id="tbt">${esc(st.t)}</h3><p>${esc(st.b)}</p>
+      <div class="tbtns">${first ? `<button class="tskip" data-tourskip>Not now</button><button class="tnext" data-tournext>Show me</button>`
+        : last ? `<button class="tnext" data-tourend>Done</button>`
+        : `<button class="tskip" data-tourskip>Skip</button><button class="tback" data-tourback>Back</button><button class="tnext" data-tournext>Next</button>`}</div></div>`;
+  if (el){
+    const r0 = el.getBoundingClientRect(), hdrFixed = el.closest("header,.filters,.tabs");
+    if (!hdrFixed && (r0.top < 80 || r0.bottom > innerHeight - 220)) window.scrollTo({top: scrollY + r0.top - 120, behavior:"auto"});
+    else if (hdrFixed && el.closest("header") && scrollY > 0) window.scrollTo({top:0, behavior:"auto"});
+  }
+  requestAnimationFrame(tourPlace);
+  const nb = o.querySelector(".tnext"); if (nb) nb.focus({preventScroll:true});
+}
+function tourPlace(){
+  if (tourI < 0) return;
+  const st = tourList[tourI], el = tourEl(st.sel), sp = document.getElementById("tspot"), bub = document.getElementById("tbub");
+  if (!bub) return;
+  if (!el || !sp){ bub.style.top = ""; return; }
+  const r = el.getBoundingClientRect(), pad = 6;
+  const top = Math.max(4, r.top - pad), h = Math.min(r.height + pad*2, innerHeight * .45);
+  Object.assign(sp.style, { left: Math.max(4, r.left - pad) + "px", top: top + "px", width: Math.min(innerWidth - 8, r.width + pad*2) + "px", height: h + "px" });
+  const bh = bub.offsetHeight, below = top + h + 12;
+  bub.style.top = (below + bh < innerHeight - 8 ? below : Math.max(8, top - bh - 12)) + "px";
+}
+document.addEventListener("click", ev=>{
+  const t = ev.target.closest("[data-tour],[data-tournext],[data-tourback],[data-tourskip],[data-tourend],[data-tipok]");
+  if (!t) return;
+  ev.preventDefault();
+  if (t.hasAttribute("data-tour")) startTour(false);
+  else if (t.hasAttribute("data-tournext")){ tourGa("tour_step", {step: tourI+1}); tourI++; tourShow(); }
+  else if (t.hasAttribute("data-tourback")){ tourI = Math.max(0, tourI-1); tourShow(); }
+  else if (t.hasAttribute("data-tourskip")) tourEnd("skip");
+  else if (t.hasAttribute("data-tourend")) tourEnd("done");
+  else if (t.hasAttribute("data-tipok")) tipClose();
+});
+document.addEventListener("keydown", ev=>{ if (tourI>=0 && ev.key==="Escape") tourEnd("skip"); });
+window.addEventListener("resize", ()=>requestAnimationFrame(tourPlace));
+window.addEventListener("scroll", ()=>{ if (tourI>=0) requestAnimationFrame(tourPlace); }, {passive:true});
+
+/* ---- one-time tips ---- */
+const TIPS = {
+  star: { sel:'.tab[data-view="our-list"]', b:"Starred! It's in Our Plans. Open it to lock it into a day and get a reminder." },
+  plans:{ sel:null, b:"Tip: tap “Lock it in” on a starred event to choose the day. Invite someone to plan, and you'll all see the same list." },
+  map:  { sel:null, b:"Tip: tap a pin to see what's on there. The buttons above the map zoom to each area." },
+  rainy:{ sel:null, b:"Wet weekend? Here are indoor events this weekend, then museums and play spaces, nearest first." }
+};
+function tipsSeen(){ try { return JSON.parse(tourGet("wf-tips")||"[]"); } catch(e){ return []; } }
+function tipClose(){ const t = document.getElementById("tipO"); if (t) t.remove(); document.querySelectorAll(".tipring").forEach(e=>e.classList.remove("tipring")); }
+function showTip(k){
+  if (tourI >= 0 || !TIPS[k]) return;
+  const seen = tipsSeen(); if (seen.includes(k)) return;
+  // nobody gets a tip in their first seconds while the welcome tour is about to start
+  if (!tourGet("wf-tour") && tourLooksNew()) return;
+  seen.push(k); tourSet("wf-tips", JSON.stringify(seen));
+  tipClose();
+  const tip = TIPS[k], el = tourEl(tip.sel);
+  if (el) el.classList.add("tipring");
+  const d = document.createElement("div"); d.id = "tipO"; d.className = "tip"; d.setAttribute("role","status");
+  d.innerHTML = `<p>${esc(tip.b)}</p><button class="tnext" data-tipok>Got it</button>`;
+  document.body.appendChild(d);
+  tourGa("tip_shown", {tip:k});
+}
+document.addEventListener("click", ev=>{
+  const s = ev.target.closest("[data-star]");
+  if (s && s.getAttribute("aria-pressed")!=="true") setTimeout(()=>showTip("star"), 700);
+  const tab = ev.target.closest(".tab[data-view]");
+  if (tab){ tipClose(); const v = tab.dataset.view, k = v==="our-list" ? "plans" : v==="map" ? "map" : v==="rainy" ? "rainy" : null; if (k) setTimeout(()=>showTip(k), 900); }
+}, true);
+
+// first visit: start the tour once the page has settled (not for people landing on a shared event or an invite)
+setTimeout(()=>{
+  if (tourI >= 0 || !tourLooksNew()) return;
+  if ((typeof SHARED_IN!=="undefined" && SHARED_IN) || /list-|join/.test(location.hash + location.pathname)) return;
+  if (state.view!=="events") return;
+  startTour(true);
+}, 1500);
 
 /* ---------- shared "Our list" via Supabase (GitHub site) ---------- */
 const SB_URL = "https://halekjplfqkdteurtznv.supabase.co";

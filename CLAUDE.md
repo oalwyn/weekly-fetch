@@ -205,3 +205,8 @@ Notes for the App Store build:
 
 ## My interests row (Nov 23, 2026)
 - `interestsStrip()` in app.js: a "My interests" chip row at the top of What's On and Explore (one chip per category, tap to switch off; "N of 17 kinds", Show all, More opens the full interests box). Uses the same `likesOff` set / `wf-likes-off` key and `data-like` handlers as Filter › My interests. CSS `.istrip`/`.ichip` in template_head.html. Reaches the apps in their next release.
+
+## How it works: tour and tips (Nov 23, 2026)
+- `src/tour.js` (inserted before the first `render()` by build.py, after share.js). A 9-step spotlight tour of the real page (welcome, weekend row, My interests, Filter, star, Our Plans, Explore, city circles, done); steps whose element isn't on the page are skipped. Starts by itself once (1.5s after load) for people who look new on this device (no `wf-tour`, `wf-visits` ≤ 1, none of the usual keys), not on shared-event or invite landings. Replay: "How it works" button at the top of the footer (`data-tour`).
+- One-time tips (`wf-tips`): after the first star (rings the Our Plans tab), first Our Plans, Explore and Rainy Day visits. Never during the tour.
+- Counted in Google Analytics only (website): tour_start, tour_step, tour_done, tour_skip, tip_shown. Not in Supabase analytics. Reaches the apps in their next release.

@@ -35,7 +35,7 @@ for CITY_KEY in CITY_KEYS:
     c = json.load(open(CITYCFG['coast']))
     ICONS = json.load(open(os.path.join('icons', 'paths.json')))
     _app = open('app.js').read(); _i = _app.rfind('\nrender();\n')
-    _app = _app[:_i] + '\n' + open('share.js').read() + _app[_i:]   # sharing code runs before the first render (it reads ?e= links)
+    _app = _app[:_i] + '\n' + open('share.js').read() + '\n' + open('tour.js').read() + _app[_i:]   # sharing code runs before the first render (it reads ?e= links)
     js = (_app.replace('/*ICONS*/{}', json.dumps(ICONS, separators=(',', ':')))
           .replace('/*BBOX*/[0,0,0,0]', json.dumps(c['bbox']))
           .replace('/*W*/0', str(c['W'])).replace('/*H*/0', str(c['H']))
