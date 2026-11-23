@@ -2,6 +2,183 @@ window.WF_DATES = {
  "updated": "2026-11-23",
  "items": [
   {
+   "id": "syd-dp-royal-botanic-garden",
+   "name": "Royal Botanic Garden Sydney",
+   "kind": "garden",
+   "town": "Sydney CBD",
+   "lat": -33.8628,
+   "lon": 151.2157,
+   "url": "https://www.botanicgardens.org.au/royal-botanic-garden-sydney",
+   "hours": "Daily 7am–8pm in November (hours change by month)",
+   "price": "free",
+   "note": "Free harbourside garden walk with cafés inside it and The Calyx glasshouse for shade or showers.",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "next": "Leaf Dept. Cafe at The Calyx, or Farm Cove Eatery below Botanic House (both inside the Garden)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "café hours not on the Garden's own page"
+    ],
+    "src": "botanicgardens.org.au checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-chinese-garden",
+   "name": "Chinese Garden of Friendship",
+   "kind": "garden",
+   "town": "Darling Harbour",
+   "lat": -33.8765,
+   "lon": 151.2026,
+   "url": "https://www.darlingharbour.com/Precincts/Chinese-Garden",
+   "hours": "Daily 10am–5pm (closed Christmas Day and Good Friday)",
+   "price": "A$",
+   "note": "A small, calm walled garden with ponds, pavilions and a teahouse, right in the city; adults A$12.",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "outdoor",
+    "next": "One Dining teahouse inside the Garden, then Tumbalong Park next door",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx"
+    ],
+    "src": "darlingharbour.com checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-kinokuniya",
+   "name": "Books Kinokuniya Sydney",
+   "kind": "books",
+   "town": "Sydney CBD",
+   "lat": -33.8726,
+   "lon": 151.2076,
+   "url": "https://www.thegaleries.com/stores/books-kinokuniya",
+   "hours": "Sat 10am–7pm, Sun 11am–6pm",
+   "price": "free",
+   "note": "A huge bookshop near Town Hall with manga, stationery, a small gallery and an in-store café.",
+   "fd": {
+    "dur": "45–90 min",
+    "io": "indoor",
+    "next": "The café inside the shop, or Hyde Park, about a 6-minute walk east",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "busy on weekend afternoons"
+    ],
+    "src": "The Galeries store page checked 23 Nov 2026 (Kinokuniya's own site blocked)"
+   }
+  },
+  {
+   "id": "syd-dp-rocks-discovery-museum",
+   "name": "The Rocks Discovery Museum",
+   "kind": "museum",
+   "town": "The Rocks",
+   "lat": -33.8589,
+   "lon": 151.2087,
+   "url": "https://www.therocks.com/shop/the-rocks-discovery-museum",
+   "hours": "Daily 10am–5pm (closed Good Friday and Christmas Day)",
+   "price": "free",
+   "note": "A free, small sandstone museum on the history of The Rocks; easy to see in under an hour, with the laneways and harbour around it.",
+   "fd": {
+    "dur": "30–60 min",
+    "io": "indoor",
+    "next": "Observatory Hill Park, about a 5-minute walk",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "can be busy with families in school holidays"
+    ],
+    "src": "therocks.com checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-fortress-sydney",
+   "name": "Fortress Sydney (board games)",
+   "kind": "games",
+   "town": "Chippendale",
+   "lat": -33.8846,
+   "lon": 151.2007,
+   "url": "https://www.fortress.games/sydney",
+   "hours": "Sat 12pm–12am, Sun 12pm–10pm (go in the afternoon)",
+   "price": "A$",
+   "note": "A games venue with a board game library in a fantasy-style tavern; free entry, and an afternoon game gives you something to do together.",
+   "fd": {
+    "dur": "60–120 min",
+    "io": "indoor",
+    "next": "Chippendale Green, the park behind Central Park Mall",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "licensed; the venue says evenings become alcohol-led, so go before about 5pm",
+     "board game hire price not published (ask at reception)",
+     "can be loud"
+    ],
+    "src": "fortress.games/sydney and /minors checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-pottery-shed",
+   "name": "The Pottery Shed",
+   "kind": "craft",
+   "town": "Surry Hills",
+   "lat": -33.8889,
+   "lon": 151.2131,
+   "url": "https://thepotteryshed.com.au/",
+   "hours": "Casual wheel classes Sat–Sun 9:30am–12pm and 4:30–7pm",
+   "price": "A$$",
+   "note": "A one-off beginner wheel class (A$79, clay included) you can book online, no course needed.",
+   "fd": {
+    "dur": "2–2.5 hours",
+    "io": "indoor",
+    "next": "Bourke Street Bakery, 633 Bourke St, about a 3-minute walk",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "longer than 90 min",
+     "A$79 each, book online ahead"
+    ],
+    "src": "thepotteryshed.com.au checked 23 Nov 2026"
+   }
+  },
+  {
    "id": "syd-dp-wendys-secret-garden",
    "name": "Wendy Whiteley's Secret Garden",
    "kind": "garden",
