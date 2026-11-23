@@ -2,6 +2,187 @@ window.WF_DATES = {
  "updated": "2026-11-23",
  "items": [
   {
+   "id": "syd-dp-wendys-secret-garden",
+   "name": "Wendy Whiteley's Secret Garden",
+   "kind": "garden",
+   "town": "Lavender Bay",
+   "lat": -33.844,
+   "lon": 151.2087,
+   "url": "https://www.wendyssecretgarden.org.au/",
+   "hours": "Open every day; visit in daylight (no lighting)",
+   "price": "free",
+   "note": "A free, rambling harbourside garden full of sculptures and hidden benches, a short walk from Milsons Point station and wharf.",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "outdoor",
+    "next": "Loulou bakery and bistro, 61 Lavender St, Milsons Point (a short walk)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx",
+     "steep steps and bark paths; no toilets in the garden (nearest at Quibaree Park)"
+    ],
+    "src": "Wendy's Secret Garden FAQ (wendyssecretgarden.org.au) checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-mosman-art-gallery",
+   "name": "Mosman Art Gallery",
+   "kind": "museum",
+   "town": "Mosman",
+   "lat": -33.8262,
+   "lon": 151.2405,
+   "url": "https://www.mosmanartgallery.org.au/",
+   "hours": "Sat–Sun 10am–4pm (closed public holidays)",
+   "price": "free",
+   "note": "A small, free gallery you can see in under an hour; to 31 Jan 2027: Ken Done: 1980 to Now and Tom Roberts: Curlew Camp.",
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "novel",
+     "follow-up not checked"
+    ],
+    "src": "Mosman Art Gallery website checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-manly-shelly-beach-walk",
+   "name": "Manly to Shelly Beach walk",
+   "kind": "walk",
+   "town": "Manly",
+   "lat": -33.7995,
+   "lon": 151.289,
+   "url": "https://www.nsw.gov.au/visiting-and-exploring-nsw/locations-and-attractions/shelly-beach-manly",
+   "hours": "Open every day (path); café at Shelly Beach Fri–Sun 7am–5pm",
+   "price": "free",
+   "note": "A flat 1 km seafront path past Fairy Bower to a sheltered beach with a café; an easy ferry ride from Circular Quay.",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "The Boathouse Shelly Beach café, at the end of the walk (no reservations)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "busy on sunny weekends"
+    ],
+    "src": "NSW Government Shelly Beach page and The Boathouse Group site checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-macquarie-ice-rink",
+   "name": "Macquarie Ice Rink",
+   "kind": "skate",
+   "town": "Macquarie Park",
+   "lat": -33.7769,
+   "lon": 151.1196,
+   "url": "https://www.macquarieicerink.com.au/",
+   "hours": "Sat 8:30am–11pm, Sun 11:45am–9:15pm (rink hours; public session times vary, check the rink's calendar)",
+   "price": "A$$",
+   "note": "Year-round indoor skating; you just walk in, and wobbling around gives you plenty to laugh about.",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "indoor",
+    "next": "Macquarie Centre cafés and food court, in the same centre",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "cheap",
+     "talk",
+     "A$32 adult with skate hire",
+     "weekend session times not confirmed online",
+     "Sat evening disco sessions are loud"
+    ],
+    "src": "Macquarie Ice Rink website and Macquarie Centre store page checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-beaches-putt-putt-cromer",
+   "name": "The Beaches Putt Putt at Precision Golf",
+   "kind": "minigolf",
+   "town": "Cromer",
+   "lat": -33.7385,
+   "lon": 151.2861,
+   "url": "https://www.precisiongolf.com.au/cromer/mini-golf/",
+   "hours": "Sat–Sun 7am–9pm (venue hours)",
+   "price": "A$",
+   "note": "An indoor 18-hole course with each hole named after a Northern Beaches beach; walk-ins welcome and cheap.",
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "next": "Dope Fusion Food Truck & Cafe, on site",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "access",
+     "business-park location: best by car",
+     "mini golf hours assumed to match the venue's driving-range hours"
+    ],
+    "src": "Precision Golf Cromer website (mini golf and contact pages) checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-berkelouw-balgowlah",
+   "name": "Berkelouw Books Balgowlah",
+   "kind": "books",
+   "town": "Balgowlah",
+   "lat": -33.7934,
+   "lon": 151.2648,
+   "url": "https://berkelouw.com.au/stores/balgowlah",
+   "hours": "Sat 9am–5pm, Sun 10am–4pm",
+   "price": "free",
+   "note": "A bright independent bookshop with an arts section and a rare-book cabinet: an easy browse to start talking.",
+   "fd": {
+    "dur": "30–60 min",
+    "io": "indoor",
+    "next": "Cafés in Stockland Balgowlah, the same centre",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "novel",
+     "inside a shopping centre"
+    ],
+    "src": "Berkelouw Books Balgowlah store page checked 23 Nov 2026"
+   }
+  },
+  {
    "id": "syd-dp-old-government-house",
    "name": "Old Government House, Parramatta Park",
    "kind": "museum",
