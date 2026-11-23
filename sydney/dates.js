@@ -179,6 +179,216 @@ window.WF_DATES = {
    }
   },
   {
+   "id": "syd-dp-gertrude-alice",
+   "name": "Gertrude & Alice Café Bookstore",
+   "kind": "books",
+   "town": "Bondi Beach",
+   "lat": -33.8901,
+   "lon": 151.2719,
+   "url": "https://www.gertrudeandalice.com.au/",
+   "hours": "Sat 6:30am–6pm, Sun 7am–6pm",
+   "price": "A$",
+   "note": "Secondhand bookshop and café in one: browse the stacks, then sit down over coffee.",
+   "fd": {
+    "dur": "45–90 min",
+    "io": "indoor",
+    "next": "Bondi Beach promenade, about 3 min walk",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "small and busy at weekend brunch",
+     "parking hard at Bondi (bus from Bondi Junction is easier)"
+    ],
+    "src": "Gertrude & Alice contact page checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-bondi-bronte-walk",
+   "name": "Bondi to Bronte coastal walk",
+   "kind": "walk",
+   "town": "Bondi",
+   "lat": -33.8953,
+   "lon": 151.2744,
+   "url": "https://www.sydney.com/things-to-do/nature-and-parks/walks/bondi-to-coogee-coastal-walk",
+   "hours": "Open daily (walk it in daylight)",
+   "price": "free",
+   "note": "The first stretch of the Bondi to Coogee walk: clifftops from South Bondi past Tamarama to Bronte, with a café at the end.",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "outdoor",
+    "next": "The Bogey Hole Cafe, 473 Bronte Rd, Bronte (end of the stretch)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "exposed to sun, with steps; not fully wheelchair accessible",
+     "crowded on fine weekends"
+    ],
+    "src": "Sydney.com (Destination NSW) walk page checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-centennial-park",
+   "name": "Centennial Park",
+   "kind": "garden",
+   "town": "Centennial Park",
+   "lat": -33.8945,
+   "lon": 151.2335,
+   "url": "https://www.centennialparklands.com.au/",
+   "hours": "Daily 6am–8pm (Oct–Apr)",
+   "price": "free",
+   "note": "Big open parkland with ponds and avenues to wander, with several cafés inside the park.",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "The Spruce Goose Diner, by the ponds near Vernon Pavilion, Parkes Dr (daily 6:30am–4pm)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "large park: agree on a gate to meet at"
+    ],
+    "src": "Centennial Parklands opening-hours and eat-and-drink pages checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-clay-sydney",
+   "name": "Clay Sydney (Coffee & Clay, wheel taster)",
+   "kind": "craft",
+   "town": "Marrickville",
+   "lat": -33.9059,
+   "lon": 151.1656,
+   "url": "https://claysydney.com/pages/classes-2",
+   "hours": "Sat 10am Coffee & Clay; Sat 2pm and 6:30pm Wheel Throwing Taster (studio closed 20 Dec–10 Jan)",
+   "price": "A$$",
+   "note": "A one-off beginner pottery session: messy hands and plenty to laugh about. Pick Coffee & Clay or the plain taster, not the wine one.",
+   "fd": {
+    "io": "indoor",
+    "next": "Roastville Coffee, 157 Victoria Rd (across the road)",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "wx"
+    ],
+    "x": [
+     "cheap (A$95 per person)",
+     "book a session ahead",
+     "class length not stated on site",
+     "follow-up café hours not checked"
+    ],
+    "src": "Clay Sydney classes, timetable and location pages checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-chau-chak-wing",
+   "name": "Chau Chak Wing Museum",
+   "kind": "museum",
+   "town": "Camperdown",
+   "lat": -33.8853,
+   "lon": 151.1905,
+   "url": "https://www.sydney.edu.au/museum/whats-on/visit.html",
+   "hours": "Sat–Sun 12pm–4pm (closed 21 Dec 2026–3 Jan 2027)",
+   "price": "free",
+   "note": "Free, compact university museum (antiquities, art, natural history) on the Sydney Uni campus, with a terrace café.",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "indoor",
+    "next": "Sounds Sydney café on the museum terrace (Sat–Sun 12pm–3:30pm), or Victoria Park next door",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "short weekend hours (opens noon)"
+    ],
+    "src": "University of Sydney museum visit page and FAQ checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-gleebooks",
+   "name": "Gleebooks",
+   "kind": "books",
+   "town": "Glebe",
+   "lat": -33.8833,
+   "lon": 151.1915,
+   "url": "https://gleebooks.com.au/",
+   "hours": "Daily 9am–6pm",
+   "price": "free",
+   "note": "A much-loved independent bookshop on Glebe Point Road, two floors and well worth a browse, with author events.",
+   "fd": {
+    "dur": "30–60 min",
+    "io": "indoor",
+    "next": "Chau Chak Wing Museum, about 10 min walk (weekends from 12pm)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "hours read from the shop's own contact page via a search index (direct fetch blocked)",
+     "seating not checked"
+    ],
+    "src": "Gleebooks contact page (search index) checked 23 Nov 2026"
+   }
+  },
+  {
+   "id": "syd-dp-carriageworks-market",
+   "name": "Carriageworks Farmers Market",
+   "kind": "market",
+   "town": "Eveleigh",
+   "lat": -33.8942,
+   "lon": 151.1916,
+   "url": "https://carriageworks.com.au/events/carriageworks-farmers-market/",
+   "hours": "Sat 8am–1pm",
+   "price": "free",
+   "note": "Undercover farmers market in old rail workshops: graze stalls together, then walk on to campus.",
+   "fd": {
+    "dur": "45–90 min",
+    "io": "indoor",
+    "next": "Chau Chak Wing Museum, about 15 min walk (opens 12pm Sat)",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "talk (crowded and noisy late morning)",
+     "Saturdays only",
+     "Christmas closures not listed"
+    ],
+    "src": "Carriageworks market page checked 23 Nov 2026"
+   }
+  },
+  {
    "id": "syd-dp-wendys-secret-garden",
    "name": "Wendy Whiteley's Secret Garden",
    "kind": "garden",
