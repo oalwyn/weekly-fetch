@@ -23,7 +23,7 @@ await db.exec(`
   alter default privileges in schema public grant execute on functions to anon, authenticated;  -- like Supabase
 `);
 await db.exec(fs.readFileSync(repo + '/supabase-setup.sql', 'utf8'));
-for (const f of ['v1.1-groups.sql', 'v1.1-plans-extra.sql', 'v1.3-analytics.sql', 'v1.3-analytics.sql', 'v1.4-city.sql', 'v1.4-city.sql', 'v1.5-android.sql', 'v1.5-android.sql'])
+for (const f of ['v1.1-groups.sql', 'v1.1-plans-extra.sql', 'v1.3-analytics.sql', 'v1.3-analytics.sql', 'v1.4-city.sql', 'v1.4-city.sql', 'v1.5-android.sql', 'v1.5-android.sql', 'v1.6-sharing.sql', 'v1.6-sharing.sql'])
   await db.exec(fs.readFileSync(repo + '/supabase/' + f, 'utf8'));
 ok(true, 'scripts run (analytics and city twice)');
 ok((await q(`select 1 from pg_proc where proname in ('admin_report','admin_export')`)).length === 2, 'one version of each report function (no ambiguous overloads)');
@@ -263,6 +263,22 @@ ok(await count(`anon_id = 'aAndroid01' and platform = 'android' and app_version 
 await as(OWNER);
 const andr = (await one(`select admin_report(8) r`)).r;
 ok(andr.weekly.reduce((n, w) => n + (w.android_sessions || 0), 0) === 1, 'android: the report counts Android sessions');
+
+// ---- v1.6: sharing ----
+await as(null);
+await q(`select log_client_event($1::jsonb)`, [ev({ event_name: 'share_opened', anon_id: 'aSharer001', session_id: 'sessSHR001', platform: 'web', item_id: 'ldn-fm-marylebone', props: { kind: 'invite', code: 'abcd2345' } })]);
+await q(`select log_client_event($1::jsonb)`, [ev({ event_name: 'share_destination_opened', anon_id: 'aSharer001', session_id: 'sessSHR001', platform: 'web', props: { kind: 'invite', channel: 'web_share' } })]);
+await q(`select log_client_event($1::jsonb)`, [ev({ event_name: 'share_link_landed', anon_id: 'aFriend001', session_id: 'sessFRN001', platform: 'web', item_id: 'ldn-fm-marylebone', source: 'share', medium: 'share', campaign: 'abcd2345', props: { found: true, past: false, new_visitor: true } })]);
+await q(`select log_client_event($1::jsonb)`, [ev({ event_name: 'outbound_booking_clicked', anon_id: 'aFriend001', session_id: 'sessFRN001', platform: 'web', item_id: 'ldn-fm-marylebone' })]);
+ok(await count(`event_name like 'share_%'`) === 3, 'sharing: the three share records are accepted');
+await as(OWNER);
+const shr = (await one(`select admin_sharing_report(8) r`)).r;
+const tot = k => shr.weeks.reduce((n, w) => n + w[k], 0);
+ok(tot('invites_opened') === 1 && tot('destinations_opened') === 1 && tot('landings') === 1 && tot('new_visitor_landings') === 1 && tot('acted_7d') === 1, 'sharing: the report links a landing to the friend\'s booking click');
+ok(shr.channels.web_share === 1, 'sharing: destinations are counted by channel');
+await as(null);
+let denied = false; try { await q(`select admin_sharing_report(8)`); } catch (e) { denied = true; }
+ok(denied, 'sharing: the report is for owners only');
 
 // retention job folds old records into identifier-free weekly totals
 await db.exec(`insert into analytics_events(record_id, event_name, received_at, anon_id, platform, environment, evidence)
