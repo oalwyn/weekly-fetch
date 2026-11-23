@@ -7829,7 +7829,7 @@ window.WF_DATA = {
    "sec": "jan",
    "when": "Fri Jan 15, 7:30pm",
    "title": "Start Making Sense (USA): Talking Heads tribute",
-   "meta": "Factory Theatre, Marrickville · US tribute recreating Talking Heads hits, moves and the big suit · tickets via venue (Moshtix)",
+   "meta": "Factory Theatre, Marrickville · US tribute recreating Talking Heads hits, moves and the big suit · tickets",
    "cat": "show",
    "url": "https://www.factorytheatre.com.au/event/start-making-sense-usa/",
    "price": "tickets",
