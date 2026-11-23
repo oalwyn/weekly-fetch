@@ -83,6 +83,8 @@ function acquisition(){
   const tok = v => (v || "").toLowerCase().replace(/[^a-z0-9._-]/g, "").slice(0, 60) || null;
   let p; try { p = new URLSearchParams(location.search); } catch (e) { p = new URLSearchParams(""); }
   let source = tok(p.get("utm_source")) || tok(p.get("ref")), medium = tok(p.get("utm_medium")), campaign = tok(p.get("utm_campaign"));
+  // a shared event link (?e=…&s=CODE): the share code becomes the campaign, so the dashboard can match it to the share
+  if (!source && p.get("e")) { source = "share"; medium = "share"; campaign = tok(p.get("s")) || null; }
   if (!source) {
     if (PENDING.join || /^\/join\//.test(location.pathname)) { source = "invite"; medium = "invite"; }
     else if (IS_APP) source = "app";

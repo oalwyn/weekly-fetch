@@ -292,7 +292,20 @@ async function load(){
   $("msg").innerHTML = ""; $("out").innerHTML = "<p class='sub'>Loading…</p>";
   const { data, error } = await client.rpc("admin_report", { p_weeks: +$("weeks").value, p_city: $("city").value || null });
   if (error) { $("msg").innerHTML = `<div class="err">${esc(error.message)}</div>`; $("out").innerHTML = ""; return; }
-  REPORT = data; render(data);
+  REPORT = data; render(data); loadSharing();
+}
+// Sharing (v1.6): does "Invite someone" / "Share our weekend" bring new people who then do something?
+async function loadSharing(){
+  const { data, error } = await client.rpc("admin_sharing_report", { p_weeks: +$("weeks").value, p_city: $("city").value || null });
+  const box = document.createElement("section");
+  if (error) { box.innerHTML = `<h2>Sharing</h2><p class="def">Not available yet (apply supabase/v1.6-sharing.sql). ${esc(error.message)}</p>`; $("out").appendChild(box); return; }
+  const d = data.definitions, cols = ["invites_opened","memories_opened","cards_made","destinations_opened","landings","new_visitor_landings","acted_7d","engaged_7d","store_clicks_7d"];
+  const lab = { invites_opened: "Invites", memories_opened: "Memory cards started", cards_made: "Cards made", destinations_opened: "Share sheets / copies / saves", landings: "Link opens", new_visitor_landings: "…by new visitors", acted_7d: "…then a meaningful action (7d)", engaged_7d: "…then star / info / booking / join (7d)", store_clicks_7d: "…then a store-link click (7d)" };
+  box.innerHTML = `<h2>Sharing</h2><p class="def">Shares are counted when the share sheet or copy is opened, never as "posted". A store-link click is a click, not an install. ` +
+    cols.map(c => `<b>${esc(lab[c])}</b>: ${esc(d[c] || "")}`).join(" · ") + `</p>` +
+    table([["Week", x => esc(x.week)], ...cols.map(c => [lab[c], x => x[c]])], data.weeks) +
+    `<p class="def">Channels: ${Object.entries(data.channels || {}).map(([k, n]) => `${esc(k)} ${n}`).join(" · ") || "none yet"}</p>`;
+  $("out").appendChild(box);
 }
 (async () => {
   const { data } = await client.auth.getSession();

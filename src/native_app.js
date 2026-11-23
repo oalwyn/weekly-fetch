@@ -153,3 +153,13 @@ if (APPP) {
 }
 
 scheduleReminders();
+
+/* 6. "Share our weekend": the card is drawn on the phone; to hand it to the share sheet (Messages, Instagram, Save Image…)
+   it's written to the app's cache folder first (Capacitor's Share plugin only shares files), then shared. Nothing is uploaded. */
+const FSYS = capPlugin("Filesystem");
+window.WF_SHARE_FILE = async function(blob, name){
+  if (!FSYS || !SHARE) throw new Error("sharing unavailable");
+  const data = await new Promise((ok, bad) => { const r = new FileReader(); r.onload = () => ok(String(r.result).split(",")[1]); r.onerror = bad; r.readAsDataURL(blob); });
+  const w = await FSYS.writeFile({ path: name, data, directory: "CACHE" });
+  try { await SHARE.share({ files: [w.uri], dialogTitle: "Share our weekend" }); } catch (e) {}   // closing the sheet is fine
+};

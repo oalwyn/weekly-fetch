@@ -30,6 +30,10 @@
 	<string>Weekend Fetch adds your locked-in plans to your calendar when you tap Add to Calendar.</string>
 	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
 	<string>Weekend Fetch adds your locked-in plans to your calendar when you tap Add to Calendar.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save your weekend card to your photos when you choose Save Image.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Take a photo for your weekend card. It stays on your phone.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Weekend Fetch uses your location only when you tap Use my current location, to show how far away each event is. It stays on your phone.</string>
 	<key>UIApplicationSceneManifest</key>

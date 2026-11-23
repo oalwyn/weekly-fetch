@@ -266,7 +266,7 @@ function cardHTML(e, gone, extra, cls){
   return `<article class="card${cls?" "+cls:""}" id="card-${esc(e.id)}">
     <div><div class="when">${esc(whenText(e))}</div><div class="title">${esc(e.title)}</div><div class="meta">${esc(metaText(e))}${e.tbc?' · <span class="tbc">2026 date TBC</span>':''}${gone?' · <span class="tbc">no longer in the current list (may be over)</span>':''}</div></div>
     <button class="star" aria-label="${mine?'Unstar':'Star'}: ${esc(e.title)}" aria-pressed="${mine}" data-star="${esc(e.id)}">${STAR}</button>
-    <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}${e.local?`<span class="localb" title="${esc(e.biz||"")}">${wfIco("local")}Local</span>`:""}${isFd(e)?`<span class="fdb">First date idea</span>`:""}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${wfIco(e.cat in CATS?e.cat:"evt")}${c.label}</span>${haHTML(e)}${priceHTML(e)}${audHTML(e)}${e.mi!=null?`<span class="dist">${wfIco("pin")}${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}</div>${fdHTML(e)}${extra||""}
+    <div class="row2">${e.n&&cls==="onmap"?`<span class="num">#${e.n}</span>`:''}${e.local?`<span class="localb" title="${esc(e.biz||"")}">${wfIco("local")}Local</span>`:""}${isFd(e)?`<span class="fdb">First date idea</span>`:""}<span class="tag c-${e.cat in CATS?e.cat:'evt'}">${wfIco(e.cat in CATS?e.cat:"evt")}${c.label}</span>${haHTML(e)}${priceHTML(e)}${audHTML(e)}${e.mi!=null?`<span class="dist">${wfIco("pin")}${e.mi} ${UNIT}</span>`:''}${whoLine(e.id)}${!extra&&lockKey(e.id)&&parseD(lockKey(e.id))>=TODAY?`<span class="planned">✓ ${dayLabel(lockKey(e.id))}</span>`:""}</div><div class="links"><a class="lbtn primary" href="${esc(infoUrl(e))}" target="_blank" rel="noopener">${e.url?"More info":"Search for it"} ↗</a>${isRelease(e)?`<a class="lbtn" href="${esc(showtimesUrl(e))}" target="_blank" rel="noopener" data-k="outbound_showtimes" data-ev="${esc(e.id)}">Showtimes ↗</a>`:e.lat!=null||e.q?`<a class="lbtn" href="${gmaps(e)}" target="_blank" rel="noopener">Directions ↗</a>`:''}${shareBtnHTML(e, gone)}</div>${fdHTML(e)}${extra||""}
   </article>`;
 }
 // icons by Gregor Cresnar (Noun Project, royalty-free on the owner's Noun Pro plan); sources in src/icons
@@ -380,13 +380,13 @@ function renderSearch(){
   return `<p class="wk-sub sres">${res.length} match${res.length===1?"":"es"} for “${esc(state.q.trim())}”</p>` + (res.length ? res.map(e=>e.cat==="walk"?compactHTML(e):cardHTML(e)).join("") : `<div class="empty">Nothing matches. Try a town, a venue or one word.</div>`);
 }
 function renderEvents(){
-  if (state.q.trim()) return renderSearch();
+  if (state.q.trim()) return pinnedHTML() + renderSearch();
   if (state.group==="weekend"){
     const W = weekends(), f = filtered();
     const jump = `<div class="jump">${W.map((w,i)=>`<button data-jump="wk-${i}">${MON[w.fri.getMonth()]} ${ord(w.fri.getDate())}</button>`).join("")}<button data-jump="wk-later">Later</button><span class="jsep" aria-hidden="true"></span>${QCATS.filter(k=>state.cat===k || !likesOff.has(k)).map(k=>`<button class="qcat" data-qcat="${k}" aria-pressed="${state.cat===k}"><span class="cico" style="color:${CATS[k].color}">${wfIco(k)}</span>${CATS[k].label}</button>`).join("")}<button class="qcat" data-quick="fd" aria-pressed="${!!state.fd}"><span class="cico" style="color:#C2416B">${ICO_HEART}</span>First dates</button></div>`;
-    return segHTML() + jump + renderByWeekend();
+    return pinnedHTML() + segHTML() + jump + renderByWeekend();
   }
-  return segHTML() + renderEventsByDate();
+  return pinnedHTML() + segHTML() + renderEventsByDate();
 }
 function renderEventsByDate(){
   const items = filtered().filter(e=>!isPast(e));
