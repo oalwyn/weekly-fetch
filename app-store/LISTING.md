@@ -82,6 +82,16 @@ events,weekend,things to do,san francisco,sydney,bay area,marin,napa,dog friendl
 
 ## What's New
 
+**1.6** (sharing, first dates; build 13, Nov 2026, automatic release):
+
+```
+Bring someone along.
+• Invite someone: every upcoming event has an Invite button. It writes a short message with the date, place and price, and opens your share sheet. Edit it or send it as it is.
+• Share our weekend: after a plan, pick one photo and get a Story-size card. Choose the style and what it shows. Your photo stays on your phone.
+• First date ideas: a new quick pick with date-friendly events and places, each checked on the organiser's own page.
+• Each city now shows its own Rainy Day and date-spot places.
+```
+
 **1.5** (London; build 12, Nov 2026, automatic release):
 
 ```

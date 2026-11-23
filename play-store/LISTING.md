@@ -149,3 +149,12 @@ Now in London too.
 • Community boxes and free museum days in every city.
 • Distances start from the city centre until you set your home (tap Set home).
 ```
+
+## Release notes (1.6, versionCode 4; Play allows 500 characters)
+
+```
+Bring someone along.
+• Invite someone: an Invite button on every upcoming event writes a short message and opens your share sheet.
+• Share our weekend: pick one photo after a plan and get a Story-size card. Your photo stays on your phone.
+• First date ideas: date-friendly events and places, checked on the organiser's page.
+```
