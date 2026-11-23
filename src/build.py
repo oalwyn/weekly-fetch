@@ -13,14 +13,15 @@ CITIES = []
 for k in CITY_KEYS:
     cc = json.load(open(os.path.join('cities', k + '.json')))
     if not cc['path'] or os.path.exists(os.path.join('..', cc['path'], 'data.js')):
-        CITIES.append({'key': k, 'short': cc['short'], 'near': cc.get('near', cc['short']), 'brand': cc['brand'], 'url': '/' + (cc['path'] + '/' if cc['path'] else ''), 'tz': cc['tz']})
+        CITIES.append({'key': k, 'short': cc['short'], 'near': cc.get('near', cc['short']), 'brand': cc['brand'], 'url': '/' + (cc['path'] + '/' if cc['path'] else ''), 'tz': cc['tz'], 'banner': cc.get('banner', 'banner.svg')})
 _pin = json.load(open(os.path.join('icons', 'paths.json')))['location-pin-7648253']
 PIN_SVG = '<svg class="ico" viewBox="%s" aria-hidden="true">%s</svg>' % (_pin['vb'], ''.join('<path fill="currentColor" d="%s"/>' % d for d in _pin['d']))
 def city_switch(cfg):
     """Header city switch, the city-suggestion script and (site root only) the remembered-city redirect.
     Wrapped in <!--citysw--> so build_app.py can leave it out of the Bay Area-only iPhone app."""
-    links = ''.join('<a href="%s" data-city="%s"%s>%s<small>%s</small></a>' % (c['url'], c['key'], ' aria-current="page"' if c['key'] == cfg['key'] else '', c['short'], c['brand']) for c in CITIES)
-    sw = '<!--citysw--><details class="citysw" id="citySw"><summary aria-label="Change city">%s<span>%s</span> <span aria-hidden="true">▾</span></summary><div class="citymenu">%s</div></details><!--/citysw-->\n  ' % (PIN_SVG, cfg['short'], links)
+    # three (or more) city circles, each showing a crop of that city's header art; tapping one opens that city's page
+    links = ''.join('<a class="cityc" href="%s" data-city="%s"%s aria-label="%s"><span class="cdot" style="background-image:url(/%s)"></span><span class="cname">%s</span></a>' % (c['url'], c['key'], ' aria-current="page"' if c['key'] == cfg['key'] else '', c['brand'], c['banner'], c['short']) for c in CITIES)
+    sw = '<!--citysw--><nav class="citysw" id="citySw" aria-label="Cities">%s</nav><!--/citysw-->\n  ' % links
     js = ('<!--citysw--><script>window.WF_CITIES=' + json.dumps(CITIES, ensure_ascii=False) + ';' + open('city_switch.js').read() + '</script><!--/citysw-->\n')
     redirect = ''
     if not cfg['path']:
