@@ -1242,7 +1242,24 @@ window.WF_DATA = {
    "lon": -122.1149,
    "q": "Downtown Los Altos CA",
    "start": "2026-11-28",
-   "end": "2026-11-28"
+   "end": "2026-11-28",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "next": "Linden Tree Books, 265 State St (open Sat 9am–6pm)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "crowds on the day"
+    ],
+    "src": "Downtown Los Altos events calendar and Linden Tree Books site, 23 Nov 2026"
+   }
   },
   {
    "n": 62,
@@ -1385,7 +1402,24 @@ window.WF_DATA = {
    "lon": -121.9425,
    "q": "Momstera Lounge, 428 E Campbell Ave, Campbell, CA",
    "start": "2026-11-28",
-   "end": "2026-11-28"
+   "end": "2026-11-28",
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "next": "Ainsley House & Campbell Historical Museum, a few blocks away",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "access"
+    ],
+    "src": "Downtown Campbell event page (Sat Nov 28, 11:30am–5pm, free), 23 Nov 2026"
+   }
   },
   {
    "n": 70,
@@ -1998,7 +2032,23 @@ window.WF_DATA = {
     "fri",
     "sat",
     "sun"
-   ]
+   ],
+   "fd": {
+    "dur": "45–90 min",
+    "io": "outdoor",
+    "next": "Custom House Plaza and the Custom House, Monterey State Historic Park (Tue–Sun 10am–4pm)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap"
+    ],
+    "x": [
+     "wx"
+    ],
+    "src": "Old Fisherman's Wharf events page (Dec 4–20, free) and State Parks page, 23 Nov 2026"
+   }
   },
   {
    "n": 101,
@@ -2435,7 +2485,24 @@ window.WF_DATA = {
     "2026-12-05",
     "2026-12-12",
     "2026-12-19"
-   ]
+   ],
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "next": "San Mateo County History Museum, 2200 Broadway (Tue–Sun 10am–4pm)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "access"
+    ],
+    "src": "Little Green A Plant Bar events page (Holiday Markets Dec 5, 12, 19, 9am–1pm) and museum site, 23 Nov 2026"
+   }
   },
   {
    "n": 128,
@@ -2453,7 +2520,24 @@ window.WF_DATA = {
    "dates": [
     "2026-12-05",
     "2026-12-06"
-   ]
+   ],
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "follow-up not checked"
+    ],
+    "src": "Allied Arts Guild events page (Dec 5–6, 10am–4pm, free admission and parking), 23 Nov 2026"
+   }
   },
   {
    "n": 129,
@@ -2528,7 +2612,23 @@ window.WF_DATA = {
    "lon": -122.264,
    "q": "Oakland Museum of California, 1000 Oak St, Oakland, CA",
    "start": "2026-12-05",
-   "end": "2026-12-05"
+   "end": "2026-12-05",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "both",
+    "next": "Town Fare Cafe at OMCA (on site)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [],
+    "src": "OMCA event page (Sat Dec 5, 11:30am–4pm), 23 Nov 2026"
+   }
   },
   {
    "n": 133,
@@ -2742,7 +2842,25 @@ window.WF_DATA = {
    "lon": -122.4011,
    "q": "SFMOMA",
    "start": "2026-12-06",
-   "end": "2026-12-06"
+   "end": "2026-12-06",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "indoor",
+    "next": "Yerba Buena Gardens across Third St (free, daily 6am–10pm)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "crowds on the day"
+    ],
+    "src": "SFMOMA event page (Sun Dec 6, 10am–5pm, free, no museum ticket needed) and Yerba Buena Gardens site, 23 Nov 2026"
+   }
   },
   {
    "n": 145,
@@ -2925,7 +3043,25 @@ window.WF_DATA = {
    "dates": [
     "2026-12-06",
     "2027-01-03"
-   ]
+   ],
+   "fd": {
+    "dur": "60–90 min",
+    "io": "indoor",
+    "next": "SF Main Library, 100 Larkin St, across Fulton St (Sun noon–6pm)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "limited walk-up tickets on free Sundays; reserve ahead"
+    ],
+    "src": "Asian Art Museum free-admission page (Free First Sunday; Fri–Mon 10am–5pm) and SFPL hours page, 23 Nov 2026"
+   }
   },
   {
    "n": 156,
@@ -2946,7 +3082,25 @@ window.WF_DATA = {
    "dates": [
     "2026-12-06",
     "2027-01-03"
-   ]
+   ],
+   "fd": {
+    "dur": "60–90 min",
+    "io": "indoor",
+    "next": "Town Fare Cafe at OMCA (on site), garden on the roof terraces",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "busy on free days; reserve a free timed ticket"
+    ],
+    "src": "OMCA First Sundays page (free incl. special exhibitions; Wed–Sun 11am–5pm), 23 Nov 2026"
+   }
   },
   {
    "n": 157,
@@ -3490,7 +3644,24 @@ window.WF_DATA = {
    "lon": -122.082,
    "q": "Mountain View City Hall",
    "start": "2026-12-12",
-   "end": "2026-12-12"
+   "end": "2026-12-12",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "large crowds",
+     "wx",
+     "follow-up not checked"
+    ],
+    "src": "GISSV German Holiday Market page (Sat Dec 12, 11am–9pm, free, Mountain View City Hall Plaza), 23 Nov 2026"
+   }
   },
   {
    "n": 189,
@@ -3925,7 +4096,25 @@ window.WF_DATA = {
    "lon": -122.1822,
    "q": "Kepler's Books, 1010 El Camino Real, Menlo Park, CA",
    "start": "2026-12-13",
-   "end": "2026-12-13"
+   "end": "2026-12-13",
+   "fd": {
+    "dur": "45–90 min",
+    "io": "indoor",
+    "next": "Cafe Borrone, same building (Sat–Sun 7am–4pm)",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "talk",
+     "RSVP requested"
+    ],
+    "src": "Kepler's Literary Foundation event page (Sun Dec 13, 2–5pm, free) and Cafe Borrone site, 23 Nov 2026"
+   }
   },
   {
    "n": 214,
