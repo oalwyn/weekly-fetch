@@ -413,6 +413,324 @@ window.WF_DATES = {
     ],
     "src": "Venue website, 23 Nov"
    }
+  },
+  {
+   "id": "dp-keplers-books",
+   "name": "Kepler's Books",
+   "kind": "books",
+   "town": "Menlo Park",
+   "lat": 37.4536,
+   "lon": -122.1822,
+   "url": "https://keplers.com/",
+   "hours": "Sat 10am–9pm, Sun 10am–6pm",
+   "price": "free",
+   "note": "Big independent bookshop with Café Borrone next door; author talks on many evenings.",
+   "fd": {
+    "dur": "45–90 min",
+    "io": "indoor",
+    "next": "Café Borrone, next door at 1010 El Camino Real (Sat–Sun 7am–4pm)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [],
+    "src": "Kepler's and Café Borrone websites, 23 Nov"
+   }
+  },
+  {
+   "id": "dp-books-inc-mountain-view",
+   "name": "Books Inc. Mountain View",
+   "kind": "books",
+   "town": "Mountain View",
+   "lat": 37.3922,
+   "lon": -122.0798,
+   "url": "https://www.booksinc.com/",
+   "hours": "Sat 10am–10pm, Sun 10am–9pm",
+   "price": "free",
+   "note": "Friendly downtown bookshop on Castro St, with cafés and Pioneer Park a short stroll away.",
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "next": "Red Rock Coffee, 201 Castro St (Sat–Sun 8am–5pm)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "novel"
+    ],
+    "src": "Books Inc. and Red Rock Coffee websites, 23 Nov"
+   }
+  },
+  {
+   "id": "dp-golfland-sunnyvale",
+   "name": "Golfland mini golf",
+   "kind": "minigolf",
+   "town": "Sunnyvale",
+   "lat": 37.3548,
+   "lon": -122.0153,
+   "url": "https://www.golfland.com/sunnyvale/",
+   "hours": "Daily 10am–10pm (golf sales end 45 min before close)",
+   "price": "$",
+   "note": "Classic 18-hole mini golf courses; walk up, $18.50 a round (ages 12–59).",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "arcade inside can be loud",
+     "follow-up not checked"
+    ],
+    "src": "Golfland Sunnyvale website (home and prices pages), 23 Nov"
+   }
+  },
+  {
+   "id": "dp-game-kastle-santa-clara",
+   "name": "Game Kastle",
+   "kind": "games",
+   "town": "Santa Clara",
+   "lat": 37.3571,
+   "lon": -121.936,
+   "url": "https://www.gamekastle.com/pages/santa-clara-ca",
+   "hours": "Sat 10am–10pm, Sun 10am–8pm",
+   "price": "free",
+   "note": "Big board-game shop with free demo games and play tables; staff can hold a table.",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "indoor",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "busy on tournament nights",
+     "follow-up not checked"
+    ],
+    "src": "Game Kastle website (Santa Clara page), 23 Nov"
+   }
+  },
+  {
+   "id": "dp-color-me-mine-palo-alto",
+   "name": "Color Me Mine Palo Alto",
+   "kind": "craft",
+   "town": "Palo Alto",
+   "lat": 37.4464,
+   "lon": -122.1615,
+   "url": "https://paloalto.colormemine.com/",
+   "hours": "Sat 10am–10pm, Sun 10am–9pm (walk-in only, waitlist if full)",
+   "price": "$$",
+   "note": "Paint-your-own pottery on University Ave; walk in, no time limit, pick up in 7–10 days.",
+   "fd": {
+    "dur": "60–120 min",
+    "io": "indoor",
+    "next": "Coupa Café, 538 Ramona St (around the corner)",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "cheap",
+     "$15 studio fee plus $20–60 per piece",
+     "pick-up trip a week later"
+    ],
+    "src": "Color Me Mine Palo Alto website (walk-in and how-it-works pages), 23 Nov"
+   }
+  },
+  {
+   "id": "dp-petroglyph-willow-glen",
+   "name": "Petroglyph Ceramic Lounge",
+   "kind": "craft",
+   "town": "San Jose (Willow Glen)",
+   "lat": 37.3076,
+   "lon": -121.9003,
+   "url": "https://www.petroglyph.com/locations/willow-glen",
+   "hours": "Sat 10am–10pm, Sun 10am–8pm",
+   "price": "$$",
+   "note": "Paint-your-own ceramics in Willow Glen Town Square; walk-ins welcome.",
+   "fd": {
+    "dur": "60–120 min",
+    "io": "indoor",
+    "next": "Philz Coffee, 1115 Lincoln Ave (a few doors down)",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "wx"
+    ],
+    "x": [
+     "cheap",
+     "$15 studio pass plus $5–50 per piece",
+     "street parking can be tight"
+    ],
+    "src": "Petroglyph website (Willow Glen and pricing pages), Philz website, 23 Nov"
+   }
+  },
+  {
+   "id": "dp-gamble-garden",
+   "name": "Elizabeth F. Gamble Garden",
+   "kind": "garden",
+   "town": "Palo Alto",
+   "lat": 37.44,
+   "lon": -122.1482,
+   "url": "https://www.gamblegarden.org/",
+   "hours": "Daily during daylight hours",
+   "price": "free",
+   "note": "Free Edwardian house garden in Old Palo Alto, with benches and quiet paths.",
+   "fd": {
+    "dur": "30–60 min",
+    "io": "outdoor",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap"
+    ],
+    "x": [
+     "wx",
+     "no café on site",
+     "follow-up not checked"
+    ],
+    "src": "Gamble Garden website, 23 Nov"
+   }
+  },
+  {
+   "id": "dp-hakone-gardens",
+   "name": "Hakone Estate and Gardens",
+   "kind": "garden",
+   "town": "Saratoga",
+   "lat": 37.2521,
+   "lon": -122.0421,
+   "url": "https://www.hakone.com/",
+   "hours": "Winter (to Mar 15, 2027): Sat–Sun 11am–4pm, last entry 3pm; closed Thanksgiving, Christmas, New Year's Day",
+   "price": "$",
+   "note": "Japanese hillside gardens with a koi pond and tea house; $15 adults.",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "early last entry in winter",
+     "follow-up a short drive away (Saratoga Village), not checked"
+    ],
+    "src": "Hakone website (home and visitor-info pages), 23 Nov"
+   }
+  },
+  {
+   "id": "dp-triton-museum",
+   "name": "Triton Museum of Art",
+   "kind": "museum",
+   "town": "Santa Clara",
+   "lat": 37.3562,
+   "lon": -121.9551,
+   "url": "https://www.tritonmuseum.org/",
+   "hours": "Tue–Sun 11am–4:30pm; closed Mondays and holidays",
+   "price": "free",
+   "note": "Small free art museum with changing shows of local artists and a sculpture garden; free parking.",
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "follow-up not checked"
+    ],
+    "src": "Triton Museum website, 23 Nov"
+   }
+  },
+  {
+   "id": "dp-winter-lodge",
+   "name": "Winter Lodge",
+   "kind": "skate",
+   "town": "Palo Alto",
+   "lat": 37.4316,
+   "lon": -122.1245,
+   "url": "https://winterlodge.com/",
+   "hours": "Season to Apr 11, 2027: Sat 3–5pm & 8–10pm, Sun 3–5pm & 5:30–7:30pm (family session); closed Nov 26, Dec 24–25, Jan 1",
+   "price": "$$",
+   "note": "Small outdoor rink open in winter; $20 a session plus $8 skates, gloves required.",
+   "fd": {
+    "dur": "2 hr session",
+    "io": "outdoor",
+    "m": [
+     "focus",
+     "novel",
+     "access"
+    ],
+    "x": [
+     "tickets bought online before you go",
+     "fixed 2-hour sessions",
+     "wx",
+     "follow-up not checked"
+    ],
+    "src": "Winter Lodge website (home and public-skating pages), 23 Nov"
+   }
+  },
+  {
+   "id": "dp-shoreline-lake",
+   "name": "Shoreline Lake walk and Boathouse",
+   "kind": "walk",
+   "town": "Mountain View",
+   "lat": 37.4327,
+   "lon": -122.0881,
+   "url": "https://www.shorelinelake.com/",
+   "hours": "Boathouse daily 10am–5pm (park paths open daily)",
+   "price": "free",
+   "note": "Flat loop around the lake and bay marshes; Boathouse espresso bar and patio at one end.",
+   "fd": {
+    "dur": "45–90 min",
+    "io": "outdoor",
+    "next": "Shoreline Lake Boathouse espresso bar and patio (on the lake)",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "lakeside Bistro closed for remodeling; only snacks and coffee"
+    ],
+    "src": "Shoreline Lake website (home and contact pages), 23 Nov"
+   }
   }
  ]
 }
