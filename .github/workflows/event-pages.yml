@@ -1,0 +1,34 @@
+name: Event pages for shared links
+# After each refresh (a push that changes a city's data.js), make e/<id>/index.html for every event so shared
+# links show the event in link previews and forward to the city page. See src/tools/event_pages.py.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data.js"
+      - "sydney/data.js"
+      - "london/data.js"
+      - "src/tools/event_pages.py"
+      - "src/cities/*.json"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: event-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Make event pages
+        run: python3 src/tools/event_pages.py
+      - name: Commit if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add e
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          git commit -m "Event pages for shared links"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
+          exit 1

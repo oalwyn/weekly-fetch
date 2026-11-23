@@ -134,10 +134,19 @@ if (APPLE && typeof ensureClient === "function") window.WF_APPLE_SIGNIN = async 
   return true;
 };
 
-/* 5. v1.1: invite links (https://theweekendfetch.com/join/?c=CODE) open the app */
+/* 5. v1.1: invite links (https://theweekendfetch.com/join/?c=CODE) open the app; v1.7: so do shared event links (/e/<id>/) */
 const APPP = capPlugin("App");
 function openFromLink(u){
   let url; try { url = new URL(u); } catch (e) { return; }
+  // v1.7: shared event links (https://theweekendfetch.com/e/<id>/?s=CODE) open that event in the app's own city page
+  const em = url.pathname.match(/^\/e\/([a-z0-9][a-z0-9-]{1,99})\/?$/);
+  if (em) {
+    const id = em[1], code = (url.searchParams.get("s") || "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 12);
+    const key = /^syd-/.test(id) ? "sydney" : /^ldn-/.test(id) ? "london" : "bayarea";
+    if (key === CITY.key) { state.pin = id; state.view = "events"; render(); scrollTo(0, 0); }
+    else location.href = (key === "bayarea" ? "/index.html" : "/" + key + "/index.html") + "?e=" + encodeURIComponent(id) + (code ? "&s=" + code : "");
+    return;
+  }
   if (!/^\/join\/?$/.test(url.pathname)) return;
   const c = (url.searchParams.get("c") || "").replace(/[^A-Za-z0-9]/g, "").toUpperCase().slice(0, 10);
   if (!c || typeof PENDING === "undefined") return;

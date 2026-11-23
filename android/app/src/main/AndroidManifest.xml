@@ -23,12 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!-- invite links https://theweekendfetch.com/join/?c=CODE open the app (verified by /.well-known/assetlinks.json) -->
+            <!-- invite links https://theweekendfetch.com/join/?c=CODE and shared event links /e/<id>/ open the app (verified by /.well-known/assetlinks.json) -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="https" android:host="theweekendfetch.com" android:pathPrefix="/join" />
+                <data android:pathPrefix="/e/" />
             </intent-filter>
 
         </activity>

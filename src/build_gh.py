@@ -23,8 +23,9 @@ rep('<title>%s</title>' % CITYCFG['brand'],'''<title>'''+SEO['title']+'''</title
 <meta property="og:title" content="'''+CITYCFG['brand']+'''">
 <meta property="og:description" content="'''+_esc(SEO['og_description'])+'''">
 <meta property="og:url" content="'''+PAGEURL+'''">
-<meta property="og:image" content="https://theweekendfetch.com/icon-512.png">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://theweekendfetch.com/og-'''+CITYCFG['key']+'''.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="apple-itunes-app" content="app-id=6833697642">
 <meta name="google-site-verification" content="2N3Uxn8G6NY2M8kNgwB9BkPi0ISLloUzPGOYMEj6YGY">
 <meta name="msvalidate.01" content="B7752A49FADD355C226B4174CB823640">

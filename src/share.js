@@ -8,7 +8,11 @@
    - We record that a share sheet was opened, never that something was posted. */
 const SHARE_ALPHA = "abcdefghijkmnpqrstuvwxyz23456789";
 const newShareCode = () => { try { return Array.from(crypto.getRandomValues(new Uint8Array(8)), b => SHARE_ALPHA[b % 32]).join(""); } catch (e) { return Math.random().toString(36).slice(2, 10); } };
-const eventLink = (e, code) => PAGE_URL + "?e=" + encodeURIComponent(e.id) + (code ? "&s=" + code : "");
+// phase 2: links go to the event's own small page (e/<id>/, made by src/tools/event_pages.py) so link previews show the event;
+// that page forwards to the city page with the event pinned. Ids that can't be a folder name keep the old ?e= link.
+const eventLink = (e, code) => /^[a-z0-9][a-z0-9-]{1,99}$/.test(e.id)
+  ? new URL(PAGE_URL).origin + "/e/" + e.id + "/" + (code ? "?s=" + code : "")
+  : PAGE_URL + "?e=" + encodeURIComponent(e.id) + (code ? "&s=" + code : "");
 const IN_APP = () => !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
 const shareTrack = (name, d) => { try { if (typeof track === "function") track(name, d); } catch (e) {} };
 
