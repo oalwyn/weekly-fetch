@@ -79,13 +79,13 @@ assert html.count(PAIR)==1
 html=html.replace(PAIR, '<script>/*wf-data*/(function(){var v=Math.floor(Date.now()/3e5);document.write(\'<script src="./data.js?v=\'+v+\'"><\\/script><script src="./walks.js?v=\'+v+\'"><\\/script><script src="./rainy.js?v=\'+v+\'"><\\/script><script src="./dates.js?v=\'+v+\'"><\\/script>\')})();</script>')
 html=html.replace('.okmsg{','.setup{background:#fff;border-radius:14px;padding:14px 16px;margin:0 0 12px}.setup strong{font-size:16px}\n.okmsg{',1)
 # pages for other cities live in a folder: shared files (icons, banner, vendor scripts, privacy page) come from the site root;
-# the city's own data.js/walks.js stay next to its page. City-specific saved settings get their own keys in this browser.
+# the city's own data.js/walks.js/rainy.js/dates.js stay next to its page (rainy and dates were wrongly loaded from the root until Nov 23, 2026). City-specific saved settings get their own keys in this browser.
 # UK/EU visitors: the London edition loads no Google Analytics (no consent banner needed); first-party usage records only
 if CITYCFG['key'] == 'london':
     html = re.sub(r'<!--ga-->.*?<!--/ga-->\n?', '', html, flags=re.S)
 if CITYCFG['path']:
     # since app 1.3 (approved Nov 17, 2026) the iPhone app has every city and is sold in Australia: the App Store bar and banner stay
-    html = re.sub(r'''(href|src)="(?!https?:|mailto:|tel:|sms:|/|#|\$|'|data:|\./data\.js|\./walks\.js)(\./)?''', r'\1="/', html)
+    html = re.sub(r'''(href|src)="(?!https?:|mailto:|tel:|sms:|/|#|\$|'|data:|\./(?:data|walks|rainy|dates)\.js)(\./)?''', r'\1="/', html)
     html = html.replace('url(banner.svg', 'url(/' + CITYCFG.get('banner', 'banner.svg'))   # each city has its own header art
     html = html.replace('"./vendor/', '"/vendor/')   # sign-in and QR libraries live at the site root
     html = html.replace('<link rel="manifest" href="/manifest.webmanifest">', '<link rel="manifest" href="/%s/manifest.webmanifest">' % CITYCFG['path'])
