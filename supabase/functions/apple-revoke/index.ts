@@ -47,6 +47,16 @@ export async function handle(req, env = {}) {
   if (req.method !== "POST") return reply(req, 405, { error: "POST only" });
   const pem = env.APPLE_PRIVATE_KEY, sbUrl = env.SUPABASE_URL, anon = env.SUPABASE_ANON_KEY;
   if (!pem) return reply(req, 503, { error: "not set up: add the APPLE_PRIVATE_KEY secret" });
+  // health check (no sign-in, nothing revoked): try a dummy code with Apple. "invalid_grant" means our key and client
+  // secret are accepted; "invalid_client" means the key secret is wrong.
+  const peek = await req.clone().json().catch(() => ({}));
+  if (peek && peek.check === true) {
+    let key; try { key = await importP8(pem); } catch (e) { return reply(req, 500, { key: "could not read APPLE_PRIVATE_KEY" }); }
+    const r = await fetch("https://appleid.apple.com/auth/token", { method: "POST", headers: { "content-type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ client_id: CLIENT_IDS[0], client_secret: await clientSecret(key, CLIENT_IDS[0]), code: "health-check", grant_type: "authorization_code" }).toString() });
+    const e = (await r.json().catch(() => ({}))).error || String(r.status);
+    return reply(req, 200, { key: "read", apple: e, ok: e === "invalid_grant" });
+  }
   // who is asking: the signed-in person's own session
   const auth = req.headers.get("authorization") || "";
   // the site's public (publishable) key comes with the request; the older anon key is the fallback

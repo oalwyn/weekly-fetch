@@ -46,4 +46,7 @@ userResp = null;
 [st] = await run({ code: 'C1', client_id: 'io.github.oalwyn.weekendfetch' }, { ...env, APPLE_PRIVATE_KEY: '' }); ok(st === 503, 'says so when the key secret is missing');
 const pre = await F.handle(new Request('https://sb/f', { method: 'OPTIONS', headers: { origin: 'capacitor://localhost' } }), env);
 ok(pre.status === 204 && pre.headers.get('access-control-allow-origin') === 'capacitor://localhost', 'the app\'s pre-request (CORS) is answered');
+calls = []; globalThis.fetch = async (url) => { calls.push(String(url)); return new Response(JSON.stringify({ error: 'invalid_grant' }), { status: 400 }); };
+const hc = await F.handle(new Request('https://sb/f', { method: 'POST', body: JSON.stringify({ check: true }) }), env); const hj = await hc.json();
+ok(hj.ok === true && hj.apple === 'invalid_grant' && !calls.some(u => u.endsWith('/auth/revoke')) && !calls.some(u => u.endsWith('/auth/v1/user')), 'health check: asks Apple with a dummy code, revokes nothing');
 console.log(`${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0);
