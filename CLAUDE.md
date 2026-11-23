@@ -202,3 +202,6 @@ Notes for the App Store build:
 - The app should fetch the latest `data.js` from the live site at launch, falling back to the bundled copy, so twice-weekly refreshes reach the app without resubmitting.
 - App Store Connect needs a privacy policy URL (could be a page in this repo), privacy labels (first name, anonymous list code, coarse location if used), screenshots, and a review note explaining invite-link sharing.
 - Bundle id, signing team and app name are the owner's choice. Ask before creating them.
+
+## My interests row (Nov 23, 2026)
+- `interestsStrip()` in app.js: a "My interests" chip row at the top of What's On and Explore (one chip per category, tap to switch off; "N of 17 kinds", Show all, More opens the full interests box). Uses the same `likesOff` set / `wf-likes-off` key and `data-like` handlers as Filter › My interests. CSS `.istrip`/`.ichip` in template_head.html. Reaches the apps in their next release.

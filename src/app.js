@@ -244,6 +244,16 @@ function loadForecast(){
     .then(r=>r.ok?r.json():Promise.reject()).then(j=>{ const days={}; (j.daily.time||[]).forEach((d,i)=>{ const p=j.daily.precipitation_probability_max[i]; if (p!=null) days[d]={p}; }); WX={key, t:Date.now(), days}; try{ localStorage.setItem("wf-wx", JSON.stringify(WX)); }catch(e){} paintForecast(); })
     .catch(()=>{ WX={err:1}; paintForecast(); });
 }
+/* "My interests" row at the top of What's On and Explore (Nov 2026: the list got long, so shortlisting is one tap away).
+   Each chip is a kind of event; tap to switch it off or on (same setting as Filter › My interests, saved on this device). */
+function interestsStrip(){
+  if (state.view!=="events" && state.view!=="map") return "";
+  if (state.likesOpen) return "";
+  const n = LIKES.length - LIKES.filter(([k])=>likesOff.has(k)).length;
+  const hint = !likesSet ? `<p class="ihint">Tap to switch off anything you're not into. We'll remember on this device.</p>` : "";
+  return `<section class="istrip" aria-label="My interests"><div class="ihead"><strong>My interests</strong><span class="icount">${n===LIKES.length?"Showing everything":`${n} of ${LIKES.length} kinds`}</span>${likesOff.size?`<button class="linkbtn" data-likesall>Show all</button>`:""}<button class="linkbtn" data-likesopen>More</button></div>${hint}
+  <div class="ichips">${LIKES.map(([k])=>{ const on=!likesOff.has(k); return `<button class="ichip${on?" on":""}" data-like="${k}" data-v="${on?0:1}" aria-pressed="${on}"><i style="background:${CATS[k].color}"></i>${esc(CATS[k].label)}</button>`; }).join("")}</div></section>`;
+}
 function likesBox(){
   if (state.view==="our-list") return "";
   if (!state.likesOpen) return "";   // opened from Filter events › My interests (kept off the main screen to keep it calm)
@@ -712,7 +722,7 @@ function render(){
   if (state.view==="map"){ m.innerHTML = mapHTML(); requestAnimationFrame(bindMap); requestAnimationFrame(mapCount); }
   else m.innerHTML = state.view==="our-list" ? renderOurList() : state.view==="rainy" ? renderRainy() : renderEvents();
   if (state.view==="rainy") loadForecast();
-  if (state.view!=="our-list" && state.view!=="rainy") m.insertAdjacentHTML("afterbegin", homeBox() + likesBox() + dateSpotsHTML());
+  if (state.view!=="our-list" && state.view!=="rainy") m.insertAdjacentHTML("afterbegin", homeBox() + interestsStrip() + likesBox() + dateSpotsHTML());
   document.documentElement.style.setProperty("--hh", document.getElementById("hdr").offsetHeight+"px");
   document.documentElement.style.setProperty("--fh", document.getElementById("filters").offsetHeight+"px");
   noteEmpty();
@@ -722,7 +732,7 @@ function refreshStars(){
   if (state.view==="our-list"){ const y=scrollY; document.getElementById("main").innerHTML = renderOurList(); scrollTo(0,y); }
   else if (state.view==="map"){ drawMap(); showSheet(); }
   else if (state.view==="rainy"){ const y=scrollY; document.getElementById("main").innerHTML = renderRainy(); paintForecast(); scrollTo(0,y); }
-  else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + likesBox() + dateSpotsHTML() + renderEvents(); scrollTo(0,y); }
+  else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + interestsStrip() + likesBox() + dateSpotsHTML() + renderEvents(); scrollTo(0,y); }
   updateCount();
 }
 async function toggleStar(id){
@@ -828,7 +838,7 @@ document.addEventListener("click", ev=>{
     try { navigator.clipboard.writeText(txt).then(()=>{ t.textContent="Copied ✓"; setTimeout(()=>t.textContent="Copy list as text",2000); }, fallback); } catch(e) { fallback(); }
   }
 });
-document.addEventListener("input", ev=>{ if (ev.target.id==="q"){ state.q = ev.target.value; if (state.view==="map"){ drawMap(); mapCount(); } else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + likesBox() + dateSpotsHTML() + renderEvents(); if (!state.q) scrollTo(0,y); } } });
+document.addEventListener("input", ev=>{ if (ev.target.id==="q"){ state.q = ev.target.value; if (state.view==="map"){ drawMap(); mapCount(); } else { const y=scrollY; document.getElementById("main").innerHTML = homeBox() + interestsStrip() + likesBox() + dateSpotsHTML() + renderEvents(); if (!state.q) scrollTo(0,y); } } });
 document.addEventListener("keydown", ev=>{ if (ev.target.id==="q" && ev.key==="Enter") ev.target.blur(); if (ev.target.id==="q" && ev.key==="Escape"){ state.searchOpen=false; state.q=""; render(); } });
 // a card's description shows two lines; tap it for the rest
 document.addEventListener("click", ev=>{ const m = ev.target.closest(".card .meta"); if (m && !ev.target.closest("a,button")) m.classList.toggle("full"); });
