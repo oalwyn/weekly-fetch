@@ -12,7 +12,7 @@ It covers the North Bay (Marin, Napa, Sonoma, Santa Rosa), SF, the Peninsula, th
 - Categories: `hol` holiday, `mkt` markets, `dog`, `food` pizza & coffee, `art`, `show` concerts & shows, `kids` young kids, `teen`, `prog` programs & sign-ups (deadlines: teen programs, kids' camps, youth sports), `join` join in, `vol` volunteer, `cult` cultural celebrations, `learn` talks & learning, `fmd` free museum days, `evt`, plus `walk` dog walks.
 
 ## For the weekly refresh routines (Bay Area, Sydney, London)
-Besides the routine's own prompt, every refresh run must also follow `src/refresh/first-date.md`: add an `fd` object to the
+Besides the routine's own prompt, every refresh run must also go through its city's section of `src/refresh/venues.md` (venue and council what's-on pages, added Nov 23, 2026 after missed shows at the Seymour Centre and missed council festivals), and follow `src/refresh/first-date.md`: add an `fd` object to the
 items that pass its hard filters (20–35 per city). `fd` lives inside data.js items, so "write only data.js" still holds.
 
 ## Files

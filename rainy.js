@@ -1,5 +1,5 @@
 window.WF_RAINY = {
- "updated": "2026-11-16",
+ "updated": "2026-11-23",
  "items": [
   {
    "id": "rd-chm",
@@ -458,6 +458,109 @@ window.WF_RAINY = {
     "dog"
    ],
    "price": "$"
+  },
+  {
+   "id": "rd-ybice",
+   "name": "Yerba Buena Ice Skating & Bowling Center",
+   "grp": "play",
+   "town": "San Francisco",
+   "lat": 37.7837,
+   "lon": -122.4013,
+   "url": "https://yerbabuenagardens.org/skate-bowl/",
+   "note": "Indoor full-size ice rink behind a glass wall over Yerba Buena Gardens, plus 12 bowling lanes and an arcade. Reopened Aug 2026 under the Gardens; sensory-friendly skate sessions too",
+   "tags": [
+    "kids",
+    "teens"
+   ],
+   "price": "$$"
+  },
+  {
+   "id": "rd-oaklandice",
+   "name": "Oakland Ice Center",
+   "grp": "play",
+   "town": "Oakland",
+   "lat": 37.8087,
+   "lon": -122.2686,
+   "url": "https://www.oaklandice.com/",
+   "note": "Two indoor rinks downtown, public skating seven days a week",
+   "tags": [
+    "kids",
+    "teens"
+   ],
+   "price": "$$"
+  },
+  {
+   "id": "rd-sharksfremont",
+   "name": "Sharks Ice at Fremont",
+   "grp": "play",
+   "town": "Fremont",
+   "lat": 37.4925,
+   "lon": -121.9327,
+   "url": "https://www.sharksiceatfremont.com/",
+   "note": "Indoor rinks with public skate sessions",
+   "tags": [
+    "kids",
+    "teens"
+   ],
+   "price": "$$"
+  },
+  {
+   "id": "rd-ccm",
+   "name": "Children's Creativity Museum",
+   "grp": "museum",
+   "town": "San Francisco",
+   "lat": 37.7836,
+   "lon": -122.4021,
+   "url": "https://creativity.org/",
+   "note": "Hands-on making and animation studios next to the Yerba Buena carousel; Wed–Sun",
+   "tags": [
+    "kids"
+   ],
+   "price": "$$"
+  },
+  {
+   "id": "rd-asianart",
+   "name": "Asian Art Museum",
+   "grp": "museum",
+   "town": "San Francisco",
+   "lat": 37.7802,
+   "lon": -122.4162,
+   "url": "https://asianart.org/",
+   "note": "Calm galleries across Civic Center; free for 12 and under, and free first Sundays",
+   "tags": [
+    "kids",
+    "teens"
+   ],
+   "price": "$$"
+  },
+  {
+   "id": "rd-omca",
+   "name": "Oakland Museum of California",
+   "grp": "museum",
+   "town": "Oakland",
+   "lat": 37.7986,
+   "lon": -122.264,
+   "url": "https://museumca.org/",
+   "note": "California art, history and nature under one roof; kids free, galleries free on first Sundays",
+   "tags": [
+    "kids",
+    "teens"
+   ],
+   "price": "$$"
+  },
+  {
+   "id": "rd-sfmoma",
+   "name": "SFMOMA",
+   "grp": "museum",
+   "town": "San Francisco",
+   "lat": 37.7857,
+   "lon": -122.4011,
+   "url": "https://www.sfmoma.org/",
+   "note": "Seven floors of modern art; free for 18 and under. Closed Wednesdays",
+   "tags": [
+    "teens"
+   ],
+   "price": "$$$"
   }
  ]
-};
+}
