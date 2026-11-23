@@ -87,6 +87,7 @@ Now in London too.
 • London Weekend Fetch: what's on this weekend across London, plus day trips to Brighton, Oxford, Windsor, Cambridge and the Kent coast. Tap the city at the top to switch between the Bay Area, Sydney and London.
 • London's map, Rainy Day ideas (free museums and cosy spots) and dog walks from Hampstead Heath to Richmond Park.
 • Community this weekend, free museum days and all the other boxes work in every city.
+• Distances now start from the city centre until you set your own home (tap Set home).
 ```
 
 **1.4.1** (community boxes; build 11, submitted Nov 17, 2026, automatic release):

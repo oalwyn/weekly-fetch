@@ -137,3 +137,13 @@ More ways to get out and meet your neighbors.
 • New Rainy Day tab, Shop local picks, search, and tidier weekends.
 • Labels for who an event suits, kids' camp and youth sports sign-ups, and the East Bay on the map.
 ```
+
+## Release notes (1.5, versionCode 3)
+
+```
+Now in London too.
+• London Weekend Fetch: what's on this weekend across London, plus day trips to Brighton, Oxford, Windsor, Cambridge and the Kent coast. Tap the city at the top to switch between the Bay Area, Sydney and London.
+• London's map, Rainy Day ideas (free museums and cosy spots) and dog walks from Hampstead Heath to Richmond Park.
+• Community this weekend, free museum days and all the other boxes work in every city.
+• Distances now start from the city centre until you set your own home (tap Set home).
+```
