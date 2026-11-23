@@ -7,13 +7,13 @@
 const TOUR_STEPS = [
   { sel:null, t:"Welcome to " + (CITY.brand || "The Weekend Fetch"), b:"Every weekend's events in one place, from markets and shows to dog walks and free museum days. Want a 30-second tour?" },
   { sel:"#main .jump", t:"Pick a weekend", b:"Jump to any weekend. The circles after the dates take you straight to holiday events, markets or first-date ideas." },
-  { sel:"#main .istrip", t:"Your interests", b:"Too much? Tap any kind you're not into and it disappears from the list. We remember it on this device." },
+  { sel:"#main .istrip", t:"Your interests", b:"Too much? Tap here to pick the kinds of events you care about. Everything else drops out of the list, and we remember it on this device." },
   { sel:"#filters", t:"Filter and search", b:"Free things only, Saturday or Sunday, dog-friendly, or search for anything. Set home to sort by distance." },
   { sel:"#main .card .star, #main .star", t:"Star what looks fun", b:"Tap the star on anything you like. It goes to Our Plans." },
   { sel:'.tab[data-view="our-list"]', t:"Our Plans", b:"Lock your stars into a day, get reminders, and invite your household or friends so you all see the same plans." },
   { sel:'.tab[data-view="map"]', t:"Explore", b:"See it all on a map and find what's near you this weekend." },
   { sel:"#citySw", t:"Three cities", b:"We're in the Bay Area, Sydney and London. Tap a circle to switch." },
-  { sel:null, t:"You're all set", b:"Replay this any time from How it works at the bottom of the page." }
+  { sel:".hiwtop", t:"You're all set", b:"Replay this any time with How it works at the top of the page." }
 ];
 let tourI = -1, tourList = [];
 const tourGet = k => { try { return localStorage.getItem(k); } catch(e) { return null; } };
