@@ -234,6 +234,185 @@ window.WF_DATES = {
     ],
     "src": "Venue website, 23 Nov"
    }
+  },
+  {
+   "id": "dp-conservatory-of-flowers",
+   "name": "Conservatory of Flowers",
+   "kind": "garden",
+   "town": "San Francisco",
+   "lat": 37.7726,
+   "lon": -122.4602,
+   "url": "https://gggp.org/conservatory-of-flowers/",
+   "hours": "Sat–Sun 10am–4:30pm (last entry 4pm; closed Wednesdays)",
+   "price": "$",
+   "note": "Warm glasshouse of tropical plants in Golden Gate Park: easy talk, short loop, free for SF residents.",
+   "fd": {
+    "dur": "45–75 min",
+    "io": "indoor",
+    "next": "San Francisco Botanical Garden (1199 9th Ave), about a 10-minute walk",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "non-resident ticket price not published on site"
+    ],
+    "src": "Venue website (gggp.org), 23 Nov"
+   }
+  },
+  {
+   "id": "dp-green-apple-books-clement",
+   "name": "Green Apple Books (Clement St)",
+   "kind": "books",
+   "town": "San Francisco",
+   "lat": 37.7831,
+   "lon": -122.4647,
+   "url": "https://www.greenapplebooks.com/clement-st-location",
+   "hours": "Daily 10am–9pm",
+   "price": "free",
+   "note": "Rambling new-and-used bookshop on Clement St; browsing gives you plenty to talk about.",
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "next": "Golden Gate Park, about 5 blocks south down 6th Ave",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "talk",
+     "no seating in the shop"
+    ],
+    "src": "Venue website, 23 Nov"
+   }
+  },
+  {
+   "id": "dp-lands-end-lookout",
+   "name": "Lands End trail and Lookout visitor center",
+   "kind": "walk",
+   "town": "San Francisco",
+   "lat": 37.7798,
+   "lon": -122.5116,
+   "url": "https://www.nps.gov/places/000/lands-end-lookout-visitor-center.htm",
+   "hours": "Trail open daily; visitor center daily 9am–5pm",
+   "price": "free",
+   "note": "Clifftop coastal trail with Golden Gate views, starting at a visitor center with snacks and restrooms.",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "Sutro Heights Park, across Point Lobos Ave",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access"
+    ],
+    "x": [
+     "wx",
+     "visitor center café temporarily closed (snacks and drinks only)"
+    ],
+    "src": "NPS and Golden Gate National Parks Conservancy pages, 23 Nov"
+   }
+  },
+  {
+   "id": "dp-union-square-ice-rink",
+   "name": "Union Square Holiday Ice Rink",
+   "kind": "skate",
+   "town": "San Francisco",
+   "lat": 37.7881,
+   "lon": -122.4075,
+   "url": "https://unionsquareicerink.com/plan-your-visit/",
+   "hours": "Daily 10am–11pm, 60-min sessions every 1.5 hours; season Nov 4, 2026 – Jan 18, 2027",
+   "price": "$$",
+   "note": "Outdoor holiday rink under the Union Square tree; skating is a built-in icebreaker.",
+   "fd": {
+    "dur": "60–90 min",
+    "io": "outdoor",
+    "next": "Yerba Buena Gardens, about an 8-minute walk",
+    "m": [
+     "short",
+     "focus",
+     "novel",
+     "access"
+    ],
+    "x": [
+     "talk",
+     "cheap",
+     "wx",
+     "timed tickets; can be busy on weekends"
+    ],
+    "src": "Venue website, 23 Nov"
+   }
+  },
+  {
+   "id": "dp-museum-of-craft-and-design",
+   "name": "Museum of Craft and Design",
+   "kind": "museum",
+   "town": "San Francisco",
+   "lat": 37.757,
+   "lon": -122.388,
+   "url": "https://sfmcd.org/visit/",
+   "hours": "Thu–Sun 12–5pm (closed Thanksgiving and Nov 27)",
+   "price": "$",
+   "note": "Small, quiet Dogpatch museum of design and handmade objects; 'OBJECTS: USA' runs to Jan 17, 2027.",
+   "fd": {
+    "dur": "45–60 min",
+    "io": "indoor",
+    "next": "Esprit Park, Dogpatch, a few blocks west",
+    "m": [
+     "short",
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "wx"
+    ],
+    "x": [
+     "access"
+    ],
+    "src": "Venue website, 23 Nov"
+   }
+  },
+  {
+   "id": "dp-game-parlour-sf",
+   "name": "The Game Parlour",
+   "kind": "games",
+   "town": "San Francisco",
+   "lat": 37.764,
+   "lon": -122.4725,
+   "url": "https://thegameparlour.squarespace.com",
+   "hours": "Sun–Thu 11am–10pm, Fri–Sat 11am–11pm (closed Thanksgiving and Christmas)",
+   "price": "$",
+   "note": "Inner Sunset board-game café with a big library, waffles and Ritual coffee; $7 to play all day.",
+   "fd": {
+    "dur": "60–120 min",
+    "io": "indoor",
+    "next": "San Francisco Botanical Garden (9th Ave entrance), about a 10-minute walk",
+    "m": [
+     "talk",
+     "focus",
+     "novel",
+     "cheap",
+     "access",
+     "wx"
+    ],
+    "x": [
+     "short",
+     "beer and wine also served",
+     "site lists conflicting late hours"
+    ],
+    "src": "Venue website, 23 Nov"
+   }
   }
  ]
 }
