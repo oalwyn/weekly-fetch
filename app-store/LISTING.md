@@ -82,14 +82,15 @@ events,weekend,things to do,san francisco,sydney,bay area,marin,napa,dog friendl
 
 ## What's New
 
-**1.6** (sharing, first dates; build 13, Nov 2026, automatic release):
+**1.6** (London + sharing + first dates; build 13, submitted Nov 23, 2026 after pulling 1.5 (build 12) from review; automatic release; keywords now include london and date):
 
 ```
-Bring someone along.
-• Invite someone: every upcoming event has an Invite button. It writes a short message with the date, place and price, and opens your share sheet. Edit it or send it as it is.
-• Share our weekend: after a plan, pick one photo and get a Story-size card. Choose the style and what it shows. Your photo stays on your phone.
-• First date ideas: a new quick pick with date-friendly events and places, each checked on the organiser's own page.
-• Each city now shows its own Rainy Day and date-spot places.
+Now in London, and easier to bring someone along.
+• London Weekend Fetch: what's on across London, plus day trips to Brighton, Oxford, Windsor, Cambridge and the Kent coast. Tap a city at the top to switch between the Bay Area, Sydney and London.
+• Invite someone: every upcoming event has an Invite button. It writes a short message with the date, place and price, and opens your share sheet.
+• Share our weekend: after a plan, pick one photo and get a Story-size card. Your photo stays on your phone.
+• First date ideas: date-friendly events and places, each checked on the organiser's own page.
+• Distances start from the city centre until you set your own home.
 ```
 
 **1.5** (London; build 12, Nov 2026, automatic release):
