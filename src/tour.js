@@ -10,7 +10,7 @@ const TOUR_STEPS = [
   { sel:"#main .istrip", t:"Your interests", b:"Too much? Tap here to pick the kinds of events you care about. Everything else drops out of the list, and we remember it on this device." },
   { sel:"#filters", t:"Filter and search", b:"Free things only, Saturday or Sunday, dog-friendly, or search for anything. Set home to sort by distance." },
   { sel:"#main .card .star, #main .star", t:"Star what looks fun", b:"Tap the star on anything you like. It goes to Our Plans." },
-  { sel:'.tab[data-view="our-list"]', t:"Our Plans", b:"Lock your stars into a day, get reminders, and invite your household or friends so you all see the same plans." },
+  { sel:'.tab[data-view="our-list"]', t:"Our Plans", b:"Lock your stars into a day, get reminders, and invite your household. Sign in the same way on every device (Sign in with Apple, or the same email) and your plans and settings follow you." },
   { sel:'.tab[data-view="map"]', t:"Explore", b:"See it all on a map and find what's near you this weekend." },
   { sel:"#citySw", t:"Three cities", b:"We're in the Bay Area, Sydney and London. Tap a circle to switch." },
   { sel:".hiwtop", t:"You're all set", b:"Replay this any time with How it works at the top of the page." }

@@ -402,7 +402,8 @@ function signInHTML(){
     ${appleBtn}
     <form class="acctform" data-acctform="email"><input name="email" type="email" autocomplete="email" placeholder="you@example.com" aria-label="Email address" value="${ae(ACCT.ui.email)}" required>
     <button class="copybtn ${appleBtn ? "alt" : ""}" ${ACCT.busy ? "disabled" : ""}>Email me a sign-in code</button></form>
-    <p class="ournote small">No password. We'll email you a 6-digit code.</p>${optin}`);
+    <p class="ournote small">No password. We'll email you a 6-digit code.</p>
+    <p class="ournote small samesign"><b>Use the same sign-in on your phone and computer</b> so they share one account.${appleBtn ? " With Sign in with Apple, choose <b>Share My Email</b> so the same email address works too." : ""}</p>${optin}`);
 }
 function nameHTML(){
   return acctCard(`<strong>What should we call you?</strong>
