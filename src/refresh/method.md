@@ -6,6 +6,10 @@ Each city's routine prompt names the city key (e.g. `seattle`) and points here. 
 - `src/refresh/first-date.md`: add `fd` to the items that pass its hard filters;
 - `src/refresh/golf.md`: the Golf category.
 
+**The Bay Area lives at the site root** (its `path` is empty): its files are `data.js`, `walks.js`, `rainy.js`, `dates.js` at the repo
+root, its progress file is `PROGRESS-bayarea.md`, and wherever this method says `git add <path>/` or `git checkout <key>-wip -- <path>/`,
+use exactly `data.js PROGRESS-bayarea.md` (and on main only `data.js`); never add or check out the whole repo root.
+
 `<path>` below is the city's `path` in `src/cities/<key>.json` (`seattle`, `la`, `montana`, …); `<prefix>` is its `prefix`
 (`sea-`, `la-`, `mt-`, …). The map box is the `bbox` [S, N, W, E] in the city's coast file (`src/<coast>`).
 
