@@ -16,18 +16,26 @@ use exactly `data.js PROGRESS-bayarea.md` (and on main only `data.js`); never ad
 ## 0. Save as you go (most important rule)
 Runs get cut off by usage limits. Work in the groups below and save after each one to the branch `<key>-wip`, so the next
 run carries on instead of starting over.
-1. `git fetch origin`. If `origin/<key>-wip` exists AND its `<path>/PROGRESS.md` is dated within the last 4 days:
-   `git checkout -B <key>-wip origin/<key>-wip`, read PROGRESS.md and data.js, and CONTINUE with the first group not done
-   (don't redo finished groups or re-check sources listed there). Otherwise: `git checkout main && git pull`,
-   `git push origin --delete <key>-wip` if an old one exists (ignore errors), `git checkout -B <key>-wip`, write a fresh PROGRESS.md.
+1. `git fetch origin`. If `origin/<key>-wip` exists AND its `<path>/PROGRESS.md` is dated within the last 4 days AND does not
+   say "Status: published": `git checkout -B <key>-wip origin/<key>-wip`, read PROGRESS.md and data.js, and CONTINUE with the
+   first group not done (don't redo finished groups or re-check sources listed there). Otherwise start fresh WITHOUT deleting or
+   force-pushing branches (the cloud can't delete them): if `origin/<key>-wip` exists, `git checkout -B <key>-wip origin/<key>-wip`
+   then `git checkout origin/main -- .` (the branch now matches main); else `git checkout main && git pull && git checkout -B <key>-wip`.
+   Then write a fresh PROGRESS.md and commit.
 2. After EACH group: make the files valid (`python3 src/tools/check_data.py <key>` passes), update PROGRESS.md (run date,
    mode deep/light per week, each group done/not done with its count, sources already checked), then
    `git add <path>/ && git -c user.name=Claude -c user.email=noreply@anthropic.com commit -m "<City> refresh in progress: group <X>" && git push -u origin <key>-wip`.
    Never go more than about 25 new items without saving.
 3. Only when every group is done (or genuinely exhausted): publish to main WITHOUT PROGRESS.md:
    `git checkout main && git pull && git checkout <key>-wip -- <path>/ && git rm -q --cached <path>/PROGRESS.md 2>/dev/null; rm -f <path>/PROGRESS.md; git add <path>/ && git -c user.name=Claude -c user.email=noreply@anthropic.com commit -m "<City> refresh <date>" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" && git push origin HEAD:main`
-   (if rejected: `git pull --rebase` and push again). Then `git push origin --delete <key>-wip`.
+   (if rejected: `git pull --rebase` and push again). Then mark the work branch finished (don't try to delete it):
+   `git checkout <key>-wip`, add a line "Status: published <date>" at the top of PROGRESS.md, commit and push it to `<key>-wip`.
    The site shows a new city as soon as `<path>/data.js` is on main, and the event-pages GitHub Action builds its share pages.
+
+## 0b. Every other week
+Cities refresh every other week, in two groups (see CLAUDE.md). The routine prompt says which ISO weeks are this city's: check
+first with `TZ=<city time zone> date +%V` and stop at once if it isn't this city's week. Because of that, the list must hold up
+for two weeks: on the light-touch pass, make sure the next 2 weekends are solid (20+ things each), not just the next one.
 
 ## 1. Deep vs light (saves effort on weeks already covered)
 data.js carries `"deep_through": "YYYY-MM-DD"`: the last day already researched in depth.
