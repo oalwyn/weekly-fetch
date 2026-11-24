@@ -4,6 +4,7 @@
   <url><loc>https://theweekendfetch.com/sydney/</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://theweekendfetch.com/london/</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://theweekendfetch.com/seattle/</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://theweekendfetch.com/la/</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://theweekendfetch.com/montana/</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://theweekendfetch.com/privacy.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
 </urlset>
