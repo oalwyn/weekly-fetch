@@ -1,0 +1,292 @@
+{
+  "key": "seattle",
+  "path": "seattle",
+  "prefix": "sea-",
+  "brand": "Seattle Weekend Fetch",
+  "short": "Seattle",
+  "near": "Seattle",
+  "h1": "Seattle <span class=\"nb\">Weekend Fetch</span>",
+  "coast": "coast_seattle.json",
+  "banner": "banner_seattle.svg",
+  "tz": "America/Los_Angeles",
+  "units": "mi",
+  "dists": [
+    10,
+    25,
+    50
+  ],
+  "country": "us",
+  "home": {
+    "name": "Downtown Seattle",
+    "lat": 47.6062,
+    "lon": -122.3321
+  },
+  "far": {
+    "lat": 47.6,
+    "lon": -122.3,
+    "mi": 150
+  },
+  "near_home_span": 10,
+  "map_start": "Seattle area",
+  "presets": [
+    [
+      "Seattle area",
+      47.55,
+      -122.3,
+      55
+    ],
+    [
+      "Seattle",
+      47.62,
+      -122.33,
+      9
+    ],
+    [
+      "Near home",
+      null,
+      null,
+      10
+    ],
+    [
+      "Eastside",
+      47.63,
+      -122.15,
+      14
+    ],
+    [
+      "Everett & north",
+      47.92,
+      -122.2,
+      22
+    ],
+    [
+      "Tacoma & south",
+      47.28,
+      -122.38,
+      24
+    ],
+    [
+      "Olympia",
+      47.04,
+      -122.9,
+      14
+    ],
+    [
+      "Islands & Kitsap",
+      47.68,
+      -122.6,
+      26
+    ],
+    [
+      "Snoqualmie & the mountains",
+      47.5,
+      -121.85,
+      22
+    ],
+    [
+      "Everything"
+    ]
+  ],
+  "labels": [
+    [
+      "Seattle",
+      47.606,
+      -122.332
+    ],
+    [
+      "Ballard",
+      47.668,
+      -122.385
+    ],
+    [
+      "Capitol Hill",
+      47.623,
+      -122.318
+    ],
+    [
+      "West Seattle",
+      47.57,
+      -122.387
+    ],
+    [
+      "Bellevue",
+      47.61,
+      -122.2
+    ],
+    [
+      "Redmond",
+      47.674,
+      -122.121
+    ],
+    [
+      "Kirkland",
+      47.681,
+      -122.209
+    ],
+    [
+      "Issaquah",
+      47.53,
+      -122.033
+    ],
+    [
+      "Renton",
+      47.48,
+      -122.217
+    ],
+    [
+      "Kent",
+      47.38,
+      -122.235
+    ],
+    [
+      "Tacoma",
+      47.253,
+      -122.444
+    ],
+    [
+      "Puyallup",
+      47.185,
+      -122.293
+    ],
+    [
+      "Federal Way",
+      47.322,
+      -122.313
+    ],
+    [
+      "Everett",
+      47.979,
+      -122.202
+    ],
+    [
+      "Lynnwood",
+      47.82,
+      -122.315
+    ],
+    [
+      "Edmonds",
+      47.81,
+      -122.377
+    ],
+    [
+      "Bothell",
+      47.76,
+      -122.205
+    ],
+    [
+      "Snohomish",
+      47.913,
+      -122.098
+    ],
+    [
+      "Bainbridge Island",
+      47.626,
+      -122.521
+    ],
+    [
+      "Bremerton",
+      47.567,
+      -122.633
+    ],
+    [
+      "Poulsbo",
+      47.736,
+      -122.646
+    ],
+    [
+      "Gig Harbor",
+      47.329,
+      -122.58
+    ],
+    [
+      "Olympia",
+      47.037,
+      -122.9
+    ],
+    [
+      "Snoqualmie",
+      47.529,
+      -121.825
+    ],
+    [
+      "North Bend",
+      47.495,
+      -121.787
+    ],
+    [
+      "Port Townsend",
+      48.117,
+      -122.76
+    ],
+    [
+      "Langley",
+      48.04,
+      -122.406
+    ],
+    [
+      "Puget Sound",
+      47.72,
+      -122.44,
+      1
+    ],
+    [
+      "Lake Washington",
+      47.6,
+      -122.255,
+      1
+    ],
+    [
+      "Hood Canal",
+      47.62,
+      -122.93,
+      1
+    ]
+  ],
+  "regions": [
+    [
+      "north",
+      47.78,
+      null,
+      null,
+      null
+    ],
+    [
+      "olympia",
+      null,
+      47.15,
+      null,
+      null
+    ],
+    [
+      "kitsap_islands",
+      null,
+      null,
+      null,
+      -122.45
+    ],
+    [
+      "south_sound",
+      null,
+      47.5,
+      null,
+      null
+    ],
+    [
+      "eastside",
+      null,
+      null,
+      -122.25,
+      null
+    ],
+    [
+      "seattle"
+    ]
+  ],
+  "seo": {
+    "title": "Seattle Weekend Fetch · things to do in Seattle this weekend",
+    "description": "Things to do this weekend in Seattle and around Puget Sound: holiday lights and markets, concerts and theater, Seahawks, Kraken, Sounders and Mariners games, golf, new movies, free museum days, dog-friendly parks and kids' events, from Everett to Tacoma, the Eastside, Kitsap and Olympia. Free or ticketed, with a shared weekend planner.",
+    "og_description": "What's on this weekend around Seattle, refreshed every week. Star events and plan them with friends.",
+    "web_description": "Things to do this weekend in Seattle, Washington.",
+    "footer_places": "Things to do in Seattle, Bellevue, Redmond, Kirkland, Everett, Tacoma, Bainbridge Island, Bremerton, Olympia and Snoqualmie."
+  }
+}

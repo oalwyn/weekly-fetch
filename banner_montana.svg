@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="xMaxYMax slice">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F5D8A"/><stop offset=".42" stop-color="#3E6690"/><stop offset=".62" stop-color="#C8806A"/><stop offset=".7" stop-color="#E9895B"/><stop offset="1" stop-color="#F6C46B"/></linearGradient>
+<linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B3E4F"/><stop offset="1" stop-color="#1B2C3B"/></linearGradient></defs>
+<rect width="1200" height="380" fill="url(#sky)"/>
+<circle cx="980" cy="300" r="70" fill="#FFE3A3"/>
+<!-- far peaks with snow -->
+<path d="M0 330 L120 230 L190 280 L300 170 L400 260 L470 210 L560 300 L640 230 L720 290 L820 200 L900 270 L990 220 L1080 280 L1200 210 L1200 360 L0 360Z" fill="#8C6A86" opacity=".6"/>
+<g fill="#F7E7DA" opacity=".8"><path d="M300 170 L330 198 L316 196 L300 206 L286 196 L272 198Z"/><path d="M820 200 L846 224 L832 222 L820 232 L808 222 L796 224Z"/><path d="M1200 210 L1170 232 L1186 230 L1200 238Z"/></g>
+<!-- nearer ridges -->
+<path d="M0 370 L160 300 L260 340 L380 280 L520 350 L640 300 L760 352 L880 290 L1000 340 L1100 300 L1200 336 L1200 400 L0 400Z" fill="#4E4A66" opacity=".8"/>
+<rect y="380" width="1200" height="220" fill="url(#land)"/>
+<!-- river catching the light -->
+<path d="M560 600 C600 520 700 470 760 430 C820 396 900 388 980 384 C900 396 840 410 790 440 C730 476 660 530 640 600Z" fill="#F6C46B" opacity=".35"/>
+<!-- pines -->
+<g fill="#1E2E3C">
+<path d="M80 400 L104 330 L128 400Z"/><path d="M120 404 L150 316 L180 404Z"/><path d="M170 400 L192 340 L214 400Z"/>
+<path d="M1040 400 L1064 326 L1088 400Z"/><path d="M1080 404 L1110 306 L1140 404Z"/><path d="M1130 400 L1154 336 L1178 400Z"/>
+</g>
+</svg>

@@ -1,0 +1,11 @@
+{
+  "_note": "Order of cities and regions in the city picker and every build/tool. 'group' in a city's file (e.g. \"region\") puts it after a divider.",
+  "order": [
+    "bayarea",
+    "sydney",
+    "london",
+    "seattle",
+    "la",
+    "montana"
+  ]
+}

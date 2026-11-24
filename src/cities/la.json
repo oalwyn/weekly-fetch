@@ -1,0 +1,308 @@
+{
+  "key": "la",
+  "path": "la",
+  "prefix": "la-",
+  "brand": "Los Angeles Weekend Fetch",
+  "short": "LA",
+  "near": "Los Angeles",
+  "h1": "Los Angeles <span class=\"nb\">Weekend Fetch</span>",
+  "coast": "coast_la.json",
+  "banner": "banner_la.svg",
+  "tz": "America/Los_Angeles",
+  "units": "mi",
+  "dists": [
+    10,
+    25,
+    50
+  ],
+  "country": "us",
+  "home": {
+    "name": "Downtown LA",
+    "lat": 34.0522,
+    "lon": -118.2437
+  },
+  "far": {
+    "lat": 34.0,
+    "lon": -118.2,
+    "mi": 150
+  },
+  "near_home_span": 10,
+  "map_start": "LA area",
+  "presets": [
+    [
+      "LA area",
+      33.95,
+      -118.25,
+      70
+    ],
+    [
+      "Downtown & Hollywood",
+      34.07,
+      -118.3,
+      9
+    ],
+    [
+      "Near home",
+      null,
+      null,
+      10
+    ],
+    [
+      "Westside & beaches",
+      33.98,
+      -118.45,
+      14
+    ],
+    [
+      "The Valley",
+      34.2,
+      -118.45,
+      18
+    ],
+    [
+      "Pasadena & San Gabriel Valley",
+      34.12,
+      -118.08,
+      18
+    ],
+    [
+      "South Bay & Long Beach",
+      33.82,
+      -118.25,
+      18
+    ],
+    [
+      "Orange County",
+      33.7,
+      -117.85,
+      28
+    ],
+    [
+      "Inland Empire",
+      34.03,
+      -117.5,
+      26
+    ],
+    [
+      "Malibu & Ventura",
+      34.1,
+      -118.9,
+      32
+    ],
+    [
+      "Everything"
+    ]
+  ],
+  "labels": [
+    [
+      "Los Angeles",
+      34.052,
+      -118.244
+    ],
+    [
+      "Hollywood",
+      34.098,
+      -118.327
+    ],
+    [
+      "Santa Monica",
+      34.019,
+      -118.491
+    ],
+    [
+      "Venice",
+      33.985,
+      -118.469
+    ],
+    [
+      "Culver City",
+      34.021,
+      -118.396
+    ],
+    [
+      "Burbank",
+      34.181,
+      -118.309
+    ],
+    [
+      "Glendale",
+      34.142,
+      -118.255
+    ],
+    [
+      "Pasadena",
+      34.148,
+      -118.144
+    ],
+    [
+      "Long Beach",
+      33.77,
+      -118.194
+    ],
+    [
+      "Torrance",
+      33.836,
+      -118.341
+    ],
+    [
+      "Manhattan Beach",
+      33.885,
+      -118.41
+    ],
+    [
+      "Inglewood",
+      33.962,
+      -118.353
+    ],
+    [
+      "Malibu",
+      34.026,
+      -118.78
+    ],
+    [
+      "Thousand Oaks",
+      34.17,
+      -118.838
+    ],
+    [
+      "Ventura",
+      34.275,
+      -119.229
+    ],
+    [
+      "Santa Clarita",
+      34.392,
+      -118.543
+    ],
+    [
+      "Van Nuys",
+      34.186,
+      -118.449
+    ],
+    [
+      "Anaheim",
+      33.836,
+      -117.914
+    ],
+    [
+      "Irvine",
+      33.684,
+      -117.826
+    ],
+    [
+      "Huntington Beach",
+      33.66,
+      -118.0
+    ],
+    [
+      "Newport Beach",
+      33.619,
+      -117.929
+    ],
+    [
+      "Laguna Beach",
+      33.542,
+      -117.783
+    ],
+    [
+      "Riverside",
+      33.954,
+      -117.396
+    ],
+    [
+      "Ontario",
+      34.063,
+      -117.651
+    ],
+    [
+      "Pomona",
+      34.055,
+      -117.75
+    ],
+    [
+      "Avalon",
+      33.343,
+      -118.327
+    ],
+    [
+      "Pacific Ocean",
+      33.62,
+      -118.75,
+      1
+    ],
+    [
+      "Santa Monica Bay",
+      33.9,
+      -118.6,
+      1
+    ]
+  ],
+  "regions": [
+    [
+      "catalina",
+      null,
+      33.5,
+      null,
+      -118.2
+    ],
+    [
+      "orange_county",
+      null,
+      33.95,
+      -118.12,
+      null
+    ],
+    [
+      "inland_empire",
+      null,
+      null,
+      -117.78,
+      null
+    ],
+    [
+      "malibu_ventura",
+      null,
+      null,
+      null,
+      -118.65
+    ],
+    [
+      "valley",
+      34.15,
+      null,
+      null,
+      -118.2
+    ],
+    [
+      "pasadena_sgv",
+      34.0,
+      null,
+      -118.2,
+      null
+    ],
+    [
+      "south_bay",
+      null,
+      33.93,
+      null,
+      null
+    ],
+    [
+      "westside",
+      null,
+      null,
+      null,
+      -118.37
+    ],
+    [
+      "central"
+    ]
+  ],
+  "seo": {
+    "title": "Los Angeles Weekend Fetch · things to do in LA this weekend",
+    "description": "Things to do this weekend in Los Angeles and Orange County: holiday lights and markets, concerts and comedy, Lakers, Dodgers, Rams and Kings games, golf, new movies, free museum days, dog-friendly beaches and parks and kids' events, from Malibu and the Valley to Pasadena, Long Beach and Irvine. Free or ticketed, with a shared weekend planner.",
+    "og_description": "What's on this weekend around Los Angeles, refreshed every week. Star events and plan them with friends.",
+    "web_description": "Things to do this weekend in Los Angeles, California.",
+    "footer_places": "Things to do in Downtown LA, Hollywood, Santa Monica, the Valley, Pasadena, Long Beach, Malibu, Ventura, Orange County and the Inland Empire."
+  }
+}

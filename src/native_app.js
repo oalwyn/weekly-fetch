@@ -160,7 +160,8 @@ function openFromLink(u){
   const em = url.pathname.match(/^\/e\/([a-z0-9][a-z0-9-]{1,99})\/?$/);
   if (em) {
     const id = em[1], code = (url.searchParams.get("s") || "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 12);
-    const key = /^syd-/.test(id) ? "sydney" : /^ldn-/.test(id) ? "london" : "bayarea";
+    // the city whose event-id prefix matches (syd-, ldn-, sea-, la-, mt-…); no prefix = the Bay Area
+    const hit = (window.WF_CITIES || []).find(c => c.prefix && id.startsWith(c.prefix)), key = hit ? hit.key : "bayarea";
     if (key === CITY.key) { state.pin = id; state.view = "events"; render(); scrollTo(0, 0); }
     else location.href = (key === "bayarea" ? "/index.html" : "/" + key + "/index.html") + "?e=" + encodeURIComponent(id) + (code ? "&s=" + code : "");
     return;

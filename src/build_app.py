@@ -21,7 +21,7 @@ out = os.path.join(root, "app", "www")
 subprocess.check_call([sys.executable, os.path.join(here, "build.py")])
 
 import json
-CITIES = [json.load(open(os.path.join(here, "cities", k + ".json"))) for k in ["bayarea", "sydney", "london"]]
+CITIES = [json.load(open(os.path.join(here, "cities", k + ".json"))) for k in json.load(open(os.path.join(here, "cities", "index.json")))["order"]]
 CITIES = [c for c in CITIES if not c["path"] or os.path.exists(os.path.join(root, c["path"], "data.js"))]
 
 def appify(html, cfg):

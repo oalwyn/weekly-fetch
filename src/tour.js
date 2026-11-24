@@ -12,7 +12,7 @@ const TOUR_STEPS = [
   { sel:"#main .card .star, #main .star", t:"Star what looks fun", b:"Tap the star on anything you like. It goes to Our Plans." },
   { sel:'.tab[data-view="our-list"]', t:"Our Plans", b:"Lock your stars into a day, get reminders, and invite your household. Sign in the same way on every device (Sign in with Apple, or the same email) and your plans and settings follow you." },
   { sel:'.tab[data-view="map"]', t:"Explore", b:"See it all on a map and find what's near you this weekend." },
-  { sel:"#citySw", t:"Three cities", b:"We're in the Bay Area, Sydney and London. Tap a circle to switch." },
+  { sel:"#citySw", t:"Cities and regions", b:() => "We're in " + ((window.WF_CITIES||[]).filter(c=>c.group!=="region").map(c=>c.short).join(", ").replace(/, ([^,]*)$/, " and $1") || "several cities") + ((window.WF_CITIES||[]).some(c=>c.group==="region") ? ", plus regions like " + (window.WF_CITIES||[]).filter(c=>c.group==="region").map(c=>c.short).join(", ") : "") + ". Tap a circle to switch." },
   { sel:".hiwtop", t:"You're all set", b:"Replay this any time with How it works at the top of the page." }
 ];
 let tourI = -1, tourList = [];
@@ -60,7 +60,7 @@ function tourShow(){
   o.innerHTML = `${el?`<div class="tspot" id="tspot"></div>`:`<div class="tdim"></div>`}
     <div class="tbub${el?"":" tmid"}" id="tbub" role="dialog" aria-modal="true" aria-labelledby="tbt">
       <div class="tdots" aria-hidden="true">${dots}</div>
-      <h3 id="tbt">${esc(st.t)}</h3><p>${esc(st.b)}</p>
+      <h3 id="tbt">${esc(st.t)}</h3><p>${esc(typeof st.b==="function" ? st.b() : st.b)}</p>
       <div class="tbtns">${first ? `<button class="tskip" data-tourskip>Not now</button><button class="tnext" data-tournext>Show me</button>`
         : last ? `<button class="tnext" data-tourend>Done</button>`
         : `<button class="tskip" data-tourskip>Skip</button><button class="tback" data-tourback>Back</button><button class="tnext" data-tournext>Next</button>`}</div></div>`;

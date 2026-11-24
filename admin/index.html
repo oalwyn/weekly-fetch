@@ -287,7 +287,7 @@ async function buildDeck(r, cityLabel, weeks){
   await P.writeFile({ fileName: `weekend-fetch-engagement-${(r.city || "all-cities")}-${weeks}w-${stamp}.pptx` });
   return pageNo;
 }
-const CATS_LABEL = { hol: "Holiday", mkt: "Markets", dog: "Dog-friendly", food: "Pizza & coffee", art: "Art", walk: "Dog walks", show: "Concerts & shows", sport: "Sports", film: "Movies", kids: "Young kids", teen: "Teens", prog: "Programs & sign-ups", join: "Join in", vol: "Volunteer", cult: "Cultural celebrations", learn: "Talks & learning", fmd: "Free museum days", evt: "Other" };
+const CATS_LABEL = { hol: "Holiday", mkt: "Markets", dog: "Dog-friendly", food: "Pizza & coffee", art: "Art", walk: "Dog walks", show: "Concerts & shows", sport: "Sports", golf: "Golf", film: "Movies", kids: "Young kids", teen: "Teens", prog: "Programs & sign-ups", join: "Join in", vol: "Volunteer", cult: "Cultural celebrations", learn: "Talks & learning", fmd: "Free museum days", evt: "Other" };
 async function load(){
   $("msg").innerHTML = ""; $("out").innerHTML = "<p class='sub'>Loading…</p>";
   const { data, error } = await client.rpc("admin_report", { p_weeks: +$("weeks").value, p_city: $("city").value || null });

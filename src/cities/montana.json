@@ -1,0 +1,264 @@
+{
+  "key": "montana",
+  "path": "montana",
+  "prefix": "mt-",
+  "group": "region",
+  "brand": "Montana Weekend Fetch",
+  "short": "Montana",
+  "near": "Montana",
+  "h1": "Montana <span class=\"nb\">Weekend Fetch</span>",
+  "coast": "coast_montana.json",
+  "banner": "banner_montana.svg",
+  "tz": "America/Denver",
+  "units": "mi",
+  "dists": [
+    25,
+    60,
+    150
+  ],
+  "country": "us",
+  "home": {
+    "name": "Helena",
+    "lat": 46.5891,
+    "lon": -112.0391
+  },
+  "far": {
+    "lat": 47.0,
+    "lon": -109.6,
+    "mi": 450
+  },
+  "near_home_span": 60,
+  "map_start": "All of Montana",
+  "presets": [
+    [
+      "All of Montana",
+      46.7,
+      -110.0,
+      560
+    ],
+    [
+      "Near home",
+      null,
+      null,
+      60
+    ],
+    [
+      "Missoula & Bitterroot",
+      46.6,
+      -114.1,
+      70
+    ],
+    [
+      "Flathead & Glacier",
+      48.3,
+      -114.1,
+      80
+    ],
+    [
+      "Bozeman & Big Sky",
+      45.6,
+      -111.1,
+      60
+    ],
+    [
+      "Helena & Butte",
+      46.3,
+      -112.3,
+      70
+    ],
+    [
+      "Great Falls",
+      47.5,
+      -111.3,
+      60
+    ],
+    [
+      "Billings",
+      45.78,
+      -108.5,
+      60
+    ],
+    [
+      "Yellowstone gateways",
+      45.1,
+      -110.6,
+      100
+    ],
+    [
+      "Eastern Montana",
+      46.8,
+      -106.0,
+      220
+    ],
+    [
+      "Everything"
+    ]
+  ],
+  "labels": [
+    [
+      "Billings",
+      45.783,
+      -108.5
+    ],
+    [
+      "Missoula",
+      46.872,
+      -113.994
+    ],
+    [
+      "Bozeman",
+      45.677,
+      -111.043
+    ],
+    [
+      "Great Falls",
+      47.506,
+      -111.3
+    ],
+    [
+      "Helena",
+      46.589,
+      -112.039
+    ],
+    [
+      "Butte",
+      46.004,
+      -112.535
+    ],
+    [
+      "Kalispell",
+      48.196,
+      -114.312
+    ],
+    [
+      "Whitefish",
+      48.411,
+      -114.338
+    ],
+    [
+      "Havre",
+      48.55,
+      -109.684
+    ],
+    [
+      "Miles City",
+      46.408,
+      -105.84
+    ],
+    [
+      "Livingston",
+      45.662,
+      -110.561
+    ],
+    [
+      "Big Sky",
+      45.284,
+      -111.368
+    ],
+    [
+      "Red Lodge",
+      45.186,
+      -109.247
+    ],
+    [
+      "Lewistown",
+      47.062,
+      -109.428
+    ],
+    [
+      "Glendive",
+      47.105,
+      -104.713
+    ],
+    [
+      "Dillon",
+      45.216,
+      -112.638
+    ],
+    [
+      "Hamilton",
+      46.247,
+      -114.16
+    ],
+    [
+      "Polson",
+      47.693,
+      -114.163
+    ],
+    [
+      "West Yellowstone",
+      44.662,
+      -111.104
+    ],
+    [
+      "Anaconda",
+      46.128,
+      -112.94
+    ],
+    [
+      "Glacier National Park",
+      48.7,
+      -113.75,
+      1
+    ],
+    [
+      "Flathead Lake",
+      47.9,
+      -114.1,
+      1
+    ],
+    [
+      "Fort Peck Lake",
+      47.75,
+      -106.9,
+      1
+    ]
+  ],
+  "regions": [
+    [
+      "glacier_country",
+      null,
+      null,
+      null,
+      -113.0
+    ],
+    [
+      "southwest",
+      null,
+      null,
+      null,
+      -111.8
+    ],
+    [
+      "yellowstone",
+      null,
+      46.2,
+      null,
+      -109.0
+    ],
+    [
+      "central",
+      null,
+      null,
+      null,
+      -108.0
+    ],
+    [
+      "southeast",
+      null,
+      47.0,
+      null,
+      null
+    ],
+    [
+      "northeast"
+    ]
+  ],
+  "seo": {
+    "title": "Montana Weekend Fetch · things to do in Montana this weekend",
+    "description": "Things to do this weekend across Montana: Billings, Missoula, Bozeman, Great Falls, Helena, Butte, Kalispell and Whitefish. Holiday events and markets, concerts and rodeos, Griz and Bobcats games, golf, ski hills, Yellowstone and Glacier gateways, dog-friendly trails and kids' events. Free or ticketed, with a shared weekend planner.",
+    "og_description": "What's on this weekend across Montana's cities and towns, refreshed every week. Star events and plan them with friends.",
+    "web_description": "Things to do this weekend across Montana.",
+    "footer_places": "Things to do in Billings, Missoula, Bozeman, Great Falls, Helena, Butte, Kalispell, Whitefish, Livingston, Big Sky, Red Lodge and Havre."
+  }
+}

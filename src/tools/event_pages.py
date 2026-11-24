@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Event pages for shared links (sharing, phase 2).
 
-Writes e/<event id>/index.html for every event in data.js, sydney/data.js and london/data.js. Each page is tiny:
+Writes e/<event id>/index.html for every event in every city's data.js (cities listed in src/cities/index.json). Each page is tiny:
 - link-preview tags (title, date, place, price, the city's preview picture) so Messages, WhatsApp, Facebook and others
   show the event, not just the city;
 - it forwards the visitor straight on to the city page with that event pinned (<city>/?e=<id>), keeping any share code;
@@ -57,7 +57,7 @@ def page(e, city):
 
 def main():
     n = skipped = 0
-    for key in ['bayarea', 'sydney', 'london']:
+    for key in json.load(open(os.path.join(ROOT, 'src', 'cities', 'index.json')))['order']:
         city = json.load(open(os.path.join(ROOT, 'src', 'cities', key + '.json'), encoding='utf-8'))
         data = os.path.join(ROOT, city['path'], 'data.js') if city['path'] else os.path.join(ROOT, 'data.js')
         if not os.path.exists(data):

@@ -1,5 +1,6 @@
 {
   "key": "london",
+  "prefix": "ldn-",
   "path": "london",
   "brand": "London Weekend Fetch",
   "short": "London",

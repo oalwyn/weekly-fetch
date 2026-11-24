@@ -145,9 +145,12 @@ def join_rings(ways):
     return rings
 
 def water_areas(path):
-    """(outer rings, inner rings) of natural=water relations."""
+    """(outer rings, inner rings) of natural=water relations, plus lakes mapped as single closed ways."""
     outer, inner = [], []
     for e in json.load(open(path))["elements"]:
+        g = e.get("geometry")
+        if e.get("type") == "way" and g and len(g) >= 4 and g[0] == g[-1]:
+            outer.append([(p["lon"], p["lat"]) for p in g]); continue
         if e.get("type") != "relation": continue
         for role, bucket in (("outer", outer), ("inner", inner)):
             ws = [[(p["lon"], p["lat"]) for p in m["geometry"]] for m in e.get("members", []) if m.get("type") == "way" and m.get("role", "outer") == role and m.get("geometry")]

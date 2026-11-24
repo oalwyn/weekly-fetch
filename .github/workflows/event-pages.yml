@@ -6,8 +6,7 @@ on:
     branches: [main]
     paths:
       - "data.js"
-      - "sydney/data.js"
-      - "london/data.js"
+      - "*/data.js"
       - "src/tools/event_pages.py"
       - "src/cities/*.json"
   workflow_dispatch:

@@ -7,20 +7,24 @@ this script only rebuilds the page itself.
 import json, os, sys
 here = os.path.dirname(os.path.abspath(__file__)); os.chdir(here)
 # one page per city: src/cities/<key>.json. The first city lives at the site root; others under /<path>/.
-CITY_KEYS = [k for k in ['bayarea', 'sydney', 'london'] if os.path.exists(os.path.join('cities', k + '.json'))]
+# the order comes from src/cities/index.json (cities first, then regions such as Montana, after a divider in the picker)
+CITY_KEYS = [k for k in json.load(open(os.path.join('cities', 'index.json')))['order'] if os.path.exists(os.path.join('cities', k + '.json'))]
 # every city that has a page, for the city switch in the header
 CITIES = []
 for k in CITY_KEYS:
     cc = json.load(open(os.path.join('cities', k + '.json')))
     if not cc['path'] or os.path.exists(os.path.join('..', cc['path'], 'data.js')):
-        CITIES.append({'key': k, 'short': cc['short'], 'near': cc.get('near', cc['short']), 'brand': cc['brand'], 'url': '/' + (cc['path'] + '/' if cc['path'] else ''), 'tz': cc['tz'], 'banner': cc.get('banner', 'banner.svg')})
+        CITIES.append({'key': k, 'short': cc['short'], 'near': cc.get('near', cc['short']), 'brand': cc['brand'], 'url': '/' + (cc['path'] + '/' if cc['path'] else ''), 'tz': cc['tz'], 'banner': cc.get('banner', 'banner.svg'), 'prefix': cc.get('prefix', ''), 'group': cc.get('group', 'city')})
 _pin = json.load(open(os.path.join('icons', 'paths.json')))['location-pin-7648253']
 PIN_SVG = '<svg class="ico" viewBox="%s" aria-hidden="true">%s</svg>' % (_pin['vb'], ''.join('<path fill="currentColor" d="%s"/>' % d for d in _pin['d']))
 def city_switch(cfg):
     """Header city switch, the city-suggestion script and (site root only) the remembered-city redirect.
     Wrapped in <!--citysw--> so build_app.py can leave it out of the Bay Area-only iPhone app."""
     # three (or more) city circles, each showing a crop of that city's header art; tapping one opens that city's page
-    links = ''.join('<a class="cityc" href="%s" data-city="%s"%s aria-label="%s"><span class="cdot" style="background-image:url(/%s)"></span><span class="cname">%s</span></a>' % (c['url'], c['key'], ' aria-current="page"' if c['key'] == cfg['key'] else '', c['brand'], c['banner'], c['short']) for c in CITIES)
+    circle = lambda c: '<a class="cityc" href="%s" data-city="%s"%s aria-label="%s"><span class="cdot" style="background-image:url(/%s)"></span><span class="cname">%s</span></a>' % (c['url'], c['key'], ' aria-current="page"' if c['key'] == cfg['key'] else '', c['brand'], c['banner'], c['short'])
+    # regions (whole states such as Montana) come after the cities, behind a thin divider with a small "Regions" caption
+    regs = [c for c in CITIES if c['group'] == 'region']
+    links = ''.join(circle(c) for c in CITIES if c['group'] != 'region') + (('<span class="csep" aria-hidden="true"><i>Regions</i></span>' + ''.join(circle(c) for c in regs)) if regs else '')
     sw = '<!--citysw--><nav class="citysw" id="citySw" aria-label="Cities">%s</nav><!--/citysw-->\n  ' % links
     js = ('<!--citysw--><script>window.WF_CITIES=' + json.dumps(CITIES, ensure_ascii=False) + ';' + open('city_switch.js').read() + '</script><!--/citysw-->\n')
     redirect = ''
@@ -39,7 +43,7 @@ for CITY_KEY in CITY_KEYS:
     js = (_app.replace('/*ICONS*/{}', json.dumps(ICONS, separators=(',', ':')))
           .replace('/*BBOX*/[0,0,0,0]', json.dumps(c['bbox']))
           .replace('/*W*/0', str(c['W'])).replace('/*H*/0', str(c['H']))
-          .replace('"/*COAST*/"', json.dumps(c['d'])).replace('"/*RULE*/"', json.dumps(c.get('rule', 'evenodd'))))
+          .replace('"/*COAST*/"', json.dumps(c['d'])).replace('"/*OUT*/"', json.dumps(c.get('out', ''))).replace('"/*RULE*/"', json.dumps(c.get('rule', 'evenodd'))))
     head = (open('template_head.html').read()
             .replace('<title>The Bay Area Weekend Fetch</title>', '<title>%s</title>' % CITYCFG['brand'])
             .replace('<h1>The Bay Area <span class="nb">Weekend Fetch</span></h1>', '<h1>%s</h1>' % CITYCFG['h1']))
