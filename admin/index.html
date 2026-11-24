@@ -37,7 +37,7 @@ ul{margin:4px 0 4px 18px;padding:0}
 <p class="sub">Owner only. Every number below comes from production records, with development, test and owner activity left out.</p>
 <div id="msg"></div>
 <div class="bar" id="controls" hidden>
-  <label>City <select id="city"><option value="">All cities</option><option value="bayarea">Bay Area</option><option value="sydney">Sydney</option><option value="london">London</option><option value="seattle">Seattle</option><option value="la">LA</option><option value="montana">Montana</option></select></label>
+  <label>City <select id="city"><option value="">All cities</option><option value="bayarea">Bay Area</option><option value="seattle">Seattle</option><option value="la">LA</option><option value="sydney">Sydney</option><option value="london">London</option><option value="montana">Montana</option></select></label>
   <label>Weeks <select id="weeks"><option>4</option><option selected>8</option><option>12</option><option>26</option></select></label>
   <button class="primary" id="refresh">Refresh</button>
   <button id="csvWeekly">Weekly CSV</button>
@@ -57,7 +57,7 @@ const SB_REF = (SB_URL.split("//")[1] || "").split(".")[0];
 const client = window.supabase.createClient(SB_URL, SB_KEY, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false, storageKey: "sb-" + SB_REF + "-auth-token" } });
 const $ = id => document.getElementById(id);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const CITY_NAMES = Object.assign({"bayarea": "Bay Area", "sydney": "Sydney", "london": "London", "seattle": "Seattle", "la": "LA", "montana": "Montana"}, { unknown: "Unknown (older page)" });
+const CITY_NAMES = Object.assign({"bayarea": "Bay Area", "seattle": "Seattle", "la": "LA", "sydney": "Sydney", "london": "London", "montana": "Montana"}, { unknown: "Unknown (older page)" });
 const NA = '<span class="na">not yet eligible</span>';
 const pct = (n, d) => d ? `${n} / ${d} (${Math.round(100 * n / d)}%)` : NA;
 let REPORT = null;
