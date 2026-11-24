@@ -290,7 +290,12 @@ Review usually takes 1–3 days. If Apple asks questions, they appear in App Sto
 Bump the version (e.g. 1.1) in Xcode under the App target → **General**, run `npm run app:build`, then repeat step 5. Event-list refreshes **don't** need an update: the app downloads the latest events itself.
 
 
-## Privacy answers to change with the next release (settings saved to the account, v1.7)
+## Privacy answers changed for 1.7 (done and published Nov 24, 2026)
 - Location → **Coarse Location**: App Functionality, linked to the user, no tracking (a home area rounded to about 1 km is saved to the account when signed in).
 - Contact Info → **Email Address**: add the purpose **Developer's Advertising or Marketing** (only people who tick “Email me the weekend's best picks”).
 - User Content → **Other User Content**: now also saved settings (interests, distance filter).
+
+## 1.7 (build 15), submitted Nov 24, 2026
+What's New, description, promotional text and keywords were set through the App Store Connect API (new places Seattle, LA,
+Montana; Golf; My interests bar; How it works tour; settings saved to the account). Review notes updated with a "What's new in 1.7"
+section. Keywords: events,weekend,things to do,bay area,seattle,los angeles,montana,sydney,london,dog friendly,golf

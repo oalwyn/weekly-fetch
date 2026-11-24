@@ -160,7 +160,18 @@ Bring someone along.
 ```
 
 
-## Data safety changes for the next release (settings saved to the account, v1.7)
+## Release notes (1.7, versionCode 6; sent Nov 24, 2026, with the store listing updated to six places)
+
+```
+New: Seattle, Los Angeles and Montana.
+• Three new places: Seattle and its surroundings, Los Angeles to Orange County, and all of Montana. Tap the circles at the top to switch.
+• Golf: tournaments to watch, plus amateur and community golf.
+• My interests: one tap to show more of what you like.
+• How it works: a short tour, any time from the button under the title.
+• Sign in to keep your interests and home area on every device.
+```
+
+## Data safety changes for 1.7 (done Nov 24, 2026: Email also Developer communications + Advertising or marketing; Approximate location no longer ephemeral)
 - Location → **Approximate location**: collected, not shared, optional, purpose App functionality (home area rounded to about 1 km, only when signed in).
 - Personal info → **Email address**: add purpose **Developer communications / Marketing** (optional opt-in).
 - App activity → **Other user-generated content**: saved settings.
