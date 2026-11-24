@@ -2,7 +2,7 @@
 Readers: households around Los Angeles and Orange County, some with dogs, planning weekends with friends; bring communities
 together (families, teens, young adults, older people, newcomers, LA's many cultures, incl. Spanish-, Korean-, Chinese-,
 Vietnamese-, Armenian- and Filipino-speaking communities). Pacific time, US spelling, $ prices.
-Map box: 33.3–34.5 lat, -119.35 to -117.3 lon.
+Map box: 33.26–34.5 lat, -119.35 to -117.3 lon.
 
 Regions (aim): Central LA 20-25% (Downtown, Hollywood, Silver Lake, Echo Park, Koreatown, Mid-Wilshire, Griffith Park,
 Exposition Park, Boyle Heights); Westside & beaches 12-15% (Santa Monica, Venice, Culver City, Westwood, Beverly Hills,
