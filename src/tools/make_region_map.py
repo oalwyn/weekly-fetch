@@ -3,6 +3,8 @@
 
   1. Download the state's boundary relation (public OpenStreetMap data, via any Overpass server):
        [out:json];relation["boundary"="administrative"]["admin_level"="4"]["name"="Montana"];out geom;
+     or, lighter, its outline from Nominatim as GeoJSON (used for Montana, Nov 24, 2026):
+       https://nominatim.openstreetmap.org/search?state=Montana&country=USA&format=geojson&polygon_geojson=1&polygon_threshold=0.002&limit=1
   2. Optionally download its big lakes (natural=water relations or closed ways, by name).
   3. python3 src/tools/make_region_map.py border.json S N W E out.json [width_px] [lakes.json]
 
@@ -36,13 +38,26 @@ def main():
             parts.append("M" + "L".join(f"{x},{y}" for x, y in pts) + "Z")
         return "".join(parts)
     border = []
-    for e in json.load(open(src))["elements"]:
+    raw = json.load(open(src))
+    # also accepts GeoJSON (e.g. Nominatim's polygon_geojson=1 output for the state)
+    for f in raw.get("features", []):
+        g = f["geometry"]; polys = [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]
+        border += [[tuple(p) for p in poly[0]] for poly in polys]
+    for e in raw.get("elements", []):
         if e.get("type") == "relation":
             border += join_rings([[(p["lon"], p["lat"]) for p in m["geometry"]] for m in e.get("members", [])
                                   if m.get("type") == "way" and m.get("role", "outer") == "outer" and m.get("geometry")])
     res = {"W": str(Wpx), "H": str(Hpx), "bbox": [S, N, Wl, El], "out": path([(r, False) for r in border], 0.8), "d": "", "rule": "nonzero"}
     if lakes:
-        o, i = water_areas(lakes)
+        lj = json.load(open(lakes))
+        if "features" in lj:   # GeoJSON lakes (Nominatim)
+            o, i = [], []
+            for f in lj["features"]:
+                g = f["geometry"]; polys = [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]
+                for poly in polys:
+                    o.append([tuple(p) for p in poly[0]]); i += [[tuple(p) for p in r] for r in poly[1:]]
+        else:
+            o, i = water_areas(lakes)
         res["d"] = path([(r, False) for r in o] + [(r, True) for r in i], 0.6, True)
     json.dump(res, open(out, "w"))
     print(f"{len(border)} border rings, outline {len(res['out'])//1000} kB, lakes {len(res['d'])//1000} kB, {Wpx}x{Hpx}px")

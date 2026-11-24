@@ -147,7 +147,12 @@ def join_rings(ways):
 def water_areas(path):
     """(outer rings, inner rings) of natural=water relations, plus lakes mapped as single closed ways."""
     outer, inner = [], []
-    for e in json.load(open(path))["elements"]:
+    raw = json.load(open(path))
+    for f in raw.get("features", []):   # GeoJSON lakes (e.g. from Nominatim)
+        g = f["geometry"]; polys = [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"] if g["type"] == "MultiPolygon" else []
+        for poly in polys:
+            outer.append([tuple(p) for p in poly[0]]); inner += [[tuple(p) for p in r] for r in poly[1:]]
+    for e in raw.get("elements", []):
         g = e.get("geometry")
         if e.get("type") == "way" and g and len(g) >= 4 and g[0] == g[-1]:
             outer.append([(p["lon"], p["lat"]) for p in g]); continue
