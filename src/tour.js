@@ -13,7 +13,7 @@ const TOUR_STEPS = [
   { sel:'.tab[data-view="our-list"]', t:"Our Plans", b:"Lock your stars into a day, get reminders, and invite your household. Sign in the same way on every device (Sign in with Apple, or the same email) and your plans and settings follow you." },
   { sel:'.tab[data-view="map"]', t:"Explore", b:"See it all on a map and find what's near you this weekend." },
   { sel:"#citySw", t:"Cities and regions", b:() => "We're in " + ((window.WF_CITIES||[]).filter(c=>c.group!=="region").map(c=>c.short).join(", ").replace(/, ([^,]*)$/, " and $1") || "several cities") + ((window.WF_CITIES||[]).some(c=>c.group==="region") ? ", plus regions like " + (window.WF_CITIES||[]).filter(c=>c.group==="region").map(c=>c.short).join(", ") : "") + ". Tap a circle to switch." },
-  { sel:".hiwtop", t:"You're all set", b:"Replay this any time with How it works at the top of the page." }
+  { sel:".hiwtop", t:"You're all set", b:"Replay this any time with How it works, just under the title at the top of the page." }
 ];
 let tourI = -1, tourList = [];
 const tourGet = k => { try { return localStorage.getItem(k); } catch(e) { return null; } };
