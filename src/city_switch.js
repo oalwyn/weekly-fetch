@@ -26,5 +26,19 @@ function suggest(){
   bar.querySelector('button').onclick = function(){ set('wf-city-asked', '1'); bar.remove(); };
   hdr.parentNode.insertBefore(bar, hdr);
 }
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', suggest); else suggest();
+// phones: if the circles don't all fit, fade the right edge (until scrolled to the end) and keep the current city in view
+function fit(){
+  var r = document.querySelector('.citysw'); if (!r) return;
+  r.classList.remove('more');
+  var more = r.scrollWidth > r.clientWidth + 2;
+  r.classList.toggle('more', more);
+  if (!more) return;
+  var cur = r.querySelector('[aria-current]');
+  if (cur && cur.offsetLeft + cur.offsetWidth > r.clientWidth) r.scrollLeft = cur.offsetLeft - 8;
+  var end = function(){ r.classList.toggle('end', r.scrollLeft + r.clientWidth >= r.scrollWidth - 4); };
+  if (!r._wfEnd) { r._wfEnd = 1; r.addEventListener('scroll', end, { passive: true }); }
+  end();
+}
+function start(){ suggest(); fit(); window.addEventListener('resize', fit); }
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
