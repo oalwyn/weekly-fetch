@@ -54,3 +54,10 @@ Chapel, Kings Place, Cadogan Hall, Wigmore Hall, Hackney Empire, Battersea Arts 
 Young Vic, Southwark Playhouse, Arcola, Lyric Hammersmith, Rose Theatre Kingston, Richmond Theatre, the Comedy Store,
 Top Secret Comedy Club, Angel Comedy, Somerset House, Kew, Alexandra Palace, plus council what's-on pages (Westminster,
 Camden, Islington, Hackney, Tower Hamlets, Southwark, Lambeth, Greenwich, Richmond, Kingston, Croydon).
+
+## Seattle, Los Angeles, Montana
+Their venue and council lists are in `src/refresh/cities/seattle.md`, `la.md` and `montana.md` ("Check directly" and the
+community lists): go through every one of them in group L, venue by venue. Also each city's and county's what's-on page
+(Seattle, Bellevue, Tacoma, Everett, King/Pierce/Snohomish counties; City of LA, Pasadena, Long Beach, Santa Monica, Glendale,
+Burbank, Anaheim, Irvine, LA County Parks, OC Parks; Billings, Missoula, Bozeman, Great Falls, Helena, Butte-Silver Bow,
+Kalispell, Whitefish parks & rec).

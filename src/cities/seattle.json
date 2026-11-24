@@ -9,6 +9,7 @@
   "coast": "coast_seattle.json",
   "banner": "banner_seattle.svg",
   "tz": "America/Los_Angeles",
+  "map_bbox": [46.95, 48.15, -123.05, -121.65],
   "units": "mi",
   "dists": [
     10,
