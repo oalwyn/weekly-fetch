@@ -56,6 +56,8 @@
     <!-- Permissions -->
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- "Use my location" (closest place on first open, and Set home): approximate only, asked when tapped -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- plan reminders don't need to fire to the minute; leaving this out avoids Google Play's exact-alarm declaration -->
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" tools:node="remove" />
 </manifest>

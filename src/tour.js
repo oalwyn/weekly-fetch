@@ -129,9 +129,13 @@ document.addEventListener("click", ev=>{
 }, true);
 
 // first visit: start the tour once the page has settled (not for people landing on a shared event or an invite)
-setTimeout(()=>{
+// (waits while the first-visit "Where are you?" card is up; starts once a place is picked on this page)
+function tourAuto(){
   if (tourI >= 0 || !tourLooksNew()) return;
+  if (document.getElementById("cityPick")) return;
   if ((typeof SHARED_IN!=="undefined" && SHARED_IN) || /list-|join/.test(location.hash + location.pathname)) return;
   if (state.view!=="events") return;
   startTour(true);
-}, 1500);
+}
+setTimeout(tourAuto, 1500);
+window.addEventListener("wf-citypicked", ()=>setTimeout(tourAuto, 400));

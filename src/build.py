@@ -14,7 +14,7 @@ CITIES = []
 for k in CITY_KEYS:
     cc = json.load(open(os.path.join('cities', k + '.json')))
     if not cc['path'] or os.path.exists(os.path.join('..', cc['path'], 'data.js')):
-        CITIES.append({'key': k, 'short': cc['short'], 'near': cc.get('near', cc['short']), 'brand': cc['brand'], 'url': '/' + (cc['path'] + '/' if cc['path'] else ''), 'tz': cc['tz'], 'banner': cc.get('banner', 'banner.svg'), 'prefix': cc.get('prefix', ''), 'group': cc.get('group', 'city')})
+        CITIES.append({'key': k, 'short': cc['short'], 'near': cc.get('near', cc['short']), 'brand': cc['brand'], 'url': '/' + (cc['path'] + '/' if cc['path'] else ''), 'tz': cc['tz'], 'banner': cc.get('banner', 'banner.svg'), 'prefix': cc.get('prefix', ''), 'group': cc.get('group', 'city'), 'lat': cc['home']['lat'], 'lon': cc['home']['lon']})
 _pin = json.load(open(os.path.join('icons', 'paths.json')))['location-pin-7648253']
 PIN_SVG = '<svg class="ico" viewBox="%s" aria-hidden="true">%s</svg>' % (_pin['vb'], ''.join('<path fill="currentColor" d="%s"/>' % d for d in _pin['d']))
 def city_switch(cfg):
@@ -26,7 +26,7 @@ def city_switch(cfg):
     regs = [c for c in CITIES if c['group'] == 'region']
     links = ''.join(circle(c) for c in CITIES if c['group'] != 'region') + (('<span class="csep" aria-hidden="true"><i>Regions</i></span>' + ''.join(circle(c) for c in regs)) if regs else '')
     sw = '<!--citysw--><nav class="citysw" id="citySw" aria-label="Cities">%s</nav><!--/citysw-->\n  ' % links
-    js = ('<!--citysw--><script>window.WF_CITIES=' + json.dumps(CITIES, ensure_ascii=False) + ';' + open('city_switch.js').read() + '</script><!--/citysw-->\n')
+    js = ('<!--citysw--><script>window.WF_CITIES=' + json.dumps(CITIES, ensure_ascii=False) + ';window.WF_PIN=' + json.dumps(PIN_SVG) + ';' + open('city_switch.js').read() + '</script><!--/citysw-->\n')
     redirect = ''
     if not cfg['path']:
         m = {c['key']: c['url'] for c in CITIES if c['url'] != '/'}

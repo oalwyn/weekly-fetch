@@ -93,6 +93,7 @@ def appify(html, cfg):
   html = html[:i] + '''
   /* app only: safe areas */
   html header{padding-top:calc(12px + env(safe-area-inset-top,0px))}
+  html .citypick,html .citytip{padding-top:calc(12px + env(safe-area-inset-top,0px))}html .citypick .cpx{top:calc(6px + env(safe-area-inset-top,0px))}html .citypick~header,html .citytip~header{padding-top:12px}
   html .filters{top:env(safe-area-inset-top,0px)}
   html .wk-h{top:calc(var(--fh,0px) + env(safe-area-inset-top,0px))}
   body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}

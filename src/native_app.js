@@ -10,6 +10,18 @@ const CAP = window.Capacitor;
 const capPlugin = name => !CAP || (CAP.isPluginAvailable && !CAP.isPluginAvailable(name)) ? null : ((CAP.Plugins && CAP.Plugins[name]) || (CAP.registerPlugin ? CAP.registerPlugin(name) : null));
 const LN = capPlugin("LocalNotifications"), SHARE = capPlugin("Share"), CAL = capPlugin("WFCalendar");
 
+// iPhone: location through the native plugin (@capacitor/geolocation), so people see one permission prompt instead of the
+// app's prompt followed by the web view's own "localhost would like to use your location". Used by "Use my location" on the
+// first-open place card (city_switch.js) and by Set home > Use my current location. Android's web view asks only once already.
+const GEO = CAP && CAP.getPlatform && CAP.getPlatform() === "ios" ? capPlugin("Geolocation") : null;
+if (GEO && navigator.geolocation) try {
+  navigator.geolocation.getCurrentPosition = (ok, fail, o) => {
+    o = o || {};
+    GEO.getCurrentPosition({ enableHighAccuracy: !!o.enableHighAccuracy, timeout: o.timeout || 10000, maximumAge: o.maximumAge || 0 })
+      .then(p => ok({ coords: p.coords, timestamp: p.timestamp }), e => { if (fail) fail({ code: 1, message: String((e && e.message) || e) }); });
+  };
+} catch (e) {}
+
 // Android: white clock and battery icons on the blue header (iPhone sets this itself)
 if (CAP && CAP.getPlatform && CAP.getPlatform() === "android") { const SB = capPlugin("SystemBars"); if (SB && SB.setStyle) SB.setStyle({ style: "DARK" }).catch(() => {}); }
 
