@@ -171,6 +171,15 @@ New: Seattle, Los Angeles and Montana.
 • Sign in to keep your interests and home area on every device.
 ```
 
+## Release notes (1.7.1, versionCode 8; sent Nov 25, 2026)
+
+```
+Opens in your place.
+• The first time you open the app, it picks the closest place for you: Sydney and London open straight away, and in the US a quick "Where are you?" asks you to pick, or to tap Use my location.
+• Your location stays on your phone. After that, the app opens wherever you chose last.
+• Set home › Use my current location now works on Android.
+```
+
 ## Data safety changes for 1.7 (done Nov 24, 2026: Email also Developer communications + Advertising or marketing; Approximate location no longer ephemeral)
 - Location → **Approximate location**: collected, not shared, optional, purpose App functionality (home area rounded to about 1 km, only when signed in).
 - Personal info → **Email address**: add purpose **Developer communications / Marketing** (optional opt-in).

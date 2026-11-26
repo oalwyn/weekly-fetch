@@ -299,3 +299,7 @@ Bump the version (e.g. 1.1) in Xcode under the App target → **General**, run `
 What's New, description, promotional text and keywords were set through the App Store Connect API (new places Seattle, LA,
 Montana; Golf; My interests bar; How it works tour; settings saved to the account). Review notes updated with a "What's new in 1.7"
 section. Keywords: events,weekend,things to do,bay area,seattle,los angeles,montana,sydney,london,dog friendly,golf
+
+## 1.7.1 (build 16), submitted Nov 25, 2026
+What's New: "Opens in your place." (first-open place picker; location stays on the phone; one location prompt). Review notes got a
+"What's new in 1.7.1" section. Location purpose string updated in Info.plist. App Privacy unchanged.
